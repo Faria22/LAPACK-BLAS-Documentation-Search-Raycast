@@ -1,3 +1,5 @@
+import { readFileSync } from "fs";
+import { join } from "path";
 import type { InventoryItem } from "./inventory";
 
 export interface DocDetail {
@@ -13,12 +15,12 @@ export interface DocDetail {
  */
 export async function loadDocDetail(item: InventoryItem): Promise<DocDetail> {
   try {
-    // Import the markdown file dynamically
-    // The path is relative to the docs folder
-    const docModule = await import(`../../docs/${item.docPath}?raw`);
+    // Construct the path to the markdown file
+    // In Raycast extensions, __dirname points to the bundled assets directory
+    const docsPath = join(__dirname, "..", "..", "docs", item.docPath);
 
-    // Vite's ?raw suffix imports the file content as a string
-    const markdown = docModule.default || "";
+    // Read the markdown file synchronously
+    const markdown = readFileSync(docsPath, "utf-8");
 
     return { markdown };
   } catch (error) {
