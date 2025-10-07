@@ -1,3 +1,4 @@
+import { environment } from "@raycast/api";
 import { readFileSync } from "fs";
 import { join } from "path";
 import type { InventoryItem } from "./inventory";
@@ -16,8 +17,8 @@ export interface DocDetail {
 export async function loadDocDetail(item: InventoryItem): Promise<DocDetail> {
   try {
     // Construct the path to the markdown file
-    // In Raycast extensions, __dirname points to the bundled assets directory
-    const docsPath = join(__dirname, "..", "..", "docs", item.docPath);
+    // Use Raycast's environment.assetsPath to get the correct path to bundled assets
+    const docsPath = join(environment.assetsPath, "docs", item.docPath);
 
     // Read the markdown file synchronously
     const markdown = readFileSync(docsPath, "utf-8");

@@ -76,11 +76,12 @@ This Raycast extension provides instant access to LAPACK/BLAS documentation with
 
 ### File Loading Strategy
 ```typescript
-// Uses Node's fs module to read bundled files
+// Uses Raycast's environment API to access bundled assets
+import { environment } from "@raycast/api";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-const docsPath = join(__dirname, "..", "..", "docs", item.docPath);
+const docsPath = join(environment.assetsPath, "docs", item.docPath);
 const markdown = readFileSync(docsPath, "utf-8");
 ```
 
