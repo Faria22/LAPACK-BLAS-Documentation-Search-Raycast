@@ -1,32 +1,31 @@
-```fortran
-subroutine ssterf (
-		integer n,
-		real, dimension(*) d,
-		real, dimension(*) e,
-		integer info
-)
-```
-
- SSTERF computes all eigenvalues of a symmetric tridiagonal matrix
- using the Pal-Walker-Kahan variant of the QL or QR algorithm.
-
-## Parameters
-N : Integer [in]
-> The order of the matrix.  N >= 0.
-
-D : Real Array, Dimension (n) [in,out]
-> On entry, the n diagonal elements of the tridiagonal matrix.
-> On exit, if INFO = 0, the eigenvalues in ascending order.
-
-E : Real Array, Dimension (n-1) [in,out]
-> On entry, the (n-1) subdiagonal elements of the tridiagonal
-> matrix.
-> On exit, E has been destroyed.
-
-Info : Integer [out]
-> = 0:  successful exit
-> < 0:  if INFO = -i, the i-th argument had an illegal value
-> > 0:  the algorithm failed to find all of the eigenvalues in
-> a total of 30*N iterations; if INFO = i, then i
-> elements of E have not converged to zero.
-
+```fortran  
+subroutine ssterf (  
+integer n,  
+real, dimension(*) d,  
+real, dimension(*) e,  
+integer info  
+)  
+```  
+  
+SSTERF computes all eigenvalues of a symmetric tridiagonal matrix  
+using the Pal-Walker-Kahan variant of the QL or QR algorithm.  
+  
+## Parameters  
+N : Integer [in]  
+> The order of the matrix.  N >= 0.  
+  
+D : Real Array, Dimension (n) [in,out]  
+> On entry, the n diagonal elements of the tridiagonal matrix.  
+> On exit, if INFO = 0, the eigenvalues in ascending order.  
+  
+E : Real Array, Dimension (n-1) [in,out]  
+> On entry, the (n-1) subdiagonal elements of the tridiagonal  
+> matrix.  
+> On exit, E has been destroyed.  
+  
+Info : Integer [out]  
+> = 0:  successful exit  
+> < 0:  if INFO = -i, the i-th argument had an illegal value  
+> > 0:  the algorithm failed to find all of the eigenvalues in  
+> elements of E have not converged to zero.  
+  
