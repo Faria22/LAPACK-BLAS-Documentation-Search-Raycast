@@ -1,35 +1,31 @@
-# SAXPY - Single Precision Constant times a Vector Plus a Vector
-
-## Purpose
-
-SAXPY computes the operation:
-
-```
-y := alpha*x + y
-```
-
-## Signature
-
 ```fortran
-SUBROUTINE SAXPY(N, ALPHA, X, INCX, Y, INCY)
+subroutine saxpy (
+		integer n,
+		real sa,
+		real, dimension(*) sx,
+		integer incx,
+		real, dimension(*) sy,
+		integer incy
+)
 ```
+
+    SAXPY constant times a vector plus a vector.
+    uses unrolled loops for increments equal to one.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-**N** : *INTEGER*
-> The number of elements in vectors X and Y.
+Sa : Real [in]
+> On entry, SA specifies the scalar alpha.
 
-**ALPHA** : *REAL*
-> The scalar alpha.
+Sx : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-**X** : *REAL array, dimension (1 + (N-1)*abs(INCX))*
-> The input vector X.
+Incx : Integer [in]
+> storage spacing between elements of SX
 
-**INCX** : *INTEGER*
-> The increment for the elements of X. INCX must not be zero.
+Sy : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-**Y** : *REAL array, dimension (1 + (N-1)*abs(INCY))*
-> On entry, the input vector Y. On exit, Y is overwritten with alpha*X + Y.
+Incy : Integer [in]
+> storage spacing between elements of SY
 
-**INCY** : *INTEGER*
-> The increment for the elements of Y. INCY must not be zero.

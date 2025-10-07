@@ -1,37 +1,31 @@
-# DAXPY - Double Precision Constant times a Vector Plus a Vector
-
-## Purpose
-
-DAXPY computes the operation:
-
-```
-y := alpha*x + y
-```
-
-where alpha is a scalar, and x and y are vectors.
-
-## Signature
-
 ```fortran
-SUBROUTINE DAXPY(N, ALPHA, X, INCX, Y, INCY)
+subroutine daxpy (
+		integer n,
+		double precision da,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision, dimension(*) dy,
+		integer incy
+)
 ```
+
+    DAXPY constant times a vector plus a vector.
+    uses unrolled loops for increments equal to one.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-**N** : *INTEGER*
-> The number of elements in vectors X and Y.
+Da : Double Precision [in]
+> On entry, DA specifies the scalar alpha.
 
-**ALPHA** : *DOUBLE PRECISION*
-> The scalar alpha.
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-**X** : *DOUBLE PRECISION array, dimension (1 + (N-1)*abs(INCX))*
-> The input vector X.
+Incx : Integer [in]
+> storage spacing between elements of DX
 
-**INCX** : *INTEGER*
-> The increment for the elements of X. INCX must not be zero.
+Dy : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-**Y** : *DOUBLE PRECISION array, dimension (1 + (N-1)*abs(INCY))*
-> On entry, the input vector Y. On exit, Y is overwritten with the result alpha*X + Y.
+Incy : Integer [in]
+> storage spacing between elements of DY
 
-**INCY** : *INTEGER*
-> The increment for the elements of Y. INCY must not be zero.

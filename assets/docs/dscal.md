@@ -1,15 +1,24 @@
-# DSCAL - LAPACK/BLAS Routine
-
-## Purpose
-
-DSCAL is a LAPACK/BLAS computational routine for numerical linear algebra operations.
-
-## Signature
-
 ```fortran
-SUBROUTINE DSCAL(...)
+subroutine dscal (
+		integer n,
+		double precision da,
+		double precision, dimension(*) dx,
+		integer incx
+)
 ```
 
-## Parameters
+    DSCAL scales a vector by a constant.
+    uses unrolled loops for increment equal to 1.
 
-Please refer to the official LAPACK/BLAS documentation for detailed parameter descriptions.
+## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
+
+Da : Double Precision [in]
+> On entry, DA specifies the scalar alpha.
+
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
+
+Incx : Integer [in]
+> storage spacing between elements of DX
+
