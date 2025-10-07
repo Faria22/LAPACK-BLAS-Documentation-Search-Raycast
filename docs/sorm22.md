@@ -1,5 +1,6 @@
 ```fortran
-subroutine sorm22	(	side,
+subroutine sorm22 (
+		side,
 		trans,
 		m,
 		n,
@@ -11,7 +12,8 @@ subroutine sorm22	(	side,
 		ldc,
 		*    $                   work,
 		lwork,
-		info )
+		info
+)
 ```
 ## Parameters
 Side : Character*1 [in]

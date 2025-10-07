@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgttrs	(	trans,
+subroutine zgttrs (
+		trans,
 		n,
 		nrhs,
 		dl,
@@ -9,7 +10,8 @@ subroutine zgttrs	(	trans,
 		ipiv,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  ZGTTRS solves one of the systems of equations

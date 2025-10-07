@@ -1,12 +1,14 @@
 ```fortran
-subroutine claesy	(	complex	a,
-		complex	b,
-		complex	c,
-		complex	rt1,
-		complex	rt2,
-		complex	evscal,
-		complex	cs1,
-		complex	sn1 )
+subroutine claesy (
+		complex a,
+		complex b,
+		complex c,
+		complex rt1,
+		complex rt2,
+		complex evscal,
+		complex cs1,
+		complex sn1
+)
 ```
 
  CLAESY computes the eigendecomposition of a 2-by-2 symmetric matrix

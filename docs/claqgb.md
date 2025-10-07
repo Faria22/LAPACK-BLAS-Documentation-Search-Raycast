@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqgb	(	m,
+subroutine claqgb (
+		m,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine claqgb	(	m,
 		rowcnd,
 		colcnd,
 		*                          amax,
-		equed )
+		equed
+)
 ```
 
  CLAQGB equilibrates a general M by N band matrix A with KL

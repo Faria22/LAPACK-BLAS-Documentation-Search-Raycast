@@ -1,12 +1,14 @@
 ```fortran
-subroutine zgeqlf	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zgeqlf (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZGEQLF computes a QL factorization of a complex M-by-N matrix A:

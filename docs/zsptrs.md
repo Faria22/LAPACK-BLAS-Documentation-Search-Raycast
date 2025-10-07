@@ -1,12 +1,14 @@
 ```fortran
-subroutine zsptrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zsptrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZSPTRS solves a system of linear equations A*X = B with a complex

@@ -1,13 +1,15 @@
 ```fortran
-subroutine stbsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx )
+subroutine stbsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx
+)
 ```
 
  STBSV  solves one of the systems of equations

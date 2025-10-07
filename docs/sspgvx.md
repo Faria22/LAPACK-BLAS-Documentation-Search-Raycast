@@ -1,5 +1,6 @@
 ```fortran
-subroutine sspgvx	(	itype,
+subroutine sspgvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -18,7 +19,8 @@ subroutine sspgvx	(	itype,
 		work,
 		iwork,
 		*                          ifail,
-		info )
+		info
+)
 ```
 
  SSPGVX computes selected eigenvalues, and optionally, eigenvectors

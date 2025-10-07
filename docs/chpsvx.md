@@ -1,5 +1,6 @@
 ```fortran
-subroutine chpsvx	(	fact,
+subroutine chpsvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -15,7 +16,8 @@ subroutine chpsvx	(	fact,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHPSVX uses the diagonal pivoting factorization A = U*D*U**H or

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsysv	(	uplo,
+subroutine zsysv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zsysv	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  ZSYSV computes the solution to a complex system of linear equations

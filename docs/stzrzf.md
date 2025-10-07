@@ -1,12 +1,14 @@
 ```fortran
-subroutine stzrzf	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine stzrzf (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  STZRZF reduces the M-by-N ( M<=N ) real upper trapezoidal matrix A

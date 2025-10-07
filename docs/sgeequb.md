@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgeequb	(	m,
+subroutine sgeequb (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine sgeequb	(	m,
 		rowcnd,
 		colcnd,
 		amax,
-		*                           info )
+		*                           info
+)
 ```
 
  SGEEQUB computes row and column scalings intended to equilibrate an

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgelss	(	m,
+subroutine dgelss (
+		m,
 		n,
 		nrhs,
 		a,
@@ -11,7 +12,8 @@ subroutine dgelss	(	m,
 		rank,
 		*                          work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DGELSS computes the minimum norm solution to a real linear least

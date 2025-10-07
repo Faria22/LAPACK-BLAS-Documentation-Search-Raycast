@@ -1,12 +1,14 @@
 ```fortran
-subroutine chetd2	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		complex, dimension(*)	tau,
-		integer	info )
+subroutine chetd2 (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		complex, dimension(*) tau,
+		integer info
+)
 ```
 
  CHETD2 reduces a complex Hermitian matrix A to real symmetric

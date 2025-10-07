@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgtsvx	(	fact,
+subroutine cgtsvx (
+		fact,
 		trans,
 		n,
 		nrhs,
@@ -20,7 +21,8 @@ subroutine cgtsvx	(	fact,
 		berr,
 		*                          work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGTSVX uses the LU factorization to compute the solution to a complex

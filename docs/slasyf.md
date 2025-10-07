@@ -1,14 +1,16 @@
 ```fortran
-subroutine slasyf	(	character	uplo,
-		integer	n,
-		integer	nb,
-		integer	kb,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldw, *)	w,
-		integer	ldw,
-		integer	info )
+subroutine slasyf (
+		character uplo,
+		integer n,
+		integer nb,
+		integer kb,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(ldw, *) w,
+		integer ldw,
+		integer info
+)
 ```
 
  SLASYF computes a partial factorization of a real symmetric matrix A

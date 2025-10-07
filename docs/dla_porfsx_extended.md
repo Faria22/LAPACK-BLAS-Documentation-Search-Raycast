@@ -1,5 +1,6 @@
 ```fortran
-subroutine dla_porfsx_extended	(	prec_type,
+subroutine dla_porfsx_extended (
+		prec_type,
 		uplo,
 		n,
 		nrhs,
@@ -26,7 +27,8 @@ subroutine dla_porfsx_extended	(	prec_type,
 		*                                       rthresh,
 		dz_ub,
 		ignore_cwise,
-		*                                       info )
+		*                                       info
+)
 ```
 
  DLA_PORFSX_EXTENDED improves the computed solution to a system of

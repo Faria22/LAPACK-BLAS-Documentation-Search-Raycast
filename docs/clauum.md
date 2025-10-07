@@ -1,9 +1,11 @@
 ```fortran
-subroutine clauum	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine clauum (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  CLAUUM computes the product U * U**H or L**H * L, where the triangular

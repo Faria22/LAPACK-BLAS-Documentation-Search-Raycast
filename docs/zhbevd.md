@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhbevd	(	jobz,
+subroutine zhbevd (
+		jobz,
 		uplo,
 		n,
 		kd,
@@ -14,7 +15,8 @@ subroutine zhbevd	(	jobz,
 		lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  ZHBEVD computes all the eigenvalues and, optionally, eigenvectors of

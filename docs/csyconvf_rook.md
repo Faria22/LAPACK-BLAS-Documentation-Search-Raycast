@@ -1,12 +1,14 @@
 ```fortran
-subroutine csyconvf_rook	(	character	uplo,
-		character	way,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine csyconvf_rook (
+		character uplo,
+		character way,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  If parameter WAY = 'C':
  CSYCONVF_ROOK converts the factorization output format used in

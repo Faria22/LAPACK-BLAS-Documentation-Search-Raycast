@@ -1,14 +1,16 @@
 ```fortran
-subroutine ctpqrt2	(	integer	m,
-		integer	n,
-		integer	l,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		complex, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine ctpqrt2 (
+		integer m,
+		integer n,
+		integer l,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		complex, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  CTPQRT2 computes a QR factorization of a complex "triangular-pentagonal"

@@ -1,12 +1,14 @@
 ```fortran
-subroutine zsyconvf	(	character	uplo,
-		character	way,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zsyconvf (
+		character uplo,
+		character way,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  If parameter WAY = 'C':
  ZSYCONVF converts the factorization output format used in

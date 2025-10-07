@@ -1,5 +1,6 @@
 ```fortran
-subroutine sggbal	(	job,
+subroutine sggbal (
+		job,
 		n,
 		a,
 		lda,
@@ -10,7 +11,8 @@ subroutine sggbal	(	job,
 		lscale,
 		*                          rscale,
 		work,
-		info )
+		info
+)
 ```
 
  SGGBAL balances a pair of general real matrices (A,B).  This

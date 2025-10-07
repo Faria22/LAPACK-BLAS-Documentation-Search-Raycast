@@ -1,13 +1,15 @@
 ```fortran
-subroutine zgetrs	(	character	trans,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zgetrs (
+		character trans,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZGETRS solves a system of linear equations

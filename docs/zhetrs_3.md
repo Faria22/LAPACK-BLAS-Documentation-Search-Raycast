@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrs_3	(	uplo,
+subroutine zhetrs_3 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine zhetrs_3	(	uplo,
 		ipiv,
 		b,
 		ldb,
-		*                            info )
+		*                            info
+)
 ```
  ZHETRS_3 solves a system of linear equations A * X = B with a complex
  Hermitian matrix A using the factorization computed

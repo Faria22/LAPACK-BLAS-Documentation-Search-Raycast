@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctgsy2	(	trans,
+subroutine ctgsy2 (
+		trans,
 		ijob,
 		m,
 		n,
@@ -18,7 +19,8 @@ subroutine ctgsy2	(	trans,
 		scale,
 		rdsum,
 		rdscal,
-		*                          info )
+		*                          info
+)
 ```
 
  CTGSY2 solves the generalized Sylvester equation

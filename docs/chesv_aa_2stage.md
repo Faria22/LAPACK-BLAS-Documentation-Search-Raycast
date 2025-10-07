@@ -1,5 +1,6 @@
 ```fortran
-subroutine chesv_aa_2stage	(	uplo,
+subroutine chesv_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine chesv_aa_2stage	(	uplo,
 		ldb,
 		work,
 		lwork,
-		*                                  info )
+		*                                  info
+)
 ```
 
  CHESV_AA_2STAGE computes the solution to a complex system of 

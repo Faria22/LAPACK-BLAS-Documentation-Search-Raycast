@@ -1,5 +1,6 @@
 ```fortran
-subroutine cggglm	(	n,
+subroutine cggglm (
+		n,
 		m,
 		p,
 		a,
@@ -11,7 +12,8 @@ subroutine cggglm	(	n,
 		y,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CGGGLM solves a general Gauss-Markov linear model (GLM) problem:

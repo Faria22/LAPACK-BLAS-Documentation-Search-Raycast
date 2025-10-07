@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgtcon	(	norm,
+subroutine zgtcon (
+		norm,
 		n,
 		dl,
 		d,
@@ -9,7 +10,8 @@ subroutine zgtcon	(	norm,
 		anorm,
 		rcond,
 		*                          work,
-		info )
+		info
+)
 ```
 
  ZGTCON estimates the reciprocal of the condition number of a complex

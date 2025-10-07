@@ -1,11 +1,13 @@
 ```fortran
-subroutine ssytri_rook	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(*)	work,
-		integer	info )
+subroutine ssytri_rook (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SSYTRI_ROOK computes the inverse of a real symmetric

@@ -1,15 +1,17 @@
 ```fortran
-subroutine dgemv	(	character	trans,
-		integer	m,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision	beta,
-		double precision, dimension(*)	y,
-		integer	incy )
+subroutine dgemv (
+		character trans,
+		integer m,
+		integer n,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision beta,
+		double precision, dimension(*) y,
+		integer incy
+)
 ```
 
  DGEMV  performs one of the matrix-vector operations

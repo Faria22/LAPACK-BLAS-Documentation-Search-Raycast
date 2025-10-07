@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlasr	(	character	side,
-		character	pivot,
-		character	direct,
-		integer	m,
-		integer	n,
-		double precision, dimension(*)	c,
-		double precision, dimension(*)	s,
-		complex*16, dimension(lda, *)	a,
-		integer	lda )
+subroutine zlasr (
+		character side,
+		character pivot,
+		character direct,
+		integer m,
+		integer n,
+		double precision, dimension(*) c,
+		double precision, dimension(*) s,
+		complex*16, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  ZLASR applies a sequence of real plane rotations to a complex matrix

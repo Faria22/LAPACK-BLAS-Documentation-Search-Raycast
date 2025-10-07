@@ -1,12 +1,14 @@
 ```fortran
-subroutine zspsv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zspsv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZSPSV computes the solution to a complex system of linear equations

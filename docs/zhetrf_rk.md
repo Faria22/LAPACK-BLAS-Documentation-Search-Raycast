@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrf_rk	(	uplo,
+subroutine zhetrf_rk (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zhetrf_rk	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                             info )
+		*                             info
+)
 ```
  ZHETRF_RK computes the factorization of a complex Hermitian matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

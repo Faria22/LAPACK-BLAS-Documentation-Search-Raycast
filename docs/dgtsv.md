@@ -1,12 +1,14 @@
 ```fortran
-subroutine dgtsv	(	integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	dl,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	du,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dgtsv (
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) dl,
+		double precision, dimension(*) d,
+		double precision, dimension(*) du,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DGTSV  solves the equation

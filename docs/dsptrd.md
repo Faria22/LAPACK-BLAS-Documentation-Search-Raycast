@@ -1,11 +1,13 @@
 ```fortran
-subroutine dsptrd	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision, dimension(*)	tau,
-		integer	info )
+subroutine dsptrd (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision, dimension(*) tau,
+		integer info
+)
 ```
 
  DSPTRD reduces a real symmetric matrix A stored in packed form to

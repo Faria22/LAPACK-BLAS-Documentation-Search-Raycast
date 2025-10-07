@@ -1,12 +1,14 @@
 ```fortran
-subroutine zsytrf_aa	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zsytrf_aa (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZSYTRF_AA computes the factorization of a complex symmetric matrix A

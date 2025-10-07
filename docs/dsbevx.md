@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsbevx	(	jobz,
+subroutine dsbevx (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -20,7 +21,8 @@ subroutine dsbevx	(	jobz,
 		work,
 		iwork,
 		*                          ifail,
-		info )
+		info
+)
 ```
 
  DSBEVX computes selected eigenvalues and, optionally, eigenvectors

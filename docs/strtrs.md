@@ -1,5 +1,6 @@
 ```fortran
-subroutine strtrs	(	uplo,
+subroutine strtrs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine strtrs	(	uplo,
 		lda,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  STRTRS solves a triangular system of the form

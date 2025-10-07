@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlaqsp	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine zlaqsp (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  ZLAQSP equilibrates a symmetric matrix A using the scaling factors

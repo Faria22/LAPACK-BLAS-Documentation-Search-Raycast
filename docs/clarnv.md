@@ -1,8 +1,10 @@
 ```fortran
-subroutine clarnv	(	integer	idist,
-		integer, dimension(4)	iseed,
-		integer	n,
-		complex, dimension(*)	x )
+subroutine clarnv (
+		integer idist,
+		integer, dimension(4) iseed,
+		integer n,
+		complex, dimension(*) x
+)
 ```
 
  CLARNV returns a vector of n random complex numbers from a uniform or

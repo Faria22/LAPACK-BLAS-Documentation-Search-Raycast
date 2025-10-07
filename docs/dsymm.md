@@ -1,16 +1,18 @@
 ```fortran
-subroutine dsymm	(	character	side,
-		character	uplo,
-		integer	m,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(ldb,*)	b,
-		integer	ldb,
-		double precision	beta,
-		double precision, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine dsymm (
+		character side,
+		character uplo,
+		integer m,
+		integer n,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(ldb,*) b,
+		integer ldb,
+		double precision beta,
+		double precision, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  DSYMM  performs one of the matrix-matrix operations

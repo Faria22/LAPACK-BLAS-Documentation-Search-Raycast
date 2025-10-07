@@ -1,10 +1,12 @@
 ```fortran
-subroutine dlapmt	(	logical	forwrd,
-		integer	m,
-		integer	n,
-		double precision, dimension(ldx, *)	x,
-		integer	ldx,
-		integer, dimension(*)	k )
+subroutine dlapmt (
+		logical forwrd,
+		integer m,
+		integer n,
+		double precision, dimension(ldx, *) x,
+		integer ldx,
+		integer, dimension(*) k
+)
 ```
 
  DLAPMT rearranges the columns of the M by N matrix X as specified

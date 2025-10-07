@@ -1,12 +1,14 @@
 ```fortran
-subroutine strsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx )
+subroutine strsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx
+)
 ```
 
  STRSV  solves one of the systems of equations

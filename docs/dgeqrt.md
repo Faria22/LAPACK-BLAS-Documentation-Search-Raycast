@@ -1,13 +1,15 @@
 ```fortran
-subroutine dgeqrt	(	integer	m,
-		integer	n,
-		integer	nb,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldt, *)	t,
-		integer	ldt,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dgeqrt (
+		integer m,
+		integer n,
+		integer nb,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldt, *) t,
+		integer ldt,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DGEQRT computes a blocked QR factorization of a real M-by-N matrix A

@@ -1,11 +1,13 @@
 ```fortran
-subroutine zrot	(	integer	n,
-		complex*16, dimension(*)	cx,
-		integer	incx,
-		complex*16, dimension(*)	cy,
-		integer	incy,
-		double precision	c,
-		complex*16	s )
+subroutine zrot (
+		integer n,
+		complex*16, dimension(*) cx,
+		integer incx,
+		complex*16, dimension(*) cy,
+		integer incy,
+		double precision c,
+		complex*16 s
+)
 ```
 
  ZROT applies a plane rotation, where the cos (C) is real and the

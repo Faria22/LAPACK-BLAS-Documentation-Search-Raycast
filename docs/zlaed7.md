@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaed7	(	n,
+subroutine zlaed7 (
+		n,
 		cutpnt,
 		qsiz,
 		tlvls,
@@ -20,7 +21,8 @@ subroutine zlaed7	(	n,
 		work,
 		rwork,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZLAED7 computes the updated eigensystem of a diagonal

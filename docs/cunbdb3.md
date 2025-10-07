@@ -1,5 +1,6 @@
 ```fortran
-subroutine cunbdb3	(	m,
+subroutine cunbdb3 (
+		m,
 		p,
 		q,
 		x11,
@@ -13,7 +14,8 @@ subroutine cunbdb3	(	m,
 		tauq1,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CUNBDB3 simultaneously bidiagonalizes the blocks of a tall and skinny

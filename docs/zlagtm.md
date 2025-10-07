@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlagtm	(	trans,
+subroutine zlagtm (
+		trans,
 		n,
 		nrhs,
 		alpha,
@@ -10,7 +11,8 @@ subroutine zlagtm	(	trans,
 		ldx,
 		beta,
 		*                          b,
-		ldb )
+		ldb
+)
 ```
 
  ZLAGTM performs a matrix-matrix product of the form

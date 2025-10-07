@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgelsy	(	m,
+subroutine zgelsy (
+		m,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine zgelsy	(	m,
 		*                          work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGELSY computes the minimum-norm solution to a complex linear least

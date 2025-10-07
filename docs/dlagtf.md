@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlagtf	(	integer	n,
-		double precision, dimension(*)	a,
-		double precision	lambda,
-		double precision, dimension(*)	b,
-		double precision, dimension(*)	c,
-		double precision	tol,
-		double precision, dimension(*)	d,
-		integer, dimension(*)	in,
-		integer	info )
+subroutine dlagtf (
+		integer n,
+		double precision, dimension(*) a,
+		double precision lambda,
+		double precision, dimension(*) b,
+		double precision, dimension(*) c,
+		double precision tol,
+		double precision, dimension(*) d,
+		integer, dimension(*) in,
+		integer info
+)
 ```
 
  DLAGTF factorizes the matrix (T - lambda*I), where T is an n by n

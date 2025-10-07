@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtpcon	(	norm,
+subroutine dtpcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -7,7 +8,8 @@ subroutine dtpcon	(	norm,
 		rcond,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DTPCON estimates the reciprocal of the condition number of a packed

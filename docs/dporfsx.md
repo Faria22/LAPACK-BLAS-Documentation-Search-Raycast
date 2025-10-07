@@ -1,5 +1,6 @@
 ```fortran
-subroutine dporfsx	(	uplo,
+subroutine dporfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -21,7 +22,8 @@ subroutine dporfsx	(	uplo,
 		params,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
     DPORFSX improves the computed solution to a system of linear

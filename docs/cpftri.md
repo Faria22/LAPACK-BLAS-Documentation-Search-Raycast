@@ -1,9 +1,11 @@
 ```fortran
-subroutine cpftri	(	character	transr,
-		character	uplo,
-		integer	n,
-		complex, dimension(0: *)	a,
-		integer	info )
+subroutine cpftri (
+		character transr,
+		character uplo,
+		integer n,
+		complex, dimension(0: *) a,
+		integer info
+)
 ```
 
  CPFTRI computes the inverse of a complex Hermitian positive definite

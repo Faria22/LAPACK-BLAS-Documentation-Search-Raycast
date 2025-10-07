@@ -1,5 +1,6 @@
 ```fortran
-subroutine zstegr	(	jobz,
+subroutine zstegr (
+		jobz,
 		range,
 		n,
 		d,
@@ -18,7 +19,8 @@ subroutine zstegr	(	jobz,
 		lwork,
 		iwork,
 		*                  liwork,
-		info )
+		info
+)
 ```
 
  ZSTEGR computes selected eigenvalues and, optionally, eigenvectors

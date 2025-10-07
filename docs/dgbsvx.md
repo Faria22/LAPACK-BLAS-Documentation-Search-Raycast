@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgbsvx	(	fact,
+subroutine dgbsvx (
+		fact,
 		trans,
 		n,
 		kl,
@@ -22,7 +23,8 @@ subroutine dgbsvx	(	fact,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DGBSVX uses the LU factorization to compute the solution to a real

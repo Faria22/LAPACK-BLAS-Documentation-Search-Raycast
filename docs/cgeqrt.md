@@ -1,13 +1,15 @@
 ```fortran
-subroutine cgeqrt	(	integer	m,
-		integer	n,
-		integer	nb,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldt, *)	t,
-		integer	ldt,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cgeqrt (
+		integer m,
+		integer n,
+		integer nb,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldt, *) t,
+		integer ldt,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CGEQRT computes a blocked QR factorization of a complex M-by-N matrix A

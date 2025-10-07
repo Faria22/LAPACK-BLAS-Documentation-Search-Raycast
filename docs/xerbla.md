@@ -1,6 +1,8 @@
 ```fortran
-subroutine xerbla	(	srname,
-		integer	info )
+subroutine xerbla (
+		srname,
+		integer info
+)
 ```
 
  XERBLA  is an error handler for the LAPACK routines.

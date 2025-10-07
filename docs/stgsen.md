@@ -1,5 +1,6 @@
 ```fortran
-subroutine stgsen	(	ijob,
+subroutine stgsen (
+		ijob,
 		wantq,
 		wantz,
 		select,
@@ -23,7 +24,8 @@ subroutine stgsen	(	ijob,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  STGSEN reorders the generalized real Schur decomposition of a real

@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlasd4	(	integer	n,
-		integer	i,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	z,
-		double precision, dimension(*)	delta,
-		double precision	rho,
-		double precision	sigma,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dlasd4 (
+		integer n,
+		integer i,
+		double precision, dimension(*) d,
+		double precision, dimension(*) z,
+		double precision, dimension(*) delta,
+		double precision rho,
+		double precision sigma,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  This subroutine computes the square root of the I-th updated

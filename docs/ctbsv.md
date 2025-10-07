@@ -1,13 +1,15 @@
 ```fortran
-subroutine ctbsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine ctbsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CTBSV  solves one of the systems of equations

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtpqrt	(	m,
+subroutine dtpqrt (
+		m,
 		n,
 		l,
 		nb,
@@ -10,7 +11,8 @@ subroutine dtpqrt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  DTPQRT computes a blocked QR factorization of a real

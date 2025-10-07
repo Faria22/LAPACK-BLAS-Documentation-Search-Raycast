@@ -1,10 +1,12 @@
 ```fortran
-subroutine ctpttr	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine ctpttr (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  CTPTTR copies a triangular matrix A from standard packed format (TP)

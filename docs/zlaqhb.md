@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlaqhb	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine zlaqhb (
+		character uplo,
+		integer n,
+		integer kd,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  ZLAQHB equilibrates a Hermitian band matrix A

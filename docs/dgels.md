@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgels	(	trans,
+subroutine dgels (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine dgels	(	trans,
 		ldb,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  DGELS solves overdetermined or underdetermined real linear systems

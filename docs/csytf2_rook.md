@@ -1,10 +1,12 @@
 ```fortran
-subroutine csytf2_rook	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine csytf2_rook (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CSYTF2_ROOK computes the factorization of a complex symmetric matrix A

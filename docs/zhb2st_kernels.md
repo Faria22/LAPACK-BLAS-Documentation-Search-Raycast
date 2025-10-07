@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhb2st_kernels	(	uplo,
+subroutine zhb2st_kernels (
+		uplo,
 		wantz,
 		ttype,
 		*                                   st,
@@ -13,7 +14,8 @@ subroutine zhb2st_kernels	(	uplo,
 		v,
 		tau,
 		ldvt,
-		work )
+		work
+)
 ```
 
  ZHB2ST_KERNELS is an internal routine used by the ZHETRD_HB2ST

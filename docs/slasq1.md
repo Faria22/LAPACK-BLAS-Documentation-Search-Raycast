@@ -1,9 +1,11 @@
 ```fortran
-subroutine slasq1	(	integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(*)	work,
-		integer	info )
+subroutine slasq1 (
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SLASQ1 computes the singular values of a real N-by-N bidiagonal

@@ -1,13 +1,15 @@
 ```fortran
-subroutine cunhr_col	(	integer	m,
-		integer	n,
-		integer	nb,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldt, *)	t,
-		integer	ldt,
-		complex, dimension(*)	d,
-		integer	info )
+subroutine cunhr_col (
+		integer m,
+		integer n,
+		integer nb,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldt, *) t,
+		integer ldt,
+		complex, dimension(*) d,
+		integer info
+)
 ```
 
   CUNHR_COL takes an M-by-N complex matrix Q_in with orthonormal columns

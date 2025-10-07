@@ -1,11 +1,13 @@
 ```fortran
-subroutine zaxpby	(	integer	n,
-		complex*16	za,
-		complex*16, dimension(*)	zx,
-		integer	incx,
-		complex*16	zb,
-		complex*16, dimension(*)	zy,
-		integer	incy )
+subroutine zaxpby (
+		integer n,
+		complex*16 za,
+		complex*16, dimension(*) zx,
+		integer incx,
+		complex*16 zb,
+		complex*16, dimension(*) zy,
+		integer incy
+)
 ```
 
     ZAXPBY constant times a vector plus constant times a vector.

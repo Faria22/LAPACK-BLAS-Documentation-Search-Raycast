@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlagv2	(	a,
+subroutine dlagv2 (
+		a,
 		lda,
 		b,
 		ldb,
@@ -9,7 +10,8 @@ subroutine dlagv2	(	a,
 		csl,
 		snl,
 		*                          csr,
-		snr )
+		snr
+)
 ```
 
  DLAGV2 computes the Generalized Schur factorization of a real 2-by-2

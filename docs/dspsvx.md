@@ -1,5 +1,6 @@
 ```fortran
-subroutine dspsvx	(	fact,
+subroutine dspsvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -15,7 +16,8 @@ subroutine dspsvx	(	fact,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DSPSVX uses the diagonal pivoting factorization A = U*D*U**T or

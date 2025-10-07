@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctplqt	(	m,
+subroutine ctplqt (
+		m,
 		n,
 		l,
 		mb,
@@ -10,7 +11,8 @@ subroutine ctplqt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  CTPLQT computes a blocked LQ factorization of a complex

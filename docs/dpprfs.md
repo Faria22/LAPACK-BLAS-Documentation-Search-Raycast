@@ -1,5 +1,6 @@
 ```fortran
-subroutine dpprfs	(	uplo,
+subroutine dpprfs (
+		uplo,
 		n,
 		nrhs,
 		ap,
@@ -12,7 +13,8 @@ subroutine dpprfs	(	uplo,
 		*                          berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DPPRFS improves the computed solution to a system of linear

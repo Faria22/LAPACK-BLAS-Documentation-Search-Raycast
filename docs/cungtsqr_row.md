@@ -1,5 +1,6 @@
 ```fortran
-subroutine cungtsqr_row	(	m,
+subroutine cungtsqr_row (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine cungtsqr_row	(	m,
 		ldt,
 		work,
 		*      $                         lwork,
-		info )
+		info
+)
 ```
 
  CUNGTSQR_ROW generates an M-by-N complex matrix Q_out with

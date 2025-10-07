@@ -1,13 +1,15 @@
 ```fortran
-subroutine sgetrs	(	character	trans,
-		integer	n,
-		integer	nrhs,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sgetrs (
+		character trans,
+		integer n,
+		integer nrhs,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SGETRS solves a system of linear equations

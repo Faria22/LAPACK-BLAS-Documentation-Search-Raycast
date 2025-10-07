@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasq3	(	i0,
+subroutine dlasq3 (
+		i0,
 		n0,
 		z,
 		pp,
@@ -18,7 +19,8 @@ subroutine dlasq3	(	i0,
 		dn1,
 		*                          dn2,
 		g,
-		tau )
+		tau
+)
 ```
 
  DLASQ3 checks for deflation, computes a shift (TAU) and calls dqds.

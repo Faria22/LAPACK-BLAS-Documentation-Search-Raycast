@@ -1,11 +1,13 @@
 ```fortran
-subroutine dpoequ	(	integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		integer	info )
+subroutine dpoequ (
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		integer info
+)
 ```
 
  DPOEQU computes row and column scalings intended to equilibrate a

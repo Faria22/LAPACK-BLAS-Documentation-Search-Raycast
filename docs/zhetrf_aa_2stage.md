@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrf_aa_2stage	(	uplo,
+subroutine zhetrf_aa_2stage (
+		uplo,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine zhetrf_aa_2stage	(	uplo,
 		*                                   ipiv2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZHETRF_AA_2STAGE computes the factorization of a double hermitian matrix A

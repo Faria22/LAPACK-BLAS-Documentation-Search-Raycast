@@ -1,5 +1,6 @@
 ```fortran
-subroutine cggesx	(	jobvsl,
+subroutine cggesx (
+		jobvsl,
 		jobvsr,
 		sort,
 		selctg,
@@ -24,7 +25,8 @@ subroutine cggesx	(	jobvsl,
 		*                          iwork,
 		liwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  CGGESX computes for a pair of N-by-N complex nonsymmetric matrices

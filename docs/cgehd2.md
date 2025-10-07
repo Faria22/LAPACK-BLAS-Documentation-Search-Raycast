@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgehd2	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cgehd2 (
+		integer n,
+		integer ilo,
+		integer ihi,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CGEHD2 reduces a complex general matrix A to upper Hessenberg form H

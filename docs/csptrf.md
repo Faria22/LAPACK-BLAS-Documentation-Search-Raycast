@@ -1,9 +1,11 @@
 ```fortran
-subroutine csptrf	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine csptrf (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CSPTRF computes the factorization of a complex symmetric matrix A

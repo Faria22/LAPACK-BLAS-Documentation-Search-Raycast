@@ -1,5 +1,6 @@
 ```fortran
-subroutine stpqrt	(	m,
+subroutine stpqrt (
+		m,
 		n,
 		l,
 		nb,
@@ -10,7 +11,8 @@ subroutine stpqrt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  STPQRT computes a blocked QR factorization of a real

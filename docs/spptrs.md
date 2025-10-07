@@ -1,11 +1,13 @@
 ```fortran
-subroutine spptrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	ap,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine spptrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(*) ap,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPPTRS solves a system of linear equations A*X = B with a symmetric

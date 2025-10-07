@@ -1,10 +1,12 @@
 ```fortran
-subroutine zsyswapr	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, n)	a,
-		integer	lda,
-		integer	i1,
-		integer	i2 )
+subroutine zsyswapr (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, n) a,
+		integer lda,
+		integer i1,
+		integer i2
+)
 ```
 
  ZSYSWAPR applies an elementary permutation on the rows and the columns of

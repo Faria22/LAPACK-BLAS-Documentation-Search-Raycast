@@ -1,5 +1,6 @@
 ```fortran
-subroutine stpmlqt	(	side,
+subroutine stpmlqt (
+		side,
 		trans,
 		m,
 		n,
@@ -15,7 +16,8 @@ subroutine stpmlqt	(	side,
 		b,
 		ldb,
 		work,
-		info )
+		info
+)
 ```
 
  STPMLQT applies a real orthogonal matrix Q obtained from a

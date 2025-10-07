@@ -1,13 +1,15 @@
 ```fortran
-subroutine dorgqr	(	integer	m,
-		integer	n,
-		integer	k,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dorgqr (
+		integer m,
+		integer n,
+		integer k,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DORGQR generates an M-by-N real matrix Q with orthonormal columns,

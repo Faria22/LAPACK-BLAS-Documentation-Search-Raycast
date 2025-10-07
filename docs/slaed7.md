@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaed7	(	icompq,
+subroutine slaed7 (
+		icompq,
 		n,
 		qsiz,
 		tlvls,
@@ -20,7 +21,8 @@ subroutine slaed7	(	icompq,
 		givnum,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SLAED7 computes the updated eigensystem of a diagonal

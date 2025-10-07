@@ -1,5 +1,6 @@
 ```fortran
-subroutine chpgvd	(	itype,
+subroutine chpgvd (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -14,7 +15,8 @@ subroutine chpgvd	(	itype,
 		lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CHPGVD computes all the eigenvalues and, optionally, the eigenvectors

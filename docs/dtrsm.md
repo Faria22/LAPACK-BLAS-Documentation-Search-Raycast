@@ -1,15 +1,17 @@
 ```fortran
-subroutine dtrsm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine dtrsm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  DTRSM  solves one of the matrix equations

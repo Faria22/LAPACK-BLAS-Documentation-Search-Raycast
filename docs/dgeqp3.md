@@ -1,13 +1,15 @@
 ```fortran
-subroutine dgeqp3	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	jpvt,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dgeqp3 (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) jpvt,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DGEQP3 computes a QR factorization with column pivoting of a

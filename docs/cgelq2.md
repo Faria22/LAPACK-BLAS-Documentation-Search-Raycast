@@ -1,11 +1,13 @@
 ```fortran
-subroutine cgelq2	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cgelq2 (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CGELQ2 computes an LQ factorization of a complex m-by-n matrix A:

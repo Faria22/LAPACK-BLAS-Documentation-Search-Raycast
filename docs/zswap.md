@@ -1,9 +1,11 @@
 ```fortran
-subroutine zswap	(	integer	n,
-		complex*16, dimension(*)	zx,
-		integer	incx,
-		complex*16, dimension(*)	zy,
-		integer	incy )
+subroutine zswap (
+		integer n,
+		complex*16, dimension(*) zx,
+		integer incx,
+		complex*16, dimension(*) zy,
+		integer incy
+)
 ```
 
     ZSWAP interchanges two vectors.

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztrcon	(	norm,
+subroutine ztrcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine ztrcon	(	norm,
 		rcond,
 		work,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  ZTRCON estimates the reciprocal of the condition number of a

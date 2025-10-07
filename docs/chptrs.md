@@ -1,12 +1,14 @@
 ```fortran
-subroutine chptrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine chptrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CHPTRS solves a system of linear equations A*X = B with a complex

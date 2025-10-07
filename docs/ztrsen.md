@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztrsen	(	job,
+subroutine ztrsen (
+		job,
 		compq,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine ztrsen	(	job,
 		*                          sep,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZTRSEN reorders the Schur factorization of a complex matrix

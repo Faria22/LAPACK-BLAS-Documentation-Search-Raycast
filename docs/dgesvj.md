@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgesvj	(	joba,
+subroutine dgesvj (
+		joba,
 		jobu,
 		jobv,
 		m,
@@ -12,7 +13,8 @@ subroutine dgesvj	(	joba,
 		*                          ldv,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DGESVJ computes the singular value decomposition (SVD) of a real

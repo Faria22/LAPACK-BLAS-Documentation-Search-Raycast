@@ -1,11 +1,13 @@
 ```fortran
-subroutine cptsv	(	integer	n,
-		integer	nrhs,
-		real, dimension(*)	d,
-		complex, dimension(*)	e,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cptsv (
+		integer n,
+		integer nrhs,
+		real, dimension(*) d,
+		complex, dimension(*) e,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPTSV computes the solution to a complex system of linear equations

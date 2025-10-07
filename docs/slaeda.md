@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaeda	(	n,
+subroutine slaeda (
+		n,
 		tlvls,
 		curlvl,
 		curpbm,
@@ -12,7 +13,8 @@ subroutine slaeda	(	n,
 		qptr,
 		z,
 		ztemp,
-		info )
+		info
+)
 ```
 
  SLAEDA computes the Z vector corresponding to the merge step in the

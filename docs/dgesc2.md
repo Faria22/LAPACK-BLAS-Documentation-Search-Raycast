@@ -1,11 +1,13 @@
 ```fortran
-subroutine dgesc2	(	integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	rhs,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		double precision	scale )
+subroutine dgesc2 (
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) rhs,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		double precision scale
+)
 ```
 
  DGESC2 solves a system of linear equations

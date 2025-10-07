@@ -1,16 +1,18 @@
 ```fortran
-subroutine zher2k	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(ldb,*)	b,
-		integer	ldb,
-		double precision	beta,
-		complex*16, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine zher2k (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(ldb,*) b,
+		integer ldb,
+		double precision beta,
+		complex*16, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  ZHER2K  performs one of the hermitian rank 2k operations

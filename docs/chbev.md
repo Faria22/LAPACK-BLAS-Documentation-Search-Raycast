@@ -1,5 +1,6 @@
 ```fortran
-subroutine chbev	(	jobz,
+subroutine chbev (
+		jobz,
 		uplo,
 		n,
 		kd,
@@ -10,7 +11,8 @@ subroutine chbev	(	jobz,
 		ldz,
 		work,
 		*                         rwork,
-		info )
+		info
+)
 ```
 
  CHBEV computes all the eigenvalues and, optionally, eigenvectors of

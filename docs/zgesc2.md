@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgesc2	(	integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	rhs,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		double precision	scale )
+subroutine zgesc2 (
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) rhs,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		double precision scale
+)
 ```
 
  ZGESC2 solves a system of linear equations

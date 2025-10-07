@@ -1,13 +1,15 @@
 ```fortran
-subroutine dgelqt	(	integer	m,
-		integer	n,
-		integer	mb,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldt, *)	t,
-		integer	ldt,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dgelqt (
+		integer m,
+		integer n,
+		integer mb,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldt, *) t,
+		integer ldt,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DGELQT computes a blocked LQ factorization of a real M-by-N matrix A

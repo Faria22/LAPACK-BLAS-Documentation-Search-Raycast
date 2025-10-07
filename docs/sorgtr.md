@@ -1,12 +1,14 @@
 ```fortran
-subroutine sorgtr	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sorgtr (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SORGTR generates a real orthogonal matrix Q which is defined as the

@@ -1,15 +1,17 @@
 ```fortran
-subroutine ztrsm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine ztrsm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  ZTRSM  solves one of the matrix equations

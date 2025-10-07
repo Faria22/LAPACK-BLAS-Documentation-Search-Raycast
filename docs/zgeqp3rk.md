@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgeqp3rk	(	m,
+subroutine zgeqp3rk (
+		m,
 		n,
 		nrhs,
 		kmax,
@@ -16,7 +17,8 @@ subroutine zgeqp3rk	(	m,
 		lwork,
 		rwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  ZGEQP3RK performs two tasks simultaneously:

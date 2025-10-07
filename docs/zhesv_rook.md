@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhesv_rook	(	uplo,
+subroutine zhesv_rook (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zhesv_rook	(	uplo,
 		ldb,
 		work,
 		*                              lwork,
-		info )
+		info
+)
 ```
 
  ZHESV_ROOK computes the solution to a complex system of linear equations

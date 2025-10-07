@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasq5	(	i0,
+subroutine slasq5 (
+		i0,
 		n0,
 		z,
 		pp,
@@ -12,7 +13,8 @@ subroutine slasq5	(	i0,
 		*                          dnm1,
 		dnm2,
 		ieee,
-		eps )
+		eps
+)
 ```
 
  SLASQ5 computes one dqds transform in ping-pong form, one

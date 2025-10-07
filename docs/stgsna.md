@@ -1,5 +1,6 @@
 ```fortran
-subroutine stgsna	(	job,
+subroutine stgsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -18,7 +19,8 @@ subroutine stgsna	(	job,
 		work,
 		lwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  STGSNA estimates reciprocal condition numbers for specified

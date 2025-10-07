@@ -1,12 +1,14 @@
 ```fortran
-subroutine slaed6	(	integer	kniter,
-		logical	orgati,
-		real	rho,
-		real, dimension(3)	d,
-		real, dimension(3)	z,
-		real	finit,
-		real	tau,
-		integer	info )
+subroutine slaed6 (
+		integer kniter,
+		logical orgati,
+		real rho,
+		real, dimension(3) d,
+		real, dimension(3) z,
+		real finit,
+		real tau,
+		integer info
+)
 ```
 
  SLAED6 computes the positive or negative root (closest to the origin)

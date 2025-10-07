@@ -1,12 +1,14 @@
 ```fortran
-subroutine sgeqrfp	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sgeqrfp (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SGEQR2P computes a QR factorization of a real M-by-N matrix A:

@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlacpy	(	character	uplo,
-		integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine dlacpy (
+		character uplo,
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  DLACPY copies all or part of a two-dimensional matrix A to another

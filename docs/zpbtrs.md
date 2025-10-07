@@ -1,13 +1,15 @@
 ```fortran
-subroutine zpbtrs	(	character	uplo,
-		integer	n,
-		integer	kd,
-		integer	nrhs,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zpbtrs (
+		character uplo,
+		integer n,
+		integer kd,
+		integer nrhs,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZPBTRS solves a system of linear equations A*X = B with a Hermitian

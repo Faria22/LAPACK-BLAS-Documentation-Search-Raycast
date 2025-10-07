@@ -1,13 +1,15 @@
 ```fortran
-subroutine sgeqrt	(	integer	m,
-		integer	n,
-		integer	nb,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldt, *)	t,
-		integer	ldt,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sgeqrt (
+		integer m,
+		integer n,
+		integer nb,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldt, *) t,
+		integer ldt,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SGEQRT computes a blocked QR factorization of a real M-by-N matrix A

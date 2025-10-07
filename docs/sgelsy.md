@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgelsy	(	m,
+subroutine sgelsy (
+		m,
 		n,
 		nrhs,
 		a,
@@ -11,7 +12,8 @@ subroutine sgelsy	(	m,
 		rank,
 		*                          work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SGELSY computes the minimum-norm solution to a real linear least

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgges	(	jobvsl,
+subroutine zgges (
+		jobvsl,
 		jobvsr,
 		sort,
 		selctg,
@@ -19,7 +20,8 @@ subroutine zgges	(	jobvsl,
 		*                         lwork,
 		rwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  ZGGES computes for a pair of N-by-N complex nonsymmetric matrices

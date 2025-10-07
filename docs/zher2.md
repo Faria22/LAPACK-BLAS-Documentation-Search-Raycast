@@ -1,13 +1,15 @@
 ```fortran
-subroutine zher2	(	character	uplo,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	y,
-		integer	incy,
-		complex*16, dimension(lda,*)	a,
-		integer	lda )
+subroutine zher2 (
+		character uplo,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) y,
+		integer incy,
+		complex*16, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  ZHER2  performs the hermitian rank 2 operation

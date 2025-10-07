@@ -1,13 +1,15 @@
 ```fortran
-subroutine sorhr_col	(	integer	m,
-		integer	n,
-		integer	nb,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldt, *)	t,
-		integer	ldt,
-		real, dimension(*)	d,
-		integer	info )
+subroutine sorhr_col (
+		integer m,
+		integer n,
+		integer nb,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldt, *) t,
+		integer ldt,
+		real, dimension(*) d,
+		integer info
+)
 ```
 
   SORHR_COL takes an M-by-N real matrix Q_in with orthonormal columns

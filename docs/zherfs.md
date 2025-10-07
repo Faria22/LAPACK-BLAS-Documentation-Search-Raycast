@@ -1,5 +1,6 @@
 ```fortran
-subroutine zherfs	(	uplo,
+subroutine zherfs (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -15,7 +16,8 @@ subroutine zherfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZHERFS improves the computed solution to a system of linear

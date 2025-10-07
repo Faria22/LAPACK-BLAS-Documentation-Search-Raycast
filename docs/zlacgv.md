@@ -1,7 +1,9 @@
 ```fortran
-subroutine zlacgv	(	integer	n,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine zlacgv (
+		integer n,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZLACGV conjugates a complex vector of length N.

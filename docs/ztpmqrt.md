@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztpmqrt	(	side,
+subroutine ztpmqrt (
+		side,
 		trans,
 		m,
 		n,
@@ -15,7 +16,8 @@ subroutine ztpmqrt	(	side,
 		b,
 		ldb,
 		work,
-		info )
+		info
+)
 ```
 
  ZTPMQRT applies a complex orthogonal matrix Q obtained from a

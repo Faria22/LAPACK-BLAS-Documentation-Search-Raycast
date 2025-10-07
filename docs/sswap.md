@@ -1,9 +1,11 @@
 ```fortran
-subroutine sswap	(	integer	n,
-		real, dimension(*)	sx,
-		integer	incx,
-		real, dimension(*)	sy,
-		integer	incy )
+subroutine sswap (
+		integer n,
+		real, dimension(*) sx,
+		integer incx,
+		real, dimension(*) sy,
+		integer incy
+)
 ```
 
     SSWAP interchanges two vectors.

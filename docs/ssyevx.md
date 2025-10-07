@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssyevx	(	jobz,
+subroutine ssyevx (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -18,7 +19,8 @@ subroutine ssyevx	(	jobz,
 		lwork,
 		iwork,
 		*                          ifail,
-		info )
+		info
+)
 ```
 
  SSYEVX computes selected eigenvalues and, optionally, eigenvectors

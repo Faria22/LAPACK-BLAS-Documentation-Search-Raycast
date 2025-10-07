@@ -1,9 +1,11 @@
 ```fortran
-subroutine clacon	(	integer	n,
-		complex, dimension(n)	v,
-		complex, dimension(n)	x,
-		real	est,
-		integer	kase )
+subroutine clacon (
+		integer n,
+		complex, dimension(n) v,
+		complex, dimension(n) x,
+		real est,
+		integer kase
+)
 ```
 
  CLACON estimates the 1-norm of a square, complex matrix A.

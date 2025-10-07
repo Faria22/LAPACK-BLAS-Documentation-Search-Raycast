@@ -1,5 +1,6 @@
 ```fortran
-subroutine zherfsx	(	uplo,
+subroutine zherfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -22,7 +23,8 @@ subroutine zherfsx	(	uplo,
 		params,
 		*                           work,
 		rwork,
-		info )
+		info
+)
 ```
 
     ZHERFSX improves the computed solution to a system of linear

@@ -1,13 +1,15 @@
 ```fortran
-subroutine cunghr	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine cunghr (
+		integer n,
+		integer ilo,
+		integer ihi,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CUNGHR generates a complex unitary matrix Q which is defined as the

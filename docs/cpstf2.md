@@ -1,13 +1,15 @@
 ```fortran
-subroutine cpstf2	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(n)	piv,
-		integer	rank,
-		real	tol,
-		real, dimension(2*n)	work,
-		integer	info )
+subroutine cpstf2 (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(n) piv,
+		integer rank,
+		real tol,
+		real, dimension(2*n) work,
+		integer info
+)
 ```
 
  CPSTF2 computes the Cholesky factorization with complete

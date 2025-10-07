@@ -1,10 +1,12 @@
 ```fortran
-subroutine ctrti2	(	character	uplo,
-		character	diag,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine ctrti2 (
+		character uplo,
+		character diag,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  CTRTI2 computes the inverse of a complex upper or lower triangular

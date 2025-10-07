@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgesvdx	(	jobu,
+subroutine sgesvdx (
+		jobu,
 		jobvt,
 		range,
 		m,
@@ -19,7 +20,8 @@ subroutine sgesvdx	(	jobu,
 		work,
 		*    $                    lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
   SGESVDX computes the singular value decomposition (SVD) of a real

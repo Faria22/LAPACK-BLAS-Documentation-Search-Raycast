@@ -1,8 +1,10 @@
 ```fortran
-subroutine ssterf	(	integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		integer	info )
+subroutine ssterf (
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		integer info
+)
 ```
 
  SSTERF computes all eigenvalues of a symmetric tridiagonal matrix

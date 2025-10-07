@@ -1,11 +1,13 @@
 ```fortran
-subroutine clacp2	(	character	uplo,
-		integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine clacp2 (
+		character uplo,
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  CLACP2 copies all or part of a real two-dimensional matrix A to a

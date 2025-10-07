@@ -1,14 +1,16 @@
 ```fortran
-subroutine cgbsv	(	integer	n,
-		integer	kl,
-		integer	ku,
-		integer	nrhs,
-		complex, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cgbsv (
+		integer n,
+		integer kl,
+		integer ku,
+		integer nrhs,
+		complex, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CGBSV computes the solution to a complex system of linear equations

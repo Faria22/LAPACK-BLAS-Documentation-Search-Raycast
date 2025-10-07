@@ -1,5 +1,6 @@
 ```fortran
-subroutine clamtsqr	(	side,
+subroutine clamtsqr (
+		side,
 		trans,
 		m,
 		n,
@@ -14,7 +15,8 @@ subroutine clamtsqr	(	side,
 		ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
       CLAMTSQR overwrites the general complex M-by-N matrix C with

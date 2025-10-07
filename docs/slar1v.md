@@ -1,5 +1,6 @@
 ```fortran
-subroutine slar1v	(	n,
+subroutine slar1v (
+		n,
 		b1,
 		bn,
 		lambda,
@@ -19,7 +20,8 @@ subroutine slar1v	(	n,
 		nrminv,
 		resid,
 		rqcorr,
-		work )
+		work
+)
 ```
 
  SLAR1V computes the (scaled) r-th column of the inverse of

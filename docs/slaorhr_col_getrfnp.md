@@ -1,10 +1,12 @@
 ```fortran
-subroutine slaorhr_col_getrfnp	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		integer	info )
+subroutine slaorhr_col_getrfnp (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		integer info
+)
 ```
 
  SLAORHR_COL_GETRFNP computes the modified LU factorization without

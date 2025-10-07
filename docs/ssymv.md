@@ -1,14 +1,16 @@
 ```fortran
-subroutine ssymv	(	character	uplo,
-		integer	n,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx,
-		real	beta,
-		real, dimension(*)	y,
-		integer	incy )
+subroutine ssymv (
+		character uplo,
+		integer n,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx,
+		real beta,
+		real, dimension(*) y,
+		integer incy
+)
 ```
 
  SSYMV  performs the matrix-vector  operation

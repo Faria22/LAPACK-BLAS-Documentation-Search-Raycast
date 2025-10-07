@@ -1,12 +1,14 @@
 ```fortran
-subroutine cungl2	(	integer	m,
-		integer	n,
-		integer	k,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cungl2 (
+		integer m,
+		integer n,
+		integer k,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CUNGL2 generates an m-by-n complex matrix Q with orthonormal rows,

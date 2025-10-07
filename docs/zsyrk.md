@@ -1,14 +1,16 @@
 ```fortran
-subroutine zsyrk	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16	beta,
-		complex*16, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine zsyrk (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16 beta,
+		complex*16, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  ZSYRK  performs one of the symmetric rank k operations

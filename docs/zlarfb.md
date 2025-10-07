@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlarfb	(	side,
+subroutine zlarfb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -13,7 +14,8 @@ subroutine zlarfb	(	side,
 		c,
 		ldc,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  ZLARFB applies a complex block reflector H or its transpose H**H to a

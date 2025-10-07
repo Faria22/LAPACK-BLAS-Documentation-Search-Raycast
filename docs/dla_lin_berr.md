@@ -1,10 +1,12 @@
 ```fortran
-subroutine dla_lin_berr	(	integer	n,
-		integer	nz,
-		integer	nrhs,
-		double precision, dimension(n, nrhs)	res,
-		double precision, dimension(n, nrhs)	ayb,
-		double precision, dimension(nrhs)	berr )
+subroutine dla_lin_berr (
+		integer n,
+		integer nz,
+		integer nrhs,
+		double precision, dimension(n, nrhs) res,
+		double precision, dimension(n, nrhs) ayb,
+		double precision, dimension(nrhs) berr
+)
 ```
 
     DLA_LIN_BERR computes component-wise relative backward error from

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgelq	(	m,
+subroutine cgelq (
+		m,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine cgelq	(	m,
 		tsize,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  CGELQ computes an LQ factorization of a complex M-by-N matrix A:

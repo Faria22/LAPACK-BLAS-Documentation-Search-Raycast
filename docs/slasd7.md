@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasd7	(	icompq,
+subroutine slasd7 (
+		icompq,
 		nl,
 		nr,
 		sqre,
@@ -25,7 +26,8 @@ subroutine slasd7	(	icompq,
 		ldgnum,
 		*                          c,
 		s,
-		info )
+		info
+)
 ```
 
  SLASD7 merges the two sets of singular values together into a single

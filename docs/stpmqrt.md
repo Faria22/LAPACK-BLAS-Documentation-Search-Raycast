@@ -1,5 +1,6 @@
 ```fortran
-subroutine stpmqrt	(	side,
+subroutine stpmqrt (
+		side,
 		trans,
 		m,
 		n,
@@ -15,7 +16,8 @@ subroutine stpmqrt	(	side,
 		b,
 		ldb,
 		work,
-		info )
+		info
+)
 ```
 
  STPMQRT applies a real orthogonal matrix Q obtained from a

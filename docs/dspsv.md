@@ -1,12 +1,14 @@
 ```fortran
-subroutine dspsv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dspsv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DSPSV computes the solution to a real system of linear equations

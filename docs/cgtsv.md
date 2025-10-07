@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgtsv	(	integer	n,
-		integer	nrhs,
-		complex, dimension(*)	dl,
-		complex, dimension(*)	d,
-		complex, dimension(*)	du,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cgtsv (
+		integer n,
+		integer nrhs,
+		complex, dimension(*) dl,
+		complex, dimension(*) d,
+		complex, dimension(*) du,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CGTSV  solves the equation

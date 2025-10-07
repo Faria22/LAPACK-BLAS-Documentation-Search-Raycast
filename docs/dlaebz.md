@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaebz	(	ijob,
+subroutine dlaebz (
+		ijob,
 		nitmax,
 		n,
 		mmax,
@@ -18,7 +19,8 @@ subroutine dlaebz	(	ijob,
 		*                          nab,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DLAEBZ contains the iteration loops which compute and use the

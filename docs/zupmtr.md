@@ -1,5 +1,6 @@
 ```fortran
-subroutine zupmtr	(	side,
+subroutine zupmtr (
+		side,
 		uplo,
 		trans,
 		m,
@@ -9,7 +10,8 @@ subroutine zupmtr	(	side,
 		c,
 		ldc,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  ZUPMTR overwrites the general complex M-by-N matrix C with

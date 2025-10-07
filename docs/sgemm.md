@@ -1,17 +1,19 @@
 ```fortran
-subroutine sgemm	(	character	transa,
-		character	transb,
-		integer	m,
-		integer	n,
-		integer	k,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(ldb,*)	b,
-		integer	ldb,
-		real	beta,
-		real, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine sgemm (
+		character transa,
+		character transb,
+		integer m,
+		integer n,
+		integer k,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(ldb,*) b,
+		integer ldb,
+		real beta,
+		real, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  SGEMM  performs one of the matrix-matrix operations

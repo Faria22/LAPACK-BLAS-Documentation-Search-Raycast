@@ -1,12 +1,14 @@
 ```fortran
-subroutine zgeqrfp	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zgeqrfp (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZGEQR2P computes a QR factorization of a complex M-by-N matrix A:

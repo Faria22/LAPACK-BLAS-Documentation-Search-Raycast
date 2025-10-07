@@ -1,11 +1,13 @@
 ```fortran
-subroutine cpptrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	ap,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cpptrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) ap,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPPTRS solves a system of linear equations A*X = B with a Hermitian

@@ -1,5 +1,6 @@
 ```fortran
-subroutine csytrs_3	(	uplo,
+subroutine csytrs_3 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine csytrs_3	(	uplo,
 		ipiv,
 		b,
 		ldb,
-		*                            info )
+		*                            info
+)
 ```
  CSYTRS_3 solves a system of linear equations A * X = B with a complex
  symmetric matrix A using the factorization computed

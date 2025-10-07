@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztrsna	(	job,
+subroutine ztrsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -16,7 +17,8 @@ subroutine ztrsna	(	job,
 		work,
 		ldwork,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZTRSNA estimates reciprocal condition numbers for specified

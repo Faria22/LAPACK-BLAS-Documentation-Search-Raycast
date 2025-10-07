@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgelq2	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zgelq2 (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZGELQ2 computes an LQ factorization of a complex m-by-n matrix A:

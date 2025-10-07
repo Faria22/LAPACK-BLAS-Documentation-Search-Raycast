@@ -1,11 +1,13 @@
 ```fortran
-subroutine ssptrd	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(*)	tau,
-		integer	info )
+subroutine ssptrd (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(*) tau,
+		integer info
+)
 ```
 
  SSPTRD reduces a real symmetric matrix A stored in packed form to

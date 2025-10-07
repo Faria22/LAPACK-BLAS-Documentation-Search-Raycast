@@ -1,11 +1,13 @@
 ```fortran
-subroutine ctpsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex, dimension(*)	ap,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine ctpsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex, dimension(*) ap,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CTPSV  solves one of the systems of equations

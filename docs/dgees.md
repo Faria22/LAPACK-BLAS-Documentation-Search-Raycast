@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgees	(	jobvs,
+subroutine dgees (
+		jobvs,
 		sort,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine dgees	(	jobvs,
 		work,
 		lwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  DGEES computes for an N-by-N real nonsymmetric matrix A, the

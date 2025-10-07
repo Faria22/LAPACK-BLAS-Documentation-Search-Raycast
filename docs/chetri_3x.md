@@ -1,13 +1,15 @@
 ```fortran
-subroutine chetri_3x	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		complex, dimension(n+nb+1, *)	work,
-		integer	nb,
-		integer	info )
+subroutine chetri_3x (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) e,
+		integer, dimension(*) ipiv,
+		complex, dimension(n+nb+1, *) work,
+		integer nb,
+		integer info
+)
 ```
  CHETRI_3X computes the inverse of a complex Hermitian indefinite
  matrix A using the factorization computed by CHETRF_RK or CHETRF_BK:

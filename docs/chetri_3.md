@@ -1,5 +1,6 @@
 ```fortran
-subroutine chetri_3	(	uplo,
+subroutine chetri_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine chetri_3	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                            info )
+		*                            info
+)
 ```
  CHETRI_3 computes the inverse of a complex Hermitian indefinite
  matrix A using the factorization computed by CHETRF_RK or CHETRF_BK:

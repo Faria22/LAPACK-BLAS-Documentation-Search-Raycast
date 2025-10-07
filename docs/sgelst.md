@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgelst	(	trans,
+subroutine sgelst (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine sgelst	(	trans,
 		ldb,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SGELST solves overdetermined or underdetermined real linear systems

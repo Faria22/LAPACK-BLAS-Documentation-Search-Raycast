@@ -1,12 +1,14 @@
 ```fortran
-subroutine dtzrzf	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dtzrzf (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DTZRZF reduces the M-by-N ( M<=N ) real upper trapezoidal matrix A

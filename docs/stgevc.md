@@ -1,5 +1,6 @@
 ```fortran
-subroutine stgevc	(	side,
+subroutine stgevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -14,7 +15,8 @@ subroutine stgevc	(	side,
 		mm,
 		m,
 		work,
-		info )
+		info
+)
 ```
 
  STGEVC computes some or all of the right and/or left eigenvectors of

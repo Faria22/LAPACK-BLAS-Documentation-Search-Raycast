@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaswlq	(	m,
+subroutine slaswlq (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine slaswlq	(	m,
 		ldt,
 		work,
 		*                            lwork,
-		info )
+		info
+)
 ```
 
  SLASWLQ computes a blocked Tall-Skinny LQ factorization of

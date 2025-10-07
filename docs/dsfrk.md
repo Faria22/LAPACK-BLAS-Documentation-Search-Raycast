@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsfrk	(	transr,
+subroutine dsfrk (
+		transr,
 		uplo,
 		trans,
 		n,
@@ -8,7 +9,8 @@ subroutine dsfrk	(	transr,
 		a,
 		lda,
 		beta,
-		*                         c )
+		*                         c
+)
 ```
 
  Level 3 BLAS like routine for C in RFP Format.

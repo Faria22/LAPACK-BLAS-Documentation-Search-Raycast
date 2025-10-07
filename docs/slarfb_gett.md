@@ -1,5 +1,6 @@
 ```fortran
-subroutine slarfb_gett	(	ident,
+subroutine slarfb_gett (
+		ident,
 		m,
 		n,
 		k,
@@ -10,7 +11,8 @@ subroutine slarfb_gett	(	ident,
 		b,
 		ldb,
 		*      $                        work,
-		ldwork )
+		ldwork
+)
 ```
 
  SLARFB_GETT applies a real Householder block reflector H from the

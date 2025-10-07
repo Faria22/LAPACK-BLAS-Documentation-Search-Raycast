@@ -1,5 +1,6 @@
 ```fortran
-subroutine stbcon	(	norm,
+subroutine stbcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -9,7 +10,8 @@ subroutine stbcon	(	norm,
 		rcond,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  STBCON estimates the reciprocal of the condition number of a

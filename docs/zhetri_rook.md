@@ -1,11 +1,13 @@
 ```fortran
-subroutine zhetri_rook	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zhetri_rook (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZHETRI_ROOK computes the inverse of a complex Hermitian indefinite matrix

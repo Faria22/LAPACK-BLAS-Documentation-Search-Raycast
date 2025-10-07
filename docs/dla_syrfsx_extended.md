@@ -1,5 +1,6 @@
 ```fortran
-subroutine dla_syrfsx_extended	(	prec_type,
+subroutine dla_syrfsx_extended (
+		prec_type,
 		uplo,
 		n,
 		nrhs,
@@ -27,7 +28,8 @@ subroutine dla_syrfsx_extended	(	prec_type,
 		*                                       rthresh,
 		dz_ub,
 		ignore_cwise,
-		*                                       info )
+		*                                       info
+)
 ```
 
 

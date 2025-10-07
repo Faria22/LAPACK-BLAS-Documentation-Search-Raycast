@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasq4	(	i0,
+subroutine slasq4 (
+		i0,
 		n0,
 		z,
 		pp,
@@ -12,7 +13,8 @@ subroutine slasq4	(	i0,
 		dn2,
 		tau,
 		ttype,
-		g )
+		g
+)
 ```
 
  SLASQ4 computes an approximation TAU to the smallest eigenvalue

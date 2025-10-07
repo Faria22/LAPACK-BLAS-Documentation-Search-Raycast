@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrs_aa	(	uplo,
+subroutine zhetrs_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zhetrs_aa	(	uplo,
 		ldb,
 		*                             work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZHETRS_AA solves a system of linear equations A*X = B with a complex

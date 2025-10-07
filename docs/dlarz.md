@@ -1,14 +1,16 @@
 ```fortran
-subroutine dlarz	(	character	side,
-		integer	m,
-		integer	n,
-		integer	l,
-		double precision, dimension(*)	v,
-		integer	incv,
-		double precision	tau,
-		double precision, dimension(ldc, *)	c,
-		integer	ldc,
-		double precision, dimension(*)	work )
+subroutine dlarz (
+		character side,
+		integer m,
+		integer n,
+		integer l,
+		double precision, dimension(*) v,
+		integer incv,
+		double precision tau,
+		double precision, dimension(ldc, *) c,
+		integer ldc,
+		double precision, dimension(*) work
+)
 ```
 
  DLARZ applies a real elementary reflector H to a real M-by-N

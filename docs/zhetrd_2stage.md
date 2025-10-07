@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrd_2stage	(	vect,
+subroutine zhetrd_2stage (
+		vect,
 		uplo,
 		n,
 		a,
@@ -11,7 +12,8 @@ subroutine zhetrd_2stage	(	vect,
 		lhous2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZHETRD_2STAGE reduces a complex Hermitian matrix A to real symmetric

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dggev3	(	jobvl,
+subroutine dggev3 (
+		jobvl,
 		jobvr,
 		n,
 		a,
@@ -15,7 +16,8 @@ subroutine dggev3	(	jobvl,
 		ldvr,
 		work,
 		lwork,
-		*      $                   info )
+		*      $                   info
+)
 ```
 
  DGGEV3 computes for a pair of N-by-N real nonsymmetric matrices (A,B)

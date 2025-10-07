@@ -1,5 +1,6 @@
 ```fortran
-subroutine zstemr	(	jobz,
+subroutine zstemr (
+		jobz,
 		range,
 		n,
 		d,
@@ -19,7 +20,8 @@ subroutine zstemr	(	jobz,
 		lwork,
 		*                          iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  ZSTEMR computes selected eigenvalues and, optionally, eigenvectors

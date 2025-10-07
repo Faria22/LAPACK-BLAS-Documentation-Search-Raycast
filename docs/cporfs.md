@@ -1,5 +1,6 @@
 ```fortran
-subroutine cporfs	(	uplo,
+subroutine cporfs (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -14,7 +15,8 @@ subroutine cporfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CPORFS improves the computed solution to a system of linear

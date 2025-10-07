@@ -1,5 +1,6 @@
 ```fortran
-subroutine chegvx	(	itype,
+subroutine chegvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -22,7 +23,8 @@ subroutine chegvx	(	itype,
 		rwork,
 		iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  CHEGVX computes selected eigenvalues, and optionally, eigenvectors

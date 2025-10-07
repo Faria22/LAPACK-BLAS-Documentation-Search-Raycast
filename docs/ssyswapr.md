@@ -1,10 +1,12 @@
 ```fortran
-subroutine ssyswapr	(	character	uplo,
-		integer	n,
-		real, dimension(lda, n)	a,
-		integer	lda,
-		integer	i1,
-		integer	i2 )
+subroutine ssyswapr (
+		character uplo,
+		integer n,
+		real, dimension(lda, n) a,
+		integer lda,
+		integer i1,
+		integer i2
+)
 ```
 
  SSYSWAPR applies an elementary permutation on the rows and the columns of

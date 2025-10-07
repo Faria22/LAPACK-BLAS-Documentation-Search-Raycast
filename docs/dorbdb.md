@@ -1,5 +1,6 @@
 ```fortran
-subroutine dorbdb	(	trans,
+subroutine dorbdb (
+		trans,
 		signs,
 		m,
 		p,
@@ -20,7 +21,8 @@ subroutine dorbdb	(	trans,
 		tauq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DORBDB simultaneously bidiagonalizes the blocks of an M-by-M

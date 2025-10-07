@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlarf1f	(	character	side,
-		integer	m,
-		integer	n,
-		complex*16, dimension(*)	v,
-		integer	incv,
-		complex*16	tau,
-		complex*16, dimension(ldc, *)	c,
-		integer	ldc,
-		complex*16, dimension(*)	work )
+subroutine zlarf1f (
+		character side,
+		integer m,
+		integer n,
+		complex*16, dimension(*) v,
+		integer incv,
+		complex*16 tau,
+		complex*16, dimension(ldc, *) c,
+		integer ldc,
+		complex*16, dimension(*) work
+)
 ```
 
  ZLARF1F applies a complex elementary reflector H to a real m by n matrix

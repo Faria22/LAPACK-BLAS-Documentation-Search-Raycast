@@ -1,5 +1,6 @@
 ```fortran
-subroutine slagv2	(	a,
+subroutine slagv2 (
+		a,
 		lda,
 		b,
 		ldb,
@@ -9,7 +10,8 @@ subroutine slagv2	(	a,
 		csl,
 		snl,
 		*                          csr,
-		snr )
+		snr
+)
 ```
 
  SLAGV2 computes the Generalized Schur factorization of a real 2-by-2

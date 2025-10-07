@@ -1,11 +1,13 @@
 ```fortran
-subroutine sgeql2	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sgeql2 (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SGEQL2 computes a QL factorization of a real m by n matrix A:

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhbtrd	(	vect,
+subroutine zhbtrd (
+		vect,
 		uplo,
 		n,
 		kd,
@@ -10,7 +11,8 @@ subroutine zhbtrd	(	vect,
 		q,
 		ldq,
 		*                          work,
-		info )
+		info
+)
 ```
 
  ZHBTRD reduces a complex Hermitian band matrix A to real symmetric

@@ -1,12 +1,14 @@
 ```fortran
-subroutine zhetrf	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zhetrf (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZHETRF computes the factorization of a complex Hermitian matrix A

@@ -1,12 +1,14 @@
 ```fortran
-subroutine csytri2x	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(n+nb+1,*)	work,
-		integer	nb,
-		integer	info )
+subroutine csytri2x (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(n+nb+1,*) work,
+		integer nb,
+		integer info
+)
 ```
 
  CSYTRI2X computes the inverse of a real symmetric indefinite matrix

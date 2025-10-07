@@ -1,5 +1,6 @@
 ```fortran
-subroutine zstein	(	n,
+subroutine zstein (
+		n,
 		d,
 		e,
 		m,
@@ -11,7 +12,8 @@ subroutine zstein	(	n,
 		work,
 		*                          iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  ZSTEIN computes the eigenvectors of a real symmetric tridiagonal

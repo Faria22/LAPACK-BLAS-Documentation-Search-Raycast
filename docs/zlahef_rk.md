@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlahef_rk	(	uplo,
+subroutine zlahef_rk (
+		uplo,
 		n,
 		nb,
 		kb,
@@ -9,7 +10,8 @@ subroutine zlahef_rk	(	uplo,
 		ipiv,
 		w,
 		ldw,
-		*                             info )
+		*                             info
+)
 ```
  ZLAHEF_RK computes a partial factorization of a complex Hermitian
  matrix A using the bounded Bunch-Kaufman (rook) diagonal

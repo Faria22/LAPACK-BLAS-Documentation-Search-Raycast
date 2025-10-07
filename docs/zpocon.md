@@ -1,5 +1,6 @@
 ```fortran
-subroutine zpocon	(	uplo,
+subroutine zpocon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zpocon	(	uplo,
 		rcond,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZPOCON estimates the reciprocal of the condition number (in the

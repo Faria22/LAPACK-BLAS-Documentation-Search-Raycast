@@ -1,12 +1,14 @@
 ```fortran
-subroutine sgebal	(	character	job,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	ilo,
-		integer	ihi,
-		real, dimension(*)	scale,
-		integer	info )
+subroutine sgebal (
+		character job,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer ilo,
+		integer ihi,
+		real, dimension(*) scale,
+		integer info
+)
 ```
 
  SGEBAL balances a general real matrix A.  This involves, first,

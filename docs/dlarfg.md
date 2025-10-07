@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlarfg	(	integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision	tau )
+subroutine dlarfg (
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision tau
+)
 ```
 
  DLARFG generates a real elementary reflector H of order n, such

@@ -1,15 +1,17 @@
 ```fortran
-subroutine ctrmm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine ctrmm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  CTRMM  performs one of the matrix-matrix operations

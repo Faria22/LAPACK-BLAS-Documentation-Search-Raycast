@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetri_3	(	uplo,
+subroutine zhetri_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zhetri_3	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                            info )
+		*                            info
+)
 ```
  ZHETRI_3 computes the inverse of a complex Hermitian indefinite
  matrix A using the factorization computed by ZHETRF_RK or ZHETRF_BK:

@@ -1,13 +1,15 @@
 ```fortran
-subroutine clacrm	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		complex, dimension(ldc, *)	c,
-		integer	ldc,
-		real, dimension(*)	rwork )
+subroutine clacrm (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		complex, dimension(ldc, *) c,
+		integer ldc,
+		real, dimension(*) rwork
+)
 ```
 
  CLACRM performs a very simple matrix-matrix multiplication:

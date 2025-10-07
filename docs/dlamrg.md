@@ -1,10 +1,12 @@
 ```fortran
-subroutine dlamrg	(	integer	n1,
-		integer	n2,
-		double precision, dimension(*)	a,
-		integer	dtrd1,
-		integer	dtrd2,
-		integer, dimension(*)	index )
+subroutine dlamrg (
+		integer n1,
+		integer n2,
+		double precision, dimension(*) a,
+		integer dtrd1,
+		integer dtrd2,
+		integer, dimension(*) index
+)
 ```
 
  DLAMRG will create a permutation list which will merge the elements

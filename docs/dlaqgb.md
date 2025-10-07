@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqgb	(	m,
+subroutine dlaqgb (
+		m,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine dlaqgb	(	m,
 		rowcnd,
 		colcnd,
 		*                          amax,
-		equed )
+		equed
+)
 ```
 
  DLAQGB equilibrates a general M by N band matrix A with KL

@@ -1,13 +1,15 @@
 ```fortran
-subroutine dgetrs	(	character	trans,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dgetrs (
+		character trans,
+		integer n,
+		integer nrhs,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DGETRS solves a system of linear equations

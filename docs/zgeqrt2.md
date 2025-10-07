@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgeqrt2	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine zgeqrt2 (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  ZGEQRT2 computes a QR factorization of a complex M-by-N matrix A,

@@ -1,5 +1,6 @@
 ```fortran
-subroutine chbgst	(	vect,
+subroutine chbgst (
+		vect,
 		uplo,
 		n,
 		ka,
@@ -12,7 +13,8 @@ subroutine chbgst	(	vect,
 		*                          ldx,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHBGST reduces a complex Hermitian-definite banded generalized

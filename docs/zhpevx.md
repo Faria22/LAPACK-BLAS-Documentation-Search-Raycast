@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhpevx	(	jobz,
+subroutine zhpevx (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -17,7 +18,8 @@ subroutine zhpevx	(	jobz,
 		rwork,
 		iwork,
 		*                          ifail,
-		info )
+		info
+)
 ```
 
  ZHPEVX computes selected eigenvalues and, optionally, eigenvectors

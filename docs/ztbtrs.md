@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztbtrs	(	uplo,
+subroutine ztbtrs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -9,7 +10,8 @@ subroutine ztbtrs	(	uplo,
 		ldab,
 		b,
 		*                          ldb,
-		info )
+		info
+)
 ```
 
  ZTBTRS solves a triangular system of the form

@@ -1,12 +1,14 @@
 ```fortran
-subroutine dspr2	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(*)	ap )
+subroutine dspr2 (
+		character uplo,
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) y,
+		integer incy,
+		double precision, dimension(*) ap
+)
 ```
 
  DSPR2  performs the symmetric rank 2 operation

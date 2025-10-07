@@ -1,10 +1,12 @@
 ```fortran
-subroutine dlapll	(	integer	n,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	y,
-		integer	incy,
-		double precision	ssmin )
+subroutine dlapll (
+		integer n,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) y,
+		integer incy,
+		double precision ssmin
+)
 ```
 
  Given two column vectors X and Y, let

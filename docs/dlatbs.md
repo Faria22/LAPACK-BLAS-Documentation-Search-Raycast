@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlatbs	(	uplo,
+subroutine dlatbs (
+		uplo,
 		trans,
 		diag,
 		normin,
@@ -10,7 +11,8 @@ subroutine dlatbs	(	uplo,
 		x,
 		*                          scale,
 		cnorm,
-		info )
+		info
+)
 ```
 
  DLATBS solves one of the triangular systems

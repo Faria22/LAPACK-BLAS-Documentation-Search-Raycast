@@ -1,13 +1,15 @@
 ```fortran
-subroutine dspev	(	character	jobz,
-		character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	w,
-		double precision, dimension(ldz, *)	z,
-		integer	ldz,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dspev (
+		character jobz,
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) w,
+		double precision, dimension(ldz, *) z,
+		integer ldz,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DSPEV computes all the eigenvalues and, optionally, eigenvectors of a

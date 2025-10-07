@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlabrd	(	m,
+subroutine dlabrd (
+		m,
 		n,
 		nb,
 		a,
@@ -11,7 +12,8 @@ subroutine dlabrd	(	m,
 		x,
 		ldx,
 		y,
-		*                          ldy )
+		*                          ldy
+)
 ```
 
  DLABRD reduces the first NB rows and columns of a real general

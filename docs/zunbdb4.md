@@ -1,5 +1,6 @@
 ```fortran
-subroutine zunbdb4	(	m,
+subroutine zunbdb4 (
+		m,
 		p,
 		q,
 		x11,
@@ -14,7 +15,8 @@ subroutine zunbdb4	(	m,
 		phantom,
 		work,
 		lwork,
-		*                           info )
+		*                           info
+)
 ```
 
  ZUNBDB4 simultaneously bidiagonalizes the blocks of a tall and skinny

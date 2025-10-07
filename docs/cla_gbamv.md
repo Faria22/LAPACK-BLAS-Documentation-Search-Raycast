@@ -1,5 +1,6 @@
 ```fortran
-subroutine cla_gbamv	(	trans,
+subroutine cla_gbamv (
+		trans,
 		m,
 		n,
 		kl,
@@ -11,7 +12,8 @@ subroutine cla_gbamv	(	trans,
 		*                             incx,
 		beta,
 		y,
-		incy )
+		incy
+)
 ```
 
  CLA_GBAMV  performs one of the matrix-vector operations

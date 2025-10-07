@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlatrz	(	integer	m,
-		integer	n,
-		integer	l,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work )
+subroutine zlatrz (
+		integer m,
+		integer n,
+		integer l,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work
+)
 ```
 
  ZLATRZ factors the M-by-(M+L) complex upper trapezoidal matrix

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgemlqt	(	side,
+subroutine cgemlqt (
+		side,
 		trans,
 		m,
 		n,
@@ -12,7 +13,8 @@ subroutine cgemlqt	(	side,
 		*                          c,
 		ldc,
 		work,
-		info )
+		info
+)
 ```
 
  CGEMLQT overwrites the general complex M-by-N matrix C with

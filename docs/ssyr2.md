@@ -1,13 +1,15 @@
 ```fortran
-subroutine ssyr2	(	character	uplo,
-		integer	n,
-		real	alpha,
-		real, dimension(*)	x,
-		integer	incx,
-		real, dimension(*)	y,
-		integer	incy,
-		real, dimension(lda,*)	a,
-		integer	lda )
+subroutine ssyr2 (
+		character uplo,
+		integer n,
+		real alpha,
+		real, dimension(*) x,
+		integer incx,
+		real, dimension(*) y,
+		integer incy,
+		real, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  SSYR2  performs the symmetric rank 2 operation

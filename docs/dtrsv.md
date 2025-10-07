@@ -1,12 +1,14 @@
 ```fortran
-subroutine dtrsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx )
+subroutine dtrsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx
+)
 ```
 
  DTRSV  solves one of the systems of equations

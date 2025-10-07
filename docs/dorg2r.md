@@ -1,12 +1,14 @@
 ```fortran
-subroutine dorg2r	(	integer	m,
-		integer	n,
-		integer	k,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dorg2r (
+		integer m,
+		integer n,
+		integer k,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DORG2R generates an m by n real matrix Q with orthonormal columns,

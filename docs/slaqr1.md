@@ -1,12 +1,14 @@
 ```fortran
-subroutine slaqr1	(	integer	n,
-		real, dimension(ldh, *)	h,
-		integer	ldh,
-		real	sr1,
-		real	si1,
-		real	sr2,
-		real	si2,
-		real, dimension(*)	v )
+subroutine slaqr1 (
+		integer n,
+		real, dimension(ldh, *) h,
+		integer ldh,
+		real sr1,
+		real si1,
+		real sr2,
+		real si2,
+		real, dimension(*) v
+)
 ```
 
       Given a 2-by-2 or 3-by-3 matrix H, SLAQR1 sets v to a

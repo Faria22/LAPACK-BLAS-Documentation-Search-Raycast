@@ -1,7 +1,9 @@
 ```fortran
-subroutine dlaruv	(	integer, dimension(4)	iseed,
-		integer	n,
-		double precision, dimension(n)	x )
+subroutine dlaruv (
+		integer, dimension(4) iseed,
+		integer n,
+		double precision, dimension(n) x
+)
 ```
 
  DLARUV returns a vector of n random real numbers from a uniform (0,1)

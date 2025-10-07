@@ -1,5 +1,6 @@
 ```fortran
-subroutine cbdsqr	(	uplo,
+subroutine cbdsqr (
+		uplo,
 		n,
 		ncvt,
 		nru,
@@ -13,7 +14,8 @@ subroutine cbdsqr	(	uplo,
 		c,
 		ldc,
 		rwork,
-		info )
+		info
+)
 ```
 
  CBDSQR computes the singular values and, optionally, the right and/or

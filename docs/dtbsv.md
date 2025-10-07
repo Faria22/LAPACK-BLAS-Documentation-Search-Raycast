@@ -1,13 +1,15 @@
 ```fortran
-subroutine dtbsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx )
+subroutine dtbsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx
+)
 ```
 
  DTBSV  solves one of the systems of equations

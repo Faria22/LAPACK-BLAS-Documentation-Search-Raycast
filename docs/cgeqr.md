@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgeqr	(	m,
+subroutine cgeqr (
+		m,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine cgeqr	(	m,
 		tsize,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  CGEQR computes a QR factorization of a complex M-by-N matrix A:

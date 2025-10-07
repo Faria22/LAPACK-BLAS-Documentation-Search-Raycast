@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssbevd_2stage	(	jobz,
+subroutine ssbevd_2stage (
+		jobz,
 		uplo,
 		n,
 		kd,
@@ -12,7 +13,8 @@ subroutine ssbevd_2stage	(	jobz,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  SSBEVD_2STAGE computes all the eigenvalues and, optionally, eigenvectors of

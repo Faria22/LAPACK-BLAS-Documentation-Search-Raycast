@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssycon	(	uplo,
+subroutine ssycon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine ssycon	(	uplo,
 		rcond,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  SSYCON estimates the reciprocal of the condition number (in the

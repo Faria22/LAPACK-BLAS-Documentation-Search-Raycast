@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgghrd	(	compq,
+subroutine dgghrd (
+		compq,
 		compz,
 		n,
 		ilo,
@@ -12,7 +13,8 @@ subroutine dgghrd	(	compq,
 		*                          ldq,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
  DGGHRD reduces a pair of real matrices (A,B) to generalized upper

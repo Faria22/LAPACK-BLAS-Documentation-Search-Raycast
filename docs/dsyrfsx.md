@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsyrfsx	(	uplo,
+subroutine dsyrfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -22,7 +23,8 @@ subroutine dsyrfsx	(	uplo,
 		params,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
     DSYRFSX improves the computed solution to a system of linear

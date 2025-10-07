@@ -1,12 +1,14 @@
 ```fortran
-subroutine slarfx	(	character	side,
-		integer	m,
-		integer	n,
-		real, dimension(*)	v,
-		real	tau,
-		real, dimension(ldc, *)	c,
-		integer	ldc,
-		real, dimension(*)	work )
+subroutine slarfx (
+		character side,
+		integer m,
+		integer n,
+		real, dimension(*) v,
+		real tau,
+		real, dimension(ldc, *) c,
+		integer ldc,
+		real, dimension(*) work
+)
 ```
 
  SLARFX applies a real elementary reflector H to a real m by n

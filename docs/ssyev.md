@@ -1,13 +1,15 @@
 ```fortran
-subroutine ssyev	(	character	jobz,
-		character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	w,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine ssyev (
+		character jobz,
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) w,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SSYEV computes all eigenvalues and, optionally, eigenvectors of a

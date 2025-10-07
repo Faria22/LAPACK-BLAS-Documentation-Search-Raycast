@@ -1,12 +1,14 @@
 ```fortran
-subroutine zsteqr	(	character	compz,
-		integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		complex*16, dimension(ldz, *)	z,
-		integer	ldz,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine zsteqr (
+		character compz,
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		complex*16, dimension(ldz, *) z,
+		integer ldz,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  ZSTEQR computes all eigenvalues and, optionally, eigenvectors of a

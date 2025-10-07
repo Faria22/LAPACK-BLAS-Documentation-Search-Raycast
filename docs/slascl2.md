@@ -1,9 +1,11 @@
 ```fortran
-subroutine slascl2	(	integer	m,
-		integer	n,
-		real, dimension(*)	d,
-		real, dimension(ldx, *)	x,
-		integer	ldx )
+subroutine slascl2 (
+		integer m,
+		integer n,
+		real, dimension(*) d,
+		real, dimension(ldx, *) x,
+		integer ldx
+)
 ```
 
  SLASCL2 performs a diagonal scaling on a matrix:

@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlarfx	(	character	side,
-		integer	m,
-		integer	n,
-		double precision, dimension(*)	v,
-		double precision	tau,
-		double precision, dimension(ldc, *)	c,
-		integer	ldc,
-		double precision, dimension(*)	work )
+subroutine dlarfx (
+		character side,
+		integer m,
+		integer n,
+		double precision, dimension(*) v,
+		double precision tau,
+		double precision, dimension(ldc, *) c,
+		integer ldc,
+		double precision, dimension(*) work
+)
 ```
 
  DLARFX applies a real elementary reflector H to a real m by n

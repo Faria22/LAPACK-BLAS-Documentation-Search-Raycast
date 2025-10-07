@@ -1,12 +1,14 @@
 ```fortran
-subroutine dpotrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dpotrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DPOTRS solves a system of linear equations A*X = B with a symmetric

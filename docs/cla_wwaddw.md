@@ -1,8 +1,10 @@
 ```fortran
-subroutine cla_wwaddw	(	integer	n,
-		complex, dimension(*)	x,
-		complex, dimension(*)	y,
-		complex, dimension(*)	w )
+subroutine cla_wwaddw (
+		integer n,
+		complex, dimension(*) x,
+		complex, dimension(*) y,
+		complex, dimension(*) w
+)
 ```
 
     CLA_WWADDW adds a vector W into a doubled-single vector (X, Y).

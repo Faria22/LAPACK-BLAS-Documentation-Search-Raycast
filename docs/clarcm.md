@@ -1,13 +1,15 @@
 ```fortran
-subroutine clarcm	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		complex, dimension(ldc, *)	c,
-		integer	ldc,
-		real, dimension(*)	rwork )
+subroutine clarcm (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		complex, dimension(ldc, *) c,
+		integer ldc,
+		real, dimension(*) rwork
+)
 ```
 
  CLARCM performs a very simple matrix-matrix multiplication:

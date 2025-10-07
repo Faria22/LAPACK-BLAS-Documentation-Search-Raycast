@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgebrd	(	m,
+subroutine zgebrd (
+		m,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine zgebrd	(	m,
 		taup,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZGEBRD reduces a general complex M-by-N matrix A to upper or lower

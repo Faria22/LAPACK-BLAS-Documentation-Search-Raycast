@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctgsen	(	ijob,
+subroutine ctgsen (
+		ijob,
 		wantq,
 		wantz,
 		select,
@@ -22,7 +23,8 @@ subroutine ctgsen	(	ijob,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CTGSEN reorders the generalized Schur decomposition of a complex

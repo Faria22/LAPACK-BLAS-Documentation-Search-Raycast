@@ -1,11 +1,13 @@
 ```fortran
-subroutine dpttrs	(	integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dpttrs (
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DPTTRS solves a tridiagonal system of the form

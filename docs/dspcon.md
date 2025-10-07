@@ -1,5 +1,6 @@
 ```fortran
-subroutine dspcon	(	uplo,
+subroutine dspcon (
+		uplo,
 		n,
 		ap,
 		ipiv,
@@ -7,7 +8,8 @@ subroutine dspcon	(	uplo,
 		rcond,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DSPCON estimates the reciprocal of the condition number (in the

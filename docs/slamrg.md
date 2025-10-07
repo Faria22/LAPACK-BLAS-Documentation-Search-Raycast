@@ -1,10 +1,12 @@
 ```fortran
-subroutine slamrg	(	integer	n1,
-		integer	n2,
-		real, dimension(*)	a,
-		integer	strd1,
-		integer	strd2,
-		integer, dimension(*)	index )
+subroutine slamrg (
+		integer n1,
+		integer n2,
+		real, dimension(*) a,
+		integer strd1,
+		integer strd2,
+		integer, dimension(*) index
+)
 ```
 
  SLAMRG will create a permutation list which will merge the elements

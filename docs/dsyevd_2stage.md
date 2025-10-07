@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsyevd_2stage	(	jobz,
+subroutine dsyevd_2stage (
+		jobz,
 		uplo,
 		n,
 		a,
@@ -9,7 +10,8 @@ subroutine dsyevd_2stage	(	jobz,
 		lwork,
 		*                                iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DSYEVD_2STAGE computes all eigenvalues and, optionally, eigenvectors of a

@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlasq1	(	integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dlasq1 (
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DLASQ1 computes the singular values of a real N-by-N bidiagonal

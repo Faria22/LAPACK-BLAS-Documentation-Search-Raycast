@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrd_he2hb	(	uplo,
+subroutine zhetrd_he2hb (
+		uplo,
 		n,
 		kd,
 		a,
@@ -9,7 +10,8 @@ subroutine zhetrd_he2hb	(	uplo,
 		tau,
 		*                              work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZHETRD_HE2HB reduces a complex Hermitian matrix A to complex Hermitian

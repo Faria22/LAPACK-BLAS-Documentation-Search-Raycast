@@ -1,10 +1,12 @@
 ```fortran
-subroutine zlapmt	(	logical	forwrd,
-		integer	m,
-		integer	n,
-		complex*16, dimension(ldx, *)	x,
-		integer	ldx,
-		integer, dimension(*)	k )
+subroutine zlapmt (
+		logical forwrd,
+		integer m,
+		integer n,
+		complex*16, dimension(ldx, *) x,
+		integer ldx,
+		integer, dimension(*) k
+)
 ```
 
  ZLAPMT rearranges the columns of the M by N matrix X as specified

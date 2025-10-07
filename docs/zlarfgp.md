@@ -1,9 +1,11 @@
 ```fortran
-subroutine zlarfgp	(	integer	n,
-		complex*16	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16	tau )
+subroutine zlarfgp (
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16 tau
+)
 ```
 
  ZLARFGP generates a complex elementary reflector H of order n, such

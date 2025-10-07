@@ -1,5 +1,6 @@
 ```fortran
-subroutine zheev	(	jobz,
+subroutine zheev (
+		jobz,
 		uplo,
 		n,
 		a,
@@ -8,7 +9,8 @@ subroutine zheev	(	jobz,
 		work,
 		lwork,
 		rwork,
-		*                         info )
+		*                         info
+)
 ```
 
  ZHEEV computes all eigenvalues and, optionally, eigenvectors of a

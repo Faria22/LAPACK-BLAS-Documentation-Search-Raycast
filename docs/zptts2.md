@@ -1,11 +1,13 @@
 ```fortran
-subroutine zptts2	(	integer	iuplo,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	d,
-		complex*16, dimension(*)	e,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine zptts2 (
+		integer iuplo,
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) d,
+		complex*16, dimension(*) e,
+		complex*16, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  ZPTTS2 solves a tridiagonal system of the form

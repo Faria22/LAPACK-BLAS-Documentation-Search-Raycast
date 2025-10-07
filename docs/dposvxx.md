@@ -1,5 +1,6 @@
 ```fortran
-subroutine dposvxx	(	fact,
+subroutine dposvxx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -23,7 +24,8 @@ subroutine dposvxx	(	fact,
 		params,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
     DPOSVXX uses the Cholesky factorization A = U**T*U or A = L*L**T

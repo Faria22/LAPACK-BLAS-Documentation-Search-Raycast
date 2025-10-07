@@ -1,11 +1,13 @@
 ```fortran
-subroutine slaev2	(	real	a,
-		real	b,
-		real	c,
-		real	rt1,
-		real	rt2,
-		real	cs1,
-		real	sn1 )
+subroutine slaev2 (
+		real a,
+		real b,
+		real c,
+		real rt1,
+		real rt2,
+		real cs1,
+		real sn1
+)
 ```
 
  SLAEV2 computes the eigendecomposition of a 2-by-2 symmetric matrix

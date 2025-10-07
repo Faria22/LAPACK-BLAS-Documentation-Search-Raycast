@@ -1,9 +1,11 @@
 ```fortran
-subroutine clarscl2	(	integer	m,
-		integer	n,
-		real, dimension(*)	d,
-		complex, dimension(ldx, *)	x,
-		integer	ldx )
+subroutine clarscl2 (
+		integer m,
+		integer n,
+		real, dimension(*) d,
+		complex, dimension(ldx, *) x,
+		integer ldx
+)
 ```
 
  CLARSCL2 performs a reciprocal diagonal scaling on a matrix:

@@ -1,14 +1,16 @@
 ```fortran
-subroutine sorgbr	(	character	vect,
-		integer	m,
-		integer	n,
-		integer	k,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sorgbr (
+		character vect,
+		integer m,
+		integer n,
+		integer k,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SORGBR generates one of the real orthogonal matrices Q or P**T

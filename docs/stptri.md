@@ -1,9 +1,11 @@
 ```fortran
-subroutine stptri	(	character	uplo,
-		character	diag,
-		integer	n,
-		real, dimension(*)	ap,
-		integer	info )
+subroutine stptri (
+		character uplo,
+		character diag,
+		integer n,
+		real, dimension(*) ap,
+		integer info
+)
 ```
 
  STPTRI computes the inverse of a real upper or lower triangular

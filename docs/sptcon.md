@@ -1,11 +1,13 @@
 ```fortran
-subroutine sptcon	(	integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real	anorm,
-		real	rcond,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sptcon (
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real anorm,
+		real rcond,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SPTCON computes the reciprocal of the condition number (in the

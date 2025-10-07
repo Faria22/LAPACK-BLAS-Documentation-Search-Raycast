@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgttrf	(	integer	n,
-		complex*16, dimension(*)	dl,
-		complex*16, dimension(*)	d,
-		complex*16, dimension(*)	du,
-		complex*16, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zgttrf (
+		integer n,
+		complex*16, dimension(*) dl,
+		complex*16, dimension(*) d,
+		complex*16, dimension(*) du,
+		complex*16, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  ZGTTRF computes an LU factorization of a complex tridiagonal matrix A

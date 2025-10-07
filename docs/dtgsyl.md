@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgsyl	(	trans,
+subroutine dtgsyl (
+		trans,
 		ijob,
 		m,
 		n,
@@ -20,7 +21,8 @@ subroutine dtgsyl	(	trans,
 		work,
 		lwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DTGSYL solves the generalized Sylvester equation:

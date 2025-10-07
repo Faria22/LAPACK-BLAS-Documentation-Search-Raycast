@@ -1,13 +1,15 @@
 ```fortran
-subroutine ztrexc	(	character	compq,
-		integer	n,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt,
-		complex*16, dimension(ldq, *)	q,
-		integer	ldq,
-		integer	ifst,
-		integer	ilst,
-		integer	info )
+subroutine ztrexc (
+		character compq,
+		integer n,
+		complex*16, dimension(ldt, *) t,
+		integer ldt,
+		complex*16, dimension(ldq, *) q,
+		integer ldq,
+		integer ifst,
+		integer ilst,
+		integer info
+)
 ```
 
  ZTREXC reorders the Schur factorization of a complex matrix

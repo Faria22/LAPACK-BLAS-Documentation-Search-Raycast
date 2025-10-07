@@ -1,14 +1,16 @@
 ```fortran
-subroutine clarz	(	character	side,
-		integer	m,
-		integer	n,
-		integer	l,
-		complex, dimension(*)	v,
-		integer	incv,
-		complex	tau,
-		complex, dimension(ldc, *)	c,
-		integer	ldc,
-		complex, dimension(*)	work )
+subroutine clarz (
+		character side,
+		integer m,
+		integer n,
+		integer l,
+		complex, dimension(*) v,
+		integer incv,
+		complex tau,
+		complex, dimension(ldc, *) c,
+		integer ldc,
+		complex, dimension(*) work
+)
 ```
 
  CLARZ applies a complex elementary reflector H to a complex

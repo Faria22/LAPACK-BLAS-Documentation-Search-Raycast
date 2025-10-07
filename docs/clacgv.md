@@ -1,7 +1,9 @@
 ```fortran
-subroutine clacgv	(	integer	n,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine clacgv (
+		integer n,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CLACGV conjugates a complex vector of length N.

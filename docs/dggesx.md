@@ -1,5 +1,6 @@
 ```fortran
-subroutine dggesx	(	jobvsl,
+subroutine dggesx (
+		jobvsl,
 		jobvsr,
 		sort,
 		selctg,
@@ -24,7 +25,8 @@ subroutine dggesx	(	jobvsl,
 		iwork,
 		*                          liwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  DGGESX computes for a pair of N-by-N real nonsymmetric matrices

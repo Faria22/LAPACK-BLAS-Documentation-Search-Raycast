@@ -1,8 +1,10 @@
 ```fortran
-subroutine zscal	(	integer	n,
-		complex*16	za,
-		complex*16, dimension(*)	zx,
-		integer	incx )
+subroutine zscal (
+		integer n,
+		complex*16 za,
+		complex*16, dimension(*) zx,
+		integer incx
+)
 ```
 
     ZSCAL scales a vector by a constant.

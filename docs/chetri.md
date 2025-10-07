@@ -1,11 +1,13 @@
 ```fortran
-subroutine chetri	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine chetri (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CHETRI computes the inverse of a complex Hermitian indefinite matrix

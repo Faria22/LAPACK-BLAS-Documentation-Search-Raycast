@@ -1,12 +1,14 @@
 ```fortran
-subroutine ctrsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine ctrsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CTRSV  solves one of the systems of equations

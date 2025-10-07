@@ -1,13 +1,15 @@
 ```fortran
-subroutine cspmv	(	character	uplo,
-		integer	n,
-		complex	alpha,
-		complex, dimension(*)	ap,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex	beta,
-		complex, dimension(*)	y,
-		integer	incy )
+subroutine cspmv (
+		character uplo,
+		integer n,
+		complex alpha,
+		complex, dimension(*) ap,
+		complex, dimension(*) x,
+		integer incx,
+		complex beta,
+		complex, dimension(*) y,
+		integer incy
+)
 ```
 
  CSPMV  performs the matrix-vector operation

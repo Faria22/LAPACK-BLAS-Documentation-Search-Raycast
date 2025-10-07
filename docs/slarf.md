@@ -1,13 +1,15 @@
 ```fortran
-subroutine slarf	(	character	side,
-		integer	m,
-		integer	n,
-		real, dimension(*)	v,
-		integer	incv,
-		real	tau,
-		real, dimension(ldc, *)	c,
-		integer	ldc,
-		real, dimension(*)	work )
+subroutine slarf (
+		character side,
+		integer m,
+		integer n,
+		real, dimension(*) v,
+		integer incv,
+		real tau,
+		real, dimension(ldc, *) c,
+		integer ldc,
+		real, dimension(*) work
+)
 ```
 
  SLARF applies a real elementary reflector H to a real m by n matrix

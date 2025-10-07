@@ -1,13 +1,15 @@
 ```fortran
-subroutine sgelqt	(	integer	m,
-		integer	n,
-		integer	mb,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldt, *)	t,
-		integer	ldt,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sgelqt (
+		integer m,
+		integer n,
+		integer mb,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldt, *) t,
+		integer ldt,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SGELQT computes a blocked LQ factorization of a real M-by-N matrix A

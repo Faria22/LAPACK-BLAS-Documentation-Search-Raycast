@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlat2s	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldsa, *)	sa,
-		integer	ldsa,
-		integer	info )
+subroutine dlat2s (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldsa, *) sa,
+		integer ldsa,
+		integer info
+)
 ```
 
  DLAT2S converts a DOUBLE PRECISION triangular matrix, SA, to a SINGLE

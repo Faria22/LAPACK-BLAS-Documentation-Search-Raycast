@@ -1,13 +1,15 @@
 ```fortran
-subroutine ssytrs_rook	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ssytrs_rook (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SSYTRS_ROOK solves a system of linear equations A*X = B with

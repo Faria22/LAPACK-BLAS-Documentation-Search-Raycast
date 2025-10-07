@@ -1,5 +1,6 @@
 ```fortran
-subroutine chsein	(	side,
+subroutine chsein (
+		side,
 		eigsrc,
 		initv,
 		select,
@@ -17,7 +18,8 @@ subroutine chsein	(	side,
 		rwork,
 		ifaill,
 		*                          ifailr,
-		info )
+		info
+)
 ```
 
  CHSEIN uses inverse iteration to find specified right and/or left

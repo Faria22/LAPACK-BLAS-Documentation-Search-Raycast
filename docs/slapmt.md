@@ -1,10 +1,12 @@
 ```fortran
-subroutine slapmt	(	logical	forwrd,
-		integer	m,
-		integer	n,
-		real, dimension(ldx, *)	x,
-		integer	ldx,
-		integer, dimension(*)	k )
+subroutine slapmt (
+		logical forwrd,
+		integer m,
+		integer n,
+		real, dimension(ldx, *) x,
+		integer ldx,
+		integer, dimension(*) k
+)
 ```
 
  SLAPMT rearranges the columns of the M by N matrix X as specified

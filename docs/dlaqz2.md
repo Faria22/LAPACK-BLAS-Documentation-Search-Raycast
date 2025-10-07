@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqz2	(	ilq,
+subroutine dlaqz2 (
+		ilq,
 		ilz,
 		k,
 		istartm,
@@ -16,7 +17,8 @@ subroutine dlaqz2	(	ilq,
 		nz,
 		zstart,
 		z,
-		ldz )
+		ldz
+)
 ```
 
       DLAQZ2 chases a 2x2 shift bulge in a matrix pencil down a single position

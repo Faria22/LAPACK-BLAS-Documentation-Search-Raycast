@@ -1,14 +1,16 @@
 ```fortran
-subroutine zherk	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		double precision	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		double precision	beta,
-		complex*16, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine zherk (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		double precision alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		double precision beta,
+		complex*16, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  ZHERK  performs one of the hermitian rank k operations

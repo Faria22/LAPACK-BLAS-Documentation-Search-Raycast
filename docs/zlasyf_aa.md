@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlasyf_aa	(	uplo,
+subroutine zlasyf_aa (
+		uplo,
 		j1,
 		m,
 		nb,
@@ -8,7 +9,8 @@ subroutine zlasyf_aa	(	uplo,
 		ipiv,
 		*                             h,
 		ldh,
-		work )
+		work
+)
 ```
 
  DLATRF_AA factorizes a panel of a complex symmetric matrix A using

@@ -1,13 +1,15 @@
 ```fortran
-subroutine cpbsv	(	character	uplo,
-		integer	n,
-		integer	kd,
-		integer	nrhs,
-		complex, dimension(ldab, *)	ab,
-		integer	ldab,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cpbsv (
+		character uplo,
+		integer n,
+		integer kd,
+		integer nrhs,
+		complex, dimension(ldab, *) ab,
+		integer ldab,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPBSV computes the solution to a complex system of linear equations

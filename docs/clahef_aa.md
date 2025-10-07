@@ -1,5 +1,6 @@
 ```fortran
-subroutine clahef_aa	(	uplo,
+subroutine clahef_aa (
+		uplo,
 		j1,
 		m,
 		nb,
@@ -8,7 +9,8 @@ subroutine clahef_aa	(	uplo,
 		ipiv,
 		*                             h,
 		ldh,
-		work )
+		work
+)
 ```
 
  CLAHEF_AA factorizes a panel of a complex hermitian matrix A using

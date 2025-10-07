@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlals0	(	icompq,
+subroutine dlals0 (
+		icompq,
 		nl,
 		nr,
 		sqre,
@@ -22,7 +23,8 @@ subroutine dlals0	(	icompq,
 		c,
 		s,
 		work,
-		info )
+		info
+)
 ```
 
  DLALS0 applies back the multiplying factors of either the left or the

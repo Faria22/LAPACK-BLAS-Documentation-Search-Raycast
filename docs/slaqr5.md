@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaqr5	(	wantt,
+subroutine slaqr5 (
+		wantt,
 		wantz,
 		kacc22,
 		n,
@@ -23,7 +24,8 @@ subroutine slaqr5	(	wantt,
 		ldwv,
 		nh,
 		wh,
-		ldwh )
+		ldwh
+)
 ```
 
     SLAQR5, called by SLAQR0, performs a

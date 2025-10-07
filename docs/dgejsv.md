@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgejsv	(	joba,
+subroutine dgejsv (
+		joba,
 		jobu,
 		jobv,
 		jobr,
@@ -17,7 +18,8 @@ subroutine dgejsv	(	joba,
 		*                          work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  DGEJSV computes the singular value decomposition (SVD) of a real M-by-N

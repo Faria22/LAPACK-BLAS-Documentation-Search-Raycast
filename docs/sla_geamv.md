@@ -1,5 +1,6 @@
 ```fortran
-subroutine sla_geamv	(	trans,
+subroutine sla_geamv (
+		trans,
 		m,
 		n,
 		alpha,
@@ -9,7 +10,8 @@ subroutine sla_geamv	(	trans,
 		incx,
 		beta,
 		*                             y,
-		incy )
+		incy
+)
 ```
 
  SLA_GEAMV  performs one of the matrix-vector operations

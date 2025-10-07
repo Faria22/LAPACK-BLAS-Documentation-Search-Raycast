@@ -1,10 +1,12 @@
 ```fortran
-subroutine dtfttp	(	character	transr,
-		character	uplo,
-		integer	n,
-		double precision, dimension(0: *)	arf,
-		double precision, dimension(0: *)	ap,
-		integer	info )
+subroutine dtfttp (
+		character transr,
+		character uplo,
+		integer n,
+		double precision, dimension(0: *) arf,
+		double precision, dimension(0: *) ap,
+		integer info
+)
 ```
 
  DTFTTP copies a triangular matrix A from rectangular full packed

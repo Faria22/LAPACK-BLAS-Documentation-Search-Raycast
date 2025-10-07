@@ -1,5 +1,6 @@
 ```fortran
-subroutine dstegr	(	jobz,
+subroutine dstegr (
+		jobz,
 		range,
 		n,
 		d,
@@ -18,7 +19,8 @@ subroutine dstegr	(	jobz,
 		lwork,
 		iwork,
 		*                  liwork,
-		info )
+		info
+)
 ```
 
  DSTEGR computes selected eigenvalues and, optionally, eigenvectors

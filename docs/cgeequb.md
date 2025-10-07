@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgeequb	(	m,
+subroutine cgeequb (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine cgeequb	(	m,
 		rowcnd,
 		colcnd,
 		amax,
-		*                           info )
+		*                           info
+)
 ```
 
  CGEEQUB computes row and column scalings intended to equilibrate an

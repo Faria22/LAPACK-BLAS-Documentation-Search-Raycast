@@ -1,10 +1,12 @@
 ```fortran
-subroutine ztftri	(	character	transr,
-		character	uplo,
-		character	diag,
-		integer	n,
-		complex*16, dimension(0: *)	a,
-		integer	info )
+subroutine ztftri (
+		character transr,
+		character uplo,
+		character diag,
+		integer n,
+		complex*16, dimension(0: *) a,
+		integer info
+)
 ```
 
  ZTFTRI computes the inverse of a triangular matrix A stored in RFP

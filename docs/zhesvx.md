@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhesvx	(	fact,
+subroutine zhesvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -18,7 +19,8 @@ subroutine zhesvx	(	fact,
 		work,
 		lwork,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  ZHESVX uses the diagonal pivoting factorization to compute the

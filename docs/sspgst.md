@@ -1,10 +1,12 @@
 ```fortran
-subroutine sspgst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	bp,
-		integer	info )
+subroutine sspgst (
+		integer itype,
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) bp,
+		integer info
+)
 ```
 
  SSPGST reduces a real symmetric-definite generalized eigenproblem

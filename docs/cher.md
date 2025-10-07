@@ -1,11 +1,13 @@
 ```fortran
-subroutine cher	(	character	uplo,
-		integer	n,
-		real	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(lda,*)	a,
-		integer	lda )
+subroutine cher (
+		character uplo,
+		integer n,
+		real alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  CHER   performs the hermitian rank 1 operation

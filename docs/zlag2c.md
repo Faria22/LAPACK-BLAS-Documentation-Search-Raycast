@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlag2c	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldsa, *)	sa,
-		integer	ldsa,
-		integer	info )
+subroutine zlag2c (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldsa, *) sa,
+		integer ldsa,
+		integer info
+)
 ```
 
  ZLAG2C converts a COMPLEX*16 matrix, SA, to a COMPLEX matrix, A.

@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlaqr1	(	integer	n,
-		double precision, dimension(ldh, *)	h,
-		integer	ldh,
-		double precision	sr1,
-		double precision	si1,
-		double precision	sr2,
-		double precision	si2,
-		double precision, dimension(*)	v )
+subroutine dlaqr1 (
+		integer n,
+		double precision, dimension(ldh, *) h,
+		integer ldh,
+		double precision sr1,
+		double precision si1,
+		double precision sr2,
+		double precision si2,
+		double precision, dimension(*) v
+)
 ```
 
       Given a 2-by-2 or 3-by-3 matrix H, DLAQR1 sets v to a

@@ -1,10 +1,12 @@
 ```fortran
-subroutine slaed5	(	integer	i,
-		real, dimension(2)	d,
-		real, dimension(2)	z,
-		real, dimension(2)	delta,
-		real	rho,
-		real	dlam )
+subroutine slaed5 (
+		integer i,
+		real, dimension(2) d,
+		real, dimension(2) z,
+		real, dimension(2) delta,
+		real rho,
+		real dlam
+)
 ```
 
  This subroutine computes the I-th eigenvalue of a symmetric rank-one

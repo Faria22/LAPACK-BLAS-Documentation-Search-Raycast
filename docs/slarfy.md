@@ -1,12 +1,14 @@
 ```fortran
-subroutine slarfy	(	character	uplo,
-		integer	n,
-		real, dimension(*)	v,
-		integer	incv,
-		real	tau,
-		real, dimension(ldc, *)	c,
-		integer	ldc,
-		real, dimension(*)	work )
+subroutine slarfy (
+		character uplo,
+		integer n,
+		real, dimension(*) v,
+		integer incv,
+		real tau,
+		real, dimension(ldc, *) c,
+		integer ldc,
+		real, dimension(*) work
+)
 ```
 
  SLARFY applies an elementary reflector, or Householder matrix, H,

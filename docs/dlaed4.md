@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlaed4	(	integer	n,
-		integer	i,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	z,
-		double precision, dimension(*)	delta,
-		double precision	rho,
-		double precision	dlam,
-		integer	info )
+subroutine dlaed4 (
+		integer n,
+		integer i,
+		double precision, dimension(*) d,
+		double precision, dimension(*) z,
+		double precision, dimension(*) delta,
+		double precision rho,
+		double precision dlam,
+		integer info
+)
 ```
 
  This subroutine computes the I-th updated eigenvalue of a symmetric

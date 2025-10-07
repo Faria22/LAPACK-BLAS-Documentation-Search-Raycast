@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasy2	(	ltranl,
+subroutine slasy2 (
+		ltranl,
 		ltranr,
 		isgn,
 		n1,
@@ -14,7 +15,8 @@ subroutine slasy2	(	ltranl,
 		x,
 		ldx,
 		xnorm,
-		info )
+		info
+)
 ```
 
  SLASY2 solves for the N1 by N2 matrix X, 1 <= N1,N2 <= 2, in

@@ -1,12 +1,14 @@
 ```fortran
-subroutine sgesv	(	integer	n,
-		integer	nrhs,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sgesv (
+		integer n,
+		integer nrhs,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SGESV computes the solution to a real system of linear equations

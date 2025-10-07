@@ -1,5 +1,6 @@
 ```fortran
-subroutine cstein	(	n,
+subroutine cstein (
+		n,
 		d,
 		e,
 		m,
@@ -11,7 +12,8 @@ subroutine cstein	(	n,
 		work,
 		*                          iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  CSTEIN computes the eigenvectors of a real symmetric tridiagonal

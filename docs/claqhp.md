@@ -1,11 +1,13 @@
 ```fortran
-subroutine claqhp	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine claqhp (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  CLAQHP equilibrates a Hermitian matrix A using the scaling factors

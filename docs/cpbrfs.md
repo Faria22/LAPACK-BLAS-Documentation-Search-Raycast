@@ -1,5 +1,6 @@
 ```fortran
-subroutine cpbrfs	(	uplo,
+subroutine cpbrfs (
+		uplo,
 		n,
 		kd,
 		nrhs,
@@ -15,7 +16,8 @@ subroutine cpbrfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CPBRFS improves the computed solution to a system of linear

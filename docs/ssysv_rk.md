@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssysv_rk	(	uplo,
+subroutine ssysv_rk (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -10,7 +11,8 @@ subroutine ssysv_rk	(	uplo,
 		ldb,
 		*                            work,
 		lwork,
-		info )
+		info
+)
 ```
  SSYSV_RK computes the solution to a real system of linear
  equations A * X = B, where A is an N-by-N symmetric matrix

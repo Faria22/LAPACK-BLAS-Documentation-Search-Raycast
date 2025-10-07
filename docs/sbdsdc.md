@@ -1,5 +1,6 @@
 ```fortran
-subroutine sbdsdc	(	uplo,
+subroutine sbdsdc (
+		uplo,
 		compq,
 		n,
 		d,
@@ -12,7 +13,8 @@ subroutine sbdsdc	(	uplo,
 		iq,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SBDSDC computes the singular value decomposition (SVD) of a real

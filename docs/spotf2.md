@@ -1,9 +1,11 @@
 ```fortran
-subroutine spotf2	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine spotf2 (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  SPOTF2 computes the Cholesky factorization of a real symmetric

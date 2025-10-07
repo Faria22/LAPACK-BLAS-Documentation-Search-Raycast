@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctgevc	(	side,
+subroutine ctgevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -15,7 +16,8 @@ subroutine ctgevc	(	side,
 		m,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CTGEVC computes some or all of the right and/or left eigenvectors of

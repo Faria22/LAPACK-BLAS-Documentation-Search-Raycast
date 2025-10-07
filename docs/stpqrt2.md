@@ -1,14 +1,16 @@
 ```fortran
-subroutine stpqrt2	(	integer	m,
-		integer	n,
-		integer	l,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		real, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine stpqrt2 (
+		integer m,
+		integer n,
+		integer l,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		real, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  STPQRT2 computes a QR factorization of a real "triangular-pentagonal"

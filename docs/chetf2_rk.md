@@ -1,11 +1,13 @@
 ```fortran
-subroutine chetf2_rk	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine chetf2_rk (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  CHETF2_RK computes the factorization of a complex Hermitian matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

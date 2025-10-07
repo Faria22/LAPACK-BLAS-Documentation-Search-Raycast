@@ -1,12 +1,14 @@
 ```fortran
-subroutine dpftrs	(	character	transr,
-		character	uplo,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(0: *)	a,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dpftrs (
+		character transr,
+		character uplo,
+		integer n,
+		integer nrhs,
+		double precision, dimension(0: *) a,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DPFTRS solves a system of linear equations A*X = B with a symmetric

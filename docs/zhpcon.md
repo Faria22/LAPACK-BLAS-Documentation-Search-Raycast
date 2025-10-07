@@ -1,12 +1,14 @@
 ```fortran
-subroutine zhpcon	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		double precision	anorm,
-		double precision	rcond,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zhpcon (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		double precision anorm,
+		double precision rcond,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZHPCON estimates the reciprocal of the condition number of a complex

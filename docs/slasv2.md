@@ -1,13 +1,15 @@
 ```fortran
-subroutine slasv2	(	real	f,
-		real	g,
-		real	h,
-		real	ssmin,
-		real	ssmax,
-		real	snr,
-		real	csr,
-		real	snl,
-		real	csl )
+subroutine slasv2 (
+		real f,
+		real g,
+		real h,
+		real ssmin,
+		real ssmax,
+		real snr,
+		real csr,
+		real snl,
+		real csl
+)
 ```
 
  SLASV2 computes the singular value decomposition of a 2-by-2

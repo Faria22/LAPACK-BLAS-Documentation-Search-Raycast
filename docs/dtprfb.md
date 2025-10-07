@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtprfb	(	side,
+subroutine dtprfb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -16,7 +17,8 @@ subroutine dtprfb	(	side,
 		b,
 		ldb,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  DTPRFB applies a real "triangular-pentagonal" block reflector H or its

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssycon_rook	(	uplo,
+subroutine ssycon_rook (
+		uplo,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine ssycon_rook	(	uplo,
 		rcond,
 		*                               work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SSYCON_ROOK estimates the reciprocal of the condition number (in the

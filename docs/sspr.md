@@ -1,10 +1,12 @@
 ```fortran
-subroutine sspr	(	character	uplo,
-		integer	n,
-		real	alpha,
-		real, dimension(*)	x,
-		integer	incx,
-		real, dimension(*)	ap )
+subroutine sspr (
+		character uplo,
+		integer n,
+		real alpha,
+		real, dimension(*) x,
+		integer incx,
+		real, dimension(*) ap
+)
 ```
 
  SSPR    performs the symmetric rank 1 operation

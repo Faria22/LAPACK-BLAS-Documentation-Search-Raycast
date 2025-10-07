@@ -1,10 +1,12 @@
 ```fortran
-subroutine cgetc2	(	integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		integer	info )
+subroutine cgetc2 (
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		integer info
+)
 ```
 
  CGETC2 computes an LU factorization, using complete pivoting, of the

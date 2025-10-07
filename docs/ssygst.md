@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssygst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ssygst (
+		integer itype,
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SSYGST reduces a real symmetric-definite generalized eigenproblem

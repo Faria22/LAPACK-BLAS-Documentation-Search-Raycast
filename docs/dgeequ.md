@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgeequ	(	m,
+subroutine dgeequ (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine dgeequ	(	m,
 		rowcnd,
 		colcnd,
 		amax,
-		*                          info )
+		*                          info
+)
 ```
 
  DGEEQU computes row and column scalings intended to equilibrate an

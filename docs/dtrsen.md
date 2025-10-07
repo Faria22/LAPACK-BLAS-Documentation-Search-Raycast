@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrsen	(	job,
+subroutine dtrsen (
+		job,
 		compq,
 		select,
 		n,
@@ -16,7 +17,8 @@ subroutine dtrsen	(	job,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DTRSEN reorders the real Schur factorization of a real matrix

@@ -1,14 +1,16 @@
 ```fortran
-subroutine cgebd2	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		complex, dimension(*)	tauq,
-		complex, dimension(*)	taup,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cgebd2 (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		complex, dimension(*) tauq,
+		complex, dimension(*) taup,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CGEBD2 reduces a complex general m by n matrix A to upper or lower

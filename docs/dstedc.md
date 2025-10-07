@@ -1,5 +1,6 @@
 ```fortran
-subroutine dstedc	(	compz,
+subroutine dstedc (
+		compz,
 		n,
 		d,
 		e,
@@ -9,7 +10,8 @@ subroutine dstedc	(	compz,
 		lwork,
 		iwork,
 		*                          liwork,
-		info )
+		info
+)
 ```
 
  DSTEDC computes all eigenvalues and, optionally, eigenvectors of a

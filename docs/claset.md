@@ -1,11 +1,13 @@
 ```fortran
-subroutine claset	(	character	uplo,
-		integer	m,
-		integer	n,
-		complex	alpha,
-		complex	beta,
-		complex, dimension(lda, *)	a,
-		integer	lda )
+subroutine claset (
+		character uplo,
+		integer m,
+		integer n,
+		complex alpha,
+		complex beta,
+		complex, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  CLASET initializes a 2-D array A to BETA on the diagonal and

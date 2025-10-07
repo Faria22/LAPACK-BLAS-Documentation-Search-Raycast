@@ -1,13 +1,15 @@
 ```fortran
-subroutine sgeqp3	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	jpvt,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sgeqp3 (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) jpvt,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SGEQP3 computes a QR factorization with column pivoting of a

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgsy2	(	trans,
+subroutine dtgsy2 (
+		trans,
 		ijob,
 		m,
 		n,
@@ -20,7 +21,8 @@ subroutine dtgsy2	(	trans,
 		rdscal,
 		*                          iwork,
 		pq,
-		info )
+		info
+)
 ```
 
  DTGSY2 solves the generalized Sylvester equation:

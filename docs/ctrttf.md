@@ -1,11 +1,13 @@
 ```fortran
-subroutine ctrttf	(	character	transr,
-		character	uplo,
-		integer	n,
-		complex, dimension(0: lda-1, 0: *)	a,
-		integer	lda,
-		complex, dimension(0: *)	arf,
-		integer	info )
+subroutine ctrttf (
+		character transr,
+		character uplo,
+		integer n,
+		complex, dimension(0: lda-1, 0: *) a,
+		integer lda,
+		complex, dimension(0: *) arf,
+		integer info
+)
 ```
 
  CTRTTF copies a triangular matrix A from standard full format (TR)

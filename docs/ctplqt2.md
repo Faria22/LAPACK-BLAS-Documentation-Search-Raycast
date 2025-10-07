@@ -1,14 +1,16 @@
 ```fortran
-subroutine ctplqt2	(	integer	m,
-		integer	n,
-		integer	l,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		complex, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine ctplqt2 (
+		integer m,
+		integer n,
+		integer l,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		complex, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  CTPLQT2 computes a LQ a factorization of a complex "triangular-pentagonal"

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhetrs2	(	uplo,
+subroutine zhetrs2 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine zhetrs2	(	uplo,
 		b,
 		ldb,
 		*                           work,
-		info )
+		info
+)
 ```
 
  ZHETRS2 solves a system of linear equations A*X = B with a complex

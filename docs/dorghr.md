@@ -1,13 +1,15 @@
 ```fortran
-subroutine dorghr	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dorghr (
+		integer n,
+		integer ilo,
+		integer ihi,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DORGHR generates a real orthogonal matrix Q which is defined as the

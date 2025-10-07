@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgerfs	(	trans,
+subroutine dgerfs (
+		trans,
 		n,
 		nrhs,
 		a,
@@ -15,7 +16,8 @@ subroutine dgerfs	(	trans,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DGERFS improves the computed solution to a system of linear

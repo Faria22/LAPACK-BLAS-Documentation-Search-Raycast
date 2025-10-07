@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqr5	(	wantt,
+subroutine dlaqr5 (
+		wantt,
 		wantz,
 		kacc22,
 		n,
@@ -23,7 +24,8 @@ subroutine dlaqr5	(	wantt,
 		ldwv,
 		nh,
 		wh,
-		ldwh )
+		ldwh
+)
 ```
 
     DLAQR5, called by DLAQR0, performs a

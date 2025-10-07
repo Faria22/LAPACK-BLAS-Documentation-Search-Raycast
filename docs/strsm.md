@@ -1,15 +1,17 @@
 ```fortran
-subroutine strsm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine strsm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  STRSM  solves one of the matrix equations

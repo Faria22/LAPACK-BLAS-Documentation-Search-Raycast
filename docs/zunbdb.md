@@ -1,5 +1,6 @@
 ```fortran
-subroutine zunbdb	(	trans,
+subroutine zunbdb (
+		trans,
 		signs,
 		m,
 		p,
@@ -20,7 +21,8 @@ subroutine zunbdb	(	trans,
 		tauq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZUNBDB simultaneously bidiagonalizes the blocks of an M-by-M

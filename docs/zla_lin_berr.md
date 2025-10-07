@@ -1,10 +1,12 @@
 ```fortran
-subroutine zla_lin_berr	(	integer	n,
-		integer	nz,
-		integer	nrhs,
-		complex*16, dimension(n, nrhs)	res,
-		double precision, dimension(n, nrhs)	ayb,
-		double precision, dimension(nrhs)	berr )
+subroutine zla_lin_berr (
+		integer n,
+		integer nz,
+		integer nrhs,
+		complex*16, dimension(n, nrhs) res,
+		double precision, dimension(n, nrhs) ayb,
+		double precision, dimension(nrhs) berr
+)
 ```
 
     ZLA_LIN_BERR computes componentwise relative backward error from

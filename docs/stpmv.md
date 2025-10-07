@@ -1,11 +1,13 @@
 ```fortran
-subroutine stpmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	x,
-		integer	incx )
+subroutine stpmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) x,
+		integer incx
+)
 ```
 
  STPMV  performs one of the matrix-vector operations

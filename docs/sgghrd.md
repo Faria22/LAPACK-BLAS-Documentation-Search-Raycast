@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgghrd	(	compq,
+subroutine sgghrd (
+		compq,
 		compz,
 		n,
 		ilo,
@@ -12,7 +13,8 @@ subroutine sgghrd	(	compq,
 		*                          ldq,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
  SGGHRD reduces a pair of real matrices (A,B) to generalized upper

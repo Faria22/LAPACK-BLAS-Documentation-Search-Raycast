@@ -1,5 +1,6 @@
 ```fortran
-subroutine csysv_aa_2stage	(	uplo,
+subroutine csysv_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine csysv_aa_2stage	(	uplo,
 		ldb,
 		work,
 		lwork,
-		*                                  info )
+		*                                  info
+)
 ```
 
  CSYSV_AA_2STAGE computes the solution to a complex system of

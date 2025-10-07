@@ -1,5 +1,6 @@
 ```fortran
-subroutine sptrfs	(	n,
+subroutine sptrfs (
+		n,
 		nrhs,
 		d,
 		e,
@@ -12,7 +13,8 @@ subroutine sptrfs	(	n,
 		ferr,
 		*                          berr,
 		work,
-		info )
+		info
+)
 ```
 
  SPTRFS improves the computed solution to a system of linear

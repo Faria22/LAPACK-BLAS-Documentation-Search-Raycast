@@ -1,5 +1,6 @@
 ```fortran
-subroutine strexc	(	compq,
+subroutine strexc (
+		compq,
 		n,
 		t,
 		ldt,
@@ -8,7 +9,8 @@ subroutine strexc	(	compq,
 		ifst,
 		ilst,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  STREXC reorders the real Schur factorization of a real matrix

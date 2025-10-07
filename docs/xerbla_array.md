@@ -1,7 +1,9 @@
 ```fortran
-subroutine xerbla_array	(	srname_array,
-		integer	srname_len,
-		integer	info )
+subroutine xerbla_array (
+		srname_array,
+		integer srname_len,
+		integer info
+)
 ```
 
  XERBLA_ARRAY assists other languages in calling XERBLA, the LAPACK

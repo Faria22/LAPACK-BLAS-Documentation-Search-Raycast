@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgeql2	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zgeql2 (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZGEQL2 computes a QL factorization of a complex m by n matrix A:

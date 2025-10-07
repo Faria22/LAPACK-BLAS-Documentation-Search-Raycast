@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqr4	(	wantt,
+subroutine claqr4 (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -13,7 +14,8 @@ subroutine claqr4	(	wantt,
 		ldz,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
     CLAQR4 implements one level of recursion for CLAQR0.

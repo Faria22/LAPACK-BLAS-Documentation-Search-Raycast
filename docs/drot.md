@@ -1,11 +1,13 @@
 ```fortran
-subroutine drot	(	integer	n,
-		double precision, dimension(*)	dx,
-		integer	incx,
-		double precision, dimension(*)	dy,
-		integer	incy,
-		double precision	c,
-		double precision	s )
+subroutine drot (
+		integer n,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision, dimension(*) dy,
+		integer incy,
+		double precision c,
+		double precision s
+)
 ```
 
     DROT applies a plane rotation.

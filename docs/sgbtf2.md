@@ -1,12 +1,14 @@
 ```fortran
-subroutine sgbtf2	(	integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		real, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine sgbtf2 (
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		real, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  SGBTF2 computes an LU factorization of a real m-by-n band matrix A

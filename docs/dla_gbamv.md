@@ -1,5 +1,6 @@
 ```fortran
-subroutine dla_gbamv	(	trans,
+subroutine dla_gbamv (
+		trans,
 		m,
 		n,
 		kl,
@@ -11,7 +12,8 @@ subroutine dla_gbamv	(	trans,
 		*                             incx,
 		beta,
 		y,
-		incy )
+		incy
+)
 ```
 
  DLA_GBAMV  performs one of the matrix-vector operations

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctgsna	(	job,
+subroutine ctgsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -18,7 +19,8 @@ subroutine ctgsna	(	job,
 		work,
 		lwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  CTGSNA estimates reciprocal condition numbers for specified

@@ -1,11 +1,13 @@
 ```fortran
-subroutine sgetri	(	integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sgetri (
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SGETRI computes the inverse of a matrix using the LU factorization

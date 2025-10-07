@@ -1,5 +1,6 @@
 ```fortran
-subroutine chetrs2	(	uplo,
+subroutine chetrs2 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine chetrs2	(	uplo,
 		b,
 		ldb,
 		*                           work,
-		info )
+		info
+)
 ```
 
  CHETRS2 solves a system of linear equations A*X = B with a complex

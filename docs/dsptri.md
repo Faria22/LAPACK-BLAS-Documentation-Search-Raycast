@@ -1,10 +1,12 @@
 ```fortran
-subroutine dsptri	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dsptri (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DSPTRI computes the inverse of a real symmetric indefinite matrix

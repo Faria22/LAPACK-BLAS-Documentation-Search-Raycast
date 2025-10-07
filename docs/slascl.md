@@ -1,14 +1,16 @@
 ```fortran
-subroutine slascl	(	character	type,
-		integer	kl,
-		integer	ku,
-		real	cfrom,
-		real	cto,
-		integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine slascl (
+		character type,
+		integer kl,
+		integer ku,
+		real cfrom,
+		real cto,
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  SLASCL multiplies the M by N real matrix A by the real scalar

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlabrd	(	m,
+subroutine zlabrd (
+		m,
 		n,
 		nb,
 		a,
@@ -11,7 +12,8 @@ subroutine zlabrd	(	m,
 		x,
 		ldx,
 		y,
-		*                          ldy )
+		*                          ldy
+)
 ```
 
  ZLABRD reduces the first NB rows and columns of a complex general

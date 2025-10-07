@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrd	(	range,
+subroutine dlarrd (
+		range,
 		order,
 		n,
 		vl,
@@ -23,7 +24,8 @@ subroutine dlarrd	(	range,
 		indexw,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DLARRD computes the eigenvalues of a symmetric tridiagonal

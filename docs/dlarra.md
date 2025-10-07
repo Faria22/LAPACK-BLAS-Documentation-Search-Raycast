@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarra	(	n,
+subroutine dlarra (
+		n,
 		d,
 		e,
 		e2,
@@ -7,7 +8,8 @@ subroutine dlarra	(	n,
 		tnrm,
 		*                           nsplit,
 		isplit,
-		info )
+		info
+)
 ```
 
  Compute the splitting points with threshold SPLTOL.

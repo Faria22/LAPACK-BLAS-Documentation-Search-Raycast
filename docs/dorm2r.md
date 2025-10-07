@@ -1,5 +1,6 @@
 ```fortran
-subroutine dorm2r	(	side,
+subroutine dorm2r (
+		side,
 		trans,
 		m,
 		n,
@@ -10,7 +11,8 @@ subroutine dorm2r	(	side,
 		c,
 		ldc,
 		*                          work,
-		info )
+		info
+)
 ```
 
  DORM2R overwrites the general real m by n matrix C with

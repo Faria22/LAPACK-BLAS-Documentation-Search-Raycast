@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqz1	(	a,
+subroutine dlaqz1 (
+		a,
 		lda,
 		b,
 		ldb,
@@ -8,7 +9,8 @@ subroutine dlaqz1	(	a,
 		si,
 		beta1,
 		beta2,
-		*     $    v )
+		*     $    v
+)
 ```
 
       Given a 3-by-3 matrix pencil (A,B), DLAQZ1 sets v to a

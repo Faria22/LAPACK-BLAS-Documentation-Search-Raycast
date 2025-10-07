@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsytrf_rk	(	uplo,
+subroutine zsytrf_rk (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zsytrf_rk	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                             info )
+		*                             info
+)
 ```
  ZSYTRF_RK computes the factorization of a complex symmetric matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

@@ -1,17 +1,19 @@
 ```fortran
-subroutine dgemm	(	character	transa,
-		character	transb,
-		integer	m,
-		integer	n,
-		integer	k,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(ldb,*)	b,
-		integer	ldb,
-		double precision	beta,
-		double precision, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine dgemm (
+		character transa,
+		character transb,
+		integer m,
+		integer n,
+		integer k,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(ldb,*) b,
+		integer ldb,
+		double precision beta,
+		double precision, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  DGEMM  performs one of the matrix-matrix operations

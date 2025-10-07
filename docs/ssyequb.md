@@ -1,13 +1,15 @@
 ```fortran
-subroutine ssyequb	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		real, dimension(*)	work,
-		integer	info )
+subroutine ssyequb (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SSYEQUB computes row and column scalings intended to equilibrate a

@@ -1,12 +1,14 @@
 ```fortran
-subroutine sgtsv	(	integer	n,
-		integer	nrhs,
-		real, dimension(*)	dl,
-		real, dimension(*)	d,
-		real, dimension(*)	du,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sgtsv (
+		integer n,
+		integer nrhs,
+		real, dimension(*) dl,
+		real, dimension(*) d,
+		real, dimension(*) du,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SGTSV  solves the equation

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zunmqr	(	side,
+subroutine zunmqr (
+		side,
 		trans,
 		m,
 		n,
@@ -11,7 +12,8 @@ subroutine zunmqr	(	side,
 		ldc,
 		*                          work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZUNMQR overwrites the general complex M-by-N matrix C with

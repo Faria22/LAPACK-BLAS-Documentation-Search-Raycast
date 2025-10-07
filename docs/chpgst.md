@@ -1,10 +1,12 @@
 ```fortran
-subroutine chpgst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		complex, dimension(*)	bp,
-		integer	info )
+subroutine chpgst (
+		integer itype,
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		complex, dimension(*) bp,
+		integer info
+)
 ```
 
  CHPGST reduces a complex Hermitian-definite generalized

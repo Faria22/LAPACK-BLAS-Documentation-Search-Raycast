@@ -1,14 +1,16 @@
 ```fortran
-subroutine slahr2	(	integer	n,
-		integer	k,
-		integer	nb,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(nb)	tau,
-		real, dimension(ldt, nb)	t,
-		integer	ldt,
+subroutine slahr2 (
+		integer n,
+		integer k,
+		integer nb,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(nb) tau,
+		real, dimension(ldt, nb) t,
+		integer ldt,
 		y,
-		integer	ldy )
+		integer ldy
+)
 ```
 
  SLAHR2 reduces the first NB columns of A real general n-BY-(n-k+1)

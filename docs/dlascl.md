@@ -1,14 +1,16 @@
 ```fortran
-subroutine dlascl	(	character	type,
-		integer	kl,
-		integer	ku,
-		double precision	cfrom,
-		double precision	cto,
-		integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine dlascl (
+		character type,
+		integer kl,
+		integer ku,
+		double precision cfrom,
+		double precision cto,
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  DLASCL multiplies the M by N real matrix A by the real scalar

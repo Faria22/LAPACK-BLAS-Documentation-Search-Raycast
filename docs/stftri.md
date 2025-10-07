@@ -1,10 +1,12 @@
 ```fortran
-subroutine stftri	(	character	transr,
-		character	uplo,
-		character	diag,
-		integer	n,
-		real, dimension(0: *)	a,
-		integer	info )
+subroutine stftri (
+		character transr,
+		character uplo,
+		character diag,
+		integer n,
+		real, dimension(0: *) a,
+		integer info
+)
 ```
 
  STFTRI computes the inverse of a triangular matrix A stored in RFP

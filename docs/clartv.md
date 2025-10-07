@@ -1,12 +1,14 @@
 ```fortran
-subroutine clartv	(	integer	n,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	y,
-		integer	incy,
-		real, dimension(*)	c,
-		complex, dimension(*)	s,
-		integer	incc )
+subroutine clartv (
+		integer n,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) y,
+		integer incy,
+		real, dimension(*) c,
+		complex, dimension(*) s,
+		integer incc
+)
 ```
 
  CLARTV applies a vector of complex plane rotations with real cosines

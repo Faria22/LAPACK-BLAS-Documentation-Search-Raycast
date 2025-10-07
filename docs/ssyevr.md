@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssyevr	(	jobz,
+subroutine ssyevr (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -19,7 +20,8 @@ subroutine ssyevr	(	jobz,
 		lwork,
 		*                          iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  SSYEVR computes selected eigenvalues and, optionally, eigenvectors

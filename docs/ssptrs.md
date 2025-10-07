@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssptrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ssptrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SSPTRS solves a system of linear equations A*X = B with a real

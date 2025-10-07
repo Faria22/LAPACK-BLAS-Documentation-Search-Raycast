@@ -1,13 +1,15 @@
 ```fortran
-subroutine dpbtrs	(	character	uplo,
-		integer	n,
-		integer	kd,
-		integer	nrhs,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dpbtrs (
+		character uplo,
+		integer n,
+		integer kd,
+		integer nrhs,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DPBTRS solves a system of linear equations A*X = B with a symmetric

@@ -1,5 +1,6 @@
 ```fortran
-subroutine clatdf	(	ijob,
+subroutine clatdf (
+		ijob,
 		n,
 		z,
 		ldz,
@@ -7,7 +8,8 @@ subroutine clatdf	(	ijob,
 		rdsum,
 		rdscal,
 		ipiv,
-		*                          jpiv )
+		*                          jpiv
+)
 ```
 
  CLATDF computes the contribution to the reciprocal Dif-estimate

@@ -1,13 +1,15 @@
 ```fortran
-subroutine claqsb	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex, dimension(ldab, *)	ab,
-		integer	ldab,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine claqsb (
+		character uplo,
+		integer n,
+		integer kd,
+		complex, dimension(ldab, *) ab,
+		integer ldab,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  CLAQSB equilibrates a symmetric band matrix A using the scaling

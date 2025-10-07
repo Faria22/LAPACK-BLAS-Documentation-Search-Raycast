@@ -1,9 +1,11 @@
 ```fortran
-subroutine dcopy	(	integer	n,
-		double precision, dimension(*)	dx,
-		integer	incx,
-		double precision, dimension(*)	dy,
-		integer	incy )
+subroutine dcopy (
+		integer n,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision, dimension(*) dy,
+		integer incy
+)
 ```
 
     DCOPY copies a vector, x, to a vector, y.

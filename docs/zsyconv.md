@@ -1,12 +1,14 @@
 ```fortran
-subroutine zsyconv	(	character	uplo,
-		character	way,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	e,
-		integer	info )
+subroutine zsyconv (
+		character uplo,
+		character way,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) e,
+		integer info
+)
 ```
 
  ZSYCONV converts A given by ZHETRF into L and D or vice-versa.

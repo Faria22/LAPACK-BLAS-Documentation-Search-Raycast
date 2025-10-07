@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrc	(	jobt,
+subroutine dlarrc (
+		jobt,
 		n,
 		vl,
 		vu,
@@ -9,7 +10,8 @@ subroutine dlarrc	(	jobt,
 		*                                   eigcnt,
 		lcnt,
 		rcnt,
-		info )
+		info
+)
 ```
 
  Find the number of eigenvalues of the symmetric tridiagonal matrix T

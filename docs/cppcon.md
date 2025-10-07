@@ -1,12 +1,14 @@
 ```fortran
-subroutine cppcon	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		real	anorm,
-		real	rcond,
-		complex, dimension(*)	work,
-		real, dimension(*)	rwork,
-		integer	info )
+subroutine cppcon (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		real anorm,
+		real rcond,
+		complex, dimension(*) work,
+		real, dimension(*) rwork,
+		integer info
+)
 ```
 
  CPPCON estimates the reciprocal of the condition number (in the

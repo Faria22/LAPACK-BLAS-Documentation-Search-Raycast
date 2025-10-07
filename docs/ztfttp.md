@@ -1,10 +1,12 @@
 ```fortran
-subroutine ztfttp	(	character	transr,
-		character	uplo,
-		integer	n,
-		complex*16, dimension(0: *)	arf,
-		complex*16, dimension(0: *)	ap,
-		integer	info )
+subroutine ztfttp (
+		character transr,
+		character uplo,
+		integer n,
+		complex*16, dimension(0: *) arf,
+		complex*16, dimension(0: *) ap,
+		integer info
+)
 ```
 
  ZTFTTP copies a triangular matrix A from rectangular full packed

@@ -1,12 +1,14 @@
 ```fortran
-subroutine zhegst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zhegst (
+		integer itype,
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZHEGST reduces a complex Hermitian-definite generalized

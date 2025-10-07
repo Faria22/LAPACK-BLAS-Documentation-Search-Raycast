@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhfrk	(	transr,
+subroutine zhfrk (
+		transr,
 		uplo,
 		trans,
 		n,
@@ -8,7 +9,8 @@ subroutine zhfrk	(	transr,
 		a,
 		lda,
 		beta,
-		*                         c )
+		*                         c
+)
 ```
 
  Level 3 BLAS like routine for C in RFP Format.

@@ -1,9 +1,11 @@
 ```fortran
-subroutine chptrf	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine chptrf (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CHPTRF computes the factorization of a complex Hermitian packed

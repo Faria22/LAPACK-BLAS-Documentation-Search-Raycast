@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgglse	(	m,
+subroutine zgglse (
+		m,
 		n,
 		p,
 		a,
@@ -11,7 +12,8 @@ subroutine zgglse	(	m,
 		x,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZGGLSE solves the linear equality-constrained least squares (LSE)

@@ -1,10 +1,12 @@
 ```fortran
-subroutine ddisna	(	character	job,
-		integer	m,
-		integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	sep,
-		integer	info )
+subroutine ddisna (
+		character job,
+		integer m,
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) sep,
+		integer info
+)
 ```
 
  DDISNA computes the reciprocal condition numbers for the eigenvectors

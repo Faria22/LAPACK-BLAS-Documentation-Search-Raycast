@@ -1,11 +1,13 @@
 ```fortran
-subroutine saxpby	(	integer	n,
-		real	sa,
-		real, dimension(*)	sx,
-		integer	incx,
-		real	sb,
-		real, dimension(*)	sy,
-		integer	incy )
+subroutine saxpby (
+		integer n,
+		real sa,
+		real, dimension(*) sx,
+		integer incx,
+		real sb,
+		real, dimension(*) sy,
+		integer incy
+)
 ```
 
     SAXPBY constant times a vector plus constant times a vector.

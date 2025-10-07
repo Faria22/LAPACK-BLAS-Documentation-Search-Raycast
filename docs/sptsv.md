@@ -1,11 +1,13 @@
 ```fortran
-subroutine sptsv	(	integer	n,
-		integer	nrhs,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sptsv (
+		integer n,
+		integer nrhs,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPTSV computes the solution to a real system of linear equations

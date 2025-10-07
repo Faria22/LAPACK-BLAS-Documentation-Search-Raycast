@@ -1,5 +1,6 @@
 ```fortran
-subroutine chpevd	(	jobz,
+subroutine chpevd (
+		jobz,
 		uplo,
 		n,
 		ap,
@@ -12,7 +13,8 @@ subroutine chpevd	(	jobz,
 		lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CHPEVD computes all the eigenvalues and, optionally, eigenvectors of

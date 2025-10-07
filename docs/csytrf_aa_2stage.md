@@ -1,5 +1,6 @@
 ```fortran
-subroutine csytrf_aa_2stage	(	uplo,
+subroutine csytrf_aa_2stage (
+		uplo,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine csytrf_aa_2stage	(	uplo,
 		*                                   ipiv2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CSYTRF_AA_2STAGE computes the factorization of a complex symmetric matrix A

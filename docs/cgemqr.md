@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgemqr	(	side,
+subroutine cgemqr (
+		side,
 		trans,
 		m,
 		n,
@@ -12,7 +13,8 @@ subroutine cgemqr	(	side,
 		ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CGEMQR overwrites the general real M-by-N matrix C with

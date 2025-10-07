@@ -1,6 +1,8 @@
 ```fortran
-subroutine slabad	(	real	small,
-		real	large )
+subroutine slabad (
+		real small,
+		real large
+)
 ```
 
  SLABAD is a no-op and kept for compatibility reasons. It used

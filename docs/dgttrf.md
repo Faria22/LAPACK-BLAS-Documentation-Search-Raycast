@@ -1,11 +1,13 @@
 ```fortran
-subroutine dgttrf	(	integer	n,
-		double precision, dimension(*)	dl,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	du,
-		double precision, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine dgttrf (
+		integer n,
+		double precision, dimension(*) dl,
+		double precision, dimension(*) d,
+		double precision, dimension(*) du,
+		double precision, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  DGTTRF computes an LU factorization of a real tridiagonal matrix A

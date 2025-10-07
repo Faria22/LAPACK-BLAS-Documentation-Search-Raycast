@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlacrm	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		complex*16, dimension(ldc, *)	c,
-		integer	ldc,
-		double precision, dimension(*)	rwork )
+subroutine zlacrm (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		complex*16, dimension(ldc, *) c,
+		integer ldc,
+		double precision, dimension(*) rwork
+)
 ```
 
  ZLACRM performs a very simple matrix-matrix multiplication:

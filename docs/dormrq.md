@@ -1,5 +1,6 @@
 ```fortran
-subroutine dormrq	(	side,
+subroutine dormrq (
+		side,
 		trans,
 		m,
 		n,
@@ -11,7 +12,8 @@ subroutine dormrq	(	side,
 		ldc,
 		*                          work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DORMRQ overwrites the general real M-by-N matrix C with

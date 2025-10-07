@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlatdf	(	ijob,
+subroutine dlatdf (
+		ijob,
 		n,
 		z,
 		ldz,
@@ -7,7 +8,8 @@ subroutine dlatdf	(	ijob,
 		rdsum,
 		rdscal,
 		ipiv,
-		*                          jpiv )
+		*                          jpiv
+)
 ```
 
  DLATDF uses the LU factorization of the n-by-n matrix Z computed by

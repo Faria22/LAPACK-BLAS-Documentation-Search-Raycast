@@ -1,5 +1,6 @@
 ```fortran
-subroutine stgexc	(	wantq,
+subroutine stgexc (
+		wantq,
 		wantz,
 		n,
 		a,
@@ -14,7 +15,8 @@ subroutine stgexc	(	wantq,
 		ilst,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  STGEXC reorders the generalized real Schur decomposition of a real

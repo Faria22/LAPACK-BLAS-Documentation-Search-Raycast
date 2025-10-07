@@ -1,5 +1,6 @@
 ```fortran
-subroutine cheevr	(	jobz,
+subroutine cheevr (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -21,7 +22,8 @@ subroutine cheevr	(	jobz,
 		lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CHEEVR computes selected eigenvalues and, optionally, eigenvectors

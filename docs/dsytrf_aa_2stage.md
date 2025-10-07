@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrf_aa_2stage	(	uplo,
+subroutine dsytrf_aa_2stage (
+		uplo,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine dsytrf_aa_2stage	(	uplo,
 		*                                   ipiv2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DSYTRF_AA_2STAGE computes the factorization of a real symmetric matrix A

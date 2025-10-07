@@ -1,10 +1,12 @@
 ```fortran
-subroutine dsytf2_rook	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine dsytf2_rook (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  DSYTF2_ROOK computes the factorization of a real symmetric matrix A

@@ -1,10 +1,12 @@
 ```fortran
-subroutine ztrtri	(	character	uplo,
-		character	diag,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine ztrtri (
+		character uplo,
+		character diag,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  ZTRTRI computes the inverse of a complex upper or lower triangular

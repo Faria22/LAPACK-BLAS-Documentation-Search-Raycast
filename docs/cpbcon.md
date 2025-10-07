@@ -1,5 +1,6 @@
 ```fortran
-subroutine cpbcon	(	uplo,
+subroutine cpbcon (
+		uplo,
 		n,
 		kd,
 		ab,
@@ -8,7 +9,8 @@ subroutine cpbcon	(	uplo,
 		rcond,
 		work,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  CPBCON estimates the reciprocal of the condition number (in the

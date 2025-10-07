@@ -1,8 +1,10 @@
 ```fortran
-subroutine dpptrf	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		integer	info )
+subroutine dpptrf (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		integer info
+)
 ```
 
  DPPTRF computes the Cholesky factorization of a real symmetric

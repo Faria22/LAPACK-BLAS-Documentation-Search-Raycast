@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsbevx_2stage	(	jobz,
+subroutine dsbevx_2stage (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -21,7 +22,8 @@ subroutine dsbevx_2stage	(	jobz,
 		lwork,
 		iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  DSBEVX_2STAGE computes selected eigenvalues and, optionally, eigenvectors

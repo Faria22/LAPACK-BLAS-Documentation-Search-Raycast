@@ -1,5 +1,6 @@
 ```fortran
-subroutine sspgv	(	itype,
+subroutine sspgv (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -9,7 +10,8 @@ subroutine sspgv	(	itype,
 		z,
 		ldz,
 		work,
-		*                         info )
+		*                         info
+)
 ```
 
  SSPGV computes all the eigenvalues and, optionally, the eigenvectors

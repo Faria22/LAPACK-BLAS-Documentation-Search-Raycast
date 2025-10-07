@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaqp2	(	m,
+subroutine slaqp2 (
+		m,
 		n,
 		offset,
 		a,
@@ -8,7 +9,8 @@ subroutine slaqp2	(	m,
 		tau,
 		vn1,
 		vn2,
-		*                          work )
+		*                          work
+)
 ```
 
  SLAQP2 computes a QR factorization with column pivoting of

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cpbsvx	(	fact,
+subroutine cpbsvx (
+		fact,
 		uplo,
 		n,
 		kd,
@@ -19,7 +20,8 @@ subroutine cpbsvx	(	fact,
 		berr,
 		*                          work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CPBSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to

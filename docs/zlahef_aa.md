@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlahef_aa	(	uplo,
+subroutine zlahef_aa (
+		uplo,
 		j1,
 		m,
 		nb,
@@ -8,7 +9,8 @@ subroutine zlahef_aa	(	uplo,
 		ipiv,
 		*                             h,
 		ldh,
-		work )
+		work
+)
 ```
 
  DLAHEF_AA factorizes a panel of a complex hermitian matrix A using

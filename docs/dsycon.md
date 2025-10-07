@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsycon	(	uplo,
+subroutine dsycon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine dsycon	(	uplo,
 		rcond,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DSYCON estimates the reciprocal of the condition number (in the

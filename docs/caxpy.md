@@ -1,10 +1,12 @@
 ```fortran
-subroutine caxpy	(	integer	n,
-		complex	ca,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex, dimension(*)	cy,
-		integer	incy )
+subroutine caxpy (
+		integer n,
+		complex ca,
+		complex, dimension(*) cx,
+		integer incx,
+		complex, dimension(*) cy,
+		integer incy
+)
 ```
 
     CAXPY constant times a vector plus a vector.

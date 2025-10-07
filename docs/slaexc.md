@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaexc	(	wantq,
+subroutine slaexc (
+		wantq,
 		n,
 		t,
 		ldt,
@@ -9,7 +10,8 @@ subroutine slaexc	(	wantq,
 		n1,
 		n2,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  SLAEXC swaps adjacent diagonal blocks T11 and T22 of order 1 or 2 in

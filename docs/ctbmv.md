@@ -1,13 +1,15 @@
 ```fortran
-subroutine ctbmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine ctbmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CTBMV  performs one of the matrix-vector operations

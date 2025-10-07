@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgebal	(	character	job,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	ilo,
-		integer	ihi,
-		real, dimension(*)	scale,
-		integer	info )
+subroutine cgebal (
+		character job,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer ilo,
+		integer ihi,
+		real, dimension(*) scale,
+		integer info
+)
 ```
 
  CGEBAL balances a general complex matrix A.  This involves, first,

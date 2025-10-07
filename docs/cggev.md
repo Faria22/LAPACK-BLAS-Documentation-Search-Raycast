@@ -1,5 +1,6 @@
 ```fortran
-subroutine cggev	(	jobvl,
+subroutine cggev (
+		jobvl,
 		jobvr,
 		n,
 		a,
@@ -15,7 +16,8 @@ subroutine cggev	(	jobvl,
 		work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGGEV computes for a pair of N-by-N complex nonsymmetric matrices

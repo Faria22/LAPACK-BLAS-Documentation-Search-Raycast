@@ -1,12 +1,14 @@
 ```fortran
-subroutine cpftrs	(	character	transr,
-		character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(0: *)	a,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cpftrs (
+		character transr,
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(0: *) a,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPFTRS solves a system of linear equations A*X = B with a Hermitian

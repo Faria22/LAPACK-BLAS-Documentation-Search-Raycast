@@ -1,10 +1,12 @@
 ```fortran
-subroutine dgetrf	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine dgetrf (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  DGETRF computes an LU factorization of a general M-by-N matrix A

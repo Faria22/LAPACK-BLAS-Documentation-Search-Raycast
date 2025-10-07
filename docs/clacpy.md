@@ -1,11 +1,13 @@
 ```fortran
-subroutine clacpy	(	character	uplo,
-		integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine clacpy (
+		character uplo,
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  CLACPY copies all or part of a two-dimensional matrix A to another

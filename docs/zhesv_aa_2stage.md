@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhesv_aa_2stage	(	uplo,
+subroutine zhesv_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine zhesv_aa_2stage	(	uplo,
 		ldb,
 		work,
 		lwork,
-		*                                  info )
+		*                                  info
+)
 ```
 
  ZHESV_AA_2STAGE computes the solution to a complex system of 

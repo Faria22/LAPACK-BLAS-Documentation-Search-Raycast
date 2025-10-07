@@ -1,5 +1,6 @@
 ```fortran
-subroutine clatbs	(	uplo,
+subroutine clatbs (
+		uplo,
 		trans,
 		diag,
 		normin,
@@ -10,7 +11,8 @@ subroutine clatbs	(	uplo,
 		x,
 		*                          scale,
 		cnorm,
-		info )
+		info
+)
 ```
 
  CLATBS solves one of the triangular systems

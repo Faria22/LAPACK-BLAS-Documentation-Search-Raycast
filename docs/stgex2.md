@@ -1,5 +1,6 @@
 ```fortran
-subroutine stgex2	(	wantq,
+subroutine stgex2 (
+		wantq,
 		wantz,
 		n,
 		a,
@@ -15,7 +16,8 @@ subroutine stgex2	(	wantq,
 		n2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  STGEX2 swaps adjacent diagonal blocks (A11, B11) and (A22, B22)

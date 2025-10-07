@@ -1,13 +1,15 @@
 ```fortran
-subroutine stbmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx )
+subroutine stbmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx
+)
 ```
 
  STBMV  performs one of the matrix-vector operations

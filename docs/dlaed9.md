@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaed9	(	k,
+subroutine dlaed9 (
+		k,
 		kstart,
 		kstop,
 		n,
@@ -11,7 +12,8 @@ subroutine dlaed9	(	k,
 		*                          w,
 		s,
 		lds,
-		info )
+		info
+)
 ```
 
  DLAED9 finds the roots of the secular equation, as defined by the

@@ -1,14 +1,16 @@
 ```fortran
-subroutine dlagts	(	integer	job,
-		integer	n,
-		double precision, dimension(*)	a,
-		double precision, dimension(*)	b,
-		double precision, dimension(*)	c,
-		double precision, dimension(*)	d,
-		integer, dimension(*)	in,
-		double precision, dimension(*)	y,
-		double precision	tol,
-		integer	info )
+subroutine dlagts (
+		integer job,
+		integer n,
+		double precision, dimension(*) a,
+		double precision, dimension(*) b,
+		double precision, dimension(*) c,
+		double precision, dimension(*) d,
+		integer, dimension(*) in,
+		double precision, dimension(*) y,
+		double precision tol,
+		integer info
+)
 ```
 
  DLAGTS may be used to solve one of the systems of equations

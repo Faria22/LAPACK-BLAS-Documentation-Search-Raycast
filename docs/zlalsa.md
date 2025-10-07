@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlalsa	(	icompq,
+subroutine zlalsa (
+		icompq,
 		smlsiz,
 		n,
 		nrhs,
@@ -24,7 +25,8 @@ subroutine zlalsa	(	icompq,
 		s,
 		rwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  ZLALSA is an intermediate step in solving the least squares problem

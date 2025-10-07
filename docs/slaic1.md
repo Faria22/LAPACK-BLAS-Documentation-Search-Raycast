@@ -1,13 +1,15 @@
 ```fortran
-subroutine slaic1	(	integer	job,
-		integer	j,
-		real, dimension(j)	x,
-		real	sest,
-		real, dimension(j)	w,
-		real	gamma,
-		real	sestpr,
-		real	s,
-		real	c )
+subroutine slaic1 (
+		integer job,
+		integer j,
+		real, dimension(j) x,
+		real sest,
+		real, dimension(j) w,
+		real gamma,
+		real sestpr,
+		real s,
+		real c
+)
 ```
 
  SLAIC1 applies one step of incremental condition estimation in

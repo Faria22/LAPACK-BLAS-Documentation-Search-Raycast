@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgeqr	(	m,
+subroutine zgeqr (
+		m,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zgeqr	(	m,
 		tsize,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  ZGEQR computes a QR factorization of a complex M-by-N matrix A:

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaswlq	(	m,
+subroutine zlaswlq (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine zlaswlq	(	m,
 		ldt,
 		work,
 		*                            lwork,
-		info )
+		info
+)
 ```
 
  ZLASWLQ computes a blocked Tall-Skinny LQ factorization of

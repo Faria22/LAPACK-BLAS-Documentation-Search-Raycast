@@ -1,11 +1,13 @@
 ```fortran
-subroutine slatrz	(	integer	m,
-		integer	n,
-		integer	l,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work )
+subroutine slatrz (
+		integer m,
+		integer n,
+		integer l,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work
+)
 ```
 
  SLATRZ factors the M-by-(M+L) real upper trapezoidal matrix

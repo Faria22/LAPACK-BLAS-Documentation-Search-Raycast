@@ -1,12 +1,14 @@
 ```fortran
-subroutine chpcon	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		real	anorm,
-		real	rcond,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine chpcon (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		real anorm,
+		real rcond,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CHPCON estimates the reciprocal of the condition number of a complex

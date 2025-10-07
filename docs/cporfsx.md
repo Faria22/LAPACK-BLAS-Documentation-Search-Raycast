@@ -1,5 +1,6 @@
 ```fortran
-subroutine cporfsx	(	uplo,
+subroutine cporfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -21,7 +22,8 @@ subroutine cporfsx	(	uplo,
 		params,
 		*                           work,
 		rwork,
-		info )
+		info
+)
 ```
 
     CPORFSX improves the computed solution to a system of linear

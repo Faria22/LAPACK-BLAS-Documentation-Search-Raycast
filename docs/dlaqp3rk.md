@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqp3rk	(	m,
+subroutine dlaqp3rk (
+		m,
 		n,
 		nrhs,
 		ioffset,
@@ -22,7 +23,8 @@ subroutine dlaqp3rk	(	m,
 		f,
 		ldf,
 		iwork,
-		info )
+		info
+)
 ```
 
  DLAQP3RK computes a step of truncated QR factorization with column

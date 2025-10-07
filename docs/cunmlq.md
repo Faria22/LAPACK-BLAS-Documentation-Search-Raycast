@@ -1,5 +1,6 @@
 ```fortran
-subroutine cunmlq	(	side,
+subroutine cunmlq (
+		side,
 		trans,
 		m,
 		n,
@@ -11,7 +12,8 @@ subroutine cunmlq	(	side,
 		ldc,
 		*                          work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CUNMLQ overwrites the general complex M-by-N matrix C with

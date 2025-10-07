@@ -1,13 +1,15 @@
 ```fortran
-subroutine ztbsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine ztbsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZTBSV  solves one of the systems of equations

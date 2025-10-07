@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsb2st_kernels	(	uplo,
+subroutine dsb2st_kernels (
+		uplo,
 		wantz,
 		ttype,
 		*                                   st,
@@ -13,7 +14,8 @@ subroutine dsb2st_kernels	(	uplo,
 		v,
 		tau,
 		ldvt,
-		work )
+		work
+)
 ```
 
  DSB2ST_KERNELS is an internal routine used by the DSYTRD_SB2ST

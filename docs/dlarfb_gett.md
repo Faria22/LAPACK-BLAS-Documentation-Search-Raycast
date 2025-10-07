@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarfb_gett	(	ident,
+subroutine dlarfb_gett (
+		ident,
 		m,
 		n,
 		k,
@@ -10,7 +11,8 @@ subroutine dlarfb_gett	(	ident,
 		b,
 		ldb,
 		*      $                        work,
-		ldwork )
+		ldwork
+)
 ```
 
  DLARFB_GETT applies a real Householder block reflector H from the

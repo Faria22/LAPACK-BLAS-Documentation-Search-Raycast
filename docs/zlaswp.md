@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlaswp	(	integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	k1,
-		integer	k2,
-		integer, dimension(*)	ipiv,
-		integer	incx )
+subroutine zlaswp (
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer k1,
+		integer k2,
+		integer, dimension(*) ipiv,
+		integer incx
+)
 ```
 
  ZLASWP performs a series of row interchanges on the matrix A.

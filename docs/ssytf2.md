@@ -1,10 +1,12 @@
 ```fortran
-subroutine ssytf2	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine ssytf2 (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  SSYTF2 computes the factorization of a real symmetric matrix A using

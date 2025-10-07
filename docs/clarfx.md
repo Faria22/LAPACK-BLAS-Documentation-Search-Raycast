@@ -1,12 +1,14 @@
 ```fortran
-subroutine clarfx	(	character	side,
-		integer	m,
-		integer	n,
-		complex, dimension(*)	v,
-		complex	tau,
-		complex, dimension(ldc, *)	c,
-		integer	ldc,
-		complex, dimension(*)	work )
+subroutine clarfx (
+		character side,
+		integer m,
+		integer n,
+		complex, dimension(*) v,
+		complex tau,
+		complex, dimension(ldc, *) c,
+		integer ldc,
+		complex, dimension(*) work
+)
 ```
 
  CLARFX applies a complex elementary reflector H to a complex m by n

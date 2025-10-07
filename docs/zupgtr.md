@@ -1,12 +1,14 @@
 ```fortran
-subroutine zupgtr	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(ldq, *)	q,
-		integer	ldq,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zupgtr (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(ldq, *) q,
+		integer ldq,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZUPGTR generates a complex unitary matrix Q which is defined as the

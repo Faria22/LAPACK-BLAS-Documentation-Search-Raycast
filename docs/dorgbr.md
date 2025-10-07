@@ -1,14 +1,16 @@
 ```fortran
-subroutine dorgbr	(	character	vect,
-		integer	m,
-		integer	n,
-		integer	k,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dorgbr (
+		character vect,
+		integer m,
+		integer n,
+		integer k,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DORGBR generates one of the real orthogonal matrices Q or P**T

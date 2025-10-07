@@ -1,13 +1,15 @@
 ```fortran
-subroutine dpbequ	(	character	uplo,
-		integer	n,
-		integer	kd,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		integer	info )
+subroutine dpbequ (
+		character uplo,
+		integer n,
+		integer kd,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		integer info
+)
 ```
 
  DPBEQU computes row and column scalings intended to equilibrate a

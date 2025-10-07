@@ -1,14 +1,16 @@
 ```fortran
-subroutine zlascl	(	character	type,
-		integer	kl,
-		integer	ku,
-		double precision	cfrom,
-		double precision	cto,
-		integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine zlascl (
+		character type,
+		integer kl,
+		integer ku,
+		double precision cfrom,
+		double precision cto,
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  ZLASCL multiplies the M by N complex matrix A by the real scalar

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cunm2r	(	side,
+subroutine cunm2r (
+		side,
 		trans,
 		m,
 		n,
@@ -10,7 +11,8 @@ subroutine cunm2r	(	side,
 		c,
 		ldc,
 		*                          work,
-		info )
+		info
+)
 ```
 
  CUNM2R overwrites the general complex m-by-n matrix C with

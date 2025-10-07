@@ -1,11 +1,13 @@
 ```fortran
-subroutine sgeqrt2	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine sgeqrt2 (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  SGEQRT2 computes a QR factorization of a real M-by-N matrix A,

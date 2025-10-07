@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztpcon	(	norm,
+subroutine ztpcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -7,7 +8,8 @@ subroutine ztpcon	(	norm,
 		rcond,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZTPCON estimates the reciprocal of the condition number of a packed

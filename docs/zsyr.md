@@ -1,11 +1,13 @@
 ```fortran
-subroutine zsyr	(	character	uplo,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(lda, *)	a,
-		integer	lda )
+subroutine zsyr (
+		character uplo,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  ZSYR   performs the symmetric rank 1 operation

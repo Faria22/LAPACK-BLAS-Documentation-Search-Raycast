@@ -1,10 +1,12 @@
 ```fortran
-subroutine clapll	(	integer	n,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	y,
-		integer	incy,
-		real	ssmin )
+subroutine clapll (
+		integer n,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) y,
+		integer incy,
+		real ssmin
+)
 ```
 
  Given two column vectors X and Y, let

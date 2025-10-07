@@ -1,5 +1,6 @@
 ```fortran
-subroutine strcon	(	norm,
+subroutine strcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine strcon	(	norm,
 		rcond,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  STRCON estimates the reciprocal of the condition number of a

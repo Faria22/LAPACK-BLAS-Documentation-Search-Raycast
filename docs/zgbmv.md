@@ -1,17 +1,19 @@
 ```fortran
-subroutine zgbmv	(	character	trans,
-		integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16	beta,
-		complex*16, dimension(*)	y,
-		integer	incy )
+subroutine zgbmv (
+		character trans,
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16 beta,
+		complex*16, dimension(*) y,
+		integer incy
+)
 ```
 
  ZGBMV  performs one of the matrix-vector operations

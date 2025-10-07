@@ -1,13 +1,15 @@
 ```fortran
-subroutine zsytrs_rook	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zsytrs_rook (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZSYTRS_ROOK solves a system of linear equations A*X = B with

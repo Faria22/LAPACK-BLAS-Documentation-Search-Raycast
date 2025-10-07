@@ -1,13 +1,15 @@
 ```fortran
-subroutine ztbmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine ztbmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZTBMV  performs one of the matrix-vector operations

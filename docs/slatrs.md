@@ -1,5 +1,6 @@
 ```fortran
-subroutine slatrs	(	uplo,
+subroutine slatrs (
+		uplo,
 		trans,
 		diag,
 		normin,
@@ -9,7 +10,8 @@ subroutine slatrs	(	uplo,
 		x,
 		scale,
 		*                          cnorm,
-		info )
+		info
+)
 ```
 
  SLATRS solves one of the triangular systems

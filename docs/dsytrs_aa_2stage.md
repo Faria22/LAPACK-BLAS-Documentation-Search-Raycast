@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrs_aa_2stage	(	uplo,
+subroutine dsytrs_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -10,7 +11,8 @@ subroutine dsytrs_aa_2stage	(	uplo,
 		*                                   ipiv2,
 		b,
 		ldb,
-		info )
+		info
+)
 ```
 
  DSYTRS_AA_2STAGE solves a system of linear equations A*X = B with a real

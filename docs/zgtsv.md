@@ -1,12 +1,14 @@
 ```fortran
-subroutine zgtsv	(	integer	n,
-		integer	nrhs,
-		complex*16, dimension(*)	dl,
-		complex*16, dimension(*)	d,
-		complex*16, dimension(*)	du,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zgtsv (
+		integer n,
+		integer nrhs,
+		complex*16, dimension(*) dl,
+		complex*16, dimension(*) d,
+		complex*16, dimension(*) du,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZGTSV  solves the equation

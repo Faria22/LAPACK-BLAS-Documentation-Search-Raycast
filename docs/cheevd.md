@@ -1,5 +1,6 @@
 ```fortran
-subroutine cheevd	(	jobz,
+subroutine cheevd (
+		jobz,
 		uplo,
 		n,
 		a,
@@ -11,7 +12,8 @@ subroutine cheevd	(	jobz,
 		*                          lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CHEEVD computes all eigenvalues and, optionally, eigenvectors of a

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlatrs3	(	uplo,
+subroutine zlatrs3 (
+		uplo,
 		trans,
 		diag,
 		normin,
@@ -13,7 +14,8 @@ subroutine zlatrs3	(	uplo,
 		cnorm,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZLATRS3 solves one of the triangular systems

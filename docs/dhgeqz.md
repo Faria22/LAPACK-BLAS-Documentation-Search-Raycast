@@ -1,5 +1,6 @@
 ```fortran
-subroutine dhgeqz	(	job,
+subroutine dhgeqz (
+		job,
 		compq,
 		compz,
 		n,
@@ -18,7 +19,8 @@ subroutine dhgeqz	(	job,
 		ldz,
 		work,
 		*                          lwork,
-		info )
+		info
+)
 ```
 
  DHGEQZ computes the eigenvalues of a real matrix pair (H,T),

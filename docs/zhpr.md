@@ -1,10 +1,12 @@
 ```fortran
-subroutine zhpr	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	ap )
+subroutine zhpr (
+		character uplo,
+		integer n,
+		double precision alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) ap
+)
 ```
 
  ZHPR    performs the hermitian rank 1 operation

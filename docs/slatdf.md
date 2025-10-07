@@ -1,5 +1,6 @@
 ```fortran
-subroutine slatdf	(	ijob,
+subroutine slatdf (
+		ijob,
 		n,
 		z,
 		ldz,
@@ -7,7 +8,8 @@ subroutine slatdf	(	ijob,
 		rdsum,
 		rdscal,
 		ipiv,
-		*                          jpiv )
+		*                          jpiv
+)
 ```
 
  SLATDF uses the LU factorization of the n-by-n matrix Z computed by

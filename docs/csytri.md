@@ -1,11 +1,13 @@
 ```fortran
-subroutine csytri	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine csytri (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CSYTRI computes the inverse of a complex symmetric indefinite matrix

@@ -1,13 +1,15 @@
 ```fortran
-subroutine clarf	(	character	side,
-		integer	m,
-		integer	n,
-		complex, dimension(*)	v,
-		integer	incv,
-		complex	tau,
-		complex, dimension(ldc, *)	c,
-		integer	ldc,
-		complex, dimension(*)	work )
+subroutine clarf (
+		character side,
+		integer m,
+		integer n,
+		complex, dimension(*) v,
+		integer incv,
+		complex tau,
+		complex, dimension(ldc, *) c,
+		integer ldc,
+		complex, dimension(*) work
+)
 ```
 
  CLARF applies a complex elementary reflector H to a complex M-by-N

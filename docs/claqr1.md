@@ -1,10 +1,12 @@
 ```fortran
-subroutine claqr1	(	integer	n,
-		complex, dimension(ldh, *)	h,
-		integer	ldh,
-		complex	s1,
-		complex	s2,
-		complex, dimension(*)	v )
+subroutine claqr1 (
+		integer n,
+		complex, dimension(ldh, *) h,
+		integer ldh,
+		complex s1,
+		complex s2,
+		complex, dimension(*) v
+)
 ```
 
       Given a 2-by-2 or 3-by-3 matrix H, CLAQR1 sets v to a

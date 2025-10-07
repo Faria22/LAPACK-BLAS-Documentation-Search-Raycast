@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgghd3	(	compq,
+subroutine cgghd3 (
+		compq,
 		compz,
 		n,
 		ilo,
@@ -14,7 +15,8 @@ subroutine cgghd3	(	compq,
 		ldz,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
 

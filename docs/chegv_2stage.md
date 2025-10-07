@@ -1,5 +1,6 @@
 ```fortran
-subroutine chegv_2stage	(	itype,
+subroutine chegv_2stage (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -11,7 +12,8 @@ subroutine chegv_2stage	(	itype,
 		*                                work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHEGV_2STAGE computes all the eigenvalues, and optionally, the eigenvectors

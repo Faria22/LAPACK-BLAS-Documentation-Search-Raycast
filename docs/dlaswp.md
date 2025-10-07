@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlaswp	(	integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer	k1,
-		integer	k2,
-		integer, dimension(*)	ipiv,
-		integer	incx )
+subroutine dlaswp (
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer k1,
+		integer k2,
+		integer, dimension(*) ipiv,
+		integer incx
+)
 ```
 
  DLASWP performs a series of row interchanges on the matrix A.

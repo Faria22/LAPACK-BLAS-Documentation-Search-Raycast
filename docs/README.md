@@ -34,7 +34,7 @@ LAPACK and BLAS routines follow a naming convention where:
 ## File Format
 
 Each markdown file contains:
-1. Function signature (Fortran syntax with types)
+1. Function signature (Fortran syntax with types) - each parameter on its own line
 2. Detailed description of what the routine does
 3. Complete parameter documentation with types and descriptions
 

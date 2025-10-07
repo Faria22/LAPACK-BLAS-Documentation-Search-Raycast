@@ -1,5 +1,6 @@
 ```fortran
-subroutine csytri_3	(	uplo,
+subroutine csytri_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine csytri_3	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                            info )
+		*                            info
+)
 ```
  CSYTRI_3 computes the inverse of a complex symmetric indefinite
  matrix A using the factorization computed by CSYTRF_RK or CSYTRF_BK:

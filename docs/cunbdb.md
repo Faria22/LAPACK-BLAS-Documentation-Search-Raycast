@@ -1,5 +1,6 @@
 ```fortran
-subroutine cunbdb	(	trans,
+subroutine cunbdb (
+		trans,
 		signs,
 		m,
 		p,
@@ -20,7 +21,8 @@ subroutine cunbdb	(	trans,
 		tauq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CUNBDB simultaneously bidiagonalizes the blocks of an M-by-M

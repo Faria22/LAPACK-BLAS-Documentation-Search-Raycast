@@ -1,5 +1,6 @@
 ```fortran
-subroutine chetrf_aa_2stage	(	uplo,
+subroutine chetrf_aa_2stage (
+		uplo,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine chetrf_aa_2stage	(	uplo,
 		*                                   ipiv2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CHETRF_AA_2STAGE computes the factorization of a real hermitian matrix A

@@ -1,11 +1,13 @@
 ```fortran
-subroutine slargv	(	integer	n,
-		real, dimension(*)	x,
-		integer	incx,
-		real, dimension(*)	y,
-		integer	incy,
-		real, dimension(*)	c,
-		integer	incc )
+subroutine slargv (
+		integer n,
+		real, dimension(*) x,
+		integer incx,
+		real, dimension(*) y,
+		integer incy,
+		real, dimension(*) c,
+		integer incc
+)
 ```
 
  SLARGV generates a vector of real plane rotations, determined by

@@ -1,5 +1,6 @@
 ```fortran
-subroutine checon	(	uplo,
+subroutine checon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine checon	(	uplo,
 		anorm,
 		rcond,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  CHECON estimates the reciprocal of the condition number of a complex

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaed0	(	qsiz,
+subroutine zlaed0 (
+		qsiz,
 		n,
 		d,
 		e,
@@ -9,7 +10,8 @@ subroutine zlaed0	(	qsiz,
 		ldqs,
 		rwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  Using the divide and conquer method, ZLAED0 computes all eigenvalues

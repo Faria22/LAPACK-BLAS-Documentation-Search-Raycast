@@ -1,9 +1,11 @@
 ```fortran
-subroutine zlascl2	(	integer	m,
-		integer	n,
-		double precision, dimension(*)	d,
-		complex*16, dimension(ldx, *)	x,
-		integer	ldx )
+subroutine zlascl2 (
+		integer m,
+		integer n,
+		double precision, dimension(*) d,
+		complex*16, dimension(ldx, *) x,
+		integer ldx
+)
 ```
 
  ZLASCL2 performs a diagonal scaling on a matrix:

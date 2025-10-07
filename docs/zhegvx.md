@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhegvx	(	itype,
+subroutine zhegvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -22,7 +23,8 @@ subroutine zhegvx	(	itype,
 		rwork,
 		iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  ZHEGVX computes selected eigenvalues, and optionally, eigenvectors

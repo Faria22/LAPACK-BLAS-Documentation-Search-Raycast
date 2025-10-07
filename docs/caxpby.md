@@ -1,11 +1,13 @@
 ```fortran
-subroutine caxpby	(	integer	n,
-		complex	ca,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex	cb,
-		complex, dimension(*)	cy,
-		integer	incy )
+subroutine caxpby (
+		integer n,
+		complex ca,
+		complex, dimension(*) cx,
+		integer incx,
+		complex cb,
+		complex, dimension(*) cy,
+		integer incy
+)
 ```
 
     CAXPBY constant times a vector plus constant times a vector.

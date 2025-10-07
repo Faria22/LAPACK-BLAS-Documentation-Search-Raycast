@@ -1,10 +1,12 @@
 ```fortran
-subroutine cla_lin_berr	(	integer	n,
-		integer	nz,
-		integer	nrhs,
-		complex, dimension(n, nrhs)	res,
-		real, dimension(n, nrhs)	ayb,
-		real, dimension(nrhs)	berr )
+subroutine cla_lin_berr (
+		integer n,
+		integer nz,
+		integer nrhs,
+		complex, dimension(n, nrhs) res,
+		real, dimension(n, nrhs) ayb,
+		real, dimension(nrhs) berr
+)
 ```
 
     CLA_LIN_BERR computes componentwise relative backward error from

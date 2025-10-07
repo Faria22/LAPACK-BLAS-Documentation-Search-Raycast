@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlarscl2	(	integer	m,
-		integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(ldx, *)	x,
-		integer	ldx )
+subroutine dlarscl2 (
+		integer m,
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(ldx, *) x,
+		integer ldx
+)
 ```
 
  DLARSCL2 performs a reciprocal diagonal scaling on a matrix:

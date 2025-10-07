@@ -1,5 +1,6 @@
 ```fortran
-subroutine csysvxx	(	fact,
+subroutine csysvxx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -24,7 +25,8 @@ subroutine csysvxx	(	fact,
 		params,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
     CSYSVXX uses the diagonal pivoting factorization to compute the

@@ -1,13 +1,15 @@
 ```fortran
-subroutine dpstrf	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(n)	piv,
-		integer	rank,
-		double precision	tol,
-		double precision, dimension(2*n)	work,
-		integer	info )
+subroutine dpstrf (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(n) piv,
+		integer rank,
+		double precision tol,
+		double precision, dimension(2*n) work,
+		integer info
+)
 ```
 
  DPSTRF computes the Cholesky factorization with complete

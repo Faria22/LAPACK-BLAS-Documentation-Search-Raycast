@@ -1,10 +1,12 @@
 ```fortran
-subroutine dtrti2	(	character	uplo,
-		character	diag,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine dtrti2 (
+		character uplo,
+		character diag,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  DTRTI2 computes the inverse of a real upper or lower triangular

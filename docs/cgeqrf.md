@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgeqrf	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine cgeqrf (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CGEQRF computes a QR factorization of a complex M-by-N matrix A:

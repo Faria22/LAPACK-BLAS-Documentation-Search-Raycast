@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgesvdq	(	joba,
+subroutine zgesvdq (
+		joba,
 		jobp,
 		jobr,
 		jobu,
@@ -20,7 +21,8 @@ subroutine zgesvdq	(	joba,
 		lcwork,
 		rwork,
 		lrwork,
-		info )
+		info
+)
 ```
 
  ZCGESVDQ computes the singular value decomposition (SVD) of a complex

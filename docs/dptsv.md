@@ -1,11 +1,13 @@
 ```fortran
-subroutine dptsv	(	integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dptsv (
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DPTSV computes the solution to a real system of linear equations

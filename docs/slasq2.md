@@ -1,7 +1,9 @@
 ```fortran
-subroutine slasq2	(	integer	n,
-		real, dimension(*)	z,
-		integer	info )
+subroutine slasq2 (
+		integer n,
+		real, dimension(*) z,
+		integer info
+)
 ```
 
  SLASQ2 computes all the eigenvalues of the symmetric positive

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgeesx	(	jobvs,
+subroutine cgeesx (
+		jobvs,
 		sort,
 		select,
 		sense,
@@ -16,7 +17,8 @@ subroutine cgeesx	(	jobvs,
 		lwork,
 		rwork,
 		*                          bwork,
-		info )
+		info
+)
 ```
 
  CGEESX computes for an N-by-N complex nonsymmetric matrix A, the

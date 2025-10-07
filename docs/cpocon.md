@@ -1,5 +1,6 @@
 ```fortran
-subroutine cpocon	(	uplo,
+subroutine cpocon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine cpocon	(	uplo,
 		rcond,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CPOCON estimates the reciprocal of the condition number (in the

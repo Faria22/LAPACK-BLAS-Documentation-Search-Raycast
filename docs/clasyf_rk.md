@@ -1,5 +1,6 @@
 ```fortran
-subroutine clasyf_rk	(	uplo,
+subroutine clasyf_rk (
+		uplo,
 		n,
 		nb,
 		kb,
@@ -9,7 +10,8 @@ subroutine clasyf_rk	(	uplo,
 		ipiv,
 		w,
 		ldw,
-		*                             info )
+		*                             info
+)
 ```
  CLASYF_RK computes a partial factorization of a complex symmetric
  matrix A using the bounded Bunch-Kaufman (rook) diagonal

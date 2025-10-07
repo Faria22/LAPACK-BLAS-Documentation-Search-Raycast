@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhegvd	(	itype,
+subroutine zhegvd (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -14,7 +15,8 @@ subroutine zhegvd	(	itype,
 		lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  ZHEGVD computes all the eigenvalues, and optionally, the eigenvectors

@@ -1,11 +1,13 @@
 ```fortran
-subroutine dgeql2	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dgeql2 (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DGEQL2 computes a QL factorization of a real m by n matrix A:

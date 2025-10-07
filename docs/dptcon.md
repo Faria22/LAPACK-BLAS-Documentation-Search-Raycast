@@ -1,11 +1,13 @@
 ```fortran
-subroutine dptcon	(	integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision	anorm,
-		double precision	rcond,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dptcon (
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision anorm,
+		double precision rcond,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DPTCON computes the reciprocal of the condition number (in the

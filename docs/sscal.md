@@ -1,8 +1,10 @@
 ```fortran
-subroutine sscal	(	integer	n,
-		real	sa,
-		real, dimension(*)	sx,
-		integer	incx )
+subroutine sscal (
+		integer n,
+		real sa,
+		real, dimension(*) sx,
+		integer incx
+)
 ```
 
     SSCAL scales a vector by a constant.

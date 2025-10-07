@@ -1,13 +1,15 @@
 ```fortran
-subroutine slaqsb	(	character	uplo,
-		integer	n,
-		integer	kd,
-		real, dimension(ldab, *)	ab,
-		integer	ldab,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine slaqsb (
+		character uplo,
+		integer n,
+		integer kd,
+		real, dimension(ldab, *) ab,
+		integer ldab,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  SLAQSB equilibrates a symmetric band matrix A using the scaling

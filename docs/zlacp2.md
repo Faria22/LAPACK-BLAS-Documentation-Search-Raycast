@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlacp2	(	character	uplo,
-		integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine zlacp2 (
+		character uplo,
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  ZLACP2 copies all or part of a real two-dimensional matrix A to a

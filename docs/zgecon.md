@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgecon	(	norm,
+subroutine zgecon (
+		norm,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zgecon	(	norm,
 		rcond,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZGECON estimates the reciprocal of the condition number of a general

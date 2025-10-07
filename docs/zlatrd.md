@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlatrd	(	character	uplo,
-		integer	n,
-		integer	nb,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	e,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(ldw, *)	w,
-		integer	ldw )
+subroutine zlatrd (
+		character uplo,
+		integer n,
+		integer nb,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) e,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(ldw, *) w,
+		integer ldw
+)
 ```
 
  ZLATRD reduces NB rows and columns of a complex Hermitian matrix A to

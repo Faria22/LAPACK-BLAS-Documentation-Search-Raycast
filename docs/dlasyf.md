@@ -1,14 +1,16 @@
 ```fortran
-subroutine dlasyf	(	character	uplo,
-		integer	n,
-		integer	nb,
-		integer	kb,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldw, *)	w,
-		integer	ldw,
-		integer	info )
+subroutine dlasyf (
+		character uplo,
+		integer n,
+		integer nb,
+		integer kb,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldw, *) w,
+		integer ldw,
+		integer info
+)
 ```
 
  DLASYF computes a partial factorization of a real symmetric matrix A

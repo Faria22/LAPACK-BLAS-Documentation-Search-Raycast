@@ -1,5 +1,6 @@
 ```fortran
-subroutine csysv_rk	(	uplo,
+subroutine csysv_rk (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -10,7 +11,8 @@ subroutine csysv_rk	(	uplo,
 		ldb,
 		*                            work,
 		lwork,
-		info )
+		info
+)
 ```
  CSYSV_RK computes the solution to a complex system of linear
  equations A * X = B, where A is an N-by-N symmetric matrix

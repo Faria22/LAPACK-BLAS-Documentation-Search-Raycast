@@ -1,10 +1,12 @@
 ```fortran
-subroutine dladiv	(	double precision	a,
-		double precision	b,
-		double precision	c,
-		double precision	d,
-		double precision	p,
-		double precision	q )
+subroutine dladiv (
+		double precision a,
+		double precision b,
+		double precision c,
+		double precision d,
+		double precision p,
+		double precision q
+)
 ```
 
  DLADIV performs complex division in  real arithmetic

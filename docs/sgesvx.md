@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgesvx	(	fact,
+subroutine sgesvx (
+		fact,
 		trans,
 		n,
 		nrhs,
@@ -20,7 +21,8 @@ subroutine sgesvx	(	fact,
 		berr,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGESVX uses the LU factorization to compute the solution to a real

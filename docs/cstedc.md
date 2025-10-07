@@ -1,5 +1,6 @@
 ```fortran
-subroutine cstedc	(	compz,
+subroutine cstedc (
+		compz,
 		n,
 		d,
 		e,
@@ -11,7 +12,8 @@ subroutine cstedc	(	compz,
 		*                          lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CSTEDC computes all eigenvalues and, optionally, eigenvectors of a

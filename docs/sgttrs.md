@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgttrs	(	trans,
+subroutine sgttrs (
+		trans,
 		n,
 		nrhs,
 		dl,
@@ -9,7 +10,8 @@ subroutine sgttrs	(	trans,
 		ipiv,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  SGTTRS solves one of the systems of equations

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sorbdb1	(	m,
+subroutine sorbdb1 (
+		m,
 		p,
 		q,
 		x11,
@@ -13,7 +14,8 @@ subroutine sorbdb1	(	m,
 		tauq1,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SORBDB1 simultaneously bidiagonalizes the blocks of a tall and skinny

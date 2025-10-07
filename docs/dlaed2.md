@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaed2	(	k,
+subroutine dlaed2 (
+		k,
 		n,
 		n1,
 		d,
@@ -15,7 +16,8 @@ subroutine dlaed2	(	k,
 		indxc,
 		indxp,
 		coltyp,
-		info )
+		info
+)
 ```
 
  DLAED2 merges the two sets of eigenvalues together into a single

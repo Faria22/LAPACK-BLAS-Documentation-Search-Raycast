@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrexc	(	compq,
+subroutine dtrexc (
+		compq,
 		n,
 		t,
 		ldt,
@@ -8,7 +9,8 @@ subroutine dtrexc	(	compq,
 		ifst,
 		ilst,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  DTREXC reorders the real Schur factorization of a real matrix

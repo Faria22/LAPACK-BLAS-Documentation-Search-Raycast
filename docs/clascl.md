@@ -1,14 +1,16 @@
 ```fortran
-subroutine clascl	(	character	type,
-		integer	kl,
-		integer	ku,
-		real	cfrom,
-		real	cto,
-		integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine clascl (
+		character type,
+		integer kl,
+		integer ku,
+		real cfrom,
+		real cto,
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  CLASCL multiplies the M by N complex matrix A by the real scalar

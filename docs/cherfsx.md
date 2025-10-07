@@ -1,5 +1,6 @@
 ```fortran
-subroutine cherfsx	(	uplo,
+subroutine cherfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -22,7 +23,8 @@ subroutine cherfsx	(	uplo,
 		params,
 		*                           work,
 		rwork,
-		info )
+		info
+)
 ```
 
     CHERFSX improves the computed solution to a system of linear

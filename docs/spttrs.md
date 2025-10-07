@@ -1,11 +1,13 @@
 ```fortran
-subroutine spttrs	(	integer	n,
-		integer	nrhs,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine spttrs (
+		integer n,
+		integer nrhs,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPTTRS solves a tridiagonal system of the form

@@ -1,11 +1,13 @@
 ```fortran
-subroutine claqsp	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine claqsp (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  CLAQSP equilibrates a symmetric matrix A using the scaling factors

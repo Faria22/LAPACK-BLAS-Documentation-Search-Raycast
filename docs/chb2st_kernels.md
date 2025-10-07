@@ -1,5 +1,6 @@
 ```fortran
-subroutine chb2st_kernels	(	uplo,
+subroutine chb2st_kernels (
+		uplo,
 		wantz,
 		ttype,
 		*                                   st,
@@ -13,7 +14,8 @@ subroutine chb2st_kernels	(	uplo,
 		v,
 		tau,
 		ldvt,
-		work )
+		work
+)
 ```
 
  CHB2ST_KERNELS is an internal routine used by the CHETRD_HB2ST

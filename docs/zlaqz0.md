@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaqz0	(	wants,
+subroutine zlaqz0 (
+		wants,
 		wantq,
 		wantz,
 		n,
@@ -19,7 +20,8 @@ subroutine zlaqz0	(	wants,
 		lwork,
 		rwork,
 		rec,
-		*     $    info )
+		*     $    info
+)
 ```
 
  ZLAQZ0 computes the eigenvalues of a real matrix pair (H,T),

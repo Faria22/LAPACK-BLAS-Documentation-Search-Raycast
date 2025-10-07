@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztgex2	(	wantq,
+subroutine ztgex2 (
+		wantq,
 		wantz,
 		n,
 		a,
@@ -11,7 +12,8 @@ subroutine ztgex2	(	wantq,
 		z,
 		*                          ldz,
 		j1,
-		info )
+		info
+)
 ```
 
  ZTGEX2 swaps adjacent diagonal 1 by 1 blocks (A11,B11) and (A22,B22)

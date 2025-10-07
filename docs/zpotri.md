@@ -1,9 +1,11 @@
 ```fortran
-subroutine zpotri	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine zpotri (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  ZPOTRI computes the inverse of a complex Hermitian positive definite

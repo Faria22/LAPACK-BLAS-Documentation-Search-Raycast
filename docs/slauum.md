@@ -1,9 +1,11 @@
 ```fortran
-subroutine slauum	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine slauum (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  SLAUUM computes the product U * U**T or L**T * L, where the triangular

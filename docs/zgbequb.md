@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgbequb	(	m,
+subroutine zgbequb (
+		m,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine zgbequb	(	m,
 		rowcnd,
 		colcnd,
 		*                           amax,
-		info )
+		info
+)
 ```
 
  ZGBEQUB computes row and column scalings intended to equilibrate an

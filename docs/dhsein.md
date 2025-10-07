@@ -1,5 +1,6 @@
 ```fortran
-subroutine dhsein	(	side,
+subroutine dhsein (
+		side,
 		eigsrc,
 		initv,
 		select,
@@ -17,7 +18,8 @@ subroutine dhsein	(	side,
 		work,
 		ifaill,
 		*                          ifailr,
-		info )
+		info
+)
 ```
 
  DHSEIN uses inverse iteration to find specified right and/or left

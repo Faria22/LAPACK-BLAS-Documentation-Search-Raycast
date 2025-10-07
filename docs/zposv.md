@@ -1,12 +1,14 @@
 ```fortran
-subroutine zposv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zposv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZPOSV computes the solution to a complex system of linear equations

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgges3	(	jobvsl,
+subroutine sgges3 (
+		jobvsl,
 		jobvsr,
 		sort,
 		selctg,
@@ -19,7 +20,8 @@ subroutine sgges3	(	jobvsl,
 		work,
 		lwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  SGGES3 computes for a pair of N-by-N real nonsymmetric matrices (A,B),

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctpmlqt	(	side,
+subroutine ctpmlqt (
+		side,
 		trans,
 		m,
 		n,
@@ -15,7 +16,8 @@ subroutine ctpmlqt	(	side,
 		b,
 		ldb,
 		work,
-		info )
+		info
+)
 ```
 
  CTPMLQT applies a complex unitary matrix Q obtained from a

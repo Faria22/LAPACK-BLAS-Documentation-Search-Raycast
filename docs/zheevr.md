@@ -1,5 +1,6 @@
 ```fortran
-subroutine zheevr	(	jobz,
+subroutine zheevr (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -21,7 +22,8 @@ subroutine zheevr	(	jobz,
 		lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  ZHEEVR computes selected eigenvalues and, optionally, eigenvectors

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsyrfsx	(	uplo,
+subroutine zsyrfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -22,7 +23,8 @@ subroutine zsyrfsx	(	uplo,
 		params,
 		*                           work,
 		rwork,
-		info )
+		info
+)
 ```
 
     ZSYRFSX improves the computed solution to a system of linear

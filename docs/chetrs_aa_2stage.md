@@ -1,5 +1,6 @@
 ```fortran
-subroutine chetrs_aa_2stage	(	uplo,
+subroutine chetrs_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -10,7 +11,8 @@ subroutine chetrs_aa_2stage	(	uplo,
 		*                                   ipiv2,
 		b,
 		ldb,
-		info )
+		info
+)
 ```
 
  CHETRS_AA_2STAGE solves a system of linear equations A*X = B with a real

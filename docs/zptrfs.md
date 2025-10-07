@@ -1,5 +1,6 @@
 ```fortran
-subroutine zptrfs	(	uplo,
+subroutine zptrfs (
+		uplo,
 		n,
 		nrhs,
 		d,
@@ -14,7 +15,8 @@ subroutine zptrfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZPTRFS improves the computed solution to a system of linear

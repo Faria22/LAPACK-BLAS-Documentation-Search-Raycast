@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhseqr	(	job,
+subroutine zhseqr (
+		job,
 		compz,
 		n,
 		ilo,
@@ -11,7 +12,8 @@ subroutine zhseqr	(	job,
 		ldz,
 		*                          work,
 		lwork,
-		info )
+		info
+)
 ```
 
     ZHSEQR computes the eigenvalues of a Hessenberg matrix H

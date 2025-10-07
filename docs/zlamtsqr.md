@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlamtsqr	(	side,
+subroutine zlamtsqr (
+		side,
 		trans,
 		m,
 		n,
@@ -14,7 +15,8 @@ subroutine zlamtsqr	(	side,
 		ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
       ZLAMTSQR overwrites the general complex M-by-N matrix C with

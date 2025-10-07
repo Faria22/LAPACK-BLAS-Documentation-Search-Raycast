@@ -1,13 +1,15 @@
 ```fortran
-subroutine cgerc	(	integer	m,
-		integer	n,
-		complex	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	y,
-		integer	incy,
-		complex, dimension(lda,*)	a,
-		integer	lda )
+subroutine cgerc (
+		integer m,
+		integer n,
+		complex alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) y,
+		integer incy,
+		complex, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  CGERC  performs the rank 1 operation

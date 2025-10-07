@@ -1,12 +1,14 @@
 ```fortran
-subroutine cspsv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cspsv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CSPSV computes the solution to a complex system of linear equations

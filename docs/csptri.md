@@ -1,10 +1,12 @@
 ```fortran
-subroutine csptri	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine csptri (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CSPTRI computes the inverse of a complex symmetric indefinite matrix

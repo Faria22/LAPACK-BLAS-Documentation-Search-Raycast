@@ -1,14 +1,16 @@
 ```fortran
-subroutine sgtts2	(	integer	itrans,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	dl,
-		real, dimension(*)	d,
-		real, dimension(*)	du,
-		real, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine sgtts2 (
+		integer itrans,
+		integer n,
+		integer nrhs,
+		real, dimension(*) dl,
+		real, dimension(*) d,
+		real, dimension(*) du,
+		real, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  SGTTS2 solves one of the systems of equations

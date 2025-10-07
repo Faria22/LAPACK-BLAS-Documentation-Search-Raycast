@@ -1,5 +1,6 @@
 ```fortran
-subroutine clabrd	(	m,
+subroutine clabrd (
+		m,
 		n,
 		nb,
 		a,
@@ -11,7 +12,8 @@ subroutine clabrd	(	m,
 		x,
 		ldx,
 		y,
-		*                          ldy )
+		*                          ldy
+)
 ```
 
  CLABRD reduces the first NB rows and columns of a complex general

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrsyl3	(	trana,
+subroutine dtrsyl3 (
+		trana,
 		tranb,
 		isgn,
 		m,
@@ -15,7 +16,8 @@ subroutine dtrsyl3	(	trana,
 		liwork,
 		swork,
 		ldswork,
-		*                           info )
+		*                           info
+)
 ```
 
   DTRSYL3 solves the real Sylvester matrix equation:

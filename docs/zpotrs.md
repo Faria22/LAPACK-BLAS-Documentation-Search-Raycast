@@ -1,12 +1,14 @@
 ```fortran
-subroutine zpotrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zpotrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZPOTRS solves a system of linear equations A*X = B with a Hermitian

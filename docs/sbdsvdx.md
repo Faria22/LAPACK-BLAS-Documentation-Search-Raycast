@@ -1,5 +1,6 @@
 ```fortran
-subroutine sbdsvdx	(	uplo,
+subroutine sbdsvdx (
+		uplo,
 		jobz,
 		range,
 		n,
@@ -15,7 +16,8 @@ subroutine sbdsvdx	(	uplo,
 		ldz,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
   SBDSVDX computes the singular value decomposition (SVD) of a real

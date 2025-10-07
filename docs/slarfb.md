@@ -1,5 +1,6 @@
 ```fortran
-subroutine slarfb	(	side,
+subroutine slarfb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -13,7 +14,8 @@ subroutine slarfb	(	side,
 		c,
 		ldc,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  SLARFB applies a real block reflector H or its transpose H**T to a

@@ -1,7 +1,9 @@
 ```fortran
-subroutine dlasq2	(	integer	n,
-		double precision, dimension(*)	z,
-		integer	info )
+subroutine dlasq2 (
+		integer n,
+		double precision, dimension(*) z,
+		integer info
+)
 ```
 
  DLASQ2 computes all the eigenvalues of the symmetric positive

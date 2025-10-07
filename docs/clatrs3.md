@@ -1,5 +1,6 @@
 ```fortran
-subroutine clatrs3	(	uplo,
+subroutine clatrs3 (
+		uplo,
 		trans,
 		diag,
 		normin,
@@ -13,7 +14,8 @@ subroutine clatrs3	(	uplo,
 		cnorm,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CLATRS3 solves one of the triangular systems

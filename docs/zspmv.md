@@ -1,13 +1,15 @@
 ```fortran
-subroutine zspmv	(	character	uplo,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(*)	ap,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16	beta,
-		complex*16, dimension(*)	y,
-		integer	incy )
+subroutine zspmv (
+		character uplo,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(*) ap,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16 beta,
+		complex*16, dimension(*) y,
+		integer incy
+)
 ```
 
  ZSPMV  performs the matrix-vector operation

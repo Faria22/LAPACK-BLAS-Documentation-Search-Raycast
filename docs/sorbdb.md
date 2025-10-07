@@ -1,5 +1,6 @@
 ```fortran
-subroutine sorbdb	(	trans,
+subroutine sorbdb (
+		trans,
 		signs,
 		m,
 		p,
@@ -20,7 +21,8 @@ subroutine sorbdb	(	trans,
 		tauq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SORBDB simultaneously bidiagonalizes the blocks of an M-by-M

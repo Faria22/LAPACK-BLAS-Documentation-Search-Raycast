@@ -1,5 +1,6 @@
 ```fortran
-subroutine sormbr	(	vect,
+subroutine sormbr (
+		vect,
 		side,
 		trans,
 		m,
@@ -12,7 +13,8 @@ subroutine sormbr	(	vect,
 		*                          ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  If VECT = 'Q', SORMBR overwrites the general real M-by-N matrix C

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sggevx	(	balanc,
+subroutine sggevx (
+		balanc,
 		jobvl,
 		jobvr,
 		sense,
@@ -27,7 +28,8 @@ subroutine sggevx	(	balanc,
 		lwork,
 		iwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  SGGEVX computes for a pair of N-by-N real nonsymmetric matrices (A,B)

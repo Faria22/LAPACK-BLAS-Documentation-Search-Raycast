@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaed8	(	icompq,
+subroutine slaed8 (
+		icompq,
 		k,
 		n,
 		qsiz,
@@ -20,7 +21,8 @@ subroutine slaed8	(	icompq,
 		givnum,
 		indxp,
 		indx,
-		info )
+		info
+)
 ```
 
  SLAED8 merges the two sets of eigenvalues together into a single

@@ -1,14 +1,16 @@
 ```fortran
-subroutine zungbr	(	character	vect,
-		integer	m,
-		integer	n,
-		integer	k,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zungbr (
+		character vect,
+		integer m,
+		integer n,
+		integer k,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZUNGBR generates one of the complex unitary matrices Q or P**H

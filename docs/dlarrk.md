@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrk	(	n,
+subroutine dlarrk (
+		n,
 		iw,
 		gl,
 		gu,
@@ -9,7 +10,8 @@ subroutine dlarrk	(	n,
 		reltol,
 		w,
 		werr,
-		info )
+		info
+)
 ```
 
  DLARRK computes one eigenvalue of a symmetric tridiagonal

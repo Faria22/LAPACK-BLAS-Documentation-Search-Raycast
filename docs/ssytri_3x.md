@@ -1,13 +1,15 @@
 ```fortran
-subroutine ssytri_3x	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		real, dimension(n+nb+1, *)	work,
-		integer	nb,
-		integer	info )
+subroutine ssytri_3x (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) e,
+		integer, dimension(*) ipiv,
+		real, dimension(n+nb+1, *) work,
+		integer nb,
+		integer info
+)
 ```
  SSYTRI_3X computes the inverse of a real symmetric indefinite
  matrix A using the factorization computed by SSYTRF_RK or SSYTRF_BK:

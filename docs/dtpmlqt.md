@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtpmlqt	(	side,
+subroutine dtpmlqt (
+		side,
 		trans,
 		m,
 		n,
@@ -15,7 +16,8 @@ subroutine dtpmlqt	(	side,
 		b,
 		ldb,
 		work,
-		info )
+		info
+)
 ```
 
  DTPMQRT applies a real orthogonal matrix Q obtained from a

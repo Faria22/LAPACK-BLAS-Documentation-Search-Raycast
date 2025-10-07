@@ -1,13 +1,15 @@
 ```fortran
-subroutine sorgrq	(	integer	m,
-		integer	n,
-		integer	k,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sorgrq (
+		integer m,
+		integer n,
+		integer k,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SORGRQ generates an M-by-N real matrix Q with orthonormal rows,

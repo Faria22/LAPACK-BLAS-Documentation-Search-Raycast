@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhpgvx	(	itype,
+subroutine zhpgvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -19,7 +20,8 @@ subroutine zhpgvx	(	itype,
 		rwork,
 		*                          iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  ZHPGVX computes selected eigenvalues and, optionally, eigenvectors

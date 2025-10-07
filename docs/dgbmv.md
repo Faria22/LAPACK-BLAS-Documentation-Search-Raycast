@@ -1,17 +1,19 @@
 ```fortran
-subroutine dgbmv	(	character	trans,
-		integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision	beta,
-		double precision, dimension(*)	y,
-		integer	incy )
+subroutine dgbmv (
+		character trans,
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision beta,
+		double precision, dimension(*) y,
+		integer incy
+)
 ```
 
  DGBMV  performs one of the matrix-vector operations

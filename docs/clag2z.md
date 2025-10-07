@@ -1,11 +1,13 @@
 ```fortran
-subroutine clag2z	(	integer	m,
-		integer	n,
-		complex, dimension(ldsa, *)	sa,
-		integer	ldsa,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine clag2z (
+		integer m,
+		integer n,
+		complex, dimension(ldsa, *) sa,
+		integer ldsa,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX*16 matrix, A.

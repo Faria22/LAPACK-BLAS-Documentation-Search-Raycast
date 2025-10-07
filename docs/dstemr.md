@@ -1,5 +1,6 @@
 ```fortran
-subroutine dstemr	(	jobz,
+subroutine dstemr (
+		jobz,
 		range,
 		n,
 		d,
@@ -19,7 +20,8 @@ subroutine dstemr	(	jobz,
 		lwork,
 		*                          iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DSTEMR computes selected eigenvalues and, optionally, eigenvectors

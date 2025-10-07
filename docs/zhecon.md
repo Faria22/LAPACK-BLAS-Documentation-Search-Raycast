@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhecon	(	uplo,
+subroutine zhecon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zhecon	(	uplo,
 		anorm,
 		rcond,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  ZHECON estimates the reciprocal of the condition number of a complex

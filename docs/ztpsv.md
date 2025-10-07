@@ -1,11 +1,13 @@
 ```fortran
-subroutine ztpsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine ztpsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex*16, dimension(*) ap,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZTPSV  solves one of the systems of equations

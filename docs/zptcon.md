@@ -1,11 +1,13 @@
 ```fortran
-subroutine zptcon	(	integer	n,
-		double precision, dimension(*)	d,
-		complex*16, dimension(*)	e,
-		double precision	anorm,
-		double precision	rcond,
-		double precision, dimension(*)	rwork,
-		integer	info )
+subroutine zptcon (
+		integer n,
+		double precision, dimension(*) d,
+		complex*16, dimension(*) e,
+		double precision anorm,
+		double precision rcond,
+		double precision, dimension(*) rwork,
+		integer info
+)
 ```
 
  ZPTCON computes the reciprocal of the condition number (in the

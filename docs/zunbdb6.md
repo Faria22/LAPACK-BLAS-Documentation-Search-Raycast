@@ -1,5 +1,6 @@
 ```fortran
-subroutine zunbdb6	(	m1,
+subroutine zunbdb6 (
+		m1,
 		m2,
 		n,
 		x1,
@@ -12,7 +13,8 @@ subroutine zunbdb6	(	m1,
 		*                           ldq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZUNBDB6 orthogonalizes the column vector

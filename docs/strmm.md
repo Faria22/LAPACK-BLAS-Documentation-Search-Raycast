@@ -1,15 +1,17 @@
 ```fortran
-subroutine strmm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine strmm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  STRMM  performs one of the matrix-matrix operations

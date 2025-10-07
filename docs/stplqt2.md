@@ -1,14 +1,16 @@
 ```fortran
-subroutine stplqt2	(	integer	m,
-		integer	n,
-		integer	l,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		real, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine stplqt2 (
+		integer m,
+		integer n,
+		integer l,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		real, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  STPLQT2 computes a LQ a factorization of a real "triangular-pentagonal"

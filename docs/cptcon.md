@@ -1,11 +1,13 @@
 ```fortran
-subroutine cptcon	(	integer	n,
-		real, dimension(*)	d,
-		complex, dimension(*)	e,
-		real	anorm,
-		real	rcond,
-		real, dimension(*)	rwork,
-		integer	info )
+subroutine cptcon (
+		integer n,
+		real, dimension(*) d,
+		complex, dimension(*) e,
+		real anorm,
+		real rcond,
+		real, dimension(*) rwork,
+		integer info
+)
 ```
 
  CPTCON computes the reciprocal of the condition number (in the

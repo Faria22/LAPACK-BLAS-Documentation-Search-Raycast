@@ -1,13 +1,15 @@
 ```fortran
-subroutine dsyev	(	character	jobz,
-		character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	w,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dsyev (
+		character jobz,
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) w,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DSYEV computes all eigenvalues and, optionally, eigenvectors of a

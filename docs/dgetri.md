@@ -1,11 +1,13 @@
 ```fortran
-subroutine dgetri	(	integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dgetri (
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DGETRI computes the inverse of a matrix using the LU factorization

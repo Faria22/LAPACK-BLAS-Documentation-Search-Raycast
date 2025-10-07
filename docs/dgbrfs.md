@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgbrfs	(	trans,
+subroutine dgbrfs (
+		trans,
 		n,
 		kl,
 		ku,
@@ -17,7 +18,8 @@ subroutine dgbrfs	(	trans,
 		berr,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DGBRFS improves the computed solution to a system of linear

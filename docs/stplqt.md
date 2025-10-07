@@ -1,5 +1,6 @@
 ```fortran
-subroutine stplqt	(	m,
+subroutine stplqt (
+		m,
 		n,
 		l,
 		mb,
@@ -10,7 +11,8 @@ subroutine stplqt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  STPLQT computes a blocked LQ factorization of a real

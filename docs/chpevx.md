@@ -1,5 +1,6 @@
 ```fortran
-subroutine chpevx	(	jobz,
+subroutine chpevx (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -17,7 +18,8 @@ subroutine chpevx	(	jobz,
 		rwork,
 		iwork,
 		*                          ifail,
-		info )
+		info
+)
 ```
 
  CHPEVX computes selected eigenvalues and, optionally, eigenvectors

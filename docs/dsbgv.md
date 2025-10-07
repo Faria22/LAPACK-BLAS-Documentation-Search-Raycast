@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsbgv	(	jobz,
+subroutine dsbgv (
+		jobz,
 		uplo,
 		n,
 		ka,
@@ -12,7 +13,8 @@ subroutine dsbgv	(	jobz,
 		z,
 		*                         ldz,
 		work,
-		info )
+		info
+)
 ```
 
  DSBGV computes all the eigenvalues, and optionally, the eigenvectors

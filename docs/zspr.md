@@ -1,10 +1,12 @@
 ```fortran
-subroutine zspr	(	character	uplo,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	ap )
+subroutine zspr (
+		character uplo,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) ap
+)
 ```
 
  ZSPR    performs the symmetric rank 1 operation

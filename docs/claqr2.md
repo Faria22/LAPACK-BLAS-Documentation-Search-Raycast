@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqr2	(	wantt,
+subroutine claqr2 (
+		wantt,
 		wantz,
 		n,
 		ktop,
@@ -23,7 +24,8 @@ subroutine claqr2	(	wantt,
 		wv,
 		ldwv,
 		work,
-		lwork )
+		lwork
+)
 ```
 
     CLAQR2 is identical to CLAQR3 except that it avoids

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgerfsx	(	trans,
+subroutine sgerfsx (
+		trans,
 		equed,
 		n,
 		nrhs,
@@ -23,7 +24,8 @@ subroutine sgerfsx	(	trans,
 		params,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
     SGERFSX improves the computed solution to a system of linear

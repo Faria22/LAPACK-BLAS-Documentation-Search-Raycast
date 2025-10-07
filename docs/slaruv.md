@@ -1,7 +1,9 @@
 ```fortran
-subroutine slaruv	(	integer, dimension(4)	iseed,
-		integer	n,
-		real, dimension(n)	x )
+subroutine slaruv (
+		integer, dimension(4) iseed,
+		integer n,
+		real, dimension(n) x
+)
 ```
 
  SLARUV returns a vector of n random real numbers from a uniform (0,1)

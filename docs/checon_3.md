@@ -1,5 +1,6 @@
 ```fortran
-subroutine checon_3	(	uplo,
+subroutine checon_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine checon_3	(	uplo,
 		anorm,
 		rcond,
 		*                            work,
-		info )
+		info
+)
 ```
  CHECON_3 estimates the reciprocal of the condition number (in the
  1-norm) of a complex Hermitian matrix A using the factorization

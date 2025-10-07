@@ -1,9 +1,11 @@
 ```fortran
-subroutine clarfg	(	integer	n,
-		complex	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex	tau )
+subroutine clarfg (
+		integer n,
+		complex alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex tau
+)
 ```
 
  CLARFG generates a complex elementary reflector H of order n, such

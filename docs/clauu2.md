@@ -1,9 +1,11 @@
 ```fortran
-subroutine clauu2	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine clauu2 (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  CLAUU2 computes the product U * U**H or L**H * L, where the triangular

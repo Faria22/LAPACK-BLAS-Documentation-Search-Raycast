@@ -1,5 +1,6 @@
 ```fortran
-subroutine cstemr	(	jobz,
+subroutine cstemr (
+		jobz,
 		range,
 		n,
 		d,
@@ -19,7 +20,8 @@ subroutine cstemr	(	jobz,
 		lwork,
 		*                          iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  CSTEMR computes selected eigenvalues and, optionally, eigenvectors

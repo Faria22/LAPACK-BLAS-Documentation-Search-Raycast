@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlargv	(	integer	n,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(*)	c,
-		integer	incc )
+subroutine dlargv (
+		integer n,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) y,
+		integer incy,
+		double precision, dimension(*) c,
+		integer incc
+)
 ```
 
  DLARGV generates a vector of real plane rotations, determined by

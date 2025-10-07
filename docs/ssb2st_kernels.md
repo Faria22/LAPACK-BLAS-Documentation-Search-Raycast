@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssb2st_kernels	(	uplo,
+subroutine ssb2st_kernels (
+		uplo,
 		wantz,
 		ttype,
 		*                                   st,
@@ -13,7 +14,8 @@ subroutine ssb2st_kernels	(	uplo,
 		v,
 		tau,
 		ldvt,
-		work )
+		work
+)
 ```
 
  SSB2ST_KERNELS is an internal routine used by the SSYTRD_SB2ST

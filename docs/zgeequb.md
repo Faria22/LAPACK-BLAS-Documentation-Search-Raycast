@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgeequb	(	m,
+subroutine zgeequb (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine zgeequb	(	m,
 		rowcnd,
 		colcnd,
 		amax,
-		*                           info )
+		*                           info
+)
 ```
 
  ZGEEQUB computes row and column scalings intended to equilibrate an

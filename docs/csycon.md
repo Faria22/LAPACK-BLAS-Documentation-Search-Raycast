@@ -1,5 +1,6 @@
 ```fortran
-subroutine csycon	(	uplo,
+subroutine csycon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine csycon	(	uplo,
 		anorm,
 		rcond,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  CSYCON estimates the reciprocal of the condition number (in the

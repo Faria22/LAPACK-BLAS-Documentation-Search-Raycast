@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsysv_rook	(	uplo,
+subroutine dsysv_rook (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine dsysv_rook	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  DSYSV_ROOK computes the solution to a real system of linear

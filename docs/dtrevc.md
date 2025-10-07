@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrevc	(	side,
+subroutine dtrevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -12,7 +13,8 @@ subroutine dtrevc	(	side,
 		mm,
 		m,
 		work,
-		info )
+		info
+)
 ```
 
  DTREVC computes some or all of the right and/or left eigenvectors of

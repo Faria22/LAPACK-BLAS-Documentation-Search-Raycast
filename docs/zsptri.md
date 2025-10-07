@@ -1,10 +1,12 @@
 ```fortran
-subroutine zsptri	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zsptri (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZSPTRI computes the inverse of a complex symmetric indefinite matrix

@@ -1,13 +1,15 @@
 ```fortran
-subroutine dtptrs	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	ap,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dtptrs (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) ap,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DTPTRS solves a triangular system of the form

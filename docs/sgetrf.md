@@ -1,10 +1,12 @@
 ```fortran
-subroutine sgetrf	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine sgetrf (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  SGETRF computes an LU factorization of a general M-by-N matrix A

@@ -1,11 +1,13 @@
 ```fortran
-subroutine dtpsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	x,
-		integer	incx )
+subroutine dtpsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) x,
+		integer incx
+)
 ```
 
  DTPSV  solves one of the systems of equations

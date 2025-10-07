@@ -1,12 +1,14 @@
 ```fortran
-subroutine chetrf_aa	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine chetrf_aa (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CHETRF_AA computes the factorization of a complex hermitian matrix A

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cptrfs	(	uplo,
+subroutine cptrfs (
+		uplo,
 		n,
 		nrhs,
 		d,
@@ -14,7 +15,8 @@ subroutine cptrfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CPTRFS improves the computed solution to a system of linear

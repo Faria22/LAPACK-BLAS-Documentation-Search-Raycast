@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasd0	(	n,
+subroutine dlasd0 (
+		n,
 		sqre,
 		d,
 		e,
@@ -10,7 +11,8 @@ subroutine dlasd0	(	n,
 		smlsiz,
 		iwork,
 		*                          work,
-		info )
+		info
+)
 ```
 
  Using a divide and conquer approach, DLASD0 computes the singular

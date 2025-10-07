@@ -1,14 +1,16 @@
 ```fortran
-subroutine dsyrk	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision	beta,
-		double precision, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine dsyrk (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision beta,
+		double precision, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  DSYRK  performs one of the symmetric rank k operations

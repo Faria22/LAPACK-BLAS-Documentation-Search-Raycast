@@ -1,5 +1,6 @@
 ```fortran
-subroutine cunmbr	(	vect,
+subroutine cunmbr (
+		vect,
 		side,
 		trans,
 		m,
@@ -12,7 +13,8 @@ subroutine cunmbr	(	vect,
 		*                          ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  If VECT = 'Q', CUNMBR overwrites the general complex M-by-N matrix C

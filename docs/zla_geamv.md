@@ -1,5 +1,6 @@
 ```fortran
-subroutine zla_geamv	(	trans,
+subroutine zla_geamv (
+		trans,
 		m,
 		n,
 		alpha,
@@ -9,7 +10,8 @@ subroutine zla_geamv	(	trans,
 		incx,
 		beta,
 		*                             y,
-		incy )
+		incy
+)
 ```
 
  ZLA_GEAMV  performs one of the matrix-vector operations

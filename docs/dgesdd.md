@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgesdd	(	jobz,
+subroutine dgesdd (
+		jobz,
 		m,
 		n,
 		a,
@@ -12,7 +13,8 @@ subroutine dgesdd	(	jobz,
 		*                          work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  DGESDD computes the singular value decomposition (SVD) of a real

@@ -1,5 +1,6 @@
 ```fortran
-subroutine strrfs	(	uplo,
+subroutine strrfs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -14,7 +15,8 @@ subroutine strrfs	(	uplo,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  STRRFS provides error bounds and backward error estimates for the

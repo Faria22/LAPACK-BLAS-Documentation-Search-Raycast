@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssycon_3	(	uplo,
+subroutine ssycon_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine ssycon_3	(	uplo,
 		rcond,
 		*                            work,
 		iwork,
-		info )
+		info
+)
 ```
  SSYCON_3 estimates the reciprocal of the condition number (in the
  1-norm) of a real symmetric matrix A using the factorization

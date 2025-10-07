@@ -1,5 +1,6 @@
 ```fortran
-subroutine sorbdb6	(	m1,
+subroutine sorbdb6 (
+		m1,
 		m2,
 		n,
 		x1,
@@ -12,7 +13,8 @@ subroutine sorbdb6	(	m1,
 		*                           ldq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SORBDB6 orthogonalizes the column vector

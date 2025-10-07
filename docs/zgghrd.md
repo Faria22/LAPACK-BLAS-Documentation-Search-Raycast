@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgghrd	(	compq,
+subroutine zgghrd (
+		compq,
 		compz,
 		n,
 		ilo,
@@ -12,7 +13,8 @@ subroutine zgghrd	(	compq,
 		*                          ldq,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
  ZGGHRD reduces a pair of complex matrices (A,B) to generalized upper

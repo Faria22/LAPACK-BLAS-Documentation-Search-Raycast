@@ -1,11 +1,13 @@
 ```fortran
-subroutine zdrot	(	integer	n,
-		complex*16, dimension(*)	zx,
-		integer	incx,
-		complex*16, dimension(*)	zy,
-		integer	incy,
-		double precision	c,
-		double precision	s )
+subroutine zdrot (
+		integer n,
+		complex*16, dimension(*) zx,
+		integer incx,
+		complex*16, dimension(*) zy,
+		integer incy,
+		double precision c,
+		double precision s
+)
 ```
 
  Applies a plane rotation, where the cos and sin (c and s) are real

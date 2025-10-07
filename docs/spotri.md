@@ -1,9 +1,11 @@
 ```fortran
-subroutine spotri	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine spotri (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  SPOTRI computes the inverse of a real symmetric positive definite

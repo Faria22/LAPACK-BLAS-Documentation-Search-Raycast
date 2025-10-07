@@ -1,10 +1,12 @@
 ```fortran
-subroutine zlacn2	(	integer	n,
-		complex*16, dimension(*)	v,
-		complex*16, dimension(*)	x,
-		double precision	est,
-		integer	kase,
-		integer, dimension(3)	isave )
+subroutine zlacn2 (
+		integer n,
+		complex*16, dimension(*) v,
+		complex*16, dimension(*) x,
+		double precision est,
+		integer kase,
+		integer, dimension(3) isave
+)
 ```
 
  ZLACN2 estimates the 1-norm of a square, complex matrix A.

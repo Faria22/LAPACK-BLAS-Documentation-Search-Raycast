@@ -1,5 +1,6 @@
 ```fortran
-subroutine slahqr	(	wantt,
+subroutine slahqr (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -12,7 +13,8 @@ subroutine slahqr	(	wantt,
 		ihiz,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
     SLAHQR is an auxiliary routine called by SHSEQR to update the

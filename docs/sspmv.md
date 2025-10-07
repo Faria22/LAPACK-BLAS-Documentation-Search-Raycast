@@ -1,13 +1,15 @@
 ```fortran
-subroutine sspmv	(	character	uplo,
-		integer	n,
-		real	alpha,
-		real, dimension(*)	ap,
-		real, dimension(*)	x,
-		integer	incx,
-		real	beta,
-		real, dimension(*)	y,
-		integer	incy )
+subroutine sspmv (
+		character uplo,
+		integer n,
+		real alpha,
+		real, dimension(*) ap,
+		real, dimension(*) x,
+		integer incx,
+		real beta,
+		real, dimension(*) y,
+		integer incy
+)
 ```
 
  SSPMV  performs the matrix-vector operation

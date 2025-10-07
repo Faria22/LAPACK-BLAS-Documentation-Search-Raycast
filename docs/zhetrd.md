@@ -1,14 +1,16 @@
 ```fortran
-subroutine zhetrd	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zhetrd (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZHETRD reduces a complex Hermitian matrix A to real symmetric

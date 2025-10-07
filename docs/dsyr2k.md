@@ -1,16 +1,18 @@
 ```fortran
-subroutine dsyr2k	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(ldb,*)	b,
-		integer	ldb,
-		double precision	beta,
-		double precision, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine dsyr2k (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(ldb,*) b,
+		integer ldb,
+		double precision beta,
+		double precision, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  DSYR2K  performs one of the symmetric rank 2k operations

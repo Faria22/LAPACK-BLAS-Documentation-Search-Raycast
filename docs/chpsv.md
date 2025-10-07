@@ -1,12 +1,14 @@
 ```fortran
-subroutine chpsv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine chpsv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CHPSV computes the solution to a complex system of linear equations

@@ -1,8 +1,10 @@
 ```fortran
-subroutine zla_wwaddw	(	integer	n,
-		complex*16, dimension(*)	x,
-		complex*16, dimension(*)	y,
-		complex*16, dimension(*)	w )
+subroutine zla_wwaddw (
+		integer n,
+		complex*16, dimension(*) x,
+		complex*16, dimension(*) y,
+		complex*16, dimension(*) w
+)
 ```
 
     ZLA_WWADDW adds a vector W into a doubled-single vector (X, Y).

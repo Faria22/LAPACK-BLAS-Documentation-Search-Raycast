@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasd6	(	icompq,
+subroutine dlasd6 (
+		icompq,
 		nl,
 		nr,
 		sqre,
@@ -24,7 +25,8 @@ subroutine dlasd6	(	icompq,
 		s,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DLASD6 computes the SVD of an updated upper bidiagonal matrix B

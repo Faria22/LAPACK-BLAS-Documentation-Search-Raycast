@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgbbrd	(	vect,
+subroutine dgbbrd (
+		vect,
 		m,
 		n,
 		ncc,
@@ -16,7 +17,8 @@ subroutine dgbbrd	(	vect,
 		c,
 		ldc,
 		work,
-		info )
+		info
+)
 ```
 
  DGBBRD reduces a real general m-by-n band matrix A to upper

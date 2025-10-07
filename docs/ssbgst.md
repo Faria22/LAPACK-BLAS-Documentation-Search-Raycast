@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssbgst	(	vect,
+subroutine ssbgst (
+		vect,
 		uplo,
 		n,
 		ka,
@@ -11,7 +12,8 @@ subroutine ssbgst	(	vect,
 		x,
 		*                          ldx,
 		work,
-		info )
+		info
+)
 ```
 
  SSBGST reduces a real symmetric-definite banded generalized

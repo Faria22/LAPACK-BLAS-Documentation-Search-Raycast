@@ -1,10 +1,12 @@
 ```fortran
-subroutine zhptri	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zhptri (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZHPTRI computes the inverse of a complex Hermitian indefinite matrix

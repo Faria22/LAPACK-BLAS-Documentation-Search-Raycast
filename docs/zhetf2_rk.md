@@ -1,11 +1,13 @@
 ```fortran
-subroutine zhetf2_rk	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zhetf2_rk (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  ZHETF2_RK computes the factorization of a complex Hermitian matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

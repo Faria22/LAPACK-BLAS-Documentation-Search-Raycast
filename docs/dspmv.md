@@ -1,13 +1,15 @@
 ```fortran
-subroutine dspmv	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision	beta,
-		double precision, dimension(*)	y,
-		integer	incy )
+subroutine dspmv (
+		character uplo,
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision beta,
+		double precision, dimension(*) y,
+		integer incy
+)
 ```
 
  DSPMV  performs the matrix-vector operation

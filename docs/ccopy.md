@@ -1,9 +1,11 @@
 ```fortran
-subroutine ccopy	(	integer	n,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex, dimension(*)	cy,
-		integer	incy )
+subroutine ccopy (
+		integer n,
+		complex, dimension(*) cx,
+		integer incx,
+		complex, dimension(*) cy,
+		integer incy
+)
 ```
 
     CCOPY copies a vector x to a vector y.

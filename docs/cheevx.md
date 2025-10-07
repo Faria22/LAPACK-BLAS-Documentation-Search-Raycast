@@ -1,5 +1,6 @@
 ```fortran
-subroutine cheevx	(	jobz,
+subroutine cheevx (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -19,7 +20,8 @@ subroutine cheevx	(	jobz,
 		rwork,
 		*                          iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  CHEEVX computes selected eigenvalues and, optionally, eigenvectors

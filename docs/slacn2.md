@@ -1,11 +1,13 @@
 ```fortran
-subroutine slacn2	(	integer	n,
-		real, dimension(*)	v,
-		real, dimension(*)	x,
-		integer, dimension(*)	isgn,
-		real	est,
-		integer	kase,
-		integer, dimension(3)	isave )
+subroutine slacn2 (
+		integer n,
+		real, dimension(*) v,
+		real, dimension(*) x,
+		integer, dimension(*) isgn,
+		real est,
+		integer kase,
+		integer, dimension(3) isave
+)
 ```
 
  SLACN2 estimates the 1-norm of a square, real matrix A.

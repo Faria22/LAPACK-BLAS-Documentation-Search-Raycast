@@ -1,9 +1,11 @@
 ```fortran
-subroutine scopy	(	integer	n,
-		real, dimension(*)	sx,
-		integer	incx,
-		real, dimension(*)	sy,
-		integer	incy )
+subroutine scopy (
+		integer n,
+		real, dimension(*) sx,
+		integer incx,
+		real, dimension(*) sy,
+		integer incy
+)
 ```
 
     SCOPY copies a vector, x, to a vector, y.

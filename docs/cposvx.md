@@ -1,5 +1,6 @@
 ```fortran
-subroutine cposvx	(	fact,
+subroutine cposvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -18,7 +19,8 @@ subroutine cposvx	(	fact,
 		berr,
 		work,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  CPOSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to

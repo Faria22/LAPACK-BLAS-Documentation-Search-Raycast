@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlarzt	(	character	direct,
-		character	storev,
-		integer	n,
-		integer	k,
-		double precision, dimension(ldv, *)	v,
-		integer	ldv,
-		double precision, dimension(*)	tau,
-		double precision, dimension(ldt, *)	t,
-		integer	ldt )
+subroutine dlarzt (
+		character direct,
+		character storev,
+		integer n,
+		integer k,
+		double precision, dimension(ldv, *) v,
+		integer ldv,
+		double precision, dimension(*) tau,
+		double precision, dimension(ldt, *) t,
+		integer ldt
+)
 ```
 
  DLARZT forms the triangular factor T of a real block reflector

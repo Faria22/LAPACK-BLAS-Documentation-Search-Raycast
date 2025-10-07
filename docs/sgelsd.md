@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgelsd	(	m,
+subroutine sgelsd (
+		m,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine sgelsd	(	m,
 		work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGELSD computes the minimum-norm solution to a real linear least

@@ -1,10 +1,12 @@
 ```fortran
-subroutine dlacon	(	integer	n,
-		double precision, dimension(*)	v,
-		double precision, dimension(*)	x,
-		integer, dimension(*)	isgn,
-		double precision	est,
-		integer	kase )
+subroutine dlacon (
+		integer n,
+		double precision, dimension(*) v,
+		double precision, dimension(*) x,
+		integer, dimension(*) isgn,
+		double precision est,
+		integer kase
+)
 ```
 
  DLACON estimates the 1-norm of a square, real matrix A.

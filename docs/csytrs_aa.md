@@ -1,5 +1,6 @@
 ```fortran
-subroutine csytrs_aa	(	uplo,
+subroutine csytrs_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine csytrs_aa	(	uplo,
 		ldb,
 		*                             work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CSYTRS_AA solves a system of linear equations A*X = B with a complex

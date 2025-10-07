@@ -1,5 +1,6 @@
 ```fortran
-subroutine sporfsx	(	uplo,
+subroutine sporfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -21,7 +22,8 @@ subroutine sporfsx	(	uplo,
 		params,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
     SPORFSX improves the computed solution to a system of linear

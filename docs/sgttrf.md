@@ -1,11 +1,13 @@
 ```fortran
-subroutine sgttrf	(	integer	n,
-		real, dimension(*)	dl,
-		real, dimension(*)	d,
-		real, dimension(*)	du,
-		real, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine sgttrf (
+		integer n,
+		real, dimension(*) dl,
+		real, dimension(*) d,
+		real, dimension(*) du,
+		real, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  SGTTRF computes an LU factorization of a real tridiagonal matrix A

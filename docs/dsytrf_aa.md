@@ -1,12 +1,14 @@
 ```fortran
-subroutine dsytrf_aa	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dsytrf_aa (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DSYTRF_AA computes the factorization of a real symmetric matrix A

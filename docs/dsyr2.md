@@ -1,13 +1,15 @@
 ```fortran
-subroutine dsyr2	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(lda,*)	a,
-		integer	lda )
+subroutine dsyr2 (
+		character uplo,
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) y,
+		integer incy,
+		double precision, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  DSYR2  performs the symmetric rank 2 operation

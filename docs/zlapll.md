@@ -1,10 +1,12 @@
 ```fortran
-subroutine zlapll	(	integer	n,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	y,
-		integer	incy,
-		double precision	ssmin )
+subroutine zlapll (
+		integer n,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) y,
+		integer incy,
+		double precision ssmin
+)
 ```
 
  Given two column vectors X and Y, let

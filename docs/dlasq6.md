@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasq6	(	i0,
+subroutine dlasq6 (
+		i0,
 		n0,
 		z,
 		pp,
@@ -8,7 +9,8 @@ subroutine dlasq6	(	i0,
 		dmin2,
 		dn,
 		*                          dnm1,
-		dnm2 )
+		dnm2
+)
 ```
 
  DLASQ6 computes one dqd (shift equal to zero) transform in

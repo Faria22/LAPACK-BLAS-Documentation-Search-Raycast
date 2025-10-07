@@ -1,9 +1,11 @@
 ```fortran
-subroutine drotmg	(	double precision	dd1,
-		double precision	dd2,
-		double precision	dx1,
-		double precision	dy1,
-		double precision, dimension(5)	dparam )
+subroutine drotmg (
+		double precision dd1,
+		double precision dd2,
+		double precision dx1,
+		double precision dy1,
+		double precision, dimension(5) dparam
+)
 ```
 
     CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS

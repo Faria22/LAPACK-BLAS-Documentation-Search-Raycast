@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsbtrd	(	vect,
+subroutine dsbtrd (
+		vect,
 		uplo,
 		n,
 		kd,
@@ -10,7 +11,8 @@ subroutine dsbtrd	(	vect,
 		q,
 		ldq,
 		*                          work,
-		info )
+		info
+)
 ```
 
  DSBTRD reduces a real symmetric band matrix A to symmetric

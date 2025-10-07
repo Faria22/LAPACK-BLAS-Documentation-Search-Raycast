@@ -1,10 +1,12 @@
 ```fortran
-subroutine clapmt	(	logical	forwrd,
-		integer	m,
-		integer	n,
-		complex, dimension(ldx, *)	x,
-		integer	ldx,
-		integer, dimension(*)	k )
+subroutine clapmt (
+		logical forwrd,
+		integer m,
+		integer n,
+		complex, dimension(ldx, *) x,
+		integer ldx,
+		integer, dimension(*) k
+)
 ```
 
  CLAPMT rearranges the columns of the M by N matrix X as specified

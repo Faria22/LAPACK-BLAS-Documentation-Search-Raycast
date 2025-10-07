@@ -1,9 +1,11 @@
 ```fortran
-subroutine srotmg	(	real	sd1,
-		real	sd2,
-		real	sx1,
-		real	sy1,
-		real, dimension(5)	sparam )
+subroutine srotmg (
+		real sd1,
+		real sd2,
+		real sx1,
+		real sy1,
+		real, dimension(5) sparam
+)
 ```
 
     CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS

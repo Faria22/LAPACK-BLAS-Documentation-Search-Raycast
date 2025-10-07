@@ -1,13 +1,15 @@
 ```fortran
-subroutine dgehrd	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dgehrd (
+		integer n,
+		integer ilo,
+		integer ihi,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DGEHRD reduces a real general matrix A to upper Hessenberg form H by

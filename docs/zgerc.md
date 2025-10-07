@@ -1,13 +1,15 @@
 ```fortran
-subroutine zgerc	(	integer	m,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	y,
-		integer	incy,
-		complex*16, dimension(lda,*)	a,
-		integer	lda )
+subroutine zgerc (
+		integer m,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) y,
+		integer incy,
+		complex*16, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  ZGERC  performs the rank 1 operation

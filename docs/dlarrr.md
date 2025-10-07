@@ -1,8 +1,10 @@
 ```fortran
-subroutine dlarrr	(	integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		integer	info )
+subroutine dlarrr (
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		integer info
+)
 ```
 
  Perform tests to decide whether the symmetric tridiagonal matrix T

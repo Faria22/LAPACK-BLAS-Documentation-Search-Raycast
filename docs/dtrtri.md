@@ -1,10 +1,12 @@
 ```fortran
-subroutine dtrtri	(	character	uplo,
-		character	diag,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine dtrtri (
+		character uplo,
+		character diag,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  DTRTRI computes the inverse of a real upper or lower triangular

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgglse	(	m,
+subroutine sgglse (
+		m,
 		n,
 		p,
 		a,
@@ -11,7 +12,8 @@ subroutine sgglse	(	m,
 		x,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SGGLSE solves the linear equality-constrained least squares (LSE)

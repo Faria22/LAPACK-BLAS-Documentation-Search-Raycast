@@ -1,5 +1,6 @@
 ```fortran
-subroutine csyrfsx	(	uplo,
+subroutine csyrfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -22,7 +23,8 @@ subroutine csyrfsx	(	uplo,
 		params,
 		*                           work,
 		rwork,
-		info )
+		info
+)
 ```
 
     CSYRFSX improves the computed solution to a system of linear

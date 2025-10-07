@@ -1,9 +1,11 @@
 ```fortran
-subroutine slartgp	(	real	f,
-		real	g,
-		real	cs,
-		real	sn,
-		real	r )
+subroutine slartgp (
+		real f,
+		real g,
+		real cs,
+		real sn,
+		real r
+)
 ```
 
  SLARTGP generates a plane rotation so that

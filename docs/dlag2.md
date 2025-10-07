@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlag2	(	a,
+subroutine dlag2 (
+		a,
 		lda,
 		b,
 		ldb,
@@ -8,7 +9,8 @@ subroutine dlag2	(	a,
 		scale2,
 		wr1,
 		*                         wr2,
-		wi )
+		wi
+)
 ```
 
  DLAG2 computes the eigenvalues of a 2 x 2 generalized eigenvalue

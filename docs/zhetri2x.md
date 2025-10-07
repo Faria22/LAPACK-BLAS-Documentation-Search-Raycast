@@ -1,12 +1,14 @@
 ```fortran
-subroutine zhetri2x	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(n+nb+1,*)	work,
-		integer	nb,
-		integer	info )
+subroutine zhetri2x (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(n+nb+1,*) work,
+		integer nb,
+		integer info
+)
 ```
 
  ZHETRI2X computes the inverse of a COMPLEX*16 Hermitian indefinite matrix

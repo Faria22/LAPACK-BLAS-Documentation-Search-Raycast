@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgels	(	trans,
+subroutine sgels (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine sgels	(	trans,
 		ldb,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  SGELS solves overdetermined or underdetermined real linear systems

@@ -1,5 +1,6 @@
 ```fortran
-subroutine clarzb	(	side,
+subroutine clarzb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -14,7 +15,8 @@ subroutine clarzb	(	side,
 		c,
 		ldc,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  CLARZB applies a complex block reflector H or its transpose H**H

@@ -1,5 +1,6 @@
 ```fortran
-subroutine stbtrs	(	uplo,
+subroutine stbtrs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -9,7 +10,8 @@ subroutine stbtrs	(	uplo,
 		ldab,
 		b,
 		*                          ldb,
-		info )
+		info
+)
 ```
 
  STBTRS solves a triangular system of the form
