@@ -1,17 +1,19 @@
 ```fortran
-subroutine zgemm	(	character	transa,
-		character	transb,
-		integer	m,
-		integer	n,
-		integer	k,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(ldb,*)	b,
-		integer	ldb,
-		complex*16	beta,
-		complex*16, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine zgemm (
+		character transa,
+		character transb,
+		integer m,
+		integer n,
+		integer k,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(ldb,*) b,
+		integer ldb,
+		complex*16 beta,
+		complex*16, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  ZGEMM  performs one of the matrix-matrix operations

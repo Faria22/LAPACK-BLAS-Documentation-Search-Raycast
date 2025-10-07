@@ -1,14 +1,16 @@
 ```fortran
-subroutine cungbr	(	character	vect,
-		integer	m,
-		integer	n,
-		integer	k,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine cungbr (
+		character vect,
+		integer m,
+		integer n,
+		integer k,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CUNGBR generates one of the complex unitary matrices Q or P**H

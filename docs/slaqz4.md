@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaqz4	(	ilschur,
+subroutine slaqz4 (
+		ilschur,
 		ilq,
 		ilz,
 		n,
@@ -24,7 +25,8 @@ subroutine slaqz4	(	ilschur,
 		ldzc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SLAQZ4 Executes a single multishift QZ sweep

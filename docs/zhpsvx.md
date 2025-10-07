@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhpsvx	(	fact,
+subroutine zhpsvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -15,7 +16,8 @@ subroutine zhpsvx	(	fact,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZHPSVX uses the diagonal pivoting factorization A = U*D*U**H or

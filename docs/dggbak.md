@@ -1,5 +1,6 @@
 ```fortran
-subroutine dggbak	(	job,
+subroutine dggbak (
+		job,
 		side,
 		n,
 		ilo,
@@ -9,7 +10,8 @@ subroutine dggbak	(	job,
 		m,
 		v,
 		*                          ldv,
-		info )
+		info
+)
 ```
 
  DGGBAK forms the right or left eigenvectors of a real generalized

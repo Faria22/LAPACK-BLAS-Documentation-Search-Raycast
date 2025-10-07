@@ -1,10 +1,12 @@
 ```fortran
-subroutine ctrttp	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	ap,
-		integer	info )
+subroutine ctrttp (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) ap,
+		integer info
+)
 ```
 
  CTRTTP copies a triangular matrix A from full format (TR) to standard

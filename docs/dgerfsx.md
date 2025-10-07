@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgerfsx	(	trans,
+subroutine dgerfsx (
+		trans,
 		equed,
 		n,
 		nrhs,
@@ -23,7 +24,8 @@ subroutine dgerfsx	(	trans,
 		params,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
     DGERFSX improves the computed solution to a system of linear

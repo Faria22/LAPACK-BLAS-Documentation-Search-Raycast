@@ -1,5 +1,6 @@
 ```fortran
-subroutine chegv	(	itype,
+subroutine chegv (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -11,7 +12,8 @@ subroutine chegv	(	itype,
 		work,
 		*                         lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHEGV computes all the eigenvalues, and optionally, the eigenvectors

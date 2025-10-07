@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssytri_3	(	uplo,
+subroutine ssytri_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine ssytri_3	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                            info )
+		*                            info
+)
 ```
  SSYTRI_3 computes the inverse of a real symmetric indefinite
  matrix A using the factorization computed by SSYTRF_RK or SSYTRF_BK:

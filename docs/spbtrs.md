@@ -1,13 +1,15 @@
 ```fortran
-subroutine spbtrs	(	character	uplo,
-		integer	n,
-		integer	kd,
-		integer	nrhs,
-		real, dimension(ldab, *)	ab,
-		integer	ldab,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine spbtrs (
+		character uplo,
+		integer n,
+		integer kd,
+		integer nrhs,
+		real, dimension(ldab, *) ab,
+		integer ldab,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPBTRS solves a system of linear equations A*X = B with a symmetric

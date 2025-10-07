@@ -1,10 +1,12 @@
 ```fortran
-subroutine sptts2	(	integer	n,
-		integer	nrhs,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine sptts2 (
+		integer n,
+		integer nrhs,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  SPTTS2 solves a tridiagonal system of the form

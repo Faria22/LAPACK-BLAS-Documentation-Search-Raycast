@@ -1,15 +1,17 @@
 ```fortran
-subroutine zhbmv	(	character	uplo,
-		integer	n,
-		integer	k,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16	beta,
-		complex*16, dimension(*)	y,
-		integer	incy )
+subroutine zhbmv (
+		character uplo,
+		integer n,
+		integer k,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16 beta,
+		complex*16, dimension(*) y,
+		integer incy
+)
 ```
 
  ZHBMV  performs the matrix-vector  operation

@@ -1,16 +1,18 @@
 ```fortran
-subroutine zsymm	(	character	side,
-		character	uplo,
-		integer	m,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(ldb,*)	b,
-		integer	ldb,
-		complex*16	beta,
-		complex*16, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine zsymm (
+		character side,
+		character uplo,
+		integer m,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(ldb,*) b,
+		integer ldb,
+		complex*16 beta,
+		complex*16, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  ZSYMM  performs one of the matrix-matrix operations

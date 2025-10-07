@@ -1,14 +1,16 @@
 ```fortran
-subroutine slanv2	(	real	a,
-		real	b,
-		real	c,
-		real	d,
-		real	rt1r,
-		real	rt1i,
-		real	rt2r,
-		real	rt2i,
-		real	cs,
-		real	sn )
+subroutine slanv2 (
+		real a,
+		real b,
+		real c,
+		real d,
+		real rt1r,
+		real rt1i,
+		real rt2r,
+		real rt2i,
+		real cs,
+		real sn
+)
 ```
 
  SLANV2 computes the Schur factorization of a real 2-by-2 nonsymmetric

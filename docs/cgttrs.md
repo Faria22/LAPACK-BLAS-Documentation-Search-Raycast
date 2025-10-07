@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgttrs	(	trans,
+subroutine cgttrs (
+		trans,
 		n,
 		nrhs,
 		dl,
@@ -9,7 +10,8 @@ subroutine cgttrs	(	trans,
 		ipiv,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  CGTTRS solves one of the systems of equations

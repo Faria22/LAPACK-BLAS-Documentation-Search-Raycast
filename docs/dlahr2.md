@@ -1,14 +1,16 @@
 ```fortran
-subroutine dlahr2	(	integer	n,
-		integer	k,
-		integer	nb,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(nb)	tau,
-		double precision, dimension(ldt, nb)	t,
-		integer	ldt,
+subroutine dlahr2 (
+		integer n,
+		integer k,
+		integer nb,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(nb) tau,
+		double precision, dimension(ldt, nb) t,
+		integer ldt,
 		y,
-		integer	ldy )
+		integer ldy
+)
 ```
 
  DLAHR2 reduces the first NB columns of A real general n-BY-(n-k+1)

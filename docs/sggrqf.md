@@ -1,5 +1,6 @@
 ```fortran
-subroutine sggrqf	(	m,
+subroutine sggrqf (
+		m,
 		p,
 		n,
 		a,
@@ -10,7 +11,8 @@ subroutine sggrqf	(	m,
 		taub,
 		work,
 		*                          lwork,
-		info )
+		info
+)
 ```
 
  SGGRQF computes a generalized RQ factorization of an M-by-N matrix A

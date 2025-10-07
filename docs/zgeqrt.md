@@ -1,13 +1,15 @@
 ```fortran
-subroutine zgeqrt	(	integer	m,
-		integer	n,
-		integer	nb,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zgeqrt (
+		integer m,
+		integer n,
+		integer nb,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldt, *) t,
+		integer ldt,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZGEQRT computes a blocked QR factorization of a complex M-by-N matrix A

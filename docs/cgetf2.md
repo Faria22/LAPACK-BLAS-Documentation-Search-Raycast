@@ -1,10 +1,12 @@
 ```fortran
-subroutine cgetf2	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine cgetf2 (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CGETF2 computes an LU factorization of a general m-by-n matrix A

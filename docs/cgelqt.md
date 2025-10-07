@@ -1,13 +1,15 @@
 ```fortran
-subroutine cgelqt	(	integer	m,
-		integer	n,
-		integer	mb,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldt, *)	t,
-		integer	ldt,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cgelqt (
+		integer m,
+		integer n,
+		integer mb,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldt, *) t,
+		integer ldt,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CGELQT computes a blocked LQ factorization of a complex M-by-N matrix A

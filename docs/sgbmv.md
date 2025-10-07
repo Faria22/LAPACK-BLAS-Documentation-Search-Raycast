@@ -1,17 +1,19 @@
 ```fortran
-subroutine sgbmv	(	character	trans,
-		integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx,
-		real	beta,
-		real, dimension(*)	y,
-		integer	incy )
+subroutine sgbmv (
+		character trans,
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx,
+		real beta,
+		real, dimension(*) y,
+		integer incy
+)
 ```
 
  SGBMV  performs one of the matrix-vector operations

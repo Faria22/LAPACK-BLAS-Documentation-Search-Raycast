@@ -1,10 +1,12 @@
 ```fortran
-subroutine strtri	(	character	uplo,
-		character	diag,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine strtri (
+		character uplo,
+		character diag,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  STRTRI computes the inverse of a real upper or lower triangular

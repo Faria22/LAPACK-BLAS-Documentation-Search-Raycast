@@ -1,11 +1,13 @@
 ```fortran
-subroutine claev2	(	complex	a,
-		complex	b,
-		complex	c,
-		real	rt1,
-		real	rt2,
-		real	cs1,
-		complex	sn1 )
+subroutine claev2 (
+		complex a,
+		complex b,
+		complex c,
+		real rt1,
+		real rt2,
+		real cs1,
+		complex sn1
+)
 ```
 
  CLAEV2 computes the eigendecomposition of a 2-by-2 Hermitian matrix

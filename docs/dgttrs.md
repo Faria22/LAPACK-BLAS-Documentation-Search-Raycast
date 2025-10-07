@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgttrs	(	trans,
+subroutine dgttrs (
+		trans,
 		n,
 		nrhs,
 		dl,
@@ -9,7 +10,8 @@ subroutine dgttrs	(	trans,
 		ipiv,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  DGTTRS solves one of the systems of equations

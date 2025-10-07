@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgebak	(	job,
+subroutine sgebak (
+		job,
 		side,
 		n,
 		ilo,
@@ -8,7 +9,8 @@ subroutine sgebak	(	job,
 		m,
 		v,
 		ldv,
-		*                          info )
+		*                          info
+)
 ```
 
  SGEBAK forms the right or left eigenvectors of a real general matrix

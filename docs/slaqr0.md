@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaqr0	(	wantt,
+subroutine slaqr0 (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -14,7 +15,8 @@ subroutine slaqr0	(	wantt,
 		ldz,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
     SLAQR0 computes the eigenvalues of a Hessenberg matrix H

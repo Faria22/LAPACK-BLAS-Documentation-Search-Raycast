@@ -1,10 +1,12 @@
 ```fortran
-subroutine sladiv	(	real	a,
-		real	b,
-		real	c,
-		real	d,
-		real	p,
-		real	q )
+subroutine sladiv (
+		real a,
+		real b,
+		real c,
+		real d,
+		real p,
+		real q
+)
 ```
 
  SLADIV performs complex division in  real arithmetic

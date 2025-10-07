@@ -1,12 +1,14 @@
 ```fortran
-subroutine cspcon	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		real	anorm,
-		real	rcond,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cspcon (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		real anorm,
+		real rcond,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CSPCON estimates the reciprocal of the condition number (in the

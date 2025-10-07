@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlalsd	(	uplo,
+subroutine dlalsd (
+		uplo,
 		smlsiz,
 		n,
 		nrhs,
@@ -11,7 +12,8 @@ subroutine dlalsd	(	uplo,
 		*                          rank,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DLALSD uses the singular value decomposition of A to solve the least

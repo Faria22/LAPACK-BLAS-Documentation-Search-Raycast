@@ -1,12 +1,14 @@
 ```fortran
-subroutine cposv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cposv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPOSV computes the solution to a complex system of linear equations

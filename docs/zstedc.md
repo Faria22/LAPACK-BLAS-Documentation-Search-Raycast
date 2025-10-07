@@ -1,5 +1,6 @@
 ```fortran
-subroutine zstedc	(	compz,
+subroutine zstedc (
+		compz,
 		n,
 		d,
 		e,
@@ -11,7 +12,8 @@ subroutine zstedc	(	compz,
 		*                          lrwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  ZSTEDC computes all eigenvalues and, optionally, eigenvectors of a

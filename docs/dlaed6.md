@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlaed6	(	integer	kniter,
-		logical	orgati,
-		double precision	rho,
-		double precision, dimension(3)	d,
-		double precision, dimension(3)	z,
-		double precision	finit,
-		double precision	tau,
-		integer	info )
+subroutine dlaed6 (
+		integer kniter,
+		logical orgati,
+		double precision rho,
+		double precision, dimension(3) d,
+		double precision, dimension(3) z,
+		double precision finit,
+		double precision tau,
+		integer info
+)
 ```
 
  DLAED6 computes the positive or negative root (closest to the origin)

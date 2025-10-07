@@ -1,11 +1,13 @@
 ```fortran
-subroutine zppequ	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		integer	info )
+subroutine zppequ (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		integer info
+)
 ```
 
  ZPPEQU computes row and column scalings intended to equilibrate a

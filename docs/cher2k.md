@@ -1,16 +1,18 @@
 ```fortran
-subroutine cher2k	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(ldb,*)	b,
-		integer	ldb,
-		real	beta,
-		complex, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine cher2k (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(ldb,*) b,
+		integer ldb,
+		real beta,
+		complex, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  CHER2K  performs one of the hermitian rank 2k operations

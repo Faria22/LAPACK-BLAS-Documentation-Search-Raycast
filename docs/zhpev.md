@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhpev	(	jobz,
+subroutine zhpev (
+		jobz,
 		uplo,
 		n,
 		ap,
@@ -8,7 +9,8 @@ subroutine zhpev	(	jobz,
 		ldz,
 		work,
 		rwork,
-		*                         info )
+		*                         info
+)
 ```
 
  ZHPEV computes all the eigenvalues and, optionally, eigenvectors of a

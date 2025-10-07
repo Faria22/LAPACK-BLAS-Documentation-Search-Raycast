@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsysv_aa_2stage	(	uplo,
+subroutine zsysv_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine zsysv_aa_2stage	(	uplo,
 		ldb,
 		work,
 		lwork,
-		*                                  info )
+		*                                  info
+)
 ```
 
  ZSYSV_AA_2STAGE computes the solution to a complex system of

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasda	(	icompq,
+subroutine dlasda (
+		icompq,
 		smlsiz,
 		n,
 		sqre,
@@ -22,7 +23,8 @@ subroutine dlasda	(	icompq,
 		s,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  Using a divide and conquer approach, DLASDA computes the singular

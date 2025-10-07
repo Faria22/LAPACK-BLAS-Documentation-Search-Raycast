@@ -1,5 +1,6 @@
 ```fortran
-subroutine dptsvx	(	fact,
+subroutine dptsvx (
+		fact,
 		n,
 		nrhs,
 		d,
@@ -14,7 +15,8 @@ subroutine dptsvx	(	fact,
 		ferr,
 		berr,
 		work,
-		info )
+		info
+)
 ```
 
  DPTSVX uses the factorization A = L*D*L**T to compute the solution

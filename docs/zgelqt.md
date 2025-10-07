@@ -1,13 +1,15 @@
 ```fortran
-subroutine zgelqt	(	integer	m,
-		integer	n,
-		integer	mb,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zgelqt (
+		integer m,
+		integer n,
+		integer mb,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldt, *) t,
+		integer ldt,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZGELQT computes a blocked LQ factorization of a complex M-by-N matrix A

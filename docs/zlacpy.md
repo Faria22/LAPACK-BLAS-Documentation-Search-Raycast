@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlacpy	(	character	uplo,
-		integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine zlacpy (
+		character uplo,
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  ZLACPY copies all or part of a two-dimensional matrix A to another

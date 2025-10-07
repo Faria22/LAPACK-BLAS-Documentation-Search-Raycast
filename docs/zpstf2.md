@@ -1,13 +1,15 @@
 ```fortran
-subroutine zpstf2	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(n)	piv,
-		integer	rank,
-		double precision	tol,
-		double precision, dimension(2*n)	work,
-		integer	info )
+subroutine zpstf2 (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(n) piv,
+		integer rank,
+		double precision tol,
+		double precision, dimension(2*n) work,
+		integer info
+)
 ```
 
  ZPSTF2 computes the Cholesky factorization with complete

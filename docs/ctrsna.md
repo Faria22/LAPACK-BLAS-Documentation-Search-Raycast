@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctrsna	(	job,
+subroutine ctrsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -16,7 +17,8 @@ subroutine ctrsna	(	job,
 		work,
 		ldwork,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CTRSNA estimates reciprocal condition numbers for specified

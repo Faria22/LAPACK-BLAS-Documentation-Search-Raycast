@@ -1,9 +1,11 @@
 ```fortran
-subroutine zlauu2	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine zlauu2 (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  ZLAUU2 computes the product U * U**H or L**H * L, where the triangular

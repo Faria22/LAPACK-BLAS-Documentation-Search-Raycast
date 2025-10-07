@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztrevc	(	side,
+subroutine ztrevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine ztrevc	(	side,
 		m,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZTREVC computes some or all of the right and/or left eigenvectors of

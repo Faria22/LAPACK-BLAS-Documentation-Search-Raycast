@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgsen	(	ijob,
+subroutine dtgsen (
+		ijob,
 		wantq,
 		wantz,
 		select,
@@ -23,7 +24,8 @@ subroutine dtgsen	(	ijob,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DTGSEN reorders the generalized real Schur decomposition of a real

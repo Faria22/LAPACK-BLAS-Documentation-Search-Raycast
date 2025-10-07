@@ -1,14 +1,16 @@
 ```fortran
-subroutine csymv	(	character	uplo,
-		integer	n,
-		complex	alpha,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex	beta,
-		complex, dimension(*)	y,
-		integer	incy )
+subroutine csymv (
+		character uplo,
+		integer n,
+		complex alpha,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx,
+		complex beta,
+		complex, dimension(*) y,
+		integer incy
+)
 ```
 
  CSYMV  performs the matrix-vector  operation

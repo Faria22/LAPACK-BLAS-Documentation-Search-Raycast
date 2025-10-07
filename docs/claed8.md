@@ -1,5 +1,6 @@
 ```fortran
-subroutine claed8	(	k,
+subroutine claed8 (
+		k,
 		n,
 		qsiz,
 		q,
@@ -19,7 +20,8 @@ subroutine claed8	(	k,
 		givptr,
 		*                          givcol,
 		givnum,
-		info )
+		info
+)
 ```
 
  CLAED8 merges the two sets of eigenvalues together into a single

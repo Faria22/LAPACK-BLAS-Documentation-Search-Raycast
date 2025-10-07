@@ -1,17 +1,19 @@
 ```fortran
-subroutine cgbmv	(	character	trans,
-		integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex	beta,
-		complex, dimension(*)	y,
-		integer	incy )
+subroutine cgbmv (
+		character trans,
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx,
+		complex beta,
+		complex, dimension(*) y,
+		integer incy
+)
 ```
 
  CGBMV  performs one of the matrix-vector operations

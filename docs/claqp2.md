@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqp2	(	m,
+subroutine claqp2 (
+		m,
 		n,
 		offset,
 		a,
@@ -8,7 +9,8 @@ subroutine claqp2	(	m,
 		tau,
 		vn1,
 		vn2,
-		*                          work )
+		*                          work
+)
 ```
 
  CLAQP2 computes a QR factorization with column pivoting of

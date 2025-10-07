@@ -1,10 +1,12 @@
 ```fortran
-subroutine sgetc2	(	integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		integer	info )
+subroutine sgetc2 (
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		integer info
+)
 ```
 
  SGETC2 computes an LU factorization with complete pivoting of the

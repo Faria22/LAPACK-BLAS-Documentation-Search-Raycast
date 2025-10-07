@@ -1,10 +1,12 @@
 ```fortran
-subroutine dgetc2	(	integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		integer	info )
+subroutine dgetc2 (
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		integer info
+)
 ```
 
  DGETC2 computes an LU factorization with complete pivoting of the

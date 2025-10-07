@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsycon	(	uplo,
+subroutine zsycon (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zsycon	(	uplo,
 		anorm,
 		rcond,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  ZSYCON estimates the reciprocal of the condition number (in the

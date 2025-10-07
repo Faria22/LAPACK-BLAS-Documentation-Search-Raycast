@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlaic1	(	integer	job,
-		integer	j,
-		complex*16, dimension(j)	x,
-		double precision	sest,
-		complex*16, dimension(j)	w,
-		complex*16	gamma,
-		double precision	sestpr,
-		complex*16	s,
-		complex*16	c )
+subroutine zlaic1 (
+		integer job,
+		integer j,
+		complex*16, dimension(j) x,
+		double precision sest,
+		complex*16, dimension(j) w,
+		complex*16 gamma,
+		double precision sestpr,
+		complex*16 s,
+		complex*16 c
+)
 ```
 
  ZLAIC1 applies one step of incremental condition estimation in

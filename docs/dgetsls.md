@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgetsls	(	trans,
+subroutine dgetsls (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine dgetsls	(	trans,
 		ldb,
 		*     $                     work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DGETSLS solves overdetermined or underdetermined real linear systems

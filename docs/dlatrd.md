@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlatrd	(	character	uplo,
-		integer	n,
-		integer	nb,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	e,
-		double precision, dimension(*)	tau,
-		double precision, dimension(ldw, *)	w,
-		integer	ldw )
+subroutine dlatrd (
+		character uplo,
+		integer n,
+		integer nb,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) e,
+		double precision, dimension(*) tau,
+		double precision, dimension(ldw, *) w,
+		integer ldw
+)
 ```
 
  DLATRD reduces NB rows and columns of a real symmetric matrix A to

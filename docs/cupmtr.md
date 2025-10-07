@@ -1,5 +1,6 @@
 ```fortran
-subroutine cupmtr	(	side,
+subroutine cupmtr (
+		side,
 		uplo,
 		trans,
 		m,
@@ -9,7 +10,8 @@ subroutine cupmtr	(	side,
 		c,
 		ldc,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  CUPMTR overwrites the general complex M-by-N matrix C with

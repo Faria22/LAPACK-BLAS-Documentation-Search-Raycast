@@ -1,5 +1,6 @@
 ```fortran
-subroutine chpgvx	(	itype,
+subroutine chpgvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -19,7 +20,8 @@ subroutine chpgvx	(	itype,
 		rwork,
 		*                          iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  CHPGVX computes selected eigenvalues and, optionally, eigenvectors

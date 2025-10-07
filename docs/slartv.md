@@ -1,12 +1,14 @@
 ```fortran
-subroutine slartv	(	integer	n,
-		real, dimension(*)	x,
-		integer	incx,
-		real, dimension(*)	y,
-		integer	incy,
-		real, dimension(*)	c,
-		real, dimension(*)	s,
-		integer	incc )
+subroutine slartv (
+		integer n,
+		real, dimension(*) x,
+		integer incx,
+		real, dimension(*) y,
+		integer incy,
+		real, dimension(*) c,
+		real, dimension(*) s,
+		integer incc
+)
 ```
 
  SLARTV applies a vector of real plane rotations to elements of the

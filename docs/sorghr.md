@@ -1,13 +1,15 @@
 ```fortran
-subroutine sorghr	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine sorghr (
+		integer n,
+		integer ilo,
+		integer ihi,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SORGHR generates a real orthogonal matrix Q which is defined as the

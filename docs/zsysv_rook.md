@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsysv_rook	(	uplo,
+subroutine zsysv_rook (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zsysv_rook	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  ZSYSV_ROOK computes the solution to a complex system of linear

@@ -1,14 +1,16 @@
 ```fortran
-subroutine ssyrk	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real	beta,
-		real, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine ssyrk (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real beta,
+		real, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  SSYRK  performs one of the symmetric rank k operations

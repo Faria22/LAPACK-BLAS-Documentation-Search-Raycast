@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgges	(	jobvsl,
+subroutine cgges (
+		jobvsl,
 		jobvsr,
 		sort,
 		selctg,
@@ -19,7 +20,8 @@ subroutine cgges	(	jobvsl,
 		*                         lwork,
 		rwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  CGGES computes for a pair of N-by-N complex nonsymmetric matrices

@@ -1,10 +1,12 @@
 ```fortran
-subroutine dpbstf	(	character	uplo,
-		integer	n,
-		integer	kd,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer	info )
+subroutine dpbstf (
+		character uplo,
+		integer n,
+		integer kd,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		integer info
+)
 ```
 
  DPBSTF computes a split Cholesky factorization of a real

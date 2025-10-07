@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztrsyl3	(	trana,
+subroutine ztrsyl3 (
+		trana,
 		tranb,
 		isgn,
 		m,
@@ -13,7 +14,8 @@ subroutine ztrsyl3	(	trana,
 		scale,
 		swork,
 		ldswork,
-		info )
+		info
+)
 ```
 
   ZTRSYL3 solves the complex Sylvester matrix equation:

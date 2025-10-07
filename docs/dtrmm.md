@@ -1,15 +1,17 @@
 ```fortran
-subroutine dtrmm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine dtrmm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  DTRMM  performs one of the matrix-matrix operations

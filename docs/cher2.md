@@ -1,13 +1,15 @@
 ```fortran
-subroutine cher2	(	character	uplo,
-		integer	n,
-		complex	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	y,
-		integer	incy,
-		complex, dimension(lda,*)	a,
-		integer	lda )
+subroutine cher2 (
+		character uplo,
+		integer n,
+		complex alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) y,
+		integer incy,
+		complex, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  CHER2  performs the hermitian rank 2 operation

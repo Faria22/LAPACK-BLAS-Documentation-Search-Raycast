@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztplqt	(	m,
+subroutine ztplqt (
+		m,
 		n,
 		l,
 		mb,
@@ -10,7 +11,8 @@ subroutine ztplqt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  ZTPLQT computes a blocked LQ factorization of a complex

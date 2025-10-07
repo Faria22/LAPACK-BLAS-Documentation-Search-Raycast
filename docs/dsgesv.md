@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsgesv	(	n,
+subroutine dsgesv (
+		n,
 		nrhs,
 		a,
 		lda,
@@ -11,7 +12,8 @@ subroutine dsgesv	(	n,
 		work,
 		*                          swork,
 		iter,
-		info )
+		info
+)
 ```
 
  DSGESV computes the solution to a real system of linear equations

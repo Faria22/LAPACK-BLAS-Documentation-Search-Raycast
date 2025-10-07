@@ -1,5 +1,6 @@
 ```fortran
-subroutine strsna	(	job,
+subroutine strsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -16,7 +17,8 @@ subroutine strsna	(	job,
 		work,
 		ldwork,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  STRSNA estimates reciprocal condition numbers for specified

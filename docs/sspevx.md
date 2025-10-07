@@ -1,5 +1,6 @@
 ```fortran
-subroutine sspevx	(	jobz,
+subroutine sspevx (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -16,7 +17,8 @@ subroutine sspevx	(	jobz,
 		work,
 		iwork,
 		ifail,
-		*                          info )
+		*                          info
+)
 ```
 
  SSPEVX computes selected eigenvalues and, optionally, eigenvectors

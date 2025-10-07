@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqp2	(	m,
+subroutine dlaqp2 (
+		m,
 		n,
 		offset,
 		a,
@@ -8,7 +9,8 @@ subroutine dlaqp2	(	m,
 		tau,
 		vn1,
 		vn2,
-		*                          work )
+		*                          work
+)
 ```
 
  DLAQP2 computes a QR factorization with column pivoting of

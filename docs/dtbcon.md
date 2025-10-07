@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtbcon	(	norm,
+subroutine dtbcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -9,7 +10,8 @@ subroutine dtbcon	(	norm,
 		rcond,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DTBCON estimates the reciprocal of the condition number of a

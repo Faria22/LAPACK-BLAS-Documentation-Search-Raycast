@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlargv	(	integer	n,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(*)	c,
-		integer	incc )
+subroutine zlargv (
+		integer n,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) y,
+		integer incy,
+		double precision, dimension(*) c,
+		integer incc
+)
 ```
 
  ZLARGV generates a vector of complex plane rotations with real

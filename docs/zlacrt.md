@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlacrt	(	integer	n,
-		complex*16, dimension(*)	cx,
-		integer	incx,
-		complex*16, dimension(*)	cy,
-		integer	incy,
-		complex*16	c,
-		complex*16	s )
+subroutine zlacrt (
+		integer n,
+		complex*16, dimension(*) cx,
+		integer incx,
+		complex*16, dimension(*) cy,
+		integer incy,
+		complex*16 c,
+		complex*16 s
+)
 ```
 
  ZLACRT performs the operation

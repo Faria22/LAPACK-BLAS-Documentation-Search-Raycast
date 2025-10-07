@@ -1,5 +1,6 @@
 ```fortran
-subroutine zungtsqr	(	m,
+subroutine zungtsqr (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine zungtsqr	(	m,
 		ldt,
 		work,
 		lwork,
-		*      $                     info )
+		*      $                     info
+)
 ```
 
  ZUNGTSQR generates an M-by-N complex matrix Q_out with orthonormal

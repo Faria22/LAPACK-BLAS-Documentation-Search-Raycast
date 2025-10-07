@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgtrfs	(	trans,
+subroutine cgtrfs (
+		trans,
 		n,
 		nrhs,
 		dl,
@@ -18,7 +19,8 @@ subroutine cgtrfs	(	trans,
 		berr,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CGTRFS improves the computed solution to a system of linear

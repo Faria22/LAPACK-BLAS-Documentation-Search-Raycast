@@ -1,14 +1,16 @@
 ```fortran
-subroutine ssytrd	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(*)	tau,
+subroutine ssytrd (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(*) tau,
 		work,
-		integer	lwork,
-		integer	info )
+		integer lwork,
+		integer info
+)
 ```
 
  SSYTRD reduces a real symmetric matrix A to real symmetric

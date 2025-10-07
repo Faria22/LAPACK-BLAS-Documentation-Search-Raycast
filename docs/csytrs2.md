@@ -1,5 +1,6 @@
 ```fortran
-subroutine csytrs2	(	uplo,
+subroutine csytrs2 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine csytrs2	(	uplo,
 		b,
 		ldb,
 		*                           work,
-		info )
+		info
+)
 ```
 
  CSYTRS2 solves a system of linear equations A*X = B with a complex

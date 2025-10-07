@@ -1,9 +1,11 @@
 ```fortran
-subroutine clascl2	(	integer	m,
-		integer	n,
-		real, dimension(*)	d,
-		complex, dimension(ldx, *)	x,
-		integer	ldx )
+subroutine clascl2 (
+		integer m,
+		integer n,
+		real, dimension(*) d,
+		complex, dimension(ldx, *) x,
+		integer ldx
+)
 ```
 
  CLASCL2 performs a diagonal scaling on a matrix:

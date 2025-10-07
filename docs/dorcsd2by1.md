@@ -1,5 +1,6 @@
 ```fortran
-subroutine dorcsd2by1	(	jobu1,
+subroutine dorcsd2by1 (
+		jobu1,
 		jobu2,
 		jobv1t,
 		m,
@@ -19,7 +20,8 @@ subroutine dorcsd2by1	(	jobu1,
 		work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  DORCSD2BY1 computes the CS decomposition of an M-by-Q matrix X with

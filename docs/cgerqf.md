@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgerqf	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine cgerqf (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CGERQF computes an RQ factorization of a complex M-by-N matrix A:

@@ -1,12 +1,14 @@
 ```fortran
-subroutine dgbtrf	(	integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine dgbtrf (
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  DGBTRF computes an LU factorization of a real m-by-n band matrix A

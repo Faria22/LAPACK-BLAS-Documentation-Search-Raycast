@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhesv	(	uplo,
+subroutine zhesv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zhesv	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  ZHESV computes the solution to a complex system of linear equations

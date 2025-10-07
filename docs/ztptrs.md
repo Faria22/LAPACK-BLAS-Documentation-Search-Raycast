@@ -1,13 +1,15 @@
 ```fortran
-subroutine ztptrs	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(*)	ap,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ztptrs (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(*) ap,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZTPTRS solves a triangular system of the form

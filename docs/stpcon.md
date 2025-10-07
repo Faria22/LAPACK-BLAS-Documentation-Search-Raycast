@@ -1,5 +1,6 @@
 ```fortran
-subroutine stpcon	(	norm,
+subroutine stpcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -7,7 +8,8 @@ subroutine stpcon	(	norm,
 		rcond,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  STPCON estimates the reciprocal of the condition number of a packed

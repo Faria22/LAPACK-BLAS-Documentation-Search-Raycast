@@ -1,13 +1,15 @@
 ```fortran
-subroutine ctrexc	(	character	compq,
-		integer	n,
-		complex, dimension(ldt, *)	t,
-		integer	ldt,
-		complex, dimension(ldq, *)	q,
-		integer	ldq,
-		integer	ifst,
-		integer	ilst,
-		integer	info )
+subroutine ctrexc (
+		character compq,
+		integer n,
+		complex, dimension(ldt, *) t,
+		integer ldt,
+		complex, dimension(ldq, *) q,
+		integer ldq,
+		integer ifst,
+		integer ilst,
+		integer info
+)
 ```
 
  CTREXC reorders the Schur factorization of a complex matrix

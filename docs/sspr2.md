@@ -1,12 +1,14 @@
 ```fortran
-subroutine sspr2	(	character	uplo,
-		integer	n,
-		real	alpha,
-		real, dimension(*)	x,
-		integer	incx,
-		real, dimension(*)	y,
-		integer	incy,
-		real, dimension(*)	ap )
+subroutine sspr2 (
+		character uplo,
+		integer n,
+		real alpha,
+		real, dimension(*) x,
+		integer incx,
+		real, dimension(*) y,
+		integer incy,
+		real, dimension(*) ap
+)
 ```
 
  SSPR2  performs the symmetric rank 2 operation

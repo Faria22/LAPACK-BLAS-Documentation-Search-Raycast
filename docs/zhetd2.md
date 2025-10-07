@@ -1,12 +1,14 @@
 ```fortran
-subroutine zhetd2	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		complex*16, dimension(*)	tau,
-		integer	info )
+subroutine zhetd2 (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		complex*16, dimension(*) tau,
+		integer info
+)
 ```
 
  ZHETD2 reduces a complex Hermitian matrix A to real symmetric

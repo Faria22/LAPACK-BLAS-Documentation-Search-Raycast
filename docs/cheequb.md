@@ -1,13 +1,15 @@
 ```fortran
-subroutine cheequb	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cheequb (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CHEEQUB computes row and column scalings intended to equilibrate a

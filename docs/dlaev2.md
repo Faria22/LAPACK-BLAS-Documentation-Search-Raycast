@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlaev2	(	double precision	a,
-		double precision	b,
-		double precision	c,
-		double precision	rt1,
-		double precision	rt2,
-		double precision	cs1,
-		double precision	sn1 )
+subroutine dlaev2 (
+		double precision a,
+		double precision b,
+		double precision c,
+		double precision rt1,
+		double precision rt2,
+		double precision cs1,
+		double precision sn1
+)
 ```
 
  DLAEV2 computes the eigendecomposition of a 2-by-2 symmetric matrix

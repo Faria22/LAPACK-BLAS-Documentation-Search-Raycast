@@ -1,5 +1,6 @@
 ```fortran
-subroutine dorbdb5	(	m1,
+subroutine dorbdb5 (
+		m1,
 		m2,
 		n,
 		x1,
@@ -12,7 +13,8 @@ subroutine dorbdb5	(	m1,
 		*                           ldq2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DORBDB5 orthogonalizes the column vector

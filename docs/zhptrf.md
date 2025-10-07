@@ -1,9 +1,11 @@
 ```fortran
-subroutine zhptrf	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zhptrf (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  ZHPTRF computes the factorization of a complex Hermitian packed

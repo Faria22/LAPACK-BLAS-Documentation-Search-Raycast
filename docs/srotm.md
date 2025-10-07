@@ -1,10 +1,12 @@
 ```fortran
-subroutine srotm	(	integer	n,
-		real, dimension(*)	sx,
-		integer	incx,
-		real, dimension(*)	sy,
-		integer	incy,
-		real, dimension(5)	sparam )
+subroutine srotm (
+		integer n,
+		real, dimension(*) sx,
+		integer incx,
+		real, dimension(*) sy,
+		integer incy,
+		real, dimension(5) sparam
+)
 ```
 
     APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX

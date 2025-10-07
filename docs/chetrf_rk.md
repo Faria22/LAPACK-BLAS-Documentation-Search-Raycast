@@ -1,5 +1,6 @@
 ```fortran
-subroutine chetrf_rk	(	uplo,
+subroutine chetrf_rk (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine chetrf_rk	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                             info )
+		*                             info
+)
 ```
  CHETRF_RK computes the factorization of a complex Hermitian matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

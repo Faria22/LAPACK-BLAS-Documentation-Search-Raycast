@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlarrv	(	n,
+subroutine zlarrv (
+		n,
 		vl,
 		vu,
 		d,
@@ -23,7 +24,8 @@ subroutine zlarrv	(	n,
 		isuppz,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  ZLARRV computes the eigenvectors of the tridiagonal matrix

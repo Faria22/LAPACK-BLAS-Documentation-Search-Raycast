@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrtrs	(	uplo,
+subroutine dtrtrs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine dtrtrs	(	uplo,
 		lda,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  DTRTRS solves a triangular system of the form

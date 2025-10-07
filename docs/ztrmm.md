@@ -1,15 +1,17 @@
 ```fortran
-subroutine ztrmm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine ztrmm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  ZTRMM  performs one of the matrix-matrix operations

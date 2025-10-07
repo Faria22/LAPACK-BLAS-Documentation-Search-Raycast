@@ -1,12 +1,14 @@
 ```fortran
-subroutine dsytri2x	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(n+nb+1,*)	work,
-		integer	nb,
-		integer	info )
+subroutine dsytri2x (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(n+nb+1,*) work,
+		integer nb,
+		integer info
+)
 ```
 
  DSYTRI2X computes the inverse of a real symmetric indefinite matrix

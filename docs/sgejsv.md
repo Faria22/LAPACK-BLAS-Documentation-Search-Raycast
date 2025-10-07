@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgejsv	(	joba,
+subroutine sgejsv (
+		joba,
 		jobu,
 		jobv,
 		jobr,
@@ -17,7 +18,8 @@ subroutine sgejsv	(	joba,
 		*                          work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGEJSV computes the singular value decomposition (SVD) of a real M-by-N

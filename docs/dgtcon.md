@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgtcon	(	norm,
+subroutine dgtcon (
+		norm,
 		n,
 		dl,
 		d,
@@ -10,7 +11,8 @@ subroutine dgtcon	(	norm,
 		rcond,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DGTCON estimates the reciprocal of the condition number of a real

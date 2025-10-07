@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgels	(	trans,
+subroutine zgels (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine zgels	(	trans,
 		ldb,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  ZGELS solves overdetermined or underdetermined complex linear systems

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqp2rk	(	m,
+subroutine dlaqp2rk (
+		m,
 		n,
 		nrhs,
 		ioffset,
@@ -18,7 +19,8 @@ subroutine dlaqp2rk	(	m,
 		vn1,
 		vn2,
 		work,
-		*     $                     info )
+		*     $                     info
+)
 ```
 
  DLAQP2RK computes a truncated (rank K) or full rank Householder QR

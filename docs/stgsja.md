@@ -1,5 +1,6 @@
 ```fortran
-subroutine stgsja	(	jobu,
+subroutine stgsja (
+		jobu,
 		jobv,
 		jobq,
 		m,
@@ -23,7 +24,8 @@ subroutine stgsja	(	jobu,
 		ldq,
 		work,
 		ncycle,
-		info )
+		info
+)
 ```
 
  STGSJA computes the generalized singular value decomposition (GSVD)

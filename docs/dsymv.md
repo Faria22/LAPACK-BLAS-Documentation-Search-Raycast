@@ -1,14 +1,16 @@
 ```fortran
-subroutine dsymv	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision	beta,
-		double precision, dimension(*)	y,
-		integer	incy )
+subroutine dsymv (
+		character uplo,
+		integer n,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision beta,
+		double precision, dimension(*) y,
+		integer incy
+)
 ```
 
  DSYMV  performs the matrix-vector  operation

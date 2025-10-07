@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssbev	(	jobz,
+subroutine ssbev (
+		jobz,
 		uplo,
 		n,
 		kd,
@@ -9,7 +10,8 @@ subroutine ssbev	(	jobz,
 		z,
 		ldz,
 		work,
-		*                         info )
+		*                         info
+)
 ```
 
  SSBEV computes all the eigenvalues and, optionally, eigenvectors of

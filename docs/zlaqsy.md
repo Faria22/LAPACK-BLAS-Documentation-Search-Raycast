@@ -1,12 +1,14 @@
 ```fortran
-subroutine zlaqsy	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine zlaqsy (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  ZLAQSY equilibrates a symmetric matrix A using the scaling factors

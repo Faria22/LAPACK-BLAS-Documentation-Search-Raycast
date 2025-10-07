@@ -1,5 +1,6 @@
 ```fortran
-subroutine sptsvx	(	fact,
+subroutine sptsvx (
+		fact,
 		n,
 		nrhs,
 		d,
@@ -14,7 +15,8 @@ subroutine sptsvx	(	fact,
 		ferr,
 		berr,
 		work,
-		info )
+		info
+)
 ```
 
  SPTSVX uses the factorization A = L*D*L**T to compute the solution

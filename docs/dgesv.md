@@ -1,12 +1,14 @@
 ```fortran
-subroutine dgesv	(	integer	n,
-		integer	nrhs,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dgesv (
+		integer n,
+		integer nrhs,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DGESV computes the solution to a real system of linear equations

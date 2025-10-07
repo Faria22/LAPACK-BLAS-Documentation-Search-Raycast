@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrevc3	(	side,
+subroutine dtrevc3 (
+		side,
 		howmny,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine dtrevc3	(	side,
 		m,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DTREVC3 computes some or all of the right and/or left eigenvectors of

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqr4	(	wantt,
+subroutine dlaqr4 (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -14,7 +15,8 @@ subroutine dlaqr4	(	wantt,
 		ldz,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
     DLAQR4 implements one level of recursion for DLAQR0.

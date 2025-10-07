@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgetsls	(	trans,
+subroutine zgetsls (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine zgetsls	(	trans,
 		ldb,
 		*     $                     work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZGETSLS solves overdetermined or underdetermined complex linear systems

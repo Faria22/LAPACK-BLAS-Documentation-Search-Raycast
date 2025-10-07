@@ -1,5 +1,6 @@
 ```fortran
-subroutine zla_gbamv	(	trans,
+subroutine zla_gbamv (
+		trans,
 		m,
 		n,
 		kl,
@@ -11,7 +12,8 @@ subroutine zla_gbamv	(	trans,
 		*                             incx,
 		beta,
 		y,
-		incy )
+		incy
+)
 ```
 
  ZLA_GBAMV  performs one of the matrix-vector operations

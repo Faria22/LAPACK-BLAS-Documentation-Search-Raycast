@@ -1,11 +1,13 @@
 ```fortran
-subroutine daxpby	(	integer	n,
-		double precision	da,
-		double precision, dimension(*)	dx,
-		integer	incx,
-		double precision	db,
-		double precision, dimension(*)	dy,
-		integer	incy )
+subroutine daxpby (
+		integer n,
+		double precision da,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision db,
+		double precision, dimension(*) dy,
+		integer incy
+)
 ```
 
     DAXPBY constant times a vector plus constant times a vector.

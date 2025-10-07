@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlarfy	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	v,
-		integer	incv,
-		double precision	tau,
-		double precision, dimension(ldc, *)	c,
-		integer	ldc,
-		double precision, dimension(*)	work )
+subroutine dlarfy (
+		character uplo,
+		integer n,
+		double precision, dimension(*) v,
+		integer incv,
+		double precision tau,
+		double precision, dimension(ldc, *) c,
+		integer ldc,
+		double precision, dimension(*) work
+)
 ```
 
  DLARFY applies an elementary reflector, or Householder matrix, H,

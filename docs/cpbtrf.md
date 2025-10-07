@@ -1,10 +1,12 @@
 ```fortran
-subroutine cpbtrf	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer	info )
+subroutine cpbtrf (
+		character uplo,
+		integer n,
+		integer kd,
+		complex, dimension(ldab, *) ab,
+		integer ldab,
+		integer info
+)
 ```
 
  CPBTRF computes the Cholesky factorization of a complex Hermitian

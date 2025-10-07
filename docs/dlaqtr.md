@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqtr	(	ltran,
+subroutine dlaqtr (
+		ltran,
 		lreal,
 		n,
 		t,
@@ -9,7 +10,8 @@ subroutine dlaqtr	(	ltran,
 		scale,
 		x,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  DLAQTR solves the real quasi-triangular system

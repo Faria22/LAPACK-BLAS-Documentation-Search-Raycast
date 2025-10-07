@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgesvj	(	joba,
+subroutine cgesvj (
+		joba,
 		jobu,
 		jobv,
 		m,
@@ -14,7 +15,8 @@ subroutine cgesvj	(	joba,
 		lwork,
 		rwork,
 		lrwork,
-		info )
+		info
+)
 ```
 
  CGESVJ computes the singular value decomposition (SVD) of a complex

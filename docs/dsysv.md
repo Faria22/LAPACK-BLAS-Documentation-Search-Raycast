@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsysv	(	uplo,
+subroutine dsysv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine dsysv	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  DSYSV computes the solution to a real system of linear equations

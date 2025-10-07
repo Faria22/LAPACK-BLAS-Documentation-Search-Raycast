@@ -1,10 +1,12 @@
 ```fortran
-subroutine spbtf2	(	character	uplo,
-		integer	n,
-		integer	kd,
-		real, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer	info )
+subroutine spbtf2 (
+		character uplo,
+		integer n,
+		integer kd,
+		real, dimension(ldab, *) ab,
+		integer ldab,
+		integer info
+)
 ```
 
  SPBTF2 computes the Cholesky factorization of a real symmetric

@@ -1,5 +1,6 @@
 ```fortran
-subroutine strevc	(	side,
+subroutine strevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -12,7 +13,8 @@ subroutine strevc	(	side,
 		mm,
 		m,
 		work,
-		info )
+		info
+)
 ```
 
  STREVC computes some or all of the right and/or left eigenvectors of

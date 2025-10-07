@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlalsa	(	icompq,
+subroutine dlalsa (
+		icompq,
 		smlsiz,
 		n,
 		nrhs,
@@ -24,7 +25,8 @@ subroutine dlalsa	(	icompq,
 		s,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DLALSA is an intermediate step in solving the least squares problem

@@ -1,12 +1,14 @@
 ```fortran
-subroutine cpotrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cpotrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPOTRS solves a system of linear equations A*X = B with a Hermitian

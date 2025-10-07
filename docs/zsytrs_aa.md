@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsytrs_aa	(	uplo,
+subroutine zsytrs_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zsytrs_aa	(	uplo,
 		ldb,
 		*                             work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZSYTRS_AA solves a system of linear equations A*X = B with a complex

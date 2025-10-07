@@ -1,5 +1,6 @@
 ```fortran
-subroutine cggsvd3	(	jobu,
+subroutine cggsvd3 (
+		jobu,
 		jobv,
 		jobq,
 		m,
@@ -23,7 +24,8 @@ subroutine cggsvd3	(	jobu,
 		*                           lwork,
 		rwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  CGGSVD3 computes the generalized singular value decomposition (GSVD)

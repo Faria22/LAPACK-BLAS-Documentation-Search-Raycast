@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssyevd	(	jobz,
+subroutine ssyevd (
+		jobz,
 		uplo,
 		n,
 		a,
@@ -9,7 +10,8 @@ subroutine ssyevd	(	jobz,
 		lwork,
 		iwork,
 		*                          liwork,
-		info )
+		info
+)
 ```
 
  SSYEVD computes all eigenvalues and, optionally, eigenvectors of a

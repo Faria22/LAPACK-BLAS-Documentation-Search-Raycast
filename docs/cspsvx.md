@@ -1,5 +1,6 @@
 ```fortran
-subroutine cspsvx	(	fact,
+subroutine cspsvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -15,7 +16,8 @@ subroutine cspsvx	(	fact,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CSPSVX uses the diagonal pivoting factorization A = U*D*U**T or

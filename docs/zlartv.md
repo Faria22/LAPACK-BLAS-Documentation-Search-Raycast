@@ -1,12 +1,14 @@
 ```fortran
-subroutine zlartv	(	integer	n,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(*)	c,
-		complex*16, dimension(*)	s,
-		integer	incc )
+subroutine zlartv (
+		integer n,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(*) y,
+		integer incy,
+		double precision, dimension(*) c,
+		complex*16, dimension(*) s,
+		integer incc
+)
 ```
 
  ZLARTV applies a vector of complex plane rotations with real cosines

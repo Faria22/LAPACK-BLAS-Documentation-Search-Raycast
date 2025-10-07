@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhbevx_2stage	(	jobz,
+subroutine zhbevx_2stage (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -22,7 +23,8 @@ subroutine zhbevx_2stage	(	jobz,
 		rwork,
 		iwork,
 		*                                 ifail,
-		info )
+		info
+)
 ```
 
  ZHBEVX_2STAGE computes selected eigenvalues and, optionally, eigenvectors

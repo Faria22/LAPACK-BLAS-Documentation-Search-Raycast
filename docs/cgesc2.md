@@ -1,11 +1,13 @@
 ```fortran
-subroutine cgesc2	(	integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	rhs,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		real	scale )
+subroutine cgesc2 (
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) rhs,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		real scale
+)
 ```
 
  CGESC2 solves a system of linear equations

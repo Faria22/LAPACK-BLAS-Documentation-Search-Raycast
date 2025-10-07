@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaebz	(	ijob,
+subroutine slaebz (
+		ijob,
 		nitmax,
 		n,
 		mmax,
@@ -18,7 +19,8 @@ subroutine slaebz	(	ijob,
 		*                          nab,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SLAEBZ contains the iteration loops which compute and use the

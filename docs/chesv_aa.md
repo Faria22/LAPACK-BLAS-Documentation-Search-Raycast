@@ -1,5 +1,6 @@
 ```fortran
-subroutine chesv_aa	(	uplo,
+subroutine chesv_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine chesv_aa	(	uplo,
 		ldb,
 		work,
 		*                            lwork,
-		info )
+		info
+)
 ```
 
  CHESV_AA computes the solution to a complex system of linear equations

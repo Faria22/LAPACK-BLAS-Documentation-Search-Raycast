@@ -1,5 +1,6 @@
 ```fortran
-subroutine cheevr_2stage	(	jobz,
+subroutine cheevr_2stage (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -21,7 +22,8 @@ subroutine cheevr_2stage	(	jobz,
 		lrwork,
 		iwork,
 		*                                 liwork,
-		info )
+		info
+)
 ```
 
  CHEEVR_2STAGE computes selected eigenvalues and, optionally, eigenvectors

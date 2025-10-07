@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgebak	(	job,
+subroutine cgebak (
+		job,
 		side,
 		n,
 		ilo,
@@ -8,7 +9,8 @@ subroutine cgebak	(	job,
 		m,
 		v,
 		ldv,
-		*                          info )
+		*                          info
+)
 ```
 
  CGEBAK forms the right or left eigenvectors of a complex general

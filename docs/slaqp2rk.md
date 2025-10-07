@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaqp2rk	(	m,
+subroutine slaqp2rk (
+		m,
 		n,
 		nrhs,
 		ioffset,
@@ -18,7 +19,8 @@ subroutine slaqp2rk	(	m,
 		vn1,
 		vn2,
 		work,
-		*     $                     info )
+		*     $                     info
+)
 ```
 
  SLAQP2RK computes a truncated (rank K) or full rank Householder QR

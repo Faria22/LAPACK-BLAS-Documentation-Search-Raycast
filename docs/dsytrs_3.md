@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrs_3	(	uplo,
+subroutine dsytrs_3 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine dsytrs_3	(	uplo,
 		ipiv,
 		b,
 		ldb,
-		*                            info )
+		*                            info
+)
 ```
  DSYTRS_3 solves a system of linear equations A * X = B with a real
  symmetric matrix A using the factorization computed

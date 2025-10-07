@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssytri2	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine ssytri2 (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SSYTRI2 computes the inverse of a REAL symmetric indefinite matrix

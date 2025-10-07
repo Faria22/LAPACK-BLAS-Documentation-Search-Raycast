@@ -1,5 +1,6 @@
 ```fortran
-subroutine zbdsqr	(	uplo,
+subroutine zbdsqr (
+		uplo,
 		n,
 		ncvt,
 		nru,
@@ -13,7 +14,8 @@ subroutine zbdsqr	(	uplo,
 		c,
 		ldc,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZBDSQR computes the singular values and, optionally, the right and/or

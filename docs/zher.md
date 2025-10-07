@@ -1,11 +1,13 @@
 ```fortran
-subroutine zher	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16, dimension(lda,*)	a,
-		integer	lda )
+subroutine zher (
+		character uplo,
+		integer n,
+		double precision alpha,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  ZHER   performs the hermitian rank 1 operation

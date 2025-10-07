@@ -1,5 +1,6 @@
 ```fortran
-subroutine cstegr	(	jobz,
+subroutine cstegr (
+		jobz,
 		range,
 		n,
 		d,
@@ -18,7 +19,8 @@ subroutine cstegr	(	jobz,
 		lwork,
 		iwork,
 		*                  liwork,
-		info )
+		info
+)
 ```
 
  CSTEGR computes selected eigenvalues and, optionally, eigenvectors

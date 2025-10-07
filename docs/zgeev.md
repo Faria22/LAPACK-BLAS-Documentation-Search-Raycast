@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgeev	(	jobvl,
+subroutine zgeev (
+		jobvl,
 		jobvr,
 		n,
 		a,
@@ -12,7 +13,8 @@ subroutine zgeev	(	jobvl,
 		*                         work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGEEV computes for an N-by-N complex nonsymmetric matrix A, the

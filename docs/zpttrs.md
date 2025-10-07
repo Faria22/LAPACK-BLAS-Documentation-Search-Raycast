@@ -1,12 +1,14 @@
 ```fortran
-subroutine zpttrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	d,
-		complex*16, dimension(*)	e,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zpttrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) d,
+		complex*16, dimension(*) e,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZPTTRS solves a tridiagonal system of the form

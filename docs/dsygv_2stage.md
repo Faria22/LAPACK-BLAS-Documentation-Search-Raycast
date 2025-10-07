@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsygv_2stage	(	itype,
+subroutine dsygv_2stage (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -10,7 +11,8 @@ subroutine dsygv_2stage	(	itype,
 		w,
 		*                                work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DSYGV_2STAGE computes all the eigenvalues, and optionally, the eigenvectors

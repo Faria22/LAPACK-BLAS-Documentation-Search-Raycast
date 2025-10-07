@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssygvx	(	itype,
+subroutine ssygvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -21,7 +22,8 @@ subroutine ssygvx	(	itype,
 		*                          lwork,
 		iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  SSYGVX computes selected eigenvalues, and optionally, eigenvectors

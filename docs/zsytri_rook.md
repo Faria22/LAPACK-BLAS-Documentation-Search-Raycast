@@ -1,11 +1,13 @@
 ```fortran
-subroutine zsytri_rook	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zsytri_rook (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZSYTRI_ROOK computes the inverse of a complex symmetric

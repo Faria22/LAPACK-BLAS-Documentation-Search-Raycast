@@ -1,5 +1,6 @@
 ```fortran
-subroutine claed0	(	qsiz,
+subroutine claed0 (
+		qsiz,
 		n,
 		d,
 		e,
@@ -9,7 +10,8 @@ subroutine claed0	(	qsiz,
 		ldqs,
 		rwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  Using the divide and conquer method, CLAED0 computes all eigenvalues

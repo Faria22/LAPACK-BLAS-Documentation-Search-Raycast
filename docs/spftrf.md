@@ -1,9 +1,11 @@
 ```fortran
-subroutine spftrf	(	character	transr,
-		character	uplo,
-		integer	n,
-		real, dimension(0: *)	a,
-		integer	info )
+subroutine spftrf (
+		character transr,
+		character uplo,
+		integer n,
+		real, dimension(0: *) a,
+		integer info
+)
 ```
 
  SPFTRF computes the Cholesky factorization of a real symmetric

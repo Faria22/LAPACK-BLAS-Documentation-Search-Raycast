@@ -1,14 +1,16 @@
 ```fortran
-subroutine zgbsv	(	integer	n,
-		integer	kl,
-		integer	ku,
-		integer	nrhs,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zgbsv (
+		integer n,
+		integer kl,
+		integer ku,
+		integer nrhs,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZGBSV computes the solution to a complex system of linear equations

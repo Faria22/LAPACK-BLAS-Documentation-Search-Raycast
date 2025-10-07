@@ -1,12 +1,14 @@
 ```fortran
-subroutine spftrs	(	character	transr,
-		character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(0: *)	a,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine spftrs (
+		character transr,
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(0: *) a,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPFTRS solves a system of linear equations A*X = B with a symmetric

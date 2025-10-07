@@ -1,8 +1,10 @@
 ```fortran
-subroutine crscl	(	integer	n,
-		complex	a,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine crscl (
+		integer n,
+		complex a,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CRSCL multiplies an n-element complex vector x by the complex scalar

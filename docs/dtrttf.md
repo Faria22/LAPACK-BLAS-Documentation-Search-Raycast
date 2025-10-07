@@ -1,11 +1,13 @@
 ```fortran
-subroutine dtrttf	(	character	transr,
-		character	uplo,
-		integer	n,
-		double precision, dimension(0: lda-1, 0: *)	a,
-		integer	lda,
-		double precision, dimension(0: *)	arf,
-		integer	info )
+subroutine dtrttf (
+		character transr,
+		character uplo,
+		integer n,
+		double precision, dimension(0: lda-1, 0: *) a,
+		integer lda,
+		double precision, dimension(0: *) arf,
+		integer info
+)
 ```
 
  DTRTTF copies a triangular matrix A from standard full format (TR)

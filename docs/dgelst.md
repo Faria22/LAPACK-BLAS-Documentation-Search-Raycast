@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgelst	(	trans,
+subroutine dgelst (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine dgelst	(	trans,
 		ldb,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DGELST solves overdetermined or underdetermined real linear systems

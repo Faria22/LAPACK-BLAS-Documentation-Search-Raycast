@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlags2	(	upper,
+subroutine zlags2 (
+		upper,
 		a1,
 		a2,
 		a3,
@@ -11,7 +12,8 @@ subroutine zlags2	(	upper,
 		csv,
 		*                          snv,
 		csq,
-		snq )
+		snq
+)
 ```
 
  ZLAGS2 computes 2-by-2 unitary matrices U, V and Q, such

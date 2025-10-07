@@ -1,11 +1,13 @@
 ```fortran
-subroutine slag2d	(	integer	m,
-		integer	n,
-		real, dimension(ldsa, *)	sa,
-		integer	ldsa,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine slag2d (
+		integer m,
+		integer n,
+		real, dimension(ldsa, *) sa,
+		integer ldsa,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  SLAG2D converts a SINGLE PRECISION matrix, SA, to a DOUBLE

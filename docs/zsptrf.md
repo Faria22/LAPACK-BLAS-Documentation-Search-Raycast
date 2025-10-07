@@ -1,9 +1,11 @@
 ```fortran
-subroutine zsptrf	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zsptrf (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  ZSPTRF computes the factorization of a complex symmetric matrix A

@@ -1,5 +1,6 @@
 ```fortran
-subroutine spprfs	(	uplo,
+subroutine spprfs (
+		uplo,
 		n,
 		nrhs,
 		ap,
@@ -12,7 +13,8 @@ subroutine spprfs	(	uplo,
 		*                          berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SPPRFS improves the computed solution to a system of linear

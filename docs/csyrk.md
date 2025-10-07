@@ -1,14 +1,16 @@
 ```fortran
-subroutine csyrk	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex	beta,
-		complex, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine csyrk (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex beta,
+		complex, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  CSYRK  performs one of the symmetric rank k operations

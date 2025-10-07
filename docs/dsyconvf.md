@@ -1,12 +1,14 @@
 ```fortran
-subroutine dsyconvf	(	character	uplo,
-		character	way,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine dsyconvf (
+		character uplo,
+		character way,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  If parameter WAY = 'C':
  DSYCONVF converts the factorization output format used in

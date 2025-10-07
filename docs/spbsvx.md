@@ -1,5 +1,6 @@
 ```fortran
-subroutine spbsvx	(	fact,
+subroutine spbsvx (
+		fact,
 		uplo,
 		n,
 		kd,
@@ -19,7 +20,8 @@ subroutine spbsvx	(	fact,
 		berr,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SPBSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to

@@ -1,14 +1,16 @@
 ```fortran
-subroutine zsymv	(	character	uplo,
-		integer	n,
-		complex*16	alpha,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx,
-		complex*16	beta,
-		complex*16, dimension(*)	y,
-		integer	incy )
+subroutine zsymv (
+		character uplo,
+		integer n,
+		complex*16 alpha,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx,
+		complex*16 beta,
+		complex*16, dimension(*) y,
+		integer incy
+)
 ```
 
  ZSYMV  performs the matrix-vector  operation

@@ -1,11 +1,13 @@
 ```fortran
-subroutine clargv	(	integer	n,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	y,
-		integer	incy,
-		real, dimension(*)	c,
-		integer	incc )
+subroutine clargv (
+		integer n,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) y,
+		integer incy,
+		real, dimension(*) c,
+		integer incc
+)
 ```
 
  CLARGV generates a vector of complex plane rotations with real

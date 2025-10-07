@@ -1,10 +1,12 @@
 ```fortran
-subroutine ssptri	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		real, dimension(*)	work,
-		integer	info )
+subroutine ssptri (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SSPTRI computes the inverse of a real symmetric indefinite matrix

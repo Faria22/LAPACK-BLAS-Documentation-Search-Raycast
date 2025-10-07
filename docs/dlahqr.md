@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlahqr	(	wantt,
+subroutine dlahqr (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -12,7 +13,8 @@ subroutine dlahqr	(	wantt,
 		ihiz,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
     DLAHQR is an auxiliary routine called by DHSEQR to update the

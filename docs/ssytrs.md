@@ -1,13 +1,15 @@
 ```fortran
-subroutine ssytrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ssytrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SSYTRS solves a system of linear equations A*X = B with a real

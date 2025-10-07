@@ -1,5 +1,6 @@
 ```fortran
-subroutine zposvxx	(	fact,
+subroutine zposvxx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -23,7 +24,8 @@ subroutine zposvxx	(	fact,
 		params,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
     ZPOSVXX uses the Cholesky factorization A = U**T*U or A = L*L**T

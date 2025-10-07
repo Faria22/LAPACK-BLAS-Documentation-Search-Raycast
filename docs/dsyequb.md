@@ -1,13 +1,15 @@
 ```fortran
-subroutine dsyequb	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dsyequb (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DSYEQUB computes row and column scalings intended to equilibrate a

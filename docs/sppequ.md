@@ -1,11 +1,13 @@
 ```fortran
-subroutine sppequ	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		integer	info )
+subroutine sppequ (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		integer info
+)
 ```
 
  SPPEQU computes row and column scalings intended to equilibrate a

@@ -1,12 +1,14 @@
 ```fortran
-subroutine zlarfy	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	v,
-		integer	incv,
-		complex*16	tau,
-		complex*16, dimension(ldc, *)	c,
-		integer	ldc,
-		complex*16, dimension(*)	work )
+subroutine zlarfy (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) v,
+		integer incv,
+		complex*16 tau,
+		complex*16, dimension(ldc, *) c,
+		integer ldc,
+		complex*16, dimension(*) work
+)
 ```
 
  ZLARFY applies an elementary reflector, or Householder matrix, H,

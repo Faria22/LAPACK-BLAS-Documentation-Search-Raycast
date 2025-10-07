@@ -1,5 +1,6 @@
 ```fortran
-subroutine clals0	(	icompq,
+subroutine clals0 (
+		icompq,
 		nl,
 		nr,
 		sqre,
@@ -22,7 +23,8 @@ subroutine clals0	(	icompq,
 		c,
 		s,
 		rwork,
-		info )
+		info
+)
 ```
 
  CLALS0 applies back the multiplying factors of either the left or the

@@ -1,8 +1,10 @@
 ```fortran
-subroutine slarnv	(	integer	idist,
-		integer, dimension(4)	iseed,
-		integer	n,
-		real, dimension(*)	x )
+subroutine slarnv (
+		integer idist,
+		integer, dimension(4) iseed,
+		integer n,
+		real, dimension(*) x
+)
 ```
 
  SLARNV returns a vector of n random real numbers from a uniform or

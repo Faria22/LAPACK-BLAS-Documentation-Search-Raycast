@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgbrfs	(	trans,
+subroutine sgbrfs (
+		trans,
 		n,
 		kl,
 		ku,
@@ -17,7 +18,8 @@ subroutine sgbrfs	(	trans,
 		berr,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SGBRFS improves the computed solution to a system of linear

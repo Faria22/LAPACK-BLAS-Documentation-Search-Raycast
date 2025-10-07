@@ -1,11 +1,13 @@
 ```fortran
-subroutine chptrd	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		complex, dimension(*)	tau,
-		integer	info )
+subroutine chptrd (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		complex, dimension(*) tau,
+		integer info
+)
 ```
 
  CHPTRD reduces a complex Hermitian matrix A stored in packed form to

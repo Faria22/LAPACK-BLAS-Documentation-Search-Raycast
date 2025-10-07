@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgeevx	(	balanc,
+subroutine cgeevx (
+		balanc,
 		jobvl,
 		jobvr,
 		sense,
@@ -20,7 +21,8 @@ subroutine cgeevx	(	balanc,
 		work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGEEVX computes for an N-by-N complex nonsymmetric matrix A, the

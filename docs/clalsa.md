@@ -1,5 +1,6 @@
 ```fortran
-subroutine clalsa	(	icompq,
+subroutine clalsa (
+		icompq,
 		smlsiz,
 		n,
 		nrhs,
@@ -24,7 +25,8 @@ subroutine clalsa	(	icompq,
 		s,
 		rwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  CLALSA is an intermediate step in solving the least squares problem

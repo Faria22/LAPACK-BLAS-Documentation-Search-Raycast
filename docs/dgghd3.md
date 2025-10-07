@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgghd3	(	compq,
+subroutine dgghd3 (
+		compq,
 		compz,
 		n,
 		ilo,
@@ -14,7 +15,8 @@ subroutine dgghd3	(	compq,
 		ldz,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DGGHD3 reduces a pair of real matrices (A,B) to generalized upper

@@ -1,10 +1,12 @@
 ```fortran
-subroutine daxpy	(	integer	n,
-		double precision	da,
-		double precision, dimension(*)	dx,
-		integer	incx,
-		double precision, dimension(*)	dy,
-		integer	incy )
+subroutine daxpy (
+		integer n,
+		double precision da,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision, dimension(*) dy,
+		integer incy
+)
 ```
 
     DAXPY constant times a vector plus a vector.

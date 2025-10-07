@@ -1,10 +1,12 @@
 ```fortran
-subroutine zpbstf	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer	info )
+subroutine zpbstf (
+		character uplo,
+		integer n,
+		integer kd,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		integer info
+)
 ```
 
  ZPBSTF computes a split Cholesky factorization of a complex

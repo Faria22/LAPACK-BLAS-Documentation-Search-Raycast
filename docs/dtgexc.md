@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgexc	(	wantq,
+subroutine dtgexc (
+		wantq,
 		wantz,
 		n,
 		a,
@@ -14,7 +15,8 @@ subroutine dtgexc	(	wantq,
 		ilst,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DTGEXC reorders the generalized real Schur decomposition of a real

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsbevd	(	jobz,
+subroutine dsbevd (
+		jobz,
 		uplo,
 		n,
 		kd,
@@ -12,7 +13,8 @@ subroutine dsbevd	(	jobz,
 		*                          lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DSBEVD computes all the eigenvalues and, optionally, eigenvectors of

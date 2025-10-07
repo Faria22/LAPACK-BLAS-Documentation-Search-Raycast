@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhsein	(	side,
+subroutine zhsein (
+		side,
 		eigsrc,
 		initv,
 		select,
@@ -17,7 +18,8 @@ subroutine zhsein	(	side,
 		rwork,
 		ifaill,
 		*                          ifailr,
-		info )
+		info
+)
 ```
 
  ZHSEIN uses inverse iteration to find specified right and/or left

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dstebz	(	range,
+subroutine dstebz (
+		range,
 		order,
 		n,
 		vl,
@@ -16,7 +17,8 @@ subroutine dstebz	(	range,
 		isplit,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DSTEBZ computes the eigenvalues of a symmetric tridiagonal

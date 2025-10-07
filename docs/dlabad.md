@@ -1,6 +1,8 @@
 ```fortran
-subroutine dlabad	(	double precision	small,
-		double precision	large )
+subroutine dlabad (
+		double precision small,
+		double precision large
+)
 ```
 
  DLABAD is a no-op and kept for compatibility reasons. It used

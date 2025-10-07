@@ -1,11 +1,13 @@
 ```fortran
-subroutine dtfttr	(	character	transr,
-		character	uplo,
-		integer	n,
-		double precision, dimension(0: *)	arf,
-		double precision, dimension(0: lda-1, 0: *)	a,
-		integer	lda,
-		integer	info )
+subroutine dtfttr (
+		character transr,
+		character uplo,
+		integer n,
+		double precision, dimension(0: *) arf,
+		double precision, dimension(0: lda-1, 0: *) a,
+		integer lda,
+		integer info
+)
 ```
 
  DTFTTR copies a triangular matrix A from rectangular full packed

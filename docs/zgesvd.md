@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgesvd	(	jobu,
+subroutine zgesvd (
+		jobu,
 		jobvt,
 		m,
 		n,
@@ -13,7 +14,8 @@ subroutine zgesvd	(	jobu,
 		*                          work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGESVD computes the singular value decomposition (SVD) of a complex

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasdq	(	uplo,
+subroutine dlasdq (
+		uplo,
 		sqre,
 		n,
 		ncvt,
@@ -14,7 +15,8 @@ subroutine dlasdq	(	uplo,
 		c,
 		ldc,
 		work,
-		info )
+		info
+)
 ```
 
  DLASDQ computes the singular value decomposition (SVD) of a real

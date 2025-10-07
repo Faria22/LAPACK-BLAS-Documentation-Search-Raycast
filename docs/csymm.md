@@ -1,16 +1,18 @@
 ```fortran
-subroutine csymm	(	character	side,
-		character	uplo,
-		integer	m,
-		integer	n,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(ldb,*)	b,
-		integer	ldb,
-		complex	beta,
-		complex, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine csymm (
+		character side,
+		character uplo,
+		integer m,
+		integer n,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(ldb,*) b,
+		integer ldb,
+		complex beta,
+		complex, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  CSYMM  performs one of the matrix-matrix operations

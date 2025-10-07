@@ -1,5 +1,6 @@
 ```fortran
-subroutine strsyl	(	trana,
+subroutine strsyl (
+		trana,
 		tranb,
 		isgn,
 		m,
@@ -11,7 +12,8 @@ subroutine strsyl	(	trana,
 		c,
 		*                          ldc,
 		scale,
-		info )
+		info
+)
 ```
 
  STRSYL solves the real Sylvester matrix equation:

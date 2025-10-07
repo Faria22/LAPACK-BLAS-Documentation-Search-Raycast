@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlaset	(	character	uplo,
-		integer	m,
-		integer	n,
-		complex*16	alpha,
-		complex*16	beta,
-		complex*16, dimension(lda, *)	a,
-		integer	lda )
+subroutine zlaset (
+		character uplo,
+		integer m,
+		integer n,
+		complex*16 alpha,
+		complex*16 beta,
+		complex*16, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  ZLASET initializes a 2-D array A to BETA on the diagonal and

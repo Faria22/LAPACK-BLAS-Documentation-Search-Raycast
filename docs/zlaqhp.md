@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlaqhp	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine zlaqhp (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  ZLAQHP equilibrates a Hermitian matrix A using the scaling factors

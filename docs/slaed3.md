@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaed3	(	k,
+subroutine slaed3 (
+		k,
 		n,
 		n1,
 		d,
@@ -12,7 +13,8 @@ subroutine slaed3	(	k,
 		*                          ctot,
 		w,
 		s,
-		info )
+		info
+)
 ```
 
  SLAED3 finds the roots of the secular equation, as defined by the

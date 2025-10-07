@@ -1,5 +1,6 @@
 ```fortran
-subroutine zptsvx	(	fact,
+subroutine zptsvx (
+		fact,
 		n,
 		nrhs,
 		d,
@@ -15,7 +16,8 @@ subroutine zptsvx	(	fact,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZPTSVX uses the factorization A = L*D*L**H to compute the solution

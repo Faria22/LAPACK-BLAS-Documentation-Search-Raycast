@@ -1,9 +1,11 @@
 ```fortran
-subroutine zcopy	(	integer	n,
-		complex*16, dimension(*)	zx,
-		integer	incx,
-		complex*16, dimension(*)	zy,
-		integer	incy )
+subroutine zcopy (
+		integer n,
+		complex*16, dimension(*) zx,
+		integer incx,
+		complex*16, dimension(*) zy,
+		integer incy
+)
 ```
 
     ZCOPY copies a vector, x, to a vector, y.

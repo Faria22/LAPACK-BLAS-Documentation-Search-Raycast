@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsytrs2	(	uplo,
+subroutine zsytrs2 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine zsytrs2	(	uplo,
 		b,
 		ldb,
 		*                           work,
-		info )
+		info
+)
 ```
 
  ZSYTRS2 solves a system of linear equations A*X = B with a complex

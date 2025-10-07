@@ -1,10 +1,12 @@
 ```fortran
-subroutine sla_lin_berr	(	integer	n,
-		integer	nz,
-		integer	nrhs,
-		real, dimension(n, nrhs)	res,
-		real, dimension(n, nrhs)	ayb,
-		real, dimension(nrhs)	berr )
+subroutine sla_lin_berr (
+		integer n,
+		integer nz,
+		integer nrhs,
+		real, dimension(n, nrhs) res,
+		real, dimension(n, nrhs) ayb,
+		real, dimension(nrhs) berr
+)
 ```
 
     SLA_LIN_BERR computes componentwise relative backward error from

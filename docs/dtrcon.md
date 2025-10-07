@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrcon	(	norm,
+subroutine dtrcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine dtrcon	(	norm,
 		rcond,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DTRCON estimates the reciprocal of the condition number of a

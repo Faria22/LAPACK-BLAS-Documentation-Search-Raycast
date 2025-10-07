@@ -1,12 +1,14 @@
 ```fortran
-subroutine strmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx )
+subroutine strmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx
+)
 ```
 
  STRMV  performs one of the matrix-vector operations

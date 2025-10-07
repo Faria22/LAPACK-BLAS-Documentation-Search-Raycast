@@ -1,5 +1,6 @@
 ```fortran
-subroutine dormbr	(	vect,
+subroutine dormbr (
+		vect,
 		side,
 		trans,
 		m,
@@ -12,7 +13,8 @@ subroutine dormbr	(	vect,
 		*                          ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  If VECT = 'Q', DORMBR overwrites the general real M-by-N matrix C

@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqz2	(	ilschur,
+subroutine claqz2 (
+		ilschur,
 		ilq,
 		ilz,
 		n,
@@ -26,7 +27,8 @@ subroutine claqz2	(	ilschur,
 		lwork,
 		rwork,
 		rec,
-		info )
+		info
+)
 ```
 
  CLAQZ2 performs AED

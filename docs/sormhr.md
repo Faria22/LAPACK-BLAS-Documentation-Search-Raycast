@@ -1,5 +1,6 @@
 ```fortran
-subroutine sormhr	(	side,
+subroutine sormhr (
+		side,
 		trans,
 		m,
 		n,
@@ -12,7 +13,8 @@ subroutine sormhr	(	side,
 		*                          ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SORMHR overwrites the general real M-by-N matrix C with

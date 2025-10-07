@@ -1,12 +1,14 @@
 ```fortran
-subroutine dppcon	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision	anorm,
-		double precision	rcond,
-		double precision, dimension(*)	work,
-		integer, dimension(*)	iwork,
-		integer	info )
+subroutine dppcon (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision anorm,
+		double precision rcond,
+		double precision, dimension(*) work,
+		integer, dimension(*) iwork,
+		integer info
+)
 ```
 
  DPPCON estimates the reciprocal of the condition number (in the

@@ -1,10 +1,12 @@
 ```fortran
-subroutine dspgst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	bp,
-		integer	info )
+subroutine dspgst (
+		integer itype,
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) bp,
+		integer info
+)
 ```
 
  DSPGST reduces a real symmetric-definite generalized eigenproblem

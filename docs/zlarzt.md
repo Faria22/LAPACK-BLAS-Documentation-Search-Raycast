@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlarzt	(	character	direct,
-		character	storev,
-		integer	n,
-		integer	k,
-		complex*16, dimension(ldv, *)	v,
-		integer	ldv,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt )
+subroutine zlarzt (
+		character direct,
+		character storev,
+		integer n,
+		integer k,
+		complex*16, dimension(ldv, *) v,
+		integer ldv,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(ldt, *) t,
+		integer ldt
+)
 ```
 
  ZLARZT forms the triangular factor T of a complex block reflector

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgecon	(	norm,
+subroutine dgecon (
+		norm,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine dgecon	(	norm,
 		rcond,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DGECON estimates the reciprocal of the condition number of a general

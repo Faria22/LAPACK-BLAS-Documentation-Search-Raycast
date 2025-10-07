@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgetsls	(	trans,
+subroutine cgetsls (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine cgetsls	(	trans,
 		ldb,
 		*     $                     work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CGETSLS solves overdetermined or underdetermined complex linear systems

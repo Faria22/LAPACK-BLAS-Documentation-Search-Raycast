@@ -1,5 +1,6 @@
 ```fortran
-subroutine cbbcsd	(	jobu1,
+subroutine cbbcsd (
+		jobu1,
 		jobu2,
 		jobv1t,
 		jobv2t,
@@ -27,7 +28,8 @@ subroutine cbbcsd	(	jobu1,
 		b22e,
 		rwork,
 		lrwork,
-		info )
+		info
+)
 ```
 
  CBBCSD computes the CS decomposition of a unitary matrix in

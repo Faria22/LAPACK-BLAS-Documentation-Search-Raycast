@@ -1,12 +1,14 @@
 ```fortran
-subroutine claqhe	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine claqhe (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  CLAQHE equilibrates a Hermitian matrix A using the scaling factors

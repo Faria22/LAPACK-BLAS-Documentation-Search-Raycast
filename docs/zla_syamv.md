@@ -1,5 +1,6 @@
 ```fortran
-subroutine zla_syamv	(	uplo,
+subroutine zla_syamv (
+		uplo,
 		n,
 		alpha,
 		a,
@@ -8,7 +9,8 @@ subroutine zla_syamv	(	uplo,
 		incx,
 		beta,
 		y,
-		*                             incy )
+		*                             incy
+)
 ```
 
  ZLA_SYAMV  performs the matrix-vector operation

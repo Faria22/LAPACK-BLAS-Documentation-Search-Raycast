@@ -1,8 +1,10 @@
 ```fortran
-subroutine dpptri	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		integer	info )
+subroutine dpptri (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		integer info
+)
 ```
 
  DPPTRI computes the inverse of a real symmetric positive definite

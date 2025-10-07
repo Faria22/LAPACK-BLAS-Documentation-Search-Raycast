@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctbtrs	(	uplo,
+subroutine ctbtrs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -9,7 +10,8 @@ subroutine ctbtrs	(	uplo,
 		ldab,
 		b,
 		*                          ldb,
-		info )
+		info
+)
 ```
 
  CTBTRS solves a triangular system of the form

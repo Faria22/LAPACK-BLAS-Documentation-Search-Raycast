@@ -1,10 +1,12 @@
 ```fortran
-subroutine dtpttf	(	character	transr,
-		character	uplo,
-		integer	n,
-		double precision, dimension(0: *)	ap,
-		double precision, dimension(0: *)	arf,
-		integer	info )
+subroutine dtpttf (
+		character transr,
+		character uplo,
+		integer n,
+		double precision, dimension(0: *) ap,
+		double precision, dimension(0: *) arf,
+		integer info
+)
 ```
 
  DTPTTF copies a triangular matrix A from standard packed format (TP)

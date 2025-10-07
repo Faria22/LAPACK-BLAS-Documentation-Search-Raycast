@@ -1,11 +1,13 @@
 ```fortran
-subroutine sgesc2	(	integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	rhs,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		real	scale )
+subroutine sgesc2 (
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) rhs,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		real scale
+)
 ```
 
  SGESC2 solves a system of linear equations

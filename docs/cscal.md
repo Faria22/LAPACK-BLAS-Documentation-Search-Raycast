@@ -1,8 +1,10 @@
 ```fortran
-subroutine cscal	(	integer	n,
-		complex	ca,
-		complex, dimension(*)	cx,
-		integer	incx )
+subroutine cscal (
+		integer n,
+		complex ca,
+		complex, dimension(*) cx,
+		integer incx
+)
 ```
 
     CSCAL scales a vector by a constant.

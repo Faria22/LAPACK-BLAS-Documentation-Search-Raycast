@@ -1,5 +1,6 @@
 ```fortran
-subroutine slabrd	(	m,
+subroutine slabrd (
+		m,
 		n,
 		nb,
 		a,
@@ -11,7 +12,8 @@ subroutine slabrd	(	m,
 		x,
 		ldx,
 		y,
-		*                          ldy )
+		*                          ldy
+)
 ```
 
  SLABRD reduces the first NB rows and columns of a real general

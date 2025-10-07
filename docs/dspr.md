@@ -1,10 +1,12 @@
 ```fortran
-subroutine dspr	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	ap )
+subroutine dspr (
+		character uplo,
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) ap
+)
 ```
 
  DSPR    performs the symmetric rank 1 operation

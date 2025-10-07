@@ -1,5 +1,6 @@
 ```fortran
-subroutine cheevx_2stage	(	jobz,
+subroutine cheevx_2stage (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -19,7 +20,8 @@ subroutine cheevx_2stage	(	jobz,
 		rwork,
 		iwork,
 		ifail,
-		info )
+		info
+)
 ```
 
  CHEEVX_2STAGE computes selected eigenvalues and, optionally, eigenvectors

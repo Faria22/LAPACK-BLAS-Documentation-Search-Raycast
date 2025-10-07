@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgbrfsx	(	trans,
+subroutine cgbrfsx (
+		trans,
 		equed,
 		n,
 		kl,
@@ -25,7 +26,8 @@ subroutine cgbrfsx	(	trans,
 		params,
 		work,
 		rwork,
-		*                           info )
+		*                           info
+)
 ```
 
     CGBRFSX improves the computed solution to a system of linear

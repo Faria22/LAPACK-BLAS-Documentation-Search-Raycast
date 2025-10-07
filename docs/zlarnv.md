@@ -1,8 +1,10 @@
 ```fortran
-subroutine zlarnv	(	integer	idist,
-		integer, dimension(4)	iseed,
-		integer	n,
-		complex*16, dimension(*)	x )
+subroutine zlarnv (
+		integer idist,
+		integer, dimension(4) iseed,
+		integer n,
+		complex*16, dimension(*) x
+)
 ```
 
  ZLARNV returns a vector of n random complex numbers from a uniform or

@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgesv	(	integer	n,
-		integer	nrhs,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cgesv (
+		integer n,
+		integer nrhs,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CGESV computes the solution to a complex system of linear equations

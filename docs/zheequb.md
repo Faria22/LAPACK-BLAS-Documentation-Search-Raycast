@@ -1,13 +1,15 @@
 ```fortran
-subroutine zheequb	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zheequb (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZHEEQUB computes row and column scalings intended to equilibrate a

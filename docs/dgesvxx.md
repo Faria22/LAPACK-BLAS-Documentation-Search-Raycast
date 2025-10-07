@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgesvxx	(	fact,
+subroutine dgesvxx (
+		fact,
 		trans,
 		n,
 		nrhs,
@@ -25,7 +26,8 @@ subroutine dgesvxx	(	fact,
 		params,
 		work,
 		iwork,
-		*                           info )
+		*                           info
+)
 ```
 
     DGESVXX uses the LU factorization to compute the solution to a

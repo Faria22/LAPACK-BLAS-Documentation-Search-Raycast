@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctbrfs	(	uplo,
+subroutine ctbrfs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -15,7 +16,8 @@ subroutine ctbrfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CTBRFS provides error bounds and backward error estimates for the

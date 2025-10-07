@@ -1,5 +1,6 @@
 ```fortran
-subroutine sstevd	(	jobz,
+subroutine sstevd (
+		jobz,
 		n,
 		d,
 		e,
@@ -9,7 +10,8 @@ subroutine sstevd	(	jobz,
 		lwork,
 		iwork,
 		*                          liwork,
-		info )
+		info
+)
 ```
 
  SSTEVD computes all eigenvalues and, optionally, eigenvectors of a

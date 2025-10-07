@@ -1,10 +1,12 @@
 ```fortran
-subroutine zsytf2	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zsytf2 (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  ZSYTF2 computes the factorization of a complex symmetric matrix A

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgeesx	(	jobvs,
+subroutine sgeesx (
+		jobvs,
 		sort,
 		select,
 		sense,
@@ -18,7 +19,8 @@ subroutine sgeesx	(	jobvs,
 		*                          iwork,
 		liwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  SGEESX computes for an N-by-N real nonsymmetric matrix A, the

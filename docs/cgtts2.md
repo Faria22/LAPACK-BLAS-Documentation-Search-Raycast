@@ -1,14 +1,16 @@
 ```fortran
-subroutine cgtts2	(	integer	itrans,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	dl,
-		complex, dimension(*)	d,
-		complex, dimension(*)	du,
-		complex, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine cgtts2 (
+		integer itrans,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) dl,
+		complex, dimension(*) d,
+		complex, dimension(*) du,
+		complex, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  CGTTS2 solves one of the systems of equations

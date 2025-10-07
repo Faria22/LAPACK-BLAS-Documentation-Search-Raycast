@@ -1,12 +1,14 @@
 ```fortran
-subroutine claqsy	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine claqsy (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  CLAQSY equilibrates a symmetric matrix A using the scaling factors

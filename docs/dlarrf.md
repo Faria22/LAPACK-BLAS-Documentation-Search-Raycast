@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrf	(	n,
+subroutine dlarrf (
+		n,
 		d,
 		l,
 		ld,
@@ -16,7 +17,8 @@ subroutine dlarrf	(	n,
 		*                          dplus,
 		lplus,
 		work,
-		info )
+		info
+)
 ```
 
  Given the initial representation L D L^T and its cluster of close

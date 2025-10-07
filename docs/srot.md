@@ -1,11 +1,13 @@
 ```fortran
-subroutine srot	(	integer	n,
-		real, dimension(*)	sx,
-		integer	incx,
-		real, dimension(*)	sy,
-		integer	incy,
-		real	c,
-		real	s )
+subroutine srot (
+		integer n,
+		real, dimension(*) sx,
+		integer incx,
+		real, dimension(*) sy,
+		integer incy,
+		real c,
+		real s
+)
 ```
 
     applies a plane rotation.

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrb	(	n,
+subroutine dlarrb (
+		n,
 		d,
 		lld,
 		ifirst,
@@ -15,7 +16,8 @@ subroutine dlarrb	(	n,
 		*                          pivmin,
 		spdiam,
 		twist,
-		info )
+		info
+)
 ```
 
  Given the relatively robust representation(RRR) L D L^T, DLARRB

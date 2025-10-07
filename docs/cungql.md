@@ -1,13 +1,15 @@
 ```fortran
-subroutine cungql	(	integer	m,
-		integer	n,
-		integer	k,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine cungql (
+		integer m,
+		integer n,
+		integer k,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CUNGQL generates an M-by-N complex matrix Q with orthonormal columns,

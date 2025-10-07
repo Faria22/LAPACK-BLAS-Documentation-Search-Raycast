@@ -1,15 +1,17 @@
 ```fortran
-subroutine dsbmv	(	character	uplo,
-		integer	n,
-		integer	k,
-		double precision	alpha,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision	beta,
-		double precision, dimension(*)	y,
-		integer	incy )
+subroutine dsbmv (
+		character uplo,
+		integer n,
+		integer k,
+		double precision alpha,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision beta,
+		double precision, dimension(*) y,
+		integer incy
+)
 ```
 
  DSBMV  performs the matrix-vector  operation

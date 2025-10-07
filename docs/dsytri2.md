@@ -1,12 +1,14 @@
 ```fortran
-subroutine dsytri2	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine dsytri2 (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		double precision, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  DSYTRI2 computes the inverse of a DOUBLE PRECISION symmetric indefinite matrix

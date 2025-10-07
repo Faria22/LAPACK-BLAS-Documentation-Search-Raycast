@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgbsvxx	(	fact,
+subroutine sgbsvxx (
+		fact,
 		trans,
 		n,
 		kl,
@@ -27,7 +28,8 @@ subroutine sgbsvxx	(	fact,
 		params,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
     SGBSVXX uses the LU factorization to compute the solution to a

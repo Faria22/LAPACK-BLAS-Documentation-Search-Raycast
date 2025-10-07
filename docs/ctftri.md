@@ -1,10 +1,12 @@
 ```fortran
-subroutine ctftri	(	character	transr,
-		character	uplo,
-		character	diag,
-		integer	n,
-		complex, dimension(0: *)	a,
-		integer	info )
+subroutine ctftri (
+		character transr,
+		character uplo,
+		character diag,
+		integer n,
+		complex, dimension(0: *) a,
+		integer info
+)
 ```
 
  CTFTRI computes the inverse of a triangular matrix A stored in RFP

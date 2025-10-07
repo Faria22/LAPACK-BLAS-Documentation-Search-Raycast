@@ -1,13 +1,15 @@
 ```fortran
-subroutine dorhr_col	(	integer	m,
-		integer	n,
-		integer	nb,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldt, *)	t,
-		integer	ldt,
-		double precision, dimension(*)	d,
-		integer	info )
+subroutine dorhr_col (
+		integer m,
+		integer n,
+		integer nb,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldt, *) t,
+		integer ldt,
+		double precision, dimension(*) d,
+		integer info
+)
 ```
 
   DORHR_COL takes an M-by-N real matrix Q_in with orthonormal columns

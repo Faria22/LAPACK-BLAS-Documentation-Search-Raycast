@@ -1,12 +1,14 @@
 ```fortran
-subroutine cupgtr	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		complex, dimension(*)	tau,
-		complex, dimension(ldq, *)	q,
-		integer	ldq,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine cupgtr (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		complex, dimension(*) tau,
+		complex, dimension(ldq, *) q,
+		integer ldq,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CUPGTR generates a complex unitary matrix Q which is defined as the

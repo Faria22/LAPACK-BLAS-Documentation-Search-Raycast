@@ -1,5 +1,6 @@
 ```fortran
-subroutine zggev3	(	jobvl,
+subroutine zggev3 (
+		jobvl,
 		jobvr,
 		n,
 		a,
@@ -15,7 +16,8 @@ subroutine zggev3	(	jobvl,
 		work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGGEV3 computes for a pair of N-by-N complex nonsymmetric matrices

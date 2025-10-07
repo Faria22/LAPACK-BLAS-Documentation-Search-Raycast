@@ -1,13 +1,15 @@
 ```fortran
-subroutine slagtf	(	integer	n,
-		real, dimension(*)	a,
-		real	lambda,
-		real, dimension(*)	b,
-		real, dimension(*)	c,
-		real	tol,
-		real, dimension(*)	d,
-		integer, dimension(*)	in,
-		integer	info )
+subroutine slagtf (
+		integer n,
+		real, dimension(*) a,
+		real lambda,
+		real, dimension(*) b,
+		real, dimension(*) c,
+		real tol,
+		real, dimension(*) d,
+		integer, dimension(*) in,
+		integer info
+)
 ```
 
  SLAGTF factorizes the matrix (T - lambda*I), where T is an n by n

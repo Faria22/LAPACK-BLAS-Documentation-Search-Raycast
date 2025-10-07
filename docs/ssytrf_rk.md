@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssytrf_rk	(	uplo,
+subroutine ssytrf_rk (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine ssytrf_rk	(	uplo,
 		ipiv,
 		work,
 		lwork,
-		*                             info )
+		*                             info
+)
 ```
  SSYTRF_RK computes the factorization of a real symmetric matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

@@ -1,10 +1,12 @@
 ```fortran
-subroutine cgetrf	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine cgetrf (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CGETRF computes an LU factorization of a general M-by-N matrix A

@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssyconv	(	character	uplo,
-		character	way,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(*)	e,
-		integer	info )
+subroutine ssyconv (
+		character uplo,
+		character way,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(*) e,
+		integer info
+)
 ```
 
  SSYCONV convert A given by TRF into L and D and vice-versa.

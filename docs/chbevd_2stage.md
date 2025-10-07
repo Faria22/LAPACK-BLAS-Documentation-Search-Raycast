@@ -1,5 +1,6 @@
 ```fortran
-subroutine chbevd_2stage	(	jobz,
+subroutine chbevd_2stage (
+		jobz,
 		uplo,
 		n,
 		kd,
@@ -14,7 +15,8 @@ subroutine chbevd_2stage	(	jobz,
 		lrwork,
 		iwork,
 		*                                 liwork,
-		info )
+		info
+)
 ```
 
  CHBEVD_2STAGE computes all the eigenvalues and, optionally, eigenvectors of

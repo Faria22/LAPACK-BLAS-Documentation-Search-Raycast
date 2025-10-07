@@ -1,14 +1,16 @@
 ```fortran
-subroutine chetrd	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		complex, dimension(*)	tau,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine chetrd (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		complex, dimension(*) tau,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CHETRD reduces a complex Hermitian matrix A to real symmetric

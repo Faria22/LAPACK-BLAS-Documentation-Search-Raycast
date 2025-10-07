@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgebrd	(	m,
+subroutine cgebrd (
+		m,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine cgebrd	(	m,
 		taup,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CGEBRD reduces a general complex M-by-N matrix A to upper or lower

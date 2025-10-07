@@ -1,8 +1,10 @@
 ```fortran
-subroutine srscl	(	integer	n,
-		real	sa,
-		real, dimension(*)	sx,
-		integer	incx )
+subroutine srscl (
+		integer n,
+		real sa,
+		real, dimension(*) sx,
+		integer incx
+)
 ```
 
  SRSCL multiplies an n-element real vector x by the real scalar 1/a.

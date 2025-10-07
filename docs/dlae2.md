@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlae2	(	double precision	a,
-		double precision	b,
-		double precision	c,
-		double precision	rt1,
-		double precision	rt2 )
+subroutine dlae2 (
+		double precision a,
+		double precision b,
+		double precision c,
+		double precision rt1,
+		double precision rt2
+)
 ```
 
  DLAE2  computes the eigenvalues of a 2-by-2 symmetric matrix

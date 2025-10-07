@@ -1,12 +1,14 @@
 ```fortran
-subroutine dpteqr	(	character	compz,
-		integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision, dimension(ldz, *)	z,
-		integer	ldz,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dpteqr (
+		character compz,
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision, dimension(ldz, *) z,
+		integer ldz,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DPTEQR computes all eigenvalues and, optionally, eigenvectors of a

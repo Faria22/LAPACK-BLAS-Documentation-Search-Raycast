@@ -1,12 +1,14 @@
 ```fortran
-subroutine cpttrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	d,
-		complex, dimension(*)	e,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cpttrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(*) d,
+		complex, dimension(*) e,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPTTRS solves a tridiagonal system of the form

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaln2	(	ltrans,
+subroutine dlaln2 (
+		ltrans,
 		na,
 		nw,
 		smin,
@@ -16,7 +17,8 @@ subroutine dlaln2	(	ltrans,
 		ldx,
 		scale,
 		xnorm,
-		info )
+		info
+)
 ```
 
  DLALN2 solves a system of the form  (ca A - w D ) X = s B

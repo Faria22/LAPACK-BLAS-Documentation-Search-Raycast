@@ -1,14 +1,16 @@
 ```fortran
-subroutine dtpqrt2	(	integer	m,
-		integer	n,
-		integer	l,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		double precision, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine dtpqrt2 (
+		integer m,
+		integer n,
+		integer l,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		double precision, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  DTPQRT2 computes a QR factorization of a real "triangular-pentagonal"

@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlartgp	(	double precision	f,
-		double precision	g,
-		double precision	cs,
-		double precision	sn,
-		double precision	r )
+subroutine dlartgp (
+		double precision f,
+		double precision g,
+		double precision cs,
+		double precision sn,
+		double precision r
+)
 ```
 
  DLARTGP generates a plane rotation so that

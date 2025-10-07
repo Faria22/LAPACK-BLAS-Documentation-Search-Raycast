@@ -1,11 +1,13 @@
 ```fortran
-subroutine crot	(	integer	n,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex, dimension(*)	cy,
-		integer	incy,
-		real	c,
-		complex	s )
+subroutine crot (
+		integer n,
+		complex, dimension(*) cx,
+		integer incx,
+		complex, dimension(*) cy,
+		integer incy,
+		real c,
+		complex s
+)
 ```
 
  CROT applies a plane rotation, where the cos (C) is real and the

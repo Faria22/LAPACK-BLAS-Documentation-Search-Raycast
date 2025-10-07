@@ -1,8 +1,10 @@
 ```fortran
-subroutine slarrr	(	integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		integer	info )
+subroutine slarrr (
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		integer info
+)
 ```
 
  Perform tests to decide whether the symmetric tridiagonal matrix T

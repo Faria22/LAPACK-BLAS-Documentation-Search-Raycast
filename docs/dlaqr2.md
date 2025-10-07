@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqr2	(	wantt,
+subroutine dlaqr2 (
+		wantt,
 		wantz,
 		n,
 		ktop,
@@ -24,7 +25,8 @@ subroutine dlaqr2	(	wantt,
 		wv,
 		ldwv,
 		work,
-		lwork )
+		lwork
+)
 ```
 
     DLAQR2 is identical to DLAQR3 except that it avoids

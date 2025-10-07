@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqps	(	m,
+subroutine claqps (
+		m,
 		n,
 		offset,
 		nb,
@@ -12,7 +13,8 @@ subroutine claqps	(	m,
 		*                          vn2,
 		auxv,
 		f,
-		ldf )
+		ldf
+)
 ```
 
  CLAQPS computes a step of QR factorization with column pivoting

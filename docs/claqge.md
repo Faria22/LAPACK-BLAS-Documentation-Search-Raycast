@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqge	(	m,
+subroutine claqge (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine claqge	(	m,
 		rowcnd,
 		colcnd,
 		amax,
-		*                          equed )
+		*                          equed
+)
 ```
 
  CLAQGE equilibrates a general M by N matrix A using the row and

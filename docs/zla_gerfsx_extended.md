@@ -1,5 +1,6 @@
 ```fortran
-subroutine zla_gerfsx_extended	(	prec_type,
+subroutine zla_gerfsx_extended (
+		prec_type,
 		trans_type,
 		n,
 		nrhs,
@@ -27,7 +28,8 @@ subroutine zla_gerfsx_extended	(	prec_type,
 		rthresh,
 		*                                       dz_ub,
 		ignore_cwise,
-		info )
+		info
+)
 ```
 
  ZLA_GERFSX_EXTENDED improves the computed solution to a system of

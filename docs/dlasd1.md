@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasd1	(	nl,
+subroutine dlasd1 (
+		nl,
 		nr,
 		sqre,
 		d,
@@ -12,7 +13,8 @@ subroutine dlasd1	(	nl,
 		*                          idxq,
 		iwork,
 		work,
-		info )
+		info
+)
 ```
 
  DLASD1 computes the SVD of an upper bidiagonal N-by-M matrix B,

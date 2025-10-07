@@ -1,10 +1,12 @@
 ```fortran
-subroutine cheswapr	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, n)	a,
-		integer	lda,
-		integer	i1,
-		integer	i2 )
+subroutine cheswapr (
+		character uplo,
+		integer n,
+		complex, dimension(lda, n) a,
+		integer lda,
+		integer i1,
+		integer i2
+)
 ```
 
  CHESWAPR applies an elementary permutation on the rows and the columns of

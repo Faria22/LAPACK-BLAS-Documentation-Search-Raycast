@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgemlqt	(	side,
+subroutine sgemlqt (
+		side,
 		trans,
 		m,
 		n,
@@ -12,7 +13,8 @@ subroutine sgemlqt	(	side,
 		*                          c,
 		ldc,
 		work,
-		info )
+		info
+)
 ```
 
  SGEMLQT overwrites the general real M-by-N matrix C with

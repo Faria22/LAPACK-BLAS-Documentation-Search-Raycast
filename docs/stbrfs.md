@@ -1,5 +1,6 @@
 ```fortran
-subroutine stbrfs	(	uplo,
+subroutine stbrfs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -15,7 +16,8 @@ subroutine stbrfs	(	uplo,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  STBRFS provides error bounds and backward error estimates for the

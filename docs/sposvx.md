@@ -1,5 +1,6 @@
 ```fortran
-subroutine sposvx	(	fact,
+subroutine sposvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -18,7 +19,8 @@ subroutine sposvx	(	fact,
 		berr,
 		work,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  SPOSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to

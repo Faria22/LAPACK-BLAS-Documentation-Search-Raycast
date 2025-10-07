@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhprfs	(	uplo,
+subroutine zhprfs (
+		uplo,
 		n,
 		nrhs,
 		ap,
@@ -13,7 +14,8 @@ subroutine zhprfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZHPRFS improves the computed solution to a system of linear

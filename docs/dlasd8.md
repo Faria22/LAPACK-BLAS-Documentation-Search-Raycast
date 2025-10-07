@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasd8	(	icompq,
+subroutine dlasd8 (
+		icompq,
 		k,
 		d,
 		z,
@@ -10,7 +11,8 @@ subroutine dlasd8	(	icompq,
 		lddifr,
 		*                          dsigma,
 		work,
-		info )
+		info
+)
 ```
 
  DLASD8 finds the square roots of the roots of the secular equation,

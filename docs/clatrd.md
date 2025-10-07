@@ -1,13 +1,15 @@
 ```fortran
-subroutine clatrd	(	character	uplo,
-		integer	n,
-		integer	nb,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	e,
-		complex, dimension(*)	tau,
-		complex, dimension(ldw, *)	w,
-		integer	ldw )
+subroutine clatrd (
+		character uplo,
+		integer n,
+		integer nb,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) e,
+		complex, dimension(*) tau,
+		complex, dimension(ldw, *) w,
+		integer ldw
+)
 ```
 
  CLATRD reduces NB rows and columns of a complex Hermitian matrix A to

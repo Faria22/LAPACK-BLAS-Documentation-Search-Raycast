@@ -1,12 +1,14 @@
 ```fortran
-subroutine sorgl2	(	integer	m,
-		integer	n,
-		integer	k,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sorgl2 (
+		integer m,
+		integer n,
+		integer k,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SORGL2 generates an m by n real matrix Q with orthonormal rows,

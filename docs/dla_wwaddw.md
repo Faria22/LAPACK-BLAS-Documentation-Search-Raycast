@@ -1,8 +1,10 @@
 ```fortran
-subroutine dla_wwaddw	(	integer	n,
-		double precision, dimension(*)	x,
-		double precision, dimension(*)	y,
-		double precision, dimension(*)	w )
+subroutine dla_wwaddw (
+		integer n,
+		double precision, dimension(*) x,
+		double precision, dimension(*) y,
+		double precision, dimension(*) w
+)
 ```
 
     DLA_WWADDW adds a vector W into a doubled-single vector (X, Y).

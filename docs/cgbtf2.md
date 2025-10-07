@@ -1,12 +1,14 @@
 ```fortran
-subroutine cgbtf2	(	integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		complex, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine cgbtf2 (
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		complex, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CGBTF2 computes an LU factorization of a complex m-by-n band matrix

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgebrd	(	m,
+subroutine dgebrd (
+		m,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine dgebrd	(	m,
 		taup,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DGEBRD reduces a general real M-by-N matrix A to upper or lower

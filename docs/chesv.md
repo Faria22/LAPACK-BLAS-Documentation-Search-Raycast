@@ -1,5 +1,6 @@
 ```fortran
-subroutine chesv	(	uplo,
+subroutine chesv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine chesv	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  CHESV computes the solution to a complex system of linear equations

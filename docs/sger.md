@@ -1,13 +1,15 @@
 ```fortran
-subroutine sger	(	integer	m,
-		integer	n,
-		real	alpha,
-		real, dimension(*)	x,
-		integer	incx,
-		real, dimension(*)	y,
-		integer	incy,
-		real, dimension(lda,*)	a,
-		integer	lda )
+subroutine sger (
+		integer m,
+		integer n,
+		real alpha,
+		real, dimension(*) x,
+		integer incx,
+		real, dimension(*) y,
+		integer incy,
+		real, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  SGER   performs the rank 1 operation

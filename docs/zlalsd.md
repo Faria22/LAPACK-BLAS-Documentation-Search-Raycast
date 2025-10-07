@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlalsd	(	uplo,
+subroutine zlalsd (
+		uplo,
 		smlsiz,
 		n,
 		nrhs,
@@ -12,7 +13,8 @@ subroutine zlalsd	(	uplo,
 		work,
 		rwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  ZLALSD uses the singular value decomposition of A to solve the least

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgsna	(	job,
+subroutine dtgsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -18,7 +19,8 @@ subroutine dtgsna	(	job,
 		work,
 		lwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  DTGSNA estimates reciprocal condition numbers for specified

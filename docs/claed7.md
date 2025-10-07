@@ -1,5 +1,6 @@
 ```fortran
-subroutine claed7	(	n,
+subroutine claed7 (
+		n,
 		cutpnt,
 		qsiz,
 		tlvls,
@@ -20,7 +21,8 @@ subroutine claed7	(	n,
 		work,
 		rwork,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CLAED7 computes the updated eigensystem of a diagonal

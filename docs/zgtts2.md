@@ -1,14 +1,16 @@
 ```fortran
-subroutine zgtts2	(	integer	itrans,
-		integer	n,
-		integer	nrhs,
-		complex*16, dimension(*)	dl,
-		complex*16, dimension(*)	d,
-		complex*16, dimension(*)	du,
-		complex*16, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine zgtts2 (
+		integer itrans,
+		integer n,
+		integer nrhs,
+		complex*16, dimension(*) dl,
+		complex*16, dimension(*) d,
+		complex*16, dimension(*) du,
+		complex*16, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  ZGTTS2 solves one of the systems of equations

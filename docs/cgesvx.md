@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgesvx	(	fact,
+subroutine cgesvx (
+		fact,
 		trans,
 		n,
 		nrhs,
@@ -20,7 +21,8 @@ subroutine cgesvx	(	fact,
 		berr,
 		*                          work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGESVX uses the LU factorization to compute the solution to a complex

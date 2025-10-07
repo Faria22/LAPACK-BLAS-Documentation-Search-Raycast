@@ -1,12 +1,14 @@
 ```fortran
-subroutine clar2v	(	integer	n,
-		complex, dimension(*)	x,
-		complex, dimension(*)	y,
-		complex, dimension(*)	z,
-		integer	incx,
-		real, dimension(*)	c,
-		complex, dimension(*)	s,
-		integer	incc )
+subroutine clar2v (
+		integer n,
+		complex, dimension(*) x,
+		complex, dimension(*) y,
+		complex, dimension(*) z,
+		integer incx,
+		real, dimension(*) c,
+		complex, dimension(*) s,
+		integer incc
+)
 ```
 
  CLAR2V applies a vector of complex plane rotations with real cosines

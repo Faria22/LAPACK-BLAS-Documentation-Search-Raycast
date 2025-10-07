@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlasdt	(	integer	n,
-		integer	lvl,
-		integer	nd,
-		integer, dimension(*)	inode,
-		integer, dimension(*)	ndiml,
-		integer, dimension(*)	ndimr,
-		integer	msub )
+subroutine dlasdt (
+		integer n,
+		integer lvl,
+		integer nd,
+		integer, dimension(*) inode,
+		integer, dimension(*) ndiml,
+		integer, dimension(*) ndimr,
+		integer msub
+)
 ```
 
  DLASDT creates a tree of subproblems for bidiagonal divide and

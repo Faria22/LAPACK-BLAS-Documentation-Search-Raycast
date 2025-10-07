@@ -1,11 +1,13 @@
 ```fortran
-subroutine cptts2	(	integer	iuplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	d,
-		complex, dimension(*)	e,
-		complex, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine cptts2 (
+		integer iuplo,
+		integer n,
+		integer nrhs,
+		real, dimension(*) d,
+		complex, dimension(*) e,
+		complex, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  CPTTS2 solves a tridiagonal system of the form

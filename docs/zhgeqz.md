@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhgeqz	(	job,
+subroutine zhgeqz (
+		job,
 		compq,
 		compz,
 		n,
@@ -18,7 +19,8 @@ subroutine zhgeqz	(	job,
 		work,
 		lwork,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  ZHGEQZ computes the eigenvalues of a complex matrix pair (H,T),

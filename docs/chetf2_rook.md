@@ -1,10 +1,12 @@
 ```fortran
-subroutine chetf2_rook	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine chetf2_rook (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CHETF2_ROOK computes the factorization of a complex Hermitian matrix A

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgelq	(	m,
+subroutine zgelq (
+		m,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zgelq	(	m,
 		tsize,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  ZGELQ computes an LQ factorization of a complex M-by-N matrix A:

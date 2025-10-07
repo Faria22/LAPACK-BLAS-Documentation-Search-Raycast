@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgeqp3	(	m,
+subroutine zgeqp3 (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine zgeqp3	(	m,
 		work,
 		lwork,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZGEQP3 computes a QR factorization with column pivoting of a

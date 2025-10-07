@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgbsvx	(	fact,
+subroutine zgbsvx (
+		fact,
 		trans,
 		n,
 		kl,
@@ -22,7 +23,8 @@ subroutine zgbsvx	(	fact,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGBSVX uses the LU factorization to compute the solution to a complex

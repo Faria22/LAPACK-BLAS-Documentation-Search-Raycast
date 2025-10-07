@@ -1,15 +1,17 @@
 ```fortran
-subroutine ssbmv	(	character	uplo,
-		integer	n,
-		integer	k,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx,
-		real	beta,
-		real, dimension(*)	y,
-		integer	incy )
+subroutine ssbmv (
+		character uplo,
+		integer n,
+		integer k,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx,
+		real beta,
+		real, dimension(*) y,
+		integer incy
+)
 ```
 
  SSBMV  performs the matrix-vector  operation

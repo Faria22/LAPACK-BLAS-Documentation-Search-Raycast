@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgsvj0	(	jobv,
+subroutine zgsvj0 (
+		jobv,
 		m,
 		n,
 		a,
@@ -15,7 +16,8 @@ subroutine zgsvj0	(	jobv,
 		nsweep,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZGSVJ0 is called from ZGESVJ as a pre-processor and that is its main

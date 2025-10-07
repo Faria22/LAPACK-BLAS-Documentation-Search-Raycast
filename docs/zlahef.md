@@ -1,14 +1,16 @@
 ```fortran
-subroutine zlahef	(	character	uplo,
-		integer	n,
-		integer	nb,
-		integer	kb,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(ldw, *)	w,
-		integer	ldw,
-		integer	info )
+subroutine zlahef (
+		character uplo,
+		integer n,
+		integer nb,
+		integer kb,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(ldw, *) w,
+		integer ldw,
+		integer info
+)
 ```
 
  ZLAHEF computes a partial factorization of a complex Hermitian

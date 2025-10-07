@@ -1,14 +1,16 @@
 ```fortran
-subroutine ztpqrt2	(	integer	m,
-		integer	n,
-		integer	l,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt,
-		integer	info )
+subroutine ztpqrt2 (
+		integer m,
+		integer n,
+		integer l,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		complex*16, dimension(ldt, *) t,
+		integer ldt,
+		integer info
+)
 ```
 
  ZTPQRT2 computes a QR factorization of a complex "triangular-pentagonal"

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cla_syrfsx_extended	(	prec_type,
+subroutine cla_syrfsx_extended (
+		prec_type,
 		uplo,
 		n,
 		nrhs,
@@ -27,7 +28,8 @@ subroutine cla_syrfsx_extended	(	prec_type,
 		*                                       rthresh,
 		dz_ub,
 		ignore_cwise,
-		*                                       info )
+		*                                       info
+)
 ```
 
  CLA_SYRFSX_EXTENDED improves the computed solution to a system of

@@ -1,10 +1,12 @@
 ```fortran
-subroutine zlaqr1	(	integer	n,
-		complex*16, dimension(ldh, *)	h,
-		integer	ldh,
-		complex*16	s1,
-		complex*16	s2,
-		complex*16, dimension(*)	v )
+subroutine zlaqr1 (
+		integer n,
+		complex*16, dimension(ldh, *) h,
+		integer ldh,
+		complex*16 s1,
+		complex*16 s2,
+		complex*16, dimension(*) v
+)
 ```
 
       Given a 2-by-2 or 3-by-3 matrix H, ZLAQR1 sets v to a

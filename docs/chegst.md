@@ -1,12 +1,14 @@
 ```fortran
-subroutine chegst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine chegst (
+		integer itype,
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CHEGST reduces a complex Hermitian-definite generalized

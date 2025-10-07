@@ -1,5 +1,6 @@
 ```fortran
-subroutine dggsvp3	(	jobu,
+subroutine dggsvp3 (
+		jobu,
 		jobv,
 		jobq,
 		m,
@@ -23,7 +24,8 @@ subroutine dggsvp3	(	jobu,
 		tau,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DGGSVP3 computes orthogonal matrices U, V and Q such that

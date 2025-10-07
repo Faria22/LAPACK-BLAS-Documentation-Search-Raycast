@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgbequ	(	m,
+subroutine cgbequ (
+		m,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine cgbequ	(	m,
 		rowcnd,
 		colcnd,
 		*                          amax,
-		info )
+		info
+)
 ```
 
  CGBEQU computes row and column scalings intended to equilibrate an

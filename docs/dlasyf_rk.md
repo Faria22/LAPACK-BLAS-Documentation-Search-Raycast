@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasyf_rk	(	uplo,
+subroutine dlasyf_rk (
+		uplo,
 		n,
 		nb,
 		kb,
@@ -9,7 +10,8 @@ subroutine dlasyf_rk	(	uplo,
 		ipiv,
 		w,
 		ldw,
-		*                             info )
+		*                             info
+)
 ```
  DLASYF_RK computes a partial factorization of a real symmetric
  matrix A using the bounded Bunch-Kaufman (rook) diagonal

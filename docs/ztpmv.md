@@ -1,11 +1,13 @@
 ```fortran
-subroutine ztpmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine ztpmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex*16, dimension(*) ap,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZTPMV  performs one of the matrix-vector operations

@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssytd2	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(*)	tau,
-		integer	info )
+subroutine ssytd2 (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(*) tau,
+		integer info
+)
 ```
 
  SSYTD2 reduces a real symmetric matrix A to symmetric tridiagonal

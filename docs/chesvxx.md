@@ -1,5 +1,6 @@
 ```fortran
-subroutine chesvxx	(	fact,
+subroutine chesvxx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -24,7 +25,8 @@ subroutine chesvxx	(	fact,
 		params,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
     CHESVXX uses the diagonal pivoting factorization to compute the

@@ -1,10 +1,12 @@
 ```fortran
-subroutine ztrttp	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	ap,
-		integer	info )
+subroutine ztrttp (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) ap,
+		integer info
+)
 ```
 
  ZTRTTP copies a triangular matrix A from full format (TR) to standard

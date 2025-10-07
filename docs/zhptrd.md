@@ -1,11 +1,13 @@
 ```fortran
-subroutine zhptrd	(	character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		complex*16, dimension(*)	tau,
-		integer	info )
+subroutine zhptrd (
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		complex*16, dimension(*) tau,
+		integer info
+)
 ```
 
  ZHPTRD reduces a complex Hermitian matrix A stored in packed form to

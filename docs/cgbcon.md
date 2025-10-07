@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgbcon	(	norm,
+subroutine cgbcon (
+		norm,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine cgbcon	(	norm,
 		rcond,
 		*                          work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGBCON estimates the reciprocal of the condition number of a complex

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgelss	(	m,
+subroutine cgelss (
+		m,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine cgelss	(	m,
 		*                          work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGELSS computes the minimum norm solution to a complex linear

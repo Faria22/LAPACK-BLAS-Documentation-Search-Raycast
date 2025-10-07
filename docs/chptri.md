@@ -1,10 +1,12 @@
 ```fortran
-subroutine chptri	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		complex, dimension(*)	work,
-		integer	info )
+subroutine chptri (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		complex, dimension(*) work,
+		integer info
+)
 ```
 
  CHPTRI computes the inverse of a complex Hermitian indefinite matrix

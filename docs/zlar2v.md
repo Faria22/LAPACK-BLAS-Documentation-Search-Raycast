@@ -1,12 +1,14 @@
 ```fortran
-subroutine zlar2v	(	integer	n,
-		complex*16, dimension(*)	x,
-		complex*16, dimension(*)	y,
-		complex*16, dimension(*)	z,
-		integer	incx,
-		double precision, dimension(*)	c,
-		complex*16, dimension(*)	s,
-		integer	incc )
+subroutine zlar2v (
+		integer n,
+		complex*16, dimension(*) x,
+		complex*16, dimension(*) y,
+		complex*16, dimension(*) z,
+		integer incx,
+		double precision, dimension(*) c,
+		complex*16, dimension(*) s,
+		integer incc
+)
 ```
 
  ZLAR2V applies a vector of complex plane rotations with real cosines

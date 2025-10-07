@@ -1,5 +1,6 @@
 ```fortran
-subroutine dopmtr	(	side,
+subroutine dopmtr (
+		side,
 		uplo,
 		trans,
 		m,
@@ -9,7 +10,8 @@ subroutine dopmtr	(	side,
 		c,
 		ldc,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  DOPMTR overwrites the general real M-by-N matrix C with

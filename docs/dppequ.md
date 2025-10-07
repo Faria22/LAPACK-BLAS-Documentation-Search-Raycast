@@ -1,11 +1,13 @@
 ```fortran
-subroutine dppequ	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		integer	info )
+subroutine dppequ (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		integer info
+)
 ```
 
  DPPEQU computes row and column scalings intended to equilibrate a

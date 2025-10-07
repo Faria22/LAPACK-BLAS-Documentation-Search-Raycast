@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctrcon	(	norm,
+subroutine ctrcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine ctrcon	(	norm,
 		rcond,
 		work,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  CTRCON estimates the reciprocal of the condition number of a

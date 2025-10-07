@@ -1,8 +1,10 @@
 ```fortran
-subroutine dsterf	(	integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		integer	info )
+subroutine dsterf (
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		integer info
+)
 ```
 
  DSTERF computes all eigenvalues of a symmetric tridiagonal matrix

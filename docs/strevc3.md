@@ -1,5 +1,6 @@
 ```fortran
-subroutine strevc3	(	side,
+subroutine strevc3 (
+		side,
 		howmny,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine strevc3	(	side,
 		m,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  STREVC3 computes some or all of the right and/or left eigenvectors of

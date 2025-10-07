@@ -1,14 +1,16 @@
 ```fortran
-subroutine zgebd2	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		complex*16, dimension(*)	tauq,
-		complex*16, dimension(*)	taup,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zgebd2 (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		complex*16, dimension(*) tauq,
+		complex*16, dimension(*) taup,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZGEBD2 reduces a complex general m by n matrix A to upper or lower

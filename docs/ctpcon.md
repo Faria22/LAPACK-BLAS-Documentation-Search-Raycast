@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctpcon	(	norm,
+subroutine ctpcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -7,7 +8,8 @@ subroutine ctpcon	(	norm,
 		rcond,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CTPCON estimates the reciprocal of the condition number of a packed

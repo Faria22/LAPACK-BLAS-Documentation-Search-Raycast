@@ -1,14 +1,16 @@
 ```fortran
-subroutine dlanv2	(	double precision	a,
-		double precision	b,
-		double precision	c,
-		double precision	d,
-		double precision	rt1r,
-		double precision	rt1i,
-		double precision	rt2r,
-		double precision	rt2i,
-		double precision	cs,
-		double precision	sn )
+subroutine dlanv2 (
+		double precision a,
+		double precision b,
+		double precision c,
+		double precision d,
+		double precision rt1r,
+		double precision rt1i,
+		double precision rt2r,
+		double precision rt2i,
+		double precision cs,
+		double precision sn
+)
 ```
 
  DLANV2 computes the Schur factorization of a real 2-by-2 nonsymmetric

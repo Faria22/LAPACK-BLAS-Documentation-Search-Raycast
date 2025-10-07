@@ -1,11 +1,13 @@
 ```fortran
-subroutine csyr	(	character	uplo,
-		integer	n,
-		complex	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(lda, *)	a,
-		integer	lda )
+subroutine csyr (
+		character uplo,
+		integer n,
+		complex alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  CSYR   performs the symmetric rank 1 operation

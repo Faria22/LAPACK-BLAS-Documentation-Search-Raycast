@@ -1,5 +1,6 @@
 ```fortran
-subroutine cppsvx	(	fact,
+subroutine cppsvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -16,7 +17,8 @@ subroutine cppsvx	(	fact,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CPPSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to

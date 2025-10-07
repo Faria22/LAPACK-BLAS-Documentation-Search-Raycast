@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgex2	(	wantq,
+subroutine dtgex2 (
+		wantq,
 		wantz,
 		n,
 		a,
@@ -15,7 +16,8 @@ subroutine dtgex2	(	wantq,
 		n2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DTGEX2 swaps adjacent diagonal blocks (A11, B11) and (A22, B22)

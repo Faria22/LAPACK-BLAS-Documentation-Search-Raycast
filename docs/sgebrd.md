@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgebrd	(	m,
+subroutine sgebrd (
+		m,
 		n,
 		a,
 		lda,
@@ -9,7 +10,8 @@ subroutine sgebrd	(	m,
 		taup,
 		work,
 		lwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SGEBRD reduces a general real M-by-N matrix A to upper or lower

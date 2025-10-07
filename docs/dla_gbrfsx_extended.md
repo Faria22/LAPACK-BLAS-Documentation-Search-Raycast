@@ -1,5 +1,6 @@
 ```fortran
-subroutine dla_gbrfsx_extended	(	prec_type,
+subroutine dla_gbrfsx_extended (
+		prec_type,
 		trans_type,
 		n,
 		kl,
@@ -29,7 +30,8 @@ subroutine dla_gbrfsx_extended	(	prec_type,
 		rthresh,
 		*                                       dz_ub,
 		ignore_cwise,
-		info )
+		info
+)
 ```
 
 

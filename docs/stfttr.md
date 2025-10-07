@@ -1,11 +1,13 @@
 ```fortran
-subroutine stfttr	(	character	transr,
-		character	uplo,
-		integer	n,
-		real, dimension(0: *)	arf,
-		real, dimension(0: lda-1, 0: *)	a,
-		integer	lda,
-		integer	info )
+subroutine stfttr (
+		character transr,
+		character uplo,
+		integer n,
+		real, dimension(0: *) arf,
+		real, dimension(0: lda-1, 0: *) a,
+		integer lda,
+		integer info
+)
 ```
 
  STFTTR copies a triangular matrix A from rectangular full packed

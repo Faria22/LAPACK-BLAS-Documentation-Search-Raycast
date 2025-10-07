@@ -1,11 +1,13 @@
 ```fortran
-subroutine claswp	(	integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer	k1,
-		integer	k2,
-		integer, dimension(*)	ipiv,
-		integer	incx )
+subroutine claswp (
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer k1,
+		integer k2,
+		integer, dimension(*) ipiv,
+		integer incx
+)
 ```
 
  CLASWP performs a series of row interchanges on the matrix A.

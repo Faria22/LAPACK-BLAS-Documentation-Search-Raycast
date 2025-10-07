@@ -1,5 +1,6 @@
 ```fortran
-subroutine zla_gbrfsx_extended	(	prec_type,
+subroutine zla_gbrfsx_extended (
+		prec_type,
 		trans_type,
 		n,
 		kl,
@@ -29,7 +30,8 @@ subroutine zla_gbrfsx_extended	(	prec_type,
 		rthresh,
 		*                                       dz_ub,
 		ignore_cwise,
-		info )
+		info
+)
 ```
 
  ZLA_GBRFSX_EXTENDED improves the computed solution to a system of

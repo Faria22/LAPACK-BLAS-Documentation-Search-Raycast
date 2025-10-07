@@ -1,13 +1,15 @@
 ```fortran
-subroutine stptrs	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	ap,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine stptrs (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer nrhs,
+		real, dimension(*) ap,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  STPTRS solves a triangular system of the form

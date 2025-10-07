@@ -1,13 +1,15 @@
 ```fortran
-subroutine dtbmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	k,
-		double precision, dimension(lda,*)	a,
-		integer	lda,
-		double precision, dimension(*)	x,
-		integer	incx )
+subroutine dtbmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer k,
+		double precision, dimension(lda,*) a,
+		integer lda,
+		double precision, dimension(*) x,
+		integer incx
+)
 ```
 
  DTBMV  performs one of the matrix-vector operations

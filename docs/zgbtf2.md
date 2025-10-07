@@ -1,12 +1,14 @@
 ```fortran
-subroutine zgbtf2	(	integer	m,
-		integer	n,
-		integer	kl,
-		integer	ku,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zgbtf2 (
+		integer m,
+		integer n,
+		integer kl,
+		integer ku,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  ZGBTF2 computes an LU factorization of a complex m-by-n band matrix

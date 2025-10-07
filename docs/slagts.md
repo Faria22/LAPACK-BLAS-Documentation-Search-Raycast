@@ -1,14 +1,16 @@
 ```fortran
-subroutine slagts	(	integer	job,
-		integer	n,
-		real, dimension(*)	a,
-		real, dimension(*)	b,
-		real, dimension(*)	c,
-		real, dimension(*)	d,
-		integer, dimension(*)	in,
-		real, dimension(*)	y,
-		real	tol,
-		integer	info )
+subroutine slagts (
+		integer job,
+		integer n,
+		real, dimension(*) a,
+		real, dimension(*) b,
+		real, dimension(*) c,
+		real, dimension(*) d,
+		integer, dimension(*) in,
+		real, dimension(*) y,
+		real tol,
+		integer info
+)
 ```
 
  SLAGTS may be used to solve one of the systems of equations

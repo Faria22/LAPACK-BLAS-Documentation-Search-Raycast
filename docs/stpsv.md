@@ -1,11 +1,13 @@
 ```fortran
-subroutine stpsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	x,
-		integer	incx )
+subroutine stpsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) x,
+		integer incx
+)
 ```
 
  STPSV  solves one of the systems of equations

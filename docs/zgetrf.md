@@ -1,10 +1,12 @@
 ```fortran
-subroutine zgetrf	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine zgetrf (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  ZGETRF computes an LU factorization of a general M-by-N matrix A

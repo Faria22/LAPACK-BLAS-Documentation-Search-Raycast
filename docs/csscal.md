@@ -1,8 +1,10 @@
 ```fortran
-subroutine csscal	(	integer	n,
-		real	sa,
-		complex, dimension(*)	cx,
-		integer	incx )
+subroutine csscal (
+		integer n,
+		real sa,
+		complex, dimension(*) cx,
+		integer incx
+)
 ```
 
     CSSCAL scales a complex vector by a real constant.

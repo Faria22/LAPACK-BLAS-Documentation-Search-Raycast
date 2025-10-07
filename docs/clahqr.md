@@ -1,5 +1,6 @@
 ```fortran
-subroutine clahqr	(	wantt,
+subroutine clahqr (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -11,7 +12,8 @@ subroutine clahqr	(	wantt,
 		*                          ihiz,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
     CLAHQR is an auxiliary routine called by CHSEQR to update the

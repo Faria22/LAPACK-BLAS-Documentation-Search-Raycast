@@ -1,5 +1,6 @@
 ```fortran
-subroutine zpbsvx	(	fact,
+subroutine zpbsvx (
+		fact,
 		uplo,
 		n,
 		kd,
@@ -19,7 +20,8 @@ subroutine zpbsvx	(	fact,
 		berr,
 		*                          work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZPBSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to

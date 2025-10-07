@@ -1,12 +1,14 @@
 ```fortran
-subroutine ztrmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine ztrmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZTRMV  performs one of the matrix-vector operations

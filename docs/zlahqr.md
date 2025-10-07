@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlahqr	(	wantt,
+subroutine zlahqr (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -11,7 +12,8 @@ subroutine zlahqr	(	wantt,
 		*                          ihiz,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
     ZLAHQR is an auxiliary routine called by CHSEQR to update the

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtbrfs	(	uplo,
+subroutine dtbrfs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -15,7 +16,8 @@ subroutine dtbrfs	(	uplo,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DTBRFS provides error bounds and backward error estimates for the

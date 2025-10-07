@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhpgv	(	itype,
+subroutine zhpgv (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -10,7 +11,8 @@ subroutine zhpgv	(	itype,
 		ldz,
 		work,
 		*                         rwork,
-		info )
+		info
+)
 ```
 
  ZHPGV computes all the eigenvalues and, optionally, the eigenvectors

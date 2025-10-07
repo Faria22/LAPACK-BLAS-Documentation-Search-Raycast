@@ -1,13 +1,15 @@
 ```fortran
-subroutine claic1	(	integer	job,
-		integer	j,
-		complex, dimension(j)	x,
-		real	sest,
-		complex, dimension(j)	w,
-		complex	gamma,
-		real	sestpr,
-		complex	s,
-		complex	c )
+subroutine claic1 (
+		integer job,
+		integer j,
+		complex, dimension(j) x,
+		real sest,
+		complex, dimension(j) w,
+		complex gamma,
+		real sestpr,
+		complex s,
+		complex c
+)
 ```
 
  CLAIC1 applies one step of incremental condition estimation in

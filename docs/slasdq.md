@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasdq	(	uplo,
+subroutine slasdq (
+		uplo,
 		sqre,
 		n,
 		ncvt,
@@ -14,7 +15,8 @@ subroutine slasdq	(	uplo,
 		c,
 		ldc,
 		work,
-		info )
+		info
+)
 ```
 
  SLASDQ computes the singular value decomposition (SVD) of a real

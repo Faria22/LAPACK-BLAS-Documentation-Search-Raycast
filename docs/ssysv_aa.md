@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssysv_aa	(	uplo,
+subroutine ssysv_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine ssysv_aa	(	uplo,
 		ldb,
 		work,
 		*                            lwork,
-		info )
+		info
+)
 ```
 
  SSYSV computes the solution to a real system of linear equations

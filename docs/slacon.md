@@ -1,10 +1,12 @@
 ```fortran
-subroutine slacon	(	integer	n,
-		real, dimension(*)	v,
-		real, dimension(*)	x,
-		integer, dimension(*)	isgn,
-		real	est,
-		integer	kase )
+subroutine slacon (
+		integer n,
+		real, dimension(*) v,
+		real, dimension(*) x,
+		integer, dimension(*) isgn,
+		real est,
+		integer kase
+)
 ```
 
  SLACON estimates the 1-norm of a square, real matrix A.

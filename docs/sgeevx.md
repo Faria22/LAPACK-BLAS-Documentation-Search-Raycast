@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgeevx	(	balanc,
+subroutine sgeevx (
+		balanc,
 		jobvl,
 		jobvr,
 		sense,
@@ -21,7 +22,8 @@ subroutine sgeevx	(	balanc,
 		work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGEEVX computes for an N-by-N real nonsymmetric matrix A, the

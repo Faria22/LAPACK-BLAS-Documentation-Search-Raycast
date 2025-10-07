@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlaqsb	(	character	uplo,
-		integer	n,
-		integer	kd,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine dlaqsb (
+		character uplo,
+		integer n,
+		integer kd,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  DLAQSB equilibrates a symmetric band matrix A using the scaling

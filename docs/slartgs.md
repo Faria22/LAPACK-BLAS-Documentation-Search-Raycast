@@ -1,9 +1,11 @@
 ```fortran
-subroutine slartgs	(	real	x,
-		real	y,
-		real	sigma,
-		real	cs,
-		real	sn )
+subroutine slartgs (
+		real x,
+		real y,
+		real sigma,
+		real cs,
+		real sn
+)
 ```
 
  SLARTGS generates a plane rotation designed to introduce a bulge in

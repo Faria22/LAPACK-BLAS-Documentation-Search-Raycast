@@ -1,14 +1,16 @@
 ```fortran
-subroutine slarz	(	character	side,
-		integer	m,
-		integer	n,
-		integer	l,
-		real, dimension(*)	v,
-		integer	incv,
-		real	tau,
-		real, dimension(ldc, *)	c,
-		integer	ldc,
-		real, dimension(*)	work )
+subroutine slarz (
+		character side,
+		integer m,
+		integer n,
+		integer l,
+		real, dimension(*) v,
+		integer incv,
+		real tau,
+		real, dimension(ldc, *) c,
+		integer ldc,
+		real, dimension(*) work
+)
 ```
 
  SLARZ applies a real elementary reflector H to a real M-by-N

@@ -1,9 +1,11 @@
 ```fortran
-subroutine slas2	(	real	f,
-		real	g,
-		real	h,
-		real	ssmin,
-		real	ssmax )
+subroutine slas2 (
+		real f,
+		real g,
+		real h,
+		real ssmin,
+		real ssmax
+)
 ```
 
  SLAS2  computes the singular values of the 2-by-2 matrix

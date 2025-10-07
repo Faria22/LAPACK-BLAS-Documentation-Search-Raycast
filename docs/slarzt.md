@@ -1,13 +1,15 @@
 ```fortran
-subroutine slarzt	(	character	direct,
-		character	storev,
-		integer	n,
-		integer	k,
-		real, dimension(ldv, *)	v,
-		integer	ldv,
-		real, dimension(*)	tau,
-		real, dimension(ldt, *)	t,
-		integer	ldt )
+subroutine slarzt (
+		character direct,
+		character storev,
+		integer n,
+		integer k,
+		real, dimension(ldv, *) v,
+		integer ldv,
+		real, dimension(*) tau,
+		real, dimension(ldt, *) t,
+		integer ldt
+)
 ```
 
  SLARZT forms the triangular factor T of a real block reflector

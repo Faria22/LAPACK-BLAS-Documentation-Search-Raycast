@@ -1,5 +1,6 @@
 ```fortran
-subroutine clagtm	(	trans,
+subroutine clagtm (
+		trans,
 		n,
 		nrhs,
 		alpha,
@@ -10,7 +11,8 @@ subroutine clagtm	(	trans,
 		ldx,
 		beta,
 		*                          b,
-		ldb )
+		ldb
+)
 ```
 
  CLAGTM performs a matrix-matrix product of the form

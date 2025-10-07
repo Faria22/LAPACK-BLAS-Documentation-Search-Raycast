@@ -1,5 +1,6 @@
 ```fortran
-subroutine clags2	(	upper,
+subroutine clags2 (
+		upper,
 		a1,
 		a2,
 		a3,
@@ -11,7 +12,8 @@ subroutine clags2	(	upper,
 		csv,
 		*                          snv,
 		csq,
-		snq )
+		snq
+)
 ```
 
  CLAGS2 computes 2-by-2 unitary matrices U, V and Q, such

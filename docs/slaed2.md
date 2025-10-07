@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaed2	(	k,
+subroutine slaed2 (
+		k,
 		n,
 		n1,
 		d,
@@ -15,7 +16,8 @@ subroutine slaed2	(	k,
 		indxc,
 		indxp,
 		coltyp,
-		info )
+		info
+)
 ```
 
  SLAED2 merges the two sets of eigenvalues together into a single

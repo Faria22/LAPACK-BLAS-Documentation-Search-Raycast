@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlartgs	(	double precision	x,
-		double precision	y,
-		double precision	sigma,
-		double precision	cs,
-		double precision	sn )
+subroutine dlartgs (
+		double precision x,
+		double precision y,
+		double precision sigma,
+		double precision cs,
+		double precision sn
+)
 ```
 
  DLARTGS generates a plane rotation designed to introduce a bulge in

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctbcon	(	norm,
+subroutine ctbcon (
+		norm,
 		uplo,
 		diag,
 		n,
@@ -9,7 +10,8 @@ subroutine ctbcon	(	norm,
 		rcond,
 		work,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  CTBCON estimates the reciprocal of the condition number of a

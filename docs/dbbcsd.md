@@ -1,5 +1,6 @@
 ```fortran
-subroutine dbbcsd	(	jobu1,
+subroutine dbbcsd (
+		jobu1,
 		jobu2,
 		jobv1t,
 		jobv2t,
@@ -27,7 +28,8 @@ subroutine dbbcsd	(	jobu1,
 		b22e,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DBBCSD computes the CS decomposition of an orthogonal matrix in

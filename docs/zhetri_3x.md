@@ -1,13 +1,15 @@
 ```fortran
-subroutine zhetri_3x	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(n+nb+1, *)	work,
-		integer	nb,
-		integer	info )
+subroutine zhetri_3x (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) e,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(n+nb+1, *) work,
+		integer nb,
+		integer info
+)
 ```
  ZHETRI_3X computes the inverse of a complex Hermitian indefinite
  matrix A using the factorization computed by ZHETRF_RK or ZHETRF_BK:

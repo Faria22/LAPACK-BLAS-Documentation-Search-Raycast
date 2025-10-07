@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaein	(	rightv,
+subroutine dlaein (
+		rightv,
 		noinit,
 		n,
 		h,
@@ -14,7 +15,8 @@ subroutine dlaein	(	rightv,
 		eps3,
 		smlnum,
 		bignum,
-		info )
+		info
+)
 ```
 
  DLAEIN uses inverse iteration to find a right or left eigenvector

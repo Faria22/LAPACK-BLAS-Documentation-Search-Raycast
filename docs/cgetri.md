@@ -1,11 +1,13 @@
 ```fortran
-subroutine cgetri	(	integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine cgetri (
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  CGETRI computes the inverse of a matrix using the LU factorization

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dpbsvx	(	fact,
+subroutine dpbsvx (
+		fact,
 		uplo,
 		n,
 		kd,
@@ -19,7 +20,8 @@ subroutine dpbsvx	(	fact,
 		berr,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DPBSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to

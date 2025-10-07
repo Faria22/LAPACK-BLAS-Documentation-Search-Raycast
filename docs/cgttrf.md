@@ -1,11 +1,13 @@
 ```fortran
-subroutine cgttrf	(	integer	n,
-		complex, dimension(*)	dl,
-		complex, dimension(*)	d,
-		complex, dimension(*)	du,
-		complex, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine cgttrf (
+		integer n,
+		complex, dimension(*) dl,
+		complex, dimension(*) d,
+		complex, dimension(*) du,
+		complex, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  CGTTRF computes an LU factorization of a complex tridiagonal matrix A

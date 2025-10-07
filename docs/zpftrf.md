@@ -1,9 +1,11 @@
 ```fortran
-subroutine zpftrf	(	character	transr,
-		character	uplo,
-		integer	n,
-		complex*16, dimension(0: *)	a,
-		integer	info )
+subroutine zpftrf (
+		character transr,
+		character uplo,
+		integer n,
+		complex*16, dimension(0: *) a,
+		integer info
+)
 ```
 
  ZPFTRF computes the Cholesky factorization of a complex Hermitian

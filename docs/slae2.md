@@ -1,9 +1,11 @@
 ```fortran
-subroutine slae2	(	real	a,
-		real	b,
-		real	c,
-		real	rt1,
-		real	rt2 )
+subroutine slae2 (
+		real a,
+		real b,
+		real c,
+		real rt1,
+		real rt2
+)
 ```
 
  SLAE2  computes the eigenvalues of a 2-by-2 symmetric matrix

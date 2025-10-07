@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssyrfs	(	uplo,
+subroutine ssyrfs (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -15,7 +16,8 @@ subroutine ssyrfs	(	uplo,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SSYRFS improves the computed solution to a system of linear

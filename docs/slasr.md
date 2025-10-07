@@ -1,13 +1,15 @@
 ```fortran
-subroutine slasr	(	character	side,
-		character	pivot,
-		character	direct,
-		integer	m,
-		integer	n,
-		real, dimension(*)	c,
-		real, dimension(*)	s,
-		real, dimension(lda, *)	a,
-		integer	lda )
+subroutine slasr (
+		character side,
+		character pivot,
+		character direct,
+		integer m,
+		integer n,
+		real, dimension(*) c,
+		real, dimension(*) s,
+		real, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  SLASR applies a sequence of plane rotations to a real matrix A,

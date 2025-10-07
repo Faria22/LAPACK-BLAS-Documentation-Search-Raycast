@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgbtrs	(	trans,
+subroutine cgbtrs (
+		trans,
 		n,
 		kl,
 		ku,
@@ -9,7 +10,8 @@ subroutine cgbtrs	(	trans,
 		ipiv,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  CGBTRS solves a system of linear equations

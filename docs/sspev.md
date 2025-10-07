@@ -1,13 +1,15 @@
 ```fortran
-subroutine sspev	(	character	jobz,
-		character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	w,
-		real, dimension(ldz, *)	z,
-		integer	ldz,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sspev (
+		character jobz,
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) w,
+		real, dimension(ldz, *) z,
+		integer ldz,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SSPEV computes all the eigenvalues and, optionally, eigenvectors of a

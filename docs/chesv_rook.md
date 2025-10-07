@@ -1,5 +1,6 @@
 ```fortran
-subroutine chesv_rook	(	uplo,
+subroutine chesv_rook (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine chesv_rook	(	uplo,
 		ldb,
 		work,
 		*                              lwork,
-		info )
+		info
+)
 ```
 
  CHESV_ROOK computes the solution to a complex system of linear equations

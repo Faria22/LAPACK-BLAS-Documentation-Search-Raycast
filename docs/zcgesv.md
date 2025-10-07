@@ -1,5 +1,6 @@
 ```fortran
-subroutine zcgesv	(	n,
+subroutine zcgesv (
+		n,
 		nrhs,
 		a,
 		lda,
@@ -12,7 +13,8 @@ subroutine zcgesv	(	n,
 		*                          swork,
 		rwork,
 		iter,
-		info )
+		info
+)
 ```
 
  ZCGESV computes the solution to a complex system of linear equations

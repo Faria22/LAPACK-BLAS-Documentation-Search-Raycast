@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgecon	(	norm,
+subroutine cgecon (
+		norm,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine cgecon	(	norm,
 		rcond,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  CGECON estimates the reciprocal of the condition number of a general

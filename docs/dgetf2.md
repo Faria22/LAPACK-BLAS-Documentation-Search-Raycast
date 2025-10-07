@@ -1,10 +1,12 @@
 ```fortran
-subroutine dgetf2	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine dgetf2 (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  DGETF2 computes an LU factorization of a general m-by-n matrix A

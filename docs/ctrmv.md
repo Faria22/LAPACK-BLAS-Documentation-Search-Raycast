@@ -1,12 +1,14 @@
 ```fortran
-subroutine ctrmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine ctrmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CTRMV  performs one of the matrix-vector operations

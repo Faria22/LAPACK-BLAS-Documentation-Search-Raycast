@@ -1,11 +1,13 @@
 ```fortran
-subroutine ctpmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex, dimension(*)	ap,
-		complex, dimension(*)	x,
-		integer	incx )
+subroutine ctpmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex, dimension(*) ap,
+		complex, dimension(*) x,
+		integer incx
+)
 ```
 
  CTPMV  performs one of the matrix-vector operations

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgels	(	trans,
+subroutine cgels (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine cgels	(	trans,
 		ldb,
 		work,
 		lwork,
-		*                         info )
+		*                         info
+)
 ```
 
  CGELS solves overdetermined or underdetermined complex linear systems

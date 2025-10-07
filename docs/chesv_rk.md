@@ -1,5 +1,6 @@
 ```fortran
-subroutine chesv_rk	(	uplo,
+subroutine chesv_rk (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -10,7 +11,8 @@ subroutine chesv_rk	(	uplo,
 		ldb,
 		*                            work,
 		lwork,
-		info )
+		info
+)
 ```
  CHESV_RK computes the solution to a complex system of linear
  equations A * X = B, where A is an N-by-N Hermitian matrix

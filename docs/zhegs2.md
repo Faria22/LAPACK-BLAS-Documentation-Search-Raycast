@@ -1,12 +1,14 @@
 ```fortran
-subroutine zhegs2	(	integer	itype,
-		character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine zhegs2 (
+		integer itype,
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  ZHEGS2 reduces a complex Hermitian-definite generalized

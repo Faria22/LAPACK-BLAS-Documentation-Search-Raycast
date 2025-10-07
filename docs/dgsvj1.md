@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgsvj1	(	jobv,
+subroutine dgsvj1 (
+		jobv,
 		m,
 		n,
 		n1,
@@ -16,7 +17,8 @@ subroutine dgsvj1	(	jobv,
 		nsweep,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DGSVJ1 is called from DGESVJ as a pre-processor and that is its main

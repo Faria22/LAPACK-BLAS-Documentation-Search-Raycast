@@ -1,11 +1,13 @@
 ```fortran
-subroutine dsyr	(	character	uplo,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(lda,*)	a,
-		integer	lda )
+subroutine dsyr (
+		character uplo,
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  DSYR   performs the symmetric rank 1 operation

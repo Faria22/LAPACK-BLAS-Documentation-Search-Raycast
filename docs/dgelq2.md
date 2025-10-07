@@ -1,11 +1,13 @@
 ```fortran
-subroutine dgelq2	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	tau,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dgelq2 (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) tau,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DGELQ2 computes an LQ factorization of a real m-by-n matrix A:

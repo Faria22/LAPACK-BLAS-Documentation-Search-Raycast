@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlat2c	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(ldsa, *)	sa,
-		integer	ldsa,
-		integer	info )
+subroutine zlat2c (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(ldsa, *) sa,
+		integer ldsa,
+		integer info
+)
 ```
 
  ZLAT2C converts a COMPLEX*16 triangular matrix, SA, to a COMPLEX

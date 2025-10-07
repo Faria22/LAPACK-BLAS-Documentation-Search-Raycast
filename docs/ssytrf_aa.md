@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssytrf_aa	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		real, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine ssytrf_aa (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		real, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  SSYTRF_AA computes the factorization of a real symmetric matrix A

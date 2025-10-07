@@ -1,5 +1,6 @@
 ```fortran
-subroutine sstebz	(	range,
+subroutine sstebz (
+		range,
 		order,
 		n,
 		vl,
@@ -16,7 +17,8 @@ subroutine sstebz	(	range,
 		isplit,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SSTEBZ computes the eigenvalues of a symmetric tridiagonal

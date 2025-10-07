@@ -1,11 +1,13 @@
 ```fortran
-subroutine zlaev2	(	complex*16	a,
-		complex*16	b,
-		complex*16	c,
-		double precision	rt1,
-		double precision	rt2,
-		double precision	cs1,
-		complex*16	sn1 )
+subroutine zlaev2 (
+		complex*16 a,
+		complex*16 b,
+		complex*16 c,
+		double precision rt1,
+		double precision rt2,
+		double precision cs1,
+		complex*16 sn1
+)
 ```
 
  ZLAEV2 computes the eigendecomposition of a 2-by-2 Hermitian matrix

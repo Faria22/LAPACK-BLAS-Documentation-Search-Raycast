@@ -1,9 +1,11 @@
 ```fortran
-subroutine dpftri	(	character	transr,
-		character	uplo,
-		integer	n,
-		double precision, dimension(0: *)	a,
-		integer	info )
+subroutine dpftri (
+		character transr,
+		character uplo,
+		integer n,
+		double precision, dimension(0: *) a,
+		integer info
+)
 ```
 
  DPFTRI computes the inverse of a (real) symmetric positive definite

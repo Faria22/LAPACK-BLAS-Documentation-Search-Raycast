@@ -1,5 +1,6 @@
 ```fortran
-subroutine strsen	(	job,
+subroutine strsen (
+		job,
 		compq,
 		select,
 		n,
@@ -16,7 +17,8 @@ subroutine strsen	(	job,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  STRSEN reorders the real Schur factorization of a real matrix

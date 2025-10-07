@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqps	(	m,
+subroutine dlaqps (
+		m,
 		n,
 		offset,
 		nb,
@@ -12,7 +13,8 @@ subroutine dlaqps	(	m,
 		*                          vn2,
 		auxv,
 		f,
-		ldf )
+		ldf
+)
 ```
 
  DLAQPS computes a step of QR factorization with column pivoting

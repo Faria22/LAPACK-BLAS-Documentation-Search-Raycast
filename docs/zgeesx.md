@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgeesx	(	jobvs,
+subroutine zgeesx (
+		jobvs,
 		sort,
 		select,
 		sense,
@@ -16,7 +17,8 @@ subroutine zgeesx	(	jobvs,
 		lwork,
 		rwork,
 		*                          bwork,
-		info )
+		info
+)
 ```
 
  ZGEESX computes for an N-by-N complex nonsymmetric matrix A, the

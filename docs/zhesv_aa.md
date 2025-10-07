@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhesv_aa	(	uplo,
+subroutine zhesv_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine zhesv_aa	(	uplo,
 		ldb,
 		work,
 		*                            lwork,
-		info )
+		info
+)
 ```
 
  ZHESV_AA computes the solution to a complex system of linear equations

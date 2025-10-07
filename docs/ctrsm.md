@@ -1,15 +1,17 @@
 ```fortran
-subroutine ctrsm	(	character	side,
-		character	uplo,
-		character	transa,
-		character	diag,
-		integer	m,
-		integer	n,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(ldb,*)	b,
-		integer	ldb )
+subroutine ctrsm (
+		character side,
+		character uplo,
+		character transa,
+		character diag,
+		integer m,
+		integer n,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(ldb,*) b,
+		integer ldb
+)
 ```
 
  CTRSM  solves one of the matrix equations

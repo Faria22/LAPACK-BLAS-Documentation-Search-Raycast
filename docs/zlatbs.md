@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlatbs	(	uplo,
+subroutine zlatbs (
+		uplo,
 		trans,
 		diag,
 		normin,
@@ -10,7 +11,8 @@ subroutine zlatbs	(	uplo,
 		x,
 		*                          scale,
 		cnorm,
-		info )
+		info
+)
 ```
 
  ZLATBS solves one of the triangular systems

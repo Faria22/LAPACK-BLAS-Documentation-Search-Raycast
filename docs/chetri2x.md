@@ -1,12 +1,14 @@
 ```fortran
-subroutine chetri2x	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(n+nb+1,*)	work,
-		integer	nb,
-		integer	info )
+subroutine chetri2x (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(n+nb+1,*) work,
+		integer nb,
+		integer info
+)
 ```
 
  CHETRI2X computes the inverse of a complex Hermitian indefinite matrix

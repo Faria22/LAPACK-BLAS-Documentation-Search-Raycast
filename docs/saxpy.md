@@ -1,10 +1,12 @@
 ```fortran
-subroutine saxpy	(	integer	n,
-		real	sa,
-		real, dimension(*)	sx,
-		integer	incx,
-		real, dimension(*)	sy,
-		integer	incy )
+subroutine saxpy (
+		integer n,
+		real sa,
+		real, dimension(*) sx,
+		integer incx,
+		real, dimension(*) sy,
+		integer incy
+)
 ```
 
     SAXPY constant times a vector plus a vector.

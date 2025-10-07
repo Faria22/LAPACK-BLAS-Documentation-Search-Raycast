@@ -1,5 +1,6 @@
 ```fortran
-subroutine zuncsd2by1	(	jobu1,
+subroutine zuncsd2by1 (
+		jobu1,
 		jobu2,
 		jobv1t,
 		m,
@@ -21,7 +22,8 @@ subroutine zuncsd2by1	(	jobu1,
 		rwork,
 		lrwork,
 		iwork,
-		*                              info )
+		*                              info
+)
 ```
 
  ZUNCSD2BY1 computes the CS decomposition of an M-by-Q matrix X with

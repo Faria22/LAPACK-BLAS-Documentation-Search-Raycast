@@ -1,12 +1,14 @@
 ```fortran
-subroutine zlaesy	(	complex*16	a,
-		complex*16	b,
-		complex*16	c,
-		complex*16	rt1,
-		complex*16	rt2,
-		complex*16	evscal,
-		complex*16	cs1,
-		complex*16	sn1 )
+subroutine zlaesy (
+		complex*16 a,
+		complex*16 b,
+		complex*16 c,
+		complex*16 rt1,
+		complex*16 rt2,
+		complex*16 evscal,
+		complex*16 cs1,
+		complex*16 sn1
+)
 ```
 
  ZLAESY computes the eigendecomposition of a 2-by-2 symmetric matrix

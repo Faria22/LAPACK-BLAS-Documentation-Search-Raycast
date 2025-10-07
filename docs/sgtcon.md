@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgtcon	(	norm,
+subroutine sgtcon (
+		norm,
 		n,
 		dl,
 		d,
@@ -10,7 +11,8 @@ subroutine sgtcon	(	norm,
 		rcond,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGTCON estimates the reciprocal of the condition number of a real

@@ -1,12 +1,14 @@
 ```fortran
-subroutine sppcon	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real	anorm,
-		real	rcond,
-		real, dimension(*)	work,
-		integer, dimension(*)	iwork,
-		integer	info )
+subroutine sppcon (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real anorm,
+		real rcond,
+		real, dimension(*) work,
+		integer, dimension(*) iwork,
+		integer info
+)
 ```
 
  SPPCON estimates the reciprocal of the condition number (in the

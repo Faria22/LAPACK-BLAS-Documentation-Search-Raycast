@@ -1,12 +1,14 @@
 ```fortran
-subroutine chpr2	(	character	uplo,
-		integer	n,
-		complex	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	y,
-		integer	incy,
-		complex, dimension(*)	ap )
+subroutine chpr2 (
+		character uplo,
+		integer n,
+		complex alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) y,
+		integer incy,
+		complex, dimension(*) ap
+)
 ```
 
  CHPR2  performs the hermitian rank 2 operation

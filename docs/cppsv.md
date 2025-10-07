@@ -1,11 +1,13 @@
 ```fortran
-subroutine cppsv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	ap,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine cppsv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) ap,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CPPSV computes the solution to a complex system of linear equations

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgemmtr	(	uplo,
+subroutine sgemmtr (
+		uplo,
 		transa,
 		transb,
 		n,
@@ -11,7 +12,8 @@ subroutine sgemmtr	(	uplo,
 		ldb,
 		beta,
 		*                         c,
-		ldc )
+		ldc
+)
 ```
 
  SGEMMTR  performs one of the matrix-matrix operations

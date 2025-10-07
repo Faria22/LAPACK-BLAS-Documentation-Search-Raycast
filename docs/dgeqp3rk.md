@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgeqp3rk	(	m,
+subroutine dgeqp3rk (
+		m,
 		n,
 		nrhs,
 		kmax,
@@ -15,7 +16,8 @@ subroutine dgeqp3rk	(	m,
 		*      $                     work,
 		lwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  DGEQP3RK performs two tasks simultaneously:

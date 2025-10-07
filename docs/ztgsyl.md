@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztgsyl	(	trans,
+subroutine ztgsyl (
+		trans,
 		ijob,
 		m,
 		n,
@@ -20,7 +21,8 @@ subroutine ztgsyl	(	trans,
 		work,
 		lwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  ZTGSYL solves the generalized Sylvester equation:

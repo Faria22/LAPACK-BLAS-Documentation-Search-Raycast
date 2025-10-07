@@ -1,5 +1,6 @@
 ```fortran
-subroutine clatsqr	(	m,
+subroutine clatsqr (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine clatsqr	(	m,
 		ldt,
 		work,
 		*                           lwork,
-		info )
+		info
+)
 ```
 
  CLATSQR computes a blocked Tall-Skinny QR factorization of

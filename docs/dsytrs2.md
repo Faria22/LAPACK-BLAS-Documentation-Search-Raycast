@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrs2	(	uplo,
+subroutine dsytrs2 (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -8,7 +9,8 @@ subroutine dsytrs2	(	uplo,
 		b,
 		ldb,
 		*                           work,
-		info )
+		info
+)
 ```
 
  DSYTRS2 solves a system of linear equations A*X = B with a real

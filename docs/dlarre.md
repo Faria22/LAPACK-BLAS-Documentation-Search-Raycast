@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarre	(	range,
+subroutine dlarre (
+		range,
 		n,
 		vl,
 		vu,
@@ -23,7 +24,8 @@ subroutine dlarre	(	range,
 		pivmin,
 		*                           work,
 		iwork,
-		info )
+		info
+)
 ```
 
  To find the desired eigenvalues of a given real symmetric

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztgsna	(	job,
+subroutine ztgsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -18,7 +19,8 @@ subroutine ztgsna	(	job,
 		work,
 		lwork,
 		*                          iwork,
-		info )
+		info
+)
 ```
 
  ZTGSNA estimates reciprocal condition numbers for specified

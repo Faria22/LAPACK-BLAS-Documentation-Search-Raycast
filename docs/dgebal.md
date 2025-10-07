@@ -1,12 +1,14 @@
 ```fortran
-subroutine dgebal	(	character	job,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		integer	ilo,
-		integer	ihi,
-		double precision, dimension(*)	scale,
-		integer	info )
+subroutine dgebal (
+		character job,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		integer ilo,
+		integer ihi,
+		double precision, dimension(*) scale,
+		integer info
+)
 ```
 
  DGEBAL balances a general real matrix A.  This involves, first,

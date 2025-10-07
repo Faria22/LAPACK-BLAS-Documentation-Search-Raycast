@@ -1,9 +1,11 @@
 ```fortran
-subroutine zlacon	(	integer	n,
-		complex*16, dimension(n)	v,
-		complex*16, dimension(n)	x,
-		double precision	est,
-		integer	kase )
+subroutine zlacon (
+		integer n,
+		complex*16, dimension(n) v,
+		complex*16, dimension(n) x,
+		double precision est,
+		integer kase
+)
 ```
 
  ZLACON estimates the 1-norm of a square, complex matrix A.

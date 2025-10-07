@@ -1,11 +1,13 @@
 ```fortran
-subroutine csytf2_rk	(	character	uplo,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine csytf2_rk (
+		character uplo,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  CSYTF2_RK computes the factorization of a complex symmetric matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

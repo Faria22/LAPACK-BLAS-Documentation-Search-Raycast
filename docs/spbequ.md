@@ -1,13 +1,15 @@
 ```fortran
-subroutine spbequ	(	character	uplo,
-		integer	n,
-		integer	kd,
-		real, dimension(ldab, *)	ab,
-		integer	ldab,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		integer	info )
+subroutine spbequ (
+		character uplo,
+		integer n,
+		integer kd,
+		real, dimension(ldab, *) ab,
+		integer ldab,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		integer info
+)
 ```
 
  SPBEQU computes row and column scalings intended to equilibrate a

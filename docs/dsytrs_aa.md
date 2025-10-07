@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrs_aa	(	uplo,
+subroutine dsytrs_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine dsytrs_aa	(	uplo,
 		ldb,
 		*                             work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DSYTRS_AA solves a system of linear equations A*X = B with a real

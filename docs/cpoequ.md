@@ -1,11 +1,13 @@
 ```fortran
-subroutine cpoequ	(	integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		integer	info )
+subroutine cpoequ (
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		integer info
+)
 ```
 
  CPOEQU computes row and column scalings intended to equilibrate a

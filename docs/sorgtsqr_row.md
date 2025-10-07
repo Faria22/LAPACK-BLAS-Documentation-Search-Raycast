@@ -1,5 +1,6 @@
 ```fortran
-subroutine sorgtsqr_row	(	m,
+subroutine sorgtsqr_row (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine sorgtsqr_row	(	m,
 		ldt,
 		work,
 		*      $                         lwork,
-		info )
+		info
+)
 ```
 
  SORGTSQR_ROW generates an M-by-N real matrix Q_out with

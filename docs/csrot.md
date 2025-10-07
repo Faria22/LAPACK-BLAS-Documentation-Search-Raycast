@@ -1,11 +1,13 @@
 ```fortran
-subroutine csrot	(	integer	n,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex, dimension(*)	cy,
-		integer	incy,
-		real	c,
-		real	s )
+subroutine csrot (
+		integer n,
+		complex, dimension(*) cx,
+		integer incx,
+		complex, dimension(*) cy,
+		integer incy,
+		real c,
+		real s
+)
 ```
 
  CSROT applies a plane rotation, where the cos and sin (c and s) are real

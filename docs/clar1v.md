@@ -1,5 +1,6 @@
 ```fortran
-subroutine clar1v	(	n,
+subroutine clar1v (
+		n,
 		b1,
 		bn,
 		lambda,
@@ -19,7 +20,8 @@ subroutine clar1v	(	n,
 		nrminv,
 		resid,
 		rqcorr,
-		work )
+		work
+)
 ```
 
  CLAR1V computes the (scaled) r-th column of the inverse of

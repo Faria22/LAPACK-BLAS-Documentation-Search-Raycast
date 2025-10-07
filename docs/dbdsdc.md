@@ -1,5 +1,6 @@
 ```fortran
-subroutine dbdsdc	(	uplo,
+subroutine dbdsdc (
+		uplo,
 		compq,
 		n,
 		d,
@@ -12,7 +13,8 @@ subroutine dbdsdc	(	uplo,
 		iq,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DBDSDC computes the singular value decomposition (SVD) of a real

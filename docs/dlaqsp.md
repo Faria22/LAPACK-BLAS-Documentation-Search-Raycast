@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlaqsp	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine dlaqsp (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  DLAQSP equilibrates a symmetric matrix A using the scaling factors

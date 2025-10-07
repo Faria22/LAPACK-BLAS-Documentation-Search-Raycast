@@ -1,12 +1,14 @@
 ```fortran
-subroutine dsptrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dsptrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DSPTRS solves a system of linear equations A*X = B with a real

@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqr0	(	wantt,
+subroutine claqr0 (
+		wantt,
 		wantz,
 		n,
 		ilo,
@@ -13,7 +14,8 @@ subroutine claqr0	(	wantt,
 		ldz,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
     CLAQR0 computes the eigenvalues of a Hessenberg matrix H

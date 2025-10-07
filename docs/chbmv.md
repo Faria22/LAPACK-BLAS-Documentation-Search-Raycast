@@ -1,15 +1,17 @@
 ```fortran
-subroutine chbmv	(	character	uplo,
-		integer	n,
-		integer	k,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex	beta,
-		complex, dimension(*)	y,
-		integer	incy )
+subroutine chbmv (
+		character uplo,
+		integer n,
+		integer k,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx,
+		complex beta,
+		complex, dimension(*) y,
+		integer incy
+)
 ```
 
  CHBMV  performs the matrix-vector  operation

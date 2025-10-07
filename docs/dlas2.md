@@ -1,9 +1,11 @@
 ```fortran
-subroutine dlas2	(	double precision	f,
-		double precision	g,
-		double precision	h,
-		double precision	ssmin,
-		double precision	ssmax )
+subroutine dlas2 (
+		double precision f,
+		double precision g,
+		double precision h,
+		double precision ssmin,
+		double precision ssmax
+)
 ```
 
  DLAS2  computes the singular values of the 2-by-2 matrix

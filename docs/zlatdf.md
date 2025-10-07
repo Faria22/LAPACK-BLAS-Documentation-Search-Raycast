@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlatdf	(	ijob,
+subroutine zlatdf (
+		ijob,
 		n,
 		z,
 		ldz,
@@ -7,7 +8,8 @@ subroutine zlatdf	(	ijob,
 		rdsum,
 		rdscal,
 		ipiv,
-		*                          jpiv )
+		*                          jpiv
+)
 ```
 
  ZLATDF computes the contribution to the reciprocal Dif-estimate

@@ -1,12 +1,14 @@
 ```fortran
-subroutine zlarfx	(	character	side,
-		integer	m,
-		integer	n,
-		complex*16, dimension(*)	v,
-		complex*16	tau,
-		complex*16, dimension(ldc, *)	c,
-		integer	ldc,
-		complex*16, dimension(*)	work )
+subroutine zlarfx (
+		character side,
+		integer m,
+		integer n,
+		complex*16, dimension(*) v,
+		complex*16 tau,
+		complex*16, dimension(ldc, *) c,
+		integer ldc,
+		complex*16, dimension(*) work
+)
 ```
 
  ZLARFX applies a complex elementary reflector H to a complex m by n

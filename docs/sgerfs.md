@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgerfs	(	trans,
+subroutine sgerfs (
+		trans,
 		n,
 		nrhs,
 		a,
@@ -15,7 +16,8 @@ subroutine sgerfs	(	trans,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGERFS improves the computed solution to a system of linear

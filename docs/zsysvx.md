@@ -1,5 +1,6 @@
 ```fortran
-subroutine zsysvx	(	fact,
+subroutine zsysvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -18,7 +19,8 @@ subroutine zsysvx	(	fact,
 		work,
 		lwork,
 		*                          rwork,
-		info )
+		info
+)
 ```
 
  ZSYSVX uses the diagonal pivoting factorization to compute the

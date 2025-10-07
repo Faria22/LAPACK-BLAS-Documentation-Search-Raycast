@@ -1,5 +1,6 @@
 ```fortran
-subroutine zggbal	(	job,
+subroutine zggbal (
+		job,
 		n,
 		a,
 		lda,
@@ -10,7 +11,8 @@ subroutine zggbal	(	job,
 		lscale,
 		*                          rscale,
 		work,
-		info )
+		info
+)
 ```
 
  ZGGBAL balances a pair of general complex matrices (A,B).  This

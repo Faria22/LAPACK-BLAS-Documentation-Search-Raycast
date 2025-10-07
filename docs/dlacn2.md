@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlacn2	(	integer	n,
-		double precision, dimension(*)	v,
-		double precision, dimension(*)	x,
-		integer, dimension(*)	isgn,
-		double precision	est,
-		integer	kase,
-		integer, dimension(3)	isave )
+subroutine dlacn2 (
+		integer n,
+		double precision, dimension(*) v,
+		double precision, dimension(*) x,
+		integer, dimension(*) isgn,
+		double precision est,
+		integer kase,
+		integer, dimension(3) isave
+)
 ```
 
  DLACN2 estimates the 1-norm of a square, real matrix A.

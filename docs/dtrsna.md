@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtrsna	(	job,
+subroutine dtrsna (
+		job,
 		howmny,
 		select,
 		n,
@@ -16,7 +17,8 @@ subroutine dtrsna	(	job,
 		work,
 		ldwork,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DTRSNA estimates reciprocal condition numbers for specified

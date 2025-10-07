@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaed8	(	k,
+subroutine zlaed8 (
+		k,
 		n,
 		qsiz,
 		q,
@@ -19,7 +20,8 @@ subroutine zlaed8	(	k,
 		givptr,
 		*                          givcol,
 		givnum,
-		info )
+		info
+)
 ```
 
  ZLAED8 merges the two sets of eigenvalues together into a single

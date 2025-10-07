@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgbcon	(	norm,
+subroutine sgbcon (
+		norm,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine sgbcon	(	norm,
 		rcond,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGBCON estimates the reciprocal of the condition number of a real

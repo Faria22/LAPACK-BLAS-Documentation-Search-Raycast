@@ -1,5 +1,6 @@
 ```fortran
-subroutine dormr3	(	side,
+subroutine dormr3 (
+		side,
 		trans,
 		m,
 		n,
@@ -11,7 +12,8 @@ subroutine dormr3	(	side,
 		c,
 		ldc,
 		*                          work,
-		info )
+		info
+)
 ```
 
  DORMR3 overwrites the general real m by n matrix C with

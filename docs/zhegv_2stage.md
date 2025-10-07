@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhegv_2stage	(	itype,
+subroutine zhegv_2stage (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -11,7 +12,8 @@ subroutine zhegv_2stage	(	itype,
 		*                                work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZHEGV_2STAGE computes all the eigenvalues, and optionally, the eigenvectors

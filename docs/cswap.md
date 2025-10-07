@@ -1,9 +1,11 @@
 ```fortran
-subroutine cswap	(	integer	n,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex, dimension(*)	cy,
-		integer	incy )
+subroutine cswap (
+		integer n,
+		complex, dimension(*) cx,
+		integer incx,
+		complex, dimension(*) cy,
+		integer incy
+)
 ```
 
    CSWAP interchanges two vectors.

@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgghrd	(	compq,
+subroutine cgghrd (
+		compq,
 		compz,
 		n,
 		ilo,
@@ -12,7 +13,8 @@ subroutine cgghrd	(	compq,
 		*                          ldq,
 		z,
 		ldz,
-		info )
+		info
+)
 ```
 
  CGGHRD reduces a pair of complex matrices (A,B) to generalized upper

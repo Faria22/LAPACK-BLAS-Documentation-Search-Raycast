@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgejsv	(	joba,
+subroutine zgejsv (
+		joba,
 		jobu,
 		jobv,
 		jobr,
@@ -19,7 +20,8 @@ subroutine zgejsv	(	joba,
 		rwork,
 		lrwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  ZGEJSV computes the singular value decomposition (SVD) of a complex M-by-N

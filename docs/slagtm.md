@@ -1,5 +1,6 @@
 ```fortran
-subroutine slagtm	(	trans,
+subroutine slagtm (
+		trans,
 		n,
 		nrhs,
 		alpha,
@@ -10,7 +11,8 @@ subroutine slagtm	(	trans,
 		ldx,
 		beta,
 		*                          b,
-		ldb )
+		ldb
+)
 ```
 
  SLAGTM performs a matrix-matrix product of the form

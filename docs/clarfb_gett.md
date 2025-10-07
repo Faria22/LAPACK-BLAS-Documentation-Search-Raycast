@@ -1,5 +1,6 @@
 ```fortran
-subroutine clarfb_gett	(	ident,
+subroutine clarfb_gett (
+		ident,
 		m,
 		n,
 		k,
@@ -10,7 +11,8 @@ subroutine clarfb_gett	(	ident,
 		b,
 		ldb,
 		*      $                        work,
-		ldwork )
+		ldwork
+)
 ```
 
  CLARFB_GETT applies a complex Householder block reflector H from the

@@ -1,10 +1,12 @@
 ```fortran
-subroutine ctfttp	(	character	transr,
-		character	uplo,
-		integer	n,
-		complex, dimension(0: *)	arf,
-		complex, dimension(0: *)	ap,
-		integer	info )
+subroutine ctfttp (
+		character transr,
+		character uplo,
+		integer n,
+		complex, dimension(0: *) arf,
+		complex, dimension(0: *) ap,
+		integer info
+)
 ```
 
  CTFTTP copies a triangular matrix A from rectangular full packed

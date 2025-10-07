@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlasd5	(	integer	i,
-		double precision, dimension(2)	d,
-		double precision, dimension(2)	z,
-		double precision, dimension(2)	delta,
-		double precision	rho,
-		double precision	dsigma,
-		double precision, dimension(2)	work )
+subroutine dlasd5 (
+		integer i,
+		double precision, dimension(2) d,
+		double precision, dimension(2) z,
+		double precision, dimension(2) delta,
+		double precision rho,
+		double precision dsigma,
+		double precision, dimension(2) work
+)
 ```
 
  This subroutine computes the square root of the I-th eigenvalue

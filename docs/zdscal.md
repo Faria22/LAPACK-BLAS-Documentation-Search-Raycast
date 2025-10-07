@@ -1,8 +1,10 @@
 ```fortran
-subroutine zdscal	(	integer	n,
-		double precision	da,
-		complex*16, dimension(*)	zx,
-		integer	incx )
+subroutine zdscal (
+		integer n,
+		double precision da,
+		complex*16, dimension(*) zx,
+		integer incx
+)
 ```
 
     ZDSCAL scales a vector by a constant.

@@ -1,12 +1,14 @@
 ```fortran
-subroutine ztrsv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		complex*16, dimension(lda,*)	a,
-		integer	lda,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine ztrsv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		complex*16, dimension(lda,*) a,
+		integer lda,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZTRSV  solves one of the systems of equations

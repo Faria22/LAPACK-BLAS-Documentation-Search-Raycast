@@ -1,5 +1,6 @@
 ```fortran
-subroutine csysv	(	uplo,
+subroutine csysv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine csysv	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  CSYSV computes the solution to a complex system of linear equations

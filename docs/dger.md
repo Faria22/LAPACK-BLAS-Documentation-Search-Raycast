@@ -1,13 +1,15 @@
 ```fortran
-subroutine dger	(	integer	m,
-		integer	n,
-		double precision	alpha,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(lda,*)	a,
-		integer	lda )
+subroutine dger (
+		integer m,
+		integer n,
+		double precision alpha,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) y,
+		integer incy,
+		double precision, dimension(lda,*) a,
+		integer lda
+)
 ```
 
  DGER   performs the rank 1 operation

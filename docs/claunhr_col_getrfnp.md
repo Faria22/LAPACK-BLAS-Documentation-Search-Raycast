@@ -1,10 +1,12 @@
 ```fortran
-subroutine claunhr_col_getrfnp	(	integer	m,
-		integer	n,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		complex, dimension(*)	d,
-		integer	info )
+subroutine claunhr_col_getrfnp (
+		integer m,
+		integer n,
+		complex, dimension(lda, *) a,
+		integer lda,
+		complex, dimension(*) d,
+		integer info
+)
 ```
 
  CLAUNHR_COL_GETRFNP computes the modified LU factorization without

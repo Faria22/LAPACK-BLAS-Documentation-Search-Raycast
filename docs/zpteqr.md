@@ -1,12 +1,14 @@
 ```fortran
-subroutine zpteqr	(	character	compz,
-		integer	n,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		complex*16, dimension(ldz, *)	z,
-		integer	ldz,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine zpteqr (
+		character compz,
+		integer n,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		complex*16, dimension(ldz, *) z,
+		integer ldz,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  ZPTEQR computes all eigenvalues and, optionally, eigenvectors of a

@@ -1,8 +1,10 @@
 ```fortran
-subroutine cpttrf	(	integer	n,
-		real, dimension(*)	d,
-		complex, dimension(*)	e,
-		integer	info )
+subroutine cpttrf (
+		integer n,
+		real, dimension(*) d,
+		complex, dimension(*) e,
+		integer info
+)
 ```
 
  CPTTRF computes the L*D*L**H factorization of a complex Hermitian

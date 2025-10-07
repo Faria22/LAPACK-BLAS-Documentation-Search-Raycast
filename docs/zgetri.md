@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgetri	(	integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zgetri (
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZGETRI computes the inverse of a matrix using the LU factorization

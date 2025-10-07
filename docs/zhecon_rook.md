@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhecon_rook	(	uplo,
+subroutine zhecon_rook (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine zhecon_rook	(	uplo,
 		anorm,
 		rcond,
 		work,
-		*                               info )
+		*                               info
+)
 ```
 
  ZHECON_ROOK estimates the reciprocal of the condition number of a complex

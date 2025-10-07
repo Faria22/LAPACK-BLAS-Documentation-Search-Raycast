@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgerfs	(	trans,
+subroutine zgerfs (
+		trans,
 		n,
 		nrhs,
 		a,
@@ -15,7 +16,8 @@ subroutine zgerfs	(	trans,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGERFS improves the computed solution to a system of linear

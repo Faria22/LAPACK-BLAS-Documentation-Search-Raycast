@@ -1,12 +1,14 @@
 ```fortran
-subroutine spotrs	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine spotrs (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPOTRS solves a system of linear equations A*X = B with a symmetric

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgetsls	(	trans,
+subroutine sgetsls (
+		trans,
 		m,
 		n,
 		nrhs,
@@ -9,7 +10,8 @@ subroutine sgetsls	(	trans,
 		ldb,
 		*     $                     work,
 		lwork,
-		info )
+		info
+)
 ```
 
  SGETSLS solves overdetermined or underdetermined real linear systems

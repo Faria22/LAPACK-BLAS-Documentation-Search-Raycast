@@ -1,10 +1,12 @@
 ```fortran
-subroutine stpttf	(	character	transr,
-		character	uplo,
-		integer	n,
-		real, dimension(0: *)	ap,
-		real, dimension(0: *)	arf,
-		integer	info )
+subroutine stpttf (
+		character transr,
+		character uplo,
+		integer n,
+		real, dimension(0: *) ap,
+		real, dimension(0: *) arf,
+		integer info
+)
 ```
 
  STPTTF copies a triangular matrix A from standard packed format (TP)

@@ -1,5 +1,6 @@
 ```fortran
-subroutine zporfsx	(	uplo,
+subroutine zporfsx (
+		uplo,
 		equed,
 		n,
 		nrhs,
@@ -21,7 +22,8 @@ subroutine zporfsx	(	uplo,
 		params,
 		*                           work,
 		rwork,
-		info )
+		info
+)
 ```
 
     ZPORFSX improves the computed solution to a system of linear

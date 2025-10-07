@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsyevr	(	jobz,
+subroutine dsyevr (
+		jobz,
 		range,
 		uplo,
 		n,
@@ -19,7 +20,8 @@ subroutine dsyevr	(	jobz,
 		lwork,
 		*                          iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DSYEVR computes selected eigenvalues and, optionally, eigenvectors

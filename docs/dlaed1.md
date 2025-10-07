@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaed1	(	n,
+subroutine dlaed1 (
+		n,
 		d,
 		q,
 		ldq,
@@ -8,7 +9,8 @@ subroutine dlaed1	(	n,
 		cutpnt,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  DLAED1 computes the updated eigensystem of a diagonal

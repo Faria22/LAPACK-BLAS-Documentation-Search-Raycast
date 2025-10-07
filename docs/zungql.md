@@ -1,13 +1,15 @@
 ```fortran
-subroutine zungql	(	integer	m,
-		integer	n,
-		integer	k,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zungql (
+		integer m,
+		integer n,
+		integer k,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZUNGQL generates an M-by-N complex matrix Q with orthonormal columns,

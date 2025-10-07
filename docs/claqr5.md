@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqr5	(	wantt,
+subroutine claqr5 (
+		wantt,
 		wantz,
 		kacc22,
 		n,
@@ -22,7 +23,8 @@ subroutine claqr5	(	wantt,
 		ldwv,
 		nh,
 		wh,
-		ldwh )
+		ldwh
+)
 ```
 
     CLAQR5 called by CLAQR0 performs a

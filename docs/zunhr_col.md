@@ -1,13 +1,15 @@
 ```fortran
-subroutine zunhr_col	(	integer	m,
-		integer	n,
-		integer	nb,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(ldt, *)	t,
-		integer	ldt,
-		complex*16, dimension(*)	d,
-		integer	info )
+subroutine zunhr_col (
+		integer m,
+		integer n,
+		integer nb,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(ldt, *) t,
+		integer ldt,
+		complex*16, dimension(*) d,
+		integer info
+)
 ```
 
   ZUNHR_COL takes an M-by-N complex matrix Q_in with orthonormal columns

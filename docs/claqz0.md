@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqz0	(	wants,
+subroutine claqz0 (
+		wants,
 		wantq,
 		wantz,
 		n,
@@ -19,7 +20,8 @@ subroutine claqz0	(	wants,
 		lwork,
 		rwork,
 		rec,
-		*     $    info )
+		*     $    info
+)
 ```
 
  CLAQZ0 computes the eigenvalues of a matrix pair (H,T),

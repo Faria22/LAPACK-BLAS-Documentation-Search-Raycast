@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqz3	(	ilschur,
+subroutine dlaqz3 (
+		ilschur,
 		ilq,
 		ilz,
 		n,
@@ -26,7 +27,8 @@ subroutine dlaqz3	(	ilschur,
 		work,
 		lwork,
 		rec,
-		info )
+		info
+)
 ```
 
  DLAQZ3 performs AED

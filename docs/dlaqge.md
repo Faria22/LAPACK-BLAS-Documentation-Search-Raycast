@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqge	(	m,
+subroutine dlaqge (
+		m,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine dlaqge	(	m,
 		rowcnd,
 		colcnd,
 		amax,
-		*                          equed )
+		*                          equed
+)
 ```
 
  DLAQGE equilibrates a general M by N matrix A using the row and

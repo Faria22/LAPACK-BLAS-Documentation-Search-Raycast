@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsygvd	(	itype,
+subroutine dsygvd (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -12,7 +13,8 @@ subroutine dsygvd	(	itype,
 		*                          lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  DSYGVD computes all the eigenvalues, and optionally, the eigenvectors

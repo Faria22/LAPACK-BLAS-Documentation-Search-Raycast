@@ -1,10 +1,12 @@
 ```fortran
-subroutine drotm	(	integer	n,
-		double precision, dimension(*)	dx,
-		integer	incx,
-		double precision, dimension(*)	dy,
-		integer	incy,
-		double precision, dimension(5)	dparam )
+subroutine drotm (
+		integer n,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision, dimension(*) dy,
+		integer incy,
+		double precision, dimension(5) dparam
+)
 ```
 
     APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX

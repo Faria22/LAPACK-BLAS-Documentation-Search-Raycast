@@ -1,8 +1,10 @@
 ```fortran
-subroutine dlasrt	(	character	id,
-		integer	n,
-		double precision, dimension(*)	d,
-		integer	info )
+subroutine dlasrt (
+		character id,
+		integer n,
+		double precision, dimension(*) d,
+		integer info
+)
 ```
 
  Sort the numbers in D in increasing order (if ID = 'I') or

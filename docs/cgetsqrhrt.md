@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgetsqrhrt	(	m,
+subroutine cgetsqrhrt (
+		m,
 		n,
 		mb1,
 		nb1,
@@ -10,7 +11,8 @@ subroutine cgetsqrhrt	(	m,
 		ldt,
 		work,
 		*      $                       lwork,
-		info )
+		info
+)
 ```
 
  CGETSQRHRT computes a NB2-sized column blocked QR-factorization

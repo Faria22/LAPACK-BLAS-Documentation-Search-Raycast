@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgees	(	jobvs,
+subroutine zgees (
+		jobvs,
 		sort,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine zgees	(	jobvs,
 		lwork,
 		rwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  ZGEES computes for an N-by-N complex nonsymmetric matrix A, the

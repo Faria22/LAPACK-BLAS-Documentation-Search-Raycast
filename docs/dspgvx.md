@@ -1,5 +1,6 @@
 ```fortran
-subroutine dspgvx	(	itype,
+subroutine dspgvx (
+		itype,
 		jobz,
 		range,
 		uplo,
@@ -18,7 +19,8 @@ subroutine dspgvx	(	itype,
 		work,
 		iwork,
 		*                          ifail,
-		info )
+		info
+)
 ```
 
  DSPGVX computes selected eigenvalues, and optionally, eigenvectors

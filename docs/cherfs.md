@@ -1,5 +1,6 @@
 ```fortran
-subroutine cherfs	(	uplo,
+subroutine cherfs (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -15,7 +16,8 @@ subroutine cherfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHERFS improves the computed solution to a system of linear

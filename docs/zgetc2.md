@@ -1,10 +1,12 @@
 ```fortran
-subroutine zgetc2	(	integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		integer, dimension(*)	jpiv,
-		integer	info )
+subroutine zgetc2 (
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		integer, dimension(*) jpiv,
+		integer info
+)
 ```
 
  ZGETC2 computes an LU factorization, using complete pivoting, of the

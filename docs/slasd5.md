@@ -1,11 +1,13 @@
 ```fortran
-subroutine slasd5	(	integer	i,
-		real, dimension(2)	d,
-		real, dimension(2)	z,
-		real, dimension(2)	delta,
-		real	rho,
-		real	dsigma,
-		real, dimension(2)	work )
+subroutine slasd5 (
+		integer i,
+		real, dimension(2) d,
+		real, dimension(2) z,
+		real, dimension(2) delta,
+		real rho,
+		real dsigma,
+		real, dimension(2) work
+)
 ```
 
  This subroutine computes the square root of the I-th eigenvalue

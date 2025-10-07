@@ -1,5 +1,6 @@
 ```fortran
-subroutine checon_rook	(	uplo,
+subroutine checon_rook (
+		uplo,
 		n,
 		a,
 		lda,
@@ -7,7 +8,8 @@ subroutine checon_rook	(	uplo,
 		anorm,
 		rcond,
 		work,
-		*                               info )
+		*                               info
+)
 ```
 
  CHECON_ROOK estimates the reciprocal of the condition number of a complex

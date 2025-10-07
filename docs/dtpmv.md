@@ -1,11 +1,13 @@
 ```fortran
-subroutine dtpmv	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	x,
-		integer	incx )
+subroutine dtpmv (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) x,
+		integer incx
+)
 ```
 
  DTPMV  performs one of the matrix-vector operations

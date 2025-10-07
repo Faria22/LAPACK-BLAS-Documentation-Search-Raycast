@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztfsm	(	transr,
+subroutine ztfsm (
+		transr,
 		side,
 		uplo,
 		trans,
@@ -9,7 +10,8 @@ subroutine ztfsm	(	transr,
 		alpha,
 		a,
 		*                         b,
-		ldb )
+		ldb
+)
 ```
 
  Level 3 BLAS like routine for A in RFP Format.

@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlaset	(	character	uplo,
-		integer	m,
-		integer	n,
-		double precision	alpha,
-		double precision	beta,
-		double precision, dimension(lda, *)	a,
-		integer	lda )
+subroutine dlaset (
+		character uplo,
+		integer m,
+		integer n,
+		double precision alpha,
+		double precision beta,
+		double precision, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  DLASET initializes an m-by-n matrix A to BETA on the diagonal and

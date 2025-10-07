@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaqz1	(	a,
+subroutine slaqz1 (
+		a,
 		lda,
 		b,
 		ldb,
@@ -8,7 +9,8 @@ subroutine slaqz1	(	a,
 		si,
 		beta1,
 		beta2,
-		*     $    v )
+		*     $    v
+)
 ```
 
       Given a 3-by-3 matrix pencil (A,B), SLAQZ1 sets v to a

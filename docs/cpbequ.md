@@ -1,13 +1,15 @@
 ```fortran
-subroutine cpbequ	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex, dimension(ldab, *)	ab,
-		integer	ldab,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		integer	info )
+subroutine cpbequ (
+		character uplo,
+		integer n,
+		integer kd,
+		complex, dimension(ldab, *) ab,
+		integer ldab,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		integer info
+)
 ```
 
  CPBEQU computes row and column scalings intended to equilibrate a

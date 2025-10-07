@@ -1,5 +1,6 @@
 ```fortran
-subroutine zggsvp3	(	jobu,
+subroutine zggsvp3 (
+		jobu,
 		jobv,
 		jobq,
 		m,
@@ -24,7 +25,8 @@ subroutine zggsvp3	(	jobu,
 		tau,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  ZGGSVP3 computes unitary matrices U, V and Q such that

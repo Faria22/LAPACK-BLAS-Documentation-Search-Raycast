@@ -1,5 +1,6 @@
 ```fortran
-subroutine clalsd	(	uplo,
+subroutine clalsd (
+		uplo,
 		smlsiz,
 		n,
 		nrhs,
@@ -12,7 +13,8 @@ subroutine clalsd	(	uplo,
 		work,
 		rwork,
 		iwork,
-		info )
+		info
+)
 ```
 
  CLALSD uses the singular value decomposition of A to solve the least

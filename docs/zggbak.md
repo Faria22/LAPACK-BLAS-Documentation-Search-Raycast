@@ -1,5 +1,6 @@
 ```fortran
-subroutine zggbak	(	job,
+subroutine zggbak (
+		job,
 		side,
 		n,
 		ilo,
@@ -9,7 +10,8 @@ subroutine zggbak	(	job,
 		m,
 		v,
 		*                          ldv,
-		info )
+		info
+)
 ```
 
  ZGGBAK forms the right or left eigenvectors of a complex generalized

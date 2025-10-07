@@ -1,9 +1,11 @@
 ```fortran
-subroutine ssptrf	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine ssptrf (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
 
  SSPTRF computes the factorization of a real symmetric matrix A stored

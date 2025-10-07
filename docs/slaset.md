@@ -1,11 +1,13 @@
 ```fortran
-subroutine slaset	(	character	uplo,
-		integer	m,
-		integer	n,
-		real	alpha,
-		real	beta,
-		real, dimension(lda, *)	a,
-		integer	lda )
+subroutine slaset (
+		character uplo,
+		integer m,
+		integer n,
+		real alpha,
+		real beta,
+		real, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  SLASET initializes an m-by-n matrix A to BETA on the diagonal and

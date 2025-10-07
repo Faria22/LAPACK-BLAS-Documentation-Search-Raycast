@@ -1,5 +1,6 @@
 ```fortran
-subroutine dorgtsqr	(	m,
+subroutine dorgtsqr (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine dorgtsqr	(	m,
 		ldt,
 		work,
 		lwork,
-		*      $                     info )
+		*      $                     info
+)
 ```
 
  DORGTSQR generates an M-by-N real matrix Q_out with orthonormal columns,

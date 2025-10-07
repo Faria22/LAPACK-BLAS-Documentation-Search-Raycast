@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgesvx	(	fact,
+subroutine zgesvx (
+		fact,
 		trans,
 		n,
 		nrhs,
@@ -20,7 +21,8 @@ subroutine zgesvx	(	fact,
 		berr,
 		*                          work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGESVX uses the LU factorization to compute the solution to a complex

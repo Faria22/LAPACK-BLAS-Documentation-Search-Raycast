@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssteqr	(	character	compz,
-		integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		real, dimension(ldz, *)	z,
-		integer	ldz,
-		real, dimension(*)	work,
-		integer	info )
+subroutine ssteqr (
+		character compz,
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		real, dimension(ldz, *) z,
+		integer ldz,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SSTEQR computes all eigenvalues and, optionally, eigenvectors of a

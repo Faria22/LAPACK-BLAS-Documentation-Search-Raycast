@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctrtrs	(	uplo,
+subroutine ctrtrs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -8,7 +9,8 @@ subroutine ctrtrs	(	uplo,
 		lda,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  CTRTRS solves a triangular system of the form

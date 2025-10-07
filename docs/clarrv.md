@@ -1,5 +1,6 @@
 ```fortran
-subroutine clarrv	(	n,
+subroutine clarrv (
+		n,
 		vl,
 		vu,
 		d,
@@ -23,7 +24,8 @@ subroutine clarrv	(	n,
 		isuppz,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  CLARRV computes the eigenvectors of the tridiagonal matrix

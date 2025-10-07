@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsposv	(	uplo,
+subroutine dsposv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -11,7 +12,8 @@ subroutine dsposv	(	uplo,
 		work,
 		*                          swork,
 		iter,
-		info )
+		info
+)
 ```
 
  DSPOSV computes the solution to a real system of linear equations

@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssygs2	(	integer	itype,
-		character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ssygs2 (
+		integer itype,
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SSYGS2 reduces a real symmetric-definite generalized eigenproblem

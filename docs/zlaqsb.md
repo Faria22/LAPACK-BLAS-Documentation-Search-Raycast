@@ -1,13 +1,15 @@
 ```fortran
-subroutine zlaqsb	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		character	equed )
+subroutine zlaqsb (
+		character uplo,
+		integer n,
+		integer kd,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		character equed
+)
 ```
 
  ZLAQSB equilibrates a symmetric band matrix A using the scaling

@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaqr3	(	wantt,
+subroutine dlaqr3 (
+		wantt,
 		wantz,
 		n,
 		ktop,
@@ -24,7 +25,8 @@ subroutine dlaqr3	(	wantt,
 		wv,
 		ldwv,
 		work,
-		lwork )
+		lwork
+)
 ```
 
     Aggressive early deflation:

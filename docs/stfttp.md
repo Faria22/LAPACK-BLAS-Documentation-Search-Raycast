@@ -1,10 +1,12 @@
 ```fortran
-subroutine stfttp	(	character	transr,
-		character	uplo,
-		integer	n,
-		real, dimension(0: *)	arf,
-		real, dimension(0: *)	ap,
-		integer	info )
+subroutine stfttp (
+		character transr,
+		character uplo,
+		integer n,
+		real, dimension(0: *) arf,
+		real, dimension(0: *) ap,
+		integer info
+)
 ```
 
  STFTTP copies a triangular matrix A from rectangular full packed

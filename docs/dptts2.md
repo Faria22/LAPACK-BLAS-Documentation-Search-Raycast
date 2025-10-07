@@ -1,10 +1,12 @@
 ```fortran
-subroutine dptts2	(	integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine dptts2 (
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
+		double precision, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  DPTTS2 solves a tridiagonal system of the form

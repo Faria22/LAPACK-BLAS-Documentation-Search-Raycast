@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtplqt	(	m,
+subroutine dtplqt (
+		m,
 		n,
 		l,
 		mb,
@@ -10,7 +11,8 @@ subroutine dtplqt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  DTPLQT computes a blocked LQ factorization of a real

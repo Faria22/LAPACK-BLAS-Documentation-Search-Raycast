@@ -1,12 +1,14 @@
 ```fortran
-subroutine zgebal	(	character	job,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		integer	ilo,
-		integer	ihi,
-		double precision, dimension(*)	scale,
-		integer	info )
+subroutine zgebal (
+		character job,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		integer ilo,
+		integer ihi,
+		double precision, dimension(*) scale,
+		integer info
+)
 ```
 
  ZGEBAL balances a general complex matrix A.  This involves, first,

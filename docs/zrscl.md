@@ -1,8 +1,10 @@
 ```fortran
-subroutine zrscl	(	integer	n,
-		complex*16	a,
-		complex*16, dimension(*)	x,
-		integer	incx )
+subroutine zrscl (
+		integer n,
+		complex*16 a,
+		complex*16, dimension(*) x,
+		integer incx
+)
 ```
 
  ZRSCL multiplies an n-element complex vector x by the complex scalar

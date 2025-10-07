@@ -1,10 +1,12 @@
 ```fortran
-subroutine dtrttp	(	character	uplo,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	ap,
-		integer	info )
+subroutine dtrttp (
+		character uplo,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) ap,
+		integer info
+)
 ```
 
  DTRTTP copies a triangular matrix A from full format (TR) to standard

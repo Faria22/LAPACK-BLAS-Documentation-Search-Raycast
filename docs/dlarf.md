@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlarf	(	character	side,
-		integer	m,
-		integer	n,
-		double precision, dimension(*)	v,
-		integer	incv,
-		double precision	tau,
-		double precision, dimension(ldc, *)	c,
-		integer	ldc,
-		double precision, dimension(*)	work )
+subroutine dlarf (
+		character side,
+		integer m,
+		integer n,
+		double precision, dimension(*) v,
+		integer incv,
+		double precision tau,
+		double precision, dimension(ldc, *) c,
+		integer ldc,
+		double precision, dimension(*) work
+)
 ```
 
  DLARF applies a real elementary reflector H to a real m by n matrix

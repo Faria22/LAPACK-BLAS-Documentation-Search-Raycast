@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctpqrt	(	m,
+subroutine ctpqrt (
+		m,
 		n,
 		l,
 		nb,
@@ -10,7 +11,8 @@ subroutine ctpqrt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  CTPQRT computes a blocked QR factorization of a complex

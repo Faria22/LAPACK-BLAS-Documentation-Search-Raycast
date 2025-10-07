@@ -1,13 +1,15 @@
 ```fortran
-subroutine dpbsv	(	character	uplo,
-		integer	n,
-		integer	kd,
-		integer	nrhs,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dpbsv (
+		character uplo,
+		integer n,
+		integer kd,
+		integer nrhs,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DPBSV computes the solution to a real system of linear equations

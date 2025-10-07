@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqz1	(	ilq,
+subroutine claqz1 (
+		ilq,
 		ilz,
 		k,
 		istartm,
@@ -16,7 +17,8 @@ subroutine claqz1	(	ilq,
 		nz,
 		zstart,
 		z,
-		ldz )
+		ldz
+)
 ```
 
       CLAQZ1 chases a 1x1 shift bulge in a matrix pencil down a single position

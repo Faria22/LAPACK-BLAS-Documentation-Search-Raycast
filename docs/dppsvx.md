@@ -1,5 +1,6 @@
 ```fortran
-subroutine dppsvx	(	fact,
+subroutine dppsvx (
+		fact,
 		uplo,
 		n,
 		nrhs,
@@ -16,7 +17,8 @@ subroutine dppsvx	(	fact,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DPPSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to

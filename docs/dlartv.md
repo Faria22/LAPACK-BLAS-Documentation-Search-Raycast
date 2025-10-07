@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlartv	(	integer	n,
-		double precision, dimension(*)	x,
-		integer	incx,
-		double precision, dimension(*)	y,
-		integer	incy,
-		double precision, dimension(*)	c,
-		double precision, dimension(*)	s,
-		integer	incc )
+subroutine dlartv (
+		integer n,
+		double precision, dimension(*) x,
+		integer incx,
+		double precision, dimension(*) y,
+		integer incy,
+		double precision, dimension(*) c,
+		double precision, dimension(*) s,
+		integer incc
+)
 ```
 
  DLARTV applies a vector of real plane rotations to elements of the

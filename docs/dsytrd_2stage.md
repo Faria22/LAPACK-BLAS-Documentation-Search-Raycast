@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrd_2stage	(	vect,
+subroutine dsytrd_2stage (
+		vect,
 		uplo,
 		n,
 		a,
@@ -11,7 +12,8 @@ subroutine dsytrd_2stage	(	vect,
 		lhous2,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DSYTRD_2STAGE reduces a real symmetric matrix A to real symmetric

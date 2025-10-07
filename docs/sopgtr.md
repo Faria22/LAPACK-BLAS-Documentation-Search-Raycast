@@ -1,12 +1,14 @@
 ```fortran
-subroutine sopgtr	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	tau,
-		real, dimension(ldq, *)	q,
-		integer	ldq,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sopgtr (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) tau,
+		real, dimension(ldq, *) q,
+		integer ldq,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SOPGTR generates a real orthogonal matrix Q which is defined as the

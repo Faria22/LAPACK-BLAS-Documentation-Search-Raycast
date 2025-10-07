@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsysv_aa_2stage	(	uplo,
+subroutine dsysv_aa_2stage (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine dsysv_aa_2stage	(	uplo,
 		ldb,
 		work,
 		lwork,
-		*                                  info )
+		*                                  info
+)
 ```
 
  DSYSV_AA_2STAGE computes the solution to a real system of

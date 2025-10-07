@@ -1,14 +1,16 @@
 ```fortran
-subroutine dgebd2	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	e,
+subroutine dgebd2 (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		double precision, dimension(*) d,
+		double precision, dimension(*) e,
 		tauq,
-		double precision, dimension(*)	taup,
+		double precision, dimension(*) taup,
 		work,
-		integer	info )
+		integer info
+)
 ```
 
  DGEBD2 reduces a real general m by n matrix A to upper or lower

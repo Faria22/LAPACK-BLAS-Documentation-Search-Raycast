@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlaic1	(	integer	job,
-		integer	j,
-		double precision, dimension(j)	x,
-		double precision	sest,
-		double precision, dimension(j)	w,
-		double precision	gamma,
-		double precision	sestpr,
-		double precision	s,
-		double precision	c )
+subroutine dlaic1 (
+		integer job,
+		integer j,
+		double precision, dimension(j) x,
+		double precision sest,
+		double precision, dimension(j) w,
+		double precision gamma,
+		double precision sestpr,
+		double precision s,
+		double precision c
+)
 ```
 
  DLAIC1 applies one step of incremental condition estimation in

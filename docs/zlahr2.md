@@ -1,14 +1,16 @@
 ```fortran
-subroutine zlahr2	(	integer	n,
-		integer	k,
-		integer	nb,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(nb)	tau,
-		complex*16, dimension(ldt, nb)	t,
-		integer	ldt,
+subroutine zlahr2 (
+		integer n,
+		integer k,
+		integer nb,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(nb) tau,
+		complex*16, dimension(ldt, nb) t,
+		integer ldt,
 		y,
-		integer	ldy )
+		integer ldy
+)
 ```
 
  ZLAHR2 reduces the first NB columns of A complex general n-BY-(n-k+1)

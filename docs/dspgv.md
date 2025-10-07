@@ -1,5 +1,6 @@
 ```fortran
-subroutine dspgv	(	itype,
+subroutine dspgv (
+		itype,
 		jobz,
 		uplo,
 		n,
@@ -9,7 +10,8 @@ subroutine dspgv	(	itype,
 		z,
 		ldz,
 		work,
-		*                         info )
+		*                         info
+)
 ```
 
  DSPGV computes all the eigenvalues and, optionally, the eigenvectors

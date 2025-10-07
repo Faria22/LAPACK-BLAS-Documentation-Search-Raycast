@@ -1,5 +1,6 @@
 ```fortran
-subroutine zhbgst	(	vect,
+subroutine zhbgst (
+		vect,
 		uplo,
 		n,
 		ka,
@@ -12,7 +13,8 @@ subroutine zhbgst	(	vect,
 		*                          ldx,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZHBGST reduces a complex Hermitian-definite banded generalized

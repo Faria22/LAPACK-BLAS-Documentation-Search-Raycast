@@ -1,8 +1,10 @@
 ```fortran
-subroutine spttrf	(	integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		integer	info )
+subroutine spttrf (
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		integer info
+)
 ```
 
  SPTTRF computes the L*D*L**T factorization of a real symmetric

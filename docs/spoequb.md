@@ -1,11 +1,13 @@
 ```fortran
-subroutine spoequb	(	integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		integer	info )
+subroutine spoequb (
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		integer info
+)
 ```
 
  SPOEQUB computes row and column scalings intended to equilibrate a

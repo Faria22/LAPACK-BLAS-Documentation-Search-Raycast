@@ -1,12 +1,14 @@
 ```fortran
-subroutine clarfy	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	v,
-		integer	incv,
-		complex	tau,
-		complex, dimension(ldc, *)	c,
-		integer	ldc,
-		complex, dimension(*)	work )
+subroutine clarfy (
+		character uplo,
+		integer n,
+		complex, dimension(*) v,
+		integer incv,
+		complex tau,
+		complex, dimension(ldc, *) c,
+		integer ldc,
+		complex, dimension(*) work
+)
 ```
 
  CLARFY applies an elementary reflector, or Householder matrix, H,

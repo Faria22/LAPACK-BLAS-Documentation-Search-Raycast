@@ -1,5 +1,6 @@
 ```fortran
-subroutine ssbgvd	(	jobz,
+subroutine ssbgvd (
+		jobz,
 		uplo,
 		n,
 		ka,
@@ -15,7 +16,8 @@ subroutine ssbgvd	(	jobz,
 		lwork,
 		iwork,
 		liwork,
-		info )
+		info
+)
 ```
 
  SSBGVD computes all the eigenvalues, and optionally, the eigenvectors

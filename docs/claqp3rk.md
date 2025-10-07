@@ -1,5 +1,6 @@
 ```fortran
-subroutine claqp3rk	(	m,
+subroutine claqp3rk (
+		m,
 		n,
 		nrhs,
 		ioffset,
@@ -22,7 +23,8 @@ subroutine claqp3rk	(	m,
 		f,
 		ldf,
 		iwork,
-		info )
+		info
+)
 ```
 
  CLAQP3RK computes a step of truncated QR factorization with column

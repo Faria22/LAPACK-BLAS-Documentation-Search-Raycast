@@ -1,11 +1,13 @@
 ```fortran
-subroutine cppequ	(	character	uplo,
-		integer	n,
-		complex, dimension(*)	ap,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		integer	info )
+subroutine cppequ (
+		character uplo,
+		integer n,
+		complex, dimension(*) ap,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		integer info
+)
 ```
 
  CPPEQU computes row and column scalings intended to equilibrate a

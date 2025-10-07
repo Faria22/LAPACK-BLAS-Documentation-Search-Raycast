@@ -1,8 +1,10 @@
 ```fortran
-subroutine dscal	(	integer	n,
-		double precision	da,
-		double precision, dimension(*)	dx,
-		integer	incx )
+subroutine dscal (
+		integer n,
+		double precision da,
+		double precision, dimension(*) dx,
+		integer incx
+)
 ```
 
     DSCAL scales a vector by a constant.

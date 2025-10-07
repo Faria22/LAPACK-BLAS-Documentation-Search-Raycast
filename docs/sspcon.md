@@ -1,5 +1,6 @@
 ```fortran
-subroutine sspcon	(	uplo,
+subroutine sspcon (
+		uplo,
 		n,
 		ap,
 		ipiv,
@@ -7,7 +8,8 @@ subroutine sspcon	(	uplo,
 		rcond,
 		work,
 		iwork,
-		*                          info )
+		*                          info
+)
 ```
 
  SSPCON estimates the reciprocal of the condition number (in the

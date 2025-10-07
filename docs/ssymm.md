@@ -1,16 +1,18 @@
 ```fortran
-subroutine ssymm	(	character	side,
-		character	uplo,
-		integer	m,
-		integer	n,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(ldb,*)	b,
-		integer	ldb,
-		real	beta,
-		real, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine ssymm (
+		character side,
+		character uplo,
+		integer m,
+		integer n,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(ldb,*) b,
+		integer ldb,
+		real beta,
+		real, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  SSYMM  performs one of the matrix-matrix operations

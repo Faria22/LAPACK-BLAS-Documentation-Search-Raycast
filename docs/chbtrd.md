@@ -1,5 +1,6 @@
 ```fortran
-subroutine chbtrd	(	vect,
+subroutine chbtrd (
+		vect,
 		uplo,
 		n,
 		kd,
@@ -10,7 +11,8 @@ subroutine chbtrd	(	vect,
 		q,
 		ldq,
 		*                          work,
-		info )
+		info
+)
 ```
 
  CHBTRD reduces a complex Hermitian band matrix A to real symmetric

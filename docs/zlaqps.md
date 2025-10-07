@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaqps	(	m,
+subroutine zlaqps (
+		m,
 		n,
 		offset,
 		nb,
@@ -12,7 +13,8 @@ subroutine zlaqps	(	m,
 		*                          vn2,
 		auxv,
 		f,
-		ldf )
+		ldf
+)
 ```
 
  ZLAQPS computes a step of QR factorization with column pivoting

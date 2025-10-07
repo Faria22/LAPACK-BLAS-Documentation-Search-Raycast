@@ -1,5 +1,6 @@
 ```fortran
-subroutine chetrs_aa	(	uplo,
+subroutine chetrs_aa (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine chetrs_aa	(	uplo,
 		ldb,
 		*                             work,
 		lwork,
-		info )
+		info
+)
 ```
 
  CHETRS_AA solves a system of linear equations A*X = B with a complex

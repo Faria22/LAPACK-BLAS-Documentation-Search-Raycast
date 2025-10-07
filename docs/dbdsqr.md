@@ -1,5 +1,6 @@
 ```fortran
-subroutine dbdsqr	(	uplo,
+subroutine dbdsqr (
+		uplo,
 		n,
 		ncvt,
 		nru,
@@ -13,7 +14,8 @@ subroutine dbdsqr	(	uplo,
 		c,
 		ldc,
 		work,
-		info )
+		info
+)
 ```
 
  DBDSQR computes the singular values and, optionally, the right and/or

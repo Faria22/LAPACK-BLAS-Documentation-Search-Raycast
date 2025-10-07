@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztgevc	(	side,
+subroutine ztgevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -15,7 +16,8 @@ subroutine ztgevc	(	side,
 		m,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZTGEVC computes some or all of the right and/or left eigenvectors of

@@ -1,12 +1,14 @@
 ```fortran
-subroutine dlar2v	(	integer	n,
-		double precision, dimension(*)	x,
-		double precision, dimension(*)	y,
-		double precision, dimension(*)	z,
-		integer	incx,
-		double precision, dimension(*)	c,
-		double precision, dimension(*)	s,
-		integer	incc )
+subroutine dlar2v (
+		integer n,
+		double precision, dimension(*) x,
+		double precision, dimension(*) y,
+		double precision, dimension(*) z,
+		integer incx,
+		double precision, dimension(*) c,
+		double precision, dimension(*) s,
+		integer incc
+)
 ```
 
  DLAR2V applies a vector of real plane rotations from both sides to

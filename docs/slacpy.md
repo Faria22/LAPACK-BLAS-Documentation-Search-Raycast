@@ -1,11 +1,13 @@
 ```fortran
-subroutine slacpy	(	character	uplo,
-		integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine slacpy (
+		character uplo,
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  SLACPY copies all or part of a two-dimensional matrix A to another

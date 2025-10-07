@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarzb	(	side,
+subroutine dlarzb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -14,7 +15,8 @@ subroutine dlarzb	(	side,
 		c,
 		ldc,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  DLARZB applies a real block reflector H or its transpose H**T to

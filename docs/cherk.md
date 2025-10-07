@@ -1,14 +1,16 @@
 ```fortran
-subroutine cherk	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		real	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		real	beta,
-		complex, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine cherk (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		real alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		real beta,
+		complex, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  CHERK  performs one of the hermitian rank k operations

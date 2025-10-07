@@ -1,10 +1,12 @@
 ```fortran
-subroutine cspr	(	character	uplo,
-		integer	n,
-		complex	alpha,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex, dimension(*)	ap )
+subroutine cspr (
+		character uplo,
+		integer n,
+		complex alpha,
+		complex, dimension(*) x,
+		integer incx,
+		complex, dimension(*) ap
+)
 ```
 
  CSPR    performs the symmetric rank 1 operation

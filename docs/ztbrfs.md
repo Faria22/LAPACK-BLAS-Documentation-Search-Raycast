@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztbrfs	(	uplo,
+subroutine ztbrfs (
+		uplo,
 		trans,
 		diag,
 		n,
@@ -15,7 +16,8 @@ subroutine ztbrfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZTBRFS provides error bounds and backward error estimates for the

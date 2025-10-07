@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasd3	(	nl,
+subroutine slasd3 (
+		nl,
 		nr,
 		sqre,
 		k,
@@ -18,7 +19,8 @@ subroutine slasd3	(	nl,
 		idxc,
 		ctot,
 		z,
-		*                          info )
+		*                          info
+)
 ```
 
  SLASD3 finds all the square roots of the roots of the secular

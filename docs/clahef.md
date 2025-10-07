@@ -1,14 +1,16 @@
 ```fortran
-subroutine clahef	(	character	uplo,
-		integer	n,
-		integer	nb,
-		integer	kb,
-		complex, dimension(lda, *)	a,
-		integer	lda,
-		integer, dimension(*)	ipiv,
-		complex, dimension(ldw, *)	w,
-		integer	ldw,
-		integer	info )
+subroutine clahef (
+		character uplo,
+		integer n,
+		integer nb,
+		integer kb,
+		complex, dimension(lda, *) a,
+		integer lda,
+		integer, dimension(*) ipiv,
+		complex, dimension(ldw, *) w,
+		integer ldw,
+		integer info
+)
 ```
 
  CLAHEF computes a partial factorization of a complex Hermitian

@@ -1,5 +1,6 @@
 ```fortran
-subroutine csycon_3	(	uplo,
+subroutine csycon_3 (
+		uplo,
 		n,
 		a,
 		lda,
@@ -8,7 +9,8 @@ subroutine csycon_3	(	uplo,
 		anorm,
 		rcond,
 		*                            work,
-		info )
+		info
+)
 ```
  CSYCON_3 estimates the reciprocal of the condition number (in the
  1-norm) of a complex symmetric matrix A using the factorization

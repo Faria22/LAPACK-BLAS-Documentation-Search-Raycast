@@ -1,5 +1,6 @@
 ```fortran
-subroutine dla_gerfsx_extended	(	prec_type,
+subroutine dla_gerfsx_extended (
+		prec_type,
 		trans_type,
 		n,
 		nrhs,
@@ -27,7 +28,8 @@ subroutine dla_gerfsx_extended	(	prec_type,
 		rthresh,
 		*                                       dz_ub,
 		ignore_cwise,
-		info )
+		info
+)
 ```
 
 

@@ -1,9 +1,11 @@
 ```fortran
-subroutine slarfg	(	integer	n,
-		real	alpha,
-		real, dimension(*)	x,
-		integer	incx,
-		real	tau )
+subroutine slarfg (
+		integer n,
+		real alpha,
+		real, dimension(*) x,
+		integer incx,
+		real tau
+)
 ```
 
  SLARFG generates a real elementary reflector H of order n, such

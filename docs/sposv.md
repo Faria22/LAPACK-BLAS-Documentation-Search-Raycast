@@ -1,12 +1,14 @@
 ```fortran
-subroutine sposv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sposv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPOSV computes the solution to a real system of linear equations

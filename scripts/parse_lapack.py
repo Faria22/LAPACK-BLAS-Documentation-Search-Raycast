@@ -252,7 +252,7 @@ def generate_markdown(routine_info: Dict) -> str:
     routine_type = "function" if routine_info.get('is_function') else "subroutine"
     routine_name = routine_info['name'].lower()
     
-    # Build parameter list with types
+    # Build parameter list with types - each on its own line
     param_lines = []
     for param_name in routine_info['param_names']:
         param_name_clean = param_name.strip().upper()
@@ -263,22 +263,22 @@ def generate_markdown(routine_info: Dict) -> str:
             param_type_lower = re.sub(r'dimension\(([^)]+)\)', 
                                      lambda m: f"dimension({m.group(1).lower()})", 
                                      param_type)
-            param_lines.append(f"\t{param_type_lower}\t{param_name.strip().lower()}")
+            # Use space instead of tab between type and parameter name
+            param_lines.append(f"{param_type_lower} {param_name.strip().lower()}")
         else:
-            param_lines.append(f"\t{param_name.strip().lower()}")
+            param_lines.append(f"{param_name.strip().lower()}")
     
-    # Format signature
-    md += f"```fortran\n{routine_type} {routine_name}\t("
+    # Format signature with opening paren on same line as subroutine
+    # Each parameter on its own line with proper indentation (two tabs)
+    # Closing paren on its own line
+    md += f"```fortran\n{routine_type} {routine_name} (\n"
     if param_lines:
-        md += "\t" + param_lines[0].lstrip() + ",\n"
-        for i, line in enumerate(param_lines[1:], 1):
+        for i, param_line in enumerate(param_lines):
             if i < len(param_lines) - 1:
-                md += f"\t\t{line.strip()},\n"
+                md += f"\t\t{param_line},\n"
             else:
-                md += f"\t\t{line.strip()} )\n"
-    else:
-        md += " )\n"
-    md += "```\n"
+                md += f"\t\t{param_line}\n"
+    md += ")\n```\n"
     
     # Add description without heading
     if routine_info['purpose']:

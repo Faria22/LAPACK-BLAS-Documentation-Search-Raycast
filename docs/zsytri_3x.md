@@ -1,13 +1,15 @@
 ```fortran
-subroutine zsytri_3x	(	character	uplo,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		complex*16, dimension(n+nb+1, *)	work,
-		integer	nb,
-		integer	info )
+subroutine zsytri_3x (
+		character uplo,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) e,
+		integer, dimension(*) ipiv,
+		complex*16, dimension(n+nb+1, *) work,
+		integer nb,
+		integer info
+)
 ```
  ZSYTRI_3X computes the inverse of a complex symmetric indefinite
  matrix A using the factorization computed by ZSYTRF_RK or ZSYTRF_BK:

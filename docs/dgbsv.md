@@ -1,14 +1,16 @@
 ```fortran
-subroutine dgbsv	(	integer	n,
-		integer	kl,
-		integer	ku,
-		integer	nrhs,
-		double precision, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine dgbsv (
+		integer n,
+		integer kl,
+		integer ku,
+		integer nrhs,
+		double precision, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  DGBSV computes the solution to a real system of linear equations

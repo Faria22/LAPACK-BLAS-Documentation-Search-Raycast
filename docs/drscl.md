@@ -1,8 +1,10 @@
 ```fortran
-subroutine drscl	(	integer	n,
-		double precision	sa,
-		double precision, dimension(*)	sx,
-		integer	incx )
+subroutine drscl (
+		integer n,
+		double precision sa,
+		double precision, dimension(*) sx,
+		integer incx
+)
 ```
 
  DRSCL multiplies an n-element real vector x by the real scalar 1/a.

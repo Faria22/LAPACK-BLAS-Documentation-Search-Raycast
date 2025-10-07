@@ -1,5 +1,6 @@
 ```fortran
-subroutine chbgv	(	jobz,
+subroutine chbgv (
+		jobz,
 		uplo,
 		n,
 		ka,
@@ -13,7 +14,8 @@ subroutine chbgv	(	jobz,
 		*                         ldz,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHBGV computes all the eigenvalues, and optionally, the eigenvectors

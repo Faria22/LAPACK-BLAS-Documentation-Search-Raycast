@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctprfb	(	side,
+subroutine ctprfb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -16,7 +17,8 @@ subroutine ctprfb	(	side,
 		b,
 		ldb,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  CTPRFB applies a complex "triangular-pentagonal" block reflector H or its

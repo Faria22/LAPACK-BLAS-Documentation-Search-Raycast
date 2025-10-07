@@ -1,5 +1,6 @@
 ```fortran
-subroutine sporfs	(	uplo,
+subroutine sporfs (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -14,7 +15,8 @@ subroutine sporfs	(	uplo,
 		berr,
 		work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SPORFS improves the computed solution to a system of linear

@@ -1,11 +1,13 @@
 ```fortran
-subroutine clacrt	(	integer	n,
-		complex, dimension(*)	cx,
-		integer	incx,
-		complex, dimension(*)	cy,
-		integer	incy,
-		complex	c,
-		complex	s )
+subroutine clacrt (
+		integer n,
+		complex, dimension(*) cx,
+		integer incx,
+		complex, dimension(*) cy,
+		integer incy,
+		complex c,
+		complex s
+)
 ```
 
  CLACRT performs the operation

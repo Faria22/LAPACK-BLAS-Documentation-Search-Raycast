@@ -1,15 +1,17 @@
 ```fortran
-subroutine sgemv	(	character	trans,
-		integer	m,
-		integer	n,
-		real	alpha,
-		real, dimension(lda,*)	a,
-		integer	lda,
-		real, dimension(*)	x,
-		integer	incx,
-		real	beta,
-		real, dimension(*)	y,
-		integer	incy )
+subroutine sgemv (
+		character trans,
+		integer m,
+		integer n,
+		real alpha,
+		real, dimension(lda,*) a,
+		integer lda,
+		real, dimension(*) x,
+		integer incx,
+		real beta,
+		real, dimension(*) y,
+		integer incy
+)
 ```
 
  SGEMV  performs one of the matrix-vector operations

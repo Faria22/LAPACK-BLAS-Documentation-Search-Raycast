@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlarfb_gett	(	ident,
+subroutine zlarfb_gett (
+		ident,
 		m,
 		n,
 		k,
@@ -10,7 +11,8 @@ subroutine zlarfb_gett	(	ident,
 		b,
 		ldb,
 		*      $                        work,
-		ldwork )
+		ldwork
+)
 ```
 
  ZLARFB_GETT applies a complex Householder block reflector H from the

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sggesx	(	jobvsl,
+subroutine sggesx (
+		jobvsl,
 		jobvsr,
 		sort,
 		selctg,
@@ -24,7 +25,8 @@ subroutine sggesx	(	jobvsl,
 		iwork,
 		*                          liwork,
 		bwork,
-		info )
+		info
+)
 ```
 
  SGGESX computes for a pair of N-by-N real nonsymmetric matrices

@@ -1,11 +1,13 @@
 ```fortran
-subroutine slaqsp	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(*)	s,
-		real	scond,
-		real	amax,
-		character	equed )
+subroutine slaqsp (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(*) s,
+		real scond,
+		real amax,
+		character equed
+)
 ```
 
  SLAQSP equilibrates a symmetric matrix A using the scaling factors

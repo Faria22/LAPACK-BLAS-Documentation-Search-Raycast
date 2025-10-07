@@ -1,13 +1,15 @@
 ```fortran
-subroutine ctptrs	(	character	uplo,
-		character	trans,
-		character	diag,
-		integer	n,
-		integer	nrhs,
-		complex, dimension(*)	ap,
-		complex, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine ctptrs (
+		character uplo,
+		character trans,
+		character diag,
+		integer n,
+		integer nrhs,
+		complex, dimension(*) ap,
+		complex, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  CTPTRS solves a triangular system of the form

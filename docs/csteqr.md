@@ -1,12 +1,14 @@
 ```fortran
-subroutine csteqr	(	character	compz,
-		integer	n,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
-		complex, dimension(ldz, *)	z,
-		integer	ldz,
-		real, dimension(*)	work,
-		integer	info )
+subroutine csteqr (
+		character compz,
+		integer n,
+		real, dimension(*) d,
+		real, dimension(*) e,
+		complex, dimension(ldz, *) z,
+		integer ldz,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  CSTEQR computes all eigenvalues and, optionally, eigenvectors of a

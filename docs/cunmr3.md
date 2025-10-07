@@ -1,5 +1,6 @@
 ```fortran
-subroutine cunmr3	(	side,
+subroutine cunmr3 (
+		side,
 		trans,
 		m,
 		n,
@@ -11,7 +12,8 @@ subroutine cunmr3	(	side,
 		c,
 		ldc,
 		*                          work,
-		info )
+		info
+)
 ```
 
  CUNMR3 overwrites the general complex m by n matrix C with

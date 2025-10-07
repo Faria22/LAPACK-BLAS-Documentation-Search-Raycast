@@ -1,5 +1,6 @@
 ```fortran
-subroutine clamswlq	(	side,
+subroutine clamswlq (
+		side,
 		trans,
 		m,
 		n,
@@ -14,7 +15,8 @@ subroutine clamswlq	(	side,
 		ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
     CLAMSWLQ overwrites the general complex M-by-N matrix C with

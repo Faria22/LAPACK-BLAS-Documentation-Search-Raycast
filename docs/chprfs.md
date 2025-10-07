@@ -1,5 +1,6 @@
 ```fortran
-subroutine chprfs	(	uplo,
+subroutine chprfs (
+		uplo,
 		n,
 		nrhs,
 		ap,
@@ -13,7 +14,8 @@ subroutine chprfs	(	uplo,
 		berr,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CHPRFS improves the computed solution to a system of linear

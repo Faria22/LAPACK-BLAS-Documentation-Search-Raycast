@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrv	(	n,
+subroutine dlarrv (
+		n,
 		vl,
 		vu,
 		d,
@@ -23,7 +24,8 @@ subroutine dlarrv	(	n,
 		isuppz,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  DLARRV computes the eigenvectors of the tridiagonal matrix

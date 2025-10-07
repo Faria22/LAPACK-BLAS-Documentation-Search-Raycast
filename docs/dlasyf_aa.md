@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlasyf_aa	(	uplo,
+subroutine dlasyf_aa (
+		uplo,
 		j1,
 		m,
 		nb,
@@ -8,7 +9,8 @@ subroutine dlasyf_aa	(	uplo,
 		ipiv,
 		*                             h,
 		ldh,
-		work )
+		work
+)
 ```
 
  DLATRF_AA factorizes a panel of a real symmetric matrix A using

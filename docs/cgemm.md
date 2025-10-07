@@ -1,17 +1,19 @@
 ```fortran
-subroutine cgemm	(	character	transa,
-		character	transb,
-		integer	m,
-		integer	n,
-		integer	k,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(ldb,*)	b,
-		integer	ldb,
-		complex	beta,
-		complex, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine cgemm (
+		character transa,
+		character transb,
+		integer m,
+		integer n,
+		integer k,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(ldb,*) b,
+		integer ldb,
+		complex beta,
+		complex, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  CGEMM  performs one of the matrix-matrix operations

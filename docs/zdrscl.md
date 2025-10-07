@@ -1,8 +1,10 @@
 ```fortran
-subroutine zdrscl	(	integer	n,
-		double precision	sa,
-		complex*16, dimension(*)	sx,
-		integer	incx )
+subroutine zdrscl (
+		integer n,
+		double precision sa,
+		complex*16, dimension(*) sx,
+		integer incx
+)
 ```
 
  ZDRSCL multiplies an n-element complex vector x by the real scalar

@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctrevc	(	side,
+subroutine ctrevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -13,7 +14,8 @@ subroutine ctrevc	(	side,
 		m,
 		work,
 		rwork,
-		info )
+		info
+)
 ```
 
  CTREVC computes some or all of the right and/or left eigenvectors of

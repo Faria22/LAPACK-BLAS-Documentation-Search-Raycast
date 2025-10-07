@@ -1,5 +1,6 @@
 ```fortran
-subroutine zcposv	(	uplo,
+subroutine zcposv (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine zcposv	(	uplo,
 		*                          swork,
 		rwork,
 		iter,
-		info )
+		info
+)
 ```
 
  ZCPOSV computes the solution to a complex system of linear equations

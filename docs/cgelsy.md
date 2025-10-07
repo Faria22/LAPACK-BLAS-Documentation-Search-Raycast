@@ -1,5 +1,6 @@
 ```fortran
-subroutine cgelsy	(	m,
+subroutine cgelsy (
+		m,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine cgelsy	(	m,
 		*                          work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  CGELSY computes the minimum-norm solution to a complex linear least

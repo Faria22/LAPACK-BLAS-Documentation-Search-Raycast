@@ -1,13 +1,15 @@
 ```fortran
-subroutine zunghr	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	lwork,
-		integer	info )
+subroutine zunghr (
+		integer n,
+		integer ilo,
+		integer ihi,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer lwork,
+		integer info
+)
 ```
 
  ZUNGHR generates a complex unitary matrix Q which is defined as the

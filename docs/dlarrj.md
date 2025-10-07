@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlarrj	(	n,
+subroutine dlarrj (
+		n,
 		d,
 		e2,
 		ifirst,
@@ -12,7 +13,8 @@ subroutine dlarrj	(	n,
 		iwork,
 		*                          pivmin,
 		spdiam,
-		info )
+		info
+)
 ```
 
  Given the initial eigenvalue approximations of T, DLARRJ

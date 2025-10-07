@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgbtrs	(	trans,
+subroutine sgbtrs (
+		trans,
 		n,
 		kl,
 		ku,
@@ -9,7 +10,8 @@ subroutine sgbtrs	(	trans,
 		ipiv,
 		b,
 		ldb,
-		*                          info )
+		*                          info
+)
 ```
 
  SGBTRS solves a system of linear equations

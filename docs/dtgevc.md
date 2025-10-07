@@ -1,5 +1,6 @@
 ```fortran
-subroutine dtgevc	(	side,
+subroutine dtgevc (
+		side,
 		howmny,
 		select,
 		n,
@@ -14,7 +15,8 @@ subroutine dtgevc	(	side,
 		mm,
 		m,
 		work,
-		info )
+		info
+)
 ```
 
  DTGEVC computes some or all of the right and/or left eigenvectors of

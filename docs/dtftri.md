@@ -1,10 +1,12 @@
 ```fortran
-subroutine dtftri	(	character	transr,
-		character	uplo,
-		character	diag,
-		integer	n,
-		double precision, dimension(0: *)	a,
-		integer	info )
+subroutine dtftri (
+		character transr,
+		character uplo,
+		character diag,
+		integer n,
+		double precision, dimension(0: *) a,
+		integer info
+)
 ```
 
  DTFTRI computes the inverse of a triangular matrix A stored in RFP

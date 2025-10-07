@@ -1,5 +1,6 @@
 ```fortran
-subroutine zlaein	(	rightv,
+subroutine zlaein (
+		rightv,
 		noinit,
 		n,
 		h,
@@ -11,7 +12,8 @@ subroutine zlaein	(	rightv,
 		rwork,
 		*                          eps3,
 		smlnum,
-		info )
+		info
+)
 ```
 
  ZLAEIN uses inverse iteration to find a right or left eigenvector

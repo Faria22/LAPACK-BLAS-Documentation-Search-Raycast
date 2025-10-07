@@ -1,16 +1,18 @@
 ```fortran
-subroutine csyr2k	(	character	uplo,
-		character	trans,
-		integer	n,
-		integer	k,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(ldb,*)	b,
-		integer	ldb,
-		complex	beta,
-		complex, dimension(ldc,*)	c,
-		integer	ldc )
+subroutine csyr2k (
+		character uplo,
+		character trans,
+		integer n,
+		integer k,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(ldb,*) b,
+		integer ldb,
+		complex beta,
+		complex, dimension(ldc,*) c,
+		integer ldc
+)
 ```
 
  CSYR2K  performs one of the symmetric rank 2k operations

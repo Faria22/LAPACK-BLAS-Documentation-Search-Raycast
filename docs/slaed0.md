@@ -1,5 +1,6 @@
 ```fortran
-subroutine slaed0	(	icompq,
+subroutine slaed0 (
+		icompq,
 		qsiz,
 		n,
 		d,
@@ -10,7 +11,8 @@ subroutine slaed0	(	icompq,
 		ldqs,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SLAED0 computes all eigenvalues and corresponding eigenvectors of a

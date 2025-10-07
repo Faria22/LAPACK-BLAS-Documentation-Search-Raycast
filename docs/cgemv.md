@@ -1,15 +1,17 @@
 ```fortran
-subroutine cgemv	(	character	trans,
-		integer	m,
-		integer	n,
-		complex	alpha,
-		complex, dimension(lda,*)	a,
-		integer	lda,
-		complex, dimension(*)	x,
-		integer	incx,
-		complex	beta,
-		complex, dimension(*)	y,
-		integer	incy )
+subroutine cgemv (
+		character trans,
+		integer m,
+		integer n,
+		complex alpha,
+		complex, dimension(lda,*) a,
+		integer lda,
+		complex, dimension(*) x,
+		integer incx,
+		complex beta,
+		complex, dimension(*) y,
+		integer incy
+)
 ```
 
  CGEMV performs one of the matrix-vector operations

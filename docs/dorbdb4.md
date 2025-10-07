@@ -1,5 +1,6 @@
 ```fortran
-subroutine dorbdb4	(	m,
+subroutine dorbdb4 (
+		m,
 		p,
 		q,
 		x11,
@@ -14,7 +15,8 @@ subroutine dorbdb4	(	m,
 		phantom,
 		work,
 		lwork,
-		*                           info )
+		*                           info
+)
 ```
 
  DORBDB4 simultaneously bidiagonalizes the blocks of a tall and skinny

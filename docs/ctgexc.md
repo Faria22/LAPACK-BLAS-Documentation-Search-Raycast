@@ -1,5 +1,6 @@
 ```fortran
-subroutine ctgexc	(	wantq,
+subroutine ctgexc (
+		wantq,
 		wantz,
 		n,
 		a,
@@ -12,7 +13,8 @@ subroutine ctgexc	(	wantq,
 		*                          ldz,
 		ifst,
 		ilst,
-		info )
+		info
+)
 ```
 
  CTGEXC reorders the generalized Schur decomposition of a complex

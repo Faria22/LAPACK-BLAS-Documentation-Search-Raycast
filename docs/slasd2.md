@@ -1,5 +1,6 @@
 ```fortran
-subroutine slasd2	(	nl,
+subroutine slasd2 (
+		nl,
 		nr,
 		sqre,
 		k,
@@ -21,7 +22,8 @@ subroutine slasd2	(	nl,
 		*                          idxc,
 		idxq,
 		coltyp,
-		info )
+		info
+)
 ```
 
  SLASD2 merges the two sets of singular values together into a single

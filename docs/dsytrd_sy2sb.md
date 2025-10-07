@@ -1,5 +1,6 @@
 ```fortran
-subroutine dsytrd_sy2sb	(	uplo,
+subroutine dsytrd_sy2sb (
+		uplo,
 		n,
 		kd,
 		a,
@@ -9,7 +10,8 @@ subroutine dsytrd_sy2sb	(	uplo,
 		tau,
 		*                              work,
 		lwork,
-		info )
+		info
+)
 ```
 
  DSYTRD_SY2SB reduces a real symmetric matrix A to real symmetric

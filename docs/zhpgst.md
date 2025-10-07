@@ -1,10 +1,12 @@
 ```fortran
-subroutine zhpgst	(	integer	itype,
-		character	uplo,
-		integer	n,
-		complex*16, dimension(*)	ap,
-		complex*16, dimension(*)	bp,
-		integer	info )
+subroutine zhpgst (
+		integer itype,
+		character uplo,
+		integer n,
+		complex*16, dimension(*) ap,
+		complex*16, dimension(*) bp,
+		integer info
+)
 ```
 
  ZHPGST reduces a complex Hermitian-definite generalized

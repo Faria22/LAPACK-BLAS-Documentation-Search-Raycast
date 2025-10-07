@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgelss	(	m,
+subroutine zgelss (
+		m,
 		n,
 		nrhs,
 		a,
@@ -12,7 +13,8 @@ subroutine zgelss	(	m,
 		*                          work,
 		lwork,
 		rwork,
-		info )
+		info
+)
 ```
 
  ZGELSS computes the minimum norm solution to a complex linear

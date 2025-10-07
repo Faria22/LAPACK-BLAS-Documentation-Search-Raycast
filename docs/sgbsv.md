@@ -1,14 +1,16 @@
 ```fortran
-subroutine sgbsv	(	integer	n,
-		integer	kl,
-		integer	ku,
-		integer	nrhs,
-		real, dimension(ldab, *)	ab,
-		integer	ldab,
-		integer, dimension(*)	ipiv,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sgbsv (
+		integer n,
+		integer kl,
+		integer ku,
+		integer nrhs,
+		real, dimension(ldab, *) ab,
+		integer ldab,
+		integer, dimension(*) ipiv,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SGBSV computes the solution to a real system of linear equations

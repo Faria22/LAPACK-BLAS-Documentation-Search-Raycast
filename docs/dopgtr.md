@@ -1,12 +1,14 @@
 ```fortran
-subroutine dopgtr	(	character	uplo,
-		integer	n,
-		double precision, dimension(*)	ap,
-		double precision, dimension(*)	tau,
-		double precision, dimension(ldq, *)	q,
-		integer	ldq,
-		double precision, dimension(*)	work,
-		integer	info )
+subroutine dopgtr (
+		character uplo,
+		integer n,
+		double precision, dimension(*) ap,
+		double precision, dimension(*) tau,
+		double precision, dimension(ldq, *) q,
+		integer ldq,
+		double precision, dimension(*) work,
+		integer info
+)
 ```
 
  DOPGTR generates a real orthogonal matrix Q which is defined as the

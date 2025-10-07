@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztpqrt	(	m,
+subroutine ztpqrt (
+		m,
 		n,
 		l,
 		nb,
@@ -10,7 +11,8 @@ subroutine ztpqrt	(	m,
 		t,
 		ldt,
 		work,
-		*                          info )
+		*                          info
+)
 ```
 
  ZTPQRT computes a blocked QR factorization of a complex

@@ -1,13 +1,15 @@
 ```fortran
-subroutine zpbequ	(	character	uplo,
-		integer	n,
-		integer	kd,
-		complex*16, dimension(ldab, *)	ab,
-		integer	ldab,
-		double precision, dimension(*)	s,
-		double precision	scond,
-		double precision	amax,
-		integer	info )
+subroutine zpbequ (
+		character uplo,
+		integer n,
+		integer kd,
+		complex*16, dimension(ldab, *) ab,
+		integer ldab,
+		double precision, dimension(*) s,
+		double precision scond,
+		double precision amax,
+		integer info
+)
 ```
 
  ZPBEQU computes row and column scalings intended to equilibrate a

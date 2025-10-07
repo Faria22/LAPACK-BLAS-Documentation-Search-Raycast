@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlaeda	(	n,
+subroutine dlaeda (
+		n,
 		tlvls,
 		curlvl,
 		curpbm,
@@ -12,7 +13,8 @@ subroutine dlaeda	(	n,
 		qptr,
 		z,
 		ztemp,
-		info )
+		info
+)
 ```
 
  DLAEDA computes the Z vector corresponding to the merge step in the

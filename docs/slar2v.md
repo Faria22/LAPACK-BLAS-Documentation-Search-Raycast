@@ -1,12 +1,14 @@
 ```fortran
-subroutine slar2v	(	integer	n,
-		real, dimension(*)	x,
-		real, dimension(*)	y,
-		real, dimension(*)	z,
-		integer	incx,
-		real, dimension(*)	c,
-		real, dimension(*)	s,
-		integer	incc )
+subroutine slar2v (
+		integer n,
+		real, dimension(*) x,
+		real, dimension(*) y,
+		real, dimension(*) z,
+		integer incx,
+		real, dimension(*) c,
+		real, dimension(*) s,
+		integer incc
+)
 ```
 
  SLAR2V applies a vector of real plane rotations from both sides to

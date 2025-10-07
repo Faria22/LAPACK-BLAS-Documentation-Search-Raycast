@@ -1,10 +1,12 @@
 ```fortran
-subroutine stpttr	(	character	uplo,
-		integer	n,
-		real, dimension(*)	ap,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	info )
+subroutine stpttr (
+		character uplo,
+		integer n,
+		real, dimension(*) ap,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer info
+)
 ```
 
  STPTTR copies a triangular matrix A from standard packed format (TP)

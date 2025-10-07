@@ -1,13 +1,15 @@
 ```fortran
-subroutine slasd4	(	integer	n,
-		integer	i,
-		real, dimension(*)	d,
-		real, dimension(*)	z,
-		real, dimension(*)	delta,
-		real	rho,
-		real	sigma,
-		real, dimension(*)	work,
-		integer	info )
+subroutine slasd4 (
+		integer n,
+		integer i,
+		real, dimension(*) d,
+		real, dimension(*) z,
+		real, dimension(*) delta,
+		real rho,
+		real sigma,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  This subroutine computes the square root of the I-th updated

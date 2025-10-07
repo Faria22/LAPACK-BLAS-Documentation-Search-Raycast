@@ -1,13 +1,15 @@
 ```fortran
-subroutine slatrd	(	character	uplo,
-		integer	n,
-		integer	nb,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	e,
-		real, dimension(*)	tau,
-		real, dimension(ldw, *)	w,
-		integer	ldw )
+subroutine slatrd (
+		character uplo,
+		integer n,
+		integer nb,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) e,
+		real, dimension(*) tau,
+		real, dimension(ldw, *) w,
+		integer ldw
+)
 ```
 
  SLATRD reduces NB rows and columns of a real symmetric matrix A to

@@ -1,5 +1,6 @@
 ```fortran
-subroutine sorgtsqr	(	m,
+subroutine sorgtsqr (
+		m,
 		n,
 		mb,
 		nb,
@@ -9,7 +10,8 @@ subroutine sorgtsqr	(	m,
 		ldt,
 		work,
 		lwork,
-		*      $                     info )
+		*      $                     info
+)
 ```
 
  SORGTSQR generates an M-by-N real matrix Q_out with orthonormal columns,

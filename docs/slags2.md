@@ -1,5 +1,6 @@
 ```fortran
-subroutine slags2	(	upper,
+subroutine slags2 (
+		upper,
 		a1,
 		a2,
 		a3,
@@ -11,7 +12,8 @@ subroutine slags2	(	upper,
 		csv,
 		*                          snv,
 		csq,
-		snq )
+		snq
+)
 ```
 
  SLAGS2 computes 2-by-2 orthogonal matrices U, V and Q, such

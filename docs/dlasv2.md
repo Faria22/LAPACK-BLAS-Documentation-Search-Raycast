@@ -1,13 +1,15 @@
 ```fortran
-subroutine dlasv2	(	double precision	f,
-		double precision	g,
-		double precision	h,
-		double precision	ssmin,
-		double precision	ssmax,
-		double precision	snr,
-		double precision	csr,
-		double precision	snl,
-		double precision	csl )
+subroutine dlasv2 (
+		double precision f,
+		double precision g,
+		double precision h,
+		double precision ssmin,
+		double precision ssmax,
+		double precision snr,
+		double precision csr,
+		double precision snl,
+		double precision csl
+)
 ```
 
  DLASV2 computes the singular value decomposition of a 2-by-2

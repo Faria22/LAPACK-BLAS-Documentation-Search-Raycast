@@ -1,5 +1,6 @@
 ```fortran
-subroutine dlamswlq	(	side,
+subroutine dlamswlq (
+		side,
 		trans,
 		m,
 		n,
@@ -14,7 +15,8 @@ subroutine dlamswlq	(	side,
 		ldc,
 		work,
 		lwork,
-		info )
+		info
+)
 ```
 
     DLAMSWLQ overwrites the general real M-by-N matrix C with

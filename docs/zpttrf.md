@@ -1,8 +1,10 @@
 ```fortran
-subroutine zpttrf	(	integer	n,
-		double precision, dimension(*)	d,
-		complex*16, dimension(*)	e,
-		integer	info )
+subroutine zpttrf (
+		integer n,
+		double precision, dimension(*) d,
+		complex*16, dimension(*) e,
+		integer info
+)
 ```
 
  ZPTTRF computes the L*D*L**H factorization of a complex Hermitian

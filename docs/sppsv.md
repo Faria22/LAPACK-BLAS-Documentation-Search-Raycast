@@ -1,11 +1,13 @@
 ```fortran
-subroutine sppsv	(	character	uplo,
-		integer	n,
-		integer	nrhs,
-		real, dimension(*)	ap,
-		real, dimension(ldb, *)	b,
-		integer	ldb,
-		integer	info )
+subroutine sppsv (
+		character uplo,
+		integer n,
+		integer nrhs,
+		real, dimension(*) ap,
+		real, dimension(ldb, *) b,
+		integer ldb,
+		integer info
+)
 ```
 
  SPPSV computes the solution to a real system of linear equations

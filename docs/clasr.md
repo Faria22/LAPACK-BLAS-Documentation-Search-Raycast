@@ -1,13 +1,15 @@
 ```fortran
-subroutine clasr	(	character	side,
-		character	pivot,
-		character	direct,
-		integer	m,
-		integer	n,
-		real, dimension(*)	c,
-		real, dimension(*)	s,
-		complex, dimension(lda, *)	a,
-		integer	lda )
+subroutine clasr (
+		character side,
+		character pivot,
+		character direct,
+		integer m,
+		integer n,
+		real, dimension(*) c,
+		real, dimension(*) s,
+		complex, dimension(lda, *) a,
+		integer lda
+)
 ```
 
  CLASR applies a sequence of real plane rotations to a complex matrix

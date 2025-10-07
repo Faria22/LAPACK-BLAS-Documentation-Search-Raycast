@@ -1,9 +1,11 @@
 ```fortran
-subroutine spftri	(	character	transr,
-		character	uplo,
-		integer	n,
-		real, dimension(0: *)	a,
-		integer	info )
+subroutine spftri (
+		character transr,
+		character uplo,
+		integer n,
+		real, dimension(0: *) a,
+		integer info
+)
 ```
 
  SPFTRI computes the inverse of a real (symmetric) positive definite

@@ -1,10 +1,12 @@
 ```fortran
-subroutine clacn2	(	integer	n,
-		complex, dimension(*)	v,
-		complex, dimension(*)	x,
-		real	est,
-		integer	kase,
-		integer, dimension(3)	isave )
+subroutine clacn2 (
+		integer n,
+		complex, dimension(*) v,
+		complex, dimension(*) x,
+		real est,
+		integer kase,
+		integer, dimension(3) isave
+)
 ```
 
  CLACN2 estimates the 1-norm of a square, complex matrix A.

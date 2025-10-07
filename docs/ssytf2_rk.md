@@ -1,11 +1,13 @@
 ```fortran
-subroutine ssytf2_rk	(	character	uplo,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine ssytf2_rk (
+		character uplo,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  SSYTF2_RK computes the factorization of a real symmetric matrix A
  using the bounded Bunch-Kaufman (rook) diagonal pivoting method:

@@ -1,14 +1,16 @@
 ```fortran
-subroutine dgtts2	(	integer	itrans,
-		integer	n,
-		integer	nrhs,
-		double precision, dimension(*)	dl,
-		double precision, dimension(*)	d,
-		double precision, dimension(*)	du,
-		double precision, dimension(*)	du2,
-		integer, dimension(*)	ipiv,
-		double precision, dimension(ldb, *)	b,
-		integer	ldb )
+subroutine dgtts2 (
+		integer itrans,
+		integer n,
+		integer nrhs,
+		double precision, dimension(*) dl,
+		double precision, dimension(*) d,
+		double precision, dimension(*) du,
+		double precision, dimension(*) du2,
+		integer, dimension(*) ipiv,
+		double precision, dimension(ldb, *) b,
+		integer ldb
+)
 ```
 
  DGTTS2 solves one of the systems of equations

@@ -1,14 +1,16 @@
 ```fortran
-subroutine sgebd2	(	integer	m,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	d,
-		real, dimension(*)	e,
+subroutine sgebd2 (
+		integer m,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) d,
+		real, dimension(*) e,
 		tauq,
-		real, dimension(*)	taup,
+		real, dimension(*) taup,
 		work,
-		integer	info )
+		integer info
+)
 ```
 
  SGEBD2 reduces a real general m by n matrix A to upper or lower

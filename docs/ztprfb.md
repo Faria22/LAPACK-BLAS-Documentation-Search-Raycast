@@ -1,5 +1,6 @@
 ```fortran
-subroutine ztprfb	(	side,
+subroutine ztprfb (
+		side,
 		trans,
 		direct,
 		storev,
@@ -16,7 +17,8 @@ subroutine ztprfb	(	side,
 		b,
 		ldb,
 		work,
-		ldwork )
+		ldwork
+)
 ```
 
  ZTPRFB applies a complex "triangular-pentagonal" block reflector H or its

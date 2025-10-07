@@ -1,12 +1,14 @@
 ```fortran
-subroutine ssyconvf	(	character	uplo,
-		character	way,
-		integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	e,
-		integer, dimension(*)	ipiv,
-		integer	info )
+subroutine ssyconvf (
+		character uplo,
+		character way,
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) e,
+		integer, dimension(*) ipiv,
+		integer info
+)
 ```
  If parameter WAY = 'C':
  SSYCONVF converts the factorization output format used in

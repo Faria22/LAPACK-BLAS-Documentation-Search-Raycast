@@ -1,11 +1,13 @@
 ```fortran
-subroutine dlag2s	(	integer	m,
-		integer	n,
-		double precision, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(ldsa, *)	sa,
-		integer	ldsa,
-		integer	info )
+subroutine dlag2s (
+		integer m,
+		integer n,
+		double precision, dimension(lda, *) a,
+		integer lda,
+		real, dimension(ldsa, *) sa,
+		integer ldsa,
+		integer info
+)
 ```
 
  DLAG2S converts a DOUBLE PRECISION matrix, A, to a SINGLE

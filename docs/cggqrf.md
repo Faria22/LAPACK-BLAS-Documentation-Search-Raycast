@@ -1,5 +1,6 @@
 ```fortran
-subroutine cggqrf	(	n,
+subroutine cggqrf (
+		n,
 		m,
 		p,
 		a,
@@ -10,7 +11,8 @@ subroutine cggqrf	(	n,
 		taub,
 		work,
 		*                          lwork,
-		info )
+		info
+)
 ```
 
  CGGQRF computes a generalized QR factorization of an N-by-M matrix A

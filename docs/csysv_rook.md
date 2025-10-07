@@ -1,5 +1,6 @@
 ```fortran
-subroutine csysv_rook	(	uplo,
+subroutine csysv_rook (
+		uplo,
 		n,
 		nrhs,
 		a,
@@ -9,7 +10,8 @@ subroutine csysv_rook	(	uplo,
 		ldb,
 		work,
 		*                         lwork,
-		info )
+		info
+)
 ```
 
  CSYSV_ROOK computes the solution to a complex system of linear

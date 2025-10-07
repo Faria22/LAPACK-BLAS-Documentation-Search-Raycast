@@ -1,5 +1,6 @@
 ```fortran
-subroutine dgbequ	(	m,
+subroutine dgbequ (
+		m,
 		n,
 		kl,
 		ku,
@@ -10,7 +11,8 @@ subroutine dgbequ	(	m,
 		rowcnd,
 		colcnd,
 		*                          amax,
-		info )
+		info
+)
 ```
 
  DGBEQU computes row and column scalings intended to equilibrate an

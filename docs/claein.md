@@ -1,5 +1,6 @@
 ```fortran
-subroutine claein	(	rightv,
+subroutine claein (
+		rightv,
 		noinit,
 		n,
 		h,
@@ -11,7 +12,8 @@ subroutine claein	(	rightv,
 		rwork,
 		*                          eps3,
 		smlnum,
-		info )
+		info
+)
 ```
 
  CLAEIN uses inverse iteration to find a right or left eigenvector

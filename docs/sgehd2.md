@@ -1,12 +1,14 @@
 ```fortran
-subroutine sgehd2	(	integer	n,
-		integer	ilo,
-		integer	ihi,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		real, dimension(*)	tau,
-		real, dimension(*)	work,
-		integer	info )
+subroutine sgehd2 (
+		integer n,
+		integer ilo,
+		integer ihi,
+		real, dimension(lda, *) a,
+		integer lda,
+		real, dimension(*) tau,
+		real, dimension(*) work,
+		integer info
+)
 ```
 
  SGEHD2 reduces a real general matrix A to upper Hessenberg form H by

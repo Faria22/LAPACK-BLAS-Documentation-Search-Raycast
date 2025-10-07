@@ -1,5 +1,6 @@
 ```fortran
-subroutine zgtrfs	(	trans,
+subroutine zgtrfs (
+		trans,
 		n,
 		nrhs,
 		dl,
@@ -18,7 +19,8 @@ subroutine zgtrfs	(	trans,
 		berr,
 		work,
 		rwork,
-		*                          info )
+		*                          info
+)
 ```
 
  ZGTRFS improves the computed solution to a system of linear

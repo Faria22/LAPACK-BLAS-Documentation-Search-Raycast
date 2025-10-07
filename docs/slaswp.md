@@ -1,11 +1,13 @@
 ```fortran
-subroutine slaswp	(	integer	n,
-		real, dimension(lda, *)	a,
-		integer	lda,
-		integer	k1,
-		integer	k2,
-		integer, dimension(*)	ipiv,
-		integer	incx )
+subroutine slaswp (
+		integer n,
+		real, dimension(lda, *) a,
+		integer lda,
+		integer k1,
+		integer k2,
+		integer, dimension(*) ipiv,
+		integer incx
+)
 ```
 
  SLASWP performs a series of row interchanges on the matrix A.

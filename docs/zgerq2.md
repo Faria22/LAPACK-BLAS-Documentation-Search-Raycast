@@ -1,11 +1,13 @@
 ```fortran
-subroutine zgerq2	(	integer	m,
-		integer	n,
-		complex*16, dimension(lda, *)	a,
-		integer	lda,
-		complex*16, dimension(*)	tau,
-		complex*16, dimension(*)	work,
-		integer	info )
+subroutine zgerq2 (
+		integer m,
+		integer n,
+		complex*16, dimension(lda, *) a,
+		integer lda,
+		complex*16, dimension(*) tau,
+		complex*16, dimension(*) work,
+		integer info
+)
 ```
 
  ZGERQ2 computes an RQ factorization of a complex m by n matrix A:

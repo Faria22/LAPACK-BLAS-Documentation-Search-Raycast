@@ -1,5 +1,6 @@
 ```fortran
-subroutine sgtsvx	(	fact,
+subroutine sgtsvx (
+		fact,
 		trans,
 		n,
 		nrhs,
@@ -20,7 +21,8 @@ subroutine sgtsvx	(	fact,
 		berr,
 		*                          work,
 		iwork,
-		info )
+		info
+)
 ```
 
  SGTSVX uses the LU factorization to compute the solution to a real

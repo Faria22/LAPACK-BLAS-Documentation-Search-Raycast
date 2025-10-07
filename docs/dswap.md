@@ -1,9 +1,11 @@
 ```fortran
-subroutine dswap	(	integer	n,
-		double precision, dimension(*)	dx,
-		integer	incx,
-		double precision, dimension(*)	dy,
-		integer	incy )
+subroutine dswap (
+		integer n,
+		double precision, dimension(*) dx,
+		integer incx,
+		double precision, dimension(*) dy,
+		integer incy
+)
 ```
 
     DSWAP interchanges two vectors.
