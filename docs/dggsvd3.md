@@ -1,17 +1,29 @@
-# DGGSVD3
-
-DGGSVD3 computes the singular value decomposition (SVD) for OTHER matrices
-
-## Function Signature
-
 ```fortran
-DGGSVD3(JOBU, JOBV, JOBQ, M, N, P, K, L, A, LDA, B,
-*                           LDB, ALPHA, BETA, U, LDU, V, LDV, Q, LDQ, WORK,
-*                           LWORK, IWORK, INFO)
+subroutine dggsvd3	(	jobu,
+		jobv,
+		jobq,
+		m,
+		n,
+		p,
+		k,
+		l,
+		a,
+		lda,
+		b,
+		*                           ldb,
+		alpha,
+		beta,
+		u,
+		ldu,
+		v,
+		ldv,
+		q,
+		ldq,
+		work,
+		*                           lwork,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  DGGSVD3 computes the generalized singular value decomposition (GSVD)
  of an M-by-N real matrix A and P-by-N real matrix B:
@@ -93,100 +105,112 @@ DGGSVD3(JOBU, JOBV, JOBQ, M, N, P, K, L, A, LDA, B,
                             ( 0 inv(R) ).
 
 ## Parameters
+Jobu : Character*1 [in]
+> = 'U':  Orthogonal matrix U is computed;
+> = 'N':  U is not computed.
 
-### JOBU (in)
+Jobv : Character*1 [in]
+> = 'V':  Orthogonal matrix V is computed;
+> = 'N':  V is not computed.
 
-JOBU is CHARACTER*1 = 'U': Orthogonal matrix U is computed; = 'N': U is not computed.
+Jobq : Character*1 [in]
+> = 'Q':  Orthogonal matrix Q is computed;
+> = 'N':  Q is not computed.
 
-### JOBV (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-JOBV is CHARACTER*1 = 'V': Orthogonal matrix V is computed; = 'N': V is not computed.
+N : Integer [in]
+> The number of columns of the matrices A and B.  N >= 0.
 
-### JOBQ (in)
+P : Integer [in]
+> The number of rows of the matrix B.  P >= 0.
 
-JOBQ is CHARACTER*1 = 'Q': Orthogonal matrix Q is computed; = 'N': Q is not computed.
+K : Integer [out]
 
-### M (in)
+L : Integer [out]
+> On exit, K and L specify the dimension of the subblocks
+> described in Purpose.
+> K + L = effective numerical rank of (A**T,B**T)**T.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A contains the triangular matrix R, or part of R.
+> See Purpose for details.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+B : Double Precision Array, Dimension (ldb,n) [in,out]
+> On entry, the P-by-N matrix B.
+> On exit, B contains the triangular matrix R if M-K-L < 0.
+> See Purpose for details.
 
-### P (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,P).
 
-P is INTEGER The number of rows of the matrix B. P >= 0.
+Alpha : Double Precision Array, Dimension (n) [out]
 
-### K (out)
+Beta : Double Precision Array, Dimension (n) [out]
+> On exit, ALPHA and BETA contain the generalized singular
+> value pairs of A and B;
+> ALPHA(1:K) = 1,
+> BETA(1:K)  = 0,
+> and if M-K-L >= 0,
+> ALPHA(K+1:K+L) = C,
+> BETA(K+1:K+L)  = S,
+> or if M-K-L < 0,
+> ALPHA(K+1:M)=C, ALPHA(M+1:K+L)=0
+> BETA(K+1:M) =S, BETA(M+1:K+L) =1
+> and
+> ALPHA(K+L+1:N) = 0
+> BETA(K+L+1:N)  = 0
 
-K is INTEGER
+U : Double Precision Array, Dimension (ldu,m) [out]
+> If JOBU = 'U', U contains the M-by-M orthogonal matrix U.
+> If JOBU = 'N', U is not referenced.
 
-### L (out)
+Ldu : Integer [in]
+> The leading dimension of the array U. LDU >= max(1,M) if
+> JOBU = 'U'; LDU >= 1 otherwise.
 
-L is INTEGER On exit, K and L specify the dimension of the subblocks described in Purpose. K + L = effective numerical rank of (A**T,B**T)**T.
+V : Double Precision Array, Dimension (ldv,p) [out]
+> If JOBV = 'V', V contains the P-by-P orthogonal matrix V.
+> If JOBV = 'N', V is not referenced.
 
-### A (in,out)
+Ldv : Integer [in]
+> The leading dimension of the array V. LDV >= max(1,P) if
+> JOBV = 'V'; LDV >= 1 otherwise.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A contains the triangular matrix R, or part of R. See Purpose for details.
+Q : Double Precision Array, Dimension (ldq,n) [out]
+> If JOBQ = 'Q', Q contains the N-by-N orthogonal matrix Q.
+> If JOBQ = 'N', Q is not referenced.
 
-### LDA (in)
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= max(1,N) if
+> JOBQ = 'Q'; LDQ >= 1 otherwise.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= 1.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is DOUBLE PRECISION array, dimension (LDB,N) On entry, the P-by-N matrix B. On exit, B contains the triangular matrix R if M-K-L < 0. See Purpose for details.
+Iwork : Integer Array, Dimension (n) [out]
+> On exit, IWORK stores the sorting information. More
+> precisely, the following loop will sort ALPHA
+> for I = K+1, min(M,K+L)
+> swap ALPHA(I) and ALPHA(IWORK(I))
+> endfor
+> such that ALPHA(1) >= ALPHA(2) >= ... >= ALPHA(N).
 
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,P).
-
-### ALPHA (out)
-
-ALPHA is DOUBLE PRECISION array, dimension (N)
-
-### BETA (out)
-
-BETA is DOUBLE PRECISION array, dimension (N) On exit, ALPHA and BETA contain the generalized singular value pairs of A and B; ALPHA(1:K) = 1, BETA(1:K) = 0, and if M-K-L >= 0, ALPHA(K+1:K+L) = C, BETA(K+1:K+L) = S, or if M-K-L < 0, ALPHA(K+1:M)=C, ALPHA(M+1:K+L)=0 BETA(K+1:M) =S, BETA(M+1:K+L) =1 and ALPHA(K+L+1:N) = 0 BETA(K+L+1:N) = 0
-
-### U (out)
-
-U is DOUBLE PRECISION array, dimension (LDU,M) If JOBU = 'U', U contains the M-by-M orthogonal matrix U. If JOBU = 'N', U is not referenced.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max(1,M) if JOBU = 'U'; LDU >= 1 otherwise.
-
-### V (out)
-
-V is DOUBLE PRECISION array, dimension (LDV,P) If JOBV = 'V', V contains the P-by-P orthogonal matrix V. If JOBV = 'N', V is not referenced.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. LDV >= max(1,P) if JOBV = 'V'; LDV >= 1 otherwise.
-
-### Q (out)
-
-Q is DOUBLE PRECISION array, dimension (LDQ,N) If JOBQ = 'Q', Q contains the N-by-N orthogonal matrix Q. If JOBQ = 'N', Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N) if JOBQ = 'Q'; LDQ >= 1 otherwise.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N) On exit, IWORK stores the sorting information. More precisely, the following loop will sort ALPHA for I = K+1, min(M,K+L) swap ALPHA(I) and ALPHA(IWORK(I)) endfor such that ALPHA(1) >= ALPHA(2) >= ... >= ALPHA(N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, the Jacobi-type procedure failed to converge. For further details, see subroutine DTGSJA.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, the Jacobi-type procedure failed to
+> converge.  For further details, see subroutine DTGSJA.
 

@@ -1,57 +1,48 @@
-# SLASQ6
-
-## Function Signature
-
 ```fortran
-SLASQ6(I0, N0, Z, PP, DMIN, DMIN1, DMIN2, DN,
-*                          DNM1, DNM2)
+subroutine slasq6	(	i0,
+		n0,
+		z,
+		pp,
+		dmin,
+		dmin1,
+		dmin2,
+		dn,
+		*                          dnm1,
+		dnm2 )
 ```
-
-## Description
-
 
  SLASQ6 computes one dqd (shift equal to zero) transform in
  ping-pong form, with protection against underflow and overflow.
 
 ## Parameters
+I0 : Integer [in]
+> First index.
 
-### I0 (in)
+N0 : Integer [in]
+> Last index.
 
-I0 is INTEGER First index.
+Z : Real Array, Dimension ( 4*n ) [in]
+> Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+> an extra argument.
 
-### N0 (in)
+Pp : Integer [in]
+> PP=0 for ping, PP=1 for pong.
 
-N0 is INTEGER Last index.
+Dmin : Real [out]
+> Minimum value of d.
 
-### Z (in)
+Dmin1 : Real [out]
+> Minimum value of d, excluding D( N0 ).
 
-Z is REAL array, dimension ( 4*N ) Z holds the qd array. EMIN is stored in Z(4*N0) to avoid an extra argument.
+Dmin2 : Real [out]
+> Minimum value of d, excluding D( N0 ) and D( N0-1 ).
 
-### PP (in)
+Dn : Real [out]
+> d(N0), the last value of d.
 
-PP is INTEGER PP=0 for ping, PP=1 for pong.
+Dnm1 : Real [out]
+> d(N0-1).
 
-### DMIN (out)
-
-DMIN is REAL Minimum value of d.
-
-### DMIN1 (out)
-
-DMIN1 is REAL Minimum value of d, excluding D( N0 ).
-
-### DMIN2 (out)
-
-DMIN2 is REAL Minimum value of d, excluding D( N0 ) and D( N0-1 ).
-
-### DN (out)
-
-DN is REAL d(N0), the last value of d.
-
-### DNM1 (out)
-
-DNM1 is REAL d(N0-1).
-
-### DNM2 (out)
-
-DNM2 is REAL d(N0-2).
+Dnm2 : Real [out]
+> d(N0-2).
 

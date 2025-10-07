@@ -1,13 +1,13 @@
-# ZLAR2V
-
-## Function Signature
-
 ```fortran
-ZLAR2V(N, X, Y, Z, INCX, C, S, INCC)
+subroutine zlar2v	(	integer	n,
+		complex*16, dimension(*)	x,
+		complex*16, dimension(*)	y,
+		complex*16, dimension(*)	z,
+		integer	incx,
+		double precision, dimension(*)	c,
+		complex*16, dimension(*)	s,
+		integer	incc )
 ```
-
-## Description
-
 
  ZLAR2V applies a vector of complex plane rotations with real cosines
  from both sides to a sequence of 2-by-2 complex Hermitian matrices,
@@ -20,36 +20,27 @@ ZLAR2V(N, X, Y, Z, INCX, C, S, INCC)
       ( -s(i)       c(i)  ) ( conjg(z(i)) y(i) ) ( s(i)        c(i)  )
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be applied.
 
-### N (in)
+X : Complex*16 Array, Dimension (1+(n-1)*incx) [in,out]
+> The vector x; the elements of x are assumed to be real.
 
-N is INTEGER The number of plane rotations to be applied.
+Y : Complex*16 Array, Dimension (1+(n-1)*incx) [in,out]
+> The vector y; the elements of y are assumed to be real.
 
-### X (in,out)
+Z : Complex*16 Array, Dimension (1+(n-1)*incx) [in,out]
+> The vector z.
 
-X is COMPLEX*16 array, dimension (1+(N-1)*INCX) The vector x; the elements of x are assumed to be real.
+Incx : Integer [in]
+> The increment between elements of X, Y and Z. INCX > 0.
 
-### Y (in,out)
+C : Double Precision Array, Dimension (1+(n-1)*incc) [in]
+> The cosines of the plane rotations.
 
-Y is COMPLEX*16 array, dimension (1+(N-1)*INCX) The vector y; the elements of y are assumed to be real.
+S : Complex*16 Array, Dimension (1+(n-1)*incc) [in]
+> The sines of the plane rotations.
 
-### Z (in,out)
-
-Z is COMPLEX*16 array, dimension (1+(N-1)*INCX) The vector z.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X, Y and Z. INCX > 0.
-
-### C (in)
-
-C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### S (in)
-
-S is COMPLEX*16 array, dimension (1+(N-1)*INCC) The sines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C and S. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C and S. INCC > 0.
 

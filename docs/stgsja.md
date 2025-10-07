@@ -1,15 +1,30 @@
-# STGSJA
-
-## Function Signature
-
 ```fortran
-STGSJA(JOBU, JOBV, JOBQ, M, P, N, K, L, A, LDA, B,
-*                          LDB, TOLA, TOLB, ALPHA, BETA, U, LDU, V, LDV,
-*                          Q, LDQ, WORK, NCYCLE, INFO)
+subroutine stgsja	(	jobu,
+		jobv,
+		jobq,
+		m,
+		p,
+		n,
+		k,
+		l,
+		a,
+		lda,
+		b,
+		*                          ldb,
+		tola,
+		tolb,
+		alpha,
+		beta,
+		u,
+		ldu,
+		v,
+		ldv,
+		*                          q,
+		ldq,
+		work,
+		ncycle,
+		info )
 ```
-
-## Description
-
 
  STGSJA computes the generalized singular value decomposition (GSVD)
  of two real upper triangular (or trapezoidal) matrices A and B.
@@ -96,104 +111,129 @@ STGSJA(JOBU, JOBV, JOBQ, M, P, N, K, L, A, LDA, B,
  may be postmultiplied into input matrices U1, V1, or Q1.
 
 ## Parameters
+Jobu : Character*1 [in]
+> = 'U':  U must contain an orthogonal matrix U1 on entry, and
+> the product U1*U is returned;
+> = 'I':  U is initialized to the unit matrix, and the
+> orthogonal matrix U is returned;
+> = 'N':  U is not computed.
 
-### JOBU (in)
+Jobv : Character*1 [in]
+> = 'V':  V must contain an orthogonal matrix V1 on entry, and
+> the product V1*V is returned;
+> = 'I':  V is initialized to the unit matrix, and the
+> orthogonal matrix V is returned;
+> = 'N':  V is not computed.
 
-JOBU is CHARACTER*1 = 'U': U must contain an orthogonal matrix U1 on entry, and the product U1*U is returned; = 'I': U is initialized to the unit matrix, and the orthogonal matrix U is returned; = 'N': U is not computed.
+Jobq : Character*1 [in]
+> = 'Q':  Q must contain an orthogonal matrix Q1 on entry, and
+> the product Q1*Q is returned;
+> = 'I':  Q is initialized to the unit matrix, and the
+> orthogonal matrix Q is returned;
+> = 'N':  Q is not computed.
 
-### JOBV (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-JOBV is CHARACTER*1 = 'V': V must contain an orthogonal matrix V1 on entry, and the product V1*V is returned; = 'I': V is initialized to the unit matrix, and the orthogonal matrix V is returned; = 'N': V is not computed.
+P : Integer [in]
+> The number of rows of the matrix B.  P >= 0.
 
-### JOBQ (in)
+N : Integer [in]
+> The number of columns of the matrices A and B.  N >= 0.
 
-JOBQ is CHARACTER*1 = 'Q': Q must contain an orthogonal matrix Q1 on entry, and the product Q1*Q is returned; = 'I': Q is initialized to the unit matrix, and the orthogonal matrix Q is returned; = 'N': Q is not computed.
+K : Integer [in]
 
-### M (in)
+L : Integer [in]
+> K and L specify the subblocks in the input matrices A and B:
+> A23 = A(K+1:MIN(K+L,M),N-L+1:N) and B13 = B(1:L,N-L+1:N)
+> of A and B, whose GSVD is going to be computed by STGSJA.
+> See Further Details.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A(N-K+1:N,1:MIN(K+L,M) ) contains the triangular
+> matrix R or part of R.  See Purpose for details.
 
-### P (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-P is INTEGER The number of rows of the matrix B. P >= 0.
+B : Real Array, Dimension (ldb,n) [in,out]
+> On entry, the P-by-N matrix B.
+> On exit, if necessary, B(M-K+1:L,N+M-K-L+1:N) contains
+> a part of R.  See Purpose for details.
 
-### N (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,P).
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+Tola : Real [in]
 
-### K (in)
+Tolb : Real [in]
+> TOLA and TOLB are the convergence criteria for the Jacobi-
+> Kogbetliantz iteration procedure. Generally, they are the
+> same as used in the preprocessing step, say
+> TOLA = max(M,N)*norm(A)*MACHEPS,
+> TOLB = max(P,N)*norm(B)*MACHEPS.
 
-K is INTEGER
+Alpha : Real Array, Dimension (n) [out]
 
-### L (in)
+Beta : Real Array, Dimension (n) [out]
+> On exit, ALPHA and BETA contain the generalized singular
+> value pairs of A and B;
+> ALPHA(1:K) = 1,
+> BETA(1:K)  = 0,
+> and if M-K-L >= 0,
+> ALPHA(K+1:K+L) = diag(C),
+> BETA(K+1:K+L)  = diag(S),
+> or if M-K-L < 0,
+> ALPHA(K+1:M)= C, ALPHA(M+1:K+L)= 0
+> BETA(K+1:M) = S, BETA(M+1:K+L) = 1.
+> Furthermore, if K+L < N,
+> ALPHA(K+L+1:N) = 0 and
+> BETA(K+L+1:N)  = 0.
 
-L is INTEGER K and L specify the subblocks in the input matrices A and B: A23 = A(K+1:MIN(K+L,M),N-L+1:N) and B13 = B(1:L,N-L+1:N) of A and B, whose GSVD is going to be computed by STGSJA. See Further Details.
+U : Real Array, Dimension (ldu,m) [in,out]
+> On entry, if JOBU = 'U', U must contain a matrix U1 (usually
+> the orthogonal matrix returned by SGGSVP).
+> On exit,
+> if JOBU = 'I', U contains the orthogonal matrix U;
+> if JOBU = 'U', U contains the product U1*U.
+> If JOBU = 'N', U is not referenced.
 
-### A (in,out)
+Ldu : Integer [in]
+> The leading dimension of the array U. LDU >= max(1,M) if
+> JOBU = 'U'; LDU >= 1 otherwise.
 
-A is REAL array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A(N-K+1:N,1:MIN(K+L,M) ) contains the triangular matrix R or part of R. See Purpose for details.
+V : Real Array, Dimension (ldv,p) [in,out]
+> On entry, if JOBV = 'V', V must contain a matrix V1 (usually
+> the orthogonal matrix returned by SGGSVP).
+> On exit,
+> if JOBV = 'I', V contains the orthogonal matrix V;
+> if JOBV = 'V', V contains the product V1*V.
+> If JOBV = 'N', V is not referenced.
 
-### LDA (in)
+Ldv : Integer [in]
+> The leading dimension of the array V. LDV >= max(1,P) if
+> JOBV = 'V'; LDV >= 1 otherwise.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Q : Real Array, Dimension (ldq,n) [in,out]
+> On entry, if JOBQ = 'Q', Q must contain a matrix Q1 (usually
+> the orthogonal matrix returned by SGGSVP).
+> On exit,
+> if JOBQ = 'I', Q contains the orthogonal matrix Q;
+> if JOBQ = 'Q', Q contains the product Q1*Q.
+> If JOBQ = 'N', Q is not referenced.
 
-### B (in,out)
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= max(1,N) if
+> JOBQ = 'Q'; LDQ >= 1 otherwise.
 
-B is REAL array, dimension (LDB,N) On entry, the P-by-N matrix B. On exit, if necessary, B(M-K+1:L,N+M-K-L+1:N) contains a part of R. See Purpose for details.
+Work : Real Array, Dimension (2*n) [out]
 
-### LDB (in)
+Ncycle : Integer [out]
+> The number of cycles required for convergence.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,P).
-
-### TOLA (in)
-
-TOLA is REAL
-
-### TOLB (in)
-
-TOLB is REAL TOLA and TOLB are the convergence criteria for the Jacobi- Kogbetliantz iteration procedure. Generally, they are the same as used in the preprocessing step, say TOLA = max(M,N)*norm(A)*MACHEPS, TOLB = max(P,N)*norm(B)*MACHEPS.
-
-### ALPHA (out)
-
-ALPHA is REAL array, dimension (N)
-
-### BETA (out)
-
-BETA is REAL array, dimension (N) On exit, ALPHA and BETA contain the generalized singular value pairs of A and B; ALPHA(1:K) = 1, BETA(1:K) = 0, and if M-K-L >= 0, ALPHA(K+1:K+L) = diag(C), BETA(K+1:K+L) = diag(S), or if M-K-L < 0, ALPHA(K+1:M)= C, ALPHA(M+1:K+L)= 0 BETA(K+1:M) = S, BETA(M+1:K+L) = 1. Furthermore, if K+L < N, ALPHA(K+L+1:N) = 0 and BETA(K+L+1:N) = 0.
-
-### U (in,out)
-
-U is REAL array, dimension (LDU,M) On entry, if JOBU = 'U', U must contain a matrix U1 (usually the orthogonal matrix returned by SGGSVP). On exit, if JOBU = 'I', U contains the orthogonal matrix U; if JOBU = 'U', U contains the product U1*U. If JOBU = 'N', U is not referenced.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max(1,M) if JOBU = 'U'; LDU >= 1 otherwise.
-
-### V (in,out)
-
-V is REAL array, dimension (LDV,P) On entry, if JOBV = 'V', V must contain a matrix V1 (usually the orthogonal matrix returned by SGGSVP). On exit, if JOBV = 'I', V contains the orthogonal matrix V; if JOBV = 'V', V contains the product V1*V. If JOBV = 'N', V is not referenced.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. LDV >= max(1,P) if JOBV = 'V'; LDV >= 1 otherwise.
-
-### Q (in,out)
-
-Q is REAL array, dimension (LDQ,N) On entry, if JOBQ = 'Q', Q must contain a matrix Q1 (usually the orthogonal matrix returned by SGGSVP). On exit, if JOBQ = 'I', Q contains the orthogonal matrix Q; if JOBQ = 'Q', Q contains the product Q1*Q. If JOBQ = 'N', Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N) if JOBQ = 'Q'; LDQ >= 1 otherwise.
-
-### WORK (out)
-
-WORK is REAL array, dimension (2*N)
-
-### NCYCLE (out)
-
-NCYCLE is INTEGER The number of cycles required for convergence.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. = 1: the procedure does not converge after MAXIT cycles.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> = 1:  the procedure does not converge after MAXIT cycles.
 

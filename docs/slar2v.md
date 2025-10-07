@@ -1,13 +1,13 @@
-# SLAR2V
-
-## Function Signature
-
 ```fortran
-SLAR2V(N, X, Y, Z, INCX, C, S, INCC)
+subroutine slar2v	(	integer	n,
+		real, dimension(*)	x,
+		real, dimension(*)	y,
+		real, dimension(*)	z,
+		integer	incx,
+		real, dimension(*)	c,
+		real, dimension(*)	s,
+		integer	incc )
 ```
-
-## Description
-
 
  SLAR2V applies a vector of real plane rotations from both sides to
  a sequence of 2-by-2 real symmetric matrices, defined by the elements
@@ -17,36 +17,30 @@ SLAR2V(N, X, Y, Z, INCX, C, S, INCC)
     ( z(i)  y(i) )    ( -s(i)  c(i) ) ( z(i)  y(i) ) ( s(i)  c(i) )
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be applied.
 
-### N (in)
+X : Real Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector x.
 
-N is INTEGER The number of plane rotations to be applied.
+Y : Real Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector y.
 
-### X (in,out)
+Z : Real Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector z.
 
-X is REAL array, dimension (1+(N-1)*INCX) The vector x.
+Incx : Integer [in]
+> The increment between elements of X, Y and Z. INCX > 0.
 
-### Y (in,out)
+C : Real Array, Dimension (1+(n-1)*incc) [in]
+> The cosines of the plane rotations.
 
-Y is REAL array, dimension (1+(N-1)*INCX) The vector y.
+S : Real Array, Dimension (1+(n-1)*incc) [in]
+> The sines of the plane rotations.
 
-### Z (in,out)
-
-Z is REAL array, dimension (1+(N-1)*INCX) The vector z.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X, Y and Z. INCX > 0.
-
-### C (in)
-
-C is REAL array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### S (in)
-
-S is REAL array, dimension (1+(N-1)*INCC) The sines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C and S. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C and S. INCC > 0.
 

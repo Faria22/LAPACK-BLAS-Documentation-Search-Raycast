@@ -1,14 +1,17 @@
-# ZTPLQT
-
-## Function Signature
-
 ```fortran
-ZTPLQT(M, N, L, MB, A, LDA, B, LDB, T, LDT, WORK,
-*                          INFO)
+subroutine ztplqt	(	m,
+		n,
+		l,
+		mb,
+		a,
+		lda,
+		b,
+		ldb,
+		t,
+		ldt,
+		work,
+		*                          info )
 ```
-
-## Description
-
 
  ZTPLQT computes a blocked LQ factorization of a complex
  "triangular-pentagonal" matrix C, which is composed of a
@@ -16,52 +19,48 @@ ZTPLQT(M, N, L, MB, A, LDA, B, LDB, T, LDT, WORK,
  WY representation for Q.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix B, and the order of the
+> triangular matrix A.
+> M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix B.
+> N >= 0.
 
-M is INTEGER The number of rows of the matrix B, and the order of the triangular matrix A. M >= 0.
+L : Integer [in]
+> The number of rows of the lower trapezoidal part of B.
+> MIN(M,N) >= L >= 0.  See Further Details.
 
-### N (in)
+Mb : Integer [in]
+> The block size to be used in the blocked QR.  M >= MB >= 1.
 
-N is INTEGER The number of columns of the matrix B. N >= 0.
+A : Complex*16 Array, Dimension (lda,m) [in,out]
+> On entry, the lower triangular M-by-M matrix A.
+> On exit, the elements on and below the diagonal of the array
+> contain the lower triangular matrix L.
 
-### L (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-L is INTEGER The number of rows of the lower trapezoidal part of B. MIN(M,N) >= L >= 0. See Further Details.
+B : Complex*16 Array, Dimension (ldb,n) [in,out]
+> On entry, the pentagonal M-by-N matrix B.  The first N-L columns
+> are rectangular, and the last L columns are lower trapezoidal.
+> On exit, B contains the pentagonal matrix V.  See Further Details.
 
-### MB (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,M).
 
-MB is INTEGER The block size to be used in the blocked QR. M >= MB >= 1.
+T : Complex*16 Array, Dimension (ldt,n) [out]
+> The lower triangular block reflectors stored in compact form
+> as a sequence of upper triangular blocks.  See Further Details.
 
-### A (in,out)
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= MB.
 
-A is COMPLEX*16 array, dimension (LDA,M) On entry, the lower triangular M-by-M matrix A. On exit, the elements on and below the diagonal of the array contain the lower triangular matrix L.
+Work : Complex*16 Array, Dimension (mb*m) [out]
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,N) On entry, the pentagonal M-by-N matrix B. The first N-L columns are rectangular, and the last L columns are lower trapezoidal. On exit, B contains the pentagonal matrix V. See Further Details.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,M).
-
-### T (out)
-
-T is COMPLEX*16 array, dimension (LDT,N) The lower triangular block reflectors stored in compact form as a sequence of upper triangular blocks. See Further Details.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= MB.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (MB*M)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

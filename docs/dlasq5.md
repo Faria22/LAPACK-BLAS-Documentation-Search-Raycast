@@ -1,73 +1,64 @@
-# DLASQ5
-
-## Function Signature
-
 ```fortran
-DLASQ5(I0, N0, Z, PP, TAU, SIGMA, DMIN, DMIN1, DMIN2, DN,
-*                          DNM1, DNM2, IEEE, EPS)
+subroutine dlasq5	(	i0,
+		n0,
+		z,
+		pp,
+		tau,
+		sigma,
+		dmin,
+		dmin1,
+		dmin2,
+		dn,
+		*                          dnm1,
+		dnm2,
+		ieee,
+		eps )
 ```
-
-## Description
-
 
  DLASQ5 computes one dqds transform in ping-pong form, one
  version for IEEE machines another for non IEEE machines.
 
 ## Parameters
+I0 : Integer [in]
+> First index.
 
-### I0 (in)
+N0 : Integer [in]
+> Last index.
 
-I0 is INTEGER First index.
+Z : Double Precision Array, Dimension ( 4*n ) [in]
+> Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+> an extra argument.
 
-### N0 (in)
+Pp : Integer [in]
+> PP=0 for ping, PP=1 for pong.
 
-N0 is INTEGER Last index.
+Tau : Double Precision [in]
+> This is the shift.
 
-### Z (in)
+Sigma : Double Precision [in]
+> This is the accumulated shift up to this step.
 
-Z is DOUBLE PRECISION array, dimension ( 4*N ) Z holds the qd array. EMIN is stored in Z(4*N0) to avoid an extra argument.
+Dmin : Double Precision [out]
+> Minimum value of d.
 
-### PP (in)
+Dmin1 : Double Precision [out]
+> Minimum value of d, excluding D( N0 ).
 
-PP is INTEGER PP=0 for ping, PP=1 for pong.
+Dmin2 : Double Precision [out]
+> Minimum value of d, excluding D( N0 ) and D( N0-1 ).
 
-### TAU (in)
+Dn : Double Precision [out]
+> d(N0), the last value of d.
 
-TAU is DOUBLE PRECISION This is the shift.
+Dnm1 : Double Precision [out]
+> d(N0-1).
 
-### SIGMA (in)
+Dnm2 : Double Precision [out]
+> d(N0-2).
 
-SIGMA is DOUBLE PRECISION This is the accumulated shift up to this step.
+Ieee : Logical [in]
+> Flag for IEEE or non IEEE arithmetic.
 
-### DMIN (out)
-
-DMIN is DOUBLE PRECISION Minimum value of d.
-
-### DMIN1 (out)
-
-DMIN1 is DOUBLE PRECISION Minimum value of d, excluding D( N0 ).
-
-### DMIN2 (out)
-
-DMIN2 is DOUBLE PRECISION Minimum value of d, excluding D( N0 ) and D( N0-1 ).
-
-### DN (out)
-
-DN is DOUBLE PRECISION d(N0), the last value of d.
-
-### DNM1 (out)
-
-DNM1 is DOUBLE PRECISION d(N0-1).
-
-### DNM2 (out)
-
-DNM2 is DOUBLE PRECISION d(N0-2).
-
-### IEEE (in)
-
-IEEE is LOGICAL Flag for IEEE or non IEEE arithmetic.
-
-### EPS (in)
-
-EPS is DOUBLE PRECISION This is the value of epsilon used.
+Eps : Double Precision [in]
+> This is the value of epsilon used.
 

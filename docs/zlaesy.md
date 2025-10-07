@@ -1,13 +1,13 @@
-# ZLAESY
-
-## Function Signature
-
 ```fortran
-ZLAESY(A, B, C, RT1, RT2, EVSCAL, CS1, SN1)
+subroutine zlaesy	(	complex*16	a,
+		complex*16	b,
+		complex*16	c,
+		complex*16	rt1,
+		complex*16	rt2,
+		complex*16	evscal,
+		complex*16	cs1,
+		complex*16	sn1 )
 ```
-
-## Description
-
 
  ZLAESY computes the eigendecomposition of a 2-by-2 symmetric matrix
     ( ( A, B );( B, C ) )
@@ -22,36 +22,33 @@ ZLAESY(A, B, C, RT1, RT2, EVSCAL, CS1, SN1)
  [ -SN1     CS1   ]   [ B  C ]   [ SN1     CS1   ]   [  0  RT2 ]
 
 ## Parameters
+A : Complex*16 [in]
+> The ( 1, 1 ) element of input matrix.
 
-### A (in)
+B : Complex*16 [in]
+> The ( 1, 2 ) element of input matrix.  The ( 2, 1 ) element
+> is also given by B, since the 2-by-2 matrix is symmetric.
 
-A is COMPLEX*16 The ( 1, 1 ) element of input matrix.
+C : Complex*16 [in]
+> The ( 2, 2 ) element of input matrix.
 
-### B (in)
+Rt1 : Complex*16 [out]
+> The eigenvalue of larger modulus.
 
-B is COMPLEX*16 The ( 1, 2 ) element of input matrix. The ( 2, 1 ) element is also given by B, since the 2-by-2 matrix is symmetric.
+Rt2 : Complex*16 [out]
+> The eigenvalue of smaller modulus.
 
-### C (in)
+Evscal : Complex*16 [out]
+> The complex value by which the eigenvector matrix was scaled
+> to make it orthonormal.  If EVSCAL is zero, the eigenvectors
+> were not computed.  This means one of two things:  the 2-by-2
+> matrix could not be diagonalized, or the norm of the matrix
+> of eigenvectors before scaling was larger than the threshold
+> value THRESH (set below).
 
-C is COMPLEX*16 The ( 2, 2 ) element of input matrix.
+Cs1 : Complex*16 [out]
 
-### RT1 (out)
-
-RT1 is COMPLEX*16 The eigenvalue of larger modulus.
-
-### RT2 (out)
-
-RT2 is COMPLEX*16 The eigenvalue of smaller modulus.
-
-### EVSCAL (out)
-
-EVSCAL is COMPLEX*16 The complex value by which the eigenvector matrix was scaled to make it orthonormal. If EVSCAL is zero, the eigenvectors were not computed. This means one of two things: the 2-by-2 matrix could not be diagonalized, or the norm of the matrix of eigenvectors before scaling was larger than the threshold value THRESH (set below).
-
-### CS1 (out)
-
-CS1 is COMPLEX*16
-
-### SN1 (out)
-
-SN1 is COMPLEX*16 If EVSCAL .NE. 0, ( CS1, SN1 ) is the unit right eigenvector for RT1.
+Sn1 : Complex*16 [out]
+> If EVSCAL .NE. 0,  ( CS1, SN1 ) is the unit right eigenvector
+> for RT1.
 

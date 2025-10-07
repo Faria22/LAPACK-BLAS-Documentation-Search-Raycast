@@ -1,14 +1,16 @@
-# CGTCON
-
-## Function Signature
-
 ```fortran
-CGTCON(NORM, N, DL, D, DU, DU2, IPIV, ANORM, RCOND,
-*                          WORK, INFO)
+subroutine cgtcon	(	norm,
+		n,
+		dl,
+		d,
+		du,
+		du2,
+		ipiv,
+		anorm,
+		rcond,
+		*                          work,
+		info )
 ```
-
-## Description
-
 
  CGTCON estimates the reciprocal of the condition number of a complex
  tridiagonal matrix A using the LU factorization as computed by
@@ -18,48 +20,47 @@ CGTCON(NORM, N, DL, D, DU, DU2, IPIV, ANORM, RCOND,
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Norm : Character*1 [in]
+> Specifies whether the 1-norm condition number or the
+> infinity-norm condition number is required:
+> = '1' or 'O':  1-norm;
+> = 'I':         Infinity-norm.
 
-### NORM (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-NORM is CHARACTER*1 Specifies whether the 1-norm condition number or the infinity-norm condition number is required: = '1' or 'O': 1-norm; = 'I': Infinity-norm.
+Dl : Complex Array, Dimension (n-1) [in]
+> The (n-1) multipliers that define the matrix L from the
+> LU factorization of A as computed by CGTTRF.
 
-### N (in)
+D : Complex Array, Dimension (n) [in]
+> The n diagonal elements of the upper triangular matrix U from
+> the LU factorization of A.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Du : Complex Array, Dimension (n-1) [in]
+> The (n-1) elements of the first superdiagonal of U.
 
-### DL (in)
+Du2 : Complex Array, Dimension (n-2) [in]
+> The (n-2) elements of the second superdiagonal of U.
 
-DL is COMPLEX array, dimension (N-1) The (n-1) multipliers that define the matrix L from the LU factorization of A as computed by CGTTRF.
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices; for 1 <= i <= n, row i of the matrix was
+> interchanged with row IPIV(i).  IPIV(i) will always be either
+> i or i+1; IPIV(i) = i indicates a row interchange was not
+> required.
 
-### D (in)
+Anorm : Real [in]
+> If NORM = '1' or 'O', the 1-norm of the original matrix A.
+> If NORM = 'I', the infinity-norm of the original matrix A.
 
-D is COMPLEX array, dimension (N) The n diagonal elements of the upper triangular matrix U from the LU factorization of A.
+Rcond : Real [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-### DU (in)
+Work : Complex Array, Dimension (2*n) [out]
 
-DU is COMPLEX array, dimension (N-1) The (n-1) elements of the first superdiagonal of U.
-
-### DU2 (in)
-
-DU2 is COMPLEX array, dimension (N-2) The (n-2) elements of the second superdiagonal of U.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices; for 1 <= i <= n, row i of the matrix was interchanged with row IPIV(i). IPIV(i) will always be either i or i+1; IPIV(i) = i indicates a row interchange was not required.
-
-### ANORM (in)
-
-ANORM is REAL If NORM = '1' or 'O', the 1-norm of the original matrix A. If NORM = 'I', the infinity-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is REAL The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

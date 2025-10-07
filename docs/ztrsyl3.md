@@ -1,14 +1,20 @@
-# ZTRSYL3
-
-## Function Signature
-
 ```fortran
-ZTRSYL3(TRANA, TRANB, ISGN, M, N, A, LDA, B, LDB,
-*                           C, LDC, SCALE, SWORK, LDSWORK, INFO)
+subroutine ztrsyl3	(	trana,
+		tranb,
+		isgn,
+		m,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		*                           c,
+		ldc,
+		scale,
+		swork,
+		ldswork,
+		info )
 ```
-
-## Description
-
 
   ZTRSYL3 solves the complex Sylvester matrix equation:
 
@@ -23,64 +29,68 @@ ZTRSYL3(TRANA, TRANB, ISGN, M, N, A, LDA, B, LDB,
   This is the block version of the algorithm.
 
 ## Parameters
+Trana : Character*1 [in]
+> Specifies the option op(A):
+> = 'N': op(A) = A    (No transpose)
+> = 'C': op(A) = A**H (Conjugate transpose)
 
-### TRANA (in)
+Tranb : Character*1 [in]
+> Specifies the option op(B):
+> = 'N': op(B) = B    (No transpose)
+> = 'C': op(B) = B**H (Conjugate transpose)
 
-TRANA is CHARACTER*1 Specifies the option op(A): = 'N': op(A) = A (No transpose) = 'C': op(A) = A**H (Conjugate transpose)
+Isgn : Integer [in]
+> Specifies the sign in the equation:
+> = +1: solve op(A)*X + X*op(B) = scale*C
+> = -1: solve op(A)*X - X*op(B) = scale*C
 
-### TRANB (in)
+M : Integer [in]
+> The order of the matrix A, and the number of rows in the
+> matrices X and C. M >= 0.
 
-TRANB is CHARACTER*1 Specifies the option op(B): = 'N': op(B) = B (No transpose) = 'C': op(B) = B**H (Conjugate transpose)
+N : Integer [in]
+> The order of the matrix B, and the number of columns in the
+> matrices X and C. N >= 0.
 
-### ISGN (in)
+A : Complex*16 Array, Dimension (lda,m) [in]
+> The upper triangular matrix A.
 
-ISGN is INTEGER Specifies the sign in the equation: = +1: solve op(A)*X + X*op(B) = scale*C = -1: solve op(A)*X - X*op(B) = scale*C
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-### M (in)
+B : Complex*16 Array, Dimension (ldb,n) [in]
+> The upper triangular matrix B.
 
-M is INTEGER The order of the matrix A, and the number of rows in the matrices X and C. M >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-### N (in)
+C : Complex*16 Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N right hand side matrix C.
+> On exit, C is overwritten by the solution matrix X.
 
-N is INTEGER The order of the matrix B, and the number of columns in the matrices X and C. N >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M)
 
-### A (in)
+Scale : Double Precision [out]
+> The scale factor, scale, set <= 1 to avoid overflow in X.
 
-A is COMPLEX*16 array, dimension (LDA,M) The upper triangular matrix A.
+Swork : Double Precision Array, Dimension (max(2, Rows), [out]
+> MAX(1,COLS)).
+> On exit, if INFO = 0, SWORK(1) returns the optimal value ROWS
+> and SWORK(2) returns the optimal COLS.
 
-### LDA (in)
+Ldswork : Integer [in]
+> LDSWORK >= MAX(2,ROWS), where ROWS = ((M + NB - 1) / NB + 1)
+> and NB is the optimal block size.
+> If LDSWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal dimensions of the SWORK matrix,
+> returns these values as the first and second entry of the SWORK
+> matrix, and no error message related LWORK is issued by XERBLA.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### B (in)
-
-B is COMPLEX*16 array, dimension (LDB,N) The upper triangular matrix B.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### C (in,out)
-
-C is COMPLEX*16 array, dimension (LDC,N) On entry, the M-by-N right hand side matrix C. On exit, C is overwritten by the solution matrix X.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M)
-
-### SCALE (out)
-
-SCALE is DOUBLE PRECISION The scale factor, scale, set <= 1 to avoid overflow in X.
-
-### SWORK (out)
-
-SWORK is DOUBLE PRECISION array, dimension (MAX(2, ROWS), MAX(1,COLS)). On exit, if INFO = 0, SWORK(1) returns the optimal value ROWS and SWORK(2) returns the optimal COLS.
-
-### LDSWORK (in)
-
-LDSWORK is INTEGER LDSWORK >= MAX(2,ROWS), where ROWS = ((M + NB - 1) / NB + 1) and NB is the optimal block size. If LDSWORK = -1, then a workspace query is assumed; the routine only calculates the optimal dimensions of the SWORK matrix, returns these values as the first and second entry of the SWORK matrix, and no error message related LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value = 1: A and B have common or very close eigenvalues; perturbed values were used to solve the equation (but the matrices A and B are unchanged).
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> = 1: A and B have common or very close eigenvalues; perturbed
+> values were used to solve the equation (but the matrices
+> A and B are unchanged).
 

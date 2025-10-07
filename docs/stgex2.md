@@ -1,14 +1,22 @@
-# STGEX2
-
-## Function Signature
-
 ```fortran
-STGEX2(WANTQ, WANTZ, N, A, LDA, B, LDB, Q, LDQ, Z,
-*                          LDZ, J1, N1, N2, WORK, LWORK, INFO)
+subroutine stgex2	(	wantq,
+		wantz,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		q,
+		ldq,
+		z,
+		*                          ldz,
+		j1,
+		n1,
+		n2,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  STGEX2 swaps adjacent diagonal blocks (A11, B11) and (A22, B22)
  of size 1-by-1 or 2-by-2 in an upper (quasi) triangular matrix pair
@@ -26,72 +34,70 @@ STGEX2(WANTQ, WANTZ, N, A, LDA, B, LDB, Q, LDQ, Z,
 
 
 ## Parameters
+Wantq : Logical [in]
+> .TRUE. : update the left transformation matrix Q;
+> .FALSE.: do not update Q.
 
-### WANTQ (in)
+Wantz : Logical [in]
+> .TRUE. : update the right transformation matrix Z;
+> .FALSE.: do not update Z.
 
-WANTQ is LOGICAL .TRUE. : update the left transformation matrix Q; .FALSE.: do not update Q.
+N : Integer [in]
+> The order of the matrices A and B. N >= 0.
 
-### WANTZ (in)
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the matrix A in the pair (A, B).
+> On exit, the updated matrix A.
 
-WANTZ is LOGICAL .TRUE. : update the right transformation matrix Z; .FALSE.: do not update Z.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,N).
 
-### N (in)
+B : Real Array, Dimension (ldb,n) [in,out]
+> On entry, the matrix B in the pair (A, B).
+> On exit, the updated matrix B.
 
-N is INTEGER The order of the matrices A and B. N >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-### A (in,out)
+Q : Real Array, Dimension (ldq,n) [in,out]
+> On entry, if WANTQ = .TRUE., the orthogonal matrix Q.
+> On exit, the updated matrix Q.
+> Not referenced if WANTQ = .FALSE..
 
-A is REAL array, dimension (LDA,N) On entry, the matrix A in the pair (A, B). On exit, the updated matrix A.
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= 1.
+> If WANTQ = .TRUE., LDQ >= N.
 
-### LDA (in)
+Z : Real Array, Dimension (ldz,n) [in,out]
+> On entry, if WANTZ =.TRUE., the orthogonal matrix Z.
+> On exit, the updated matrix Z.
+> Not referenced if WANTZ = .FALSE..
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Ldz : Integer [in]
+> The leading dimension of the array Z. LDZ >= 1.
+> If WANTZ = .TRUE., LDZ >= N.
 
-### B (in,out)
+J1 : Integer [in]
+> The index to the first block (A11, B11). 1 <= J1 <= N.
 
-B is REAL array, dimension (LDB,N) On entry, the matrix B in the pair (A, B). On exit, the updated matrix B.
+N1 : Integer [in]
+> The order of the first block (A11, B11). N1 = 0, 1 or 2.
 
-### LDB (in)
+N2 : Integer [in]
+> The order of the second block (A22, B22). N2 = 0, 1 or 2.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
+Work : Real Array, Dimension (max(1,lwork)). [out]
 
-### Q (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> LWORK >=  MAX( N*(N2+N1), (N2+N1)*(N2+N1)*2 )
 
-Q is REAL array, dimension (LDQ,N) On entry, if WANTQ = .TRUE., the orthogonal matrix Q. On exit, the updated matrix Q. Not referenced if WANTQ = .FALSE..
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= 1. If WANTQ = .TRUE., LDQ >= N.
-
-### Z (in,out)
-
-Z is REAL array, dimension (LDZ,N) On entry, if WANTZ =.TRUE., the orthogonal matrix Z. On exit, the updated matrix Z. Not referenced if WANTZ = .FALSE..
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1. If WANTZ = .TRUE., LDZ >= N.
-
-### J1 (in)
-
-J1 is INTEGER The index to the first block (A11, B11). 1 <= J1 <= N.
-
-### N1 (in)
-
-N1 is INTEGER The order of the first block (A11, B11). N1 = 0, 1 or 2.
-
-### N2 (in)
-
-N2 is INTEGER The order of the second block (A22, B22). N2 = 0, 1 or 2.
-
-### WORK (out)
-
-WORK is REAL array, dimension (MAX(1,LWORK)).
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= MAX( N*(N2+N1), (N2+N1)*(N2+N1)*2 )
-
-### INFO (out)
-
-INFO is INTEGER =0: Successful exit >0: If INFO = 1, the transformed matrix (A, B) would be too far from generalized Schur form; the blocks are not swapped and (A, B) and (Q, Z) are unchanged. The problem of swapping is too ill-conditioned. <0: If INFO = -16: LWORK is too small. Appropriate value for LWORK is returned in WORK(1).
+Info : Integer [out]
+> =0: Successful exit
+> >0: If INFO = 1, the transformed matrix (A, B) would be
+> too far from generalized Schur form; the blocks are
+> not swapped and (A, B) and (Q, Z) are unchanged.
+> The problem of swapping is too ill-conditioned.
+> <0: If INFO = -16: LWORK is too small. Appropriate value
+> for LWORK is returned in WORK(1).
 

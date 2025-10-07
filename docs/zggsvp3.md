@@ -1,15 +1,31 @@
-# ZGGSVP3
-
-## Function Signature
-
 ```fortran
-ZGGSVP3(JOBU, JOBV, JOBQ, M, P, N, A, LDA, B, LDB,
-*                           TOLA, TOLB, K, L, U, LDU, V, LDV, Q, LDQ,
-*                           IWORK, RWORK, TAU, WORK, LWORK, INFO)
+subroutine zggsvp3	(	jobu,
+		jobv,
+		jobq,
+		m,
+		p,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		*                           tola,
+		tolb,
+		k,
+		l,
+		u,
+		ldu,
+		v,
+		ldv,
+		q,
+		ldq,
+		*                           iwork,
+		rwork,
+		tau,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  ZGGSVP3 computes unitary matrices U, V and Q such that
 
@@ -36,108 +52,102 @@ ZGGSVP3(JOBU, JOBV, JOBQ, M, P, N, A, LDA, B, LDB,
  ZGGSVD3.
 
 ## Parameters
+Jobu : Character*1 [in]
+> = 'U':  Unitary matrix U is computed;
+> = 'N':  U is not computed.
 
-### JOBU (in)
+Jobv : Character*1 [in]
+> = 'V':  Unitary matrix V is computed;
+> = 'N':  V is not computed.
 
-JOBU is CHARACTER*1 = 'U': Unitary matrix U is computed; = 'N': U is not computed.
+Jobq : Character*1 [in]
+> = 'Q':  Unitary matrix Q is computed;
+> = 'N':  Q is not computed.
 
-### JOBV (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-JOBV is CHARACTER*1 = 'V': Unitary matrix V is computed; = 'N': V is not computed.
+P : Integer [in]
+> The number of rows of the matrix B.  P >= 0.
 
-### JOBQ (in)
+N : Integer [in]
+> The number of columns of the matrices A and B.  N >= 0.
 
-JOBQ is CHARACTER*1 = 'Q': Unitary matrix Q is computed; = 'N': Q is not computed.
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A contains the triangular (or trapezoidal) matrix
+> described in the Purpose section.
 
-### M (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+B : Complex*16 Array, Dimension (ldb,n) [in,out]
+> On entry, the P-by-N matrix B.
+> On exit, B contains the triangular matrix described in
+> the Purpose section.
 
-### P (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,P).
 
-P is INTEGER The number of rows of the matrix B. P >= 0.
+Tola : Double Precision [in]
 
-### N (in)
+Tolb : Double Precision [in]
+> TOLA and TOLB are the thresholds to determine the effective
+> numerical rank of matrix B and a subblock of A. Generally,
+> they are set to
+> TOLA = MAX(M,N)*norm(A)*MAZHEPS,
+> TOLB = MAX(P,N)*norm(B)*MAZHEPS.
+> The size of TOLA and TOLB may affect the size of backward
+> errors of the decomposition.
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+K : Integer [out]
 
-### A (in,out)
+L : Integer [out]
+> On exit, K and L specify the dimension of the subblocks
+> described in Purpose section.
+> K + L = effective numerical rank of (A**H,B**H)**H.
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A contains the triangular (or trapezoidal) matrix described in the Purpose section.
+U : Complex*16 Array, Dimension (ldu,m) [out]
+> If JOBU = 'U', U contains the unitary matrix U.
+> If JOBU = 'N', U is not referenced.
 
-### LDA (in)
+Ldu : Integer [in]
+> The leading dimension of the array U. LDU >= max(1,M) if
+> JOBU = 'U'; LDU >= 1 otherwise.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+V : Complex*16 Array, Dimension (ldv,p) [out]
+> If JOBV = 'V', V contains the unitary matrix V.
+> If JOBV = 'N', V is not referenced.
 
-### B (in,out)
+Ldv : Integer [in]
+> The leading dimension of the array V. LDV >= max(1,P) if
+> JOBV = 'V'; LDV >= 1 otherwise.
 
-B is COMPLEX*16 array, dimension (LDB,N) On entry, the P-by-N matrix B. On exit, B contains the triangular matrix described in the Purpose section.
+Q : Complex*16 Array, Dimension (ldq,n) [out]
+> If JOBQ = 'Q', Q contains the unitary matrix Q.
+> If JOBQ = 'N', Q is not referenced.
 
-### LDB (in)
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= max(1,N) if
+> JOBQ = 'Q'; LDQ >= 1 otherwise.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,P).
+Iwork : Integer Array, Dimension (n) [out]
 
-### TOLA (in)
+Rwork : Double Precision Array, Dimension (2*n) [out]
 
-TOLA is DOUBLE PRECISION
+Tau : Complex*16 Array, Dimension (n) [out]
 
-### TOLB (in)
+Work : Complex*16 Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-TOLB is DOUBLE PRECISION TOLA and TOLB are the thresholds to determine the effective numerical rank of matrix B and a subblock of A. Generally, they are set to TOLA = MAX(M,N)*norm(A)*MAZHEPS, TOLB = MAX(P,N)*norm(B)*MAZHEPS. The size of TOLA and TOLB may affect the size of backward errors of the decomposition.
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= 1.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### K (out)
-
-K is INTEGER
-
-### L (out)
-
-L is INTEGER On exit, K and L specify the dimension of the subblocks described in Purpose section. K + L = effective numerical rank of (A**H,B**H)**H.
-
-### U (out)
-
-U is COMPLEX*16 array, dimension (LDU,M) If JOBU = 'U', U contains the unitary matrix U. If JOBU = 'N', U is not referenced.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max(1,M) if JOBU = 'U'; LDU >= 1 otherwise.
-
-### V (out)
-
-V is COMPLEX*16 array, dimension (LDV,P) If JOBV = 'V', V contains the unitary matrix V. If JOBV = 'N', V is not referenced.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. LDV >= max(1,P) if JOBV = 'V'; LDV >= 1 otherwise.
-
-### Q (out)
-
-Q is COMPLEX*16 array, dimension (LDQ,N) If JOBQ = 'Q', Q contains the unitary matrix Q. If JOBQ = 'N', Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N) if JOBQ = 'Q'; LDQ >= 1 otherwise.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (2*N)
-
-### TAU (out)
-
-TAU is COMPLEX*16 array, dimension (N)
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

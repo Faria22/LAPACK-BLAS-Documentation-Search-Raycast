@@ -1,13 +1,14 @@
-# CLARCM
-
-## Function Signature
-
 ```fortran
-CLARCM(M, N, A, LDA, B, LDB, C, LDC, RWORK)
+subroutine clarcm	(	integer	m,
+		integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		complex, dimension(ldb, *)	b,
+		integer	ldb,
+		complex, dimension(ldc, *)	c,
+		integer	ldc,
+		real, dimension(*)	rwork )
 ```
-
-## Description
-
 
  CLARCM performs a very simple matrix-matrix multiplication:
           C := A * B,
@@ -15,40 +16,32 @@ CLARCM(M, N, A, LDA, B, LDB, C, LDC, RWORK)
  C is M by N and complex.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A and of the matrix C.
+> M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns and rows of the matrix B and
+> the number of columns of the matrix C.
+> N >= 0.
 
-M is INTEGER The number of rows of the matrix A and of the matrix C. M >= 0.
+A : Real Array, Dimension (lda, M) [in]
+> On entry, A contains the M by M matrix A.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >=max(1,M).
 
-N is INTEGER The number of columns and rows of the matrix B and the number of columns of the matrix C. N >= 0.
+B : Complex Array, Dimension (ldb, N) [in]
+> On entry, B contains the M by N matrix B.
 
-### A (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >=max(1,M).
 
-A is REAL array, dimension (LDA, M) On entry, A contains the M by M matrix A.
+C : Complex Array, Dimension (ldc, N) [out]
+> On exit, C contains the M by N matrix C.
 
-### LDA (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >=max(1,M).
 
-LDA is INTEGER The leading dimension of the array A. LDA >=max(1,M).
-
-### B (in)
-
-B is COMPLEX array, dimension (LDB, N) On entry, B contains the M by N matrix B.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >=max(1,M).
-
-### C (out)
-
-C is COMPLEX array, dimension (LDC, N) On exit, C contains the M by N matrix C.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >=max(1,M).
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (2*M*N)
+Rwork : Real Array, Dimension (2*m*n) [out]
 

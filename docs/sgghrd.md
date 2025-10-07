@@ -1,14 +1,19 @@
-# SGGHRD
-
-## Function Signature
-
 ```fortran
-SGGHRD(COMPQ, COMPZ, N, ILO, IHI, A, LDA, B, LDB, Q,
-*                          LDQ, Z, LDZ, INFO)
+subroutine sgghrd	(	compq,
+		compz,
+		n,
+		ilo,
+		ihi,
+		a,
+		lda,
+		b,
+		ldb,
+		q,
+		*                          ldq,
+		z,
+		ldz,
+		info )
 ```
-
-## Description
-
 
  SGGHRD reduces a pair of real matrices (A,B) to generalized upper
  Hessenberg form using orthogonal transformations, where A is a
@@ -40,60 +45,72 @@ SGGHRD(COMPQ, COMPZ, N, ILO, IHI, A, LDA, B, LDB, Q,
  problem to generalized Hessenberg form.
 
 ## Parameters
+Compq : Character*1 [in]
+> = 'N': do not compute Q;
+> = 'I': Q is initialized to the unit matrix, and the
+> orthogonal matrix Q is returned;
+> = 'V': Q must contain an orthogonal matrix Q1 on entry,
+> and the product Q1*Q is returned.
 
-### COMPQ (in)
+Compz : Character*1 [in]
+> = 'N': do not compute Z;
+> = 'I': Z is initialized to the unit matrix, and the
+> orthogonal matrix Z is returned;
+> = 'V': Z must contain an orthogonal matrix Z1 on entry,
+> and the product Z1*Z is returned.
 
-COMPQ is CHARACTER*1 = 'N': do not compute Q; = 'I': Q is initialized to the unit matrix, and the orthogonal matrix Q is returned; = 'V': Q must contain an orthogonal matrix Q1 on entry, and the product Q1*Q is returned.
+N : Integer [in]
+> The order of the matrices A and B.  N >= 0.
 
-### COMPZ (in)
+Ilo : Integer [in]
 
-COMPZ is CHARACTER*1 = 'N': do not compute Z; = 'I': Z is initialized to the unit matrix, and the orthogonal matrix Z is returned; = 'V': Z must contain an orthogonal matrix Z1 on entry, and the product Z1*Z is returned.
+Ihi : Integer [in]
+> ILO and IHI mark the rows and columns of A which are to be
+> reduced.  It is assumed that A is already upper triangular
+> in rows and columns 1:ILO-1 and IHI+1:N.  ILO and IHI are
+> normally set by a previous call to SGGBAL; otherwise they
+> should be set to 1 and N respectively.
+> 1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
 
-### N (in)
+A : Real Array, Dimension (lda, N) [in,out]
+> On entry, the N-by-N general matrix to be reduced.
+> On exit, the upper triangle and the first subdiagonal of A
+> are overwritten with the upper Hessenberg matrix H, and the
+> rest is set to zero.
 
-N is INTEGER The order of the matrices A and B. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### ILO (in)
+B : Real Array, Dimension (ldb, N) [in,out]
+> On entry, the N-by-N upper triangular matrix B.
+> On exit, the upper triangular matrix T = Q**T B Z.  The
+> elements below the diagonal are set to zero.
 
-ILO is INTEGER
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### IHI (in)
+Q : Real Array, Dimension (ldq, N) [in,out]
+> On entry, if COMPQ = 'V', the orthogonal matrix Q1,
+> typically from the QR factorization of B.
+> On exit, if COMPQ='I', the orthogonal matrix Q, and if
+> COMPQ = 'V', the product Q1*Q.
+> Not referenced if COMPQ='N'.
 
-IHI is INTEGER ILO and IHI mark the rows and columns of A which are to be reduced. It is assumed that A is already upper triangular in rows and columns 1:ILO-1 and IHI+1:N. ILO and IHI are normally set by a previous call to SGGBAL; otherwise they should be set to 1 and N respectively. 1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
+Ldq : Integer [in]
+> The leading dimension of the array Q.
+> LDQ >= N if COMPQ='V' or 'I'; LDQ >= 1 otherwise.
 
-### A (in,out)
+Z : Real Array, Dimension (ldz, N) [in,out]
+> On entry, if COMPZ = 'V', the orthogonal matrix Z1.
+> On exit, if COMPZ='I', the orthogonal matrix Z, and if
+> COMPZ = 'V', the product Z1*Z.
+> Not referenced if COMPZ='N'.
 
-A is REAL array, dimension (LDA, N) On entry, the N-by-N general matrix to be reduced. On exit, the upper triangle and the first subdiagonal of A are overwritten with the upper Hessenberg matrix H, and the rest is set to zero.
+Ldz : Integer [in]
+> The leading dimension of the array Z.
+> LDZ >= N if COMPZ='V' or 'I'; LDZ >= 1 otherwise.
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### B (in,out)
-
-B is REAL array, dimension (LDB, N) On entry, the N-by-N upper triangular matrix B. On exit, the upper triangular matrix T = Q**T B Z. The elements below the diagonal are set to zero.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### Q (in,out)
-
-Q is REAL array, dimension (LDQ, N) On entry, if COMPQ = 'V', the orthogonal matrix Q1, typically from the QR factorization of B. On exit, if COMPQ='I', the orthogonal matrix Q, and if COMPQ = 'V', the product Q1*Q. Not referenced if COMPQ='N'.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= N if COMPQ='V' or 'I'; LDQ >= 1 otherwise.
-
-### Z (in,out)
-
-Z is REAL array, dimension (LDZ, N) On entry, if COMPZ = 'V', the orthogonal matrix Z1. On exit, if COMPZ='I', the orthogonal matrix Z, and if COMPZ = 'V', the product Z1*Z. Not referenced if COMPZ='N'.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= N if COMPZ='V' or 'I'; LDZ >= 1 otherwise.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

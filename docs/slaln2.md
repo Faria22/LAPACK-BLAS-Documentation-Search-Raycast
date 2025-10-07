@@ -1,14 +1,23 @@
-# SLALN2
-
-## Function Signature
-
 ```fortran
-SLALN2(LTRANS, NA, NW, SMIN, CA, A, LDA, D1, D2, B,
-*                          LDB, WR, WI, X, LDX, SCALE, XNORM, INFO)
+subroutine slaln2	(	ltrans,
+		na,
+		nw,
+		smin,
+		ca,
+		a,
+		lda,
+		d1,
+		d2,
+		b,
+		*                          ldb,
+		wr,
+		wi,
+		x,
+		ldx,
+		scale,
+		xnorm,
+		info )
 ```
-
-## Description
-
 
  SLALN2 solves a system of the form  (ca A - w D ) X = s B
  or (ca A**T - w D) X = s B   with possible scaling ("s") and
@@ -42,76 +51,80 @@ SLALN2(LTRANS, NA, NW, SMIN, CA, A, LDA, D1, D2, B,
  by a reasonable factor.  (See BIGNUM.)
 
 ## Parameters
+Ltrans : Logical [in]
+> =.TRUE.:  A-transpose will be used.
+> =.FALSE.: A will be used (not transposed.)
 
-### LTRANS (in)
+Na : Integer [in]
+> The size of the matrix A.  It may (only) be 1 or 2.
 
-LTRANS is LOGICAL =.TRUE.: A-transpose will be used. =.FALSE.: A will be used (not transposed.)
+Nw : Integer [in]
+> 1 if "w" is real, 2 if "w" is complex.  It may only be 1
+> or 2.
 
-### NA (in)
+Smin : Real [in]
+> The desired lower bound on the singular values of A.  This
+> should be a safe distance away from underflow or overflow,
+> say, between (underflow/machine precision) and  (machine
+> precision * overflow ).  (See BIGNUM and ULP.)
 
-NA is INTEGER The size of the matrix A. It may (only) be 1 or 2.
+Ca : Real [in]
+> The coefficient c, which A is multiplied by.
 
-### NW (in)
+A : Real Array, Dimension (lda,na) [in]
+> The NA x NA matrix A.
 
-NW is INTEGER 1 if "w" is real, 2 if "w" is complex. It may only be 1 or 2.
+Lda : Integer [in]
+> The leading dimension of A.  It must be at least NA.
 
-### SMIN (in)
+D1 : Real [in]
+> The 1,1 element in the diagonal matrix D.
 
-SMIN is REAL The desired lower bound on the singular values of A. This should be a safe distance away from underflow or overflow, say, between (underflow/machine precision) and (machine precision * overflow ). (See BIGNUM and ULP.)
+D2 : Real [in]
+> The 2,2 element in the diagonal matrix D.  Not used if NA=1.
 
-### CA (in)
+B : Real Array, Dimension (ldb,nw) [in]
+> The NA x NW matrix B (right-hand side).  If NW=2 ("w" is
+> complex), column 1 contains the real part of B and column 2
+> contains the imaginary part.
 
-CA is REAL The coefficient c, which A is multiplied by.
+Ldb : Integer [in]
+> The leading dimension of B.  It must be at least NA.
 
-### A (in)
+Wr : Real [in]
+> The real part of the scalar "w".
 
-A is REAL array, dimension (LDA,NA) The NA x NA matrix A.
+Wi : Real [in]
+> The imaginary part of the scalar "w".  Not used if NW=1.
 
-### LDA (in)
+X : Real Array, Dimension (ldx,nw) [out]
+> The NA x NW matrix X (unknowns), as computed by SLALN2.
+> If NW=2 ("w" is complex), on exit, column 1 will contain
+> the real part of X and column 2 will contain the imaginary
+> part.
 
-LDA is INTEGER The leading dimension of A. It must be at least NA.
+Ldx : Integer [in]
+> The leading dimension of X.  It must be at least NA.
 
-### D1 (in)
+Scale : Real [out]
+> The scale factor that B must be multiplied by to insure
+> that overflow does not occur when computing X.  Thus,
+> (ca A - w D) X  will be SCALE*B, not B (ignoring
+> perturbations of A.)  It will be at most 1.
 
-D1 is REAL The 1,1 element in the diagonal matrix D.
+Xnorm : Real [out]
+> The infinity-norm of X, when X is regarded as an NA x NW
+> real matrix.
 
-### D2 (in)
-
-D2 is REAL The 2,2 element in the diagonal matrix D. Not used if NA=1.
-
-### B (in)
-
-B is REAL array, dimension (LDB,NW) The NA x NW matrix B (right-hand side). If NW=2 ("w" is complex), column 1 contains the real part of B and column 2 contains the imaginary part.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of B. It must be at least NA.
-
-### WR (in)
-
-WR is REAL The real part of the scalar "w".
-
-### WI (in)
-
-WI is REAL The imaginary part of the scalar "w". Not used if NW=1.
-
-### X (out)
-
-X is REAL array, dimension (LDX,NW) The NA x NW matrix X (unknowns), as computed by SLALN2. If NW=2 ("w" is complex), on exit, column 1 will contain the real part of X and column 2 will contain the imaginary part.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of X. It must be at least NA.
-
-### SCALE (out)
-
-SCALE is REAL The scale factor that B must be multiplied by to insure that overflow does not occur when computing X. Thus, (ca A - w D) X will be SCALE*B, not B (ignoring perturbations of A.) It will be at most 1.
-
-### XNORM (out)
-
-XNORM is REAL The infinity-norm of X, when X is regarded as an NA x NW real matrix.
-
-### INFO (out)
-
-INFO is INTEGER An error flag. It will be set to zero if no error occurs, a negative number if an argument is in error, or a positive number if ca A - w D had to be perturbed. The possible values are: = 0: No error occurred, and (ca A - w D) did not have to be perturbed. = 1: (ca A - w D) had to be perturbed to make its smallest (or only) singular value greater than SMIN. NOTE: In the interests of speed, this routine does not check the inputs for errors.
+Info : Integer [out]
+> An error flag.  It will be set to zero if no error occurs,
+> a negative number if an argument is in error, or a positive
+> number if  ca A - w D  had to be perturbed.
+> The possible values are:
+> = 0: No error occurred, and (ca A - w D) did not have to be
+> perturbed.
+> = 1: (ca A - w D) had to be perturbed to make its smallest
+> (or only) singular value greater than SMIN.
+> NOTE: In the interests of speed, this routine does not
+> check the inputs for errors.
 

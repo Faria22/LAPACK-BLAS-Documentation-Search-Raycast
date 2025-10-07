@@ -1,13 +1,10 @@
-# SLARTGS
-
-## Function Signature
-
 ```fortran
-SLARTGS(X, Y, SIGMA, CS, SN)
+subroutine slartgs	(	real	x,
+		real	y,
+		real	sigma,
+		real	cs,
+		real	sn )
 ```
-
-## Description
-
 
  SLARTGS generates a plane rotation designed to introduce a bulge in
  Golub-Reinsch-style implicit QR iteration for the bidiagonal SVD
@@ -21,24 +18,18 @@ SLARTGS(X, Y, SIGMA, CS, SN)
  rotation is by PI/2.
 
 ## Parameters
+X : Real [in]
+> The (1,1) entry of an upper bidiagonal matrix.
 
-### X (in)
+Y : Real [in]
+> The (1,2) entry of an upper bidiagonal matrix.
 
-X is REAL The (1,1) entry of an upper bidiagonal matrix.
+Sigma : Real [in]
+> The shift.
 
-### Y (in)
+Cs : Real [out]
+> The cosine of the rotation.
 
-Y is REAL The (1,2) entry of an upper bidiagonal matrix.
-
-### SIGMA (in)
-
-SIGMA is REAL The shift.
-
-### CS (out)
-
-CS is REAL The cosine of the rotation.
-
-### SN (out)
-
-SN is REAL The sine of the rotation.
+Sn : Real [out]
+> The sine of the rotation.
 

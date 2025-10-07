@@ -1,16 +1,20 @@
-# CGEES
-
-CGEES computes the eigenvalues, the Schur form, and, optionally, the matrix of Schur vectors for GE matrices
-
-## Function Signature
-
 ```fortran
-CGEES(JOBVS, SORT, SELECT, N, A, LDA, SDIM, W, VS,
-*                         LDVS, WORK, LWORK, RWORK, BWORK, INFO)
+subroutine cgees	(	jobvs,
+		sort,
+		select,
+		n,
+		a,
+		lda,
+		sdim,
+		w,
+		vs,
+		*                         ldvs,
+		work,
+		lwork,
+		rwork,
+		bwork,
+		info )
 ```
-
-## Description
-
 
  CGEES computes for an N-by-N complex nonsymmetric matrix A, the
  eigenvalues, the Schur form T, and, optionally, the matrix of Schur
@@ -24,64 +28,82 @@ CGEES(JOBVS, SORT, SELECT, N, A, LDA, SDIM, W, VS,
  A complex matrix is in Schur form if it is upper triangular.
 
 ## Parameters
+Jobvs : Character*1 [in]
+> = 'N': Schur vectors are not computed;
+> = 'V': Schur vectors are computed.
 
-### JOBVS (in)
+Sort : Character*1 [in]
+> Specifies whether or not to order the eigenvalues on the
+> diagonal of the Schur form.
+> = 'N': Eigenvalues are not ordered:
+> = 'S': Eigenvalues are ordered (see SELECT).
 
-JOBVS is CHARACTER*1 = 'N': Schur vectors are not computed; = 'V': Schur vectors are computed.
+Select : a Logical Function of One Complex Argument [in]
+> SELECT must be declared EXTERNAL in the calling subroutine.
+> If SORT = 'S', SELECT is used to select eigenvalues to order
+> to the top left of the Schur form.
+> IF SORT = 'N', SELECT is not referenced.
+> The eigenvalue W(j) is selected if SELECT(W(j)) is true.
 
-### SORT (in)
+N : Integer [in]
+> The order of the matrix A. N >= 0.
 
-SORT is CHARACTER*1 Specifies whether or not to order the eigenvalues on the diagonal of the Schur form. = 'N': Eigenvalues are not ordered: = 'S': Eigenvalues are ordered (see SELECT).
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the N-by-N matrix A.
+> On exit, A has been overwritten by its Schur form T.
 
-### SELECT (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-SELECT is a LOGICAL FUNCTION of one COMPLEX argument SELECT must be declared EXTERNAL in the calling subroutine. If SORT = 'S', SELECT is used to select eigenvalues to order to the top left of the Schur form. IF SORT = 'N', SELECT is not referenced. The eigenvalue W(j) is selected if SELECT(W(j)) is true.
+Sdim : Integer [out]
+> If SORT = 'N', SDIM = 0.
+> If SORT = 'S', SDIM = number of eigenvalues for which
+> SELECT is true.
 
-### N (in)
+W : Complex Array, Dimension (n) [out]
+> W contains the computed eigenvalues, in the same order that
+> they appear on the diagonal of the output Schur form T.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Vs : Complex Array, Dimension (ldvs,n) [out]
+> If JOBVS = 'V', VS contains the unitary matrix Z of Schur
+> vectors.
+> If JOBVS = 'N', VS is not referenced.
 
-### A (in,out)
+Ldvs : Integer [in]
+> The leading dimension of the array VS.  LDVS >= 1; if
+> JOBVS = 'V', LDVS >= N.
 
-A is COMPLEX array, dimension (LDA,N) On entry, the N-by-N matrix A. On exit, A has been overwritten by its Schur form T.
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### LDA (in)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,2*N).
+> For good performance, LWORK must generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Rwork : Real Array, Dimension (n) [out]
 
-### SDIM (out)
+Bwork : Logical Array, Dimension (n) [out]
+> Not referenced if SORT = 'N'.
 
-SDIM is INTEGER If SORT = 'N', SDIM = 0. If SORT = 'S', SDIM = number of eigenvalues for which SELECT is true.
-
-### W (out)
-
-W is COMPLEX array, dimension (N) W contains the computed eigenvalues, in the same order that they appear on the diagonal of the output Schur form T.
-
-### VS (out)
-
-VS is COMPLEX array, dimension (LDVS,N) If JOBVS = 'V', VS contains the unitary matrix Z of Schur vectors. If JOBVS = 'N', VS is not referenced.
-
-### LDVS (in)
-
-LDVS is INTEGER The leading dimension of the array VS. LDVS >= 1; if JOBVS = 'V', LDVS >= N.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,2*N). For good performance, LWORK must generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (N)
-
-### BWORK (out)
-
-BWORK is LOGICAL array, dimension (N) Not referenced if SORT = 'N'.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, and i is <= N: the QR algorithm failed to compute all the eigenvalues; elements 1:ILO-1 and i+1:N of W contain those eigenvalues which have converged; if JOBVS = 'V', VS contains the matrix which reduces A to its partially converged Schur form. = N+1: the eigenvalues could not be reordered because some eigenvalues were too close to separate (the problem is very ill-conditioned); = N+2: after reordering, roundoff changed values of some complex eigenvalues so that leading eigenvalues in the Schur form no longer satisfy SELECT = .TRUE.. This could also be caused by underflow due to scaling.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value.
+> > 0: if INFO = i, and i is
+> <= N:  the QR algorithm failed to compute all the
+> eigenvalues; elements 1:ILO-1 and i+1:N of W
+> contain those eigenvalues which have converged;
+> if JOBVS = 'V', VS contains the matrix which
+> reduces A to its partially converged Schur form.
+> = N+1: the eigenvalues could not be reordered because
+> some eigenvalues were too close to separate (the
+> problem is very ill-conditioned);
+> = N+2: after reordering, roundoff changed values of
+> some complex eigenvalues so that leading
+> eigenvalues in the Schur form no longer satisfy
+> SELECT = .TRUE..  This could also be caused by
+> underflow due to scaling.
 

@@ -1,14 +1,15 @@
-# DLA_SYAMV
-
-## Function Signature
-
 ```fortran
-DLA_SYAMV(UPLO, N, ALPHA, A, LDA, X, INCX, BETA, Y,
-*                             INCY)
+subroutine dla_syamv	(	uplo,
+		n,
+		alpha,
+		a,
+		lda,
+		x,
+		incx,
+		beta,
+		y,
+		*                             incy )
 ```
-
-## Description
-
 
  DLA_SYAMV  performs the matrix-vector operation
 
@@ -27,44 +28,60 @@ DLA_SYAMV(UPLO, N, ALPHA, A, LDA, X, INCX, BETA, Y,
  in computing that entry have at least one zero multiplicand.
 
 ## Parameters
+Uplo : Integer [in]
+> On entry, UPLO specifies whether the upper or lower
+> triangular part of the array A is to be referenced as
+> follows:
+> UPLO = BLAS_UPPER   Only the upper triangular part of A
+> is to be referenced.
+> UPLO = BLAS_LOWER   Only the lower triangular part of A
+> is to be referenced.
+> Unchanged on exit.
 
-### UPLO (in)
+N : Integer [in]
+> On entry, N specifies the number of columns of the matrix A.
+> N must be at least zero.
+> Unchanged on exit.
 
-UPLO is INTEGER On entry, UPLO specifies whether the upper or lower triangular part of the array A is to be referenced as follows: UPLO = BLAS_UPPER Only the upper triangular part of A is to be referenced. UPLO = BLAS_LOWER Only the lower triangular part of A is to be referenced. Unchanged on exit.
+Alpha : Double Precision . [in]
+> On entry, ALPHA specifies the scalar alpha.
+> Unchanged on exit.
 
-### N (in)
+A : Double Precision Array, Dimension ( Lda, N ). [in]
+> Before entry, the leading m by n part of the array A must
+> contain the matrix of coefficients.
+> Unchanged on exit.
 
-N is INTEGER On entry, N specifies the number of columns of the matrix A. N must be at least zero. Unchanged on exit.
+Lda : Integer [in]
+> On entry, LDA specifies the first dimension of A as declared
+> in the calling (sub) program. LDA must be at least
+> max( 1, n ).
+> Unchanged on exit.
 
-### ALPHA (in)
+X : Double Precision Array, Dimension [in]
+> ( 1 + ( n - 1 )*abs( INCX ) )
+> Before entry, the incremented array X must contain the
+> vector x.
+> Unchanged on exit.
 
-ALPHA is DOUBLE PRECISION . On entry, ALPHA specifies the scalar alpha. Unchanged on exit.
+Incx : Integer [in]
+> On entry, INCX specifies the increment for the elements of
+> X. INCX must not be zero.
+> Unchanged on exit.
 
-### A (in)
+Beta : Double Precision . [in]
+> On entry, BETA specifies the scalar beta. When BETA is
+> supplied as zero then Y need not be set on input.
+> Unchanged on exit.
 
-A is DOUBLE PRECISION array, dimension ( LDA, n ). Before entry, the leading m by n part of the array A must contain the matrix of coefficients. Unchanged on exit.
+Y : Double Precision Array, Dimension [in,out]
+> ( 1 + ( n - 1 )*abs( INCY ) )
+> Before entry with BETA non-zero, the incremented array Y
+> must contain the vector y. On exit, Y is overwritten by the
+> updated vector y.
 
-### LDA (in)
-
-LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least max( 1, n ). Unchanged on exit.
-
-### X (in)
-
-X is DOUBLE PRECISION array, dimension ( 1 + ( n - 1 )*abs( INCX ) ) Before entry, the incremented array X must contain the vector x. Unchanged on exit.
-
-### INCX (in)
-
-INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero. Unchanged on exit.
-
-### BETA (in)
-
-BETA is DOUBLE PRECISION . On entry, BETA specifies the scalar beta. When BETA is supplied as zero then Y need not be set on input. Unchanged on exit.
-
-### Y (in,out)
-
-Y is DOUBLE PRECISION array, dimension ( 1 + ( n - 1 )*abs( INCY ) ) Before entry with BETA non-zero, the incremented array Y must contain the vector y. On exit, Y is overwritten by the updated vector y.
-
-### INCY (in)
-
-INCY is INTEGER On entry, INCY specifies the increment for the elements of Y. INCY must not be zero. Unchanged on exit.
+Incy : Integer [in]
+> On entry, INCY specifies the increment for the elements of
+> Y. INCY must not be zero.
+> Unchanged on exit.
 

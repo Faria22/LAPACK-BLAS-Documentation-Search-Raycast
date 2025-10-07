@@ -1,13 +1,12 @@
-# SLASD5
-
-## Function Signature
-
 ```fortran
-SLASD5(I, D, Z, DELTA, RHO, DSIGMA, WORK)
+subroutine slasd5	(	integer	i,
+		real, dimension(2)	d,
+		real, dimension(2)	z,
+		real, dimension(2)	delta,
+		real	rho,
+		real	dsigma,
+		real, dimension(2)	work )
 ```
-
-## Description
-
 
  This subroutine computes the square root of the I-th eigenvalue
  of a positive symmetric rank-one modification of a 2-by-2 diagonal
@@ -23,32 +22,26 @@ SLASD5(I, D, Z, DELTA, RHO, DSIGMA, WORK)
  Z is one.
 
 ## Parameters
+I : Integer [in]
+> The index of the eigenvalue to be computed.  I = 1 or I = 2.
 
-### I (in)
+D : Real Array, Dimension (2) [in]
+> The original eigenvalues.  We assume 0 <= D(1) < D(2).
 
-I is INTEGER The index of the eigenvalue to be computed. I = 1 or I = 2.
+Z : Real Array, Dimension (2) [in]
+> The components of the updating vector.
 
-### D (in)
+Delta : Real Array, Dimension (2) [out]
+> Contains (D(j) - sigma_I) in its  j-th component.
+> The vector DELTA contains the information necessary
+> to construct the eigenvectors.
 
-D is REAL array, dimension (2) The original eigenvalues. We assume 0 <= D(1) < D(2).
+Rho : Real [in]
+> The scalar in the symmetric updating formula.
 
-### Z (in)
+Dsigma : Real [out]
+> The computed sigma_I, the I-th updated eigenvalue.
 
-Z is REAL array, dimension (2) The components of the updating vector.
-
-### DELTA (out)
-
-DELTA is REAL array, dimension (2) Contains (D(j) - sigma_I) in its j-th component. The vector DELTA contains the information necessary to construct the eigenvectors.
-
-### RHO (in)
-
-RHO is REAL The scalar in the symmetric updating formula.
-
-### DSIGMA (out)
-
-DSIGMA is REAL The computed sigma_I, the I-th updated eigenvalue.
-
-### WORK (out)
-
-WORK is REAL array, dimension (2) WORK contains (D(j) + sigma_I) in its j-th component.
+Work : Real Array, Dimension (2) [out]
+> WORK contains (D(j) + sigma_I) in its  j-th component.
 

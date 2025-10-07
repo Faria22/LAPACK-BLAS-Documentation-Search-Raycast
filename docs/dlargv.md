@@ -1,13 +1,12 @@
-# DLARGV
-
-## Function Signature
-
 ```fortran
-DLARGV(N, X, INCX, Y, INCY, C, INCC)
+subroutine dlargv	(	integer	n,
+		double precision, dimension(*)	x,
+		integer	incx,
+		double precision, dimension(*)	y,
+		integer	incy,
+		double precision, dimension(*)	c,
+		integer	incc )
 ```
-
-## Description
-
 
  DLARGV generates a vector of real plane rotations, determined by
  elements of the real vectors x and y. For i = 1,2,...,n
@@ -16,32 +15,28 @@ DLARGV(N, X, INCX, Y, INCY, C, INCC)
     ( -s(i)  c(i) ) ( y(i) ) = (   0  )
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be generated.
 
-### N (in)
+X : Double Precision Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> On entry, the vector x.
+> On exit, x(i) is overwritten by a(i), for i = 1,...,n.
 
-N is INTEGER The number of plane rotations to be generated.
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-### X (in,out)
+Y : Double Precision Array, [in,out]
+> dimension (1+(N-1)*INCY)
+> On entry, the vector y.
+> On exit, the sines of the plane rotations.
 
-X is DOUBLE PRECISION array, dimension (1+(N-1)*INCX) On entry, the vector x. On exit, x(i) is overwritten by a(i), for i = 1,...,n.
+Incy : Integer [in]
+> The increment between elements of Y. INCY > 0.
 
-### INCX (in)
+C : Double Precision Array, Dimension (1+(n-1)*incc) [out]
+> The cosines of the plane rotations.
 
-INCX is INTEGER The increment between elements of X. INCX > 0.
-
-### Y (in,out)
-
-Y is DOUBLE PRECISION array, dimension (1+(N-1)*INCY) On entry, the vector y. On exit, the sines of the plane rotations.
-
-### INCY (in)
-
-INCY is INTEGER The increment between elements of Y. INCY > 0.
-
-### C (out)
-
-C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C. INCC > 0.
 

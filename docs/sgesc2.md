@@ -1,13 +1,12 @@
-# SGESC2
-
-## Function Signature
-
 ```fortran
-SGESC2(N, A, LDA, RHS, IPIV, JPIV, SCALE)
+subroutine sgesc2	(	integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		real, dimension(*)	rhs,
+		integer, dimension(*)	ipiv,
+		integer, dimension(*)	jpiv,
+		real	scale )
 ```
-
-## Description
-
 
  SGESC2 solves a system of linear equations
 
@@ -17,32 +16,29 @@ SGESC2(N, A, LDA, RHS, IPIV, JPIV, SCALE)
  complete pivoting computed by SGETC2.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.
 
-### N (in)
+A : Real Array, Dimension (lda,n) [in]
+> On entry, the  LU part of the factorization of the n-by-n
+> matrix A computed by SGETC2:  A = P * L * U * Q
 
-N is INTEGER The order of the matrix A.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1, N).
 
-### A (in)
+Rhs : Real Array, Dimension (n). [in,out]
+> On entry, the right hand side vector b.
+> On exit, the solution vector X.
 
-A is REAL array, dimension (LDA,N) On entry, the LU part of the factorization of the n-by-n matrix A computed by SGETC2: A = P * L * U * Q
+Ipiv : Integer Array, Dimension (n). [in]
+> The pivot indices; for 1 <= i <= N, row i of the
+> matrix has been interchanged with row IPIV(i).
 
-### LDA (in)
+Jpiv : Integer Array, Dimension (n). [in]
+> The pivot indices; for 1 <= j <= N, column j of the
+> matrix has been interchanged with column JPIV(j).
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1, N).
-
-### RHS (in,out)
-
-RHS is REAL array, dimension (N). On entry, the right hand side vector b. On exit, the solution vector X.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N). The pivot indices; for 1 <= i <= N, row i of the matrix has been interchanged with row IPIV(i).
-
-### JPIV (in)
-
-JPIV is INTEGER array, dimension (N). The pivot indices; for 1 <= j <= N, column j of the matrix has been interchanged with column JPIV(j).
-
-### SCALE (out)
-
-SCALE is REAL On exit, SCALE contains the scale factor. SCALE is chosen 0 <= SCALE <= 1 to prevent overflow in the solution.
+Scale : Real [out]
+> On exit, SCALE contains the scale factor. SCALE is chosen
+> 0 <= SCALE <= 1 to prevent overflow in the solution.
 

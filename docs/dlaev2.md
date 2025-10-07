@@ -1,13 +1,12 @@
-# DLAEV2
-
-## Function Signature
-
 ```fortran
-DLAEV2(A, B, C, RT1, RT2, CS1, SN1)
+subroutine dlaev2	(	double precision	a,
+		double precision	b,
+		double precision	c,
+		double precision	rt1,
+		double precision	rt2,
+		double precision	cs1,
+		double precision	sn1 )
 ```
-
-## Description
-
 
  DLAEV2 computes the eigendecomposition of a 2-by-2 symmetric matrix
     [  A   B  ]
@@ -20,32 +19,24 @@ DLAEV2(A, B, C, RT1, RT2, CS1, SN1)
     [-SN1  CS1 ] [  B   C  ] [ SN1  CS1 ]     [  0  RT2 ].
 
 ## Parameters
+A : Double Precision [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### A (in)
+B : Double Precision [in]
+> The (1,2) element and the conjugate of the (2,1) element of
+> the 2-by-2 matrix.
 
-A is DOUBLE PRECISION The (1,1) element of the 2-by-2 matrix.
+C : Double Precision [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### B (in)
+Rt1 : Double Precision [out]
+> The eigenvalue of larger absolute value.
 
-B is DOUBLE PRECISION The (1,2) element and the conjugate of the (2,1) element of the 2-by-2 matrix.
+Rt2 : Double Precision [out]
+> The eigenvalue of smaller absolute value.
 
-### C (in)
+Cs1 : Double Precision [out]
 
-C is DOUBLE PRECISION The (2,2) element of the 2-by-2 matrix.
-
-### RT1 (out)
-
-RT1 is DOUBLE PRECISION The eigenvalue of larger absolute value.
-
-### RT2 (out)
-
-RT2 is DOUBLE PRECISION The eigenvalue of smaller absolute value.
-
-### CS1 (out)
-
-CS1 is DOUBLE PRECISION
-
-### SN1 (out)
-
-SN1 is DOUBLE PRECISION The vector (CS1, SN1) is a unit right eigenvector for RT1.
+Sn1 : Double Precision [out]
+> The vector (CS1, SN1) is a unit right eigenvector for RT1.
 

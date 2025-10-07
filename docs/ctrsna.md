@@ -1,91 +1,114 @@
-# CTRSNA
-
-## Function Signature
-
 ```fortran
-CTRSNA(JOB, HOWMNY, SELECT, N, T, LDT, VL, LDVL, VR,
-*                          LDVR, S, SEP, MM, M, WORK, LDWORK, RWORK,
-*                          INFO)
+subroutine ctrsna	(	job,
+		howmny,
+		select,
+		n,
+		t,
+		ldt,
+		vl,
+		ldvl,
+		vr,
+		*                          ldvr,
+		s,
+		sep,
+		mm,
+		m,
+		work,
+		ldwork,
+		rwork,
+		*                          info )
 ```
-
-## Description
-
 
  CTRSNA estimates reciprocal condition numbers for specified
  eigenvalues and/or right eigenvectors of a complex upper triangular
  matrix T (or of any matrix Q*T*Q**H with Q unitary).
 
 ## Parameters
+Job : Character*1 [in]
+> Specifies whether condition numbers are required for
+> eigenvalues (S) or eigenvectors (SEP):
+> = 'E': for eigenvalues only (S);
+> = 'V': for eigenvectors only (SEP);
+> = 'B': for both eigenvalues and eigenvectors (S and SEP).
 
-### JOB (in)
+Howmny : Character*1 [in]
+> = 'A': compute condition numbers for all eigenpairs;
+> = 'S': compute condition numbers for selected eigenpairs
+> specified by the array SELECT.
 
-JOB is CHARACTER*1 Specifies whether condition numbers are required for eigenvalues (S) or eigenvectors (SEP): = 'E': for eigenvalues only (S); = 'V': for eigenvectors only (SEP); = 'B': for both eigenvalues and eigenvectors (S and SEP).
+Select : Logical Array, Dimension (n) [in]
+> If HOWMNY = 'S', SELECT specifies the eigenpairs for which
+> condition numbers are required. To select condition numbers
+> for the j-th eigenpair, SELECT(j) must be set to .TRUE..
+> If HOWMNY = 'A', SELECT is not referenced.
 
-### HOWMNY (in)
+N : Integer [in]
+> The order of the matrix T. N >= 0.
 
-HOWMNY is CHARACTER*1 = 'A': compute condition numbers for all eigenpairs; = 'S': compute condition numbers for selected eigenpairs specified by the array SELECT.
+T : Complex Array, Dimension (ldt,n) [in]
+> The upper triangular matrix T.
 
-### SELECT (in)
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= max(1,N).
 
-SELECT is LOGICAL array, dimension (N) If HOWMNY = 'S', SELECT specifies the eigenpairs for which condition numbers are required. To select condition numbers for the j-th eigenpair, SELECT(j) must be set to .TRUE.. If HOWMNY = 'A', SELECT is not referenced.
+Vl : Complex Array, Dimension (ldvl,m) [in]
+> If JOB = 'E' or 'B', VL must contain left eigenvectors of T
+> (or of any Q*T*Q**H with Q unitary), corresponding to the
+> eigenpairs specified by HOWMNY and SELECT. The eigenvectors
+> must be stored in consecutive columns of VL, as returned by
+> CHSEIN or CTREVC.
+> If JOB = 'V', VL is not referenced.
 
-### N (in)
+Ldvl : Integer [in]
+> The leading dimension of the array VL.
+> LDVL >= 1; and if JOB = 'E' or 'B', LDVL >= N.
 
-N is INTEGER The order of the matrix T. N >= 0.
+Vr : Complex Array, Dimension (ldvr,m) [in]
+> If JOB = 'E' or 'B', VR must contain right eigenvectors of T
+> (or of any Q*T*Q**H with Q unitary), corresponding to the
+> eigenpairs specified by HOWMNY and SELECT. The eigenvectors
+> must be stored in consecutive columns of VR, as returned by
+> CHSEIN or CTREVC.
+> If JOB = 'V', VR is not referenced.
 
-### T (in)
+Ldvr : Integer [in]
+> The leading dimension of the array VR.
+> LDVR >= 1; and if JOB = 'E' or 'B', LDVR >= N.
 
-T is COMPLEX array, dimension (LDT,N) The upper triangular matrix T.
+S : Real Array, Dimension (mm) [out]
+> If JOB = 'E' or 'B', the reciprocal condition numbers of the
+> selected eigenvalues, stored in consecutive elements of the
+> array. Thus S(j), SEP(j), and the j-th columns of VL and VR
+> all correspond to the same eigenpair (but not in general the
+> j-th eigenpair, unless all eigenpairs are selected).
+> If JOB = 'V', S is not referenced.
 
-### LDT (in)
+Sep : Real Array, Dimension (mm) [out]
+> If JOB = 'V' or 'B', the estimated reciprocal condition
+> numbers of the selected eigenvectors, stored in consecutive
+> elements of the array.
+> If JOB = 'E', SEP is not referenced.
 
-LDT is INTEGER The leading dimension of the array T. LDT >= max(1,N).
+Mm : Integer [in]
+> The number of elements in the arrays S (if JOB = 'E' or 'B')
+> and/or SEP (if JOB = 'V' or 'B'). MM >= M.
 
-### VL (in)
+M : Integer [out]
+> The number of elements of the arrays S and/or SEP actually
+> used to store the estimated condition numbers.
+> If HOWMNY = 'A', M is set to N.
 
-VL is COMPLEX array, dimension (LDVL,M) If JOB = 'E' or 'B', VL must contain left eigenvectors of T (or of any Q*T*Q**H with Q unitary), corresponding to the eigenpairs specified by HOWMNY and SELECT. The eigenvectors must be stored in consecutive columns of VL, as returned by CHSEIN or CTREVC. If JOB = 'V', VL is not referenced.
+Work : Complex Array, Dimension (ldwork,n+6) [out]
+> If JOB = 'E', WORK is not referenced.
 
-### LDVL (in)
+Ldwork : Integer [in]
+> The leading dimension of the array WORK.
+> LDWORK >= 1; and if JOB = 'V' or 'B', LDWORK >= N.
 
-LDVL is INTEGER The leading dimension of the array VL. LDVL >= 1; and if JOB = 'E' or 'B', LDVL >= N.
+Rwork : Real Array, Dimension (n) [out]
+> If JOB = 'E', RWORK is not referenced.
 
-### VR (in)
-
-VR is COMPLEX array, dimension (LDVR,M) If JOB = 'E' or 'B', VR must contain right eigenvectors of T (or of any Q*T*Q**H with Q unitary), corresponding to the eigenpairs specified by HOWMNY and SELECT. The eigenvectors must be stored in consecutive columns of VR, as returned by CHSEIN or CTREVC. If JOB = 'V', VR is not referenced.
-
-### LDVR (in)
-
-LDVR is INTEGER The leading dimension of the array VR. LDVR >= 1; and if JOB = 'E' or 'B', LDVR >= N.
-
-### S (out)
-
-S is REAL array, dimension (MM) If JOB = 'E' or 'B', the reciprocal condition numbers of the selected eigenvalues, stored in consecutive elements of the array. Thus S(j), SEP(j), and the j-th columns of VL and VR all correspond to the same eigenpair (but not in general the j-th eigenpair, unless all eigenpairs are selected). If JOB = 'V', S is not referenced.
-
-### SEP (out)
-
-SEP is REAL array, dimension (MM) If JOB = 'V' or 'B', the estimated reciprocal condition numbers of the selected eigenvectors, stored in consecutive elements of the array. If JOB = 'E', SEP is not referenced.
-
-### MM (in)
-
-MM is INTEGER The number of elements in the arrays S (if JOB = 'E' or 'B') and/or SEP (if JOB = 'V' or 'B'). MM >= M.
-
-### M (out)
-
-M is INTEGER The number of elements of the arrays S and/or SEP actually used to store the estimated condition numbers. If HOWMNY = 'A', M is set to N.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (LDWORK,N+6) If JOB = 'E', WORK is not referenced.
-
-### LDWORK (in)
-
-LDWORK is INTEGER The leading dimension of the array WORK. LDWORK >= 1; and if JOB = 'V' or 'B', LDWORK >= N.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (N) If JOB = 'E', RWORK is not referenced.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

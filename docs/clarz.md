@@ -1,13 +1,15 @@
-# CLARZ
-
-## Function Signature
-
 ```fortran
-CLARZ(SIDE, M, N, L, V, INCV, TAU, C, LDC, WORK)
+subroutine clarz	(	character	side,
+		integer	m,
+		integer	n,
+		integer	l,
+		complex, dimension(*)	v,
+		integer	incv,
+		complex	tau,
+		complex, dimension(ldc, *)	c,
+		integer	ldc,
+		complex, dimension(*)	work )
 ```
-
-## Description
-
 
  CLARZ applies a complex elementary reflector H to a complex
  M-by-N matrix C, from either the left or the right. H is represented
@@ -25,44 +27,40 @@ CLARZ(SIDE, M, N, L, V, INCV, TAU, C, LDC, WORK)
  H is a product of k elementary reflectors as returned by CTZRZF.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': form  H * C
+> = 'R': form  C * H
 
-### SIDE (in)
+M : Integer [in]
+> The number of rows of the matrix C.
 
-SIDE is CHARACTER*1 = 'L': form H * C = 'R': form C * H
+N : Integer [in]
+> The number of columns of the matrix C.
 
-### M (in)
+L : Integer [in]
+> The number of entries of the vector V containing
+> the meaningful part of the Householder vectors.
+> If SIDE = 'L', M >= L >= 0, if SIDE = 'R', N >= L >= 0.
 
-M is INTEGER The number of rows of the matrix C.
+V : Complex Array, Dimension (1+(l-1)*abs(incv)) [in]
+> The vector v in the representation of H as returned by
+> CTZRZF. V is not used if TAU = 0.
 
-### N (in)
+Incv : Integer [in]
+> The increment between elements of v. INCV <> 0.
 
-N is INTEGER The number of columns of the matrix C.
+Tau : Complex [in]
+> The value tau in the representation of H.
 
-### L (in)
+C : Complex Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+> or C * H if SIDE = 'R'.
 
-L is INTEGER The number of entries of the vector V containing the meaningful part of the Householder vectors. If SIDE = 'L', M >= L >= 0, if SIDE = 'R', N >= L >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### V (in)
-
-V is COMPLEX array, dimension (1+(L-1)*abs(INCV)) The vector v in the representation of H as returned by CTZRZF. V is not used if TAU = 0.
-
-### INCV (in)
-
-INCV is INTEGER The increment between elements of v. INCV <> 0.
-
-### TAU (in)
-
-TAU is COMPLEX The value tau in the representation of H.
-
-### C (in,out)
-
-C is COMPLEX array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by the matrix H * C if SIDE = 'L', or C * H if SIDE = 'R'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N) if SIDE = 'L' or (M) if SIDE = 'R'
+Work : Complex Array, Dimension [out]
+> (N) if SIDE = 'L'
+> or (M) if SIDE = 'R'
 

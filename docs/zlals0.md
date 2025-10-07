@@ -1,15 +1,29 @@
-# ZLALS0
-
-## Function Signature
-
 ```fortran
-ZLALS0(ICOMPQ, NL, NR, SQRE, NRHS, B, LDB, BX, LDBX,
-*                          PERM, GIVPTR, GIVCOL, LDGCOL, GIVNUM, LDGNUM,
-*                          POLES, DIFL, DIFR, Z, K, C, S, RWORK, INFO)
+subroutine zlals0	(	icompq,
+		nl,
+		nr,
+		sqre,
+		nrhs,
+		b,
+		ldb,
+		bx,
+		ldbx,
+		*                          perm,
+		givptr,
+		givcol,
+		ldgcol,
+		givnum,
+		ldgnum,
+		*                          poles,
+		difl,
+		difr,
+		z,
+		k,
+		c,
+		s,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  ZLALS0 applies back the multiplying factors of either the left or the
  right singular vector matrix of a diagonal matrix appended by a row
@@ -42,100 +56,101 @@ ZLALS0(ICOMPQ, NL, NR, SQRE, NRHS, B, LDB, BX, LDBX,
  (4R) The inverse transformation of (1L).
 
 ## Parameters
+Icompq : Integer [in]
+> Specifies whether singular vectors are to be computed in
+> factored form:
+> = 0: Left singular vector matrix.
+> = 1: Right singular vector matrix.
 
-### ICOMPQ (in)
+Nl : Integer [in]
+> The row dimension of the upper block. NL >= 1.
 
-ICOMPQ is INTEGER Specifies whether singular vectors are to be computed in factored form: = 0: Left singular vector matrix. = 1: Right singular vector matrix.
+Nr : Integer [in]
+> The row dimension of the lower block. NR >= 1.
 
-### NL (in)
+Sqre : Integer [in]
+> = 0: the lower block is an NR-by-NR square matrix.
+> = 1: the lower block is an NR-by-(NR+1) rectangular matrix.
+> The bidiagonal matrix has row dimension N = NL + NR + 1,
+> and column dimension M = N + SQRE.
 
-NL is INTEGER The row dimension of the upper block. NL >= 1.
+Nrhs : Integer [in]
+> The number of columns of B and BX. NRHS must be at least 1.
 
-### NR (in)
+B : Complex*16 Array, Dimension ( Ldb, Nrhs ) [in,out]
+> On input, B contains the right hand sides of the least
+> squares problem in rows 1 through M. On output, B contains
+> the solution X in rows 1 through N.
 
-NR is INTEGER The row dimension of the lower block. NR >= 1.
+Ldb : Integer [in]
+> The leading dimension of B. LDB must be at least
+> max(1,MAX( M, N ) ).
 
-### SQRE (in)
+Bx : Complex*16 Array, Dimension ( Ldbx, Nrhs ) [out]
 
-SQRE is INTEGER = 0: the lower block is an NR-by-NR square matrix. = 1: the lower block is an NR-by-(NR+1) rectangular matrix. The bidiagonal matrix has row dimension N = NL + NR + 1, and column dimension M = N + SQRE.
+Ldbx : Integer [in]
+> The leading dimension of BX.
 
-### NRHS (in)
+Perm : Integer Array, Dimension ( N ) [in]
+> The permutations (from deflation and sorting) applied
+> to the two blocks.
 
-NRHS is INTEGER The number of columns of B and BX. NRHS must be at least 1.
+Givptr : Integer [in]
+> The number of Givens rotations which took place in this
+> subproblem.
 
-### B (in,out)
+Givcol : Integer Array, Dimension ( Ldgcol, 2 ) [in]
+> Each pair of numbers indicates a pair of rows/columns
+> involved in a Givens rotation.
 
-B is COMPLEX*16 array, dimension ( LDB, NRHS ) On input, B contains the right hand sides of the least squares problem in rows 1 through M. On output, B contains the solution X in rows 1 through N.
+Ldgcol : Integer [in]
+> The leading dimension of GIVCOL, must be at least N.
 
-### LDB (in)
+Givnum : Double Precision Array, Dimension ( Ldgnum, 2 ) [in]
+> Each number indicates the C or S value used in the
+> corresponding Givens rotation.
 
-LDB is INTEGER The leading dimension of B. LDB must be at least max(1,MAX( M, N ) ).
+Ldgnum : Integer [in]
+> The leading dimension of arrays DIFR, POLES and
+> GIVNUM, must be at least K.
 
-### BX (out)
+Poles : Double Precision Array, Dimension ( Ldgnum, 2 ) [in]
+> On entry, POLES(1:K, 1) contains the new singular
+> values obtained from solving the secular equation, and
+> POLES(1:K, 2) is an array containing the poles in the secular
+> equation.
 
-BX is COMPLEX*16 array, dimension ( LDBX, NRHS )
+Difl : Double Precision Array, Dimension ( K ). [in]
+> On entry, DIFL(I) is the distance between I-th updated
+> (undeflated) singular value and the I-th (undeflated) old
+> singular value.
 
-### LDBX (in)
+Difr : Double Precision Array, Dimension ( Ldgnum, 2 ). [in]
+> On entry, DIFR(I, 1) contains the distances between I-th
+> updated (undeflated) singular value and the I+1-th
+> (undeflated) old singular value. And DIFR(I, 2) is the
+> normalizing factor for the I-th right singular vector.
 
-LDBX is INTEGER The leading dimension of BX.
+Z : Double Precision Array, Dimension ( K ) [in]
+> Contain the components of the deflation-adjusted updating row
+> vector.
 
-### PERM (in)
+K : Integer [in]
+> Contains the dimension of the non-deflated matrix,
+> This is the order of the related secular equation. 1 <= K <=N.
 
-PERM is INTEGER array, dimension ( N ) The permutations (from deflation and sorting) applied to the two blocks.
+C : Double Precision [in]
+> C contains garbage if SQRE =0 and the C-value of a Givens
+> rotation related to the right null space if SQRE = 1.
 
-### GIVPTR (in)
+S : Double Precision [in]
+> S contains garbage if SQRE =0 and the S-value of a Givens
+> rotation related to the right null space if SQRE = 1.
 
-GIVPTR is INTEGER The number of Givens rotations which took place in this subproblem.
+Rwork : Double Precision Array, Dimension [out]
+> ( K*(1+NRHS) + 2*NRHS )
 
-### GIVCOL (in)
-
-GIVCOL is INTEGER array, dimension ( LDGCOL, 2 ) Each pair of numbers indicates a pair of rows/columns involved in a Givens rotation.
-
-### LDGCOL (in)
-
-LDGCOL is INTEGER The leading dimension of GIVCOL, must be at least N.
-
-### GIVNUM (in)
-
-GIVNUM is DOUBLE PRECISION array, dimension ( LDGNUM, 2 ) Each number indicates the C or S value used in the corresponding Givens rotation.
-
-### LDGNUM (in)
-
-LDGNUM is INTEGER The leading dimension of arrays DIFR, POLES and GIVNUM, must be at least K.
-
-### POLES (in)
-
-POLES is DOUBLE PRECISION array, dimension ( LDGNUM, 2 ) On entry, POLES(1:K, 1) contains the new singular values obtained from solving the secular equation, and POLES(1:K, 2) is an array containing the poles in the secular equation.
-
-### DIFL (in)
-
-DIFL is DOUBLE PRECISION array, dimension ( K ). On entry, DIFL(I) is the distance between I-th updated (undeflated) singular value and the I-th (undeflated) old singular value.
-
-### DIFR (in)
-
-DIFR is DOUBLE PRECISION array, dimension ( LDGNUM, 2 ). On entry, DIFR(I, 1) contains the distances between I-th updated (undeflated) singular value and the I+1-th (undeflated) old singular value. And DIFR(I, 2) is the normalizing factor for the I-th right singular vector.
-
-### Z (in)
-
-Z is DOUBLE PRECISION array, dimension ( K ) Contain the components of the deflation-adjusted updating row vector.
-
-### K (in)
-
-K is INTEGER Contains the dimension of the non-deflated matrix, This is the order of the related secular equation. 1 <= K <=N.
-
-### C (in)
-
-C is DOUBLE PRECISION C contains garbage if SQRE =0 and the C-value of a Givens rotation related to the right null space if SQRE = 1.
-
-### S (in)
-
-S is DOUBLE PRECISION S contains garbage if SQRE =0 and the S-value of a Givens rotation related to the right null space if SQRE = 1.
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension ( K*(1+NRHS) + 2*NRHS )
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

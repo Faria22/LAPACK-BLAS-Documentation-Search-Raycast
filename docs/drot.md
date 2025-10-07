@@ -1,43 +1,30 @@
-# DROT
-
-## Function Signature
-
 ```fortran
-DROT(N,DX,INCX,DY,INCY,C,S)
+subroutine drot	(	integer	n,
+		double precision, dimension(*)	dx,
+		integer	incx,
+		double precision, dimension(*)	dy,
+		integer	incy,
+		double precision	c,
+		double precision	s )
 ```
-
-## Description
-
 
     DROT applies a plane rotation.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of DX
 
-### DX (in,out)
+Dy : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+Incy : Integer [in]
+> storage spacing between elements of DY
 
-### INCX (in)
+C : Double Precision [in]
 
-INCX is INTEGER storage spacing between elements of DX
-
-### DY (in,out)
-
-DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of DY
-
-### C (in)
-
-C is DOUBLE PRECISION
-
-### S (in)
-
-S is DOUBLE PRECISION
+S : Double Precision [in]
 

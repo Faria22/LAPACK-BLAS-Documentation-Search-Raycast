@@ -1,13 +1,11 @@
-# SLAPLL
-
-## Function Signature
-
 ```fortran
-SLAPLL(N, X, INCX, Y, INCY, SSMIN)
+subroutine slapll	(	integer	n,
+		real, dimension(*)	x,
+		integer	incx,
+		real, dimension(*)	y,
+		integer	incy,
+		real	ssmin )
 ```
-
-## Description
-
 
  Given two column vectors X and Y, let
 
@@ -19,28 +17,25 @@ SLAPLL(N, X, INCX, Y, INCY, SSMIN)
  as the measurement of the linear dependency of the vectors X and Y.
 
 ## Parameters
+N : Integer [in]
+> The length of the vectors X and Y.
 
-### N (in)
+X : Real Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> On entry, X contains the N-vector X.
+> On exit, X is overwritten.
 
-N is INTEGER The length of the vectors X and Y.
+Incx : Integer [in]
+> The increment between successive elements of X. INCX > 0.
 
-### X (in,out)
+Y : Real Array, [in,out]
+> dimension (1+(N-1)*INCY)
+> On entry, Y contains the N-vector Y.
+> On exit, Y is overwritten.
 
-X is REAL array, dimension (1+(N-1)*INCX) On entry, X contains the N-vector X. On exit, X is overwritten.
+Incy : Integer [in]
+> The increment between successive elements of Y. INCY > 0.
 
-### INCX (in)
-
-INCX is INTEGER The increment between successive elements of X. INCX > 0.
-
-### Y (in,out)
-
-Y is REAL array, dimension (1+(N-1)*INCY) On entry, Y contains the N-vector Y. On exit, Y is overwritten.
-
-### INCY (in)
-
-INCY is INTEGER The increment between successive elements of Y. INCY > 0.
-
-### SSMIN (out)
-
-SSMIN is REAL The smallest singular value of the N-by-2 matrix A = ( X Y ).
+Ssmin : Real [out]
+> The smallest singular value of the N-by-2 matrix A = ( X Y ).
 

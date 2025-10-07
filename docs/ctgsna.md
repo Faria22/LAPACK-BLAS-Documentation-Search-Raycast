@@ -1,15 +1,25 @@
-# CTGSNA
-
-## Function Signature
-
 ```fortran
-CTGSNA(JOB, HOWMNY, SELECT, N, A, LDA, B, LDB, VL,
-*                          LDVL, VR, LDVR, S, DIF, MM, M, WORK, LWORK,
-*                          IWORK, INFO)
+subroutine ctgsna	(	job,
+		howmny,
+		select,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		vl,
+		*                          ldvl,
+		vr,
+		ldvr,
+		s,
+		dif,
+		mm,
+		m,
+		work,
+		lwork,
+		*                          iwork,
+		info )
 ```
-
-## Description
-
 
  CTGSNA estimates reciprocal condition numbers for specified
  eigenvalues and/or eigenvectors of a matrix pair (A, B).
@@ -18,84 +28,98 @@ CTGSNA(JOB, HOWMNY, SELECT, N, A, LDA, B, LDB, VL,
  B are both upper triangular.
 
 ## Parameters
+Job : Character*1 [in]
+> Specifies whether condition numbers are required for
+> eigenvalues (S) or eigenvectors (DIF):
+> = 'E': for eigenvalues only (S);
+> = 'V': for eigenvectors only (DIF);
+> = 'B': for both eigenvalues and eigenvectors (S and DIF).
 
-### JOB (in)
+Howmny : Character*1 [in]
+> = 'A': compute condition numbers for all eigenpairs;
+> = 'S': compute condition numbers for selected eigenpairs
+> specified by the array SELECT.
 
-JOB is CHARACTER*1 Specifies whether condition numbers are required for eigenvalues (S) or eigenvectors (DIF): = 'E': for eigenvalues only (S); = 'V': for eigenvectors only (DIF); = 'B': for both eigenvalues and eigenvectors (S and DIF).
+Select : Logical Array, Dimension (n) [in]
+> If HOWMNY = 'S', SELECT specifies the eigenpairs for which
+> condition numbers are required. To select condition numbers
+> for the corresponding j-th eigenvalue and/or eigenvector,
+> SELECT(j) must be set to .TRUE..
+> If HOWMNY = 'A', SELECT is not referenced.
 
-### HOWMNY (in)
+N : Integer [in]
+> The order of the square matrix pair (A, B). N >= 0.
 
-HOWMNY is CHARACTER*1 = 'A': compute condition numbers for all eigenpairs; = 'S': compute condition numbers for selected eigenpairs specified by the array SELECT.
+A : Complex Array, Dimension (lda,n) [in]
+> The upper triangular matrix A in the pair (A,B).
 
-### SELECT (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,N).
 
-SELECT is LOGICAL array, dimension (N) If HOWMNY = 'S', SELECT specifies the eigenpairs for which condition numbers are required. To select condition numbers for the corresponding j-th eigenvalue and/or eigenvector, SELECT(j) must be set to .TRUE.. If HOWMNY = 'A', SELECT is not referenced.
+B : Complex Array, Dimension (ldb,n) [in]
+> The upper triangular matrix B in the pair (A, B).
 
-### N (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-N is INTEGER The order of the square matrix pair (A, B). N >= 0.
+Vl : Complex Array, Dimension (ldvl,m) [in]
+> IF JOB = 'E' or 'B', VL must contain left eigenvectors of
+> (A, B), corresponding to the eigenpairs specified by HOWMNY
+> and SELECT.  The eigenvectors must be stored in consecutive
+> columns of VL, as returned by CTGEVC.
+> If JOB = 'V', VL is not referenced.
 
-### A (in)
+Ldvl : Integer [in]
+> The leading dimension of the array VL. LDVL >= 1; and
+> If JOB = 'E' or 'B', LDVL >= N.
 
-A is COMPLEX array, dimension (LDA,N) The upper triangular matrix A in the pair (A,B).
+Vr : Complex Array, Dimension (ldvr,m) [in]
+> IF JOB = 'E' or 'B', VR must contain right eigenvectors of
+> (A, B), corresponding to the eigenpairs specified by HOWMNY
+> and SELECT.  The eigenvectors must be stored in consecutive
+> columns of VR, as returned by CTGEVC.
+> If JOB = 'V', VR is not referenced.
 
-### LDA (in)
+Ldvr : Integer [in]
+> The leading dimension of the array VR. LDVR >= 1;
+> If JOB = 'E' or 'B', LDVR >= N.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+S : Real Array, Dimension (mm) [out]
+> If JOB = 'E' or 'B', the reciprocal condition numbers of the
+> selected eigenvalues, stored in consecutive elements of the
+> array.
+> If JOB = 'V', S is not referenced.
 
-### B (in)
+Dif : Real Array, Dimension (mm) [out]
+> If JOB = 'V' or 'B', the estimated reciprocal condition
+> numbers of the selected eigenvectors, stored in consecutive
+> elements of the array.
+> If the eigenvalues cannot be reordered to compute DIF(j),
+> DIF(j) is set to 0; this can only occur when the true value
+> would be very small anyway.
+> For each eigenvalue/vector specified by SELECT, DIF stores
+> a Frobenius norm-based estimate of Difl.
+> If JOB = 'E', DIF is not referenced.
 
-B is COMPLEX array, dimension (LDB,N) The upper triangular matrix B in the pair (A, B).
+Mm : Integer [in]
+> The number of elements in the arrays S and DIF. MM >= M.
 
-### LDB (in)
+M : Integer [out]
+> The number of elements of the arrays S and DIF used to store
+> the specified condition numbers; for each selected eigenvalue
+> one element is used. If HOWMNY = 'A', M is set to N.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### VL (in)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= max(1,N).
+> If JOB = 'V' or 'B', LWORK >= max(1,2*N*N).
 
-VL is COMPLEX array, dimension (LDVL,M) IF JOB = 'E' or 'B', VL must contain left eigenvectors of (A, B), corresponding to the eigenpairs specified by HOWMNY and SELECT. The eigenvectors must be stored in consecutive columns of VL, as returned by CTGEVC. If JOB = 'V', VL is not referenced.
+Iwork : Integer Array, Dimension (n+2) [out]
+> If JOB = 'E', IWORK is not referenced.
 
-### LDVL (in)
-
-LDVL is INTEGER The leading dimension of the array VL. LDVL >= 1; and If JOB = 'E' or 'B', LDVL >= N.
-
-### VR (in)
-
-VR is COMPLEX array, dimension (LDVR,M) IF JOB = 'E' or 'B', VR must contain right eigenvectors of (A, B), corresponding to the eigenpairs specified by HOWMNY and SELECT. The eigenvectors must be stored in consecutive columns of VR, as returned by CTGEVC. If JOB = 'V', VR is not referenced.
-
-### LDVR (in)
-
-LDVR is INTEGER The leading dimension of the array VR. LDVR >= 1; If JOB = 'E' or 'B', LDVR >= N.
-
-### S (out)
-
-S is REAL array, dimension (MM) If JOB = 'E' or 'B', the reciprocal condition numbers of the selected eigenvalues, stored in consecutive elements of the array. If JOB = 'V', S is not referenced.
-
-### DIF (out)
-
-DIF is REAL array, dimension (MM) If JOB = 'V' or 'B', the estimated reciprocal condition numbers of the selected eigenvectors, stored in consecutive elements of the array. If the eigenvalues cannot be reordered to compute DIF(j), DIF(j) is set to 0; this can only occur when the true value would be very small anyway. For each eigenvalue/vector specified by SELECT, DIF stores a Frobenius norm-based estimate of Difl. If JOB = 'E', DIF is not referenced.
-
-### MM (in)
-
-MM is INTEGER The number of elements in the arrays S and DIF. MM >= M.
-
-### M (out)
-
-M is INTEGER The number of elements of the arrays S and DIF used to store the specified condition numbers; for each selected eigenvalue one element is used. If HOWMNY = 'A', M is set to N.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,N). If JOB = 'V' or 'B', LWORK >= max(1,2*N*N).
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N+2) If JOB = 'E', IWORK is not referenced.
-
-### INFO (out)
-
-INFO is INTEGER = 0: Successful exit < 0: If INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0: Successful exit
+> < 0: If INFO = -i, the i-th argument had an illegal value
 

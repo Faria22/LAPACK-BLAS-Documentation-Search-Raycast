@@ -1,13 +1,12 @@
-# SGETRI
-
-## Function Signature
-
 ```fortran
-SGETRI(N, A, LDA, IPIV, WORK, LWORK, INFO)
+subroutine sgetri	(	integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		real, dimension(*)	work,
+		integer	lwork,
+		integer	info )
 ```
-
-## Description
-
 
  SGETRI computes the inverse of a matrix using the LU factorization
  computed by SGETRF.
@@ -16,32 +15,36 @@ SGETRI(N, A, LDA, IPIV, WORK, LWORK, INFO)
  inv(A)*L = inv(U) for inv(A).
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### N (in)
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the factors L and U from the factorization
+> A = P*L*U as computed by SGETRF.
+> On exit, if INFO = 0, the inverse of the original matrix A.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### A (in,out)
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices from SGETRF; for 1<=i<=N, row i of the
+> matrix was interchanged with row IPIV(i).
 
-A is REAL array, dimension (LDA,N) On entry, the factors L and U from the factorization A = P*L*U as computed by SGETRF. On exit, if INFO = 0, the inverse of the original matrix A.
+Work : Real Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO=0, then WORK(1) returns the optimal LWORK.
 
-### LDA (in)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,N).
+> For optimal performance LWORK >= N*NB, where NB is
+> the optimal blocksize returned by ILAENV.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices from SGETRF; for 1<=i<=N, row i of the matrix was interchanged with row IPIV(i).
-
-### WORK (out)
-
-WORK is REAL array, dimension (MAX(1,LWORK)) On exit, if INFO=0, then WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,N). For optimal performance LWORK >= N*NB, where NB is the optimal blocksize returned by ILAENV. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, U(i,i) is exactly zero; the matrix is singular and its inverse could not be computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
+> singular and its inverse could not be computed.
 

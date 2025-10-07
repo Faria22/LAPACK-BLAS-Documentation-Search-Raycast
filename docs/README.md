@@ -1,11 +1,11 @@
 # LAPACK/BLAS Routine Index
 
-This directory contains markdown documentation for 2,185 LAPACK and BLAS routines.
+This directory contains markdown documentation for 2,005 LAPACK and BLAS routines.
 
 ## Coverage
 
-- **LAPACK routines**: 2,038 routines
-- **BLAS routines**: 149 routines (Level 1, 2, and 3)
+- **LAPACK routines**: 1,873 routines
+- **BLAS routines**: 132 routines (Level 1, 2, and 3)
 
 ## Naming Convention
 
@@ -34,7 +34,7 @@ LAPACK and BLAS routines follow a naming convention where:
 ## File Format
 
 Each markdown file contains:
-1. Function signature (Fortran syntax)
+1. Function signature (Fortran syntax with types)
 2. Detailed description of what the routine does
 3. Complete parameter documentation with types and descriptions
 

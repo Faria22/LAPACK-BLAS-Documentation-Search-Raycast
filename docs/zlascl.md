@@ -1,13 +1,15 @@
-# ZLASCL
-
-## Function Signature
-
 ```fortran
-ZLASCL(TYPE, KL, KU, CFROM, CTO, M, N, A, LDA, INFO)
+subroutine zlascl	(	character	type,
+		integer	kl,
+		integer	ku,
+		double precision	cfrom,
+		double precision	cto,
+		integer	m,
+		integer	n,
+		complex*16, dimension(lda, *)	a,
+		integer	lda,
+		integer	info )
 ```
-
-## Description
-
 
  ZLASCL multiplies the M by N complex matrix A by the real scalar
  CTO/CFROM.  This is done without over/underflow as long as the final
@@ -16,44 +18,55 @@ ZLASCL(TYPE, KL, KU, CFROM, CTO, M, N, A, LDA, INFO)
  or banded.
 
 ## Parameters
+Type : Character*1 [in]
+> TYPE indices the storage type of the input matrix.
+> = 'G':  A is a full matrix.
+> = 'L':  A is a lower triangular matrix.
+> = 'U':  A is an upper triangular matrix.
+> = 'H':  A is an upper Hessenberg matrix.
+> = 'B':  A is a symmetric band matrix with lower bandwidth KL
+> and upper bandwidth KU and with the only the lower
+> half stored.
+> = 'Q':  A is a symmetric band matrix with lower bandwidth KL
+> and upper bandwidth KU and with the only the upper
+> half stored.
+> = 'Z':  A is a band matrix with lower bandwidth KL and upper
+> bandwidth KU. See ZGBTRF for storage details.
 
-### TYPE (in)
+Kl : Integer [in]
+> The lower bandwidth of A.  Referenced only if TYPE = 'B',
+> 'Q' or 'Z'.
 
-TYPE is CHARACTER*1 TYPE indices the storage type of the input matrix. = 'G': A is a full matrix. = 'L': A is a lower triangular matrix. = 'U': A is an upper triangular matrix. = 'H': A is an upper Hessenberg matrix. = 'B': A is a symmetric band matrix with lower bandwidth KL and upper bandwidth KU and with the only the lower half stored. = 'Q': A is a symmetric band matrix with lower bandwidth KL and upper bandwidth KU and with the only the upper half stored. = 'Z': A is a band matrix with lower bandwidth KL and upper bandwidth KU. See ZGBTRF for storage details.
+Ku : Integer [in]
+> The upper bandwidth of A.  Referenced only if TYPE = 'B',
+> 'Q' or 'Z'.
 
-### KL (in)
+Cfrom : Double Precision [in]
 
-KL is INTEGER The lower bandwidth of A. Referenced only if TYPE = 'B', 'Q' or 'Z'.
+Cto : Double Precision [in]
+> The matrix A is multiplied by CTO/CFROM. A(I,J) is computed
+> without over/underflow if the final result CTO*A(I,J)/CFROM
+> can be represented without over/underflow.  CFROM must be
+> nonzero.
 
-### KU (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-KU is INTEGER The upper bandwidth of A. Referenced only if TYPE = 'B', 'Q' or 'Z'.
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-### CFROM (in)
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> The matrix to be multiplied by CTO/CFROM.  See TYPE for the
+> storage type.
 
-CFROM is DOUBLE PRECISION
+Lda : Integer [in]
+> The leading dimension of the array A.
+> If TYPE = 'G', 'L', 'U', 'H', LDA >= max(1,M);
+> TYPE = 'B', LDA >= KL+1;
+> TYPE = 'Q', LDA >= KU+1;
+> TYPE = 'Z', LDA >= 2*KL+KU+1.
 
-### CTO (in)
-
-CTO is DOUBLE PRECISION The matrix A is multiplied by CTO/CFROM. A(I,J) is computed without over/underflow if the final result CTO*A(I,J)/CFROM can be represented without over/underflow. CFROM must be nonzero.
-
-### M (in)
-
-M is INTEGER The number of rows of the matrix A. M >= 0.
-
-### N (in)
-
-N is INTEGER The number of columns of the matrix A. N >= 0.
-
-### A (in,out)
-
-A is COMPLEX*16 array, dimension (LDA,N) The matrix to be multiplied by CTO/CFROM. See TYPE for the storage type.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. If TYPE = 'G', 'L', 'U', 'H', LDA >= max(1,M); TYPE = 'B', LDA >= KL+1; TYPE = 'Q', LDA >= KU+1; TYPE = 'Z', LDA >= 2*KL+KU+1.
-
-### INFO (out)
-
-INFO is INTEGER 0 - successful exit <0 - if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> 0  - successful exit
+> <0 - if INFO = -i, the i-th argument had an illegal value.
 

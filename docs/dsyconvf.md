@@ -1,13 +1,13 @@
-# DSYCONVF
-
-## Function Signature
-
 ```fortran
-DSYCONVF(UPLO, WAY, N, A, LDA, E, IPIV, INFO)
+subroutine dsyconvf	(	character	uplo,
+		character	way,
+		integer	n,
+		double precision, dimension(lda, *)	a,
+		integer	lda,
+		double precision, dimension(*)	e,
+		integer, dimension(*)	ipiv,
+		integer	info )
 ```
-
-## Description
-
  If parameter WAY = 'C':
  DSYCONVF converts the factorization output format used in
  DSYTRF provided on entry in parameter A into the factorization
@@ -26,36 +26,91 @@ DSYCONVF(UPLO, WAY, N, A, LDA, E, IPIV, INFO)
  (or DSYTRF_BK) into the format used in DSYTRF.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are
+> stored as an upper or lower triangular matrix A.
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+Way : Character*1 [in]
+> = 'C': Convert
+> = 'R': Revert
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix A. = 'U': Upper triangular = 'L': Lower triangular
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### WAY (in)
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> 1) If WAY ='C':
+> On entry, contains factorization details in format used in
+> DSYTRF:
+> a) all elements of the symmetric block diagonal
+> matrix D on the diagonal of A and on superdiagonal
+> (or subdiagonal) of A, and
+> b) If UPLO = 'U': multipliers used to obtain factor U
+> in the superdiagonal part of A.
+> If UPLO = 'L': multipliers used to obtain factor L
+> in the superdiagonal part of A.
+> On exit, contains factorization details in format used in
+> DSYTRF_RK or DSYTRF_BK:
+> a) ONLY diagonal elements of the symmetric block diagonal
+> matrix D on the diagonal of A, i.e. D(k,k) = A(k,k);
+> (superdiagonal (or subdiagonal) elements of D
+> are stored on exit in array E), and
+> b) If UPLO = 'U': factor U in the superdiagonal part of A.
+> If UPLO = 'L': factor L in the subdiagonal part of A.
+> 2) If WAY = 'R':
+> On entry, contains factorization details in format used in
+> DSYTRF_RK or DSYTRF_BK:
+> a) ONLY diagonal elements of the symmetric block diagonal
+> matrix D on the diagonal of A, i.e. D(k,k) = A(k,k);
+> (superdiagonal (or subdiagonal) elements of D
+> are stored on exit in array E), and
+> b) If UPLO = 'U': factor U in the superdiagonal part of A.
+> If UPLO = 'L': factor L in the subdiagonal part of A.
+> On exit, contains factorization details in format used in
+> DSYTRF:
+> a) all elements of the symmetric block diagonal
+> matrix D on the diagonal of A and on superdiagonal
+> (or subdiagonal) of A, and
+> b) If UPLO = 'U': multipliers used to obtain factor U
+> in the superdiagonal part of A.
+> If UPLO = 'L': multipliers used to obtain factor L
+> in the superdiagonal part of A.
 
-WAY is CHARACTER*1 = 'C': Convert = 'R': Revert
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### N (in)
+E : Double Precision Array, Dimension (n) [in,out]
+> 1) If WAY ='C':
+> On entry, just a workspace.
+> On exit, contains the superdiagonal (or subdiagonal)
+> elements of the symmetric block diagonal matrix D
+> with 1-by-1 or 2-by-2 diagonal blocks, where
+> If UPLO = 'U': E(i) = D(i-1,i), i=2:N, E(1) is set to 0;
+> If UPLO = 'L': E(i) = D(i+1,i), i=1:N-1, E(N) is set to 0.
+> 2) If WAY = 'R':
+> On entry, contains the superdiagonal (or subdiagonal)
+> elements of the symmetric block diagonal matrix D
+> with 1-by-1 or 2-by-2 diagonal blocks, where
+> If UPLO = 'U': E(i) = D(i-1,i),i=2:N, E(1) not referenced;
+> If UPLO = 'L': E(i) = D(i+1,i),i=1:N-1, E(N) not referenced.
+> On exit, is not changed
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in,out]
+> 1) If WAY ='C':
+> On entry, details of the interchanges and the block
+> structure of D in the format used in DSYTRF.
+> On exit, details of the interchanges and the block
+> structure of D in the format used in DSYTRF_RK
+> ( or DSYTRF_BK).
+> 1) If WAY ='R':
+> On entry, details of the interchanges and the block
+> structure of D in the format used in DSYTRF_RK
+> ( or DSYTRF_BK).
+> On exit, details of the interchanges and the block
+> structure of D in the format used in DSYTRF.
 
-### A (in,out)
-
-A is DOUBLE PRECISION array, dimension (LDA,N) 1) If WAY ='C': On entry, contains factorization details in format used in DSYTRF: a) all elements of the symmetric block diagonal matrix D on the diagonal of A and on superdiagonal (or subdiagonal) of A, and b) If UPLO = 'U': multipliers used to obtain factor U in the superdiagonal part of A. If UPLO = 'L': multipliers used to obtain factor L in the superdiagonal part of A. On exit, contains factorization details in format used in DSYTRF_RK or DSYTRF_BK: a) ONLY diagonal elements of the symmetric block diagonal matrix D on the diagonal of A, i.e. D(k,k) = A(k,k); (superdiagonal (or subdiagonal) elements of D are stored on exit in array E), and b) If UPLO = 'U': factor U in the superdiagonal part of A. If UPLO = 'L': factor L in the subdiagonal part of A. 2) If WAY = 'R': On entry, contains factorization details in format used in DSYTRF_RK or DSYTRF_BK: a) ONLY diagonal elements of the symmetric block diagonal matrix D on the diagonal of A, i.e. D(k,k) = A(k,k); (superdiagonal (or subdiagonal) elements of D are stored on exit in array E), and b) If UPLO = 'U': factor U in the superdiagonal part of A. If UPLO = 'L': factor L in the subdiagonal part of A. On exit, contains factorization details in format used in DSYTRF: a) all elements of the symmetric block diagonal matrix D on the diagonal of A and on superdiagonal (or subdiagonal) of A, and b) If UPLO = 'U': multipliers used to obtain factor U in the superdiagonal part of A. If UPLO = 'L': multipliers used to obtain factor L in the superdiagonal part of A.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### E (in,out)
-
-E is DOUBLE PRECISION array, dimension (N) 1) If WAY ='C': On entry, just a workspace. On exit, contains the superdiagonal (or subdiagonal) elements of the symmetric block diagonal matrix D with 1-by-1 or 2-by-2 diagonal blocks, where If UPLO = 'U': E(i) = D(i-1,i), i=2:N, E(1) is set to 0; If UPLO = 'L': E(i) = D(i+1,i), i=1:N-1, E(N) is set to 0. 2) If WAY = 'R': On entry, contains the superdiagonal (or subdiagonal) elements of the symmetric block diagonal matrix D with 1-by-1 or 2-by-2 diagonal blocks, where If UPLO = 'U': E(i) = D(i-1,i),i=2:N, E(1) not referenced; If UPLO = 'L': E(i) = D(i+1,i),i=1:N-1, E(N) not referenced. On exit, is not changed
-
-### IPIV (in,out)
-
-IPIV is INTEGER array, dimension (N) 1) If WAY ='C': On entry, details of the interchanges and the block structure of D in the format used in DSYTRF. On exit, details of the interchanges and the block structure of D in the format used in DSYTRF_RK ( or DSYTRF_BK). 1) If WAY ='R': On entry, details of the interchanges and the block structure of D in the format used in DSYTRF_RK ( or DSYTRF_BK). On exit, details of the interchanges and the block structure of D in the format used in DSYTRF.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

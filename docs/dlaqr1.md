@@ -1,13 +1,13 @@
-# DLAQR1
-
-## Function Signature
-
 ```fortran
-DLAQR1(N, H, LDH, SR1, SI1, SR2, SI2, V)
+subroutine dlaqr1	(	integer	n,
+		double precision, dimension(ldh, *)	h,
+		integer	ldh,
+		double precision	sr1,
+		double precision	si1,
+		double precision	sr2,
+		double precision	si2,
+		double precision, dimension(*)	v )
 ```
-
-## Description
-
 
       Given a 2-by-2 or 3-by-3 matrix H, DLAQR1 sets v to a
       scalar multiple of the first column of the product
@@ -25,36 +25,26 @@ DLAQR1(N, H, LDH, SR1, SI1, SR2, SI2, V)
       in the QR algorithm.
 
 ## Parameters
+N : Integer [in]
+> Order of the matrix H. N must be either 2 or 3.
 
-### N (in)
+H : Double Precision Array, Dimension (ldh,n) [in]
+> The 2-by-2 or 3-by-3 matrix H in (*).
 
-N is INTEGER Order of the matrix H. N must be either 2 or 3.
+Ldh : Integer [in]
+> The leading dimension of H as declared in
+> the calling procedure.  LDH >= N
 
-### H (in)
+Sr1 : Double Precision [in]
 
-H is DOUBLE PRECISION array, dimension (LDH,N) The 2-by-2 or 3-by-3 matrix H in (*).
+Si1 : Double Precision [in]
 
-### LDH (in)
+Sr2 : Double Precision [in]
 
-LDH is INTEGER The leading dimension of H as declared in the calling procedure. LDH >= N
+Si2 : Double Precision [in]
+> The shifts in (*).
 
-### SR1 (in)
-
-SR1 is DOUBLE PRECISION
-
-### SI1 (in)
-
-SI1 is DOUBLE PRECISION
-
-### SR2 (in)
-
-SR2 is DOUBLE PRECISION
-
-### SI2 (in)
-
-SI2 is DOUBLE PRECISION The shifts in (*).
-
-### V (out)
-
-V is DOUBLE PRECISION array, dimension (N) A scalar multiple of the first column of the matrix K in (*).
+V : Double Precision Array, Dimension (n) [out]
+> A scalar multiple of the first column of the
+> matrix K in (*).
 

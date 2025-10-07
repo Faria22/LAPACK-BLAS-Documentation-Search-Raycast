@@ -1,35 +1,24 @@
-# ZSWAP
-
-## Function Signature
-
 ```fortran
-ZSWAP(N,ZX,INCX,ZY,INCY)
+subroutine zswap	(	integer	n,
+		complex*16, dimension(*)	zx,
+		integer	incx,
+		complex*16, dimension(*)	zy,
+		integer	incy )
 ```
-
-## Description
-
 
     ZSWAP interchanges two vectors.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Zx : Complex*16 Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of ZX
 
-### ZX (in,out)
+Zy : Complex*16 Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of ZX
-
-### ZY (in,out)
-
-ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of ZY
+Incy : Integer [in]
+> storage spacing between elements of ZY
 

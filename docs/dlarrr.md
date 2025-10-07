@@ -1,33 +1,28 @@
-# DLARRR
-
-## Function Signature
-
 ```fortran
-DLARRR(N, D, E, INFO)
+subroutine dlarrr	(	integer	n,
+		double precision, dimension(*)	d,
+		double precision, dimension(*)	e,
+		integer	info )
 ```
-
-## Description
-
 
  Perform tests to decide whether the symmetric tridiagonal matrix T
  warrants expensive computations which guarantee high relative accuracy
  in the eigenvalues.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix. N > 0.
 
-### N (in)
+D : Double Precision Array, Dimension (n) [in]
+> The N diagonal elements of the tridiagonal matrix T.
 
-N is INTEGER The order of the matrix. N > 0.
+E : Double Precision Array, Dimension (n) [in,out]
+> On entry, the first (N-1) entries contain the subdiagonal
+> elements of the tridiagonal matrix T; E(N) is set to ZERO.
 
-### D (in)
-
-D is DOUBLE PRECISION array, dimension (N) The N diagonal elements of the tridiagonal matrix T.
-
-### E (in,out)
-
-E is DOUBLE PRECISION array, dimension (N) On entry, the first (N-1) entries contain the subdiagonal elements of the tridiagonal matrix T; E(N) is set to ZERO.
-
-### INFO (out)
-
-INFO is INTEGER INFO = 0(default) : the matrix warrants computations preserving relative accuracy. INFO = 1 : the matrix warrants computations guaranteeing only absolute accuracy.
+Info : Integer [out]
+> INFO = 0(default) : the matrix warrants computations preserving
+> relative accuracy.
+> INFO = 1          : the matrix warrants computations guaranteeing
+> only absolute accuracy.
 

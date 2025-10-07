@@ -1,14 +1,20 @@
-# ZHBGV
-
-## Function Signature
-
 ```fortran
-ZHBGV(JOBZ, UPLO, N, KA, KB, AB, LDAB, BB, LDBB, W, Z,
-*                         LDZ, WORK, RWORK, INFO)
+subroutine zhbgv	(	jobz,
+		uplo,
+		n,
+		ka,
+		kb,
+		ab,
+		ldab,
+		bb,
+		ldbb,
+		w,
+		z,
+		*                         ldz,
+		work,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  ZHBGV computes all the eigenvalues, and optionally, the eigenvectors
  of a complex generalized Hermitian-definite banded eigenproblem, of
@@ -16,64 +22,77 @@ ZHBGV(JOBZ, UPLO, N, KA, KB, AB, LDAB, BB, LDBB, W, Z,
  and banded, and B is also positive definite.
 
 ## Parameters
+Jobz : Character*1 [in]
+> = 'N':  Compute eigenvalues only;
+> = 'V':  Compute eigenvalues and eigenvectors.
 
-### JOBZ (in)
+Uplo : Character*1 [in]
+> = 'U':  Upper triangles of A and B are stored;
+> = 'L':  Lower triangles of A and B are stored.
 
-JOBZ is CHARACTER*1 = 'N': Compute eigenvalues only; = 'V': Compute eigenvalues and eigenvectors.
+N : Integer [in]
+> The order of the matrices A and B.  N >= 0.
 
-### UPLO (in)
+Ka : Integer [in]
+> The number of superdiagonals of the matrix A if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'. KA >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangles of A and B are stored; = 'L': Lower triangles of A and B are stored.
+Kb : Integer [in]
+> The number of superdiagonals of the matrix B if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'. KB >= 0.
 
-### N (in)
+Ab : Complex*16 Array, Dimension (ldab, N) [in,out]
+> On entry, the upper or lower triangle of the Hermitian band
+> matrix A, stored in the first ka+1 rows of the array.  The
+> j-th column of A is stored in the j-th column of the array AB
+> as follows:
+> if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
+> On exit, the contents of AB are destroyed.
 
-N is INTEGER The order of the matrices A and B. N >= 0.
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KA+1.
 
-### KA (in)
+Bb : Complex*16 Array, Dimension (ldbb, N) [in,out]
+> On entry, the upper or lower triangle of the Hermitian band
+> matrix B, stored in the first kb+1 rows of the array.  The
+> j-th column of B is stored in the j-th column of the array BB
+> as follows:
+> if UPLO = 'U', BB(kb+1+i-j,j) = B(i,j) for max(1,j-kb)<=i<=j;
+> if UPLO = 'L', BB(1+i-j,j)    = B(i,j) for j<=i<=min(n,j+kb).
+> On exit, the factor S from the split Cholesky factorization
+> B = S**H*S, as returned by ZPBSTF.
 
-KA is INTEGER The number of superdiagonals of the matrix A if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KA >= 0.
+Ldbb : Integer [in]
+> The leading dimension of the array BB.  LDBB >= KB+1.
 
-### KB (in)
+W : Double Precision Array, Dimension (n) [out]
+> If INFO = 0, the eigenvalues in ascending order.
 
-KB is INTEGER The number of superdiagonals of the matrix B if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KB >= 0.
+Z : Complex*16 Array, Dimension (ldz, N) [out]
+> If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
+> eigenvectors, with the i-th column of Z holding the
+> eigenvector associated with W(i). The eigenvectors are
+> normalized so that Z**H*B*Z = I.
+> If JOBZ = 'N', then Z is not referenced.
 
-### AB (in,out)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDZ >= 1, and if
+> JOBZ = 'V', LDZ >= N.
 
-AB is COMPLEX*16 array, dimension (LDAB, N) On entry, the upper or lower triangle of the Hermitian band matrix A, stored in the first ka+1 rows of the array. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+ka). On exit, the contents of AB are destroyed.
+Work : Complex*16 Array, Dimension (n) [out]
 
-### LDAB (in)
+Rwork : Double Precision Array, Dimension (3*n) [out]
 
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KA+1.
-
-### BB (in,out)
-
-BB is COMPLEX*16 array, dimension (LDBB, N) On entry, the upper or lower triangle of the Hermitian band matrix B, stored in the first kb+1 rows of the array. The j-th column of B is stored in the j-th column of the array BB as follows: if UPLO = 'U', BB(kb+1+i-j,j) = B(i,j) for max(1,j-kb)<=i<=j; if UPLO = 'L', BB(1+i-j,j) = B(i,j) for j<=i<=min(n,j+kb). On exit, the factor S from the split Cholesky factorization B = S**H*S, as returned by ZPBSTF.
-
-### LDBB (in)
-
-LDBB is INTEGER The leading dimension of the array BB. LDBB >= KB+1.
-
-### W (out)
-
-W is DOUBLE PRECISION array, dimension (N) If INFO = 0, the eigenvalues in ascending order.
-
-### Z (out)
-
-Z is COMPLEX*16 array, dimension (LDZ, N) If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of eigenvectors, with the i-th column of Z holding the eigenvector associated with W(i). The eigenvectors are normalized so that Z**H*B*Z = I. If JOBZ = 'N', then Z is not referenced.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1, and if JOBZ = 'V', LDZ >= N.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (3*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, and i is: <= N: the algorithm failed to converge: i off-diagonal elements of an intermediate tridiagonal form did not converge to zero; > N: if INFO = N + i, for 1 <= i <= N, then ZPBSTF returned INFO = i: B is not positive definite. The factorization of B could not be completed and no eigenvalues or eigenvectors were computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, and i is:
+> <= N:  the algorithm failed to converge:
+> i off-diagonal elements of an intermediate
+> tridiagonal form did not converge to zero;
+> > N:   if INFO = N + i, for 1 <= i <= N, then ZPBSTF
+> returned INFO = i: B is not positive definite.
+> The factorization of B could not be completed and
+> no eigenvalues or eigenvectors were computed.
 

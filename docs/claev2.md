@@ -1,13 +1,12 @@
-# CLAEV2
-
-## Function Signature
-
 ```fortran
-CLAEV2(A, B, C, RT1, RT2, CS1, SN1)
+subroutine claev2	(	complex	a,
+		complex	b,
+		complex	c,
+		real	rt1,
+		real	rt2,
+		real	cs1,
+		complex	sn1 )
 ```
-
-## Description
-
 
  CLAEV2 computes the eigendecomposition of a 2-by-2 Hermitian matrix
     [  A         B  ]
@@ -20,32 +19,24 @@ CLAEV2(A, B, C, RT1, RT2, CS1, SN1)
  [-SN1     CS1     ] [ CONJG(B) C ] [ SN1     CS1     ]   [  0  RT2 ].
 
 ## Parameters
+A : Complex [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### A (in)
+B : Complex [in]
+> The (1,2) element and the conjugate of the (2,1) element of
+> the 2-by-2 matrix.
 
-A is COMPLEX The (1,1) element of the 2-by-2 matrix.
+C : Complex [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### B (in)
+Rt1 : Real [out]
+> The eigenvalue of larger absolute value.
 
-B is COMPLEX The (1,2) element and the conjugate of the (2,1) element of the 2-by-2 matrix.
+Rt2 : Real [out]
+> The eigenvalue of smaller absolute value.
 
-### C (in)
+Cs1 : Real [out]
 
-C is COMPLEX The (2,2) element of the 2-by-2 matrix.
-
-### RT1 (out)
-
-RT1 is REAL The eigenvalue of larger absolute value.
-
-### RT2 (out)
-
-RT2 is REAL The eigenvalue of smaller absolute value.
-
-### CS1 (out)
-
-CS1 is REAL
-
-### SN1 (out)
-
-SN1 is COMPLEX The vector (CS1, SN1) is a unit right eigenvector for RT1.
+Sn1 : Complex [out]
+> The vector (CS1, SN1) is a unit right eigenvector for RT1.
 

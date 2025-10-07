@@ -1,13 +1,12 @@
-# CAXPBY
-
-## Function Signature
-
 ```fortran
-CAXPBY(N,CA,CX,INCX,CB,CY,INCY)
+subroutine caxpby	(	integer	n,
+		complex	ca,
+		complex, dimension(*)	cx,
+		integer	incx,
+		complex	cb,
+		complex, dimension(*)	cy,
+		integer	incy )
 ```
-
-## Description
-
 
     CAXPBY constant times a vector plus constant times a vector.
 
@@ -15,32 +14,22 @@ CAXPBY(N,CA,CX,INCX,CB,CY,INCY)
 
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Ca : Complex [in]
+> On entry, CA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Cx : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-### CA (in)
+Incx : Integer [in]
+> storage spacing between elements of CX
 
-CA is COMPLEX On entry, CA specifies the scalar alpha.
+Cb : Complex [in]
+> On entry, CB specifies the scalar beta.
 
-### CX (in)
+Cy : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of CX
-
-### CB (in)
-
-CB is COMPLEX On entry, CB specifies the scalar beta.
-
-### CY (in,out)
-
-CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of CY
+Incy : Integer [in]
+> storage spacing between elements of CY
 

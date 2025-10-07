@@ -1,14 +1,15 @@
-# SLAG2
-
-## Function Signature
-
 ```fortran
-SLAG2(A, LDA, B, LDB, SAFMIN, SCALE1, SCALE2, WR1,
-*                         WR2, WI)
+subroutine slag2	(	a,
+		lda,
+		b,
+		ldb,
+		safmin,
+		scale1,
+		scale2,
+		wr1,
+		*                         wr2,
+		wi )
 ```
-
-## Description
-
 
  SLAG2 computes the eigenvalues of a 2 x 2 generalized eigenvalue
  problem  A - w B, with scaling as necessary to avoid over-/underflow.
@@ -21,44 +22,64 @@ SLAG2(A, LDA, B, LDB, SAFMIN, SCALE1, SCALE2, WR1,
  and  s A  do not overflow and, if possible, do not underflow, either.
 
 ## Parameters
+A : Real Array, Dimension (lda, 2) [in]
+> On entry, the 2 x 2 matrix A.  It is assumed that its 1-norm
+> is less than 1/SAFMIN.  Entries less than
+> sqrt(SAFMIN)*norm(A) are subject to being treated as zero.
 
-### A (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= 2.
 
-A is REAL array, dimension (LDA, 2) On entry, the 2 x 2 matrix A. It is assumed that its 1-norm is less than 1/SAFMIN. Entries less than sqrt(SAFMIN)*norm(A) are subject to being treated as zero.
+B : Real Array, Dimension (ldb, 2) [in]
+> On entry, the 2 x 2 upper triangular matrix B.  It is
+> assumed that the one-norm of B is less than 1/SAFMIN.  The
+> diagonals should be at least sqrt(SAFMIN) times the largest
+> element of B (in absolute value); if a diagonal is smaller
+> than that, then  +/- sqrt(SAFMIN) will be used instead of
+> that diagonal.
 
-### LDA (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= 2.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= 2.
+Safmin : Real [in]
+> The smallest positive number s.t. 1/SAFMIN does not
+> overflow.  (This should always be SLAMCH('S') -- it is an
+> argument in order to avoid having to call SLAMCH frequently.)
 
-### B (in)
+Scale1 : Real [out]
+> A scaling factor used to avoid over-/underflow in the
+> eigenvalue equation which defines the first eigenvalue.  If
+> the eigenvalues are complex, then the eigenvalues are
+> ( WR1  +/-  WI i ) / SCALE1  (which may lie outside the
+> exponent range of the machine), SCALE1=SCALE2, and SCALE1
+> will always be positive.  If the eigenvalues are real, then
+> the first (real) eigenvalue is  WR1 / SCALE1 , but this may
+> overflow or underflow, and in fact, SCALE1 may be zero or
+> less than the underflow threshold if the exact eigenvalue
+> is sufficiently large.
 
-B is REAL array, dimension (LDB, 2) On entry, the 2 x 2 upper triangular matrix B. It is assumed that the one-norm of B is less than 1/SAFMIN. The diagonals should be at least sqrt(SAFMIN) times the largest element of B (in absolute value); if a diagonal is smaller than that, then +/- sqrt(SAFMIN) will be used instead of that diagonal.
+Scale2 : Real [out]
+> A scaling factor used to avoid over-/underflow in the
+> eigenvalue equation which defines the second eigenvalue.  If
+> the eigenvalues are complex, then SCALE2=SCALE1.  If the
+> eigenvalues are real, then the second (real) eigenvalue is
+> WR2 / SCALE2 , but this may overflow or underflow, and in
+> fact, SCALE2 may be zero or less than the underflow
+> threshold if the exact eigenvalue is sufficiently large.
 
-### LDB (in)
+Wr1 : Real [out]
+> If the eigenvalue is real, then WR1 is SCALE1 times the
+> eigenvalue closest to the (2,2) element of A B**(-1).  If the
+> eigenvalue is complex, then WR1=WR2 is SCALE1 times the real
+> part of the eigenvalues.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= 2.
+Wr2 : Real [out]
+> If the eigenvalue is real, then WR2 is SCALE2 times the
+> other eigenvalue.  If the eigenvalue is complex, then
+> WR1=WR2 is SCALE1 times the real part of the eigenvalues.
 
-### SAFMIN (in)
-
-SAFMIN is REAL The smallest positive number s.t. 1/SAFMIN does not overflow. (This should always be SLAMCH('S') -- it is an argument in order to avoid having to call SLAMCH frequently.)
-
-### SCALE1 (out)
-
-SCALE1 is REAL A scaling factor used to avoid over-/underflow in the eigenvalue equation which defines the first eigenvalue. If the eigenvalues are complex, then the eigenvalues are ( WR1 +/- WI i ) / SCALE1 (which may lie outside the exponent range of the machine), SCALE1=SCALE2, and SCALE1 will always be positive. If the eigenvalues are real, then the first (real) eigenvalue is WR1 / SCALE1 , but this may overflow or underflow, and in fact, SCALE1 may be zero or less than the underflow threshold if the exact eigenvalue is sufficiently large.
-
-### SCALE2 (out)
-
-SCALE2 is REAL A scaling factor used to avoid over-/underflow in the eigenvalue equation which defines the second eigenvalue. If the eigenvalues are complex, then SCALE2=SCALE1. If the eigenvalues are real, then the second (real) eigenvalue is WR2 / SCALE2 , but this may overflow or underflow, and in fact, SCALE2 may be zero or less than the underflow threshold if the exact eigenvalue is sufficiently large.
-
-### WR1 (out)
-
-WR1 is REAL If the eigenvalue is real, then WR1 is SCALE1 times the eigenvalue closest to the (2,2) element of A B**(-1). If the eigenvalue is complex, then WR1=WR2 is SCALE1 times the real part of the eigenvalues.
-
-### WR2 (out)
-
-WR2 is REAL If the eigenvalue is real, then WR2 is SCALE2 times the other eigenvalue. If the eigenvalue is complex, then WR1=WR2 is SCALE1 times the real part of the eigenvalues.
-
-### WI (out)
-
-WI is REAL If the eigenvalue is real, then WI is zero. If the eigenvalue is complex, then WI is SCALE1 times the imaginary part of the eigenvalues. WI will always be non-negative.
+Wi : Real [out]
+> If the eigenvalue is real, then WI is zero.  If the
+> eigenvalue is complex, then WI is SCALE1 times the imaginary
+> part of the eigenvalues.  WI will always be non-negative.
 

@@ -1,13 +1,12 @@
-# DLATRZ
-
-## Function Signature
-
 ```fortran
-DLATRZ(M, N, L, A, LDA, TAU, WORK)
+subroutine dlatrz	(	integer	m,
+		integer	n,
+		integer	l,
+		double precision, dimension(lda, *)	a,
+		integer	lda,
+		double precision, dimension(*)	tau,
+		double precision, dimension(*)	work )
 ```
-
-## Description
-
 
  DLATRZ factors the M-by-(M+L) real upper trapezoidal matrix
  [ A1 A2 ] = [ A(1:M,1:M) A(1:M,N-L+1:N) ] as ( R  0 ) * Z, by means
@@ -15,32 +14,29 @@ DLATRZ(M, N, L, A, LDA, TAU, WORK)
  matrix and, R and A1 are M-by-M upper triangular matrices.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+L : Integer [in]
+> The number of columns of the matrix A containing the
+> meaningful part of the Householder vectors. N-M >= L >= 0.
 
-### N (in)
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the leading M-by-N upper trapezoidal part of the
+> array A must contain the matrix to be factorized.
+> On exit, the leading M-by-M upper triangular part of A
+> contains the upper triangular matrix R, and elements N-L+1 to
+> N of the first M rows of A, with the array TAU, represent the
+> orthogonal matrix Z as a product of M elementary reflectors.
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-### L (in)
+Tau : Double Precision Array, Dimension (m) [out]
+> The scalar factors of the elementary reflectors.
 
-L is INTEGER The number of columns of the matrix A containing the meaningful part of the Householder vectors. N-M >= L >= 0.
-
-### A (in,out)
-
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the leading M-by-N upper trapezoidal part of the array A must contain the matrix to be factorized. On exit, the leading M-by-M upper triangular part of A contains the upper triangular matrix R, and elements N-L+1 to N of the first M rows of A, with the array TAU, represent the orthogonal matrix Z as a product of M elementary reflectors.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### TAU (out)
-
-TAU is DOUBLE PRECISION array, dimension (M) The scalar factors of the elementary reflectors.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (M)
+Work : Double Precision Array, Dimension (m) [out]
 

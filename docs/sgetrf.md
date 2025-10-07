@@ -1,13 +1,11 @@
-# SGETRF
-
-## Function Signature
-
 ```fortran
-SGETRF(M, N, A, LDA, IPIV, INFO)
+subroutine sgetrf	(	integer	m,
+		integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		integer	info )
 ```
-
-## Description
-
 
  SGETRF computes an LU factorization of a general M-by-N matrix A
  using partial pivoting with row interchanges.
@@ -21,28 +19,29 @@ SGETRF(M, N, A, LDA, IPIV, INFO)
  This is the right-looking Level 3 BLAS version of the algorithm.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix to be factored.
+> On exit, the factors L and U from the factorization
+> A = P*L*U; the unit diagonal elements of L are not stored.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (min(m,n)) [out]
+> The pivot indices; for 1 <= i <= min(M,N), row i of the
+> matrix was interchanged with row IPIV(i).
 
-### A (in,out)
-
-A is REAL array, dimension (LDA,N) On entry, the M-by-N matrix to be factored. On exit, the factors L and U from the factorization A = P*L*U; the unit diagonal elements of L are not stored.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (min(M,N)) The pivot indices; for 1 <= i <= min(M,N), row i of the matrix was interchanged with row IPIV(i).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, U(i,i) is exactly zero. The factorization has been completed, but the factor U is exactly singular, and division by zero will occur if it is used to solve a system of equations.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, U(i,i) is exactly zero. The factorization
+> has been completed, but the factor U is exactly
+> singular, and division by zero will occur if it is used
+> to solve a system of equations.
 

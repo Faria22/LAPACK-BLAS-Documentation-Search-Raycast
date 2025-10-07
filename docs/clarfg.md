@@ -1,13 +1,10 @@
-# CLARFG
-
-## Function Signature
-
 ```fortran
-CLARFG(N, ALPHA, X, INCX, TAU)
+subroutine clarfg	(	integer	n,
+		complex	alpha,
+		complex, dimension(*)	x,
+		integer	incx,
+		complex	tau )
 ```
-
-## Description
-
 
  CLARFG generates a complex elementary reflector H of order n, such
  that
@@ -30,24 +27,21 @@ CLARFG(N, ALPHA, X, INCX, TAU)
  Otherwise  1 <= real(tau) <= 2  and  abs(tau-1) <= 1 .
 
 ## Parameters
+N : Integer [in]
+> The order of the elementary reflector.
 
-### N (in)
+Alpha : Complex [in,out]
+> On entry, the value alpha.
+> On exit, it is overwritten with the value beta.
 
-N is INTEGER The order of the elementary reflector.
+X : Complex Array, Dimension [in,out]
+> (1+(N-2)*abs(INCX))
+> On entry, the vector x.
+> On exit, it is overwritten with the vector v.
 
-### ALPHA (in,out)
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-ALPHA is COMPLEX On entry, the value alpha. On exit, it is overwritten with the value beta.
-
-### X (in,out)
-
-X is COMPLEX array, dimension (1+(N-2)*abs(INCX)) On entry, the vector x. On exit, it is overwritten with the vector v.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X. INCX > 0.
-
-### TAU (out)
-
-TAU is COMPLEX The value tau.
+Tau : Complex [out]
+> The value tau.
 

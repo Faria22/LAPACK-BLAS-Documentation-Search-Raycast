@@ -1,88 +1,85 @@
-# DLAQZ2
-
-## Function Signature
-
 ```fortran
-DLAQZ2(ILQ, ILZ, K, ISTARTM, ISTOPM, IHI, A, LDA, B,
-*     $    LDB, NQ, QSTART, Q, LDQ, NZ, ZSTART, Z, LDZ)
+subroutine dlaqz2	(	ilq,
+		ilz,
+		k,
+		istartm,
+		istopm,
+		ihi,
+		a,
+		lda,
+		b,
+		*     $    ldb,
+		nq,
+		qstart,
+		q,
+		ldq,
+		nz,
+		zstart,
+		z,
+		ldz )
 ```
-
-## Description
-
 
       DLAQZ2 chases a 2x2 shift bulge in a matrix pencil down a single position
 
 ## Parameters
+Ilq : Logical [in]
+> Determines whether or not to update the matrix Q
 
-### ILQ (in)
+Ilz : Logical [in]
+> Determines whether or not to update the matrix Z
 
-ILQ is LOGICAL Determines whether or not to update the matrix Q
+K : Integer [in]
+> Index indicating the position of the bulge.
+> On entry, the bulge is located in
+> (A(k+1:k+2,k:k+1),B(k+1:k+2,k:k+1)).
+> On exit, the bulge is located in
+> (A(k+2:k+3,k+1:k+2),B(k+2:k+3,k+1:k+2)).
 
-### ILZ (in)
+Istartm : Integer [in]
 
-ILZ is LOGICAL Determines whether or not to update the matrix Z
+Istopm : Integer [in]
+> Updates to (A,B) are restricted to
+> (istartm:k+3,k:istopm). It is assumed
+> without checking that istartm <= k+1 and
+> k+2 <= istopm
 
-### K (in)
+Ihi : Integer [in]
 
-K is INTEGER Index indicating the position of the bulge. On entry, the bulge is located in (A(k+1:k+2,k:k+1),B(k+1:k+2,k:k+1)). On exit, the bulge is located in (A(k+2:k+3,k+1:k+2),B(k+2:k+3,k+1:k+2)).
+A : Double Precision Array, Dimension (lda,n) [inout]
 
-### ISTARTM (in)
+Lda : Integer [in]
+> The leading dimension of A as declared in
+> the calling procedure.
 
-ISTARTM is INTEGER
+B : Double Precision Array, Dimension (ldb,n) [inout]
 
-### ISTOPM (in)
+Ldb : Integer [in]
+> The leading dimension of B as declared in
+> the calling procedure.
 
-ISTOPM is INTEGER Updates to (A,B) are restricted to (istartm:k+3,k:istopm). It is assumed without checking that istartm <= k+1 and k+2 <= istopm
+Nq : Integer [in]
+> The order of the matrix Q
 
-### IHI (in)
+Qstart : Integer [in]
+> Start index of the matrix Q. Rotations are applied
+> To columns k+2-qStart:k+4-qStart of Q.
 
-IHI is INTEGER
+Q : Double Precision Array, Dimension (ldq,nq) [inout]
 
-### A (inout)
+Ldq : Integer [in]
+> The leading dimension of Q as declared in
+> the calling procedure.
 
-A is DOUBLE PRECISION array, dimension (LDA,N)
+Nz : Integer [in]
+> The order of the matrix Z
 
-### LDA (in)
+Zstart : Integer [in]
+> Start index of the matrix Z. Rotations are applied
+> To columns k+1-qStart:k+3-qStart of Z.
 
-LDA is INTEGER The leading dimension of A as declared in the calling procedure.
+Z : Double Precision Array, Dimension (ldz,nz) [inout]
 
-### B (inout)
-
-B is DOUBLE PRECISION array, dimension (LDB,N)
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of B as declared in the calling procedure.
-
-### NQ (in)
-
-NQ is INTEGER The order of the matrix Q
-
-### QSTART (in)
-
-QSTART is INTEGER Start index of the matrix Q. Rotations are applied To columns k+2-qStart:k+4-qStart of Q.
-
-### Q (inout)
-
-Q is DOUBLE PRECISION array, dimension (LDQ,NQ)
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of Q as declared in the calling procedure.
-
-### NZ (in)
-
-NZ is INTEGER The order of the matrix Z
-
-### ZSTART (in)
-
-ZSTART is INTEGER Start index of the matrix Z. Rotations are applied To columns k+1-qStart:k+3-qStart of Z.
-
-### Z (inout)
-
-Z is DOUBLE PRECISION array, dimension (LDZ,NZ)
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of Q as declared in the calling procedure.
+Ldz : Integer [in]
+> The leading dimension of Q as declared in
+> the calling procedure.
 

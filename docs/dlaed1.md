@@ -1,14 +1,15 @@
-# DLAED1
-
-## Function Signature
-
 ```fortran
-DLAED1(N, D, Q, LDQ, INDXQ, RHO, CUTPNT, WORK, IWORK,
-*                          INFO)
+subroutine dlaed1	(	n,
+		d,
+		q,
+		ldq,
+		indxq,
+		rho,
+		cutpnt,
+		work,
+		iwork,
+		*                          info )
 ```
-
-## Description
-
 
  DLAED1 computes the updated eigensystem of a diagonal
  matrix after modification by a rank-one symmetric matrix.  This
@@ -44,44 +45,40 @@ DLAED1(N, D, Q, LDQ, INDXQ, RHO, CUTPNT, WORK, IWORK,
        the overall problem.
 
 ## Parameters
+N : Integer [in]
+> The dimension of the symmetric tridiagonal matrix.  N >= 0.
 
-### N (in)
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, the eigenvalues of the rank-1-perturbed matrix.
+> On exit, the eigenvalues of the repaired matrix.
 
-N is INTEGER The dimension of the symmetric tridiagonal matrix. N >= 0.
+Q : Double Precision Array, Dimension (ldq,n) [in,out]
+> On entry, the eigenvectors of the rank-1-perturbed matrix.
+> On exit, the eigenvectors of the repaired tridiagonal matrix.
 
-### D (in,out)
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= max(1,N).
 
-D is DOUBLE PRECISION array, dimension (N) On entry, the eigenvalues of the rank-1-perturbed matrix. On exit, the eigenvalues of the repaired matrix.
+Indxq : Integer Array, Dimension (n) [in,out]
+> On entry, the permutation which separately sorts the two
+> subproblems in D into ascending order.
+> On exit, the permutation which will reintegrate the
+> subproblems back into sorted order,
+> i.e. D( INDXQ( I = 1, N ) ) will be in ascending order.
 
-### Q (in,out)
+Rho : Double Precision [in]
+> The subdiagonal entry used to create the rank-1 modification.
 
-Q is DOUBLE PRECISION array, dimension (LDQ,N) On entry, the eigenvectors of the rank-1-perturbed matrix. On exit, the eigenvectors of the repaired tridiagonal matrix.
+Cutpnt : Integer [in]
+> The location of the last eigenvalue in the leading sub-matrix.
+> min(1,N) <= CUTPNT <= N/2.
 
-### LDQ (in)
+Work : Double Precision Array, Dimension (4*n + N**2) [out]
 
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N).
+Iwork : Integer Array, Dimension (4*n) [out]
 
-### INDXQ (in,out)
-
-INDXQ is INTEGER array, dimension (N) On entry, the permutation which separately sorts the two subproblems in D into ascending order. On exit, the permutation which will reintegrate the subproblems back into sorted order, i.e. D( INDXQ( I = 1, N ) ) will be in ascending order.
-
-### RHO (in)
-
-RHO is DOUBLE PRECISION The subdiagonal entry used to create the rank-1 modification.
-
-### CUTPNT (in)
-
-CUTPNT is INTEGER The location of the last eigenvalue in the leading sub-matrix. min(1,N) <= CUTPNT <= N/2.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (4*N + N**2)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (4*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, an eigenvalue did not converge
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, an eigenvalue did not converge
 

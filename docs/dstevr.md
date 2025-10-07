@@ -1,17 +1,25 @@
-# DSTEVR
-
-DSTEVR computes the eigenvalues and, optionally, the left and/or right eigenvectors for OTHER matrices
-
-## Function Signature
-
 ```fortran
-DSTEVR(JOBZ, RANGE, N, D, E, VL, VU, IL, IU, ABSTOL,
-*                          M, W, Z, LDZ, ISUPPZ, WORK, LWORK, IWORK,
-*                          LIWORK, INFO)
+subroutine dstevr	(	jobz,
+		range,
+		n,
+		d,
+		e,
+		vl,
+		vu,
+		il,
+		iu,
+		abstol,
+		*                          m,
+		w,
+		z,
+		ldz,
+		isuppz,
+		work,
+		lwork,
+		iwork,
+		*                          liwork,
+		info )
 ```
-
-## Description
-
 
  DSTEVR computes selected eigenvalues and, optionally, eigenvectors
  of a real symmetric tridiagonal matrix T.  Eigenvalues and
@@ -55,84 +63,133 @@ DSTEVR(JOBZ, RANGE, N, D, E, VL, VU, IL, IU, ABSTOL,
  manner.
 
 ## Parameters
+Jobz : Character*1 [in]
+> = 'N':  Compute eigenvalues only;
+> = 'V':  Compute eigenvalues and eigenvectors.
 
-### JOBZ (in)
+Range : Character*1 [in]
+> = 'A': all eigenvalues will be found.
+> = 'V': all eigenvalues in the half-open interval (VL,VU]
+> will be found.
+> = 'I': the IL-th through IU-th eigenvalues will be found.
+> For RANGE = 'V' or 'I' and IU - IL < N - 1, DSTEBZ and
+> DSTEIN are called
 
-JOBZ is CHARACTER*1 = 'N': Compute eigenvalues only; = 'V': Compute eigenvalues and eigenvectors.
+N : Integer [in]
+> The order of the matrix.  N >= 0.
 
-### RANGE (in)
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the tridiagonal matrix
+> A.
+> On exit, D may be multiplied by a constant factor chosen
+> to avoid over/underflow in computing the eigenvalues.
 
-RANGE is CHARACTER*1 = 'A': all eigenvalues will be found. = 'V': all eigenvalues in the half-open interval (VL,VU] will be found. = 'I': the IL-th through IU-th eigenvalues will be found. For RANGE = 'V' or 'I' and IU - IL < N - 1, DSTEBZ and DSTEIN are called
+E : Double Precision Array, Dimension (max(1,n-1)) [in,out]
+> On entry, the (n-1) subdiagonal elements of the tridiagonal
+> matrix A in elements 1 to N-1 of E.
+> On exit, E may be multiplied by a constant factor chosen
+> to avoid over/underflow in computing the eigenvalues.
 
-### N (in)
+Vl : Double Precision [in]
+> If RANGE='V', the lower bound of the interval to
+> be searched for eigenvalues. VL < VU.
+> Not referenced if RANGE = 'A' or 'I'.
 
-N is INTEGER The order of the matrix. N >= 0.
+Vu : Double Precision [in]
+> If RANGE='V', the upper bound of the interval to
+> be searched for eigenvalues. VL < VU.
+> Not referenced if RANGE = 'A' or 'I'.
 
-### D (in,out)
+Il : Integer [in]
+> If RANGE='I', the index of the
+> smallest eigenvalue to be returned.
+> 1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+> Not referenced if RANGE = 'A' or 'V'.
 
-D is DOUBLE PRECISION array, dimension (N) On entry, the n diagonal elements of the tridiagonal matrix A. On exit, D may be multiplied by a constant factor chosen to avoid over/underflow in computing the eigenvalues.
+Iu : Integer [in]
+> If RANGE='I', the index of the
+> largest eigenvalue to be returned.
+> 1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+> Not referenced if RANGE = 'A' or 'V'.
 
-### E (in,out)
+Abstol : Double Precision [in]
+> The absolute error tolerance for the eigenvalues.
+> An approximate eigenvalue is accepted as converged
+> when it is determined to lie in an interval [a,b]
+> of width less than or equal to
+> ABSTOL + EPS *   max( |a|,|b| ) ,
+> where EPS is the machine precision.  If ABSTOL is less than
+> or equal to zero, then  EPS*|T|  will be used in its place,
+> where |T| is the 1-norm of the tridiagonal matrix obtained
+> by reducing A to tridiagonal form.
+> See "Computing Small Singular Values of Bidiagonal Matrices
+> with Guaranteed High Relative Accuracy," by Demmel and
+> Kahan, LAPACK Working Note #3.
+> If high relative accuracy is important, set ABSTOL to
+> DLAMCH( 'Safe minimum' ).  Doing so will guarantee that
+> eigenvalues are computed to high relative accuracy when
+> possible in future releases.  The current code does not
+> make any guarantees about high relative accuracy, but
+> future releases will. See J. Barlow and J. Demmel,
+> "Computing Accurate Eigensystems of Scaled Diagonally
+> Dominant Matrices", LAPACK Working Note #7, for a discussion
+> of which matrices define their eigenvalues to high relative
+> accuracy.
 
-E is DOUBLE PRECISION array, dimension (max(1,N-1)) On entry, the (n-1) subdiagonal elements of the tridiagonal matrix A in elements 1 to N-1 of E. On exit, E may be multiplied by a constant factor chosen to avoid over/underflow in computing the eigenvalues.
+M : Integer [out]
+> The total number of eigenvalues found.  0 <= M <= N.
+> If RANGE = 'A', M = N, and if RANGE = 'I', M = IU-IL+1.
 
-### VL (in)
+W : Double Precision Array, Dimension (n) [out]
+> The first M elements contain the selected eigenvalues in
+> ascending order.
 
-VL is DOUBLE PRECISION If RANGE='V', the lower bound of the interval to be searched for eigenvalues. VL < VU. Not referenced if RANGE = 'A' or 'I'.
+Z : Double Precision Array, Dimension (ldz, Max(1,m) ) [out]
+> If JOBZ = 'V', then if INFO = 0, the first M columns of Z
+> contain the orthonormal eigenvectors of the matrix A
+> corresponding to the selected eigenvalues, with the i-th
+> column of Z holding the eigenvector associated with W(i).
+> Note: the user must ensure that at least max(1,M) columns are
+> supplied in the array Z; if RANGE = 'V', the exact value of M
+> is not known in advance and an upper bound must be used.
 
-### VU (in)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDZ >= 1, and if
+> JOBZ = 'V', LDZ >= max(1,N).
 
-VU is DOUBLE PRECISION If RANGE='V', the upper bound of the interval to be searched for eigenvalues. VL < VU. Not referenced if RANGE = 'A' or 'I'.
+Isuppz : Integer Array, Dimension ( 2*max(1,m) ) [out]
+> The support of the eigenvectors in Z, i.e., the indices
+> indicating the nonzero elements in Z. The i-th eigenvector
+> is nonzero only in elements ISUPPZ( 2*i-1 ) through
+> ISUPPZ( 2*i ).
+> Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
 
-### IL (in)
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal (and
+> minimal) LWORK.
 
-IL is INTEGER If RANGE='I', the index of the smallest eigenvalue to be returned. 1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0. Not referenced if RANGE = 'A' or 'V'.
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,20*N).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal sizes of the WORK and IWORK
+> arrays, returns these values as the first entries of the WORK
+> and IWORK arrays, and no error message related to LWORK or
+> LIWORK is issued by XERBLA.
 
-### IU (in)
+Iwork : Integer Array, Dimension (max(1,liwork)) [out]
+> On exit, if INFO = 0, IWORK(1) returns the optimal (and
+> minimal) LIWORK.
 
-IU is INTEGER If RANGE='I', the index of the largest eigenvalue to be returned. 1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0. Not referenced if RANGE = 'A' or 'V'.
+Liwork : Integer [in]
+> The dimension of the array IWORK.  LIWORK >= max(1,10*N).
+> If LIWORK = -1, then a workspace query is assumed; the
+> routine only calculates the optimal sizes of the WORK and
+> IWORK arrays, returns these values as the first entries of
+> the WORK and IWORK arrays, and no error message related to
+> LWORK or LIWORK is issued by XERBLA.
 
-### ABSTOL (in)
-
-ABSTOL is DOUBLE PRECISION The absolute error tolerance for the eigenvalues. An approximate eigenvalue is accepted as converged when it is determined to lie in an interval [a,b] of width less than or equal to ABSTOL + EPS * max( |a|,|b| ) , where EPS is the machine precision. If ABSTOL is less than or equal to zero, then EPS*|T| will be used in its place, where |T| is the 1-norm of the tridiagonal matrix obtained by reducing A to tridiagonal form. See "Computing Small Singular Values of Bidiagonal Matrices with Guaranteed High Relative Accuracy," by Demmel and Kahan, LAPACK Working Note #3. If high relative accuracy is important, set ABSTOL to DLAMCH( 'Safe minimum' ). Doing so will guarantee that eigenvalues are computed to high relative accuracy when possible in future releases. The current code does not make any guarantees about high relative accuracy, but future releases will. See J. Barlow and J. Demmel, "Computing Accurate Eigensystems of Scaled Diagonally Dominant Matrices", LAPACK Working Note #7, for a discussion of which matrices define their eigenvalues to high relative accuracy.
-
-### M (out)
-
-M is INTEGER The total number of eigenvalues found. 0 <= M <= N. If RANGE = 'A', M = N, and if RANGE = 'I', M = IU-IL+1.
-
-### W (out)
-
-W is DOUBLE PRECISION array, dimension (N) The first M elements contain the selected eigenvalues in ascending order.
-
-### Z (out)
-
-Z is DOUBLE PRECISION array, dimension (LDZ, max(1,M) ) If JOBZ = 'V', then if INFO = 0, the first M columns of Z contain the orthonormal eigenvectors of the matrix A corresponding to the selected eigenvalues, with the i-th column of Z holding the eigenvector associated with W(i). Note: the user must ensure that at least max(1,M) columns are supplied in the array Z; if RANGE = 'V', the exact value of M is not known in advance and an upper bound must be used.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1, and if JOBZ = 'V', LDZ >= max(1,N).
-
-### ISUPPZ (out)
-
-ISUPPZ is INTEGER array, dimension ( 2*max(1,M) ) The support of the eigenvectors in Z, i.e., the indices indicating the nonzero elements in Z. The i-th eigenvector is nonzero only in elements ISUPPZ( 2*i-1 ) through ISUPPZ( 2*i ). Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal (and minimal) LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,20*N). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal sizes of the WORK and IWORK arrays, returns these values as the first entries of the WORK and IWORK arrays, and no error message related to LWORK or LIWORK is issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MAX(1,LIWORK)) On exit, if INFO = 0, IWORK(1) returns the optimal (and minimal) LIWORK.
-
-### LIWORK (in)
-
-LIWORK is INTEGER The dimension of the array IWORK. LIWORK >= max(1,10*N). If LIWORK = -1, then a workspace query is assumed; the routine only calculates the optimal sizes of the WORK and IWORK arrays, returns these values as the first entries of the WORK and IWORK arrays, and no error message related to LWORK or LIWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: Internal error
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  Internal error
 

@@ -1,13 +1,10 @@
-# SLARSCL2
-
-## Function Signature
-
 ```fortran
-SLARSCL2(M, N, D, X, LDX)
+subroutine slarscl2	(	integer	m,
+		integer	n,
+		real, dimension(*)	d,
+		real, dimension(ldx, *)	x,
+		integer	ldx )
 ```
-
-## Description
-
 
  SLARSCL2 performs a reciprocal diagonal scaling on a matrix:
    x <-- inv(D) * x
@@ -17,24 +14,19 @@ SLARSCL2(M, N, D, X, LDX)
  standard.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of D and X. M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of X. N >= 0.
 
-M is INTEGER The number of rows of D and X. M >= 0.
+D : Real Array, Length M [in]
+> Diagonal matrix D, stored as a vector of length M.
 
-### N (in)
+X : Real Array, Dimension (ldx,n) [in,out]
+> On entry, the matrix X to be scaled by D.
+> On exit, the scaled matrix.
 
-N is INTEGER The number of columns of X. N >= 0.
-
-### D (in)
-
-D is REAL array, length M Diagonal matrix D, stored as a vector of length M.
-
-### X (in,out)
-
-X is REAL array, dimension (LDX,N) On entry, the matrix X to be scaled by D. On exit, the scaled matrix.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the matrix X. LDX >= M.
+Ldx : Integer [in]
+> The leading dimension of the matrix X. LDX >= M.
 

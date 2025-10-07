@@ -1,13 +1,13 @@
-# ZSPCON
-
-## Function Signature
-
 ```fortran
-ZSPCON(UPLO, N, AP, IPIV, ANORM, RCOND, WORK, INFO)
+subroutine zspcon	(	character	uplo,
+		integer	n,
+		complex*16, dimension(*)	ap,
+		integer, dimension(*)	ipiv,
+		double precision	anorm,
+		double precision	rcond,
+		complex*16, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  ZSPCON estimates the reciprocal of the condition number (in the
  1-norm) of a complex symmetric packed matrix A using the
@@ -17,36 +17,35 @@ ZSPCON(UPLO, N, AP, IPIV, ANORM, RCOND, WORK, INFO)
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+Ap : Complex*16 Array, Dimension (n*(n+1)/2) [in]
+> The block diagonal matrix D and the multipliers used to
+> obtain the factor U or L as computed by ZSPTRF, stored as a
+> packed triangular matrix.
 
-### N (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by ZSPTRF.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Anorm : Double Precision [in]
+> The 1-norm of the original matrix A.
 
-### AP (in)
+Rcond : Double Precision [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-AP is COMPLEX*16 array, dimension (N*(N+1)/2) The block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by ZSPTRF, stored as a packed triangular matrix.
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by ZSPTRF.
-
-### ANORM (in)
-
-ANORM is DOUBLE PRECISION The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is DOUBLE PRECISION The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

@@ -1,13 +1,12 @@
-# CPTCON
-
-## Function Signature
-
 ```fortran
-CPTCON(N, D, E, ANORM, RCOND, RWORK, INFO)
+subroutine cptcon	(	integer	n,
+		real, dimension(*)	d,
+		complex, dimension(*)	e,
+		real	anorm,
+		real	rcond,
+		real, dimension(*)	rwork,
+		integer	info )
 ```
-
-## Description
-
 
  CPTCON computes the reciprocal of the condition number (in the
  1-norm) of a complex Hermitian positive definite tridiagonal matrix
@@ -19,32 +18,28 @@ CPTCON(N, D, E, ANORM, RCOND, RWORK, INFO)
                   RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### N (in)
+D : Real Array, Dimension (n) [in]
+> The n diagonal elements of the diagonal matrix D from the
+> factorization of A, as computed by CPTTRF.
 
-N is INTEGER The order of the matrix A. N >= 0.
+E : Complex Array, Dimension (n-1) [in]
+> The (n-1) off-diagonal elements of the unit bidiagonal factor
+> U or L from the factorization of A, as computed by CPTTRF.
 
-### D (in)
+Anorm : Real [in]
+> The 1-norm of the original matrix A.
 
-D is REAL array, dimension (N) The n diagonal elements of the diagonal matrix D from the factorization of A, as computed by CPTTRF.
+Rcond : Real [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is the
+> 1-norm of inv(A) computed in this routine.
 
-### E (in)
+Rwork : Real Array, Dimension (n) [out]
 
-E is COMPLEX array, dimension (N-1) The (n-1) off-diagonal elements of the unit bidiagonal factor U or L from the factorization of A, as computed by CPTTRF.
-
-### ANORM (in)
-
-ANORM is REAL The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is REAL The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is the 1-norm of inv(A) computed in this routine.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

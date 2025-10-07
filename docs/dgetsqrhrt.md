@@ -1,14 +1,17 @@
-# DGETSQRHRT
-
-## Function Signature
-
 ```fortran
-DGETSQRHRT(M, N, MB1, NB1, NB2, A, LDA, T, LDT, WORK,
-*      $                       LWORK, INFO)
+subroutine dgetsqrhrt	(	m,
+		n,
+		mb1,
+		nb1,
+		nb2,
+		a,
+		lda,
+		t,
+		ldt,
+		work,
+		*      $                       lwork,
+		info )
 ```
-
-## Description
-
 
  DGETSQRHRT computes a NB2-sized column blocked QR-factorization
  of a real M-by-N matrix A with M >= N,
@@ -28,52 +31,63 @@ DGETSQRHRT(M, N, MB1, NB1, NB2, A, LDA, T, LDT, WORK,
  of DGEQRT for more details on the format.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A. M >= N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Mb1 : Integer [in]
+> The row block size to be used in the blocked TSQR.
+> MB1 > N.
 
-### N (in)
+Nb1 : Integer [in]
+> The column block size to be used in the blocked TSQR.
+> N >= NB1 >= 1.
 
-N is INTEGER The number of columns of the matrix A. M >= N >= 0.
+Nb2 : Integer [in]
+> The block size to be used in the blocked QR that is
+> output. NB2 >= 1.
 
-### MB1 (in)
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry: an M-by-N matrix A.
+> On exit:
+> a) the elements on and above the diagonal
+> of the array contain the N-by-N upper-triangular
+> matrix R corresponding to the Householder QR;
+> b) the elements below the diagonal represent Q by
+> the columns of blocked V (compact WY-representation).
 
-MB1 is INTEGER The row block size to be used in the blocked TSQR. MB1 > N.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-### NB1 (in)
+T : Double Precision Array, Dimension (ldt,n)) [out]
+> The upper triangular block reflectors stored in compact form
+> as a sequence of upper triangular blocks.
 
-NB1 is INTEGER The column block size to be used in the blocked TSQR. N >= NB1 >= 1.
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= NB2.
 
-### NB2 (in)
+Work : (workspace) Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-NB2 is INTEGER The block size to be used in the blocked QR that is output. NB2 >= 1.
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> If MIN(M,N) = 0, LWORK >= 1, else
+> LWORK >= MAX( 1, LWT + LW1, MAX( LWT+N*N+LW2, LWT+N*N+N ) ),
+> where
+> NUM_ALL_ROW_BLOCKS = CEIL((M-N)/(MB1-N)),
+> NB1LOCAL = MIN(NB1,N).
+> LWT = NUM_ALL_ROW_BLOCKS * N * NB1LOCAL,
+> LW1 = NB1LOCAL * N,
+> LW2 = NB1LOCAL * MAX( NB1LOCAL, ( N - NB1LOCAL ) ).
+> If LWORK = -1, then a workspace query is assumed.
+> The routine only calculates the optimal size of the WORK
+> array, returns this value as the first entry of the WORK
+> array, and no error message related to LWORK is issued
+> by XERBLA.
 
-### A (in,out)
-
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry: an M-by-N matrix A. On exit: a) the elements on and above the diagonal of the array contain the N-by-N upper-triangular matrix R corresponding to the Householder QR; b) the elements below the diagonal represent Q by the columns of blocked V (compact WY-representation).
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### T (out)
-
-T is DOUBLE PRECISION array, dimension (LDT,N)) The upper triangular block reflectors stored in compact form as a sequence of upper triangular blocks.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= NB2.
-
-### WORK (out)
-
-(workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If MIN(M,N) = 0, LWORK >= 1, else LWORK >= MAX( 1, LWT + LW1, MAX( LWT+N*N+LW2, LWT+N*N+N ) ), where NUM_ALL_ROW_BLOCKS = CEIL((M-N)/(MB1-N)), NB1LOCAL = MIN(NB1,N). LWT = NUM_ALL_ROW_BLOCKS * N * NB1LOCAL, LW1 = NB1LOCAL * N, LW2 = NB1LOCAL * MAX( NB1LOCAL, ( N - NB1LOCAL ) ). If LWORK = -1, then a workspace query is assumed. The routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

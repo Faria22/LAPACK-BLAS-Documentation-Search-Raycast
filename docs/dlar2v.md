@@ -1,13 +1,13 @@
-# DLAR2V
-
-## Function Signature
-
 ```fortran
-DLAR2V(N, X, Y, Z, INCX, C, S, INCC)
+subroutine dlar2v	(	integer	n,
+		double precision, dimension(*)	x,
+		double precision, dimension(*)	y,
+		double precision, dimension(*)	z,
+		integer	incx,
+		double precision, dimension(*)	c,
+		double precision, dimension(*)	s,
+		integer	incc )
 ```
-
-## Description
-
 
  DLAR2V applies a vector of real plane rotations from both sides to
  a sequence of 2-by-2 real symmetric matrices, defined by the elements
@@ -17,36 +17,30 @@ DLAR2V(N, X, Y, Z, INCX, C, S, INCC)
     ( z(i)  y(i) )    ( -s(i)  c(i) ) ( z(i)  y(i) ) ( s(i)  c(i) )
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be applied.
 
-### N (in)
+X : Double Precision Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector x.
 
-N is INTEGER The number of plane rotations to be applied.
+Y : Double Precision Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector y.
 
-### X (in,out)
+Z : Double Precision Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector z.
 
-X is DOUBLE PRECISION array, dimension (1+(N-1)*INCX) The vector x.
+Incx : Integer [in]
+> The increment between elements of X, Y and Z. INCX > 0.
 
-### Y (in,out)
+C : Double Precision Array, Dimension (1+(n-1)*incc) [in]
+> The cosines of the plane rotations.
 
-Y is DOUBLE PRECISION array, dimension (1+(N-1)*INCX) The vector y.
+S : Double Precision Array, Dimension (1+(n-1)*incc) [in]
+> The sines of the plane rotations.
 
-### Z (in,out)
-
-Z is DOUBLE PRECISION array, dimension (1+(N-1)*INCX) The vector z.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X, Y and Z. INCX > 0.
-
-### C (in)
-
-C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### S (in)
-
-S is DOUBLE PRECISION array, dimension (1+(N-1)*INCC) The sines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C and S. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C and S. INCC > 0.
 

@@ -1,58 +1,60 @@
-# CSYTRS2
-
-## Function Signature
-
 ```fortran
-CSYTRS2(UPLO, N, NRHS, A, LDA, IPIV, B, LDB,
-*                           WORK, INFO)
+subroutine csytrs2	(	uplo,
+		n,
+		nrhs,
+		a,
+		lda,
+		ipiv,
+		b,
+		ldb,
+		*                           work,
+		info )
 ```
-
-## Description
-
 
  CSYTRS2 solves a system of linear equations A*X = B with a complex
  symmetric matrix A using the factorization A = U*D*U**T or
  A = L*D*L**T computed by CSYTRF and converted by CSYCONV.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### N (in)
+A : Complex Array, Dimension (lda,n) [in,out]
+> The block diagonal matrix D and the multipliers used to
+> obtain the factor U or L as computed by CSYTRF.
+> Note that A is input / output. This might be counter-intuitive,
+> and one may think that A is input only. A is input / output. This
+> is because, at the start of the subroutine, we permute A in a
+> "better" form and then we permute A back to its original form at
+> the end.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### NRHS (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by CSYTRF.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+B : Complex Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side matrix B.
+> On exit, the solution matrix X.
 
-### A (in,out)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-A is COMPLEX array, dimension (LDA,N) The block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by CSYTRF. Note that A is input / output. This might be counter-intuitive, and one may think that A is input only. A is input / output. This is because, at the start of the subroutine, we permute A in a "better" form and then we permute A back to its original form at the end.
+Work : Complex Array, Dimension (n) [out]
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by CSYTRF.
-
-### B (in,out)
-
-B is COMPLEX array, dimension (LDB,NRHS) On entry, the right hand side matrix B. On exit, the solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

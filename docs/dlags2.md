@@ -1,14 +1,18 @@
-# DLAGS2
-
-## Function Signature
-
 ```fortran
-DLAGS2(UPPER, A1, A2, A3, B1, B2, B3, CSU, SNU, CSV,
-*                          SNV, CSQ, SNQ)
+subroutine dlags2	(	upper,
+		a1,
+		a2,
+		a3,
+		b1,
+		b2,
+		b3,
+		csu,
+		snu,
+		csv,
+		*                          snv,
+		csq,
+		snq )
 ```
-
-## Description
-
 
  DLAGS2 computes 2-by-2 orthogonal matrices U, V and Q, such
  that if ( UPPER ) then
@@ -36,56 +40,38 @@ DLAGS2(UPPER, A1, A2, A3, B1, B2, B3, CSU, SNU, CSV,
 
 
 ## Parameters
+Upper : Logical [in]
+> = .TRUE.: the input matrices A and B are upper triangular.
+> = .FALSE.: the input matrices A and B are lower triangular.
 
-### UPPER (in)
+A1 : Double Precision [in]
 
-UPPER is LOGICAL = .TRUE.: the input matrices A and B are upper triangular. = .FALSE.: the input matrices A and B are lower triangular.
+A2 : Double Precision [in]
 
-### A1 (in)
+A3 : Double Precision [in]
+> On entry, A1, A2 and A3 are elements of the input 2-by-2
+> upper (lower) triangular matrix A.
 
-A1 is DOUBLE PRECISION
+B1 : Double Precision [in]
 
-### A2 (in)
+B2 : Double Precision [in]
 
-A2 is DOUBLE PRECISION
+B3 : Double Precision [in]
+> On entry, B1, B2 and B3 are elements of the input 2-by-2
+> upper (lower) triangular matrix B.
 
-### A3 (in)
+Csu : Double Precision [out]
 
-A3 is DOUBLE PRECISION On entry, A1, A2 and A3 are elements of the input 2-by-2 upper (lower) triangular matrix A.
+Snu : Double Precision [out]
+> The desired orthogonal matrix U.
 
-### B1 (in)
+Csv : Double Precision [out]
 
-B1 is DOUBLE PRECISION
+Snv : Double Precision [out]
+> The desired orthogonal matrix V.
 
-### B2 (in)
+Csq : Double Precision [out]
 
-B2 is DOUBLE PRECISION
-
-### B3 (in)
-
-B3 is DOUBLE PRECISION On entry, B1, B2 and B3 are elements of the input 2-by-2 upper (lower) triangular matrix B.
-
-### CSU (out)
-
-CSU is DOUBLE PRECISION
-
-### SNU (out)
-
-SNU is DOUBLE PRECISION The desired orthogonal matrix U.
-
-### CSV (out)
-
-CSV is DOUBLE PRECISION
-
-### SNV (out)
-
-SNV is DOUBLE PRECISION The desired orthogonal matrix V.
-
-### CSQ (out)
-
-CSQ is DOUBLE PRECISION
-
-### SNQ (out)
-
-SNQ is DOUBLE PRECISION The desired orthogonal matrix Q.
+Snq : Double Precision [out]
+> The desired orthogonal matrix Q.
 

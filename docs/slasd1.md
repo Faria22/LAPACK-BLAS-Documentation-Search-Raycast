@@ -1,14 +1,19 @@
-# SLASD1
-
-## Function Signature
-
 ```fortran
-SLASD1(NL, NR, SQRE, D, ALPHA, BETA, U, LDU, VT, LDVT,
-*                          IDXQ, IWORK, WORK, INFO)
+subroutine slasd1	(	nl,
+		nr,
+		sqre,
+		d,
+		alpha,
+		beta,
+		u,
+		ldu,
+		vt,
+		ldvt,
+		*                          idxq,
+		iwork,
+		work,
+		info )
 ```
-
-## Description
-
 
  SLASD1 computes the SVD of an upper bidiagonal N-by-M matrix B,
  where N = NL + NR + 1 and M = N + SQRE. SLASD1 is called from SLASD0.
@@ -50,60 +55,63 @@ SLASD1(NL, NR, SQRE, D, ALPHA, BETA, U, LDU, VT, LDVT,
     from the overall problem.
 
 ## Parameters
+Nl : Integer [in]
+> The row dimension of the upper block.  NL >= 1.
 
-### NL (in)
+Nr : Integer [in]
+> The row dimension of the lower block.  NR >= 1.
 
-NL is INTEGER The row dimension of the upper block. NL >= 1.
+Sqre : Integer [in]
+> = 0: the lower block is an NR-by-NR square matrix.
+> = 1: the lower block is an NR-by-(NR+1) rectangular matrix.
+> The bidiagonal matrix has row dimension N = NL + NR + 1,
+> and column dimension M = N + SQRE.
 
-### NR (in)
+D : Real Array, Dimension (nl+nr+1). [in,out]
+> N = NL+NR+1
+> On entry D(1:NL,1:NL) contains the singular values of the
+> upper block; and D(NL+2:N) contains the singular values of
+> the lower block. On exit D(1:N) contains the singular values
+> of the modified matrix.
 
-NR is INTEGER The row dimension of the lower block. NR >= 1.
+Alpha : Real [in,out]
+> Contains the diagonal element associated with the added row.
 
-### SQRE (in)
+Beta : Real [in,out]
+> Contains the off-diagonal element associated with the added
+> row.
 
-SQRE is INTEGER = 0: the lower block is an NR-by-NR square matrix. = 1: the lower block is an NR-by-(NR+1) rectangular matrix. The bidiagonal matrix has row dimension N = NL + NR + 1, and column dimension M = N + SQRE.
+U : Real Array, Dimension (ldu,n) [in,out]
+> On entry U(1:NL, 1:NL) contains the left singular vectors of
+> the upper block; U(NL+2:N, NL+2:N) contains the left singular
+> vectors of the lower block. On exit U contains the left
+> singular vectors of the bidiagonal matrix.
 
-### D (in,out)
+Ldu : Integer [in]
+> The leading dimension of the array U.  LDU >= max( 1, N ).
 
-D is REAL array, dimension (NL+NR+1). N = NL+NR+1 On entry D(1:NL,1:NL) contains the singular values of the upper block; and D(NL+2:N) contains the singular values of the lower block. On exit D(1:N) contains the singular values of the modified matrix.
+Vt : Real Array, Dimension (ldvt,m) [in,out]
+> where M = N + SQRE.
+> On entry VT(1:NL+1, 1:NL+1)**T contains the right singular
+> vectors of the upper block; VT(NL+2:M, NL+2:M)**T contains
+> the right singular vectors of the lower block. On exit
+> VT**T contains the right singular vectors of the
+> bidiagonal matrix.
 
-### ALPHA (in,out)
+Ldvt : Integer [in]
+> The leading dimension of the array VT.  LDVT >= max( 1, M ).
 
-ALPHA is REAL Contains the diagonal element associated with the added row.
+Idxq : Integer Array, Dimension (n) [in,out]
+> This contains the permutation which will reintegrate the
+> subproblem just solved back into sorted order, i.e.
+> D( IDXQ( I = 1, N ) ) will be in ascending order.
 
-### BETA (in,out)
+Iwork : Integer Array, Dimension (4*n) [out]
 
-BETA is REAL Contains the off-diagonal element associated with the added row.
+Work : Real Array, Dimension (3*m**2+2*m) [out]
 
-### U (in,out)
-
-U is REAL array, dimension (LDU,N) On entry U(1:NL, 1:NL) contains the left singular vectors of the upper block; U(NL+2:N, NL+2:N) contains the left singular vectors of the lower block. On exit U contains the left singular vectors of the bidiagonal matrix.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max( 1, N ).
-
-### VT (in,out)
-
-VT is REAL array, dimension (LDVT,M) where M = N + SQRE. On entry VT(1:NL+1, 1:NL+1)**T contains the right singular vectors of the upper block; VT(NL+2:M, NL+2:M)**T contains the right singular vectors of the lower block. On exit VT**T contains the right singular vectors of the bidiagonal matrix.
-
-### LDVT (in)
-
-LDVT is INTEGER The leading dimension of the array VT. LDVT >= max( 1, M ).
-
-### IDXQ (in,out)
-
-IDXQ is INTEGER array, dimension (N) This contains the permutation which will reintegrate the subproblem just solved back into sorted order, i.e. D( IDXQ( I = 1, N ) ) will be in ascending order.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (4*N)
-
-### WORK (out)
-
-WORK is REAL array, dimension (3*M**2+2*M)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, a singular value did not converge
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, a singular value did not converge
 

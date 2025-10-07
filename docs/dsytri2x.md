@@ -1,49 +1,53 @@
-# DSYTRI2X
-
-## Function Signature
-
 ```fortran
-DSYTRI2X(UPLO, N, A, LDA, IPIV, WORK, NB, INFO)
+subroutine dsytri2x	(	character	uplo,
+		integer	n,
+		double precision, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		double precision, dimension(n+nb+1,*)	work,
+		integer	nb,
+		integer	info )
 ```
-
-## Description
-
 
  DSYTRI2X computes the inverse of a real symmetric indefinite matrix
  A using the factorization A = U*D*U**T or A = L*D*L**T computed by
  DSYTRF.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the NNB diagonal matrix D and the multipliers
+> used to obtain the factor U or L as computed by DSYTRF.
+> On exit, if INFO = 0, the (symmetric) inverse of the original
+> matrix.  If UPLO = 'U', the upper triangular part of the
+> inverse is formed and the part of A below the diagonal is not
+> referenced; if UPLO = 'L' the lower triangular part of the
+> inverse is formed and the part of A above the diagonal is
+> not referenced.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the NNB structure of D
+> as determined by DSYTRF.
 
-### A (in,out)
+Work : Double Precision Array, Dimension (n+nb+1,nb+3) [out]
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the NNB diagonal matrix D and the multipliers used to obtain the factor U or L as computed by DSYTRF. On exit, if INFO = 0, the (symmetric) inverse of the original matrix. If UPLO = 'U', the upper triangular part of the inverse is formed and the part of A below the diagonal is not referenced; if UPLO = 'L' the lower triangular part of the inverse is formed and the part of A above the diagonal is not referenced.
+Nb : Integer [in]
+> Block size
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the NNB structure of D as determined by DSYTRF.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (N+NB+1,NB+3)
-
-### NB (in)
-
-NB is INTEGER Block size
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its inverse could not be computed.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its
+> inverse could not be computed.
 

@@ -1,117 +1,99 @@
-# CLAQZ3
-
-## Function Signature
-
 ```fortran
-CLAQZ3(ILSCHUR, ILQ, ILZ, N, ILO, IHI, NSHIFTS,
-*     $    NBLOCK_DESIRED, ALPHA, BETA, A, LDA, B, LDB, Q, LDQ, Z, LDZ,
-*     $    QC, LDQC, ZC, LDZC, WORK, LWORK, INFO)
+subroutine claqz3	(	ilschur,
+		ilq,
+		ilz,
+		n,
+		ilo,
+		ihi,
+		nshifts,
+		*     $    nblock_desired,
+		alpha,
+		beta,
+		a,
+		lda,
+		b,
+		ldb,
+		q,
+		ldq,
+		z,
+		ldz,
+		*     $    qc,
+		ldqc,
+		zc,
+		ldzc,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  CLAQZ3 Executes a single multishift QZ sweep
 
 ## Parameters
+Ilschur : Logical [in]
+> Determines whether or not to update the full Schur form
 
-### ILSCHUR (in)
+Ilq : Logical [in]
+> Determines whether or not to update the matrix Q
 
-ILSCHUR is LOGICAL Determines whether or not to update the full Schur form
+Ilz : Logical [in]
+> Determines whether or not to update the matrix Z
 
-### ILQ (in)
+N : Integer [in]
+> The order of the matrices A, B, Q, and Z.  N >= 0.
 
-ILQ is LOGICAL Determines whether or not to update the matrix Q
+Ilo : Integer [in]
 
-### ILZ (in)
+Ihi : Integer [in]
 
-ILZ is LOGICAL Determines whether or not to update the matrix Z
+Nshifts : Integer [in]
+> The desired number of shifts to use
 
-### N (in)
+Nblock_desired : Integer [in]
+> The desired size of the computational windows
 
-N is INTEGER The order of the matrices A, B, Q, and Z. N >= 0.
+Alpha : Complex Array. Sr Contains [in]
+> the alpha parts of the shifts to use.
 
-### ILO (in)
+Beta : Complex Array. Ss Contains [in]
+> the scale of the shifts to use.
 
-ILO is INTEGER
+A : Complex Array, Dimension (lda, N) [in,out]
 
-### IHI (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max( 1, N ).
 
-IHI is INTEGER
+B : Complex Array, Dimension (ldb, N) [in,out]
 
-### NSHIFTS (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max( 1, N ).
 
-NSHIFTS is INTEGER The desired number of shifts to use
+Q : Complex Array, Dimension (ldq, N) [in,out]
 
-### NBLOCK_DESIRED (in)
+Ldq : Integer [in]
 
-NBLOCK_DESIRED is INTEGER The desired size of the computational windows
+Z : Complex Array, Dimension (ldz, N) [in,out]
 
-### ALPHA (in)
+Ldz : Integer [in]
 
-ALPHA is COMPLEX array. SR contains the alpha parts of the shifts to use.
+Qc : Complex Array, Dimension (ldqc, Nblock_desired) [in,out]
 
-### BETA (in)
+Ldqc : Integer [in]
 
-BETA is COMPLEX array. SS contains the scale of the shifts to use.
+Zc : Complex Array, Dimension (ldzc, Nblock_desired) [in,out]
 
-### A (in,out)
+Ldzc : Integer [in]
 
-A is COMPLEX array, dimension (LDA, N)
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 
-### LDA (in)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,N).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max( 1, N ).
-
-### B (in,out)
-
-B is COMPLEX array, dimension (LDB, N)
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max( 1, N ).
-
-### Q (in,out)
-
-Q is COMPLEX array, dimension (LDQ, N)
-
-### LDQ (in)
-
-LDQ is INTEGER
-
-### Z (in,out)
-
-Z is COMPLEX array, dimension (LDZ, N)
-
-### LDZ (in)
-
-LDZ is INTEGER
-
-### QC (in,out)
-
-QC is COMPLEX array, dimension (LDQC, NBLOCK_DESIRED)
-
-### LDQC (in)
-
-LDQC is INTEGER
-
-### ZC (in,out)
-
-ZC is COMPLEX array, dimension (LDZC, NBLOCK_DESIRED)
-
-### LDZC (in)
-
-LDZ is INTEGER
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,N). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

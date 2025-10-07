@@ -1,13 +1,10 @@
-# SROTMG
-
-## Function Signature
-
 ```fortran
-SROTMG(SD1,SD2,SX1,SY1,SPARAM)
+subroutine srotmg	(	real	sd1,
+		real	sd2,
+		real	sx1,
+		real	sy1,
+		real, dimension(5)	sparam )
 ```
-
-## Description
-
 
     CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS
     THE SECOND COMPONENT OF THE 2-VECTOR  (SQRT(SD1)*SX1,SQRT(SD2)    SY2)**T.
@@ -28,24 +25,18 @@ SROTMG(SD1,SD2,SX1,SY1,SPARAM)
 
 
 ## Parameters
+Sd1 : Real [in,out]
 
-### SD1 (in,out)
+Sd2 : Real [in,out]
 
-SD1 is REAL
+Sx1 : Real [in,out]
 
-### SD2 (in,out)
+Sy1 : Real [in]
 
-SD2 is REAL
-
-### SX1 (in,out)
-
-SX1 is REAL
-
-### SY1 (in)
-
-SY1 is REAL
-
-### SPARAM (out)
-
-SPARAM is REAL array, dimension (5) SPARAM(1)=SFLAG SPARAM(2)=SH11 SPARAM(3)=SH21 SPARAM(4)=SH12 SPARAM(5)=SH22
+Sparam : Real Array, Dimension (5) [out]
+> SPARAM(1)=SFLAG
+> SPARAM(2)=SH11
+> SPARAM(3)=SH21
+> SPARAM(4)=SH12
+> SPARAM(5)=SH22
 

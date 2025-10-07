@@ -1,13 +1,13 @@
-# CLARTV
-
-## Function Signature
-
 ```fortran
-CLARTV(N, X, INCX, Y, INCY, C, S, INCC)
+subroutine clartv	(	integer	n,
+		complex, dimension(*)	x,
+		integer	incx,
+		complex, dimension(*)	y,
+		integer	incy,
+		real, dimension(*)	c,
+		complex, dimension(*)	s,
+		integer	incc )
 ```
-
-## Description
-
 
  CLARTV applies a vector of complex plane rotations with real cosines
  to elements of the complex vectors x and y. For i = 1,2,...,n
@@ -16,36 +16,27 @@ CLARTV(N, X, INCX, Y, INCY, C, S, INCC)
     ( y(i) )    ( -conjg(s(i))  c(i) ) ( y(i) )
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be applied.
 
-### N (in)
+X : Complex Array, Dimension (1+(n-1)*incx) [in,out]
+> The vector x.
 
-N is INTEGER The number of plane rotations to be applied.
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-### X (in,out)
+Y : Complex Array, Dimension (1+(n-1)*incy) [in,out]
+> The vector y.
 
-X is COMPLEX array, dimension (1+(N-1)*INCX) The vector x.
+Incy : Integer [in]
+> The increment between elements of Y. INCY > 0.
 
-### INCX (in)
+C : Real Array, Dimension (1+(n-1)*incc) [in]
+> The cosines of the plane rotations.
 
-INCX is INTEGER The increment between elements of X. INCX > 0.
+S : Complex Array, Dimension (1+(n-1)*incc) [in]
+> The sines of the plane rotations.
 
-### Y (in,out)
-
-Y is COMPLEX array, dimension (1+(N-1)*INCY) The vector y.
-
-### INCY (in)
-
-INCY is INTEGER The increment between elements of Y. INCY > 0.
-
-### C (in)
-
-C is REAL array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### S (in)
-
-S is COMPLEX array, dimension (1+(N-1)*INCC) The sines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C and S. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C and S. INCC > 0.
 

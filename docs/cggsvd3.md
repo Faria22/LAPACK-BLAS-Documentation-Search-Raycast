@@ -1,17 +1,30 @@
-# CGGSVD3
-
-CGGSVD3 computes the singular value decomposition (SVD) for OTHER matrices
-
-## Function Signature
-
 ```fortran
-CGGSVD3(JOBU, JOBV, JOBQ, M, N, P, K, L, A, LDA, B,
-*                           LDB, ALPHA, BETA, U, LDU, V, LDV, Q, LDQ, WORK,
-*                           LWORK, RWORK, IWORK, INFO)
+subroutine cggsvd3	(	jobu,
+		jobv,
+		jobq,
+		m,
+		n,
+		p,
+		k,
+		l,
+		a,
+		lda,
+		b,
+		*                           ldb,
+		alpha,
+		beta,
+		u,
+		ldu,
+		v,
+		ldv,
+		q,
+		ldq,
+		work,
+		*                           lwork,
+		rwork,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  CGGSVD3 computes the generalized singular value decomposition (GSVD)
  of an M-by-N complex matrix A and P-by-N complex matrix B:
@@ -93,104 +106,114 @@ CGGSVD3(JOBU, JOBV, JOBQ, M, N, P, K, L, A, LDA, B,
                              (  0 inv(R) )
 
 ## Parameters
+Jobu : Character*1 [in]
+> = 'U':  Unitary matrix U is computed;
+> = 'N':  U is not computed.
 
-### JOBU (in)
+Jobv : Character*1 [in]
+> = 'V':  Unitary matrix V is computed;
+> = 'N':  V is not computed.
 
-JOBU is CHARACTER*1 = 'U': Unitary matrix U is computed; = 'N': U is not computed.
+Jobq : Character*1 [in]
+> = 'Q':  Unitary matrix Q is computed;
+> = 'N':  Q is not computed.
 
-### JOBV (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-JOBV is CHARACTER*1 = 'V': Unitary matrix V is computed; = 'N': V is not computed.
+N : Integer [in]
+> The number of columns of the matrices A and B.  N >= 0.
 
-### JOBQ (in)
+P : Integer [in]
+> The number of rows of the matrix B.  P >= 0.
 
-JOBQ is CHARACTER*1 = 'Q': Unitary matrix Q is computed; = 'N': Q is not computed.
+K : Integer [out]
 
-### M (in)
+L : Integer [out]
+> On exit, K and L specify the dimension of the subblocks
+> described in Purpose.
+> K + L = effective numerical rank of (A**H,B**H)**H.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A contains the triangular matrix R, or part of R.
+> See Purpose for details.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+B : Complex Array, Dimension (ldb,n) [in,out]
+> On entry, the P-by-N matrix B.
+> On exit, B contains part of the triangular matrix R if
+> M-K-L < 0.  See Purpose for details.
 
-### P (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,P).
 
-P is INTEGER The number of rows of the matrix B. P >= 0.
+Alpha : Real Array, Dimension (n) [out]
 
-### K (out)
+Beta : Real Array, Dimension (n) [out]
+> On exit, ALPHA and BETA contain the generalized singular
+> value pairs of A and B;
+> ALPHA(1:K) = 1,
+> BETA(1:K)  = 0,
+> and if M-K-L >= 0,
+> ALPHA(K+1:K+L) = C,
+> BETA(K+1:K+L)  = S,
+> or if M-K-L < 0,
+> ALPHA(K+1:M)=C, ALPHA(M+1:K+L)=0
+> BETA(K+1:M) =S, BETA(M+1:K+L) =1
+> and
+> ALPHA(K+L+1:N) = 0
+> BETA(K+L+1:N)  = 0
 
-K is INTEGER
+U : Complex Array, Dimension (ldu,m) [out]
+> If JOBU = 'U', U contains the M-by-M unitary matrix U.
+> If JOBU = 'N', U is not referenced.
 
-### L (out)
+Ldu : Integer [in]
+> The leading dimension of the array U. LDU >= max(1,M) if
+> JOBU = 'U'; LDU >= 1 otherwise.
 
-L is INTEGER On exit, K and L specify the dimension of the subblocks described in Purpose. K + L = effective numerical rank of (A**H,B**H)**H.
+V : Complex Array, Dimension (ldv,p) [out]
+> If JOBV = 'V', V contains the P-by-P unitary matrix V.
+> If JOBV = 'N', V is not referenced.
 
-### A (in,out)
+Ldv : Integer [in]
+> The leading dimension of the array V. LDV >= max(1,P) if
+> JOBV = 'V'; LDV >= 1 otherwise.
 
-A is COMPLEX array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A contains the triangular matrix R, or part of R. See Purpose for details.
+Q : Complex Array, Dimension (ldq,n) [out]
+> If JOBQ = 'Q', Q contains the N-by-N unitary matrix Q.
+> If JOBQ = 'N', Q is not referenced.
 
-### LDA (in)
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= max(1,N) if
+> JOBQ = 'Q'; LDQ >= 1 otherwise.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= 1.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is COMPLEX array, dimension (LDB,N) On entry, the P-by-N matrix B. On exit, B contains part of the triangular matrix R if M-K-L < 0. See Purpose for details.
+Rwork : Real Array, Dimension (2*n) [out]
 
-### LDB (in)
+Iwork : Integer Array, Dimension (n) [out]
+> On exit, IWORK stores the sorting information. More
+> precisely, the following loop will sort ALPHA
+> for I = K+1, min(M,K+L)
+> swap ALPHA(I) and ALPHA(IWORK(I))
+> endfor
+> such that ALPHA(1) >= ALPHA(2) >= ... >= ALPHA(N).
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,P).
-
-### ALPHA (out)
-
-ALPHA is REAL array, dimension (N)
-
-### BETA (out)
-
-BETA is REAL array, dimension (N) On exit, ALPHA and BETA contain the generalized singular value pairs of A and B; ALPHA(1:K) = 1, BETA(1:K) = 0, and if M-K-L >= 0, ALPHA(K+1:K+L) = C, BETA(K+1:K+L) = S, or if M-K-L < 0, ALPHA(K+1:M)=C, ALPHA(M+1:K+L)=0 BETA(K+1:M) =S, BETA(M+1:K+L) =1 and ALPHA(K+L+1:N) = 0 BETA(K+L+1:N) = 0
-
-### U (out)
-
-U is COMPLEX array, dimension (LDU,M) If JOBU = 'U', U contains the M-by-M unitary matrix U. If JOBU = 'N', U is not referenced.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max(1,M) if JOBU = 'U'; LDU >= 1 otherwise.
-
-### V (out)
-
-V is COMPLEX array, dimension (LDV,P) If JOBV = 'V', V contains the P-by-P unitary matrix V. If JOBV = 'N', V is not referenced.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. LDV >= max(1,P) if JOBV = 'V'; LDV >= 1 otherwise.
-
-### Q (out)
-
-Q is COMPLEX array, dimension (LDQ,N) If JOBQ = 'Q', Q contains the N-by-N unitary matrix Q. If JOBQ = 'N', Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N) if JOBQ = 'Q'; LDQ >= 1 otherwise.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (2*N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N) On exit, IWORK stores the sorting information. More precisely, the following loop will sort ALPHA for I = K+1, min(M,K+L) swap ALPHA(I) and ALPHA(IWORK(I)) endfor such that ALPHA(1) >= ALPHA(2) >= ... >= ALPHA(N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, the Jacobi-type procedure failed to converge. For further details, see subroutine CTGSJA.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, the Jacobi-type procedure failed to
+> converge.  For further details, see subroutine CTGSJA.
 

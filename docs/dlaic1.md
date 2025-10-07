@@ -1,13 +1,14 @@
-# DLAIC1
-
-## Function Signature
-
 ```fortran
-DLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
+subroutine dlaic1	(	integer	job,
+		integer	j,
+		double precision, dimension(j)	x,
+		double precision	sest,
+		double precision, dimension(j)	w,
+		double precision	gamma,
+		double precision	sestpr,
+		double precision	s,
+		double precision	c )
 ```
-
-## Description
-
 
  DLAIC1 applies one step of incremental condition estimation in
  its simplest version:
@@ -36,40 +37,31 @@ DLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
  where  alpha =  x**T*w.
 
 ## Parameters
+Job : Integer [in]
+> = 1: an estimate for the largest singular value is computed.
+> = 2: an estimate for the smallest singular value is computed.
 
-### JOB (in)
+J : Integer [in]
+> Length of X and W
 
-JOB is INTEGER = 1: an estimate for the largest singular value is computed. = 2: an estimate for the smallest singular value is computed.
+X : Double Precision Array, Dimension (j) [in]
+> The j-vector x.
 
-### J (in)
+Sest : Double Precision [in]
+> Estimated singular value of j by j matrix L
 
-J is INTEGER Length of X and W
+W : Double Precision Array, Dimension (j) [in]
+> The j-vector w.
 
-### X (in)
+Gamma : Double Precision [in]
+> The diagonal element gamma.
 
-X is DOUBLE PRECISION array, dimension (J) The j-vector x.
+Sestpr : Double Precision [out]
+> Estimated singular value of (j+1) by (j+1) matrix Lhat.
 
-### SEST (in)
+S : Double Precision [out]
+> Sine needed in forming xhat.
 
-SEST is DOUBLE PRECISION Estimated singular value of j by j matrix L
-
-### W (in)
-
-W is DOUBLE PRECISION array, dimension (J) The j-vector w.
-
-### GAMMA (in)
-
-GAMMA is DOUBLE PRECISION The diagonal element gamma.
-
-### SESTPR (out)
-
-SESTPR is DOUBLE PRECISION Estimated singular value of (j+1) by (j+1) matrix Lhat.
-
-### S (out)
-
-S is DOUBLE PRECISION Sine needed in forming xhat.
-
-### C (out)
-
-C is DOUBLE PRECISION Cosine needed in forming xhat.
+C : Double Precision [out]
+> Cosine needed in forming xhat.
 

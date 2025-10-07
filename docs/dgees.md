@@ -1,16 +1,20 @@
-# DGEES
-
-DGEES computes the eigenvalues, the Schur form, and, optionally, the matrix of Schur vectors for GE matrices
-
-## Function Signature
-
 ```fortran
-DGEES(JOBVS, SORT, SELECT, N, A, LDA, SDIM, WR, WI,
-*                         VS, LDVS, WORK, LWORK, BWORK, INFO)
+subroutine dgees	(	jobvs,
+		sort,
+		select,
+		n,
+		a,
+		lda,
+		sdim,
+		wr,
+		wi,
+		*                         vs,
+		ldvs,
+		work,
+		lwork,
+		bwork,
+		info )
 ```
-
-## Description
-
 
  DGEES computes for an N-by-N real nonsymmetric matrix A, the
  eigenvalues, the real Schur form T, and, optionally, the matrix of
@@ -30,64 +34,95 @@ DGEES(JOBVS, SORT, SELECT, N, A, LDA, SDIM, WR, WI,
  where b*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
 
 ## Parameters
+Jobvs : Character*1 [in]
+> = 'N': Schur vectors are not computed;
+> = 'V': Schur vectors are computed.
 
-### JOBVS (in)
+Sort : Character*1 [in]
+> Specifies whether or not to order the eigenvalues on the
+> diagonal of the Schur form.
+> = 'N': Eigenvalues are not ordered;
+> = 'S': Eigenvalues are ordered (see SELECT).
 
-JOBVS is CHARACTER*1 = 'N': Schur vectors are not computed; = 'V': Schur vectors are computed.
+Select : a Logical Function of Two Double Precision Arguments [in]
+> SELECT must be declared EXTERNAL in the calling subroutine.
+> If SORT = 'S', SELECT is used to select eigenvalues to sort
+> to the top left of the Schur form.
+> If SORT = 'N', SELECT is not referenced.
+> An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if
+> SELECT(WR(j),WI(j)) is true; i.e., if either one of a complex
+> conjugate pair of eigenvalues is selected, then both complex
+> eigenvalues are selected.
+> Note that a selected complex eigenvalue may no longer
+> satisfy SELECT(WR(j),WI(j)) = .TRUE. after ordering, since
+> ordering may change the value of complex eigenvalues
+> (especially if the eigenvalue is ill-conditioned); in this
+> case INFO is set to N+2 (see INFO below).
 
-### SORT (in)
+N : Integer [in]
+> The order of the matrix A. N >= 0.
 
-SORT is CHARACTER*1 Specifies whether or not to order the eigenvalues on the diagonal of the Schur form. = 'N': Eigenvalues are not ordered; = 'S': Eigenvalues are ordered (see SELECT).
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the N-by-N matrix A.
+> On exit, A has been overwritten by its real Schur form T.
 
-### SELECT (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-SELECT is a LOGICAL FUNCTION of two DOUBLE PRECISION arguments SELECT must be declared EXTERNAL in the calling subroutine. If SORT = 'S', SELECT is used to select eigenvalues to sort to the top left of the Schur form. If SORT = 'N', SELECT is not referenced. An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if SELECT(WR(j),WI(j)) is true; i.e., if either one of a complex conjugate pair of eigenvalues is selected, then both complex eigenvalues are selected. Note that a selected complex eigenvalue may no longer satisfy SELECT(WR(j),WI(j)) = .TRUE. after ordering, since ordering may change the value of complex eigenvalues (especially if the eigenvalue is ill-conditioned); in this case INFO is set to N+2 (see INFO below).
+Sdim : Integer [out]
+> If SORT = 'N', SDIM = 0.
+> If SORT = 'S', SDIM = number of eigenvalues (after sorting)
+> for which SELECT is true. (Complex conjugate
+> pairs for which SELECT is true for either
+> eigenvalue count as 2.)
 
-### N (in)
+Wr : Double Precision Array, Dimension (n) [out]
 
-N is INTEGER The order of the matrix A. N >= 0.
+Wi : Double Precision Array, Dimension (n) [out]
+> WR and WI contain the real and imaginary parts,
+> respectively, of the computed eigenvalues in the same order
+> that they appear on the diagonal of the output Schur form T.
+> Complex conjugate pairs of eigenvalues will appear
+> consecutively with the eigenvalue having the positive
+> imaginary part first.
 
-### A (in,out)
+Vs : Double Precision Array, Dimension (ldvs,n) [out]
+> If JOBVS = 'V', VS contains the orthogonal matrix Z of Schur
+> vectors.
+> If JOBVS = 'N', VS is not referenced.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the N-by-N matrix A. On exit, A has been overwritten by its real Schur form T.
+Ldvs : Integer [in]
+> The leading dimension of the array VS.  LDVS >= 1; if
+> JOBVS = 'V', LDVS >= N.
 
-### LDA (in)
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) contains the optimal LWORK.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,3*N).
+> For good performance, LWORK must generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### SDIM (out)
+Bwork : Logical Array, Dimension (n) [out]
+> Not referenced if SORT = 'N'.
 
-SDIM is INTEGER If SORT = 'N', SDIM = 0. If SORT = 'S', SDIM = number of eigenvalues (after sorting) for which SELECT is true. (Complex conjugate pairs for which SELECT is true for either eigenvalue count as 2.)
-
-### WR (out)
-
-WR is DOUBLE PRECISION array, dimension (N)
-
-### WI (out)
-
-WI is DOUBLE PRECISION array, dimension (N) WR and WI contain the real and imaginary parts, respectively, of the computed eigenvalues in the same order that they appear on the diagonal of the output Schur form T. Complex conjugate pairs of eigenvalues will appear consecutively with the eigenvalue having the positive imaginary part first.
-
-### VS (out)
-
-VS is DOUBLE PRECISION array, dimension (LDVS,N) If JOBVS = 'V', VS contains the orthogonal matrix Z of Schur vectors. If JOBVS = 'N', VS is not referenced.
-
-### LDVS (in)
-
-LDVS is INTEGER The leading dimension of the array VS. LDVS >= 1; if JOBVS = 'V', LDVS >= N.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) contains the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,3*N). For good performance, LWORK must generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### BWORK (out)
-
-BWORK is LOGICAL array, dimension (N) Not referenced if SORT = 'N'.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, and i is <= N: the QR algorithm failed to compute all the eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI contain those eigenvalues which have converged; if JOBVS = 'V', VS contains the matrix which reduces A to its partially converged Schur form. = N+1: the eigenvalues could not be reordered because some eigenvalues were too close to separate (the problem is very ill-conditioned); = N+2: after reordering, roundoff changed values of some complex eigenvalues so that leading eigenvalues in the Schur form no longer satisfy SELECT=.TRUE. This could also be caused by underflow due to scaling.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value.
+> > 0: if INFO = i, and i is
+> <= N: the QR algorithm failed to compute all the
+> eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI
+> contain those eigenvalues which have converged; if
+> JOBVS = 'V', VS contains the matrix which reduces A
+> to its partially converged Schur form.
+> = N+1: the eigenvalues could not be reordered because some
+> eigenvalues were too close to separate (the problem
+> is very ill-conditioned);
+> = N+2: after reordering, roundoff changed values of some
+> complex eigenvalues so that leading eigenvalues in
+> the Schur form no longer satisfy SELECT=.TRUE.  This
+> could also be caused by underflow due to scaling.
 

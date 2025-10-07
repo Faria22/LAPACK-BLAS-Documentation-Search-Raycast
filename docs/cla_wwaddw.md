@@ -1,13 +1,9 @@
-# CLA_WWADDW
-
-## Function Signature
-
 ```fortran
-CLA_WWADDW(N, X, Y, W)
+subroutine cla_wwaddw	(	integer	n,
+		complex, dimension(*)	x,
+		complex, dimension(*)	y,
+		complex, dimension(*)	w )
 ```
-
-## Description
-
 
     CLA_WWADDW adds a vector W into a doubled-single vector (X, Y).
 
@@ -15,20 +11,15 @@ CLA_WWADDW(N, X, Y, W)
     arithmetic, but not for decimal.
 
 ## Parameters
+N : Integer [in]
+> The length of vectors X, Y, and W.
 
-### N (in)
+X : Complex Array, Dimension (n) [in,out]
+> The first part of the doubled-single accumulation vector.
 
-N is INTEGER The length of vectors X, Y, and W.
+Y : Complex Array, Dimension (n) [in,out]
+> The second part of the doubled-single accumulation vector.
 
-### X (in,out)
-
-X is COMPLEX array, dimension (N) The first part of the doubled-single accumulation vector.
-
-### Y (in,out)
-
-Y is COMPLEX array, dimension (N) The second part of the doubled-single accumulation vector.
-
-### W (in)
-
-W is COMPLEX array, dimension (N) The vector to be added.
+W : Complex Array, Dimension (n) [in]
+> The vector to be added.
 

@@ -1,73 +1,64 @@
-# DLASQ4
-
-## Function Signature
-
 ```fortran
-DLASQ4(I0, N0, Z, PP, N0IN, DMIN, DMIN1, DMIN2, DN,
-*                          DN1, DN2, TAU, TTYPE, G)
+subroutine dlasq4	(	i0,
+		n0,
+		z,
+		pp,
+		n0in,
+		dmin,
+		dmin1,
+		dmin2,
+		dn,
+		*                          dn1,
+		dn2,
+		tau,
+		ttype,
+		g )
 ```
-
-## Description
-
 
  DLASQ4 computes an approximation TAU to the smallest eigenvalue
  using values of d from the previous transform.
 
 ## Parameters
+I0 : Integer [in]
+> First index.
 
-### I0 (in)
+N0 : Integer [in]
+> Last index.
 
-I0 is INTEGER First index.
+Z : Double Precision Array, Dimension ( 4*n0 ) [in]
+> Z holds the qd array.
 
-### N0 (in)
+Pp : Integer [in]
+> PP=0 for ping, PP=1 for pong.
 
-N0 is INTEGER Last index.
+N0in : Integer [in]
+> The value of N0 at start of EIGTEST.
 
-### Z (in)
+Dmin : Double Precision [in]
+> Minimum value of d.
 
-Z is DOUBLE PRECISION array, dimension ( 4*N0 ) Z holds the qd array.
+Dmin1 : Double Precision [in]
+> Minimum value of d, excluding D( N0 ).
 
-### PP (in)
+Dmin2 : Double Precision [in]
+> Minimum value of d, excluding D( N0 ) and D( N0-1 ).
 
-PP is INTEGER PP=0 for ping, PP=1 for pong.
+Dn : Double Precision [in]
+> d(N)
 
-### N0IN (in)
+Dn1 : Double Precision [in]
+> d(N-1)
 
-N0IN is INTEGER The value of N0 at start of EIGTEST.
+Dn2 : Double Precision [in]
+> d(N-2)
 
-### DMIN (in)
+Tau : Double Precision [out]
+> This is the shift.
 
-DMIN is DOUBLE PRECISION Minimum value of d.
+Ttype : Integer [out]
+> Shift type.
 
-### DMIN1 (in)
-
-DMIN1 is DOUBLE PRECISION Minimum value of d, excluding D( N0 ).
-
-### DMIN2 (in)
-
-DMIN2 is DOUBLE PRECISION Minimum value of d, excluding D( N0 ) and D( N0-1 ).
-
-### DN (in)
-
-DN is DOUBLE PRECISION d(N)
-
-### DN1 (in)
-
-DN1 is DOUBLE PRECISION d(N-1)
-
-### DN2 (in)
-
-DN2 is DOUBLE PRECISION d(N-2)
-
-### TAU (out)
-
-TAU is DOUBLE PRECISION This is the shift.
-
-### TTYPE (out)
-
-TTYPE is INTEGER Shift type.
-
-### G (in,out)
-
-G is DOUBLE PRECISION G is passed as an argument in order to save its value between calls to DLASQ4.
+G : Double Precision [in,out]
+> G is passed as an argument in order to save its value between
+> calls to DLASQ4.
 

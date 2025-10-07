@@ -1,14 +1,16 @@
-# DLAGV2
-
-## Function Signature
-
 ```fortran
-DLAGV2(A, LDA, B, LDB, ALPHAR, ALPHAI, BETA, CSL, SNL,
-*                          CSR, SNR)
+subroutine dlagv2	(	a,
+		lda,
+		b,
+		ldb,
+		alphar,
+		alphai,
+		beta,
+		csl,
+		snl,
+		*                          csr,
+		snr )
 ```
-
-## Description
-
 
  DLAGV2 computes the Generalized Schur factorization of a real 2-by-2
  matrix pencil (A,B) where B is upper triangular. This routine
@@ -37,48 +39,40 @@ DLAGV2(A, LDA, B, LDB, ALPHAR, ALPHAI, BETA, CSL, SNL,
 
 
 ## Parameters
+A : Double Precision Array, Dimension (lda, 2) [in,out]
+> On entry, the 2 x 2 matrix A.
+> On exit, A is overwritten by the ``A-part'' of the
+> generalized Schur form.
 
-### A (in,out)
+Lda : Integer [in]
+> THe leading dimension of the array A.  LDA >= 2.
 
-A is DOUBLE PRECISION array, dimension (LDA, 2) On entry, the 2 x 2 matrix A. On exit, A is overwritten by the ``A-part'' of the generalized Schur form.
+B : Double Precision Array, Dimension (ldb, 2) [in,out]
+> On entry, the upper triangular 2 x 2 matrix B.
+> On exit, B is overwritten by the ``B-part'' of the
+> generalized Schur form.
 
-### LDA (in)
+Ldb : Integer [in]
+> THe leading dimension of the array B.  LDB >= 2.
 
-LDA is INTEGER THe leading dimension of the array A. LDA >= 2.
+Alphar : Double Precision Array, Dimension (2) [out]
 
-### B (in,out)
+Alphai : Double Precision Array, Dimension (2) [out]
 
-B is DOUBLE PRECISION array, dimension (LDB, 2) On entry, the upper triangular 2 x 2 matrix B. On exit, B is overwritten by the ``B-part'' of the generalized Schur form.
+Beta : Double Precision Array, Dimension (2) [out]
+> (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the
+> pencil (A,B), k=1,2, i = sqrt(-1).  Note that BETA(k) may
+> be zero.
 
-### LDB (in)
+Csl : Double Precision [out]
+> The cosine of the left rotation matrix.
 
-LDB is INTEGER THe leading dimension of the array B. LDB >= 2.
+Snl : Double Precision [out]
+> The sine of the left rotation matrix.
 
-### ALPHAR (out)
+Csr : Double Precision [out]
+> The cosine of the right rotation matrix.
 
-ALPHAR is DOUBLE PRECISION array, dimension (2)
-
-### ALPHAI (out)
-
-ALPHAI is DOUBLE PRECISION array, dimension (2)
-
-### BETA (out)
-
-BETA is DOUBLE PRECISION array, dimension (2) (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the pencil (A,B), k=1,2, i = sqrt(-1). Note that BETA(k) may be zero.
-
-### CSL (out)
-
-CSL is DOUBLE PRECISION The cosine of the left rotation matrix.
-
-### SNL (out)
-
-SNL is DOUBLE PRECISION The sine of the left rotation matrix.
-
-### CSR (out)
-
-CSR is DOUBLE PRECISION The cosine of the right rotation matrix.
-
-### SNR (out)
-
-SNR is DOUBLE PRECISION The sine of the right rotation matrix.
+Snr : Double Precision [out]
+> The sine of the right rotation matrix.
 

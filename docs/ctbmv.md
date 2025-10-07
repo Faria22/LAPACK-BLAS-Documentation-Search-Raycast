@@ -1,13 +1,14 @@
-# CTBMV
-
-## Function Signature
-
 ```fortran
-CTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+subroutine ctbmv	(	character	uplo,
+		character	trans,
+		character	diag,
+		integer	n,
+		integer	k,
+		complex, dimension(lda,*)	a,
+		integer	lda,
+		complex, dimension(*)	x,
+		integer	incx )
 ```
-
-## Description
-
 
  CTBMV  performs one of the matrix-vector operations
 
@@ -17,40 +18,86 @@ CTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
  upper or lower triangular band matrix, with ( k + 1 ) diagonals.
 
 ## Parameters
+Uplo : Character*1 [in]
+> On entry, UPLO specifies whether the matrix is an upper or
+> lower triangular matrix as follows:
+> UPLO = 'U' or 'u'   A is an upper triangular matrix.
+> UPLO = 'L' or 'l'   A is a lower triangular matrix.
 
-### UPLO (in)
+Trans : Character*1 [in]
+> On entry, TRANS specifies the operation to be performed as
+> follows:
+> TRANS = 'N' or 'n'   x := A*x.
+> TRANS = 'T' or 't'   x := A**T*x.
+> TRANS = 'C' or 'c'   x := A**H*x.
 
-UPLO is CHARACTER*1 On entry, UPLO specifies whether the matrix is an upper or lower triangular matrix as follows: UPLO = 'U' or 'u' A is an upper triangular matrix. UPLO = 'L' or 'l' A is a lower triangular matrix.
+Diag : Character*1 [in]
+> On entry, DIAG specifies whether or not A is unit
+> triangular as follows:
+> DIAG = 'U' or 'u'   A is assumed to be unit triangular.
+> DIAG = 'N' or 'n'   A is not assumed to be unit
+> triangular.
 
-### TRANS (in)
+N : Integer [in]
+> On entry, N specifies the order of the matrix A.
+> N must be at least zero.
 
-TRANS is CHARACTER*1 On entry, TRANS specifies the operation to be performed as follows: TRANS = 'N' or 'n' x := A*x. TRANS = 'T' or 't' x := A**T*x. TRANS = 'C' or 'c' x := A**H*x.
+K : Integer [in]
+> On entry with UPLO = 'U' or 'u', K specifies the number of
+> super-diagonals of the matrix A.
+> On entry with UPLO = 'L' or 'l', K specifies the number of
+> sub-diagonals of the matrix A.
+> K must satisfy  0 .le. K.
 
-### DIAG (in)
+A : Complex Array, Dimension ( Lda, N ). [in]
+> Before entry with UPLO = 'U' or 'u', the leading ( k + 1 )
+> by n part of the array A must contain the upper triangular
+> band part of the matrix of coefficients, supplied column by
+> column, with the leading diagonal of the matrix in row
+> ( k + 1 ) of the array, the first super-diagonal starting at
+> position 2 in row k, and so on. The top left k by k triangle
+> of the array A is not referenced.
+> The following program segment will transfer an upper
+> triangular band matrix from conventional full matrix storage
+> to band storage:
+> DO 20, J = 1, N
+> M = K + 1 - J
+> DO 10, I = MAX( 1, J - K ), J
+> A( M + I, J ) = matrix( I, J )
+> 10    CONTINUE
+> 20 CONTINUE
+> Before entry with UPLO = 'L' or 'l', the leading ( k + 1 )
+> by n part of the array A must contain the lower triangular
+> band part of the matrix of coefficients, supplied column by
+> column, with the leading diagonal of the matrix in row 1 of
+> the array, the first sub-diagonal starting at position 1 in
+> row 2, and so on. The bottom right k by k triangle of the
+> array A is not referenced.
+> The following program segment will transfer a lower
+> triangular band matrix from conventional full matrix storage
+> to band storage:
+> DO 20, J = 1, N
+> M = 1 - J
+> DO 10, I = J, MIN( N, J + K )
+> A( M + I, J ) = matrix( I, J )
+> 10    CONTINUE
+> 20 CONTINUE
+> Note that when DIAG = 'U' or 'u' the elements of the array A
+> corresponding to the diagonal elements of the matrix are not
+> referenced, but are assumed to be unity.
 
-DIAG is CHARACTER*1 On entry, DIAG specifies whether or not A is unit triangular as follows: DIAG = 'U' or 'u' A is assumed to be unit triangular. DIAG = 'N' or 'n' A is not assumed to be unit triangular.
+Lda : Integer [in]
+> On entry, LDA specifies the first dimension of A as declared
+> in the calling (sub) program. LDA must be at least
+> ( k + 1 ).
 
-### N (in)
+X : Complex Array, Dimension At Least [in,out]
+> ( 1 + ( n - 1 )*abs( INCX ) ).
+> Before entry, the incremented array X must contain the n
+> element vector x. On exit, X is overwritten with the
+> transformed vector x.
 
-N is INTEGER On entry, N specifies the order of the matrix A. N must be at least zero.
-
-### K (in)
-
-K is INTEGER On entry with UPLO = 'U' or 'u', K specifies the number of super-diagonals of the matrix A. On entry with UPLO = 'L' or 'l', K specifies the number of sub-diagonals of the matrix A. K must satisfy 0 .le. K.
-
-### A (in)
-
-A is COMPLEX array, dimension ( LDA, N ). Before entry with UPLO = 'U' or 'u', the leading ( k + 1 ) by n part of the array A must contain the upper triangular band part of the matrix of coefficients, supplied column by column, with the leading diagonal of the matrix in row ( k + 1 ) of the array, the first super-diagonal starting at position 2 in row k, and so on. The top left k by k triangle of the array A is not referenced. The following program segment will transfer an upper triangular band matrix from conventional full matrix storage to band storage: DO 20, J = 1, N M = K + 1 - J DO 10, I = MAX( 1, J - K ), J A( M + I, J ) = matrix( I, J ) 10 CONTINUE 20 CONTINUE Before entry with UPLO = 'L' or 'l', the leading ( k + 1 ) by n part of the array A must contain the lower triangular band part of the matrix of coefficients, supplied column by column, with the leading diagonal of the matrix in row 1 of the array, the first sub-diagonal starting at position 1 in row 2, and so on. The bottom right k by k triangle of the array A is not referenced. The following program segment will transfer a lower triangular band matrix from conventional full matrix storage to band storage: DO 20, J = 1, N M = 1 - J DO 10, I = J, MIN( N, J + K ) A( M + I, J ) = matrix( I, J ) 10 CONTINUE 20 CONTINUE Note that when DIAG = 'U' or 'u' the elements of the array A corresponding to the diagonal elements of the matrix are not referenced, but are assumed to be unity.
-
-### LDA (in)
-
-LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least ( k + 1 ).
-
-### X (in,out)
-
-X is COMPLEX array, dimension at least ( 1 + ( n - 1 )*abs( INCX ) ). Before entry, the incremented array X must contain the n element vector x. On exit, X is overwritten with the transformed vector x.
-
-### INCX (in)
-
-INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero.
+Incx : Integer [in]
+> On entry, INCX specifies the increment for the elements of
+> X. INCX must not be zero.
 

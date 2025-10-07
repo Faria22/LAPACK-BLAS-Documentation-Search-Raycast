@@ -1,14 +1,18 @@
-# ZGGGLM
-
-## Function Signature
-
 ```fortran
-ZGGGLM(N, M, P, A, LDA, B, LDB, D, X, Y, WORK, LWORK,
-*                          INFO)
+subroutine zggglm	(	n,
+		m,
+		p,
+		a,
+		lda,
+		b,
+		ldb,
+		d,
+		x,
+		y,
+		work,
+		lwork,
+		*                          info )
 ```
-
-## Description
-
 
  ZGGGLM solves a general Gauss-Markov linear model (GLM) problem:
 
@@ -48,56 +52,65 @@ ZGGGLM(N, M, P, A, LDA, B, LDB, D, X, Y, WORK, LWORK,
 
 
 ## Parameters
+N : Integer [in]
+> The number of rows of the matrices A and B.  N >= 0.
 
-### N (in)
+M : Integer [in]
+> The number of columns of the matrix A.  0 <= M <= N.
 
-N is INTEGER The number of rows of the matrices A and B. N >= 0.
+P : Integer [in]
+> The number of columns of the matrix B.  P >= N-M.
 
-### M (in)
+A : Complex*16 Array, Dimension (lda,m) [in,out]
+> On entry, the N-by-M matrix A.
+> On exit, the upper triangular part of the array A contains
+> the M-by-M upper triangular matrix R.
 
-M is INTEGER The number of columns of the matrix A. 0 <= M <= N.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,N).
 
-### P (in)
+B : Complex*16 Array, Dimension (ldb,p) [in,out]
+> On entry, the N-by-P matrix B.
+> On exit, if N <= P, the upper triangle of the subarray
+> B(1:N,P-N+1:P) contains the N-by-N upper triangular matrix T;
+> if N > P, the elements on and above the (N-P)th subdiagonal
+> contain the N-by-P upper trapezoidal matrix T.
 
-P is INTEGER The number of columns of the matrix B. P >= N-M.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-### A (in,out)
+D : Complex*16 Array, Dimension (n) [in,out]
+> On entry, D is the left hand side of the GLM equation.
+> On exit, D is destroyed.
 
-A is COMPLEX*16 array, dimension (LDA,M) On entry, the N-by-M matrix A. On exit, the upper triangular part of the array A contains the M-by-M upper triangular matrix R.
+X : Complex*16 Array, Dimension (m) [out]
 
-### LDA (in)
+Y : Complex*16 Array, Dimension (p) [out]
+> On exit, X and Y are the solutions of the GLM problem.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Work : Complex*16 Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= max(1,N+M+P).
+> For optimum performance, LWORK >= M+min(N,P)+max(N,P)*NB,
+> where NB is an upper bound for the optimal blocksizes for
+> ZGEQRF, ZGERQF, ZUNMQR and ZUNMRQ.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is COMPLEX*16 array, dimension (LDB,P) On entry, the N-by-P matrix B. On exit, if N <= P, the upper triangle of the subarray B(1:N,P-N+1:P) contains the N-by-N upper triangular matrix T; if N > P, the elements on and above the (N-P)th subdiagonal contain the N-by-P upper trapezoidal matrix T.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### D (in,out)
-
-D is COMPLEX*16 array, dimension (N) On entry, D is the left hand side of the GLM equation. On exit, D is destroyed.
-
-### X (out)
-
-X is COMPLEX*16 array, dimension (M)
-
-### Y (out)
-
-Y is COMPLEX*16 array, dimension (P) On exit, X and Y are the solutions of the GLM problem.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,N+M+P). For optimum performance, LWORK >= M+min(N,P)+max(N,P)*NB, where NB is an upper bound for the optimal blocksizes for ZGEQRF, ZGERQF, ZUNMQR and ZUNMRQ. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. = 1: the upper triangular factor R associated with A in the generalized QR factorization of the pair (A, B) is exactly singular, so that rank(A) < M; the least squares solution could not be computed. = 2: the bottom (N-M) by (N-M) part of the upper trapezoidal factor T associated with B in the generalized QR factorization of the pair (A, B) is exactly singular, so that rank( A B ) < N; the least squares solution could not be computed.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> = 1:  the upper triangular factor R associated with A in the
+> generalized QR factorization of the pair (A, B) is exactly
+> singular, so that rank(A) < M; the least squares
+> solution could not be computed.
+> = 2:  the bottom (N-M) by (N-M) part of the upper trapezoidal
+> factor T associated with B in the generalized QR
+> factorization of the pair (A, B) is exactly singular, so that
+> rank( A B ) < N; the least squares solution could not
+> be computed.
 

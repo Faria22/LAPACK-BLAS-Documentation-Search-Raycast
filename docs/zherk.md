@@ -1,13 +1,15 @@
-# ZHERK
-
-## Function Signature
-
 ```fortran
-ZHERK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+subroutine zherk	(	character	uplo,
+		character	trans,
+		integer	n,
+		integer	k,
+		double precision	alpha,
+		complex*16, dimension(lda,*)	a,
+		integer	lda,
+		double precision	beta,
+		complex*16, dimension(ldc,*)	c,
+		integer	ldc )
 ```
-
-## Description
-
 
  ZHERK  performs one of the hermitian rank k operations
 
@@ -22,44 +24,69 @@ ZHERK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
  matrix in the second case.
 
 ## Parameters
+Uplo : Character*1 [in]
+> On  entry,   UPLO  specifies  whether  the  upper  or  lower
+> triangular  part  of the  array  C  is to be  referenced  as
+> follows:
+> UPLO = 'U' or 'u'   Only the  upper triangular part of  C
+> is to be referenced.
+> UPLO = 'L' or 'l'   Only the  lower triangular part of  C
+> is to be referenced.
 
-### UPLO (in)
+Trans : Character*1 [in]
+> On entry,  TRANS  specifies the operation to be performed as
+> follows:
+> TRANS = 'N' or 'n'   C := alpha*A*A**H + beta*C.
+> TRANS = 'C' or 'c'   C := alpha*A**H*A + beta*C.
 
-UPLO is CHARACTER*1 On entry, UPLO specifies whether the upper or lower triangular part of the array C is to be referenced as follows: UPLO = 'U' or 'u' Only the upper triangular part of C is to be referenced. UPLO = 'L' or 'l' Only the lower triangular part of C is to be referenced.
+N : Integer [in]
+> On entry,  N specifies the order of the matrix C.  N must be
+> at least zero.
 
-### TRANS (in)
+K : Integer [in]
+> On entry with  TRANS = 'N' or 'n',  K  specifies  the number
+> of  columns   of  the   matrix   A,   and  on   entry   with
+> TRANS = 'C' or 'c',  K  specifies  the number of rows of the
+> matrix A.  K must be at least zero.
 
-TRANS is CHARACTER*1 On entry, TRANS specifies the operation to be performed as follows: TRANS = 'N' or 'n' C := alpha*A*A**H + beta*C. TRANS = 'C' or 'c' C := alpha*A**H*A + beta*C.
+Alpha : Double Precision . [in]
+> On entry, ALPHA specifies the scalar alpha.
 
-### N (in)
+A : Complex*16 Array, Dimension ( Lda, Ka ), Where Ka is [in]
+> k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
+> Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
+> part of the array  A  must contain the matrix  A,  otherwise
+> the leading  k by n  part of the array  A  must contain  the
+> matrix A.
 
-N is INTEGER On entry, N specifies the order of the matrix C. N must be at least zero.
+Lda : Integer [in]
+> On entry, LDA specifies the first dimension of A as declared
+> in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
+> then  LDA must be at least  max( 1, n ), otherwise  LDA must
+> be at least  max( 1, k ).
 
-### K (in)
+Beta : Double Precision. [in]
+> On entry, BETA specifies the scalar beta.
 
-K is INTEGER On entry with TRANS = 'N' or 'n', K specifies the number of columns of the matrix A, and on entry with TRANS = 'C' or 'c', K specifies the number of rows of the matrix A. K must be at least zero.
+C : Complex*16 Array, Dimension ( Ldc, N ) [in,out]
+> Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+> upper triangular part of the array C must contain the upper
+> triangular part  of the  hermitian matrix  and the strictly
+> lower triangular part of C is not referenced.  On exit, the
+> upper triangular part of the array  C is overwritten by the
+> upper triangular part of the updated matrix.
+> Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+> lower triangular part of the array C must contain the lower
+> triangular part  of the  hermitian matrix  and the strictly
+> upper triangular part of C is not referenced.  On exit, the
+> lower triangular part of the array  C is overwritten by the
+> lower triangular part of the updated matrix.
+> Note that the imaginary parts of the diagonal elements need
+> not be set,  they are assumed to be zero,  and on exit they
+> are set to zero.
 
-### ALPHA (in)
-
-ALPHA is DOUBLE PRECISION . On entry, ALPHA specifies the scalar alpha.
-
-### A (in)
-
-A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is k when TRANS = 'N' or 'n', and is n otherwise. Before entry with TRANS = 'N' or 'n', the leading n by k part of the array A must contain the matrix A, otherwise the leading k by n part of the array A must contain the matrix A.
-
-### LDA (in)
-
-LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. When TRANS = 'N' or 'n' then LDA must be at least max( 1, n ), otherwise LDA must be at least max( 1, k ).
-
-### BETA (in)
-
-BETA is DOUBLE PRECISION. On entry, BETA specifies the scalar beta.
-
-### C (in,out)
-
-C is COMPLEX*16 array, dimension ( LDC, N ) Before entry with UPLO = 'U' or 'u', the leading n by n upper triangular part of the array C must contain the upper triangular part of the hermitian matrix and the strictly lower triangular part of C is not referenced. On exit, the upper triangular part of the array C is overwritten by the upper triangular part of the updated matrix. Before entry with UPLO = 'L' or 'l', the leading n by n lower triangular part of the array C must contain the lower triangular part of the hermitian matrix and the strictly upper triangular part of C is not referenced. On exit, the lower triangular part of the array C is overwritten by the lower triangular part of the updated matrix. Note that the imaginary parts of the diagonal elements need not be set, they are assumed to be zero, and on exit they are set to zero.
-
-### LDC (in)
-
-LDC is INTEGER On entry, LDC specifies the first dimension of C as declared in the calling (sub) program. LDC must be at least max( 1, n ).
+Ldc : Integer [in]
+> On entry, LDC specifies the first dimension of C as declared
+> in  the  calling  (sub)  program.   LDC  must  be  at  least
+> max( 1, n ).
 

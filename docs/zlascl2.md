@@ -1,13 +1,10 @@
-# ZLASCL2
-
-## Function Signature
-
 ```fortran
-ZLASCL2(M, N, D, X, LDX)
+subroutine zlascl2	(	integer	m,
+		integer	n,
+		double precision, dimension(*)	d,
+		complex*16, dimension(ldx, *)	x,
+		integer	ldx )
 ```
-
-## Description
-
 
  ZLASCL2 performs a diagonal scaling on a matrix:
    x <-- D * x
@@ -17,24 +14,19 @@ ZLASCL2(M, N, D, X, LDX)
  standard.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of D and X. M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of X. N >= 0.
 
-M is INTEGER The number of rows of D and X. M >= 0.
+D : Double Precision Array, Length M [in]
+> Diagonal matrix D, stored as a vector of length M.
 
-### N (in)
+X : Complex*16 Array, Dimension (ldx,n) [in,out]
+> On entry, the matrix X to be scaled by D.
+> On exit, the scaled matrix.
 
-N is INTEGER The number of columns of X. N >= 0.
-
-### D (in)
-
-D is DOUBLE PRECISION array, length M Diagonal matrix D, stored as a vector of length M.
-
-### X (in,out)
-
-X is COMPLEX*16 array, dimension (LDX,N) On entry, the matrix X to be scaled by D. On exit, the scaled matrix.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the matrix X. LDX >= M.
+Ldx : Integer [in]
+> The leading dimension of the matrix X. LDX >= M.
 

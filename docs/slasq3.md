@@ -1,99 +1,86 @@
-# SLASQ3
-
-## Function Signature
-
 ```fortran
-SLASQ3(I0, N0, Z, PP, DMIN, SIGMA, DESIG, QMAX, NFAIL,
-*                          ITER, NDIV, IEEE, TTYPE, DMIN1, DMIN2, DN, DN1,
-*                          DN2, G, TAU)
+subroutine slasq3	(	i0,
+		n0,
+		z,
+		pp,
+		dmin,
+		sigma,
+		desig,
+		qmax,
+		nfail,
+		*                          iter,
+		ndiv,
+		ieee,
+		ttype,
+		dmin1,
+		dmin2,
+		dn,
+		dn1,
+		*                          dn2,
+		g,
+		tau )
 ```
-
-## Description
-
 
  SLASQ3 checks for deflation, computes a shift (TAU) and calls dqds.
  In case of failure it changes shifts, and tries again until output
  is positive.
 
 ## Parameters
+I0 : Integer [in]
+> First index.
 
-### I0 (in)
+N0 : Integer [in,out]
+> Last index.
 
-I0 is INTEGER First index.
+Z : Real Array, Dimension ( 4*n0 ) [in,out]
+> Z holds the qd array.
 
-### N0 (in,out)
+Pp : Integer [in,out]
+> PP=0 for ping, PP=1 for pong.
+> PP=2 indicates that flipping was applied to the Z array
+> and that the initial tests for deflation should not be
+> performed.
 
-N0 is INTEGER Last index.
+Dmin : Real [out]
+> Minimum value of d.
 
-### Z (in,out)
+Sigma : Real [out]
+> Sum of shifts used in current segment.
 
-Z is REAL array, dimension ( 4*N0 ) Z holds the qd array.
+Desig : Real [in,out]
+> Lower order part of SIGMA
 
-### PP (in,out)
+Qmax : Real [in]
+> Maximum value of q.
 
-PP is INTEGER PP=0 for ping, PP=1 for pong. PP=2 indicates that flipping was applied to the Z array and that the initial tests for deflation should not be performed.
+Nfail : Integer [in,out]
+> Increment NFAIL by 1 each time the shift was too big.
 
-### DMIN (out)
+Iter : Integer [in,out]
+> Increment ITER by 1 for each iteration.
 
-DMIN is REAL Minimum value of d.
+Ndiv : Integer [in,out]
+> Increment NDIV by 1 for each division.
 
-### SIGMA (out)
+Ieee : Logical [in]
+> Flag for IEEE or non IEEE arithmetic (passed to SLASQ5).
 
-SIGMA is REAL Sum of shifts used in current segment.
+Ttype : Integer [in,out]
+> Shift type.
 
-### DESIG (in,out)
+Dmin1 : Real [in,out]
 
-DESIG is REAL Lower order part of SIGMA
+Dmin2 : Real [in,out]
 
-### QMAX (in)
+Dn : Real [in,out]
 
-QMAX is REAL Maximum value of q.
+Dn1 : Real [in,out]
 
-### NFAIL (in,out)
+Dn2 : Real [in,out]
 
-NFAIL is INTEGER Increment NFAIL by 1 each time the shift was too big.
+G : Real [in,out]
 
-### ITER (in,out)
-
-ITER is INTEGER Increment ITER by 1 for each iteration.
-
-### NDIV (in,out)
-
-NDIV is INTEGER Increment NDIV by 1 for each division.
-
-### IEEE (in)
-
-IEEE is LOGICAL Flag for IEEE or non IEEE arithmetic (passed to SLASQ5).
-
-### TTYPE (in,out)
-
-TTYPE is INTEGER Shift type.
-
-### DMIN1 (in,out)
-
-DMIN1 is REAL
-
-### DMIN2 (in,out)
-
-DMIN2 is REAL
-
-### DN (in,out)
-
-DN is REAL
-
-### DN1 (in,out)
-
-DN1 is REAL
-
-### DN2 (in,out)
-
-DN2 is REAL
-
-### G (in,out)
-
-G is REAL
-
-### TAU (in,out)
-
-TAU is REAL These are passed as arguments in order to save their values between calls to SLASQ3.
+Tau : Real [in,out]
+> These are passed as arguments in order to save their values
+> between calls to SLASQ3.
 

@@ -1,14 +1,15 @@
-# DSYCON
-
-## Function Signature
-
 ```fortran
-DSYCON(UPLO, N, A, LDA, IPIV, ANORM, RCOND, WORK,
-*                          IWORK, INFO)
+subroutine dsycon	(	uplo,
+		n,
+		a,
+		lda,
+		ipiv,
+		anorm,
+		rcond,
+		work,
+		*                          iwork,
+		info )
 ```
-
-## Description
-
 
  DSYCON estimates the reciprocal of the condition number (in the
  1-norm) of a real symmetric matrix A using the factorization
@@ -18,44 +19,39 @@ DSYCON(UPLO, N, A, LDA, IPIV, ANORM, RCOND, WORK,
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+A : Double Precision Array, Dimension (lda,n) [in]
+> The block diagonal matrix D and the multipliers used to
+> obtain the factor U or L as computed by DSYTRF.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by DSYTRF.
 
-### A (in)
+Anorm : Double Precision [in]
+> The 1-norm of the original matrix A.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) The block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by DSYTRF.
+Rcond : Double Precision [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-### LDA (in)
+Work : Double Precision Array, Dimension (2*n) [out]
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Iwork : Integer Array, Dimension (n) [out]
 
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by DSYTRF.
-
-### ANORM (in)
-
-ANORM is DOUBLE PRECISION The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is DOUBLE PRECISION The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (2*N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

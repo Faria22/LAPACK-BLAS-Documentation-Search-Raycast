@@ -1,40 +1,29 @@
-# DAXPY
-
-## Function Signature
-
 ```fortran
-DAXPY(N,DA,DX,INCX,DY,INCY)
+subroutine daxpy	(	integer	n,
+		double precision	da,
+		double precision, dimension(*)	dx,
+		integer	incx,
+		double precision, dimension(*)	dy,
+		integer	incy )
 ```
-
-## Description
-
 
     DAXPY constant times a vector plus a vector.
     uses unrolled loops for increments equal to one.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Da : Double Precision [in]
+> On entry, DA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-### DA (in)
+Incx : Integer [in]
+> storage spacing between elements of DX
 
-DA is DOUBLE PRECISION On entry, DA specifies the scalar alpha.
+Dy : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-### DX (in)
-
-DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of DX
-
-### DY (in,out)
-
-DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of DY
+Incy : Integer [in]
+> storage spacing between elements of DY
 

@@ -1,16 +1,22 @@
-# DGGEV
-
-DGGEV computes the eigenvalues and, optionally, the left and/or right eigenvectors for GE matrices
-
-## Function Signature
-
 ```fortran
-DGGEV(JOBVL, JOBVR, N, A, LDA, B, LDB, ALPHAR, ALPHAI,
-*                         BETA, VL, LDVL, VR, LDVR, WORK, LWORK, INFO)
+subroutine dggev	(	jobvl,
+		jobvr,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		alphar,
+		alphai,
+		*                         beta,
+		vl,
+		ldvl,
+		vr,
+		ldvr,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  DGGEV computes for a pair of N-by-N real nonsymmetric matrices (A,B)
  the generalized eigenvalues, and optionally, the left and/or right
@@ -36,72 +42,96 @@ DGGEV(JOBVL, JOBVR, N, A, LDA, B, LDB, ALPHAR, ALPHAI,
 
 
 ## Parameters
+Jobvl : Character*1 [in]
+> = 'N':  do not compute the left generalized eigenvectors;
+> = 'V':  compute the left generalized eigenvectors.
 
-### JOBVL (in)
+Jobvr : Character*1 [in]
+> = 'N':  do not compute the right generalized eigenvectors;
+> = 'V':  compute the right generalized eigenvectors.
 
-JOBVL is CHARACTER*1 = 'N': do not compute the left generalized eigenvectors; = 'V': compute the left generalized eigenvectors.
+N : Integer [in]
+> The order of the matrices A, B, VL, and VR.  N >= 0.
 
-### JOBVR (in)
+A : Double Precision Array, Dimension (lda, N) [in,out]
+> On entry, the matrix A in the pair (A,B).
+> On exit, A has been overwritten.
 
-JOBVR is CHARACTER*1 = 'N': do not compute the right generalized eigenvectors; = 'V': compute the right generalized eigenvectors.
+Lda : Integer [in]
+> The leading dimension of A.  LDA >= max(1,N).
 
-### N (in)
+B : Double Precision Array, Dimension (ldb, N) [in,out]
+> On entry, the matrix B in the pair (A,B).
+> On exit, B has been overwritten.
 
-N is INTEGER The order of the matrices A, B, VL, and VR. N >= 0.
+Ldb : Integer [in]
+> The leading dimension of B.  LDB >= max(1,N).
 
-### A (in,out)
+Alphar : Double Precision Array, Dimension (n) [out]
 
-A is DOUBLE PRECISION array, dimension (LDA, N) On entry, the matrix A in the pair (A,B). On exit, A has been overwritten.
+Alphai : Double Precision Array, Dimension (n) [out]
 
-### LDA (in)
+Beta : Double Precision Array, Dimension (n) [out]
+> On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
+> be the generalized eigenvalues.  If ALPHAI(j) is zero, then
+> the j-th eigenvalue is real; if positive, then the j-th and
+> (j+1)-st eigenvalues are a complex conjugate pair, with
+> ALPHAI(j+1) negative.
+> Note: the quotients ALPHAR(j)/BETA(j) and ALPHAI(j)/BETA(j)
+> may easily over- or underflow, and BETA(j) may even be zero.
+> Thus, the user should avoid naively computing the ratio
+> alpha/beta.  However, ALPHAR and ALPHAI will be always less
+> than and usually comparable with norm(A) in magnitude, and
+> BETA always less than and usually comparable with norm(B).
 
-LDA is INTEGER The leading dimension of A. LDA >= max(1,N).
+Vl : Double Precision Array, Dimension (ldvl,n) [out]
+> If JOBVL = 'V', the left eigenvectors u(j) are stored one
+> after another in the columns of VL, in the same order as
+> their eigenvalues. If the j-th eigenvalue is real, then
+> u(j) = VL(:,j), the j-th column of VL. If the j-th and
+> (j+1)-th eigenvalues form a complex conjugate pair, then
+> u(j) = VL(:,j)+i*VL(:,j+1) and u(j+1) = VL(:,j)-i*VL(:,j+1).
+> Each eigenvector is scaled so the largest component has
+> abs(real part)+abs(imag. part)=1.
+> Not referenced if JOBVL = 'N'.
 
-### B (in,out)
+Ldvl : Integer [in]
+> The leading dimension of the matrix VL. LDVL >= 1, and
+> if JOBVL = 'V', LDVL >= N.
 
-B is DOUBLE PRECISION array, dimension (LDB, N) On entry, the matrix B in the pair (A,B). On exit, B has been overwritten.
+Vr : Double Precision Array, Dimension (ldvr,n) [out]
+> If JOBVR = 'V', the right eigenvectors v(j) are stored one
+> after another in the columns of VR, in the same order as
+> their eigenvalues. If the j-th eigenvalue is real, then
+> v(j) = VR(:,j), the j-th column of VR. If the j-th and
+> (j+1)-th eigenvalues form a complex conjugate pair, then
+> v(j) = VR(:,j)+i*VR(:,j+1) and v(j+1) = VR(:,j)-i*VR(:,j+1).
+> Each eigenvector is scaled so the largest component has
+> abs(real part)+abs(imag. part)=1.
+> Not referenced if JOBVR = 'N'.
 
-### LDB (in)
+Ldvr : Integer [in]
+> The leading dimension of the matrix VR. LDVR >= 1, and
+> if JOBVR = 'V', LDVR >= N.
 
-LDB is INTEGER The leading dimension of B. LDB >= max(1,N).
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### ALPHAR (out)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,8*N).
+> For good performance, LWORK must generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-ALPHAR is DOUBLE PRECISION array, dimension (N)
-
-### ALPHAI (out)
-
-ALPHAI is DOUBLE PRECISION array, dimension (N)
-
-### BETA (out)
-
-BETA is DOUBLE PRECISION array, dimension (N) On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will be the generalized eigenvalues. If ALPHAI(j) is zero, then the j-th eigenvalue is real; if positive, then the j-th and (j+1)-st eigenvalues are a complex conjugate pair, with ALPHAI(j+1) negative. Note: the quotients ALPHAR(j)/BETA(j) and ALPHAI(j)/BETA(j) may easily over- or underflow, and BETA(j) may even be zero. Thus, the user should avoid naively computing the ratio alpha/beta. However, ALPHAR and ALPHAI will be always less than and usually comparable with norm(A) in magnitude, and BETA always less than and usually comparable with norm(B).
-
-### VL (out)
-
-VL is DOUBLE PRECISION array, dimension (LDVL,N) If JOBVL = 'V', the left eigenvectors u(j) are stored one after another in the columns of VL, in the same order as their eigenvalues. If the j-th eigenvalue is real, then u(j) = VL(:,j), the j-th column of VL. If the j-th and (j+1)-th eigenvalues form a complex conjugate pair, then u(j) = VL(:,j)+i*VL(:,j+1) and u(j+1) = VL(:,j)-i*VL(:,j+1). Each eigenvector is scaled so the largest component has abs(real part)+abs(imag. part)=1. Not referenced if JOBVL = 'N'.
-
-### LDVL (in)
-
-LDVL is INTEGER The leading dimension of the matrix VL. LDVL >= 1, and if JOBVL = 'V', LDVL >= N.
-
-### VR (out)
-
-VR is DOUBLE PRECISION array, dimension (LDVR,N) If JOBVR = 'V', the right eigenvectors v(j) are stored one after another in the columns of VR, in the same order as their eigenvalues. If the j-th eigenvalue is real, then v(j) = VR(:,j), the j-th column of VR. If the j-th and (j+1)-th eigenvalues form a complex conjugate pair, then v(j) = VR(:,j)+i*VR(:,j+1) and v(j+1) = VR(:,j)-i*VR(:,j+1). Each eigenvector is scaled so the largest component has abs(real part)+abs(imag. part)=1. Not referenced if JOBVR = 'N'.
-
-### LDVR (in)
-
-LDVR is INTEGER The leading dimension of the matrix VR. LDVR >= 1, and if JOBVR = 'V', LDVR >= N.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,8*N). For good performance, LWORK must generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. = 1,...,N: The QZ iteration failed. No eigenvectors have been calculated, but ALPHAR(j), ALPHAI(j), and BETA(j) should be correct for j=INFO+1,...,N. > N: =N+1: other than QZ iteration failed in DHGEQZ. =N+2: error return from DTGEVC.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> = 1,...,N:
+> The QZ iteration failed.  No eigenvectors have been
+> calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)
+> should be correct for j=INFO+1,...,N.
+> > N:  =N+1: other than QZ iteration failed in DHGEQZ.
+> =N+2: error return from DTGEVC.
 

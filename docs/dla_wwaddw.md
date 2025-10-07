@@ -1,13 +1,9 @@
-# DLA_WWADDW
-
-## Function Signature
-
 ```fortran
-DLA_WWADDW(N, X, Y, W)
+subroutine dla_wwaddw	(	integer	n,
+		double precision, dimension(*)	x,
+		double precision, dimension(*)	y,
+		double precision, dimension(*)	w )
 ```
-
-## Description
-
 
     DLA_WWADDW adds a vector W into a doubled-single vector (X, Y).
 
@@ -15,20 +11,15 @@ DLA_WWADDW(N, X, Y, W)
     arithmetic, but not for decimal.
 
 ## Parameters
+N : Integer [in]
+> The length of vectors X, Y, and W.
 
-### N (in)
+X : Double Precision Array, Dimension (n) [in,out]
+> The first part of the doubled-single accumulation vector.
 
-N is INTEGER The length of vectors X, Y, and W.
+Y : Double Precision Array, Dimension (n) [in,out]
+> The second part of the doubled-single accumulation vector.
 
-### X (in,out)
-
-X is DOUBLE PRECISION array, dimension (N) The first part of the doubled-single accumulation vector.
-
-### Y (in,out)
-
-Y is DOUBLE PRECISION array, dimension (N) The second part of the doubled-single accumulation vector.
-
-### W (in)
-
-W is DOUBLE PRECISION array, dimension (N) The vector to be added.
+W : Double Precision Array, Dimension (n) [in]
+> The vector to be added.
 

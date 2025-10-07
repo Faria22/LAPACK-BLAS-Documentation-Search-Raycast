@@ -1,13 +1,13 @@
-# CPTEQR
-
-## Function Signature
-
 ```fortran
-CPTEQR(COMPZ, N, D, E, Z, LDZ, WORK, INFO)
+subroutine cpteqr	(	character	compz,
+		integer	n,
+		real, dimension(*)	d,
+		real, dimension(*)	e,
+		complex, dimension(ldz, *)	z,
+		integer	ldz,
+		real, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  CPTEQR computes all eigenvalues and, optionally, eigenvectors of a
  symmetric positive definite tridiagonal matrix by first factoring the
@@ -28,36 +28,52 @@ CPTEQR(COMPZ, N, D, E, Z, LDZ, WORK, INFO)
  matrix, if these eigenvalues range over many orders of magnitude.)
 
 ## Parameters
+Compz : Character*1 [in]
+> = 'N':  Compute eigenvalues only.
+> = 'V':  Compute eigenvectors of original Hermitian
+> matrix also.  Array Z contains the unitary matrix
+> used to reduce the original matrix to tridiagonal
+> form.
+> = 'I':  Compute eigenvectors of tridiagonal matrix also.
 
-### COMPZ (in)
+N : Integer [in]
+> The order of the matrix.  N >= 0.
 
-COMPZ is CHARACTER*1 = 'N': Compute eigenvalues only. = 'V': Compute eigenvectors of original Hermitian matrix also. Array Z contains the unitary matrix used to reduce the original matrix to tridiagonal form. = 'I': Compute eigenvectors of tridiagonal matrix also.
+D : Real Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the tridiagonal matrix.
+> On normal exit, D contains the eigenvalues, in descending
+> order.
 
-### N (in)
+E : Real Array, Dimension (n-1) [in,out]
+> On entry, the (n-1) subdiagonal elements of the tridiagonal
+> matrix.
+> On exit, E has been destroyed.
 
-N is INTEGER The order of the matrix. N >= 0.
+Z : Complex Array, Dimension (ldz, N) [in,out]
+> On entry, if COMPZ = 'V', the unitary matrix used in the
+> reduction to tridiagonal form.
+> On exit, if COMPZ = 'V', the orthonormal eigenvectors of the
+> original Hermitian matrix;
+> if COMPZ = 'I', the orthonormal eigenvectors of the
+> tridiagonal matrix.
+> If INFO > 0 on exit, Z contains the eigenvectors associated
+> with only the stored eigenvalues.
+> If  COMPZ = 'N', then Z is not referenced.
 
-### D (in,out)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDZ >= 1, and if
+> COMPZ = 'V' or 'I', LDZ >= max(1,N).
 
-D is REAL array, dimension (N) On entry, the n diagonal elements of the tridiagonal matrix. On normal exit, D contains the eigenvalues, in descending order.
+Work : Real Array, Dimension (4*n) [out]
 
-### E (in,out)
-
-E is REAL array, dimension (N-1) On entry, the (n-1) subdiagonal elements of the tridiagonal matrix. On exit, E has been destroyed.
-
-### Z (in,out)
-
-Z is COMPLEX array, dimension (LDZ, N) On entry, if COMPZ = 'V', the unitary matrix used in the reduction to tridiagonal form. On exit, if COMPZ = 'V', the orthonormal eigenvectors of the original Hermitian matrix; if COMPZ = 'I', the orthonormal eigenvectors of the tridiagonal matrix. If INFO > 0 on exit, Z contains the eigenvectors associated with only the stored eigenvalues. If COMPZ = 'N', then Z is not referenced.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1, and if COMPZ = 'V' or 'I', LDZ >= max(1,N).
-
-### WORK (out)
-
-WORK is REAL array, dimension (4*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, and i is: <= N the Cholesky factorization of the matrix could not be performed because the leading principal minor of order i was not positive. > N the SVD algorithm failed to converge; if INFO = N+i, i off-diagonal elements of the bidiagonal factor did not converge to zero.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = i, and i is:
+> <= N  the Cholesky factorization of the matrix could
+> not be performed because the leading principal
+> minor of order i was not positive.
+> > N   the SVD algorithm failed to converge;
+> if INFO = N+i, i off-diagonal elements of the
+> bidiagonal factor did not converge to zero.
 

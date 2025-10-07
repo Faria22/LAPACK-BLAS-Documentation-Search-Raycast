@@ -1,13 +1,10 @@
-# DLASCL2
-
-## Function Signature
-
 ```fortran
-DLASCL2(M, N, D, X, LDX)
+subroutine dlascl2	(	integer	m,
+		integer	n,
+		double precision, dimension(*)	d,
+		double precision, dimension(ldx, *)	x,
+		integer	ldx )
 ```
-
-## Description
-
 
  DLASCL2 performs a diagonal scaling on a matrix:
    x <-- D * x
@@ -17,24 +14,19 @@ DLASCL2(M, N, D, X, LDX)
  standard.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of D and X. M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of X. N >= 0.
 
-M is INTEGER The number of rows of D and X. M >= 0.
+D : Double Precision Array, Length M [in]
+> Diagonal matrix D, stored as a vector of length M.
 
-### N (in)
+X : Double Precision Array, Dimension (ldx,n) [in,out]
+> On entry, the matrix X to be scaled by D.
+> On exit, the scaled matrix.
 
-N is INTEGER The number of columns of X. N >= 0.
-
-### D (in)
-
-D is DOUBLE PRECISION array, length M Diagonal matrix D, stored as a vector of length M.
-
-### X (in,out)
-
-X is DOUBLE PRECISION array, dimension (LDX,N) On entry, the matrix X to be scaled by D. On exit, the scaled matrix.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the matrix X. LDX >= M.
+Ldx : Integer [in]
+> The leading dimension of the matrix X. LDX >= M.
 

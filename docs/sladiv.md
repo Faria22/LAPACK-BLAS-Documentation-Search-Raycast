@@ -1,13 +1,11 @@
-# SLADIV
-
-## Function Signature
-
 ```fortran
-SLADIV(A, B, C, D, P, Q)
+subroutine sladiv	(	real	a,
+		real	b,
+		real	c,
+		real	d,
+		real	p,
+		real	q )
 ```
-
-## Description
-
 
  SLADIV performs complex division in  real arithmetic
 
@@ -20,28 +18,17 @@ SLADIV(A, B, C, D, P, Q)
  "A Robust Complex Division in Scilab"
 
 ## Parameters
+A : Real [in]
 
-### A (in)
+B : Real [in]
 
-A is REAL
+C : Real [in]
 
-### B (in)
+D : Real [in]
+> The scalars a, b, c, and d in the above expression.
 
-B is REAL
+P : Real [out]
 
-### C (in)
-
-C is REAL
-
-### D (in)
-
-D is REAL The scalars a, b, c, and d in the above expression.
-
-### P (out)
-
-P is REAL
-
-### Q (out)
-
-Q is REAL The scalars p and q in the above expression.
+Q : Real [out]
+> The scalars p and q in the above expression.
 

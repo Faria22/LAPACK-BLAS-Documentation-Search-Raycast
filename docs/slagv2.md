@@ -1,14 +1,16 @@
-# SLAGV2
-
-## Function Signature
-
 ```fortran
-SLAGV2(A, LDA, B, LDB, ALPHAR, ALPHAI, BETA, CSL, SNL,
-*                          CSR, SNR)
+subroutine slagv2	(	a,
+		lda,
+		b,
+		ldb,
+		alphar,
+		alphai,
+		beta,
+		csl,
+		snl,
+		*                          csr,
+		snr )
 ```
-
-## Description
-
 
  SLAGV2 computes the Generalized Schur factorization of a real 2-by-2
  matrix pencil (A,B) where B is upper triangular. This routine
@@ -37,48 +39,40 @@ SLAGV2(A, LDA, B, LDB, ALPHAR, ALPHAI, BETA, CSL, SNL,
 
 
 ## Parameters
+A : Real Array, Dimension (lda, 2) [in,out]
+> On entry, the 2 x 2 matrix A.
+> On exit, A is overwritten by the ``A-part'' of the
+> generalized Schur form.
 
-### A (in,out)
+Lda : Integer [in]
+> THe leading dimension of the array A.  LDA >= 2.
 
-A is REAL array, dimension (LDA, 2) On entry, the 2 x 2 matrix A. On exit, A is overwritten by the ``A-part'' of the generalized Schur form.
+B : Real Array, Dimension (ldb, 2) [in,out]
+> On entry, the upper triangular 2 x 2 matrix B.
+> On exit, B is overwritten by the ``B-part'' of the
+> generalized Schur form.
 
-### LDA (in)
+Ldb : Integer [in]
+> THe leading dimension of the array B.  LDB >= 2.
 
-LDA is INTEGER THe leading dimension of the array A. LDA >= 2.
+Alphar : Real Array, Dimension (2) [out]
 
-### B (in,out)
+Alphai : Real Array, Dimension (2) [out]
 
-B is REAL array, dimension (LDB, 2) On entry, the upper triangular 2 x 2 matrix B. On exit, B is overwritten by the ``B-part'' of the generalized Schur form.
+Beta : Real Array, Dimension (2) [out]
+> (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the
+> pencil (A,B), k=1,2, i = sqrt(-1).  Note that BETA(k) may
+> be zero.
 
-### LDB (in)
+Csl : Real [out]
+> The cosine of the left rotation matrix.
 
-LDB is INTEGER THe leading dimension of the array B. LDB >= 2.
+Snl : Real [out]
+> The sine of the left rotation matrix.
 
-### ALPHAR (out)
+Csr : Real [out]
+> The cosine of the right rotation matrix.
 
-ALPHAR is REAL array, dimension (2)
-
-### ALPHAI (out)
-
-ALPHAI is REAL array, dimension (2)
-
-### BETA (out)
-
-BETA is REAL array, dimension (2) (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the pencil (A,B), k=1,2, i = sqrt(-1). Note that BETA(k) may be zero.
-
-### CSL (out)
-
-CSL is REAL The cosine of the left rotation matrix.
-
-### SNL (out)
-
-SNL is REAL The sine of the left rotation matrix.
-
-### CSR (out)
-
-CSR is REAL The cosine of the right rotation matrix.
-
-### SNR (out)
-
-SNR is REAL The sine of the right rotation matrix.
+Snr : Real [out]
+> The sine of the right rotation matrix.
 

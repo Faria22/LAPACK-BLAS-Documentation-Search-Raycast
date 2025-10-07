@@ -1,16 +1,19 @@
-# DGELSD
-
-DGELSD computes the minimum-norm solution to a linear least squares problem for GE matrices
-
-## Function Signature
-
 ```fortran
-DGELSD(M, N, NRHS, A, LDA, B, LDB, S, RCOND, RANK,
-*                          WORK, LWORK, IWORK, INFO)
+subroutine dgelsd	(	m,
+		n,
+		nrhs,
+		a,
+		lda,
+		b,
+		ldb,
+		s,
+		rcond,
+		rank,
+		*                          work,
+		lwork,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  DGELSD computes the minimum-norm solution to a real linear least
  squares problem:
@@ -37,60 +40,76 @@ DGELSD(M, N, NRHS, A, LDA, B, LDB, S, RCOND, RANK,
 
 
 ## Parameters
+M : Integer [in]
+> The number of rows of A. M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of A. N >= 0.
 
-M is INTEGER The number of rows of A. M >= 0.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrices B and X. NRHS >= 0.
 
-### N (in)
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A has been destroyed.
 
-N is INTEGER The number of columns of A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-### NRHS (in)
+B : Double Precision Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the M-by-NRHS right hand side matrix B.
+> On exit, B is overwritten by the N-by-NRHS solution
+> matrix X.  If m >= n and RANK = n, the residual
+> sum-of-squares for the solution in the i-th column is given
+> by the sum of squares of elements n+1:m in that column.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrices B and X. NRHS >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,max(M,N)).
 
-### A (in,out)
+S : Double Precision Array, Dimension (min(m,n)) [out]
+> The singular values of A in decreasing order.
+> The condition number of A in the 2-norm = S(1)/S(min(m,n)).
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A has been destroyed.
+Rcond : Double Precision [in]
+> RCOND is used to determine the effective rank of A.
+> Singular values S(i) <= RCOND*S(1) are treated as zero.
+> If RCOND < 0, machine precision is used instead.
 
-### LDA (in)
+Rank : Integer [out]
+> The effective rank of A, i.e., the number of singular values
+> which are greater than RCOND*S(1).
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK must be at least 1.
+> The exact minimum amount of workspace needed depends on M,
+> N and NRHS. As long as LWORK is at least
+> 12*N + 2*N*SMLSIZ + 8*N*NLVL + N*NRHS + (SMLSIZ+1)**2,
+> if M is greater than or equal to N or
+> 12*M + 2*M*SMLSIZ + 8*M*NLVL + M*NRHS + (SMLSIZ+1)**2,
+> if M is less than N, the code will execute correctly.
+> SMLSIZ is returned by ILAENV and is equal to the maximum
+> size of the subproblems at the bottom of the computation
+> tree (usually about 25), and
+> NLVL = MAX( 0, INT( LOG_2( MIN( M,N )/(SMLSIZ+1) ) ) + 1 )
+> For good performance, LWORK should generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is DOUBLE PRECISION array, dimension (LDB,NRHS) On entry, the M-by-NRHS right hand side matrix B. On exit, B is overwritten by the N-by-NRHS solution matrix X. If m >= n and RANK = n, the residual sum-of-squares for the solution in the i-th column is given by the sum of squares of elements n+1:m in that column.
+Iwork : Integer Array, Dimension (max(1,liwork)) [out]
+> LIWORK >= max(1, 3 * MINMN * NLVL + 11 * MINMN),
+> where MINMN = MIN( M,N ).
+> On exit, if INFO = 0, IWORK(1) returns the minimum LIWORK.
 
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,max(M,N)).
-
-### S (out)
-
-S is DOUBLE PRECISION array, dimension (min(M,N)) The singular values of A in decreasing order. The condition number of A in the 2-norm = S(1)/S(min(m,n)).
-
-### RCOND (in)
-
-RCOND is DOUBLE PRECISION RCOND is used to determine the effective rank of A. Singular values S(i) <= RCOND*S(1) are treated as zero. If RCOND < 0, machine precision is used instead.
-
-### RANK (out)
-
-RANK is INTEGER The effective rank of A, i.e., the number of singular values which are greater than RCOND*S(1).
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK must be at least 1. The exact minimum amount of workspace needed depends on M, N and NRHS. As long as LWORK is at least 12*N + 2*N*SMLSIZ + 8*N*NLVL + N*NRHS + (SMLSIZ+1)**2, if M is greater than or equal to N or 12*M + 2*M*SMLSIZ + 8*M*NLVL + M*NRHS + (SMLSIZ+1)**2, if M is less than N, the code will execute correctly. SMLSIZ is returned by ILAENV and is equal to the maximum size of the subproblems at the bottom of the computation tree (usually about 25), and NLVL = MAX( 0, INT( LOG_2( MIN( M,N )/(SMLSIZ+1) ) ) + 1 ) For good performance, LWORK should generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MAX(1,LIWORK)) LIWORK >= max(1, 3 * MINMN * NLVL + 11 * MINMN), where MINMN = MIN( M,N ). On exit, if INFO = 0, IWORK(1) returns the minimum LIWORK.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: the algorithm for computing the SVD failed to converge; if INFO = i, i off-diagonal elements of an intermediate bidiagonal form did not converge to zero.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  the algorithm for computing the SVD failed to converge;
+> if INFO = i, i off-diagonal elements of an intermediate
+> bidiagonal form did not converge to zero.
 

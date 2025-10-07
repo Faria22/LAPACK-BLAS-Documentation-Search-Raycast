@@ -1,13 +1,15 @@
-# SLAHR2
-
-## Function Signature
-
 ```fortran
-SLAHR2(N, K, NB, A, LDA, TAU, T, LDT, Y, LDY)
+subroutine slahr2	(	integer	n,
+		integer	k,
+		integer	nb,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		real, dimension(nb)	tau,
+		real, dimension(ldt, nb)	t,
+		integer	ldt,
+		y,
+		integer	ldy )
 ```
-
-## Description
-
 
  SLAHR2 reduces the first NB columns of A real general n-BY-(n-k+1)
  matrix A so that elements below the k-th subdiagonal are zero. The
@@ -18,44 +20,42 @@ SLAHR2(N, K, NB, A, LDA, TAU, T, LDT, Y, LDY)
  This is an auxiliary routine called by SGEHRD.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.
 
-### N (in)
+K : Integer [in]
+> The offset for the reduction. Elements below the k-th
+> subdiagonal in the first NB columns are reduced to zero.
+> K < N.
 
-N is INTEGER The order of the matrix A.
+Nb : Integer [in]
+> The number of columns to be reduced.
 
-### K (in)
+A : Real Array, Dimension (lda,n-k+1) [in,out]
+> On entry, the n-by-(n-k+1) general matrix A.
+> On exit, the elements on and above the k-th subdiagonal in
+> the first NB columns are overwritten with the corresponding
+> elements of the reduced matrix; the elements below the k-th
+> subdiagonal, with the array TAU, represent the matrix Q as a
+> product of elementary reflectors. The other columns of A are
+> unchanged. See Further Details.
 
-K is INTEGER The offset for the reduction. Elements below the k-th subdiagonal in the first NB columns are reduced to zero. K < N.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### NB (in)
+Tau : Real Array, Dimension (nb) [out]
+> The scalar factors of the elementary reflectors. See Further
+> Details.
 
-NB is INTEGER The number of columns to be reduced.
+T : Real Array, Dimension (ldt,nb) [out]
+> The upper triangular matrix T.
 
-### A (in,out)
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= NB.
 
-A is REAL array, dimension (LDA,N-K+1) On entry, the n-by-(n-k+1) general matrix A. On exit, the elements on and above the k-th subdiagonal in the first NB columns are overwritten with the corresponding elements of the reduced matrix; the elements below the k-th subdiagonal, with the array TAU, represent the matrix Q as a product of elementary reflectors. The other columns of A are unchanged. See Further Details.
+Y : Real Array, Dimension (ldy,nb) [out]
+> The n-by-nb matrix Y.
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### TAU (out)
-
-TAU is REAL array, dimension (NB) The scalar factors of the elementary reflectors. See Further Details.
-
-### T (out)
-
-T is REAL array, dimension (LDT,NB) The upper triangular matrix T.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= NB.
-
-### Y (out)
-
-Y is REAL array, dimension (LDY,NB) The n-by-nb matrix Y.
-
-### LDY (in)
-
-LDY is INTEGER The leading dimension of the array Y. LDY >= N.
+Ldy : Integer [in]
+> The leading dimension of the array Y. LDY >= N.
 

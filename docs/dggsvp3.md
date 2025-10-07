@@ -1,15 +1,30 @@
-# DGGSVP3
-
-## Function Signature
-
 ```fortran
-DGGSVP3(JOBU, JOBV, JOBQ, M, P, N, A, LDA, B, LDB,
-*                           TOLA, TOLB, K, L, U, LDU, V, LDV, Q, LDQ,
-*                           IWORK, TAU, WORK, LWORK, INFO)
+subroutine dggsvp3	(	jobu,
+		jobv,
+		jobq,
+		m,
+		p,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		*                           tola,
+		tolb,
+		k,
+		l,
+		u,
+		ldu,
+		v,
+		ldv,
+		q,
+		ldq,
+		*                           iwork,
+		tau,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  DGGSVP3 computes orthogonal matrices U, V and Q such that
 
@@ -36,104 +51,100 @@ DGGSVP3(JOBU, JOBV, JOBQ, M, P, N, A, LDA, B, LDB,
  DGGSVD3.
 
 ## Parameters
+Jobu : Character*1 [in]
+> = 'U':  Orthogonal matrix U is computed;
+> = 'N':  U is not computed.
 
-### JOBU (in)
+Jobv : Character*1 [in]
+> = 'V':  Orthogonal matrix V is computed;
+> = 'N':  V is not computed.
 
-JOBU is CHARACTER*1 = 'U': Orthogonal matrix U is computed; = 'N': U is not computed.
+Jobq : Character*1 [in]
+> = 'Q':  Orthogonal matrix Q is computed;
+> = 'N':  Q is not computed.
 
-### JOBV (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-JOBV is CHARACTER*1 = 'V': Orthogonal matrix V is computed; = 'N': V is not computed.
+P : Integer [in]
+> The number of rows of the matrix B.  P >= 0.
 
-### JOBQ (in)
+N : Integer [in]
+> The number of columns of the matrices A and B.  N >= 0.
 
-JOBQ is CHARACTER*1 = 'Q': Orthogonal matrix Q is computed; = 'N': Q is not computed.
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A contains the triangular (or trapezoidal) matrix
+> described in the Purpose section.
 
-### M (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+B : Double Precision Array, Dimension (ldb,n) [in,out]
+> On entry, the P-by-N matrix B.
+> On exit, B contains the triangular matrix described in
+> the Purpose section.
 
-### P (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,P).
 
-P is INTEGER The number of rows of the matrix B. P >= 0.
+Tola : Double Precision [in]
 
-### N (in)
+Tolb : Double Precision [in]
+> TOLA and TOLB are the thresholds to determine the effective
+> numerical rank of matrix B and a subblock of A. Generally,
+> they are set to
+> TOLA = MAX(M,N)*norm(A)*MACHEPS,
+> TOLB = MAX(P,N)*norm(B)*MACHEPS.
+> The size of TOLA and TOLB may affect the size of backward
+> errors of the decomposition.
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+K : Integer [out]
 
-### A (in,out)
+L : Integer [out]
+> On exit, K and L specify the dimension of the subblocks
+> described in Purpose section.
+> K + L = effective numerical rank of (A**T,B**T)**T.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A contains the triangular (or trapezoidal) matrix described in the Purpose section.
+U : Double Precision Array, Dimension (ldu,m) [out]
+> If JOBU = 'U', U contains the orthogonal matrix U.
+> If JOBU = 'N', U is not referenced.
 
-### LDA (in)
+Ldu : Integer [in]
+> The leading dimension of the array U. LDU >= max(1,M) if
+> JOBU = 'U'; LDU >= 1 otherwise.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+V : Double Precision Array, Dimension (ldv,p) [out]
+> If JOBV = 'V', V contains the orthogonal matrix V.
+> If JOBV = 'N', V is not referenced.
 
-### B (in,out)
+Ldv : Integer [in]
+> The leading dimension of the array V. LDV >= max(1,P) if
+> JOBV = 'V'; LDV >= 1 otherwise.
 
-B is DOUBLE PRECISION array, dimension (LDB,N) On entry, the P-by-N matrix B. On exit, B contains the triangular matrix described in the Purpose section.
+Q : Double Precision Array, Dimension (ldq,n) [out]
+> If JOBQ = 'Q', Q contains the orthogonal matrix Q.
+> If JOBQ = 'N', Q is not referenced.
 
-### LDB (in)
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= max(1,N) if
+> JOBQ = 'Q'; LDQ >= 1 otherwise.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,P).
+Iwork : Integer Array, Dimension (n) [out]
 
-### TOLA (in)
+Tau : Double Precision Array, Dimension (n) [out]
 
-TOLA is DOUBLE PRECISION
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### TOLB (in)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= 1.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-TOLB is DOUBLE PRECISION TOLA and TOLB are the thresholds to determine the effective numerical rank of matrix B and a subblock of A. Generally, they are set to TOLA = MAX(M,N)*norm(A)*MACHEPS, TOLB = MAX(P,N)*norm(B)*MACHEPS. The size of TOLA and TOLB may affect the size of backward errors of the decomposition.
-
-### K (out)
-
-K is INTEGER
-
-### L (out)
-
-L is INTEGER On exit, K and L specify the dimension of the subblocks described in Purpose section. K + L = effective numerical rank of (A**T,B**T)**T.
-
-### U (out)
-
-U is DOUBLE PRECISION array, dimension (LDU,M) If JOBU = 'U', U contains the orthogonal matrix U. If JOBU = 'N', U is not referenced.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max(1,M) if JOBU = 'U'; LDU >= 1 otherwise.
-
-### V (out)
-
-V is DOUBLE PRECISION array, dimension (LDV,P) If JOBV = 'V', V contains the orthogonal matrix V. If JOBV = 'N', V is not referenced.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. LDV >= max(1,P) if JOBV = 'V'; LDV >= 1 otherwise.
-
-### Q (out)
-
-Q is DOUBLE PRECISION array, dimension (LDQ,N) If JOBQ = 'Q', Q contains the orthogonal matrix Q. If JOBQ = 'N', Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N) if JOBQ = 'Q'; LDQ >= 1 otherwise.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N)
-
-### TAU (out)
-
-TAU is DOUBLE PRECISION array, dimension (N)
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

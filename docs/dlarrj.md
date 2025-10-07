@@ -1,15 +1,19 @@
-# DLARRJ
-
-## Function Signature
-
 ```fortran
-DLARRJ(N, D, E2, IFIRST, ILAST,
-*                          RTOL, OFFSET, W, WERR, WORK, IWORK,
-*                          PIVMIN, SPDIAM, INFO)
+subroutine dlarrj	(	n,
+		d,
+		e2,
+		ifirst,
+		ilast,
+		*                          rtol,
+		offset,
+		w,
+		werr,
+		work,
+		iwork,
+		*                          pivmin,
+		spdiam,
+		info )
 ```
-
-## Description
-
 
  Given the initial eigenvalue approximations of T, DLARRJ
  does  bisection to refine the eigenvalues of T,
@@ -20,60 +24,53 @@ DLARRJ(N, D, E2, IFIRST, ILAST,
  semi-widths in the arrays W and WERR respectively.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix.
 
-### N (in)
+D : Double Precision Array, Dimension (n) [in]
+> The N diagonal elements of T.
 
-N is INTEGER The order of the matrix.
+E2 : Double Precision Array, Dimension (n-1) [in]
+> The Squares of the (N-1) subdiagonal elements of T.
 
-### D (in)
+Ifirst : Integer [in]
+> The index of the first eigenvalue to be computed.
 
-D is DOUBLE PRECISION array, dimension (N) The N diagonal elements of T.
+Ilast : Integer [in]
+> The index of the last eigenvalue to be computed.
 
-### E2 (in)
+Rtol : Double Precision [in]
+> Tolerance for the convergence of the bisection intervals.
+> An interval [LEFT,RIGHT] has converged if
+> RIGHT-LEFT < RTOL*MAX(|LEFT|,|RIGHT|).
 
-E2 is DOUBLE PRECISION array, dimension (N-1) The Squares of the (N-1) subdiagonal elements of T.
+Offset : Integer [in]
+> Offset for the arrays W and WERR, i.e., the IFIRST-OFFSET
+> through ILAST-OFFSET elements of these arrays are to be used.
 
-### IFIRST (in)
+W : Double Precision Array, Dimension (n) [in,out]
+> On input, W( IFIRST-OFFSET ) through W( ILAST-OFFSET ) are
+> estimates of the eigenvalues of L D L^T indexed IFIRST through
+> ILAST.
+> On output, these estimates are refined.
 
-IFIRST is INTEGER The index of the first eigenvalue to be computed.
+Werr : Double Precision Array, Dimension (n) [in,out]
+> On input, WERR( IFIRST-OFFSET ) through WERR( ILAST-OFFSET ) are
+> the errors in the estimates of the corresponding elements in W.
+> On output, these errors are refined.
 
-### ILAST (in)
+Work : Double Precision Array, Dimension (2*n) [out]
+> Workspace.
 
-ILAST is INTEGER The index of the last eigenvalue to be computed.
+Iwork : Integer Array, Dimension (2*n) [out]
+> Workspace.
 
-### RTOL (in)
+Pivmin : Double Precision [in]
+> The minimum pivot in the Sturm sequence for T.
 
-RTOL is DOUBLE PRECISION Tolerance for the convergence of the bisection intervals. An interval [LEFT,RIGHT] has converged if RIGHT-LEFT < RTOL*MAX(|LEFT|,|RIGHT|).
+Spdiam : Double Precision [in]
+> The spectral diameter of T.
 
-### OFFSET (in)
-
-OFFSET is INTEGER Offset for the arrays W and WERR, i.e., the IFIRST-OFFSET through ILAST-OFFSET elements of these arrays are to be used.
-
-### W (in,out)
-
-W is DOUBLE PRECISION array, dimension (N) On input, W( IFIRST-OFFSET ) through W( ILAST-OFFSET ) are estimates of the eigenvalues of L D L^T indexed IFIRST through ILAST. On output, these estimates are refined.
-
-### WERR (in,out)
-
-WERR is DOUBLE PRECISION array, dimension (N) On input, WERR( IFIRST-OFFSET ) through WERR( ILAST-OFFSET ) are the errors in the estimates of the corresponding elements in W. On output, these errors are refined.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (2*N) Workspace.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (2*N) Workspace.
-
-### PIVMIN (in)
-
-PIVMIN is DOUBLE PRECISION The minimum pivot in the Sturm sequence for T.
-
-### SPDIAM (in)
-
-SPDIAM is DOUBLE PRECISION The spectral diameter of T.
-
-### INFO (out)
-
-INFO is INTEGER Error flag.
+Info : Integer [out]
+> Error flag.
 

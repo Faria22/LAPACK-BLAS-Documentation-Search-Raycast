@@ -1,13 +1,10 @@
-# DLAS2
-
-## Function Signature
-
 ```fortran
-DLAS2(F, G, H, SSMIN, SSMAX)
+subroutine dlas2	(	double precision	f,
+		double precision	g,
+		double precision	h,
+		double precision	ssmin,
+		double precision	ssmax )
 ```
-
-## Description
-
 
  DLAS2  computes the singular values of the 2-by-2 matrix
     [  F   G  ]
@@ -16,24 +13,18 @@ DLAS2(F, G, H, SSMIN, SSMAX)
  larger singular value.
 
 ## Parameters
+F : Double Precision [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### F (in)
+G : Double Precision [in]
+> The (1,2) element of the 2-by-2 matrix.
 
-F is DOUBLE PRECISION The (1,1) element of the 2-by-2 matrix.
+H : Double Precision [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### G (in)
+Ssmin : Double Precision [out]
+> The smaller singular value.
 
-G is DOUBLE PRECISION The (1,2) element of the 2-by-2 matrix.
-
-### H (in)
-
-H is DOUBLE PRECISION The (2,2) element of the 2-by-2 matrix.
-
-### SSMIN (out)
-
-SSMIN is DOUBLE PRECISION The smaller singular value.
-
-### SSMAX (out)
-
-SSMAX is DOUBLE PRECISION The larger singular value.
+Ssmax : Double Precision [out]
+> The larger singular value.
 

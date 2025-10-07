@@ -1,14 +1,18 @@
-# SORMTR
-
-## Function Signature
-
 ```fortran
-SORMTR(SIDE, UPLO, TRANS, M, N, A, LDA, TAU, C, LDC,
-*                          WORK, LWORK, INFO)
+subroutine sormtr	(	side,
+		uplo,
+		trans,
+		m,
+		n,
+		a,
+		lda,
+		tau,
+		c,
+		ldc,
+		*                          work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  SORMTR overwrites the general real M-by-N matrix C with
 
@@ -25,56 +29,65 @@ SORMTR(SIDE, UPLO, TRANS, M, N, A, LDA, TAU, C, LDC,
  if UPLO = 'L', Q = H(1) H(2) . . . H(nq-1).
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**T from the Left;
+> = 'R': apply Q or Q**T from the Right.
 
-### SIDE (in)
+Uplo : Character*1 [in]
+> = 'U': Upper triangle of A contains elementary reflectors
+> from SSYTRD;
+> = 'L': Lower triangle of A contains elementary reflectors
+> from SSYTRD.
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**T from the Left; = 'R': apply Q or Q**T from the Right.
+Trans : Character*1 [in]
+> = 'N':  No transpose, apply Q;
+> = 'T':  Transpose, apply Q**T.
 
-### UPLO (in)
+M : Integer [in]
+> The number of rows of the matrix C. M >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A contains elementary reflectors from SSYTRD; = 'L': Lower triangle of A contains elementary reflectors from SSYTRD.
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-### TRANS (in)
+A : Real Array, Dimension [in]
+> (LDA,M) if SIDE = 'L'
+> (LDA,N) if SIDE = 'R'
+> The vectors which define the elementary reflectors, as
+> returned by SSYTRD.
 
-TRANS is CHARACTER*1 = 'N': No transpose, apply Q; = 'T': Transpose, apply Q**T.
+Lda : Integer [in]
+> The leading dimension of the array A.
+> LDA >= max(1,M) if SIDE = 'L'; LDA >= max(1,N) if SIDE = 'R'.
 
-### M (in)
+Tau : Real Array, Dimension [in]
+> (M-1) if SIDE = 'L'
+> (N-1) if SIDE = 'R'
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i), as returned by SSYTRD.
 
-M is INTEGER The number of rows of the matrix C. M >= 0.
+C : Real Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
-### N (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
+Work : Real Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### A (in)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> If SIDE = 'L', LWORK >= max(1,N);
+> if SIDE = 'R', LWORK >= max(1,M).
+> For optimum performance LWORK >= N*NB if SIDE = 'L', and
+> LWORK >= M*NB if SIDE = 'R', where NB is the optimal
+> blocksize.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-A is REAL array, dimension (LDA,M) if SIDE = 'L' (LDA,N) if SIDE = 'R' The vectors which define the elementary reflectors, as returned by SSYTRD.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M) if SIDE = 'L'; LDA >= max(1,N) if SIDE = 'R'.
-
-### TAU (in)
-
-TAU is REAL array, dimension (M-1) if SIDE = 'L' (N-1) if SIDE = 'R' TAU(i) must contain the scalar factor of the elementary reflector H(i), as returned by SSYTRD.
-
-### C (in,out)
-
-C is REAL array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is REAL array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If SIDE = 'L', LWORK >= max(1,N); if SIDE = 'R', LWORK >= max(1,M). For optimum performance LWORK >= N*NB if SIDE = 'L', and LWORK >= M*NB if SIDE = 'R', where NB is the optimal blocksize. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

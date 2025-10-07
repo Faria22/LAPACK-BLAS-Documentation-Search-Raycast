@@ -1,13 +1,12 @@
-# ZAXPBY
-
-## Function Signature
-
 ```fortran
-ZAXPBY(N,ZA,ZX,INCX,ZB,ZY,INCY)
+subroutine zaxpby	(	integer	n,
+		complex*16	za,
+		complex*16, dimension(*)	zx,
+		integer	incx,
+		complex*16	zb,
+		complex*16, dimension(*)	zy,
+		integer	incy )
 ```
-
-## Description
-
 
     ZAXPBY constant times a vector plus constant times a vector.
 
@@ -15,32 +14,22 @@ ZAXPBY(N,ZA,ZX,INCX,ZB,ZY,INCY)
 
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Za : Complex*16 [in]
+> On entry, ZA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Zx : Complex*16 Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-### ZA (in)
+Incx : Integer [in]
+> storage spacing between elements of ZX
 
-ZA is COMPLEX*16 On entry, ZA specifies the scalar alpha.
+Zb : Complex*16 [in]
+> On entry, ZB specifies the scalar beta.
 
-### ZX (in)
+Zy : Complex*16 Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of ZX
-
-### ZB (in)
-
-ZB is COMPLEX*16 On entry, ZB specifies the scalar beta.
-
-### ZY (in,out)
-
-ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of ZY
+Incy : Integer [in]
+> storage spacing between elements of ZY
 

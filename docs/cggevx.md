@@ -1,18 +1,34 @@
-# CGGEVX
-
-CGGEVX computes the eigenvalues and, optionally, the left and/or right eigenvectors for GE matrices
-
-## Function Signature
-
 ```fortran
-CGGEVX(BALANC, JOBVL, JOBVR, SENSE, N, A, LDA, B, LDB,
-*                          ALPHA, BETA, VL, LDVL, VR, LDVR, ILO, IHI,
-*                          LSCALE, RSCALE, ABNRM, BBNRM, RCONDE, RCONDV,
-*                          WORK, LWORK, RWORK, IWORK, BWORK, INFO)
+subroutine cggevx	(	balanc,
+		jobvl,
+		jobvr,
+		sense,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		*                          alpha,
+		beta,
+		vl,
+		ldvl,
+		vr,
+		ldvr,
+		ilo,
+		ihi,
+		*                          lscale,
+		rscale,
+		abnrm,
+		bbnrm,
+		rconde,
+		rcondv,
+		*                          work,
+		lwork,
+		rwork,
+		iwork,
+		bwork,
+		info )
 ```
-
-## Description
-
 
  CGGEVX computes for a pair of N-by-N complex nonsymmetric matrices
  (A,B) the generalized eigenvalues, and optionally, the left and/or
@@ -40,120 +56,168 @@ CGGEVX(BALANC, JOBVL, JOBVR, SENSE, N, A, LDA, B, LDB,
 
 
 ## Parameters
+Balanc : Character*1 [in]
+> Specifies the balance option to be performed:
+> = 'N':  do not diagonally scale or permute;
+> = 'P':  permute only;
+> = 'S':  scale only;
+> = 'B':  both permute and scale.
+> Computed reciprocal condition numbers will be for the
+> matrices after permuting and/or balancing. Permuting does
+> not change condition numbers (in exact arithmetic), but
+> balancing does.
 
-### BALANC (in)
+Jobvl : Character*1 [in]
+> = 'N':  do not compute the left generalized eigenvectors;
+> = 'V':  compute the left generalized eigenvectors.
 
-BALANC is CHARACTER*1 Specifies the balance option to be performed: = 'N': do not diagonally scale or permute; = 'P': permute only; = 'S': scale only; = 'B': both permute and scale. Computed reciprocal condition numbers will be for the matrices after permuting and/or balancing. Permuting does not change condition numbers (in exact arithmetic), but balancing does.
+Jobvr : Character*1 [in]
+> = 'N':  do not compute the right generalized eigenvectors;
+> = 'V':  compute the right generalized eigenvectors.
 
-### JOBVL (in)
+Sense : Character*1 [in]
+> Determines which reciprocal condition numbers are computed.
+> = 'N': none are computed;
+> = 'E': computed for eigenvalues only;
+> = 'V': computed for eigenvectors only;
+> = 'B': computed for eigenvalues and eigenvectors.
 
-JOBVL is CHARACTER*1 = 'N': do not compute the left generalized eigenvectors; = 'V': compute the left generalized eigenvectors.
+N : Integer [in]
+> The order of the matrices A, B, VL, and VR.  N >= 0.
 
-### JOBVR (in)
+A : Complex Array, Dimension (lda, N) [in,out]
+> On entry, the matrix A in the pair (A,B).
+> On exit, A has been overwritten. If JOBVL='V' or JOBVR='V'
+> or both, then A contains the first part of the complex Schur
+> form of the "balanced" versions of the input A and B.
 
-JOBVR is CHARACTER*1 = 'N': do not compute the right generalized eigenvectors; = 'V': compute the right generalized eigenvectors.
+Lda : Integer [in]
+> The leading dimension of A.  LDA >= max(1,N).
 
-### SENSE (in)
+B : Complex Array, Dimension (ldb, N) [in,out]
+> On entry, the matrix B in the pair (A,B).
+> On exit, B has been overwritten. If JOBVL='V' or JOBVR='V'
+> or both, then B contains the second part of the complex
+> Schur form of the "balanced" versions of the input A and B.
 
-SENSE is CHARACTER*1 Determines which reciprocal condition numbers are computed. = 'N': none are computed; = 'E': computed for eigenvalues only; = 'V': computed for eigenvectors only; = 'B': computed for eigenvalues and eigenvectors.
+Ldb : Integer [in]
+> The leading dimension of B.  LDB >= max(1,N).
 
-### N (in)
+Alpha : Complex Array, Dimension (n) [out]
 
-N is INTEGER The order of the matrices A, B, VL, and VR. N >= 0.
+Beta : Complex Array, Dimension (n) [out]
+> On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the generalized
+> eigenvalues.
+> Note: the quotient ALPHA(j)/BETA(j) ) may easily over- or
+> underflow, and BETA(j) may even be zero.  Thus, the user
+> should avoid naively computing the ratio ALPHA/BETA.
+> However, ALPHA will be always less than and usually
+> comparable with norm(A) in magnitude, and BETA always less
+> than and usually comparable with norm(B).
 
-### A (in,out)
+Vl : Complex Array, Dimension (ldvl,n) [out]
+> If JOBVL = 'V', the left generalized eigenvectors u(j) are
+> stored one after another in the columns of VL, in the same
+> order as their eigenvalues.
+> Each eigenvector will be scaled so the largest component
+> will have abs(real part) + abs(imag. part) = 1.
+> Not referenced if JOBVL = 'N'.
 
-A is COMPLEX array, dimension (LDA, N) On entry, the matrix A in the pair (A,B). On exit, A has been overwritten. If JOBVL='V' or JOBVR='V' or both, then A contains the first part of the complex Schur form of the "balanced" versions of the input A and B.
+Ldvl : Integer [in]
+> The leading dimension of the matrix VL. LDVL >= 1, and
+> if JOBVL = 'V', LDVL >= N.
 
-### LDA (in)
+Vr : Complex Array, Dimension (ldvr,n) [out]
+> If JOBVR = 'V', the right generalized eigenvectors v(j) are
+> stored one after another in the columns of VR, in the same
+> order as their eigenvalues.
+> Each eigenvector will be scaled so the largest component
+> will have abs(real part) + abs(imag. part) = 1.
+> Not referenced if JOBVR = 'N'.
 
-LDA is INTEGER The leading dimension of A. LDA >= max(1,N).
+Ldvr : Integer [in]
+> The leading dimension of the matrix VR. LDVR >= 1, and
+> if JOBVR = 'V', LDVR >= N.
 
-### B (in,out)
+Ilo : Integer [out]
 
-B is COMPLEX array, dimension (LDB, N) On entry, the matrix B in the pair (A,B). On exit, B has been overwritten. If JOBVL='V' or JOBVR='V' or both, then B contains the second part of the complex Schur form of the "balanced" versions of the input A and B.
+Ihi : Integer [out]
+> ILO and IHI are integer values such that on exit
+> A(i,j) = 0 and B(i,j) = 0 if i > j and
+> j = 1,...,ILO-1 or i = IHI+1,...,N.
+> If BALANC = 'N' or 'S', ILO = 1 and IHI = N.
 
-### LDB (in)
+Lscale : Real Array, Dimension (n) [out]
+> Details of the permutations and scaling factors applied
+> to the left side of A and B.  If PL(j) is the index of the
+> row interchanged with row j, and DL(j) is the scaling
+> factor applied to row j, then
+> LSCALE(j) = PL(j)  for j = 1,...,ILO-1
+> = DL(j)  for j = ILO,...,IHI
+> = PL(j)  for j = IHI+1,...,N.
+> The order in which the interchanges are made is N to IHI+1,
+> then 1 to ILO-1.
 
-LDB is INTEGER The leading dimension of B. LDB >= max(1,N).
+Rscale : Real Array, Dimension (n) [out]
+> Details of the permutations and scaling factors applied
+> to the right side of A and B.  If PR(j) is the index of the
+> column interchanged with column j, and DR(j) is the scaling
+> factor applied to column j, then
+> RSCALE(j) = PR(j)  for j = 1,...,ILO-1
+> = DR(j)  for j = ILO,...,IHI
+> = PR(j)  for j = IHI+1,...,N
+> The order in which the interchanges are made is N to IHI+1,
+> then 1 to ILO-1.
 
-### ALPHA (out)
+Abnrm : Real [out]
+> The one-norm of the balanced matrix A.
 
-ALPHA is COMPLEX array, dimension (N)
+Bbnrm : Real [out]
+> The one-norm of the balanced matrix B.
 
-### BETA (out)
+Rconde : Real Array, Dimension (n) [out]
+> If SENSE = 'E' or 'B', the reciprocal condition numbers of
+> the eigenvalues, stored in consecutive elements of the array.
+> If SENSE = 'N' or 'V', RCONDE is not referenced.
 
-BETA is COMPLEX array, dimension (N) On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the generalized eigenvalues. Note: the quotient ALPHA(j)/BETA(j) ) may easily over- or underflow, and BETA(j) may even be zero. Thus, the user should avoid naively computing the ratio ALPHA/BETA. However, ALPHA will be always less than and usually comparable with norm(A) in magnitude, and BETA always less than and usually comparable with norm(B).
+Rcondv : Real Array, Dimension (n) [out]
+> If SENSE = 'V' or 'B', the estimated reciprocal condition
+> numbers of the eigenvectors, stored in consecutive elements
+> of the array. If the eigenvalues cannot be reordered to
+> compute RCONDV(j), RCONDV(j) is set to 0; this can only occur
+> when the true value would be very small anyway.
+> If SENSE = 'N' or 'E', RCONDV is not referenced.
 
-### VL (out)
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-VL is COMPLEX array, dimension (LDVL,N) If JOBVL = 'V', the left generalized eigenvectors u(j) are stored one after another in the columns of VL, in the same order as their eigenvalues. Each eigenvector will be scaled so the largest component will have abs(real part) + abs(imag. part) = 1. Not referenced if JOBVL = 'N'.
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= max(1,2*N).
+> If SENSE = 'E', LWORK >= max(1,4*N).
+> If SENSE = 'V' or 'B', LWORK >= max(1,2*N*N+2*N).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### LDVL (in)
+Rwork : Real Array, Dimension (lrwork) [out]
+> lrwork must be at least max(1,6*N) if BALANC = 'S' or 'B',
+> and at least max(1,2*N) otherwise.
+> Real workspace.
 
-LDVL is INTEGER The leading dimension of the matrix VL. LDVL >= 1, and if JOBVL = 'V', LDVL >= N.
+Iwork : Integer Array, Dimension (n+2) [out]
+> If SENSE = 'E', IWORK is not referenced.
 
-### VR (out)
+Bwork : Logical Array, Dimension (n) [out]
+> If SENSE = 'N', BWORK is not referenced.
 
-VR is COMPLEX array, dimension (LDVR,N) If JOBVR = 'V', the right generalized eigenvectors v(j) are stored one after another in the columns of VR, in the same order as their eigenvalues. Each eigenvector will be scaled so the largest component will have abs(real part) + abs(imag. part) = 1. Not referenced if JOBVR = 'N'.
-
-### LDVR (in)
-
-LDVR is INTEGER The leading dimension of the matrix VR. LDVR >= 1, and if JOBVR = 'V', LDVR >= N.
-
-### ILO (out)
-
-ILO is INTEGER
-
-### IHI (out)
-
-IHI is INTEGER ILO and IHI are integer values such that on exit A(i,j) = 0 and B(i,j) = 0 if i > j and j = 1,...,ILO-1 or i = IHI+1,...,N. If BALANC = 'N' or 'S', ILO = 1 and IHI = N.
-
-### LSCALE (out)
-
-LSCALE is REAL array, dimension (N) Details of the permutations and scaling factors applied to the left side of A and B. If PL(j) is the index of the row interchanged with row j, and DL(j) is the scaling factor applied to row j, then LSCALE(j) = PL(j) for j = 1,...,ILO-1 = DL(j) for j = ILO,...,IHI = PL(j) for j = IHI+1,...,N. The order in which the interchanges are made is N to IHI+1, then 1 to ILO-1.
-
-### RSCALE (out)
-
-RSCALE is REAL array, dimension (N) Details of the permutations and scaling factors applied to the right side of A and B. If PR(j) is the index of the column interchanged with column j, and DR(j) is the scaling factor applied to column j, then RSCALE(j) = PR(j) for j = 1,...,ILO-1 = DR(j) for j = ILO,...,IHI = PR(j) for j = IHI+1,...,N The order in which the interchanges are made is N to IHI+1, then 1 to ILO-1.
-
-### ABNRM (out)
-
-ABNRM is REAL The one-norm of the balanced matrix A.
-
-### BBNRM (out)
-
-BBNRM is REAL The one-norm of the balanced matrix B.
-
-### RCONDE (out)
-
-RCONDE is REAL array, dimension (N) If SENSE = 'E' or 'B', the reciprocal condition numbers of the eigenvalues, stored in consecutive elements of the array. If SENSE = 'N' or 'V', RCONDE is not referenced.
-
-### RCONDV (out)
-
-RCONDV is REAL array, dimension (N) If SENSE = 'V' or 'B', the estimated reciprocal condition numbers of the eigenvectors, stored in consecutive elements of the array. If the eigenvalues cannot be reordered to compute RCONDV(j), RCONDV(j) is set to 0; this can only occur when the true value would be very small anyway. If SENSE = 'N' or 'E', RCONDV is not referenced.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,2*N). If SENSE = 'E', LWORK >= max(1,4*N). If SENSE = 'V' or 'B', LWORK >= max(1,2*N*N+2*N). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (lrwork) lrwork must be at least max(1,6*N) if BALANC = 'S' or 'B', and at least max(1,2*N) otherwise. Real workspace.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N+2) If SENSE = 'E', IWORK is not referenced.
-
-### BWORK (out)
-
-BWORK is LOGICAL array, dimension (N) If SENSE = 'N', BWORK is not referenced.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. = 1,...,N: The QZ iteration failed. No eigenvectors have been calculated, but ALPHA(j) and BETA(j) should be correct for j=INFO+1,...,N. > N: =N+1: other than QZ iteration failed in CHGEQZ. =N+2: error return from CTGEVC.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> = 1,...,N:
+> The QZ iteration failed.  No eigenvectors have been
+> calculated, but ALPHA(j) and BETA(j) should be correct
+> for j=INFO+1,...,N.
+> > N:  =N+1: other than QZ iteration failed in CHGEQZ.
+> =N+2: error return from CTGEVC.
 

@@ -1,13 +1,12 @@
-# ZLARGV
-
-## Function Signature
-
 ```fortran
-ZLARGV(N, X, INCX, Y, INCY, C, INCC)
+subroutine zlargv	(	integer	n,
+		complex*16, dimension(*)	x,
+		integer	incx,
+		complex*16, dimension(*)	y,
+		integer	incy,
+		double precision, dimension(*)	c,
+		integer	incc )
 ```
-
-## Description
-
 
  ZLARGV generates a vector of complex plane rotations with real
  cosines, determined by elements of the complex vectors x and y.
@@ -24,32 +23,26 @@ ZLARGV(N, X, INCX, Y, INCY, C, INCC)
     If x(i)=0, then c(i)=0 and s(i) is chosen so that r(i) is real.
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be generated.
 
-### N (in)
+X : Complex*16 Array, Dimension (1+(n-1)*incx) [in,out]
+> On entry, the vector x.
+> On exit, x(i) is overwritten by r(i), for i = 1,...,n.
 
-N is INTEGER The number of plane rotations to be generated.
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-### X (in,out)
+Y : Complex*16 Array, Dimension (1+(n-1)*incy) [in,out]
+> On entry, the vector y.
+> On exit, the sines of the plane rotations.
 
-X is COMPLEX*16 array, dimension (1+(N-1)*INCX) On entry, the vector x. On exit, x(i) is overwritten by r(i), for i = 1,...,n.
+Incy : Integer [in]
+> The increment between elements of Y. INCY > 0.
 
-### INCX (in)
+C : Double Precision Array, Dimension (1+(n-1)*incc) [out]
+> The cosines of the plane rotations.
 
-INCX is INTEGER The increment between elements of X. INCX > 0.
-
-### Y (in,out)
-
-Y is COMPLEX*16 array, dimension (1+(N-1)*INCY) On entry, the vector y. On exit, the sines of the plane rotations.
-
-### INCY (in)
-
-INCY is INTEGER The increment between elements of Y. INCY > 0.
-
-### C (out)
-
-C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C. INCC > 0.
 

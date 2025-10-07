@@ -1,13 +1,12 @@
-# CGEQR2
-
-## Function Signature
-
 ```fortran
-CGEQR2(M, N, A, LDA, TAU, WORK, INFO)
+subroutine cgeqr2	(	integer	m,
+		integer	n,
+		complex, dimension(lda, *)	a,
+		integer	lda,
+		complex, dimension(*)	tau,
+		complex, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  CGEQR2 computes a QR factorization of a complex m-by-n matrix A:
 
@@ -22,32 +21,30 @@ CGEQR2(M, N, A, LDA, TAU, WORK, INFO)
 
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the m by n matrix A.
+> On exit, the elements on and above the diagonal of the array
+> contain the min(m,n) by n upper trapezoidal matrix R (R is
+> upper triangular if m >= n); the elements below the diagonal,
+> with the array TAU, represent the unitary matrix Q as a
+> product of elementary reflectors (see Further Details).
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+Tau : Complex Array, Dimension (min(m,n)) [out]
+> The scalar factors of the elementary reflectors (see Further
+> Details).
 
-### A (in,out)
+Work : Complex Array, Dimension (n) [out]
 
-A is COMPLEX array, dimension (LDA,N) On entry, the m by n matrix A. On exit, the elements on and above the diagonal of the array contain the min(m,n) by n upper trapezoidal matrix R (R is upper triangular if m >= n); the elements below the diagonal, with the array TAU, represent the unitary matrix Q as a product of elementary reflectors (see Further Details).
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### TAU (out)
-
-TAU is COMPLEX array, dimension (min(M,N)) The scalar factors of the elementary reflectors (see Further Details).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

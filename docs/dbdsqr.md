@@ -1,14 +1,20 @@
-# DBDSQR
-
-## Function Signature
-
 ```fortran
-DBDSQR(UPLO, N, NCVT, NRU, NCC, D, E, VT, LDVT, U,
-*                          LDU, C, LDC, WORK, INFO)
+subroutine dbdsqr	(	uplo,
+		n,
+		ncvt,
+		nru,
+		ncc,
+		d,
+		e,
+		vt,
+		ldvt,
+		u,
+		*                          ldu,
+		c,
+		ldc,
+		work,
+		info )
 ```
-
-## Description
-
 
  DBDSQR computes the singular values and, optionally, the right and/or
  left singular vectors from the singular value decomposition (SVD) of
@@ -41,64 +47,78 @@ DBDSQR(UPLO, N, NCVT, NRU, NCC, D, E, VT, LDVT, U,
  for a detailed description of the algorithm.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  B is upper bidiagonal;
+> = 'L':  B is lower bidiagonal.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix B.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': B is upper bidiagonal; = 'L': B is lower bidiagonal.
+Ncvt : Integer [in]
+> The number of columns of the matrix VT. NCVT >= 0.
 
-### N (in)
+Nru : Integer [in]
+> The number of rows of the matrix U. NRU >= 0.
 
-N is INTEGER The order of the matrix B. N >= 0.
+Ncc : Integer [in]
+> The number of columns of the matrix C. NCC >= 0.
 
-### NCVT (in)
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the bidiagonal matrix B.
+> On exit, if INFO=0, the singular values of B in decreasing
+> order.
 
-NCVT is INTEGER The number of columns of the matrix VT. NCVT >= 0.
+E : Double Precision Array, Dimension (n-1) [in,out]
+> On entry, the N-1 offdiagonal elements of the bidiagonal
+> matrix B.
+> On exit, if INFO = 0, E is destroyed; if INFO > 0, D and E
+> will contain the diagonal and superdiagonal elements of a
+> bidiagonal matrix orthogonally equivalent to the one given
+> as input.
 
-### NRU (in)
+Vt : Double Precision Array, Dimension (ldvt, Ncvt) [in,out]
+> On entry, an N-by-NCVT matrix VT.
+> On exit, VT is overwritten by P**T * VT.
+> Not referenced if NCVT = 0.
 
-NRU is INTEGER The number of rows of the matrix U. NRU >= 0.
+Ldvt : Integer [in]
+> The leading dimension of the array VT.
+> LDVT >= max(1,N) if NCVT > 0; LDVT >= 1 if NCVT = 0.
 
-### NCC (in)
+U : Double Precision Array, Dimension (ldu, N) [in,out]
+> On entry, an NRU-by-N matrix U.
+> On exit, U is overwritten by U * Q.
+> Not referenced if NRU = 0.
 
-NCC is INTEGER The number of columns of the matrix C. NCC >= 0.
+Ldu : Integer [in]
+> The leading dimension of the array U.  LDU >= max(1,NRU).
 
-### D (in,out)
+C : Double Precision Array, Dimension (ldc, Ncc) [in,out]
+> On entry, an N-by-NCC matrix C.
+> On exit, C is overwritten by Q**T * C.
+> Not referenced if NCC = 0.
 
-D is DOUBLE PRECISION array, dimension (N) On entry, the n diagonal elements of the bidiagonal matrix B. On exit, if INFO=0, the singular values of B in decreasing order.
+Ldc : Integer [in]
+> The leading dimension of the array C.
+> LDC >= max(1,N) if NCC > 0; LDC >=1 if NCC = 0.
 
-### E (in,out)
+Work : Double Precision Array, Dimension (lwork) [out]
+> LWORK = 4*N, if NCVT = NRU = NCC = 0, and
+> LWORK = 4*(N-1), otherwise
 
-E is DOUBLE PRECISION array, dimension (N-1) On entry, the N-1 offdiagonal elements of the bidiagonal matrix B. On exit, if INFO = 0, E is destroyed; if INFO > 0, D and E will contain the diagonal and superdiagonal elements of a bidiagonal matrix orthogonally equivalent to the one given as input.
-
-### VT (in,out)
-
-VT is DOUBLE PRECISION array, dimension (LDVT, NCVT) On entry, an N-by-NCVT matrix VT. On exit, VT is overwritten by P**T * VT. Not referenced if NCVT = 0.
-
-### LDVT (in)
-
-LDVT is INTEGER The leading dimension of the array VT. LDVT >= max(1,N) if NCVT > 0; LDVT >= 1 if NCVT = 0.
-
-### U (in,out)
-
-U is DOUBLE PRECISION array, dimension (LDU, N) On entry, an NRU-by-N matrix U. On exit, U is overwritten by U * Q. Not referenced if NRU = 0.
-
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= max(1,NRU).
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC, NCC) On entry, an N-by-NCC matrix C. On exit, C is overwritten by Q**T * C. Not referenced if NCC = 0.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,N) if NCC > 0; LDC >=1 if NCC = 0.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (LWORK) LWORK = 4*N, if NCVT = NRU = NCC = 0, and LWORK = 4*(N-1), otherwise
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: If INFO = -i, the i-th argument had an illegal value > 0: if NCVT = NRU = NCC = 0, = 1, a split was marked by a positive value in E = 2, current block of Z not diagonalized after 30*N iterations (in inner while loop) = 3, termination criterion of outer while loop not met (program created more than N unreduced blocks) else NCVT = NRU = NCC = 0, the algorithm did not converge; D and E contain the elements of a bidiagonal matrix which is orthogonally similar to the input matrix B; if INFO = i, i elements of E have not converged to zero.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  If INFO = -i, the i-th argument had an illegal value
+> > 0:
+> if NCVT = NRU = NCC = 0,
+> = 1, a split was marked by a positive value in E
+> = 2, current block of Z not diagonalized after 30*N
+> iterations (in inner while loop)
+> = 3, termination criterion of outer while loop not met
+> (program created more than N unreduced blocks)
+> else NCVT = NRU = NCC = 0,
+> the algorithm did not converge; D and E contain the
+> elements of a bidiagonal matrix which is orthogonally
+> similar to the input matrix B;  if INFO = i, i
+> elements of E have not converged to zero.
 

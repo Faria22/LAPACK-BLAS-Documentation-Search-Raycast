@@ -1,17 +1,28 @@
-# DGEEVX
-
-DGEEVX computes the eigenvalues and, optionally, the left and/or right eigenvectors for GE matrices
-
-## Function Signature
-
 ```fortran
-DGEEVX(BALANC, JOBVL, JOBVR, SENSE, N, A, LDA, WR, WI,
-*                          VL, LDVL, VR, LDVR, ILO, IHI, SCALE, ABNRM,
-*                          RCONDE, RCONDV, WORK, LWORK, IWORK, INFO)
+subroutine dgeevx	(	balanc,
+		jobvl,
+		jobvr,
+		sense,
+		n,
+		a,
+		lda,
+		wr,
+		wi,
+		*                          vl,
+		ldvl,
+		vr,
+		ldvr,
+		ilo,
+		ihi,
+		scale,
+		abnrm,
+		*                          rconde,
+		rcondv,
+		work,
+		lwork,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  DGEEVX computes for an N-by-N real nonsymmetric matrix A, the
  eigenvalues and, optionally, the left and/or right eigenvectors.
@@ -44,96 +55,143 @@ DGEEVX(BALANC, JOBVL, JOBVR, SENSE, N, A, LDA, WR, WI,
  Users' Guide.
 
 ## Parameters
+Balanc : Character*1 [in]
+> Indicates how the input matrix should be diagonally scaled
+> and/or permuted to improve the conditioning of its
+> eigenvalues.
+> = 'N': Do not diagonally scale or permute;
+> = 'P': Perform permutations to make the matrix more nearly
+> upper triangular. Do not diagonally scale;
+> = 'S': Diagonally scale the matrix, i.e. replace A by
+> D*A*D**(-1), where D is a diagonal matrix chosen
+> to make the rows and columns of A more equal in
+> norm. Do not permute;
+> = 'B': Both diagonally scale and permute A.
+> Computed reciprocal condition numbers will be for the matrix
+> after balancing and/or permuting. Permuting does not change
+> condition numbers (in exact arithmetic), but balancing does.
 
-### BALANC (in)
+Jobvl : Character*1 [in]
+> = 'N': left eigenvectors of A are not computed;
+> = 'V': left eigenvectors of A are computed.
+> If SENSE = 'E' or 'B', JOBVL must = 'V'.
 
-BALANC is CHARACTER*1 Indicates how the input matrix should be diagonally scaled and/or permuted to improve the conditioning of its eigenvalues. = 'N': Do not diagonally scale or permute; = 'P': Perform permutations to make the matrix more nearly upper triangular. Do not diagonally scale; = 'S': Diagonally scale the matrix, i.e. replace A by D*A*D**(-1), where D is a diagonal matrix chosen to make the rows and columns of A more equal in norm. Do not permute; = 'B': Both diagonally scale and permute A. Computed reciprocal condition numbers will be for the matrix after balancing and/or permuting. Permuting does not change condition numbers (in exact arithmetic), but balancing does.
+Jobvr : Character*1 [in]
+> = 'N': right eigenvectors of A are not computed;
+> = 'V': right eigenvectors of A are computed.
+> If SENSE = 'E' or 'B', JOBVR must = 'V'.
 
-### JOBVL (in)
+Sense : Character*1 [in]
+> Determines which reciprocal condition numbers are computed.
+> = 'N': None are computed;
+> = 'E': Computed for eigenvalues only;
+> = 'V': Computed for right eigenvectors only;
+> = 'B': Computed for eigenvalues and right eigenvectors.
+> If SENSE = 'E' or 'B', both left and right eigenvectors
+> must also be computed (JOBVL = 'V' and JOBVR = 'V').
 
-JOBVL is CHARACTER*1 = 'N': left eigenvectors of A are not computed; = 'V': left eigenvectors of A are computed. If SENSE = 'E' or 'B', JOBVL must = 'V'.
+N : Integer [in]
+> The order of the matrix A. N >= 0.
 
-### JOBVR (in)
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the N-by-N matrix A.
+> On exit, A has been overwritten.  If JOBVL = 'V' or
+> JOBVR = 'V', A contains the real Schur form of the balanced
+> version of the input matrix A.
 
-JOBVR is CHARACTER*1 = 'N': right eigenvectors of A are not computed; = 'V': right eigenvectors of A are computed. If SENSE = 'E' or 'B', JOBVR must = 'V'.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### SENSE (in)
+Wr : Double Precision Array, Dimension (n) [out]
 
-SENSE is CHARACTER*1 Determines which reciprocal condition numbers are computed. = 'N': None are computed; = 'E': Computed for eigenvalues only; = 'V': Computed for right eigenvectors only; = 'B': Computed for eigenvalues and right eigenvectors. If SENSE = 'E' or 'B', both left and right eigenvectors must also be computed (JOBVL = 'V' and JOBVR = 'V').
+Wi : Double Precision Array, Dimension (n) [out]
+> WR and WI contain the real and imaginary parts,
+> respectively, of the computed eigenvalues.  Complex
+> conjugate pairs of eigenvalues will appear consecutively
+> with the eigenvalue having the positive imaginary part
+> first.
 
-### N (in)
+Vl : Double Precision Array, Dimension (ldvl,n) [out]
+> If JOBVL = 'V', the left eigenvectors u(j) are stored one
+> after another in the columns of VL, in the same order
+> as their eigenvalues.
+> If JOBVL = 'N', VL is not referenced.
+> If the j-th eigenvalue is real, then u(j) = VL(:,j),
+> the j-th column of VL.
+> If the j-th and (j+1)-st eigenvalues form a complex
+> conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and
+> u(j+1) = VL(:,j) - i*VL(:,j+1).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ldvl : Integer [in]
+> The leading dimension of the array VL.  LDVL >= 1; if
+> JOBVL = 'V', LDVL >= N.
 
-### A (in,out)
+Vr : Double Precision Array, Dimension (ldvr,n) [out]
+> If JOBVR = 'V', the right eigenvectors v(j) are stored one
+> after another in the columns of VR, in the same order
+> as their eigenvalues.
+> If JOBVR = 'N', VR is not referenced.
+> If the j-th eigenvalue is real, then v(j) = VR(:,j),
+> the j-th column of VR.
+> If the j-th and (j+1)-st eigenvalues form a complex
+> conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and
+> v(j+1) = VR(:,j) - i*VR(:,j+1).
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the N-by-N matrix A. On exit, A has been overwritten. If JOBVL = 'V' or JOBVR = 'V', A contains the real Schur form of the balanced version of the input matrix A.
+Ldvr : Integer [in]
+> The leading dimension of the array VR.  LDVR >= 1, and if
+> JOBVR = 'V', LDVR >= N.
 
-### LDA (in)
+Ilo : Integer [out]
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Ihi : Integer [out]
+> ILO and IHI are integer values determined when A was
+> balanced.  The balanced A(i,j) = 0 if I > J and
+> J = 1,...,ILO-1 or I = IHI+1,...,N.
 
-### WR (out)
+Scale : Double Precision Array, Dimension (n) [out]
+> Details of the permutations and scaling factors applied
+> when balancing A.  If P(j) is the index of the row and column
+> interchanged with row and column j, and D(j) is the scaling
+> factor applied to row and column j, then
+> SCALE(J) = P(J),    for J = 1,...,ILO-1
+> = D(J),    for J = ILO,...,IHI
+> = P(J)     for J = IHI+1,...,N.
+> The order in which the interchanges are made is N to IHI+1,
+> then 1 to ILO-1.
 
-WR is DOUBLE PRECISION array, dimension (N)
+Abnrm : Double Precision [out]
+> The one-norm of the balanced matrix (the maximum
+> of the sum of absolute values of elements of any column).
 
-### WI (out)
+Rconde : Double Precision Array, Dimension (n) [out]
+> RCONDE(j) is the reciprocal condition number of the j-th
+> eigenvalue.
 
-WI is DOUBLE PRECISION array, dimension (N) WR and WI contain the real and imaginary parts, respectively, of the computed eigenvalues. Complex conjugate pairs of eigenvalues will appear consecutively with the eigenvalue having the positive imaginary part first.
+Rcondv : Double Precision Array, Dimension (n) [out]
+> RCONDV(j) is the reciprocal condition number of the j-th
+> right eigenvector.
 
-### VL (out)
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-VL is DOUBLE PRECISION array, dimension (LDVL,N) If JOBVL = 'V', the left eigenvectors u(j) are stored one after another in the columns of VL, in the same order as their eigenvalues. If JOBVL = 'N', VL is not referenced. If the j-th eigenvalue is real, then u(j) = VL(:,j), the j-th column of VL. If the j-th and (j+1)-st eigenvalues form a complex conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and u(j+1) = VL(:,j) - i*VL(:,j+1).
+Lwork : Integer [in]
+> The dimension of the array WORK.   If SENSE = 'N' or 'E',
+> LWORK >= max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V',
+> LWORK >= 3*N.  If SENSE = 'V' or 'B', LWORK >= N*(N+6).
+> For good performance, LWORK must generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### LDVL (in)
+Iwork : Integer Array, Dimension (2*n-2) [out]
+> If SENSE = 'N' or 'E', not referenced.
 
-LDVL is INTEGER The leading dimension of the array VL. LDVL >= 1; if JOBVL = 'V', LDVL >= N.
-
-### VR (out)
-
-VR is DOUBLE PRECISION array, dimension (LDVR,N) If JOBVR = 'V', the right eigenvectors v(j) are stored one after another in the columns of VR, in the same order as their eigenvalues. If JOBVR = 'N', VR is not referenced. If the j-th eigenvalue is real, then v(j) = VR(:,j), the j-th column of VR. If the j-th and (j+1)-st eigenvalues form a complex conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and v(j+1) = VR(:,j) - i*VR(:,j+1).
-
-### LDVR (in)
-
-LDVR is INTEGER The leading dimension of the array VR. LDVR >= 1, and if JOBVR = 'V', LDVR >= N.
-
-### ILO (out)
-
-ILO is INTEGER
-
-### IHI (out)
-
-IHI is INTEGER ILO and IHI are integer values determined when A was balanced. The balanced A(i,j) = 0 if I > J and J = 1,...,ILO-1 or I = IHI+1,...,N.
-
-### SCALE (out)
-
-SCALE is DOUBLE PRECISION array, dimension (N) Details of the permutations and scaling factors applied when balancing A. If P(j) is the index of the row and column interchanged with row and column j, and D(j) is the scaling factor applied to row and column j, then SCALE(J) = P(J), for J = 1,...,ILO-1 = D(J), for J = ILO,...,IHI = P(J) for J = IHI+1,...,N. The order in which the interchanges are made is N to IHI+1, then 1 to ILO-1.
-
-### ABNRM (out)
-
-ABNRM is DOUBLE PRECISION The one-norm of the balanced matrix (the maximum of the sum of absolute values of elements of any column).
-
-### RCONDE (out)
-
-RCONDE is DOUBLE PRECISION array, dimension (N) RCONDE(j) is the reciprocal condition number of the j-th eigenvalue.
-
-### RCONDV (out)
-
-RCONDV is DOUBLE PRECISION array, dimension (N) RCONDV(j) is the reciprocal condition number of the j-th right eigenvector.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If SENSE = 'N' or 'E', LWORK >= max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V', LWORK >= 3*N. If SENSE = 'V' or 'B', LWORK >= N*(N+6). For good performance, LWORK must generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (2*N-2) If SENSE = 'N' or 'E', not referenced.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, the QR algorithm failed to compute all the eigenvalues, and no eigenvectors or condition numbers have been computed; elements 1:ILO-1 and i+1:N of WR and WI contain eigenvalues which have converged.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = i, the QR algorithm failed to compute all the
+> eigenvalues, and no eigenvectors or condition numbers
+> have been computed; elements 1:ILO-1 and i+1:N of WR
+> and WI contain eigenvalues which have converged.
 

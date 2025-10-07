@@ -1,14 +1,16 @@
-# DGTTRS
-
-## Function Signature
-
 ```fortran
-DGTTRS(TRANS, N, NRHS, DL, D, DU, DU2, IPIV, B, LDB,
-*                          INFO)
+subroutine dgttrs	(	trans,
+		n,
+		nrhs,
+		dl,
+		d,
+		du,
+		du2,
+		ipiv,
+		b,
+		ldb,
+		*                          info )
 ```
-
-## Description
-
 
  DGTTRS solves one of the systems of equations
     A*X = B  or  A**T*X = B,
@@ -16,48 +18,47 @@ DGTTRS(TRANS, N, NRHS, DL, D, DU, DU2, IPIV, B, LDB,
  by DGTTRF.
 
 ## Parameters
+Trans : Character*1 [in]
+> Specifies the form of the system of equations.
+> = 'N':  A * X = B  (No transpose)
+> = 'T':  A**T* X = B  (Transpose)
+> = 'C':  A**T* X = B  (Conjugate transpose = Transpose)
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.
 
-TRANS is CHARACTER*1 Specifies the form of the system of equations. = 'N': A * X = B (No transpose) = 'T': A**T* X = B (Transpose) = 'C': A**T* X = B (Conjugate transpose = Transpose)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### N (in)
+Dl : Double Precision Array, Dimension (n-1) [in]
+> The (n-1) multipliers that define the matrix L from the
+> LU factorization of A.
 
-N is INTEGER The order of the matrix A.
+D : Double Precision Array, Dimension (n) [in]
+> The n diagonal elements of the upper triangular matrix U from
+> the LU factorization of A.
 
-### NRHS (in)
+Du : Double Precision Array, Dimension (n-1) [in]
+> The (n-1) elements of the first super-diagonal of U.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Du2 : Double Precision Array, Dimension (n-2) [in]
+> The (n-2) elements of the second super-diagonal of U.
 
-### DL (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices; for 1 <= i <= n, row i of the matrix was
+> interchanged with row IPIV(i).  IPIV(i) will always be either
+> i or i+1; IPIV(i) = i indicates a row interchange was not
+> required.
 
-DL is DOUBLE PRECISION array, dimension (N-1) The (n-1) multipliers that define the matrix L from the LU factorization of A.
+B : Double Precision Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the matrix of right hand side vectors B.
+> On exit, B is overwritten by the solution vectors X.
 
-### D (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-D is DOUBLE PRECISION array, dimension (N) The n diagonal elements of the upper triangular matrix U from the LU factorization of A.
-
-### DU (in)
-
-DU is DOUBLE PRECISION array, dimension (N-1) The (n-1) elements of the first super-diagonal of U.
-
-### DU2 (in)
-
-DU2 is DOUBLE PRECISION array, dimension (N-2) The (n-2) elements of the second super-diagonal of U.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices; for 1 <= i <= n, row i of the matrix was interchanged with row IPIV(i). IPIV(i) will always be either i or i+1; IPIV(i) = i indicates a row interchange was not required.
-
-### B (in,out)
-
-B is DOUBLE PRECISION array, dimension (LDB,NRHS) On entry, the matrix of right hand side vectors B. On exit, B is overwritten by the solution vectors X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

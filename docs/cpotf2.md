@@ -1,13 +1,10 @@
-# CPOTF2
-
-## Function Signature
-
 ```fortran
-CPOTF2(UPLO, N, A, LDA, INFO)
+subroutine cpotf2	(	character	uplo,
+		integer	n,
+		complex, dimension(lda, *)	a,
+		integer	lda,
+		integer	info )
 ```
-
-## Description
-
 
  CPOTF2 computes the Cholesky factorization of a complex Hermitian
  positive definite matrix A.
@@ -20,24 +17,33 @@ CPOTF2(UPLO, N, A, LDA, INFO)
  This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> Hermitian matrix A is stored.
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the Hermitian matrix A is stored. = 'U': Upper triangular = 'L': Lower triangular
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
+> n by n upper triangular part of A contains the upper
+> triangular part of the matrix A, and the strictly lower
+> triangular part of A is not referenced.  If UPLO = 'L', the
+> leading n by n lower triangular part of A contains the lower
+> triangular part of the matrix A, and the strictly upper
+> triangular part of A is not referenced.
+> On exit, if INFO = 0, the factor U or L from the Cholesky
+> factorization A = U**H *U  or A = L*L**H.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
-
-### A (in,out)
-
-A is COMPLEX array, dimension (LDA,N) On entry, the Hermitian matrix A. If UPLO = 'U', the leading n by n upper triangular part of A contains the upper triangular part of the matrix A, and the strictly lower triangular part of A is not referenced. If UPLO = 'L', the leading n by n lower triangular part of A contains the lower triangular part of the matrix A, and the strictly upper triangular part of A is not referenced. On exit, if INFO = 0, the factor U or L from the Cholesky factorization A = U**H *U or A = L*L**H.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value > 0: if INFO = k, the leading principal minor of order k is not positive, and the factorization could not be completed.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -k, the k-th argument had an illegal value
+> > 0: if INFO = k, the leading principal minor of order k
+> is not positive, and the factorization could not be
+> completed.
 

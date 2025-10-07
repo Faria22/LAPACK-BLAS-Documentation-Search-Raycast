@@ -1,15 +1,12 @@
-# CPTSV
-
-CPTSV computes the solution to system of linear equations A * X = B for PT matrices
-
-## Function Signature
-
 ```fortran
-CPTSV(N, NRHS, D, E, B, LDB, INFO)
+subroutine cptsv	(	integer	n,
+		integer	nrhs,
+		real, dimension(*)	d,
+		complex, dimension(*)	e,
+		complex, dimension(ldb, *)	b,
+		integer	ldb,
+		integer	info )
 ```
-
-## Description
-
 
  CPTSV computes the solution to a complex system of linear equations
  A*X = B, where A is an N-by-N Hermitian positive definite tridiagonal
@@ -19,32 +16,37 @@ CPTSV(N, NRHS, D, E, B, LDB, INFO)
  used to solve the system of equations.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### N (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-N is INTEGER The order of the matrix A. N >= 0.
+D : Real Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the tridiagonal matrix
+> A.  On exit, the n diagonal elements of the diagonal matrix
+> D from the factorization A = L*D*L**H.
 
-### NRHS (in)
+E : Complex Array, Dimension (n-1) [in,out]
+> On entry, the (n-1) subdiagonal elements of the tridiagonal
+> matrix A.  On exit, the (n-1) subdiagonal elements of the
+> unit bidiagonal factor L from the L*D*L**H factorization of
+> A.  E can also be regarded as the superdiagonal of the unit
+> bidiagonal factor U from the U**H*D*U factorization of A.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+B : Complex Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the N-by-NRHS right hand side matrix B.
+> On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
-### D (in,out)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-D is REAL array, dimension (N) On entry, the n diagonal elements of the tridiagonal matrix A. On exit, the n diagonal elements of the diagonal matrix D from the factorization A = L*D*L**H.
-
-### E (in,out)
-
-E is COMPLEX array, dimension (N-1) On entry, the (n-1) subdiagonal elements of the tridiagonal matrix A. On exit, the (n-1) subdiagonal elements of the unit bidiagonal factor L from the L*D*L**H factorization of A. E can also be regarded as the superdiagonal of the unit bidiagonal factor U from the U**H*D*U factorization of A.
-
-### B (in,out)
-
-B is COMPLEX array, dimension (LDB,NRHS) On entry, the N-by-NRHS right hand side matrix B. On exit, if INFO = 0, the N-by-NRHS solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the leading principal minor of order i is not positive, and the solution has not been computed. The factorization has not been completed unless i = N.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the leading principal minor of order i
+> is not positive, and the solution has not been
+> computed.  The factorization has not been completed
+> unless i = N.
 

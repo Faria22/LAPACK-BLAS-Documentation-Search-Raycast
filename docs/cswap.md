@@ -1,35 +1,24 @@
-# CSWAP
-
-## Function Signature
-
 ```fortran
-CSWAP(N,CX,INCX,CY,INCY)
+subroutine cswap	(	integer	n,
+		complex, dimension(*)	cx,
+		integer	incx,
+		complex, dimension(*)	cy,
+		integer	incy )
 ```
-
-## Description
-
 
    CSWAP interchanges two vectors.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Cx : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of CX
 
-### CX (in,out)
+Cy : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of CX
-
-### CY (in,out)
-
-CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of CY
+Incy : Integer [in]
+> storage spacing between elements of CY
 

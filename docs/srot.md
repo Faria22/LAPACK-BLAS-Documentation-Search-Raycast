@@ -1,43 +1,30 @@
-# SROT
-
-## Function Signature
-
 ```fortran
-SROT(N,SX,INCX,SY,INCY,C,S)
+subroutine srot	(	integer	n,
+		real, dimension(*)	sx,
+		integer	incx,
+		real, dimension(*)	sy,
+		integer	incy,
+		real	c,
+		real	s )
 ```
-
-## Description
-
 
     applies a plane rotation.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Sx : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of SX
 
-### SX (in,out)
+Sy : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+Incy : Integer [in]
+> storage spacing between elements of SY
 
-### INCX (in)
+C : Real [in]
 
-INCX is INTEGER storage spacing between elements of SX
-
-### SY (in,out)
-
-SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of SY
-
-### C (in)
-
-C is REAL
-
-### S (in)
-
-S is REAL
+S : Real [in]
 

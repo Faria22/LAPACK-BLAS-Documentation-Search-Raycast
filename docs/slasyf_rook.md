@@ -1,13 +1,15 @@
-# SLASYF_ROOK
-
-## Function Signature
-
 ```fortran
-SLASYF_ROOK(UPLO, N, NB, KB, A, LDA, IPIV, W, LDW, INFO)
+subroutine slasyf_rook	(	character	uplo,
+		integer	n,
+		integer	nb,
+		integer	kb,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		real, dimension(ldw, *)	w,
+		integer	ldw,
+		integer	info )
 ```
-
-## Description
-
 
  SLASYF_ROOK computes a partial factorization of a real symmetric
  matrix A using the bounded Bunch-Kaufman ("rook") diagonal
@@ -27,44 +29,64 @@ SLASYF_ROOK(UPLO, N, NB, KB, A, LDA, IPIV, W, LDW, INFO)
  A11 (if UPLO = 'U') or A22 (if UPLO = 'L').
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> symmetric matrix A is stored:
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the symmetric matrix A is stored: = 'U': Upper triangular = 'L': Lower triangular
+Nb : Integer [in]
+> The maximum number of columns of the matrix A that should be
+> factored.  NB should be at least 2 to allow for 2-by-2 pivot
+> blocks.
 
-### N (in)
+Kb : Integer [out]
+> The number of columns of A that were actually factored.
+> KB is either NB-1 or NB, or N if N <= NB.
 
-N is INTEGER The order of the matrix A. N >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+> n-by-n upper triangular part of A contains the upper
+> triangular part of the matrix A, and the strictly lower
+> triangular part of A is not referenced.  If UPLO = 'L', the
+> leading n-by-n lower triangular part of A contains the lower
+> triangular part of the matrix A, and the strictly upper
+> triangular part of A is not referenced.
+> On exit, A contains details of the partial factorization.
 
-### NB (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-NB is INTEGER The maximum number of columns of the matrix A that should be factored. NB should be at least 2 to allow for 2-by-2 pivot blocks.
+Ipiv : Integer Array, Dimension (n) [out]
+> Details of the interchanges and the block structure of D.
+> If UPLO = 'U':
+> Only the last KB elements of IPIV are set.
+> If IPIV(k) > 0, then rows and columns k and IPIV(k) were
+> interchanged and D(k,k) is a 1-by-1 diagonal block.
+> If IPIV(k) < 0 and IPIV(k-1) < 0, then rows and
+> columns k and -IPIV(k) were interchanged and rows and
+> columns k-1 and -IPIV(k-1) were inerchaged,
+> D(k-1:k,k-1:k) is a 2-by-2 diagonal block.
+> If UPLO = 'L':
+> Only the first KB elements of IPIV are set.
+> If IPIV(k) > 0, then rows and columns k and IPIV(k)
+> were interchanged and D(k,k) is a 1-by-1 diagonal block.
+> If IPIV(k) < 0 and IPIV(k+1) < 0, then rows and
+> columns k and -IPIV(k) were interchanged and rows and
+> columns k+1 and -IPIV(k+1) were inerchaged,
+> D(k:k+1,k:k+1) is a 2-by-2 diagonal block.
 
-### KB (out)
+W : Real Array, Dimension (ldw,nb) [out]
 
-KB is INTEGER The number of columns of A that were actually factored. KB is either NB-1 or NB, or N if N <= NB.
+Ldw : Integer [in]
+> The leading dimension of the array W.  LDW >= max(1,N).
 
-### A (in,out)
-
-A is REAL array, dimension (LDA,N) On entry, the symmetric matrix A. If UPLO = 'U', the leading n-by-n upper triangular part of A contains the upper triangular part of the matrix A, and the strictly lower triangular part of A is not referenced. If UPLO = 'L', the leading n-by-n lower triangular part of A contains the lower triangular part of the matrix A, and the strictly upper triangular part of A is not referenced. On exit, A contains details of the partial factorization.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D. If UPLO = 'U': Only the last KB elements of IPIV are set. If IPIV(k) > 0, then rows and columns k and IPIV(k) were interchanged and D(k,k) is a 1-by-1 diagonal block. If IPIV(k) < 0 and IPIV(k-1) < 0, then rows and columns k and -IPIV(k) were interchanged and rows and columns k-1 and -IPIV(k-1) were inerchaged, D(k-1:k,k-1:k) is a 2-by-2 diagonal block. If UPLO = 'L': Only the first KB elements of IPIV are set. If IPIV(k) > 0, then rows and columns k and IPIV(k) were interchanged and D(k,k) is a 1-by-1 diagonal block. If IPIV(k) < 0 and IPIV(k+1) < 0, then rows and columns k and -IPIV(k) were interchanged and rows and columns k+1 and -IPIV(k+1) were inerchaged, D(k:k+1,k:k+1) is a 2-by-2 diagonal block.
-
-### W (out)
-
-W is REAL array, dimension (LDW,NB)
-
-### LDW (in)
-
-LDW is INTEGER The leading dimension of the array W. LDW >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit > 0: if INFO = k, D(k,k) is exactly zero. The factorization has been completed, but the block diagonal matrix D is exactly singular.
+Info : Integer [out]
+> = 0: successful exit
+> > 0: if INFO = k, D(k,k) is exactly zero.  The factorization
+> has been completed, but the block diagonal matrix D is
+> exactly singular.
 

@@ -1,17 +1,19 @@
-# ZHESV_AA_2STAGE
-
-ZHESV_AA_2STAGE computes the solution to system of linear equations A * X = B for HE matrices
-
-## Function Signature
-
 ```fortran
-ZHESV_AA_2STAGE(UPLO, N, NRHS, A, LDA, TB, LTB,
-*                                  IPIV, IPIV2, B, LDB, WORK, LWORK,
-*                                  INFO)
+subroutine zhesv_aa_2stage	(	uplo,
+		n,
+		nrhs,
+		a,
+		lda,
+		tb,
+		ltb,
+		*                                  ipiv,
+		ipiv2,
+		b,
+		ldb,
+		work,
+		lwork,
+		*                                  info )
 ```
-
-## Description
-
 
  ZHESV_AA_2STAGE computes the solution to a complex system of 
  linear equations
@@ -30,60 +32,72 @@ ZHESV_AA_2STAGE(UPLO, N, NRHS, A, LDA, TB, LTB,
  This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### N (in)
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> On entry, the hermitian matrix A.  If UPLO = 'U', the leading
+> N-by-N upper triangular part of A contains the upper
+> triangular part of the matrix A, and the strictly lower
+> triangular part of A is not referenced.  If UPLO = 'L', the
+> leading N-by-N lower triangular part of A contains the lower
+> triangular part of the matrix A, and the strictly upper
+> triangular part of A is not referenced.
+> On exit, L is stored below (or above) the subdiagonal blocks,
+> when UPLO  is 'L' (or 'U').
 
-N is INTEGER The order of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### NRHS (in)
+Tb : Complex*16 Array, Dimension (max(1,ltb)). [out]
+> On exit, details of the LU factorization of the band matrix.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Ltb : Integer [in]
+> The size of the array TB. LTB >= MAX(1,4*N), internally
+> used to select NB such that LTB >= (3*NB+1)*N.
+> If LTB = -1, then a workspace query is assumed; the
+> routine only calculates the optimal size of LTB,
+> returns this value as the first entry of TB, and
+> no error message related to LTB is issued by XERBLA.
 
-### A (in,out)
+Ipiv : Integer Array, Dimension (n) [out]
+> On exit, it contains the details of the interchanges, i.e.,
+> the row and column k of A were interchanged with the
+> row and column IPIV(k).
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the hermitian matrix A. If UPLO = 'U', the leading N-by-N upper triangular part of A contains the upper triangular part of the matrix A, and the strictly lower triangular part of A is not referenced. If UPLO = 'L', the leading N-by-N lower triangular part of A contains the lower triangular part of the matrix A, and the strictly upper triangular part of A is not referenced. On exit, L is stored below (or above) the subdiagonal blocks, when UPLO is 'L' (or 'U').
+Ipiv2 : Integer Array, Dimension (n) [out]
+> On exit, it contains the details of the interchanges, i.e.,
+> the row and column k of T were interchanged with the
+> row and column IPIV(k).
 
-### LDA (in)
+B : Complex*16 Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side matrix B.
+> On exit, the solution matrix X.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### TB (out)
+Work : Complex*16 Workspace of Size (max(1,lwork)). [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-TB is COMPLEX*16 array, dimension (MAX(1,LTB)). On exit, details of the LU factorization of the band matrix.
+Lwork : Integer [in]
+> The size of WORK. LWORK >= MAX(1,N), internally used to
+> select NB such that LWORK >= N*NB.
+> If LWORK = -1, then a workspace query is assumed; the
+> routine only calculates the optimal size of the WORK array,
+> returns this value as the first entry of the WORK array, and
+> no error message related to LWORK is issued by XERBLA.
 
-### LTB (in)
-
-LTB is INTEGER The size of the array TB. LTB >= MAX(1,4*N), internally used to select NB such that LTB >= (3*NB+1)*N. If LTB = -1, then a workspace query is assumed; the routine only calculates the optimal size of LTB, returns this value as the first entry of TB, and no error message related to LTB is issued by XERBLA.
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (N) On exit, it contains the details of the interchanges, i.e., the row and column k of A were interchanged with the row and column IPIV(k).
-
-### IPIV2 (out)
-
-IPIV2 is INTEGER array, dimension (N) On exit, it contains the details of the interchanges, i.e., the row and column k of T were interchanged with the row and column IPIV(k).
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) On entry, the right hand side matrix B. On exit, the solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### WORK (out)
-
-WORK is COMPLEX*16 workspace of size (MAX(1,LWORK)). On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The size of WORK. LWORK >= MAX(1,N), internally used to select NB such that LWORK >= N*NB. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, band LU factorization failed on i-th column
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = i, band LU factorization failed on i-th column
 

@@ -1,52 +1,52 @@
-# SGELQT
-
-## Function Signature
-
 ```fortran
-SGELQT(M, N, MB, A, LDA, T, LDT, WORK, INFO)
+subroutine sgelqt	(	integer	m,
+		integer	n,
+		integer	mb,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		real, dimension(ldt, *)	t,
+		integer	ldt,
+		real, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  SGELQT computes a blocked LQ factorization of a real M-by-N matrix A
  using the compact WY representation of Q.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Mb : Integer [in]
+> The block size to be used in the blocked LQ.  MIN(M,N) >= MB >= 1.
 
-### N (in)
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, the elements on and below the diagonal of the array
+> contain the M-by-MIN(M,N) lower trapezoidal matrix L (L is
+> lower triangular if M <= N); the elements above the diagonal
+> are the rows of V.
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-### MB (in)
+T : Real Array, Dimension (ldt,min(m,n)) [out]
+> The upper triangular block reflectors stored in compact form
+> as a sequence of upper triangular blocks.  See below
+> for further details.
 
-MB is INTEGER The block size to be used in the blocked LQ. MIN(M,N) >= MB >= 1.
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= MB.
 
-### A (in,out)
+Work : Real Array, Dimension (mb*m). [out]
+> Note: A smaller workspace of MB*(M-MB) may also be sufficient, but
+> that is yet to be proven. MB*M is a conservative estimate and the
+> recommended value to use.
 
-A is REAL array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, the elements on and below the diagonal of the array contain the M-by-MIN(M,N) lower trapezoidal matrix L (L is lower triangular if M <= N); the elements above the diagonal are the rows of V.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### T (out)
-
-T is REAL array, dimension (LDT,MIN(M,N)) The upper triangular block reflectors stored in compact form as a sequence of upper triangular blocks. See below for further details.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= MB.
-
-### WORK (out)
-
-WORK is REAL array, dimension (MB*M). Note: A smaller workspace of MB*(M-MB) may also be sufficient, but that is yet to be proven. MB*M is a conservative estimate and the recommended value to use.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

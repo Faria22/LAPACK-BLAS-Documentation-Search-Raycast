@@ -1,13 +1,11 @@
-# DLADIV
-
-## Function Signature
-
 ```fortran
-DLADIV(A, B, C, D, P, Q)
+subroutine dladiv	(	double precision	a,
+		double precision	b,
+		double precision	c,
+		double precision	d,
+		double precision	p,
+		double precision	q )
 ```
-
-## Description
-
 
  DLADIV performs complex division in  real arithmetic
 
@@ -20,28 +18,17 @@ DLADIV(A, B, C, D, P, Q)
  "A Robust Complex Division in Scilab"
 
 ## Parameters
+A : Double Precision [in]
 
-### A (in)
+B : Double Precision [in]
 
-A is DOUBLE PRECISION
+C : Double Precision [in]
 
-### B (in)
+D : Double Precision [in]
+> The scalars a, b, c, and d in the above expression.
 
-B is DOUBLE PRECISION
+P : Double Precision [out]
 
-### C (in)
-
-C is DOUBLE PRECISION
-
-### D (in)
-
-D is DOUBLE PRECISION The scalars a, b, c, and d in the above expression.
-
-### P (out)
-
-P is DOUBLE PRECISION
-
-### Q (out)
-
-Q is DOUBLE PRECISION The scalars p and q in the above expression.
+Q : Double Precision [out]
+> The scalars p and q in the above expression.
 

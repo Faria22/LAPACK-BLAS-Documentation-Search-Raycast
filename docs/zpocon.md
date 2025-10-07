@@ -1,14 +1,14 @@
-# ZPOCON
-
-## Function Signature
-
 ```fortran
-ZPOCON(UPLO, N, A, LDA, ANORM, RCOND, WORK, RWORK,
-*                          INFO)
+subroutine zpocon	(	uplo,
+		n,
+		a,
+		lda,
+		anorm,
+		rcond,
+		work,
+		rwork,
+		*                          info )
 ```
-
-## Description
-
 
  ZPOCON estimates the reciprocal of the condition number (in the
  1-norm) of a complex Hermitian positive definite matrix using the
@@ -18,40 +18,33 @@ ZPOCON(UPLO, N, A, LDA, ANORM, RCOND, WORK, RWORK,
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+A : Complex*16 Array, Dimension (lda,n) [in]
+> The triangular factor U or L from the Cholesky factorization
+> A = U**H*U or A = L*L**H, as computed by ZPOTRF.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Anorm : Double Precision [in]
+> The 1-norm (or infinity-norm) of the Hermitian matrix A.
 
-### A (in)
+Rcond : Double Precision [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-A is COMPLEX*16 array, dimension (LDA,N) The triangular factor U or L from the Cholesky factorization A = U**H*U or A = L*L**H, as computed by ZPOTRF.
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-### LDA (in)
+Rwork : Double Precision Array, Dimension (n) [out]
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### ANORM (in)
-
-ANORM is DOUBLE PRECISION The 1-norm (or infinity-norm) of the Hermitian matrix A.
-
-### RCOND (out)
-
-RCOND is DOUBLE PRECISION The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

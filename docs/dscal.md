@@ -1,32 +1,22 @@
-# DSCAL
-
-## Function Signature
-
 ```fortran
-DSCAL(N,DA,DX,INCX)
+subroutine dscal	(	integer	n,
+		double precision	da,
+		double precision, dimension(*)	dx,
+		integer	incx )
 ```
-
-## Description
-
 
     DSCAL scales a vector by a constant.
     uses unrolled loops for increment equal to 1.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Da : Double Precision [in]
+> On entry, DA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-### DA (in)
-
-DA is DOUBLE PRECISION On entry, DA specifies the scalar alpha.
-
-### DX (in,out)
-
-DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of DX
+Incx : Integer [in]
+> storage spacing between elements of DX
 

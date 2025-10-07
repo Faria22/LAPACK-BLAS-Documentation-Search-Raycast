@@ -1,17 +1,26 @@
-# ZPBSVX
-
-ZPBSVX computes the solution to system of linear equations A * X = B for OTHER matrices
-
-## Function Signature
-
 ```fortran
-ZPBSVX(FACT, UPLO, N, KD, NRHS, AB, LDAB, AFB, LDAFB,
-*                          EQUED, S, B, LDB, X, LDX, RCOND, FERR, BERR,
-*                          WORK, RWORK, INFO)
+subroutine zpbsvx	(	fact,
+		uplo,
+		n,
+		kd,
+		nrhs,
+		ab,
+		ldab,
+		afb,
+		ldafb,
+		*                          equed,
+		s,
+		b,
+		ldb,
+		x,
+		ldx,
+		rcond,
+		ferr,
+		berr,
+		*                          work,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  ZPBSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to
  compute the solution to a complex system of linear equations
@@ -23,88 +32,137 @@ ZPBSVX(FACT, UPLO, N, KD, NRHS, AB, LDAB, AFB, LDAFB,
  provided.
 
 ## Parameters
+Fact : Character*1 [in]
+> Specifies whether or not the factored form of the matrix A is
+> supplied on entry, and if not, whether the matrix A should be
+> equilibrated before it is factored.
+> = 'F':  On entry, AFB contains the factored form of A.
+> If EQUED = 'Y', the matrix A has been equilibrated
+> with scaling factors given by S.  AB and AFB will not
+> be modified.
+> = 'N':  The matrix A will be copied to AFB and factored.
+> = 'E':  The matrix A will be equilibrated if necessary, then
+> copied to AFB and factored.
 
-### FACT (in)
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-FACT is CHARACTER*1 Specifies whether or not the factored form of the matrix A is supplied on entry, and if not, whether the matrix A should be equilibrated before it is factored. = 'F': On entry, AFB contains the factored form of A. If EQUED = 'Y', the matrix A has been equilibrated with scaling factors given by S. AB and AFB will not be modified. = 'N': The matrix A will be copied to AFB and factored. = 'E': The matrix A will be equilibrated if necessary, then copied to AFB and factored.
+N : Integer [in]
+> The number of linear equations, i.e., the order of the
+> matrix A.  N >= 0.
 
-### UPLO (in)
+Kd : Integer [in]
+> The number of superdiagonals of the matrix A if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+Nrhs : Integer [in]
+> The number of right-hand sides, i.e., the number of columns
+> of the matrices B and X.  NRHS >= 0.
 
-### N (in)
+Ab : Complex*16 Array, Dimension (ldab,n) [in,out]
+> On entry, the upper or lower triangle of the Hermitian band
+> matrix A, stored in the first KD+1 rows of the array, except
+> if FACT = 'F' and EQUED = 'Y', then A must contain the
+> equilibrated matrix diag(S)*A*diag(S).  The j-th column of A
+> is stored in the j-th column of the array AB as follows:
+> if UPLO = 'U', AB(KD+1+i-j,j) = A(i,j) for max(1,j-KD)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(N,j+KD).
+> See below for further details.
+> On exit, if FACT = 'E' and EQUED = 'Y', A is overwritten by
+> diag(S)*A*diag(S).
 
-N is INTEGER The number of linear equations, i.e., the order of the matrix A. N >= 0.
+Ldab : Integer [in]
+> The leading dimension of the array A.  LDAB >= KD+1.
 
-### KD (in)
+Afb : Complex*16 Array, Dimension (ldafb,n) [in,out]
+> If FACT = 'F', then AFB is an input argument and on entry
+> contains the triangular factor U or L from the Cholesky
+> factorization A = U**H *U or A = L*L**H of the band matrix
+> A, in the same storage format as A (see AB).  If EQUED = 'Y',
+> then AFB is the factored form of the equilibrated matrix A.
+> If FACT = 'N', then AFB is an output argument and on exit
+> returns the triangular factor U or L from the Cholesky
+> factorization A = U**H *U or A = L*L**H.
+> If FACT = 'E', then AFB is an output argument and on exit
+> returns the triangular factor U or L from the Cholesky
+> factorization A = U**H *U or A = L*L**H of the equilibrated
+> matrix A (see the description of A for the form of the
+> equilibrated matrix).
 
-KD is INTEGER The number of superdiagonals of the matrix A if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KD >= 0.
+Ldafb : Integer [in]
+> The leading dimension of the array AFB.  LDAFB >= KD+1.
 
-### NRHS (in)
+Equed : Character*1 [in,out]
+> Specifies the form of equilibration that was done.
+> = 'N':  No equilibration (always true if FACT = 'N').
+> = 'Y':  Equilibration was done, i.e., A has been replaced by
+> diag(S) * A * diag(S).
+> EQUED is an input argument if FACT = 'F'; otherwise, it is an
+> output argument.
 
-NRHS is INTEGER The number of right-hand sides, i.e., the number of columns of the matrices B and X. NRHS >= 0.
+S : Double Precision Array, Dimension (n) [in,out]
+> The scale factors for A; not accessed if EQUED = 'N'.  S is
+> an input argument if FACT = 'F'; otherwise, S is an output
+> argument.  If FACT = 'F' and EQUED = 'Y', each element of S
+> must be positive.
 
-### AB (in,out)
+B : Complex*16 Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the N-by-NRHS right hand side matrix B.
+> On exit, if EQUED = 'N', B is not modified; if EQUED = 'Y',
+> B is overwritten by diag(S) * B.
 
-AB is COMPLEX*16 array, dimension (LDAB,N) On entry, the upper or lower triangle of the Hermitian band matrix A, stored in the first KD+1 rows of the array, except if FACT = 'F' and EQUED = 'Y', then A must contain the equilibrated matrix diag(S)*A*diag(S). The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(KD+1+i-j,j) = A(i,j) for max(1,j-KD)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(N,j+KD). See below for further details. On exit, if FACT = 'E' and EQUED = 'Y', A is overwritten by diag(S)*A*diag(S).
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### LDAB (in)
+X : Complex*16 Array, Dimension (ldx,nrhs) [out]
+> If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X to
+> the original system of equations.  Note that if EQUED = 'Y',
+> A and B are modified on exit, and the solution to the
+> equilibrated system is inv(diag(S))*X.
 
-LDAB is INTEGER The leading dimension of the array A. LDAB >= KD+1.
+Ldx : Integer [in]
+> The leading dimension of the array X.  LDX >= max(1,N).
 
-### AFB (in,out)
+Rcond : Double Precision [out]
+> The estimate of the reciprocal condition number of the matrix
+> A after equilibration (if done).  If RCOND is less than the
+> machine precision (in particular, if RCOND = 0), the matrix
+> is singular to working precision.  This condition is
+> indicated by a return code of INFO > 0.
 
-AFB is COMPLEX*16 array, dimension (LDAFB,N) If FACT = 'F', then AFB is an input argument and on entry contains the triangular factor U or L from the Cholesky factorization A = U**H *U or A = L*L**H of the band matrix A, in the same storage format as A (see AB). If EQUED = 'Y', then AFB is the factored form of the equilibrated matrix A. If FACT = 'N', then AFB is an output argument and on exit returns the triangular factor U or L from the Cholesky factorization A = U**H *U or A = L*L**H. If FACT = 'E', then AFB is an output argument and on exit returns the triangular factor U or L from the Cholesky factorization A = U**H *U or A = L*L**H of the equilibrated matrix A (see the description of A for the form of the equilibrated matrix).
+Ferr : Double Precision Array, Dimension (nrhs) [out]
+> The estimated forward error bound for each solution vector
+> X(j) (the j-th column of the solution matrix X).
+> If XTRUE is the true solution corresponding to X(j), FERR(j)
+> is an estimated upper bound for the magnitude of the largest
+> element in (X(j) - XTRUE) divided by the magnitude of the
+> largest element in X(j).  The estimate is as reliable as
+> the estimate for RCOND, and is almost always a slight
+> overestimate of the true error.
 
-### LDAFB (in)
+Berr : Double Precision Array, Dimension (nrhs) [out]
+> The componentwise relative backward error of each solution
+> vector X(j) (i.e., the smallest relative change in
+> any element of A or B that makes X(j) an exact solution).
 
-LDAFB is INTEGER The leading dimension of the array AFB. LDAFB >= KD+1.
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-### EQUED (in,out)
+Rwork : Double Precision Array, Dimension (n) [out]
 
-EQUED is CHARACTER*1 Specifies the form of equilibration that was done. = 'N': No equilibration (always true if FACT = 'N'). = 'Y': Equilibration was done, i.e., A has been replaced by diag(S) * A * diag(S). EQUED is an input argument if FACT = 'F'; otherwise, it is an output argument.
-
-### S (in,out)
-
-S is DOUBLE PRECISION array, dimension (N) The scale factors for A; not accessed if EQUED = 'N'. S is an input argument if FACT = 'F'; otherwise, S is an output argument. If FACT = 'F' and EQUED = 'Y', each element of S must be positive.
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) On entry, the N-by-NRHS right hand side matrix B. On exit, if EQUED = 'N', B is not modified; if EQUED = 'Y', B is overwritten by diag(S) * B.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### X (out)
-
-X is COMPLEX*16 array, dimension (LDX,NRHS) If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X to the original system of equations. Note that if EQUED = 'Y', A and B are modified on exit, and the solution to the equilibrated system is inv(diag(S))*X.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the array X. LDX >= max(1,N).
-
-### RCOND (out)
-
-RCOND is DOUBLE PRECISION The estimate of the reciprocal condition number of the matrix A after equilibration (if done). If RCOND is less than the machine precision (in particular, if RCOND = 0), the matrix is singular to working precision. This condition is indicated by a return code of INFO > 0.
-
-### FERR (out)
-
-FERR is DOUBLE PRECISION array, dimension (NRHS) The estimated forward error bound for each solution vector X(j) (the j-th column of the solution matrix X). If XTRUE is the true solution corresponding to X(j), FERR(j) is an estimated upper bound for the magnitude of the largest element in (X(j) - XTRUE) divided by the magnitude of the largest element in X(j). The estimate is as reliable as the estimate for RCOND, and is almost always a slight overestimate of the true error.
-
-### BERR (out)
-
-BERR is DOUBLE PRECISION array, dimension (NRHS) The componentwise relative backward error of each solution vector X(j) (i.e., the smallest relative change in any element of A or B that makes X(j) an exact solution).
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, and i is <= N: the leading principal minor of order i of A is not positive, so the factorization could not be completed, and the solution has not been computed. RCOND = 0 is returned. = N+1: U is nonsingular, but RCOND is less than machine precision, meaning that the matrix is singular to working precision. Nevertheless, the solution and error bounds are computed because there are a number of situations where the computed solution can be more accurate than the value of RCOND would suggest.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> > 0: if INFO = i, and i is
+> <= N:  the leading principal minor of order i of A
+> is not positive, so the factorization could not
+> be completed, and the solution has not been
+> computed. RCOND = 0 is returned.
+> = N+1: U is nonsingular, but RCOND is less than machine
+> precision, meaning that the matrix is singular
+> to working precision.  Nevertheless, the
+> solution and error bounds are computed because
+> there are a number of situations where the
+> computed solution can be more accurate than the
+> value of RCOND would suggest.
 

@@ -1,13 +1,14 @@
-# DGETRS
-
-## Function Signature
-
 ```fortran
-DGETRS(TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO)
+subroutine dgetrs	(	character	trans,
+		integer	n,
+		integer	nrhs,
+		double precision, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		double precision, dimension(ldb, *)	b,
+		integer	ldb,
+		integer	info )
 ```
-
-## Description
-
 
  DGETRS solves a system of linear equations
     A * X = B  or  A**T * X = B
@@ -15,40 +16,38 @@ DGETRS(TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO)
  by DGETRF.
 
 ## Parameters
+Trans : Character*1 [in]
+> Specifies the form of the system of equations:
+> = 'N':  A * X = B  (No transpose)
+> = 'T':  A**T* X = B  (Transpose)
+> = 'C':  A**T* X = B  (Conjugate transpose = Transpose)
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-TRANS is CHARACTER*1 Specifies the form of the system of equations: = 'N': A * X = B (No transpose) = 'T': A**T* X = B (Transpose) = 'C': A**T* X = B (Conjugate transpose = Transpose)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### N (in)
+A : Double Precision Array, Dimension (lda,n) [in]
+> The factors L and U from the factorization A = P*L*U
+> as computed by DGETRF.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### NRHS (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices from DGETRF; for 1<=i<=N, row i of the
+> matrix was interchanged with row IPIV(i).
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+B : Double Precision Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side matrix B.
+> On exit, the solution matrix X.
 
-### A (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-A is DOUBLE PRECISION array, dimension (LDA,N) The factors L and U from the factorization A = P*L*U as computed by DGETRF.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices from DGETRF; for 1<=i<=N, row i of the matrix was interchanged with row IPIV(i).
-
-### B (in,out)
-
-B is DOUBLE PRECISION array, dimension (LDB,NRHS) On entry, the right hand side matrix B. On exit, the solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

@@ -1,16 +1,15 @@
-# SSYCON_ROOK
-
-SSYCON_ROOK
-
-## Function Signature
-
 ```fortran
-SSYCON_ROOK(UPLO, N, A, LDA, IPIV, ANORM, RCOND,
-*                               WORK, IWORK, INFO)
+subroutine ssycon_rook	(	uplo,
+		n,
+		a,
+		lda,
+		ipiv,
+		anorm,
+		rcond,
+		*                               work,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  SSYCON_ROOK estimates the reciprocal of the condition number (in the
  1-norm) of a real symmetric matrix A using the factorization
@@ -20,44 +19,39 @@ SSYCON_ROOK(UPLO, N, A, LDA, IPIV, ANORM, RCOND,
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+A : Real Array, Dimension (lda,n) [in]
+> The block diagonal matrix D and the multipliers used to
+> obtain the factor U or L as computed by SSYTRF_ROOK.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by SSYTRF_ROOK.
 
-### A (in)
+Anorm : Real [in]
+> The 1-norm of the original matrix A.
 
-A is REAL array, dimension (LDA,N) The block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by SSYTRF_ROOK.
+Rcond : Real [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-### LDA (in)
+Work : Real Array, Dimension (2*n) [out]
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Iwork : Integer Array, Dimension (n) [out]
 
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by SSYTRF_ROOK.
-
-### ANORM (in)
-
-ANORM is REAL The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is REAL The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is REAL array, dimension (2*N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

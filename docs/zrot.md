@@ -1,44 +1,39 @@
-# ZROT
-
-## Function Signature
-
 ```fortran
-ZROT(N, CX, INCX, CY, INCY, C, S)
+subroutine zrot	(	integer	n,
+		complex*16, dimension(*)	cx,
+		integer	incx,
+		complex*16, dimension(*)	cy,
+		integer	incy,
+		double precision	c,
+		complex*16	s )
 ```
-
-## Description
-
 
  ZROT applies a plane rotation, where the cos (C) is real and the
  sin (S) is complex, and the vectors CX and CY are complex.
 
 ## Parameters
+N : Integer [in]
+> The number of elements in the vectors CX and CY.
 
-### N (in)
+Cx : Complex*16 Array, Dimension (n) [in,out]
+> On input, the vector X.
+> On output, CX is overwritten with C*X + S*Y.
 
-N is INTEGER The number of elements in the vectors CX and CY.
+Incx : Integer [in]
+> The increment between successive values of CX.  INCX <> 0.
 
-### CX (in,out)
+Cy : Complex*16 Array, Dimension (n) [in,out]
+> On input, the vector Y.
+> On output, CY is overwritten with -CONJG(S)*X + C*Y.
 
-CX is COMPLEX*16 array, dimension (N) On input, the vector X. On output, CX is overwritten with C*X + S*Y.
+Incy : Integer [in]
+> The increment between successive values of CY.  INCX <> 0.
 
-### INCX (in)
+C : Double Precision [in]
 
-INCX is INTEGER The increment between successive values of CX. INCX <> 0.
-
-### CY (in,out)
-
-CY is COMPLEX*16 array, dimension (N) On input, the vector Y. On output, CY is overwritten with -CONJG(S)*X + C*Y.
-
-### INCY (in)
-
-INCY is INTEGER The increment between successive values of CY. INCX <> 0.
-
-### C (in)
-
-C is DOUBLE PRECISION
-
-### S (in)
-
-S is COMPLEX*16 C and S define a rotation [ C S ] [ -conjg(S) C ] where C*C + S*CONJG(S) = 1.0.
+S : Complex*16 [in]
+> C and S define a rotation
+> [  C          S  ]
+> [ -conjg(S)   C  ]
+> where C*C + S*CONJG(S) = 1.0.
 

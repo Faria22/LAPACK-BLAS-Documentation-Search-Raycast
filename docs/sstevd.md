@@ -1,16 +1,16 @@
-# SSTEVD
-
-SSTEVD computes the eigenvalues and, optionally, the left and/or right eigenvectors for OTHER matrices
-
-## Function Signature
-
 ```fortran
-SSTEVD(JOBZ, N, D, E, Z, LDZ, WORK, LWORK, IWORK,
-*                          LIWORK, INFO)
+subroutine sstevd	(	jobz,
+		n,
+		d,
+		e,
+		z,
+		ldz,
+		work,
+		lwork,
+		iwork,
+		*                          liwork,
+		info )
 ```
-
-## Description
-
 
  SSTEVD computes all eigenvalues and, optionally, eigenvectors of a
  real symmetric tridiagonal matrix. If eigenvectors are desired, it
@@ -18,48 +18,64 @@ SSTEVD(JOBZ, N, D, E, Z, LDZ, WORK, LWORK, IWORK,
 
 
 ## Parameters
+Jobz : Character*1 [in]
+> = 'N':  Compute eigenvalues only;
+> = 'V':  Compute eigenvalues and eigenvectors.
 
-### JOBZ (in)
+N : Integer [in]
+> The order of the matrix.  N >= 0.
 
-JOBZ is CHARACTER*1 = 'N': Compute eigenvalues only; = 'V': Compute eigenvalues and eigenvectors.
+D : Real Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the tridiagonal matrix
+> A.
+> On exit, if INFO = 0, the eigenvalues in ascending order.
 
-### N (in)
+E : Real Array, Dimension (n-1) [in,out]
+> On entry, the (n-1) subdiagonal elements of the tridiagonal
+> matrix A, stored in elements 1 to N-1 of E.
+> On exit, the contents of E are destroyed.
 
-N is INTEGER The order of the matrix. N >= 0.
+Z : Real Array, Dimension (ldz, N) [out]
+> If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
+> eigenvectors of the matrix A, with the i-th column of Z
+> holding the eigenvector associated with D(i).
+> If JOBZ = 'N', then Z is not referenced.
 
-### D (in,out)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDZ >= 1, and if
+> JOBZ = 'V', LDZ >= max(1,N).
 
-D is REAL array, dimension (N) On entry, the n diagonal elements of the tridiagonal matrix A. On exit, if INFO = 0, the eigenvalues in ascending order.
+Work : Real Array, [out]
+> dimension (LWORK)
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### E (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> If JOBZ  = 'N' or N <= 1 then LWORK must be at least 1.
+> If JOBZ  = 'V' and N > 1 then LWORK must be at least
+> ( 1 + 4*N + N**2 ).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal sizes of the WORK and IWORK
+> arrays, returns these values as the first entries of the WORK
+> and IWORK arrays, and no error message related to LWORK or
+> LIWORK is issued by XERBLA.
 
-E is REAL array, dimension (N-1) On entry, the (n-1) subdiagonal elements of the tridiagonal matrix A, stored in elements 1 to N-1 of E. On exit, the contents of E are destroyed.
+Iwork : Integer Array, Dimension (max(1,liwork)) [out]
+> On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
 
-### Z (out)
+Liwork : Integer [in]
+> The dimension of the array IWORK.
+> If JOBZ  = 'N' or N <= 1 then LIWORK must be at least 1.
+> If JOBZ  = 'V' and N > 1 then LIWORK must be at least 3+5*N.
+> If LIWORK = -1, then a workspace query is assumed; the
+> routine only calculates the optimal sizes of the WORK and
+> IWORK arrays, returns these values as the first entries of
+> the WORK and IWORK arrays, and no error message related to
+> LWORK or LIWORK is issued by XERBLA.
 
-Z is REAL array, dimension (LDZ, N) If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal eigenvectors of the matrix A, with the i-th column of Z holding the eigenvector associated with D(i). If JOBZ = 'N', then Z is not referenced.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1, and if JOBZ = 'V', LDZ >= max(1,N).
-
-### WORK (out)
-
-WORK is REAL array, dimension (LWORK) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If JOBZ = 'N' or N <= 1 then LWORK must be at least 1. If JOBZ = 'V' and N > 1 then LWORK must be at least ( 1 + 4*N + N**2 ). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal sizes of the WORK and IWORK arrays, returns these values as the first entries of the WORK and IWORK arrays, and no error message related to LWORK or LIWORK is issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MAX(1,LIWORK)) On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
-
-### LIWORK (in)
-
-LIWORK is INTEGER The dimension of the array IWORK. If JOBZ = 'N' or N <= 1 then LIWORK must be at least 1. If JOBZ = 'V' and N > 1 then LIWORK must be at least 3+5*N. If LIWORK = -1, then a workspace query is assumed; the routine only calculates the optimal sizes of the WORK and IWORK arrays, returns these values as the first entries of the WORK and IWORK arrays, and no error message related to LWORK or LIWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the algorithm failed to converge; i off-diagonal elements of E did not converge to zero.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the algorithm failed to converge; i
+> off-diagonal elements of E did not converge to zero.
 

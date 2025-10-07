@@ -1,14 +1,15 @@
-# ZLASYF_AA
-
-## Function Signature
-
 ```fortran
-ZLASYF_AA(UPLO, J1, M, NB, A, LDA, IPIV,
-*                             H, LDH, WORK)
+subroutine zlasyf_aa	(	uplo,
+		j1,
+		m,
+		nb,
+		a,
+		lda,
+		ipiv,
+		*                             h,
+		ldh,
+		work )
 ```
-
-## Description
-
 
  DLATRF_AA factorizes a panel of a complex symmetric matrix A using
  the Aasen's algorithm. The panel consists of a set of NB rows of A
@@ -25,44 +26,43 @@ ZLASYF_AA(UPLO, J1, M, NB, A, LDA, IPIV,
 
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+J1 : Integer [in]
+> The location of the first row, or column, of the panel
+> within the submatrix of A, passed to this routine, e.g.,
+> when called by ZSYTRF_AA, for the first panel, J1 is 1,
+> while for the remaining panels, J1 is 2.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+M : Integer [in]
+> The dimension of the submatrix. M >= 0.
 
-### J1 (in)
+Nb : Integer [in]
+> The dimension of the panel to be facotorized.
 
-J1 is INTEGER The location of the first row, or column, of the panel within the submatrix of A, passed to this routine, e.g., when called by ZSYTRF_AA, for the first panel, J1 is 1, while for the remaining panels, J1 is 2.
+A : Complex*16 Array, Dimension (lda,m) For [in,out]
+> the first panel, while dimension (LDA,M+1) for the
+> remaining panels.
+> On entry, A contains the last row, or column, of
+> the previous panel, and the trailing submatrix of A
+> to be factorized, except for the first panel, only
+> the panel is passed.
+> On exit, the leading panel is factorized.
 
-### M (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-M is INTEGER The dimension of the submatrix. M >= 0.
+Ipiv : Integer Array, Dimension (m) [out]
+> Details of the row and column interchanges,
+> the row and column k were interchanged with the row and
+> column IPIV(k).
 
-### NB (in)
+H : Complex*16 Workspace, Dimension (ldh,nb). [in,out]
 
-NB is INTEGER The dimension of the panel to be facotorized.
+Ldh : Integer [in]
+> The leading dimension of the workspace H. LDH >= max(1,M).
 
-### A (in,out)
-
-A is COMPLEX*16 array, dimension (LDA,M) for the first panel, while dimension (LDA,M+1) for the remaining panels. On entry, A contains the last row, or column, of the previous panel, and the trailing submatrix of A to be factorized, except for the first panel, only the panel is passed. On exit, the leading panel is factorized.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (M) Details of the row and column interchanges, the row and column k were interchanged with the row and column IPIV(k).
-
-### H (in,out)
-
-H is COMPLEX*16 workspace, dimension (LDH,NB).
-
-### LDH (in)
-
-LDH is INTEGER The leading dimension of the workspace H. LDH >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX*16 workspace, dimension (M).
+Work : Complex*16 Workspace, Dimension (m). [out]
 

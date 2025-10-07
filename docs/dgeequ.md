@@ -1,14 +1,15 @@
-# DGEEQU
-
-## Function Signature
-
 ```fortran
-DGEEQU(M, N, A, LDA, R, C, ROWCND, COLCND, AMAX,
-*                          INFO)
+subroutine dgeequ	(	m,
+		n,
+		a,
+		lda,
+		r,
+		c,
+		rowcnd,
+		colcnd,
+		amax,
+		*                          info )
 ```
-
-## Description
-
 
  DGEEQU computes row and column scalings intended to equilibrate an
  M-by-N matrix A and reduce its condition number.  R returns the row
@@ -22,44 +23,46 @@ DGEEQU(M, N, A, LDA, R, C, ROWCND, COLCND, AMAX,
  works well in practice.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Double Precision Array, Dimension (lda,n) [in]
+> The M-by-N matrix whose equilibration factors are
+> to be computed.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+R : Double Precision Array, Dimension (m) [out]
+> If INFO = 0 or INFO > M, R contains the row scale factors
+> for A.
 
-### A (in)
+C : Double Precision Array, Dimension (n) [out]
+> If INFO = 0,  C contains the column scale factors for A.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) The M-by-N matrix whose equilibration factors are to be computed.
+Rowcnd : Double Precision [out]
+> If INFO = 0 or INFO > M, ROWCND contains the ratio of the
+> smallest R(i) to the largest R(i).  If ROWCND >= 0.1 and
+> AMAX is neither too large nor too small, it is not worth
+> scaling by R.
 
-### LDA (in)
+Colcnd : Double Precision [out]
+> If INFO = 0, COLCND contains the ratio of the smallest
+> C(i) to the largest C(i).  If COLCND >= 0.1, it is not
+> worth scaling by C.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Amax : Double Precision [out]
+> Absolute value of largest matrix element.  If AMAX is very
+> close to overflow or very close to underflow, the matrix
+> should be scaled.
 
-### R (out)
-
-R is DOUBLE PRECISION array, dimension (M) If INFO = 0 or INFO > M, R contains the row scale factors for A.
-
-### C (out)
-
-C is DOUBLE PRECISION array, dimension (N) If INFO = 0, C contains the column scale factors for A.
-
-### ROWCND (out)
-
-ROWCND is DOUBLE PRECISION If INFO = 0 or INFO > M, ROWCND contains the ratio of the smallest R(i) to the largest R(i). If ROWCND >= 0.1 and AMAX is neither too large nor too small, it is not worth scaling by R.
-
-### COLCND (out)
-
-COLCND is DOUBLE PRECISION If INFO = 0, COLCND contains the ratio of the smallest C(i) to the largest C(i). If COLCND >= 0.1, it is not worth scaling by C.
-
-### AMAX (out)
-
-AMAX is DOUBLE PRECISION Absolute value of largest matrix element. If AMAX is very close to overflow or very close to underflow, the matrix should be scaled.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, and i is <= M: the i-th row of A is exactly zero > M: the (i-M)-th column of A is exactly zero
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i,  and i is
+> <= M:  the i-th row of A is exactly zero
+> >  M:  the (i-M)-th column of A is exactly zero
 

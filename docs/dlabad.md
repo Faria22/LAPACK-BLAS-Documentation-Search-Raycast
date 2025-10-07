@@ -1,13 +1,7 @@
-# DLABAD
-
-## Function Signature
-
 ```fortran
-DLABAD(SMALL, LARGE)
+subroutine dlabad	(	double precision	small,
+		double precision	large )
 ```
-
-## Description
-
 
  DLABAD is a no-op and kept for compatibility reasons. It used
  to correct the overflow/underflow behavior of machines that
@@ -15,12 +9,11 @@ DLABAD(SMALL, LARGE)
 
 
 ## Parameters
+Small : Double Precision [in,out]
+> On entry, the underflow threshold as computed by DLAMCH.
+> On exit, the unchanged value SMALL.
 
-### SMALL (in,out)
-
-SMALL is DOUBLE PRECISION On entry, the underflow threshold as computed by DLAMCH. On exit, the unchanged value SMALL.
-
-### LARGE (in,out)
-
-LARGE is DOUBLE PRECISION On entry, the overflow threshold as computed by DLAMCH. On exit, the unchanged value LARGE.
+Large : Double Precision [in,out]
+> On entry, the overflow threshold as computed by DLAMCH.
+> On exit, the unchanged value LARGE.
 

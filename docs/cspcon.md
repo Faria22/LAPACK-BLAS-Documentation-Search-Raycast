@@ -1,13 +1,13 @@
-# CSPCON
-
-## Function Signature
-
 ```fortran
-CSPCON(UPLO, N, AP, IPIV, ANORM, RCOND, WORK, INFO)
+subroutine cspcon	(	character	uplo,
+		integer	n,
+		complex, dimension(*)	ap,
+		integer, dimension(*)	ipiv,
+		real	anorm,
+		real	rcond,
+		complex, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  CSPCON estimates the reciprocal of the condition number (in the
  1-norm) of a complex symmetric packed matrix A using the
@@ -17,36 +17,35 @@ CSPCON(UPLO, N, AP, IPIV, ANORM, RCOND, WORK, INFO)
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+Ap : Complex Array, Dimension (n*(n+1)/2) [in]
+> The block diagonal matrix D and the multipliers used to
+> obtain the factor U or L as computed by CSPTRF, stored as a
+> packed triangular matrix.
 
-### N (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by CSPTRF.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Anorm : Real [in]
+> The 1-norm of the original matrix A.
 
-### AP (in)
+Rcond : Real [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-AP is COMPLEX array, dimension (N*(N+1)/2) The block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by CSPTRF, stored as a packed triangular matrix.
+Work : Complex Array, Dimension (2*n) [out]
 
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by CSPTRF.
-
-### ANORM (in)
-
-ANORM is REAL The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is REAL The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

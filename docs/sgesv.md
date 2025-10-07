@@ -1,15 +1,13 @@
-# SGESV
-
-SGESV computes the solution to system of linear equations A * X = B for GE matrices
-
-## Function Signature
-
 ```fortran
-SGESV(N, NRHS, A, LDA, IPIV, B, LDB, INFO)
+subroutine sgesv	(	integer	n,
+		integer	nrhs,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		real, dimension(ldb, *)	b,
+		integer	ldb,
+		integer	info )
 ```
-
-## Description
-
 
  SGESV computes the solution to a real system of linear equations
     A * X = B,
@@ -23,36 +21,37 @@ SGESV(N, NRHS, A, LDA, IPIV, B, LDB, INFO)
  system of equations A * X = B.
 
 ## Parameters
+N : Integer [in]
+> The number of linear equations, i.e., the order of the
+> matrix A.  N >= 0.
 
-### N (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-N is INTEGER The number of linear equations, i.e., the order of the matrix A. N >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the N-by-N coefficient matrix A.
+> On exit, the factors L and U from the factorization
+> A = P*L*U; the unit diagonal elements of L are not stored.
 
-### NRHS (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Ipiv : Integer Array, Dimension (n) [out]
+> The pivot indices that define the permutation matrix P;
+> row i of the matrix was interchanged with row IPIV(i).
 
-### A (in,out)
+B : Real Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the N-by-NRHS matrix of right hand side matrix B.
+> On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
-A is REAL array, dimension (LDA,N) On entry, the N-by-N coefficient matrix A. On exit, the factors L and U from the factorization A = P*L*U; the unit diagonal elements of L are not stored.
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (N) The pivot indices that define the permutation matrix P; row i of the matrix was interchanged with row IPIV(i).
-
-### B (in,out)
-
-B is REAL array, dimension (LDB,NRHS) On entry, the N-by-NRHS matrix of right hand side matrix B. On exit, if INFO = 0, the N-by-NRHS solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, U(i,i) is exactly zero. The factorization has been completed, but the factor U is exactly singular, so the solution could not be computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
+> has been completed, but the factor U is exactly
+> singular, so the solution could not be computed.
 

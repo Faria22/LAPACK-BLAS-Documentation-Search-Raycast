@@ -1,14 +1,15 @@
-# DLATPS
-
-## Function Signature
-
 ```fortran
-DLATPS(UPLO, TRANS, DIAG, NORMIN, N, AP, X, SCALE,
-*                          CNORM, INFO)
+subroutine dlatps	(	uplo,
+		trans,
+		diag,
+		normin,
+		n,
+		ap,
+		x,
+		scale,
+		*                          cnorm,
+		info )
 ```
-
-## Description
-
 
  DLATPS solves one of the triangular systems
 
@@ -24,44 +25,59 @@ DLATPS(UPLO, TRANS, DIAG, NORMIN, N, AP, X, SCALE,
  then s is set to 0 and a non-trivial solution to A*x = 0 is returned.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the matrix A is upper or lower triangular.
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+Trans : Character*1 [in]
+> Specifies the operation applied to A.
+> = 'N':  Solve A * x = s*b  (No transpose)
+> = 'T':  Solve A**T* x = s*b  (Transpose)
+> = 'C':  Solve A**T* x = s*b  (Conjugate transpose = Transpose)
 
-UPLO is CHARACTER*1 Specifies whether the matrix A is upper or lower triangular. = 'U': Upper triangular = 'L': Lower triangular
+Diag : Character*1 [in]
+> Specifies whether or not the matrix A is unit triangular.
+> = 'N':  Non-unit triangular
+> = 'U':  Unit triangular
 
-### TRANS (in)
+Normin : Character*1 [in]
+> Specifies whether CNORM has been set or not.
+> = 'Y':  CNORM contains the column norms on entry
+> = 'N':  CNORM is not set on entry.  On exit, the norms will
+> be computed and stored in CNORM.
 
-TRANS is CHARACTER*1 Specifies the operation applied to A. = 'N': Solve A * x = s*b (No transpose) = 'T': Solve A**T* x = s*b (Transpose) = 'C': Solve A**T* x = s*b (Conjugate transpose = Transpose)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### DIAG (in)
+Ap : Double Precision Array, Dimension (n*(n+1)/2) [in]
+> The upper or lower triangular matrix A, packed columnwise in
+> a linear array.  The j-th column of A is stored in the array
+> AP as follows:
+> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
 
-DIAG is CHARACTER*1 Specifies whether or not the matrix A is unit triangular. = 'N': Non-unit triangular = 'U': Unit triangular
+X : Double Precision Array, Dimension (n) [in,out]
+> On entry, the right hand side b of the triangular system.
+> On exit, X is overwritten by the solution vector x.
 
-### NORMIN (in)
+Scale : Double Precision [out]
+> The scaling factor s for the triangular system
+> A * x = s*b  or  A**T* x = s*b.
+> If SCALE = 0, the matrix A is singular or badly scaled, and
+> the vector x is an exact or approximate solution to A*x = 0.
 
-NORMIN is CHARACTER*1 Specifies whether CNORM has been set or not. = 'Y': CNORM contains the column norms on entry = 'N': CNORM is not set on entry. On exit, the norms will be computed and stored in CNORM.
+Cnorm : Double Precision Array, Dimension (n) [in,out]
+> If NORMIN = 'Y', CNORM is an input argument and CNORM(j)
+> contains the norm of the off-diagonal part of the j-th column
+> of A.  If TRANS = 'N', CNORM(j) must be greater than or equal
+> to the infinity-norm, and if TRANS = 'T' or 'C', CNORM(j)
+> must be greater than or equal to the 1-norm.
+> If NORMIN = 'N', CNORM is an output argument and CNORM(j)
+> returns the 1-norm of the offdiagonal part of the j-th column
+> of A.
 
-### N (in)
-
-N is INTEGER The order of the matrix A. N >= 0.
-
-### AP (in)
-
-AP is DOUBLE PRECISION array, dimension (N*(N+1)/2) The upper or lower triangular matrix A, packed columnwise in a linear array. The j-th column of A is stored in the array AP as follows: if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j; if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
-
-### X (in,out)
-
-X is DOUBLE PRECISION array, dimension (N) On entry, the right hand side b of the triangular system. On exit, X is overwritten by the solution vector x.
-
-### SCALE (out)
-
-SCALE is DOUBLE PRECISION The scaling factor s for the triangular system A * x = s*b or A**T* x = s*b. If SCALE = 0, the matrix A is singular or badly scaled, and the vector x is an exact or approximate solution to A*x = 0.
-
-### CNORM (in,out)
-
-CNORM is DOUBLE PRECISION array, dimension (N) If NORMIN = 'Y', CNORM is an input argument and CNORM(j) contains the norm of the off-diagonal part of the j-th column of A. If TRANS = 'N', CNORM(j) must be greater than or equal to the infinity-norm, and if TRANS = 'T' or 'C', CNORM(j) must be greater than or equal to the 1-norm. If NORMIN = 'N', CNORM is an output argument and CNORM(j) returns the 1-norm of the offdiagonal part of the j-th column of A.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -k, the k-th argument had an illegal value
 

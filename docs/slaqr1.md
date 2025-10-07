@@ -1,13 +1,13 @@
-# SLAQR1
-
-## Function Signature
-
 ```fortran
-SLAQR1(N, H, LDH, SR1, SI1, SR2, SI2, V)
+subroutine slaqr1	(	integer	n,
+		real, dimension(ldh, *)	h,
+		integer	ldh,
+		real	sr1,
+		real	si1,
+		real	sr2,
+		real	si2,
+		real, dimension(*)	v )
 ```
-
-## Description
-
 
       Given a 2-by-2 or 3-by-3 matrix H, SLAQR1 sets v to a
       scalar multiple of the first column of the product
@@ -25,36 +25,26 @@ SLAQR1(N, H, LDH, SR1, SI1, SR2, SI2, V)
       in the QR algorithm.
 
 ## Parameters
+N : Integer [in]
+> Order of the matrix H. N must be either 2 or 3.
 
-### N (in)
+H : Real Array, Dimension (ldh,n) [in]
+> The 2-by-2 or 3-by-3 matrix H in (*).
 
-N is INTEGER Order of the matrix H. N must be either 2 or 3.
+Ldh : Integer [in]
+> The leading dimension of H as declared in
+> the calling procedure.  LDH >= N
 
-### H (in)
+Sr1 : Real [in]
 
-H is REAL array, dimension (LDH,N) The 2-by-2 or 3-by-3 matrix H in (*).
+Si1 : Real [in]
 
-### LDH (in)
+Sr2 : Real [in]
 
-LDH is INTEGER The leading dimension of H as declared in the calling procedure. LDH >= N
+Si2 : Real [in]
+> The shifts in (*).
 
-### SR1 (in)
-
-SR1 is REAL
-
-### SI1 (in)
-
-SI1 is REAL
-
-### SR2 (in)
-
-SR2 is REAL
-
-### SI2 (in)
-
-SI2 is REAL The shifts in (*).
-
-### V (out)
-
-V is REAL array, dimension (N) A scalar multiple of the first column of the matrix K in (*).
+V : Real Array, Dimension (n) [out]
+> A scalar multiple of the first column of the
+> matrix K in (*).
 

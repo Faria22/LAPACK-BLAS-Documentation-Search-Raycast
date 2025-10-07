@@ -1,14 +1,19 @@
-# ZHBGST
-
-## Function Signature
-
 ```fortran
-ZHBGST(VECT, UPLO, N, KA, KB, AB, LDAB, BB, LDBB, X,
-*                          LDX, WORK, RWORK, INFO)
+subroutine zhbgst	(	vect,
+		uplo,
+		n,
+		ka,
+		kb,
+		ab,
+		ldab,
+		bb,
+		ldbb,
+		x,
+		*                          ldx,
+		work,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  ZHBGST reduces a complex Hermitian-definite banded generalized
  eigenproblem  A*x = lambda*B*x  to standard form  C*y = lambda*y,
@@ -20,60 +25,59 @@ ZHBGST(VECT, UPLO, N, KA, KB, AB, LDAB, BB, LDBB, X,
  bandwidth of A.
 
 ## Parameters
+Vect : Character*1 [in]
+> = 'N':  do not form the transformation matrix X;
+> = 'V':  form X.
 
-### VECT (in)
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-VECT is CHARACTER*1 = 'N': do not form the transformation matrix X; = 'V': form X.
+N : Integer [in]
+> The order of the matrices A and B.  N >= 0.
 
-### UPLO (in)
+Ka : Integer [in]
+> The number of superdiagonals of the matrix A if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'.  KA >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+Kb : Integer [in]
+> The number of superdiagonals of the matrix B if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'.  KA >= KB >= 0.
 
-### N (in)
+Ab : Complex*16 Array, Dimension (ldab,n) [in,out]
+> On entry, the upper or lower triangle of the Hermitian band
+> matrix A, stored in the first ka+1 rows of the array.  The
+> j-th column of A is stored in the j-th column of the array AB
+> as follows:
+> if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
+> On exit, the transformed matrix X**H*A*X, stored in the same
+> format as A.
 
-N is INTEGER The order of the matrices A and B. N >= 0.
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KA+1.
 
-### KA (in)
+Bb : Complex*16 Array, Dimension (ldbb,n) [in]
+> The banded factor S from the split Cholesky factorization of
+> B, as returned by ZPBSTF, stored in the first kb+1 rows of
+> the array.
 
-KA is INTEGER The number of superdiagonals of the matrix A if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KA >= 0.
+Ldbb : Integer [in]
+> The leading dimension of the array BB.  LDBB >= KB+1.
 
-### KB (in)
+X : Complex*16 Array, Dimension (ldx,n) [out]
+> If VECT = 'V', the n-by-n matrix X.
+> If VECT = 'N', the array X is not referenced.
 
-KB is INTEGER The number of superdiagonals of the matrix B if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KA >= KB >= 0.
+Ldx : Integer [in]
+> The leading dimension of the array X.
+> LDX >= max(1,N) if VECT = 'V'; LDX >= 1 otherwise.
 
-### AB (in,out)
+Work : Complex*16 Array, Dimension (n) [out]
 
-AB is COMPLEX*16 array, dimension (LDAB,N) On entry, the upper or lower triangle of the Hermitian band matrix A, stored in the first ka+1 rows of the array. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+ka). On exit, the transformed matrix X**H*A*X, stored in the same format as A.
+Rwork : Double Precision Array, Dimension (n) [out]
 
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KA+1.
-
-### BB (in)
-
-BB is COMPLEX*16 array, dimension (LDBB,N) The banded factor S from the split Cholesky factorization of B, as returned by ZPBSTF, stored in the first kb+1 rows of the array.
-
-### LDBB (in)
-
-LDBB is INTEGER The leading dimension of the array BB. LDBB >= KB+1.
-
-### X (out)
-
-X is COMPLEX*16 array, dimension (LDX,N) If VECT = 'V', the n-by-n matrix X. If VECT = 'N', the array X is not referenced.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the array X. LDX >= max(1,N) if VECT = 'V'; LDX >= 1 otherwise.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

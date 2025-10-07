@@ -1,14 +1,19 @@
-# DBDSDC
-
-## Function Signature
-
 ```fortran
-DBDSDC(UPLO, COMPQ, N, D, E, U, LDU, VT, LDVT, Q, IQ,
-*                          WORK, IWORK, INFO)
+subroutine dbdsdc	(	uplo,
+		compq,
+		n,
+		d,
+		e,
+		u,
+		ldu,
+		vt,
+		ldvt,
+		q,
+		iq,
+		*                          work,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  DBDSDC computes the singular value decomposition (SVD) of a real
  N-by-N (upper or lower) bidiagonal matrix B:  B = U * S * VT,
@@ -23,60 +28,84 @@ DBDSDC(UPLO, COMPQ, N, D, E, U, LDU, VT, LDVT, Q, IQ,
  using the divide and conquer method.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  B is upper bidiagonal.
+> = 'L':  B is lower bidiagonal.
 
-### UPLO (in)
+Compq : Character*1 [in]
+> Specifies whether singular vectors are to be computed
+> as follows:
+> = 'N':  Compute singular values only;
+> = 'P':  Compute singular values and compute singular
+> vectors in compact form;
+> = 'I':  Compute singular values and singular vectors.
 
-UPLO is CHARACTER*1 = 'U': B is upper bidiagonal. = 'L': B is lower bidiagonal.
+N : Integer [in]
+> The order of the matrix B.  N >= 0.
 
-### COMPQ (in)
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the bidiagonal matrix B.
+> On exit, if INFO=0, the singular values of B.
 
-COMPQ is CHARACTER*1 Specifies whether singular vectors are to be computed as follows: = 'N': Compute singular values only; = 'P': Compute singular values and compute singular vectors in compact form; = 'I': Compute singular values and singular vectors.
+E : Double Precision Array, Dimension (n-1) [in,out]
+> On entry, the elements of E contain the offdiagonal
+> elements of the bidiagonal matrix whose SVD is desired.
+> On exit, E has been destroyed.
 
-### N (in)
+U : Double Precision Array, Dimension (ldu,n) [out]
+> If  COMPQ = 'I', then:
+> On exit, if INFO = 0, U contains the left singular vectors
+> of the bidiagonal matrix.
+> For other values of COMPQ, U is not referenced.
 
-N is INTEGER The order of the matrix B. N >= 0.
+Ldu : Integer [in]
+> The leading dimension of the array U.  LDU >= 1.
+> If singular vectors are desired, then LDU >= max( 1, N ).
 
-### D (in,out)
+Vt : Double Precision Array, Dimension (ldvt,n) [out]
+> If  COMPQ = 'I', then:
+> On exit, if INFO = 0, VT**T contains the right singular
+> vectors of the bidiagonal matrix.
+> For other values of COMPQ, VT is not referenced.
 
-D is DOUBLE PRECISION array, dimension (N) On entry, the n diagonal elements of the bidiagonal matrix B. On exit, if INFO=0, the singular values of B.
+Ldvt : Integer [in]
+> The leading dimension of the array VT.  LDVT >= 1.
+> If singular vectors are desired, then LDVT >= max( 1, N ).
 
-### E (in,out)
+Q : Double Precision Array, Dimension (ldq) [out]
+> If  COMPQ = 'P', then:
+> On exit, if INFO = 0, Q and IQ contain the left
+> and right singular vectors in a compact form,
+> requiring O(N log N) space instead of 2*N**2.
+> In particular, Q contains all the DOUBLE PRECISION data in
+> LDQ >= N*(11 + 2*SMLSIZ + 8*INT(LOG_2(N/(SMLSIZ+1))))
+> words of memory, where SMLSIZ is returned by ILAENV and
+> is equal to the maximum size of the subproblems at the
+> bottom of the computation tree (usually about 25).
+> For other values of COMPQ, Q is not referenced.
 
-E is DOUBLE PRECISION array, dimension (N-1) On entry, the elements of E contain the offdiagonal elements of the bidiagonal matrix whose SVD is desired. On exit, E has been destroyed.
+Iq : Integer Array, Dimension (ldiq) [out]
+> If  COMPQ = 'P', then:
+> On exit, if INFO = 0, Q and IQ contain the left
+> and right singular vectors in a compact form,
+> requiring O(N log N) space instead of 2*N**2.
+> In particular, IQ contains all INTEGER data in
+> LDIQ >= N*(3 + 3*INT(LOG_2(N/(SMLSIZ+1))))
+> words of memory, where SMLSIZ is returned by ILAENV and
+> is equal to the maximum size of the subproblems at the
+> bottom of the computation tree (usually about 25).
+> For other values of COMPQ, IQ is not referenced.
 
-### U (out)
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> If COMPQ = 'N' then LWORK >= (4 * N).
+> If COMPQ = 'P' then LWORK >= (6 * N).
+> If COMPQ = 'I' then LWORK >= (3 * N**2 + 4 * N).
 
-U is DOUBLE PRECISION array, dimension (LDU,N) If COMPQ = 'I', then: On exit, if INFO = 0, U contains the left singular vectors of the bidiagonal matrix. For other values of COMPQ, U is not referenced.
+Iwork : Integer Array, Dimension (8*n) [out]
 
-### LDU (in)
-
-LDU is INTEGER The leading dimension of the array U. LDU >= 1. If singular vectors are desired, then LDU >= max( 1, N ).
-
-### VT (out)
-
-VT is DOUBLE PRECISION array, dimension (LDVT,N) If COMPQ = 'I', then: On exit, if INFO = 0, VT**T contains the right singular vectors of the bidiagonal matrix. For other values of COMPQ, VT is not referenced.
-
-### LDVT (in)
-
-LDVT is INTEGER The leading dimension of the array VT. LDVT >= 1. If singular vectors are desired, then LDVT >= max( 1, N ).
-
-### Q (out)
-
-Q is DOUBLE PRECISION array, dimension (LDQ) If COMPQ = 'P', then: On exit, if INFO = 0, Q and IQ contain the left and right singular vectors in a compact form, requiring O(N log N) space instead of 2*N**2. In particular, Q contains all the DOUBLE PRECISION data in LDQ >= N*(11 + 2*SMLSIZ + 8*INT(LOG_2(N/(SMLSIZ+1)))) words of memory, where SMLSIZ is returned by ILAENV and is equal to the maximum size of the subproblems at the bottom of the computation tree (usually about 25). For other values of COMPQ, Q is not referenced.
-
-### IQ (out)
-
-IQ is INTEGER array, dimension (LDIQ) If COMPQ = 'P', then: On exit, if INFO = 0, Q and IQ contain the left and right singular vectors in a compact form, requiring O(N log N) space instead of 2*N**2. In particular, IQ contains all INTEGER data in LDIQ >= N*(3 + 3*INT(LOG_2(N/(SMLSIZ+1)))) words of memory, where SMLSIZ is returned by ILAENV and is equal to the maximum size of the subproblems at the bottom of the computation tree (usually about 25). For other values of COMPQ, IQ is not referenced.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) If COMPQ = 'N' then LWORK >= (4 * N). If COMPQ = 'P' then LWORK >= (6 * N). If COMPQ = 'I' then LWORK >= (3 * N**2 + 4 * N).
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (8*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: The algorithm failed to compute a singular value. The update process of divide and conquer failed.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  The algorithm failed to compute a singular value.
+> The update process of divide and conquer failed.
 

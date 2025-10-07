@@ -1,14 +1,15 @@
-# CGEEQUB
-
-## Function Signature
-
 ```fortran
-CGEEQUB(M, N, A, LDA, R, C, ROWCND, COLCND, AMAX,
-*                           INFO)
+subroutine cgeequb	(	m,
+		n,
+		a,
+		lda,
+		r,
+		c,
+		rowcnd,
+		colcnd,
+		amax,
+		*                           info )
 ```
-
-## Description
-
 
  CGEEQUB computes row and column scalings intended to equilibrate an
  M-by-N matrix A and reduce its condition number.  R returns the row
@@ -29,44 +30,46 @@ CGEEQUB(M, N, A, LDA, R, C, ROWCND, COLCND, AMAX,
  between sqrt(radix) and 1/sqrt(radix).
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Complex Array, Dimension (lda,n) [in]
+> The M-by-N matrix whose equilibration factors are
+> to be computed.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+R : Real Array, Dimension (m) [out]
+> If INFO = 0 or INFO > M, R contains the row scale factors
+> for A.
 
-### A (in)
+C : Real Array, Dimension (n) [out]
+> If INFO = 0,  C contains the column scale factors for A.
 
-A is COMPLEX array, dimension (LDA,N) The M-by-N matrix whose equilibration factors are to be computed.
+Rowcnd : Real [out]
+> If INFO = 0 or INFO > M, ROWCND contains the ratio of the
+> smallest R(i) to the largest R(i).  If ROWCND >= 0.1 and
+> AMAX is neither too large nor too small, it is not worth
+> scaling by R.
 
-### LDA (in)
+Colcnd : Real [out]
+> If INFO = 0, COLCND contains the ratio of the smallest
+> C(i) to the largest C(i).  If COLCND >= 0.1, it is not
+> worth scaling by C.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Amax : Real [out]
+> Absolute value of largest matrix element.  If AMAX is very
+> close to overflow or very close to underflow, the matrix
+> should be scaled.
 
-### R (out)
-
-R is REAL array, dimension (M) If INFO = 0 or INFO > M, R contains the row scale factors for A.
-
-### C (out)
-
-C is REAL array, dimension (N) If INFO = 0, C contains the column scale factors for A.
-
-### ROWCND (out)
-
-ROWCND is REAL If INFO = 0 or INFO > M, ROWCND contains the ratio of the smallest R(i) to the largest R(i). If ROWCND >= 0.1 and AMAX is neither too large nor too small, it is not worth scaling by R.
-
-### COLCND (out)
-
-COLCND is REAL If INFO = 0, COLCND contains the ratio of the smallest C(i) to the largest C(i). If COLCND >= 0.1, it is not worth scaling by C.
-
-### AMAX (out)
-
-AMAX is REAL Absolute value of largest matrix element. If AMAX is very close to overflow or very close to underflow, the matrix should be scaled.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, and i is <= M: the i-th row of A is exactly zero > M: the (i-M)-th column of A is exactly zero
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i,  and i is
+> <= M:  the i-th row of A is exactly zero
+> >  M:  the (i-M)-th column of A is exactly zero
 

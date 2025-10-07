@@ -1,13 +1,14 @@
-# DPSTRF
-
-## Function Signature
-
 ```fortran
-DPSTRF(UPLO, N, A, LDA, PIV, RANK, TOL, WORK, INFO)
+subroutine dpstrf	(	character	uplo,
+		integer	n,
+		double precision, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(n)	piv,
+		integer	rank,
+		double precision	tol,
+		double precision, dimension(2*n)	work,
+		integer	info )
 ```
-
-## Description
-
 
  DPSTRF computes the Cholesky factorization with complete
  pivoting of a real symmetric positive semidefinite matrix A.
@@ -22,40 +23,49 @@ DPSTRF(UPLO, N, A, LDA, PIV, RANK, TOL, WORK, INFO)
  semidefinite. This version of the algorithm calls level 3 BLAS.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> symmetric matrix A is stored.
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the symmetric matrix A is stored. = 'U': Upper triangular = 'L': Lower triangular
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+> n by n upper triangular part of A contains the upper
+> triangular part of the matrix A, and the strictly lower
+> triangular part of A is not referenced.  If UPLO = 'L', the
+> leading n by n lower triangular part of A contains the lower
+> triangular part of the matrix A, and the strictly upper
+> triangular part of A is not referenced.
+> On exit, if INFO = 0, the factor U or L from the Cholesky
+> factorization as above.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Piv : Integer Array, Dimension (n) [out]
+> PIV is such that the nonzero entries are P( PIV(K), K ) = 1.
 
-### A (in,out)
+Rank : Integer [out]
+> The rank of A given by the number of steps the algorithm
+> completed.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the symmetric matrix A. If UPLO = 'U', the leading n by n upper triangular part of A contains the upper triangular part of the matrix A, and the strictly lower triangular part of A is not referenced. If UPLO = 'L', the leading n by n lower triangular part of A contains the lower triangular part of the matrix A, and the strictly upper triangular part of A is not referenced. On exit, if INFO = 0, the factor U or L from the Cholesky factorization as above.
+Tol : Double Precision [in]
+> User defined tolerance. If TOL < 0, then N*U*MAX( A(K,K) )
+> will be used. The algorithm terminates at the (K-1)st step
+> if the pivot <= TOL.
 
-### LDA (in)
+Work : Double Precision Array, Dimension (2*n) [out]
+> Work space.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### PIV (out)
-
-PIV is INTEGER array, dimension (N) PIV is such that the nonzero entries are P( PIV(K), K ) = 1.
-
-### RANK (out)
-
-RANK is INTEGER The rank of A given by the number of steps the algorithm completed.
-
-### TOL (in)
-
-TOL is DOUBLE PRECISION User defined tolerance. If TOL < 0, then N*U*MAX( A(K,K) ) will be used. The algorithm terminates at the (K-1)st step if the pivot <= TOL.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (2*N) Work space.
-
-### INFO (out)
-
-INFO is INTEGER < 0: If INFO = -K, the K-th argument had an illegal value, = 0: algorithm completed successfully, and > 0: the matrix A is either rank deficient with computed rank as returned in RANK, or is not positive semidefinite. See Section 7 of LAPACK Working Note #161 for further information.
+Info : Integer [out]
+> < 0: If INFO = -K, the K-th argument had an illegal value,
+> = 0: algorithm completed successfully, and
+> > 0: the matrix A is either rank deficient with computed rank
+> as returned in RANK, or is not positive semidefinite. See
+> Section 7 of LAPACK Working Note #161 for further
+> information.
 

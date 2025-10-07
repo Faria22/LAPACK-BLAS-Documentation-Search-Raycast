@@ -1,15 +1,31 @@
-# DLAQR3
-
-## Function Signature
-
 ```fortran
-DLAQR3(WANTT, WANTZ, N, KTOP, KBOT, NW, H, LDH, ILOZ,
-*                          IHIZ, Z, LDZ, NS, ND, SR, SI, V, LDV, NH, T,
-*                          LDT, NV, WV, LDWV, WORK, LWORK)
+subroutine dlaqr3	(	wantt,
+		wantz,
+		n,
+		ktop,
+		kbot,
+		nw,
+		h,
+		ldh,
+		iloz,
+		*                          ihiz,
+		z,
+		ldz,
+		ns,
+		nd,
+		sr,
+		si,
+		v,
+		ldv,
+		nh,
+		t,
+		*                          ldt,
+		nv,
+		wv,
+		ldwv,
+		work,
+		lwork )
 ```
-
-## Description
-
 
     Aggressive early deflation:
 
@@ -23,108 +39,122 @@ DLAQR3(WANTT, WANTZ, N, KTOP, KBOT, NW, H, LDH, ILOZ,
     entries.
 
 ## Parameters
+Wantt : Logical [in]
+> If .TRUE., then the Hessenberg matrix H is fully updated
+> so that the quasi-triangular Schur factor may be
+> computed (in cooperation with the calling subroutine).
+> If .FALSE., then only enough of H is updated to preserve
+> the eigenvalues.
 
-### WANTT (in)
+Wantz : Logical [in]
+> If .TRUE., then the orthogonal matrix Z is updated so
+> so that the orthogonal Schur factor may be computed
+> (in cooperation with the calling subroutine).
+> If .FALSE., then Z is not referenced.
 
-WANTT is LOGICAL If .TRUE., then the Hessenberg matrix H is fully updated so that the quasi-triangular Schur factor may be computed (in cooperation with the calling subroutine). If .FALSE., then only enough of H is updated to preserve the eigenvalues.
+N : Integer [in]
+> The order of the matrix H and (if WANTZ is .TRUE.) the
+> order of the orthogonal matrix Z.
 
-### WANTZ (in)
+Ktop : Integer [in]
+> It is assumed that either KTOP = 1 or H(KTOP,KTOP-1)=0.
+> KBOT and KTOP together determine an isolated block
+> along the diagonal of the Hessenberg matrix.
 
-WANTZ is LOGICAL If .TRUE., then the orthogonal matrix Z is updated so so that the orthogonal Schur factor may be computed (in cooperation with the calling subroutine). If .FALSE., then Z is not referenced.
+Kbot : Integer [in]
+> It is assumed without a check that either
+> KBOT = N or H(KBOT+1,KBOT)=0.  KBOT and KTOP together
+> determine an isolated block along the diagonal of the
+> Hessenberg matrix.
 
-### N (in)
+Nw : Integer [in]
+> Deflation window size.  1 <= NW <= (KBOT-KTOP+1).
 
-N is INTEGER The order of the matrix H and (if WANTZ is .TRUE.) the order of the orthogonal matrix Z.
+H : Double Precision Array, Dimension (ldh,n) [in,out]
+> On input the initial N-by-N section of H stores the
+> Hessenberg matrix undergoing aggressive early deflation.
+> On output H has been transformed by an orthogonal
+> similarity transformation, perturbed, and the returned
+> to Hessenberg form that (it is to be hoped) has some
+> zero subdiagonal entries.
 
-### KTOP (in)
+Ldh : Integer [in]
+> Leading dimension of H just as declared in the calling
+> subroutine.  N <= LDH
 
-KTOP is INTEGER It is assumed that either KTOP = 1 or H(KTOP,KTOP-1)=0. KBOT and KTOP together determine an isolated block along the diagonal of the Hessenberg matrix.
+Iloz : Integer [in]
 
-### KBOT (in)
+Ihiz : Integer [in]
+> Specify the rows of Z to which transformations must be
+> applied if WANTZ is .TRUE.. 1 <= ILOZ <= IHIZ <= N.
 
-KBOT is INTEGER It is assumed without a check that either KBOT = N or H(KBOT+1,KBOT)=0. KBOT and KTOP together determine an isolated block along the diagonal of the Hessenberg matrix.
+Z : Double Precision Array, Dimension (ldz,n) [in,out]
+> IF WANTZ is .TRUE., then on output, the orthogonal
+> similarity transformation mentioned above has been
+> accumulated into Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
+> If WANTZ is .FALSE., then Z is unreferenced.
 
-### NW (in)
+Ldz : Integer [in]
+> The leading dimension of Z just as declared in the
+> calling subroutine.  1 <= LDZ.
 
-NW is INTEGER Deflation window size. 1 <= NW <= (KBOT-KTOP+1).
+Ns : Integer [out]
+> The number of unconverged (ie approximate) eigenvalues
+> returned in SR and SI that may be used as shifts by the
+> calling subroutine.
 
-### H (in,out)
+Nd : Integer [out]
+> The number of converged eigenvalues uncovered by this
+> subroutine.
 
-H is DOUBLE PRECISION array, dimension (LDH,N) On input the initial N-by-N section of H stores the Hessenberg matrix undergoing aggressive early deflation. On output H has been transformed by an orthogonal similarity transformation, perturbed, and the returned to Hessenberg form that (it is to be hoped) has some zero subdiagonal entries.
+Sr : Double Precision Array, Dimension (kbot) [out]
 
-### LDH (in)
+Si : Double Precision Array, Dimension (kbot) [out]
+> On output, the real and imaginary parts of approximate
+> eigenvalues that may be used for shifts are stored in
+> SR(KBOT-ND-NS+1) through SR(KBOT-ND) and
+> SI(KBOT-ND-NS+1) through SI(KBOT-ND), respectively.
+> The real and imaginary parts of converged eigenvalues
+> are stored in SR(KBOT-ND+1) through SR(KBOT) and
+> SI(KBOT-ND+1) through SI(KBOT), respectively.
 
-LDH is INTEGER Leading dimension of H just as declared in the calling subroutine. N <= LDH
+V : Double Precision Array, Dimension (ldv,nw) [out]
+> An NW-by-NW work array.
 
-### ILOZ (in)
+Ldv : Integer [in]
+> The leading dimension of V just as declared in the
+> calling subroutine.  NW <= LDV
 
-ILOZ is INTEGER
+Nh : Integer [in]
+> The number of columns of T.  NH >= NW.
 
-### IHIZ (in)
+T : Double Precision Array, Dimension (ldt,nw) [out]
 
-IHIZ is INTEGER Specify the rows of Z to which transformations must be applied if WANTZ is .TRUE.. 1 <= ILOZ <= IHIZ <= N.
+Ldt : Integer [in]
+> The leading dimension of T just as declared in the
+> calling subroutine.  NW <= LDT
 
-### Z (in,out)
+Nv : Integer [in]
+> The number of rows of work array WV available for
+> workspace.  NV >= NW.
 
-Z is DOUBLE PRECISION array, dimension (LDZ,N) IF WANTZ is .TRUE., then on output, the orthogonal similarity transformation mentioned above has been accumulated into Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right. If WANTZ is .FALSE., then Z is unreferenced.
+Wv : Double Precision Array, Dimension (ldwv,nw) [out]
 
-### LDZ (in)
+Ldwv : Integer [in]
+> The leading dimension of W just as declared in the
+> calling subroutine.  NW <= LDV
 
-LDZ is INTEGER The leading dimension of Z just as declared in the calling subroutine. 1 <= LDZ.
+Work : Double Precision Array, Dimension (lwork) [out]
+> On exit, WORK(1) is set to an estimate of the optimal value
+> of LWORK for the given values of N, NW, KTOP and KBOT.
 
-### NS (out)
-
-NS is INTEGER The number of unconverged (ie approximate) eigenvalues returned in SR and SI that may be used as shifts by the calling subroutine.
-
-### ND (out)
-
-ND is INTEGER The number of converged eigenvalues uncovered by this subroutine.
-
-### SR (out)
-
-SR is DOUBLE PRECISION array, dimension (KBOT)
-
-### SI (out)
-
-SI is DOUBLE PRECISION array, dimension (KBOT) On output, the real and imaginary parts of approximate eigenvalues that may be used for shifts are stored in SR(KBOT-ND-NS+1) through SR(KBOT-ND) and SI(KBOT-ND-NS+1) through SI(KBOT-ND), respectively. The real and imaginary parts of converged eigenvalues are stored in SR(KBOT-ND+1) through SR(KBOT) and SI(KBOT-ND+1) through SI(KBOT), respectively.
-
-### V (out)
-
-V is DOUBLE PRECISION array, dimension (LDV,NW) An NW-by-NW work array.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of V just as declared in the calling subroutine. NW <= LDV
-
-### NH (in)
-
-NH is INTEGER The number of columns of T. NH >= NW.
-
-### T (out)
-
-T is DOUBLE PRECISION array, dimension (LDT,NW)
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of T just as declared in the calling subroutine. NW <= LDT
-
-### NV (in)
-
-NV is INTEGER The number of rows of work array WV available for workspace. NV >= NW.
-
-### WV (out)
-
-WV is DOUBLE PRECISION array, dimension (LDWV,NW)
-
-### LDWV (in)
-
-LDWV is INTEGER The leading dimension of W just as declared in the calling subroutine. NW <= LDV
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (LWORK) On exit, WORK(1) is set to an estimate of the optimal value of LWORK for the given values of N, NW, KTOP and KBOT.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the work array WORK. LWORK = 2*NW suffices, but greater efficiency may result from larger values of LWORK. If LWORK = -1, then a workspace query is assumed; DLAQR3 only estimates the optimal workspace size for the given values of N, NW, KTOP and KBOT. The estimate is returned in WORK(1). No error message related to LWORK is issued by XERBLA. Neither H nor Z are accessed.
+Lwork : Integer [in]
+> The dimension of the work array WORK.  LWORK = 2*NW
+> suffices, but greater efficiency may result from larger
+> values of LWORK.
+> If LWORK = -1, then a workspace query is assumed; DLAQR3
+> only estimates the optimal workspace size for the given
+> values of N, NW, KTOP and KBOT.  The estimate is returned
+> in WORK(1).  No error message related to LWORK is issued
+> by XERBLA.  Neither H nor Z are accessed.
 

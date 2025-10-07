@@ -1,14 +1,17 @@
-# CLATBS
-
-## Function Signature
-
 ```fortran
-CLATBS(UPLO, TRANS, DIAG, NORMIN, N, KD, AB, LDAB, X,
-*                          SCALE, CNORM, INFO)
+subroutine clatbs	(	uplo,
+		trans,
+		diag,
+		normin,
+		n,
+		kd,
+		ab,
+		ldab,
+		x,
+		*                          scale,
+		cnorm,
+		info )
 ```
-
-## Description
-
 
  CLATBS solves one of the triangular systems
 
@@ -24,52 +27,66 @@ CLATBS(UPLO, TRANS, DIAG, NORMIN, N, KD, AB, LDAB, X,
  non-trivial solution to A*x = 0 is returned.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the matrix A is upper or lower triangular.
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+Trans : Character*1 [in]
+> Specifies the operation applied to A.
+> = 'N':  Solve A * x = s*b     (No transpose)
+> = 'T':  Solve A**T * x = s*b  (Transpose)
+> = 'C':  Solve A**H * x = s*b  (Conjugate transpose)
 
-UPLO is CHARACTER*1 Specifies whether the matrix A is upper or lower triangular. = 'U': Upper triangular = 'L': Lower triangular
+Diag : Character*1 [in]
+> Specifies whether or not the matrix A is unit triangular.
+> = 'N':  Non-unit triangular
+> = 'U':  Unit triangular
 
-### TRANS (in)
+Normin : Character*1 [in]
+> Specifies whether CNORM has been set or not.
+> = 'Y':  CNORM contains the column norms on entry
+> = 'N':  CNORM is not set on entry.  On exit, the norms will
+> be computed and stored in CNORM.
 
-TRANS is CHARACTER*1 Specifies the operation applied to A. = 'N': Solve A * x = s*b (No transpose) = 'T': Solve A**T * x = s*b (Transpose) = 'C': Solve A**H * x = s*b (Conjugate transpose)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### DIAG (in)
+Kd : Integer [in]
+> The number of subdiagonals or superdiagonals in the
+> triangular matrix A.  KD >= 0.
 
-DIAG is CHARACTER*1 Specifies whether or not the matrix A is unit triangular. = 'N': Non-unit triangular = 'U': Unit triangular
+Ab : Complex Array, Dimension (ldab,n) [in]
+> The upper or lower triangular band matrix A, stored in the
+> first KD+1 rows of the array. The j-th column of A is stored
+> in the j-th column of the array AB as follows:
+> if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 
-### NORMIN (in)
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KD+1.
 
-NORMIN is CHARACTER*1 Specifies whether CNORM has been set or not. = 'Y': CNORM contains the column norms on entry = 'N': CNORM is not set on entry. On exit, the norms will be computed and stored in CNORM.
+X : Complex Array, Dimension (n) [in,out]
+> On entry, the right hand side b of the triangular system.
+> On exit, X is overwritten by the solution vector x.
 
-### N (in)
+Scale : Real [out]
+> The scaling factor s for the triangular system
+> A * x = s*b,  A**T * x = s*b,  or  A**H * x = s*b.
+> If SCALE = 0, the matrix A is singular or badly scaled, and
+> the vector x is an exact or approximate solution to A*x = 0.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Cnorm : Real Array, Dimension (n) [in,out]
+> If NORMIN = 'Y', CNORM is an input argument and CNORM(j)
+> contains the norm of the off-diagonal part of the j-th column
+> of A.  If TRANS = 'N', CNORM(j) must be greater than or equal
+> to the infinity-norm, and if TRANS = 'T' or 'C', CNORM(j)
+> must be greater than or equal to the 1-norm.
+> If NORMIN = 'N', CNORM is an output argument and CNORM(j)
+> returns the 1-norm of the offdiagonal part of the j-th column
+> of A.
 
-### KD (in)
-
-KD is INTEGER The number of subdiagonals or superdiagonals in the triangular matrix A. KD >= 0.
-
-### AB (in)
-
-AB is COMPLEX array, dimension (LDAB,N) The upper or lower triangular band matrix A, stored in the first KD+1 rows of the array. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+kd).
-
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KD+1.
-
-### X (in,out)
-
-X is COMPLEX array, dimension (N) On entry, the right hand side b of the triangular system. On exit, X is overwritten by the solution vector x.
-
-### SCALE (out)
-
-SCALE is REAL The scaling factor s for the triangular system A * x = s*b, A**T * x = s*b, or A**H * x = s*b. If SCALE = 0, the matrix A is singular or badly scaled, and the vector x is an exact or approximate solution to A*x = 0.
-
-### CNORM (in,out)
-
-CNORM is REAL array, dimension (N) If NORMIN = 'Y', CNORM is an input argument and CNORM(j) contains the norm of the off-diagonal part of the j-th column of A. If TRANS = 'N', CNORM(j) must be greater than or equal to the infinity-norm, and if TRANS = 'T' or 'C', CNORM(j) must be greater than or equal to the 1-norm. If NORMIN = 'N', CNORM is an output argument and CNORM(j) returns the 1-norm of the offdiagonal part of the j-th column of A.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -k, the k-th argument had an illegal value
 

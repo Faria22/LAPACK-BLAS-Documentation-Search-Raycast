@@ -1,14 +1,16 @@
-# SLATRS
-
-## Function Signature
-
 ```fortran
-SLATRS(UPLO, TRANS, DIAG, NORMIN, N, A, LDA, X, SCALE,
-*                          CNORM, INFO)
+subroutine slatrs	(	uplo,
+		trans,
+		diag,
+		normin,
+		n,
+		a,
+		lda,
+		x,
+		scale,
+		*                          cnorm,
+		info )
 ```
-
-## Description
-
 
  SLATRS solves one of the triangular systems
 
@@ -24,48 +26,65 @@ SLATRS(UPLO, TRANS, DIAG, NORMIN, N, A, LDA, X, SCALE,
  non-trivial solution to A*x = 0 is returned.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the matrix A is upper or lower triangular.
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+Trans : Character*1 [in]
+> Specifies the operation applied to A.
+> = 'N':  Solve A * x = s*b  (No transpose)
+> = 'T':  Solve A**T* x = s*b  (Transpose)
+> = 'C':  Solve A**T* x = s*b  (Conjugate transpose = Transpose)
 
-UPLO is CHARACTER*1 Specifies whether the matrix A is upper or lower triangular. = 'U': Upper triangular = 'L': Lower triangular
+Diag : Character*1 [in]
+> Specifies whether or not the matrix A is unit triangular.
+> = 'N':  Non-unit triangular
+> = 'U':  Unit triangular
 
-### TRANS (in)
+Normin : Character*1 [in]
+> Specifies whether CNORM has been set or not.
+> = 'Y':  CNORM contains the column norms on entry
+> = 'N':  CNORM is not set on entry.  On exit, the norms will
+> be computed and stored in CNORM.
 
-TRANS is CHARACTER*1 Specifies the operation applied to A. = 'N': Solve A * x = s*b (No transpose) = 'T': Solve A**T* x = s*b (Transpose) = 'C': Solve A**T* x = s*b (Conjugate transpose = Transpose)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### DIAG (in)
+A : Real Array, Dimension (lda,n) [in]
+> The triangular matrix A.  If UPLO = 'U', the leading n by n
+> upper triangular part of the array A contains the upper
+> triangular matrix, and the strictly lower triangular part of
+> A is not referenced.  If UPLO = 'L', the leading n by n lower
+> triangular part of the array A contains the lower triangular
+> matrix, and the strictly upper triangular part of A is not
+> referenced.  If DIAG = 'U', the diagonal elements of A are
+> also not referenced and are assumed to be 1.
 
-DIAG is CHARACTER*1 Specifies whether or not the matrix A is unit triangular. = 'N': Non-unit triangular = 'U': Unit triangular
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max (1,N).
 
-### NORMIN (in)
+X : Real Array, Dimension (n) [in,out]
+> On entry, the right hand side b of the triangular system.
+> On exit, X is overwritten by the solution vector x.
 
-NORMIN is CHARACTER*1 Specifies whether CNORM has been set or not. = 'Y': CNORM contains the column norms on entry = 'N': CNORM is not set on entry. On exit, the norms will be computed and stored in CNORM.
+Scale : Real [out]
+> The scaling factor s for the triangular system
+> A * x = s*b  or  A**T* x = s*b.
+> If SCALE = 0, the matrix A is singular or badly scaled, and
+> the vector x is an exact or approximate solution to A*x = 0.
 
-### N (in)
+Cnorm : Real Array, Dimension (n) [in,out]
+> If NORMIN = 'Y', CNORM is an input argument and CNORM(j)
+> contains the norm of the off-diagonal part of the j-th column
+> of A.  If TRANS = 'N', CNORM(j) must be greater than or equal
+> to the infinity-norm, and if TRANS = 'T' or 'C', CNORM(j)
+> must be greater than or equal to the 1-norm.
+> If NORMIN = 'N', CNORM is an output argument and CNORM(j)
+> returns the 1-norm of the offdiagonal part of the j-th column
+> of A.
 
-N is INTEGER The order of the matrix A. N >= 0.
-
-### A (in)
-
-A is REAL array, dimension (LDA,N) The triangular matrix A. If UPLO = 'U', the leading n by n upper triangular part of the array A contains the upper triangular matrix, and the strictly lower triangular part of A is not referenced. If UPLO = 'L', the leading n by n lower triangular part of the array A contains the lower triangular matrix, and the strictly upper triangular part of A is not referenced. If DIAG = 'U', the diagonal elements of A are also not referenced and are assumed to be 1.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max (1,N).
-
-### X (in,out)
-
-X is REAL array, dimension (N) On entry, the right hand side b of the triangular system. On exit, X is overwritten by the solution vector x.
-
-### SCALE (out)
-
-SCALE is REAL The scaling factor s for the triangular system A * x = s*b or A**T* x = s*b. If SCALE = 0, the matrix A is singular or badly scaled, and the vector x is an exact or approximate solution to A*x = 0.
-
-### CNORM (in,out)
-
-CNORM is REAL array, dimension (N) If NORMIN = 'Y', CNORM is an input argument and CNORM(j) contains the norm of the off-diagonal part of the j-th column of A. If TRANS = 'N', CNORM(j) must be greater than or equal to the infinity-norm, and if TRANS = 'T' or 'C', CNORM(j) must be greater than or equal to the 1-norm. If NORMIN = 'N', CNORM is an output argument and CNORM(j) returns the 1-norm of the offdiagonal part of the j-th column of A.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -k, the k-th argument had an illegal value
 

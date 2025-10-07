@@ -1,13 +1,13 @@
-# CLARFY
-
-## Function Signature
-
 ```fortran
-CLARFY(UPLO, N, V, INCV, TAU, C, LDC, WORK)
+subroutine clarfy	(	character	uplo,
+		integer	n,
+		complex, dimension(*)	v,
+		integer	incv,
+		complex	tau,
+		complex, dimension(ldc, *)	c,
+		integer	ldc,
+		complex, dimension(*)	work )
 ```
-
-## Description
-
 
  CLARFY applies an elementary reflector, or Householder matrix, H,
  to an n x n Hermitian matrix C, from both the left and the right.
@@ -21,36 +21,32 @@ CLARFY(UPLO, N, V, INCV, TAU, C, LDC, WORK)
  If  tau  is  zero, then  H  is taken to be the unit matrix.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> Hermitian matrix C is stored.
+> = 'U':  Upper triangle
+> = 'L':  Lower triangle
 
-### UPLO (in)
+N : Integer [in]
+> The number of rows and columns of the matrix C.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the Hermitian matrix C is stored. = 'U': Upper triangle = 'L': Lower triangle
+V : Complex Array, Dimension [in]
+> (1 + (N-1)*abs(INCV))
+> The vector v as described above.
 
-### N (in)
+Incv : Integer [in]
+> The increment between successive elements of v.  INCV must
+> not be zero.
 
-N is INTEGER The number of rows and columns of the matrix C. N >= 0.
+Tau : Complex [in]
+> The value tau as described above.
 
-### V (in)
+C : Complex Array, Dimension (ldc, N) [in,out]
+> On entry, the matrix C.
+> On exit, C is overwritten by H * C * H'.
 
-V is COMPLEX array, dimension (1 + (N-1)*abs(INCV)) The vector v as described above.
+Ldc : Integer [in]
+> The leading dimension of the array C.  LDC >= max( 1, N ).
 
-### INCV (in)
-
-INCV is INTEGER The increment between successive elements of v. INCV must not be zero.
-
-### TAU (in)
-
-TAU is COMPLEX The value tau as described above.
-
-### C (in,out)
-
-C is COMPLEX array, dimension (LDC, N) On entry, the matrix C. On exit, C is overwritten by H * C * H'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max( 1, N ).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N)
+Work : Complex Array, Dimension (n) [out]
 

@@ -1,49 +1,53 @@
-# CHETRI2X
-
-## Function Signature
-
 ```fortran
-CHETRI2X(UPLO, N, A, LDA, IPIV, WORK, NB, INFO)
+subroutine chetri2x	(	character	uplo,
+		integer	n,
+		complex, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		complex, dimension(n+nb+1,*)	work,
+		integer	nb,
+		integer	info )
 ```
-
-## Description
-
 
  CHETRI2X computes the inverse of a complex Hermitian indefinite matrix
  A using the factorization A = U*D*U**H or A = L*D*L**H computed by
  CHETRF.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**H;
+> = 'L':  Lower triangular, form is A = L*D*L**H.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**H; = 'L': Lower triangular, form is A = L*D*L**H.
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the NNB diagonal matrix D and the multipliers
+> used to obtain the factor U or L as computed by CHETRF.
+> On exit, if INFO = 0, the (symmetric) inverse of the original
+> matrix.  If UPLO = 'U', the upper triangular part of the
+> inverse is formed and the part of A below the diagonal is not
+> referenced; if UPLO = 'L' the lower triangular part of the
+> inverse is formed and the part of A above the diagonal is
+> not referenced.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the NNB structure of D
+> as determined by CHETRF.
 
-### A (in,out)
+Work : Complex Array, Dimension (n+nb+1,nb+3) [out]
 
-A is COMPLEX array, dimension (LDA,N) On entry, the NNB diagonal matrix D and the multipliers used to obtain the factor U or L as computed by CHETRF. On exit, if INFO = 0, the (symmetric) inverse of the original matrix. If UPLO = 'U', the upper triangular part of the inverse is formed and the part of A below the diagonal is not referenced; if UPLO = 'L' the lower triangular part of the inverse is formed and the part of A above the diagonal is not referenced.
+Nb : Integer [in]
+> Block size
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the NNB structure of D as determined by CHETRF.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N+NB+1,NB+3)
-
-### NB (in)
-
-NB is INTEGER Block size
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its inverse could not be computed.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its
+> inverse could not be computed.
 

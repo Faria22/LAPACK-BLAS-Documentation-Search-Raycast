@@ -1,13 +1,14 @@
-# SLAIC1
-
-## Function Signature
-
 ```fortran
-SLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
+subroutine slaic1	(	integer	job,
+		integer	j,
+		real, dimension(j)	x,
+		real	sest,
+		real, dimension(j)	w,
+		real	gamma,
+		real	sestpr,
+		real	s,
+		real	c )
 ```
-
-## Description
-
 
  SLAIC1 applies one step of incremental condition estimation in
  its simplest version:
@@ -36,40 +37,31 @@ SLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
  where  alpha =  x**T*w.
 
 ## Parameters
+Job : Integer [in]
+> = 1: an estimate for the largest singular value is computed.
+> = 2: an estimate for the smallest singular value is computed.
 
-### JOB (in)
+J : Integer [in]
+> Length of X and W
 
-JOB is INTEGER = 1: an estimate for the largest singular value is computed. = 2: an estimate for the smallest singular value is computed.
+X : Real Array, Dimension (j) [in]
+> The j-vector x.
 
-### J (in)
+Sest : Real [in]
+> Estimated singular value of j by j matrix L
 
-J is INTEGER Length of X and W
+W : Real Array, Dimension (j) [in]
+> The j-vector w.
 
-### X (in)
+Gamma : Real [in]
+> The diagonal element gamma.
 
-X is REAL array, dimension (J) The j-vector x.
+Sestpr : Real [out]
+> Estimated singular value of (j+1) by (j+1) matrix Lhat.
 
-### SEST (in)
+S : Real [out]
+> Sine needed in forming xhat.
 
-SEST is REAL Estimated singular value of j by j matrix L
-
-### W (in)
-
-W is REAL array, dimension (J) The j-vector w.
-
-### GAMMA (in)
-
-GAMMA is REAL The diagonal element gamma.
-
-### SESTPR (out)
-
-SESTPR is REAL Estimated singular value of (j+1) by (j+1) matrix Lhat.
-
-### S (out)
-
-S is REAL Sine needed in forming xhat.
-
-### C (out)
-
-C is REAL Cosine needed in forming xhat.
+C : Real [out]
+> Cosine needed in forming xhat.
 

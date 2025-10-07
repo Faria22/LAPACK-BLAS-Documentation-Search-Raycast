@@ -1,13 +1,13 @@
-# DLARFY
-
-## Function Signature
-
 ```fortran
-DLARFY(UPLO, N, V, INCV, TAU, C, LDC, WORK)
+subroutine dlarfy	(	character	uplo,
+		integer	n,
+		double precision, dimension(*)	v,
+		integer	incv,
+		double precision	tau,
+		double precision, dimension(ldc, *)	c,
+		integer	ldc,
+		double precision, dimension(*)	work )
 ```
-
-## Description
-
 
  DLARFY applies an elementary reflector, or Householder matrix, H,
  to an n x n symmetric matrix C, from both the left and the right.
@@ -21,36 +21,32 @@ DLARFY(UPLO, N, V, INCV, TAU, C, LDC, WORK)
  If  tau  is  zero, then  H  is taken to be the unit matrix.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> symmetric matrix C is stored.
+> = 'U':  Upper triangle
+> = 'L':  Lower triangle
 
-### UPLO (in)
+N : Integer [in]
+> The number of rows and columns of the matrix C.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the symmetric matrix C is stored. = 'U': Upper triangle = 'L': Lower triangle
+V : Double Precision Array, Dimension [in]
+> (1 + (N-1)*abs(INCV))
+> The vector v as described above.
 
-### N (in)
+Incv : Integer [in]
+> The increment between successive elements of v.  INCV must
+> not be zero.
 
-N is INTEGER The number of rows and columns of the matrix C. N >= 0.
+Tau : Double Precision [in]
+> The value tau as described above.
 
-### V (in)
+C : Double Precision Array, Dimension (ldc, N) [in,out]
+> On entry, the matrix C.
+> On exit, C is overwritten by H * C * H'.
 
-V is DOUBLE PRECISION array, dimension (1 + (N-1)*abs(INCV)) The vector v as described above.
+Ldc : Integer [in]
+> The leading dimension of the array C.  LDC >= max( 1, N ).
 
-### INCV (in)
-
-INCV is INTEGER The increment between successive elements of v. INCV must not be zero.
-
-### TAU (in)
-
-TAU is DOUBLE PRECISION The value tau as described above.
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC, N) On entry, the matrix C. On exit, C is overwritten by H * C * H'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max( 1, N ).
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (N)
+Work : Double Precision Array, Dimension (n) [out]
 

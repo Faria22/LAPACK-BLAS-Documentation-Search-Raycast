@@ -1,13 +1,10 @@
-# SLARFGP
-
-## Function Signature
-
 ```fortran
-SLARFGP(N, ALPHA, X, INCX, TAU)
+subroutine slarfgp	(	integer	n,
+		real	alpha,
+		real, dimension(*)	x,
+		integer	incx,
+		real	tau )
 ```
-
-## Description
-
 
  SLARFGP generates a real elementary reflector H of order n, such
  that
@@ -28,24 +25,21 @@ SLARFGP(N, ALPHA, X, INCX, TAU)
  the unit matrix.
 
 ## Parameters
+N : Integer [in]
+> The order of the elementary reflector.
 
-### N (in)
+Alpha : Real [in,out]
+> On entry, the value alpha.
+> On exit, it is overwritten with the value beta.
 
-N is INTEGER The order of the elementary reflector.
+X : Real Array, Dimension [in,out]
+> (1+(N-2)*abs(INCX))
+> On entry, the vector x.
+> On exit, it is overwritten with the vector v.
 
-### ALPHA (in,out)
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-ALPHA is REAL On entry, the value alpha. On exit, it is overwritten with the value beta.
-
-### X (in,out)
-
-X is REAL array, dimension (1+(N-2)*abs(INCX)) On entry, the vector x. On exit, it is overwritten with the vector v.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X. INCX > 0.
-
-### TAU (out)
-
-TAU is REAL The value tau.
+Tau : Real [out]
+> The value tau.
 

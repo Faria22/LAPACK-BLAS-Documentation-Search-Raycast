@@ -1,13 +1,11 @@
-# DROTM
-
-## Function Signature
-
 ```fortran
-DROTM(N,DX,INCX,DY,INCY,DPARAM)
+subroutine drotm	(	integer	n,
+		double precision, dimension(*)	dx,
+		integer	incx,
+		double precision, dimension(*)	dy,
+		integer	incy,
+		double precision, dimension(5)	dparam )
 ```
-
-## Description
-
 
     APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX
 
@@ -30,28 +28,23 @@ DROTM(N,DX,INCX,DY,INCY,DPARAM)
 
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of DX
 
-### DX (in,out)
+Dy : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+Incy : Integer [in]
+> storage spacing between elements of DY
 
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of DX
-
-### DY (in,out)
-
-DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of DY
-
-### DPARAM (in)
-
-DPARAM is DOUBLE PRECISION array, dimension (5) DPARAM(1)=DFLAG DPARAM(2)=DH11 DPARAM(3)=DH21 DPARAM(4)=DH12 DPARAM(5)=DH22
+Dparam : Double Precision Array, Dimension (5) [in]
+> DPARAM(1)=DFLAG
+> DPARAM(2)=DH11
+> DPARAM(3)=DH21
+> DPARAM(4)=DH12
+> DPARAM(5)=DH22
 

@@ -1,31 +1,21 @@
-# CSSCAL
-
-## Function Signature
-
 ```fortran
-CSSCAL(N,SA,CX,INCX)
+subroutine csscal	(	integer	n,
+		real	sa,
+		complex, dimension(*)	cx,
+		integer	incx )
 ```
-
-## Description
-
 
     CSSCAL scales a complex vector by a real constant.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Sa : Real [in]
+> On entry, SA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Cx : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-### SA (in)
-
-SA is REAL On entry, SA specifies the scalar alpha.
-
-### CX (in,out)
-
-CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of CX
+Incx : Integer [in]
+> storage spacing between elements of CX
 

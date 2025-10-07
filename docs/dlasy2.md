@@ -1,14 +1,21 @@
-# DLASY2
-
-## Function Signature
-
 ```fortran
-DLASY2(LTRANL, LTRANR, ISGN, N1, N2, TL, LDTL, TR,
-*                          LDTR, B, LDB, SCALE, X, LDX, XNORM, INFO)
+subroutine dlasy2	(	ltranl,
+		ltranr,
+		isgn,
+		n1,
+		n2,
+		tl,
+		ldtl,
+		tr,
+		*                          ldtr,
+		b,
+		ldb,
+		scale,
+		x,
+		ldx,
+		xnorm,
+		info )
 ```
-
-## Description
-
 
  DLASY2 solves for the N1 by N2 matrix X, 1 <= N1,N2 <= 2, in
 
@@ -18,68 +25,65 @@ DLASY2(LTRANL, LTRANR, ISGN, N1, N2, TL, LDTL, TR,
  -1.  op(T) = T or T**T, where T**T denotes the transpose of T.
 
 ## Parameters
+Ltranl : Logical [in]
+> On entry, LTRANL specifies the op(TL):
+> = .FALSE., op(TL) = TL,
+> = .TRUE., op(TL) = TL**T.
 
-### LTRANL (in)
+Ltranr : Logical [in]
+> On entry, LTRANR specifies the op(TR):
+> = .FALSE., op(TR) = TR,
+> = .TRUE., op(TR) = TR**T.
 
-LTRANL is LOGICAL On entry, LTRANL specifies the op(TL): = .FALSE., op(TL) = TL, = .TRUE., op(TL) = TL**T.
+Isgn : Integer [in]
+> On entry, ISGN specifies the sign of the equation
+> as described before. ISGN may only be 1 or -1.
 
-### LTRANR (in)
+N1 : Integer [in]
+> On entry, N1 specifies the order of matrix TL.
+> N1 may only be 0, 1 or 2.
 
-LTRANR is LOGICAL On entry, LTRANR specifies the op(TR): = .FALSE., op(TR) = TR, = .TRUE., op(TR) = TR**T.
+N2 : Integer [in]
+> On entry, N2 specifies the order of matrix TR.
+> N2 may only be 0, 1 or 2.
 
-### ISGN (in)
+Tl : Double Precision Array, Dimension (ldtl,2) [in]
+> On entry, TL contains an N1 by N1 matrix.
 
-ISGN is INTEGER On entry, ISGN specifies the sign of the equation as described before. ISGN may only be 1 or -1.
+Ldtl : Integer [in]
+> The leading dimension of the matrix TL. LDTL >= max(1,N1).
 
-### N1 (in)
+Tr : Double Precision Array, Dimension (ldtr,2) [in]
+> On entry, TR contains an N2 by N2 matrix.
 
-N1 is INTEGER On entry, N1 specifies the order of matrix TL. N1 may only be 0, 1 or 2.
+Ldtr : Integer [in]
+> The leading dimension of the matrix TR. LDTR >= max(1,N2).
 
-### N2 (in)
+B : Double Precision Array, Dimension (ldb,2) [in]
+> On entry, the N1 by N2 matrix B contains the right-hand
+> side of the equation.
 
-N2 is INTEGER On entry, N2 specifies the order of matrix TR. N2 may only be 0, 1 or 2.
+Ldb : Integer [in]
+> The leading dimension of the matrix B. LDB >= max(1,N1).
 
-### TL (in)
+Scale : Double Precision [out]
+> On exit, SCALE contains the scale factor. SCALE is chosen
+> less than or equal to 1 to prevent the solution overflowing.
 
-TL is DOUBLE PRECISION array, dimension (LDTL,2) On entry, TL contains an N1 by N1 matrix.
+X : Double Precision Array, Dimension (ldx,2) [out]
+> On exit, X contains the N1 by N2 solution.
 
-### LDTL (in)
+Ldx : Integer [in]
+> The leading dimension of the matrix X. LDX >= max(1,N1).
 
-LDTL is INTEGER The leading dimension of the matrix TL. LDTL >= max(1,N1).
+Xnorm : Double Precision [out]
+> On exit, XNORM is the infinity-norm of the solution.
 
-### TR (in)
-
-TR is DOUBLE PRECISION array, dimension (LDTR,2) On entry, TR contains an N2 by N2 matrix.
-
-### LDTR (in)
-
-LDTR is INTEGER The leading dimension of the matrix TR. LDTR >= max(1,N2).
-
-### B (in)
-
-B is DOUBLE PRECISION array, dimension (LDB,2) On entry, the N1 by N2 matrix B contains the right-hand side of the equation.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the matrix B. LDB >= max(1,N1).
-
-### SCALE (out)
-
-SCALE is DOUBLE PRECISION On exit, SCALE contains the scale factor. SCALE is chosen less than or equal to 1 to prevent the solution overflowing.
-
-### X (out)
-
-X is DOUBLE PRECISION array, dimension (LDX,2) On exit, X contains the N1 by N2 solution.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the matrix X. LDX >= max(1,N1).
-
-### XNORM (out)
-
-XNORM is DOUBLE PRECISION On exit, XNORM is the infinity-norm of the solution.
-
-### INFO (out)
-
-INFO is INTEGER On exit, INFO is set to 0: successful exit. 1: TL and TR have too close eigenvalues, so TL or TR is perturbed to get a nonsingular equation. NOTE: In the interests of speed, this routine does not check the inputs for errors.
+Info : Integer [out]
+> On exit, INFO is set to
+> 0: successful exit.
+> 1: TL and TR have too close eigenvalues, so TL or
+> TR is perturbed to get a nonsingular equation.
+> NOTE: In the interests of speed, this routine does not
+> check the inputs for errors.
 

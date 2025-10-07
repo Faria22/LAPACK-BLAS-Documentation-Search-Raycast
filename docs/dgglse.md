@@ -1,16 +1,18 @@
-# DGGLSE
-
-DGGLSE solves overdetermined or underdetermined systems for OTHER matrices
-
-## Function Signature
-
 ```fortran
-DGGLSE(M, N, P, A, LDA, B, LDB, C, D, X, WORK, LWORK,
-*                          INFO)
+subroutine dgglse	(	m,
+		n,
+		p,
+		a,
+		lda,
+		b,
+		ldb,
+		c,
+		d,
+		x,
+		work,
+		lwork,
+		*                          info )
 ```
-
-## Description
-
 
  DGGLSE solves the linear equality-constrained least squares (LSE)
  problem:
@@ -41,56 +43,70 @@ DGGLSE(M, N, P, A, LDA, B, LDB, C, D, X, WORK, LWORK,
 
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrices A and B. N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+P : Integer [in]
+> The number of rows of the matrix B. 0 <= P <= N <= M+P.
 
-### N (in)
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, the elements on and above the diagonal of the array
+> contain the min(M,N)-by-N upper trapezoidal matrix T.
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-### P (in)
+B : Double Precision Array, Dimension (ldb,n) [in,out]
+> On entry, the P-by-N matrix B.
+> On exit, the upper triangle of the subarray B(1:P,N-P+1:N)
+> contains the P-by-P upper triangular matrix R.
 
-P is INTEGER The number of rows of the matrix B. 0 <= P <= N <= M+P.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,P).
 
-### A (in,out)
+C : Double Precision Array, Dimension (m) [in,out]
+> On entry, C contains the right hand side vector for the
+> least squares part of the LSE problem.
+> On exit, the residual sum of squares for the solution
+> is given by the sum of squares of elements N-P+1 to M of
+> vector C.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, the elements on and above the diagonal of the array contain the min(M,N)-by-N upper trapezoidal matrix T.
+D : Double Precision Array, Dimension (p) [in,out]
+> On entry, D contains the right hand side vector for the
+> constrained equation.
+> On exit, D is destroyed.
 
-### LDA (in)
+X : Double Precision Array, Dimension (n) [out]
+> On exit, X is the solution of the LSE problem.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= max(1,M+N+P).
+> For optimum performance LWORK >= P+min(M,N)+max(M,N)*NB,
+> where NB is an upper bound for the optimal blocksizes for
+> DGEQRF, SGERQF, DORMQR and SORMRQ.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is DOUBLE PRECISION array, dimension (LDB,N) On entry, the P-by-N matrix B. On exit, the upper triangle of the subarray B(1:P,N-P+1:N) contains the P-by-P upper triangular matrix R.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,P).
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (M) On entry, C contains the right hand side vector for the least squares part of the LSE problem. On exit, the residual sum of squares for the solution is given by the sum of squares of elements N-P+1 to M of vector C.
-
-### D (in,out)
-
-D is DOUBLE PRECISION array, dimension (P) On entry, D contains the right hand side vector for the constrained equation. On exit, D is destroyed.
-
-### X (out)
-
-X is DOUBLE PRECISION array, dimension (N) On exit, X is the solution of the LSE problem.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,M+N+P). For optimum performance LWORK >= P+min(M,N)+max(M,N)*NB, where NB is an upper bound for the optimal blocksizes for DGEQRF, SGERQF, DORMQR and SORMRQ. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. = 1: the upper triangular factor R associated with B in the generalized RQ factorization of the pair (B, A) is exactly singular, so that rank(B) < P; the least squares solution could not be computed. = 2: the (N-P) by (N-P) part of the upper trapezoidal factor T associated with A in the generalized RQ factorization of the pair (B, A) is exactly singular, so that rank( (A) ) < N; the least squares solution could not ( (B) ) be computed.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> = 1:  the upper triangular factor R associated with B in the
+> generalized RQ factorization of the pair (B, A) is exactly
+> singular, so that rank(B) < P; the least squares
+> solution could not be computed.
+> = 2:  the (N-P) by (N-P) part of the upper trapezoidal factor
+> T associated with A in the generalized RQ factorization
+> of the pair (B, A) is exactly singular, so that
+> rank( (A) ) < N; the least squares solution could not
+> ( (B) )
+> be computed.
 

@@ -1,13 +1,11 @@
-# ZHPGST
-
-## Function Signature
-
 ```fortran
-ZHPGST(ITYPE, UPLO, N, AP, BP, INFO)
+subroutine zhpgst	(	integer	itype,
+		character	uplo,
+		integer	n,
+		complex*16, dimension(*)	ap,
+		complex*16, dimension(*)	bp,
+		integer	info )
 ```
-
-## Description
-
 
  ZHPGST reduces a complex Hermitian-definite generalized
  eigenproblem to standard form, using packed storage.
@@ -21,28 +19,33 @@ ZHPGST(ITYPE, UPLO, N, AP, BP, INFO)
  B must have been previously factorized as U**H*U or L*L**H by ZPPTRF.
 
 ## Parameters
+Itype : Integer [in]
+> = 1: compute inv(U**H)*A*inv(U) or inv(L)*A*inv(L**H);
+> = 2 or 3: compute U*A*U**H or L**H*A*L.
 
-### ITYPE (in)
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored and B is factored as
+> U**H*U;
+> = 'L':  Lower triangle of A is stored and B is factored as
+> L*L**H.
 
-ITYPE is INTEGER = 1: compute inv(U**H)*A*inv(U) or inv(L)*A*inv(L**H); = 2 or 3: compute U*A*U**H or L**H*A*L.
+N : Integer [in]
+> The order of the matrices A and B.  N >= 0.
 
-### UPLO (in)
+Ap : Complex*16 Array, Dimension (n*(n+1)/2) [in,out]
+> On entry, the upper or lower triangle of the Hermitian matrix
+> A, packed columnwise in a linear array.  The j-th column of A
+> is stored in the array AP as follows:
+> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> On exit, if INFO = 0, the transformed matrix, stored in the
+> same format as A.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored and B is factored as U**H*U; = 'L': Lower triangle of A is stored and B is factored as L*L**H.
+Bp : Complex*16 Array, Dimension (n*(n+1)/2) [in]
+> The triangular factor from the Cholesky factorization of B,
+> stored in the same format as A, as returned by ZPPTRF.
 
-### N (in)
-
-N is INTEGER The order of the matrices A and B. N >= 0.
-
-### AP (in,out)
-
-AP is COMPLEX*16 array, dimension (N*(N+1)/2) On entry, the upper or lower triangle of the Hermitian matrix A, packed columnwise in a linear array. The j-th column of A is stored in the array AP as follows: if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j; if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n. On exit, if INFO = 0, the transformed matrix, stored in the same format as A.
-
-### BP (in)
-
-BP is COMPLEX*16 array, dimension (N*(N+1)/2) The triangular factor from the Cholesky factorization of B, stored in the same format as A, as returned by ZPPTRF.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

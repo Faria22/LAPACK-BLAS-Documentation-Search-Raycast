@@ -1,14 +1,22 @@
-# ZTBRFS
-
-## Function Signature
-
 ```fortran
-ZTBRFS(UPLO, TRANS, DIAG, N, KD, NRHS, AB, LDAB, B,
-*                          LDB, X, LDX, FERR, BERR, WORK, RWORK, INFO)
+subroutine ztbrfs	(	uplo,
+		trans,
+		diag,
+		n,
+		kd,
+		nrhs,
+		ab,
+		ldab,
+		b,
+		*                          ldb,
+		x,
+		ldx,
+		ferr,
+		berr,
+		work,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  ZTBRFS provides error bounds and backward error estimates for the
  solution to a system of linear equations with a triangular band
@@ -19,72 +27,75 @@ ZTBRFS(UPLO, TRANS, DIAG, N, KD, NRHS, AB, LDAB, B,
  refinement because doing so cannot improve the backward error.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  A is upper triangular;
+> = 'L':  A is lower triangular.
 
-### UPLO (in)
+Trans : Character*1 [in]
+> Specifies the form of the system of equations:
+> = 'N':  A * X = B     (No transpose)
+> = 'T':  A**T * X = B  (Transpose)
+> = 'C':  A**H * X = B  (Conjugate transpose)
 
-UPLO is CHARACTER*1 = 'U': A is upper triangular; = 'L': A is lower triangular.
+Diag : Character*1 [in]
+> = 'N':  A is non-unit triangular;
+> = 'U':  A is unit triangular.
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-TRANS is CHARACTER*1 Specifies the form of the system of equations: = 'N': A * X = B (No transpose) = 'T': A**T * X = B (Transpose) = 'C': A**H * X = B (Conjugate transpose)
+Kd : Integer [in]
+> The number of superdiagonals or subdiagonals of the
+> triangular band matrix A.  KD >= 0.
 
-### DIAG (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrices B and X.  NRHS >= 0.
 
-DIAG is CHARACTER*1 = 'N': A is non-unit triangular; = 'U': A is unit triangular.
+Ab : Complex*16 Array, Dimension (ldab,n) [in]
+> The upper or lower triangular band matrix A, stored in the
+> first kd+1 rows of the array. The j-th column of A is stored
+> in the j-th column of the array AB as follows:
+> if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+> If DIAG = 'U', the diagonal elements of A are not referenced
+> and are assumed to be 1.
 
-### N (in)
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KD+1.
 
-N is INTEGER The order of the matrix A. N >= 0.
+B : Complex*16 Array, Dimension (ldb,nrhs) [in]
+> The right hand side matrix B.
 
-### KD (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-KD is INTEGER The number of superdiagonals or subdiagonals of the triangular band matrix A. KD >= 0.
+X : Complex*16 Array, Dimension (ldx,nrhs) [in]
+> The solution matrix X.
 
-### NRHS (in)
+Ldx : Integer [in]
+> The leading dimension of the array X.  LDX >= max(1,N).
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrices B and X. NRHS >= 0.
+Ferr : Double Precision Array, Dimension (nrhs) [out]
+> The estimated forward error bound for each solution vector
+> X(j) (the j-th column of the solution matrix X).
+> If XTRUE is the true solution corresponding to X(j), FERR(j)
+> is an estimated upper bound for the magnitude of the largest
+> element in (X(j) - XTRUE) divided by the magnitude of the
+> largest element in X(j).  The estimate is as reliable as
+> the estimate for RCOND, and is almost always a slight
+> overestimate of the true error.
 
-### AB (in)
+Berr : Double Precision Array, Dimension (nrhs) [out]
+> The componentwise relative backward error of each solution
+> vector X(j) (i.e., the smallest relative change in
+> any element of A or B that makes X(j) an exact solution).
 
-AB is COMPLEX*16 array, dimension (LDAB,N) The upper or lower triangular band matrix A, stored in the first kd+1 rows of the array. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+kd). If DIAG = 'U', the diagonal elements of A are not referenced and are assumed to be 1.
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-### LDAB (in)
+Rwork : Double Precision Array, Dimension (n) [out]
 
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KD+1.
-
-### B (in)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) The right hand side matrix B.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### X (in)
-
-X is COMPLEX*16 array, dimension (LDX,NRHS) The solution matrix X.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the array X. LDX >= max(1,N).
-
-### FERR (out)
-
-FERR is DOUBLE PRECISION array, dimension (NRHS) The estimated forward error bound for each solution vector X(j) (the j-th column of the solution matrix X). If XTRUE is the true solution corresponding to X(j), FERR(j) is an estimated upper bound for the magnitude of the largest element in (X(j) - XTRUE) divided by the magnitude of the largest element in X(j). The estimate is as reliable as the estimate for RCOND, and is almost always a slight overestimate of the true error.
-
-### BERR (out)
-
-BERR is DOUBLE PRECISION array, dimension (NRHS) The componentwise relative backward error of each solution vector X(j) (i.e., the smallest relative change in any element of A or B that makes X(j) an exact solution).
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

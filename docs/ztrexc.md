@@ -1,13 +1,14 @@
-# ZTREXC
-
-## Function Signature
-
 ```fortran
-ZTREXC(COMPQ, N, T, LDT, Q, LDQ, IFST, ILST, INFO)
+subroutine ztrexc	(	character	compq,
+		integer	n,
+		complex*16, dimension(ldt, *)	t,
+		integer	ldt,
+		complex*16, dimension(ldq, *)	q,
+		integer	ldq,
+		integer	ifst,
+		integer	ilst,
+		integer	info )
 ```
-
-## Description
-
 
  ZTREXC reorders the Schur factorization of a complex matrix
  A = Q*T*Q**H, so that the diagonal element of T with row index IFST
@@ -18,40 +19,40 @@ ZTREXC(COMPQ, N, T, LDT, Q, LDQ, IFST, ILST, INFO)
  postmultiplying it with Z.
 
 ## Parameters
+Compq : Character*1 [in]
+> = 'V':  update the matrix Q of Schur vectors;
+> = 'N':  do not update Q.
 
-### COMPQ (in)
+N : Integer [in]
+> The order of the matrix T. N >= 0.
+> If N == 0 arguments ILST and IFST may be any value.
 
-COMPQ is CHARACTER*1 = 'V': update the matrix Q of Schur vectors; = 'N': do not update Q.
+T : Complex*16 Array, Dimension (ldt,n) [in,out]
+> On entry, the upper triangular matrix T.
+> On exit, the reordered upper triangular matrix.
 
-### N (in)
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= max(1,N).
 
-N is INTEGER The order of the matrix T. N >= 0. If N == 0 arguments ILST and IFST may be any value.
+Q : Complex*16 Array, Dimension (ldq,n) [in,out]
+> On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
+> On exit, if COMPQ = 'V', Q has been postmultiplied by the
+> unitary transformation matrix Z which reorders T.
+> If COMPQ = 'N', Q is not referenced.
 
-### T (in,out)
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= 1, and if
+> COMPQ = 'V', LDQ >= max(1,N).
 
-T is COMPLEX*16 array, dimension (LDT,N) On entry, the upper triangular matrix T. On exit, the reordered upper triangular matrix.
+Ifst : Integer [in]
 
-### LDT (in)
+Ilst : Integer [in]
+> Specify the reordering of the diagonal elements of T:
+> The element with row index IFST is moved to row ILST by a
+> sequence of transpositions between adjacent elements.
+> 1 <= IFST <= N; 1 <= ILST <= N.
 
-LDT is INTEGER The leading dimension of the array T. LDT >= max(1,N).
-
-### Q (in,out)
-
-Q is COMPLEX*16 array, dimension (LDQ,N) On entry, if COMPQ = 'V', the matrix Q of Schur vectors. On exit, if COMPQ = 'V', Q has been postmultiplied by the unitary transformation matrix Z which reorders T. If COMPQ = 'N', Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= 1, and if COMPQ = 'V', LDQ >= max(1,N).
-
-### IFST (in)
-
-IFST is INTEGER
-
-### ILST (in)
-
-ILST is INTEGER Specify the reordering of the diagonal elements of T: The element with row index IFST is moved to row ILST by a sequence of transpositions between adjacent elements. 1 <= IFST <= N; 1 <= ILST <= N.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

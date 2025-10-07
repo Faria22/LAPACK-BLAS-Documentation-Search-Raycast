@@ -1,13 +1,9 @@
-# SLASRT
-
-## Function Signature
-
 ```fortran
-SLASRT(ID, N, D, INFO)
+subroutine slasrt	(	character	id,
+		integer	n,
+		real, dimension(*)	d,
+		integer	info )
 ```
-
-## Description
-
 
  Sort the numbers in D in increasing order (if ID = 'I') or
  in decreasing order (if ID = 'D' ).
@@ -16,20 +12,20 @@ SLASRT(ID, N, D, INFO)
  size <= 20. Dimension of STACK limits N to about 2**32.
 
 ## Parameters
+Id : Character*1 [in]
+> = 'I': sort D in increasing order;
+> = 'D': sort D in decreasing order.
 
-### ID (in)
+N : Integer [in]
+> The length of the array D.
 
-ID is CHARACTER*1 = 'I': sort D in increasing order; = 'D': sort D in decreasing order.
+D : Real Array, Dimension (n) [in,out]
+> On entry, the array to be sorted.
+> On exit, D has been sorted into increasing order
+> (D(1) <= ... <= D(N) ) or into decreasing order
+> (D(1) >= ... >= D(N) ), depending on ID.
 
-### N (in)
-
-N is INTEGER The length of the array D.
-
-### D (in,out)
-
-D is REAL array, dimension (N) On entry, the array to be sorted. On exit, D has been sorted into increasing order (D(1) <= ... <= D(N) ) or into decreasing order (D(1) >= ... >= D(N) ), depending on ID.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

@@ -1,14 +1,22 @@
-# ZTGEVC
-
-## Function Signature
-
 ```fortran
-ZTGEVC(SIDE, HOWMNY, SELECT, N, S, LDS, P, LDP, VL,
-*                          LDVL, VR, LDVR, MM, M, WORK, RWORK, INFO)
+subroutine ztgevc	(	side,
+		howmny,
+		select,
+		n,
+		s,
+		lds,
+		p,
+		ldp,
+		vl,
+		*                          ldvl,
+		vr,
+		ldvr,
+		mm,
+		m,
+		work,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  ZTGEVC computes some or all of the right and/or left eigenvectors of
  a pair of complex matrices (S,P), where S and P are upper triangular.
@@ -36,72 +44,87 @@ ZTGEVC(SIDE, HOWMNY, SELECT, N, S, LDS, P, LDP, VL,
  are the matrices of right and left eigenvectors of (A,B).
 
 ## Parameters
+Side : Character*1 [in]
+> = 'R': compute right eigenvectors only;
+> = 'L': compute left eigenvectors only;
+> = 'B': compute both right and left eigenvectors.
 
-### SIDE (in)
+Howmny : Character*1 [in]
+> = 'A': compute all right and/or left eigenvectors;
+> = 'B': compute all right and/or left eigenvectors,
+> backtransformed by the matrices in VR and/or VL;
+> = 'S': compute selected right and/or left eigenvectors,
+> specified by the logical array SELECT.
 
-SIDE is CHARACTER*1 = 'R': compute right eigenvectors only; = 'L': compute left eigenvectors only; = 'B': compute both right and left eigenvectors.
+Select : Logical Array, Dimension (n) [in]
+> If HOWMNY='S', SELECT specifies the eigenvectors to be
+> computed.  The eigenvector corresponding to the j-th
+> eigenvalue is computed if SELECT(j) = .TRUE..
+> Not referenced if HOWMNY = 'A' or 'B'.
 
-### HOWMNY (in)
+N : Integer [in]
+> The order of the matrices S and P.  N >= 0.
 
-HOWMNY is CHARACTER*1 = 'A': compute all right and/or left eigenvectors; = 'B': compute all right and/or left eigenvectors, backtransformed by the matrices in VR and/or VL; = 'S': compute selected right and/or left eigenvectors, specified by the logical array SELECT.
+S : Complex*16 Array, Dimension (lds,n) [in]
+> The upper triangular matrix S from a generalized Schur
+> factorization, as computed by ZHGEQZ.
 
-### SELECT (in)
+Lds : Integer [in]
+> The leading dimension of array S.  LDS >= max(1,N).
 
-SELECT is LOGICAL array, dimension (N) If HOWMNY='S', SELECT specifies the eigenvectors to be computed. The eigenvector corresponding to the j-th eigenvalue is computed if SELECT(j) = .TRUE.. Not referenced if HOWMNY = 'A' or 'B'.
+P : Complex*16 Array, Dimension (ldp,n) [in]
+> The upper triangular matrix P from a generalized Schur
+> factorization, as computed by ZHGEQZ.  P must have real
+> diagonal elements.
 
-### N (in)
+Ldp : Integer [in]
+> The leading dimension of array P.  LDP >= max(1,N).
 
-N is INTEGER The order of the matrices S and P. N >= 0.
+Vl : Complex*16 Array, Dimension (ldvl,mm) [in,out]
+> On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
+> contain an N-by-N matrix Q (usually the unitary matrix Q
+> of left Schur vectors returned by ZHGEQZ).
+> On exit, if SIDE = 'L' or 'B', VL contains:
+> if HOWMNY = 'A', the matrix Y of left eigenvectors of (S,P);
+> if HOWMNY = 'B', the matrix Q*Y;
+> if HOWMNY = 'S', the left eigenvectors of (S,P) specified by
+> SELECT, stored consecutively in the columns of
+> VL, in the same order as their eigenvalues.
+> Not referenced if SIDE = 'R'.
 
-### S (in)
+Ldvl : Integer [in]
+> The leading dimension of array VL.  LDVL >= 1, and if
+> SIDE = 'L' or 'l' or 'B' or 'b', LDVL >= N.
 
-S is COMPLEX*16 array, dimension (LDS,N) The upper triangular matrix S from a generalized Schur factorization, as computed by ZHGEQZ.
+Vr : Complex*16 Array, Dimension (ldvr,mm) [in,out]
+> On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
+> contain an N-by-N matrix Z (usually the unitary matrix Z
+> of right Schur vectors returned by ZHGEQZ).
+> On exit, if SIDE = 'R' or 'B', VR contains:
+> if HOWMNY = 'A', the matrix X of right eigenvectors of (S,P);
+> if HOWMNY = 'B', the matrix Z*X;
+> if HOWMNY = 'S', the right eigenvectors of (S,P) specified by
+> SELECT, stored consecutively in the columns of
+> VR, in the same order as their eigenvalues.
+> Not referenced if SIDE = 'L'.
 
-### LDS (in)
+Ldvr : Integer [in]
+> The leading dimension of the array VR.  LDVR >= 1, and if
+> SIDE = 'R' or 'B', LDVR >= N.
 
-LDS is INTEGER The leading dimension of array S. LDS >= max(1,N).
+Mm : Integer [in]
+> The number of columns in the arrays VL and/or VR. MM >= M.
 
-### P (in)
+M : Integer [out]
+> The number of columns in the arrays VL and/or VR actually
+> used to store the eigenvectors.  If HOWMNY = 'A' or 'B', M
+> is set to N.  Each selected eigenvector occupies one column.
 
-P is COMPLEX*16 array, dimension (LDP,N) The upper triangular matrix P from a generalized Schur factorization, as computed by ZHGEQZ. P must have real diagonal elements.
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-### LDP (in)
+Rwork : Double Precision Array, Dimension (2*n) [out]
 
-LDP is INTEGER The leading dimension of array P. LDP >= max(1,N).
-
-### VL (in,out)
-
-VL is COMPLEX*16 array, dimension (LDVL,MM) On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must contain an N-by-N matrix Q (usually the unitary matrix Q of left Schur vectors returned by ZHGEQZ). On exit, if SIDE = 'L' or 'B', VL contains: if HOWMNY = 'A', the matrix Y of left eigenvectors of (S,P); if HOWMNY = 'B', the matrix Q*Y; if HOWMNY = 'S', the left eigenvectors of (S,P) specified by SELECT, stored consecutively in the columns of VL, in the same order as their eigenvalues. Not referenced if SIDE = 'R'.
-
-### LDVL (in)
-
-LDVL is INTEGER The leading dimension of array VL. LDVL >= 1, and if SIDE = 'L' or 'l' or 'B' or 'b', LDVL >= N.
-
-### VR (in,out)
-
-VR is COMPLEX*16 array, dimension (LDVR,MM) On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must contain an N-by-N matrix Z (usually the unitary matrix Z of right Schur vectors returned by ZHGEQZ). On exit, if SIDE = 'R' or 'B', VR contains: if HOWMNY = 'A', the matrix X of right eigenvectors of (S,P); if HOWMNY = 'B', the matrix Z*X; if HOWMNY = 'S', the right eigenvectors of (S,P) specified by SELECT, stored consecutively in the columns of VR, in the same order as their eigenvalues. Not referenced if SIDE = 'L'.
-
-### LDVR (in)
-
-LDVR is INTEGER The leading dimension of the array VR. LDVR >= 1, and if SIDE = 'R' or 'B', LDVR >= N.
-
-### MM (in)
-
-MM is INTEGER The number of columns in the arrays VL and/or VR. MM >= M.
-
-### M (out)
-
-M is INTEGER The number of columns in the arrays VL and/or VR actually used to store the eigenvectors. If HOWMNY = 'A' or 'B', M is set to N. Each selected eigenvector occupies one column.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

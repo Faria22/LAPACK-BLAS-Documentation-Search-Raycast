@@ -1,14 +1,16 @@
-# DLARRK
-
-## Function Signature
-
 ```fortran
-DLARRK(N, IW, GL, GU,
-*                           D, E2, PIVMIN, RELTOL, W, WERR, INFO)
+subroutine dlarrk	(	n,
+		iw,
+		gl,
+		gu,
+		*                           d,
+		e2,
+		pivmin,
+		reltol,
+		w,
+		werr,
+		info )
 ```
-
-## Description
-
 
  DLARRK computes one eigenvalue of a symmetric tridiagonal
  matrix T to suitable accuracy. This is an auxiliary code to be
@@ -23,48 +25,40 @@ DLARRK(N, IW, GL, GU,
  University, July 21, 1966.
 
 ## Parameters
+N : Integer [in]
+> The order of the tridiagonal matrix T.  N >= 0.
 
-### N (in)
+Iw : Integer [in]
+> The index of the eigenvalues to be returned.
 
-N is INTEGER The order of the tridiagonal matrix T. N >= 0.
+Gl : Double Precision [in]
 
-### IW (in)
+Gu : Double Precision [in]
+> An upper and a lower bound on the eigenvalue.
 
-IW is INTEGER The index of the eigenvalues to be returned.
+D : Double Precision Array, Dimension (n) [in]
+> The n diagonal elements of the tridiagonal matrix T.
 
-### GL (in)
+E2 : Double Precision Array, Dimension (n-1) [in]
+> The (n-1) squared off-diagonal elements of the tridiagonal matrix T.
 
-GL is DOUBLE PRECISION
+Pivmin : Double Precision [in]
+> The minimum pivot allowed in the Sturm sequence for T.
 
-### GU (in)
+Reltol : Double Precision [in]
+> The minimum relative width of an interval.  When an interval
+> is narrower than RELTOL times the larger (in
+> magnitude) endpoint, then it is considered to be
+> sufficiently small, i.e., converged.  Note: this should
+> always be at least radix*machine epsilon.
 
-GU is DOUBLE PRECISION An upper and a lower bound on the eigenvalue.
+W : Double Precision [out]
 
-### D (in)
+Werr : Double Precision [out]
+> The error bound on the corresponding eigenvalue approximation
+> in W.
 
-D is DOUBLE PRECISION array, dimension (N) The n diagonal elements of the tridiagonal matrix T.
-
-### E2 (in)
-
-E2 is DOUBLE PRECISION array, dimension (N-1) The (n-1) squared off-diagonal elements of the tridiagonal matrix T.
-
-### PIVMIN (in)
-
-PIVMIN is DOUBLE PRECISION The minimum pivot allowed in the Sturm sequence for T.
-
-### RELTOL (in)
-
-RELTOL is DOUBLE PRECISION The minimum relative width of an interval. When an interval is narrower than RELTOL times the larger (in magnitude) endpoint, then it is considered to be sufficiently small, i.e., converged. Note: this should always be at least radix*machine epsilon.
-
-### W (out)
-
-W is DOUBLE PRECISION
-
-### WERR (out)
-
-WERR is DOUBLE PRECISION The error bound on the corresponding eigenvalue approximation in W.
-
-### INFO (out)
-
-INFO is INTEGER = 0: Eigenvalue converged = -1: Eigenvalue did NOT converge
+Info : Integer [out]
+> = 0:       Eigenvalue converged
+> = -1:      Eigenvalue did NOT converge
 

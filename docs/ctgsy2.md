@@ -1,15 +1,25 @@
-# CTGSY2
-
-## Function Signature
-
 ```fortran
-CTGSY2(TRANS, IJOB, M, N, A, LDA, B, LDB, C, LDC, D,
-*                          LDD, E, LDE, F, LDF, SCALE, RDSUM, RDSCAL,
-*                          INFO)
+subroutine ctgsy2	(	trans,
+		ijob,
+		m,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		c,
+		ldc,
+		d,
+		*                          ldd,
+		e,
+		lde,
+		f,
+		ldf,
+		scale,
+		rdsum,
+		rdscal,
+		*                          info )
 ```
-
-## Description
-
 
  CTGSY2 solves the generalized Sylvester equation
 
@@ -48,84 +58,101 @@ CTGSY2(TRANS, IJOB, M, N, A, LDA, B, LDB, C, LDC, D,
  CTGSYL.
 
 ## Parameters
+Trans : Character*1 [in]
+> = 'N': solve the generalized Sylvester equation (1).
+> = 'T': solve the 'transposed' system (3).
 
-### TRANS (in)
+Ijob : Integer [in]
+> Specifies what kind of functionality to be performed.
+> = 0: solve (1) only.
+> = 1: A contribution from this subsystem to a Frobenius
+> norm-based estimate of the separation between two matrix
+> pairs is computed. (look ahead strategy is used).
+> = 2: A contribution from this subsystem to a Frobenius
+> norm-based estimate of the separation between two matrix
+> pairs is computed. (SGECON on sub-systems is used.)
+> Not referenced if TRANS = 'T'.
 
-TRANS is CHARACTER*1 = 'N': solve the generalized Sylvester equation (1). = 'T': solve the 'transposed' system (3).
+M : Integer [in]
+> On entry, M specifies the order of A and D, and the row
+> dimension of C, F, R and L.
 
-### IJOB (in)
+N : Integer [in]
+> On entry, N specifies the order of B and E, and the column
+> dimension of C, F, R and L.
 
-IJOB is INTEGER Specifies what kind of functionality to be performed. = 0: solve (1) only. = 1: A contribution from this subsystem to a Frobenius norm-based estimate of the separation between two matrix pairs is computed. (look ahead strategy is used). = 2: A contribution from this subsystem to a Frobenius norm-based estimate of the separation between two matrix pairs is computed. (SGECON on sub-systems is used.) Not referenced if TRANS = 'T'.
+A : Complex Array, Dimension (lda, M) [in]
+> On entry, A contains an upper triangular matrix.
 
-### M (in)
+Lda : Integer [in]
+> The leading dimension of the matrix A. LDA >= max(1, M).
 
-M is INTEGER On entry, M specifies the order of A and D, and the row dimension of C, F, R and L.
+B : Complex Array, Dimension (ldb, N) [in]
+> On entry, B contains an upper triangular matrix.
 
-### N (in)
+Ldb : Integer [in]
+> The leading dimension of the matrix B. LDB >= max(1, N).
 
-N is INTEGER On entry, N specifies the order of B and E, and the column dimension of C, F, R and L.
+C : Complex Array, Dimension (ldc, N) [in,out]
+> On entry, C contains the right-hand-side of the first matrix
+> equation in (1).
+> On exit, if IJOB = 0, C has been overwritten by the solution
+> R.
 
-### A (in)
+Ldc : Integer [in]
+> The leading dimension of the matrix C. LDC >= max(1, M).
 
-A is COMPLEX array, dimension (LDA, M) On entry, A contains an upper triangular matrix.
+D : Complex Array, Dimension (ldd, M) [in]
+> On entry, D contains an upper triangular matrix.
 
-### LDA (in)
+Ldd : Integer [in]
+> The leading dimension of the matrix D. LDD >= max(1, M).
 
-LDA is INTEGER The leading dimension of the matrix A. LDA >= max(1, M).
+E : Complex Array, Dimension (lde, N) [in]
+> On entry, E contains an upper triangular matrix.
 
-### B (in)
+Lde : Integer [in]
+> The leading dimension of the matrix E. LDE >= max(1, N).
 
-B is COMPLEX array, dimension (LDB, N) On entry, B contains an upper triangular matrix.
+F : Complex Array, Dimension (ldf, N) [in,out]
+> On entry, F contains the right-hand-side of the second matrix
+> equation in (1).
+> On exit, if IJOB = 0, F has been overwritten by the solution
+> L.
 
-### LDB (in)
+Ldf : Integer [in]
+> The leading dimension of the matrix F. LDF >= max(1, M).
 
-LDB is INTEGER The leading dimension of the matrix B. LDB >= max(1, N).
+Scale : Real [out]
+> On exit, 0 <= SCALE <= 1. If 0 < SCALE < 1, the solutions
+> R and L (C and F on entry) will hold the solutions to a
+> slightly perturbed system but the input matrices A, B, D and
+> E have not been changed. If SCALE = 0, R and L will hold the
+> solutions to the homogeneous system with C = F = 0.
+> Normally, SCALE = 1.
 
-### C (in,out)
+Rdsum : Real [in,out]
+> On entry, the sum of squares of computed contributions to
+> the Dif-estimate under computation by CTGSYL, where the
+> scaling factor RDSCAL (see below) has been factored out.
+> On exit, the corresponding sum of squares updated with the
+> contributions from the current sub-system.
+> If TRANS = 'T' RDSUM is not touched.
+> NOTE: RDSUM only makes sense when CTGSY2 is called by
+> CTGSYL.
 
-C is COMPLEX array, dimension (LDC, N) On entry, C contains the right-hand-side of the first matrix equation in (1). On exit, if IJOB = 0, C has been overwritten by the solution R.
+Rdscal : Real [in,out]
+> On entry, scaling factor used to prevent overflow in RDSUM.
+> On exit, RDSCAL is updated w.r.t. the current contributions
+> in RDSUM.
+> If TRANS = 'T', RDSCAL is not touched.
+> NOTE: RDSCAL only makes sense when CTGSY2 is called by
+> CTGSYL.
 
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the matrix C. LDC >= max(1, M).
-
-### D (in)
-
-D is COMPLEX array, dimension (LDD, M) On entry, D contains an upper triangular matrix.
-
-### LDD (in)
-
-LDD is INTEGER The leading dimension of the matrix D. LDD >= max(1, M).
-
-### E (in)
-
-E is COMPLEX array, dimension (LDE, N) On entry, E contains an upper triangular matrix.
-
-### LDE (in)
-
-LDE is INTEGER The leading dimension of the matrix E. LDE >= max(1, N).
-
-### F (in,out)
-
-F is COMPLEX array, dimension (LDF, N) On entry, F contains the right-hand-side of the second matrix equation in (1). On exit, if IJOB = 0, F has been overwritten by the solution L.
-
-### LDF (in)
-
-LDF is INTEGER The leading dimension of the matrix F. LDF >= max(1, M).
-
-### SCALE (out)
-
-SCALE is REAL On exit, 0 <= SCALE <= 1. If 0 < SCALE < 1, the solutions R and L (C and F on entry) will hold the solutions to a slightly perturbed system but the input matrices A, B, D and E have not been changed. If SCALE = 0, R and L will hold the solutions to the homogeneous system with C = F = 0. Normally, SCALE = 1.
-
-### RDSUM (in,out)
-
-RDSUM is REAL On entry, the sum of squares of computed contributions to the Dif-estimate under computation by CTGSYL, where the scaling factor RDSCAL (see below) has been factored out. On exit, the corresponding sum of squares updated with the contributions from the current sub-system. If TRANS = 'T' RDSUM is not touched. NOTE: RDSUM only makes sense when CTGSY2 is called by CTGSYL.
-
-### RDSCAL (in,out)
-
-RDSCAL is REAL On entry, scaling factor used to prevent overflow in RDSUM. On exit, RDSCAL is updated w.r.t. the current contributions in RDSUM. If TRANS = 'T', RDSCAL is not touched. NOTE: RDSCAL only makes sense when CTGSY2 is called by CTGSYL.
-
-### INFO (out)
-
-INFO is INTEGER On exit, if INFO is set to =0: Successful exit <0: If INFO = -i, input argument number i is illegal. >0: The matrix pairs (A, D) and (B, E) have common or very close eigenvalues.
+Info : Integer [out]
+> On exit, if INFO is set to
+> =0: Successful exit
+> <0: If INFO = -i, input argument number i is illegal.
+> >0: The matrix pairs (A, D) and (B, E) have common or very
+> close eigenvalues.
 

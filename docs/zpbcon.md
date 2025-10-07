@@ -1,14 +1,15 @@
-# ZPBCON
-
-## Function Signature
-
 ```fortran
-ZPBCON(UPLO, N, KD, AB, LDAB, ANORM, RCOND, WORK,
-*                          RWORK, INFO)
+subroutine zpbcon	(	uplo,
+		n,
+		kd,
+		ab,
+		ldab,
+		anorm,
+		rcond,
+		work,
+		*                          rwork,
+		info )
 ```
-
-## Description
-
 
  ZPBCON estimates the reciprocal of the condition number (in the
  1-norm) of a complex Hermitian positive definite band matrix using
@@ -19,44 +20,41 @@ ZPBCON(UPLO, N, KD, AB, LDAB, ANORM, RCOND, WORK,
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangular factor stored in AB;
+> = 'L':  Lower triangular factor stored in AB.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangular factor stored in AB; = 'L': Lower triangular factor stored in AB.
+Kd : Integer [in]
+> The number of superdiagonals of the matrix A if UPLO = 'U',
+> or the number of sub-diagonals if UPLO = 'L'.  KD >= 0.
 
-### N (in)
+Ab : Complex*16 Array, Dimension (ldab,n) [in]
+> The triangular factor U or L from the Cholesky factorization
+> A = U**H*U or A = L*L**H of the band matrix A, stored in the
+> first KD+1 rows of the array.  The j-th column of U or L is
+> stored in the j-th column of the array AB as follows:
+> if UPLO ='U', AB(kd+1+i-j,j) = U(i,j) for max(1,j-kd)<=i<=j;
+> if UPLO ='L', AB(1+i-j,j)    = L(i,j) for j<=i<=min(n,j+kd).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KD+1.
 
-### KD (in)
+Anorm : Double Precision [in]
+> The 1-norm (or infinity-norm) of the Hermitian band matrix A.
 
-KD is INTEGER The number of superdiagonals of the matrix A if UPLO = 'U', or the number of sub-diagonals if UPLO = 'L'. KD >= 0.
+Rcond : Double Precision [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-### AB (in)
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-AB is COMPLEX*16 array, dimension (LDAB,N) The triangular factor U or L from the Cholesky factorization A = U**H*U or A = L*L**H of the band matrix A, stored in the first KD+1 rows of the array. The j-th column of U or L is stored in the j-th column of the array AB as follows: if UPLO ='U', AB(kd+1+i-j,j) = U(i,j) for max(1,j-kd)<=i<=j; if UPLO ='L', AB(1+i-j,j) = L(i,j) for j<=i<=min(n,j+kd).
+Rwork : Double Precision Array, Dimension (n) [out]
 
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KD+1.
-
-### ANORM (in)
-
-ANORM is DOUBLE PRECISION The 1-norm (or infinity-norm) of the Hermitian band matrix A.
-
-### RCOND (out)
-
-RCOND is DOUBLE PRECISION The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

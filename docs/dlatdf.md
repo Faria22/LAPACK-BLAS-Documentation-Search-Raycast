@@ -1,14 +1,14 @@
-# DLATDF
-
-## Function Signature
-
 ```fortran
-DLATDF(IJOB, N, Z, LDZ, RHS, RDSUM, RDSCAL, IPIV,
-*                          JPIV)
+subroutine dlatdf	(	ijob,
+		n,
+		z,
+		ldz,
+		rhs,
+		rdsum,
+		rdscal,
+		ipiv,
+		*                          jpiv )
 ```
-
-## Description
-
 
  DLATDF uses the LU factorization of the n-by-n matrix Z computed by
  DGETC2 and computes a contribution to the reciprocal Dif-estimate
@@ -21,40 +21,51 @@ DLATDF(IJOB, N, Z, LDZ, RHS, RDSUM, RDSCAL, IPIV,
  unit diagonal elements and U is upper triangular.
 
 ## Parameters
+Ijob : Integer [in]
+> IJOB = 2: First compute an approximative null-vector e
+> of Z using DGECON, e is normalized and solve for
+> Zx = +-e - f with the sign giving the greater value
+> of 2-norm(x). About 5 times as expensive as Default.
+> IJOB .ne. 2: Local look ahead strategy where all entries of
+> the r.h.s. b is chosen as either +1 or -1 (Default).
 
-### IJOB (in)
+N : Integer [in]
+> The number of columns of the matrix Z.
 
-IJOB is INTEGER IJOB = 2: First compute an approximative null-vector e of Z using DGECON, e is normalized and solve for Zx = +-e - f with the sign giving the greater value of 2-norm(x). About 5 times as expensive as Default. IJOB .ne. 2: Local look ahead strategy where all entries of the r.h.s. b is chosen as either +1 or -1 (Default).
+Z : Double Precision Array, Dimension (ldz, N) [in]
+> On entry, the LU part of the factorization of the n-by-n
+> matrix Z computed by DGETC2:  Z = P * L * U * Q
 
-### N (in)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDA >= max(1, N).
 
-N is INTEGER The number of columns of the matrix Z.
+Rhs : Double Precision Array, Dimension (n) [in,out]
+> On entry, RHS contains contributions from other subsystems.
+> On exit, RHS contains the solution of the subsystem with
+> entries according to the value of IJOB (see above).
 
-### Z (in)
+Rdsum : Double Precision [in,out]
+> On entry, the sum of squares of computed contributions to
+> the Dif-estimate under computation by DTGSYL, where the
+> scaling factor RDSCAL (see below) has been factored out.
+> On exit, the corresponding sum of squares updated with the
+> contributions from the current sub-system.
+> If TRANS = 'T' RDSUM is not touched.
+> NOTE: RDSUM only makes sense when DTGSY2 is called by STGSYL.
 
-Z is DOUBLE PRECISION array, dimension (LDZ, N) On entry, the LU part of the factorization of the n-by-n matrix Z computed by DGETC2: Z = P * L * U * Q
+Rdscal : Double Precision [in,out]
+> On entry, scaling factor used to prevent overflow in RDSUM.
+> On exit, RDSCAL is updated w.r.t. the current contributions
+> in RDSUM.
+> If TRANS = 'T', RDSCAL is not touched.
+> NOTE: RDSCAL only makes sense when DTGSY2 is called by
+> DTGSYL.
 
-### LDZ (in)
+Ipiv : Integer Array, Dimension (n). [in]
+> The pivot indices; for 1 <= i <= N, row i of the
+> matrix has been interchanged with row IPIV(i).
 
-LDZ is INTEGER The leading dimension of the array Z. LDA >= max(1, N).
-
-### RHS (in,out)
-
-RHS is DOUBLE PRECISION array, dimension (N) On entry, RHS contains contributions from other subsystems. On exit, RHS contains the solution of the subsystem with entries according to the value of IJOB (see above).
-
-### RDSUM (in,out)
-
-RDSUM is DOUBLE PRECISION On entry, the sum of squares of computed contributions to the Dif-estimate under computation by DTGSYL, where the scaling factor RDSCAL (see below) has been factored out. On exit, the corresponding sum of squares updated with the contributions from the current sub-system. If TRANS = 'T' RDSUM is not touched. NOTE: RDSUM only makes sense when DTGSY2 is called by STGSYL.
-
-### RDSCAL (in,out)
-
-RDSCAL is DOUBLE PRECISION On entry, scaling factor used to prevent overflow in RDSUM. On exit, RDSCAL is updated w.r.t. the current contributions in RDSUM. If TRANS = 'T', RDSCAL is not touched. NOTE: RDSCAL only makes sense when DTGSY2 is called by DTGSYL.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N). The pivot indices; for 1 <= i <= N, row i of the matrix has been interchanged with row IPIV(i).
-
-### JPIV (in)
-
-JPIV is INTEGER array, dimension (N). The pivot indices; for 1 <= j <= N, column j of the matrix has been interchanged with column JPIV(j).
+Jpiv : Integer Array, Dimension (n). [in]
+> The pivot indices; for 1 <= j <= N, column j of the
+> matrix has been interchanged with column JPIV(j).
 

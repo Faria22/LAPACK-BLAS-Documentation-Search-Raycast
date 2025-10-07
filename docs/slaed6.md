@@ -1,13 +1,13 @@
-# SLAED6
-
-## Function Signature
-
 ```fortran
-SLAED6(KNITER, ORGATI, RHO, D, Z, FINIT, TAU, INFO)
+subroutine slaed6	(	integer	kniter,
+		logical	orgati,
+		real	rho,
+		real, dimension(3)	d,
+		real, dimension(3)	z,
+		real	finit,
+		real	tau,
+		integer	info )
 ```
-
-## Description
-
 
  SLAED6 computes the positive or negative root (closest to the origin)
  of
@@ -25,36 +25,32 @@ SLAED6(KNITER, ORGATI, RHO, D, Z, FINIT, TAU, INFO)
  in some extremely rare situations.
 
 ## Parameters
+Kniter : Integer [in]
+> Refer to SLAED4 for its significance.
 
-### KNITER (in)
+Orgati : Logical [in]
+> If ORGATI is true, the needed root is between d(2) and
+> d(3); otherwise it is between d(1) and d(2).  See
+> SLAED4 for further details.
 
-KNITER is INTEGER Refer to SLAED4 for its significance.
+Rho : Real [in]
+> Refer to the equation f(x) above.
 
-### ORGATI (in)
+D : Real Array, Dimension (3) [in]
+> D satisfies d(1) < d(2) < d(3).
 
-ORGATI is LOGICAL If ORGATI is true, the needed root is between d(2) and d(3); otherwise it is between d(1) and d(2). See SLAED4 for further details.
+Z : Real Array, Dimension (3) [in]
+> Each of the elements in z must be positive.
 
-### RHO (in)
+Finit : Real [in]
+> The value of f at 0. It is more accurate than the one
+> evaluated inside this routine (if someone wants to do
+> so).
 
-RHO is REAL Refer to the equation f(x) above.
+Tau : Real [out]
+> The root of the equation f(x).
 
-### D (in)
-
-D is REAL array, dimension (3) D satisfies d(1) < d(2) < d(3).
-
-### Z (in)
-
-Z is REAL array, dimension (3) Each of the elements in z must be positive.
-
-### FINIT (in)
-
-FINIT is REAL The value of f at 0. It is more accurate than the one evaluated inside this routine (if someone wants to do so).
-
-### TAU (out)
-
-TAU is REAL The root of the equation f(x).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit > 0: if INFO = 1, failure to converge
+Info : Integer [out]
+> = 0: successful exit
+> > 0: if INFO = 1, failure to converge
 

@@ -1,13 +1,14 @@
-# SLASV2
-
-## Function Signature
-
 ```fortran
-SLASV2(F, G, H, SSMIN, SSMAX, SNR, CSR, SNL, CSL)
+subroutine slasv2	(	real	f,
+		real	g,
+		real	h,
+		real	ssmin,
+		real	ssmax,
+		real	snr,
+		real	csr,
+		real	snl,
+		real	csl )
 ```
-
-## Description
-
 
  SLASV2 computes the singular value decomposition of a 2-by-2
  triangular matrix
@@ -21,40 +22,30 @@ SLASV2(F, G, H, SSMIN, SSMAX, SNR, CSR, SNL, CSL)
     [-SNL  CSL ] [  0   H  ] [ SNR  CSR ]     [  0    SSMIN ].
 
 ## Parameters
+F : Real [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### F (in)
+G : Real [in]
+> The (1,2) element of the 2-by-2 matrix.
 
-F is REAL The (1,1) element of the 2-by-2 matrix.
+H : Real [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### G (in)
+Ssmin : Real [out]
+> abs(SSMIN) is the smaller singular value.
 
-G is REAL The (1,2) element of the 2-by-2 matrix.
+Ssmax : Real [out]
+> abs(SSMAX) is the larger singular value.
 
-### H (in)
+Snl : Real [out]
 
-H is REAL The (2,2) element of the 2-by-2 matrix.
+Csl : Real [out]
+> The vector (CSL, SNL) is a unit left singular vector for the
+> singular value abs(SSMAX).
 
-### SSMIN (out)
+Snr : Real [out]
 
-SSMIN is REAL abs(SSMIN) is the smaller singular value.
-
-### SSMAX (out)
-
-SSMAX is REAL abs(SSMAX) is the larger singular value.
-
-### SNL (out)
-
-SNL is REAL
-
-### CSL (out)
-
-CSL is REAL The vector (CSL, SNL) is a unit left singular vector for the singular value abs(SSMAX).
-
-### SNR (out)
-
-SNR is REAL
-
-### CSR (out)
-
-CSR is REAL The vector (CSR, SNR) is a unit right singular vector for the singular value abs(SSMAX).
+Csr : Real [out]
+> The vector (CSR, SNR) is a unit right singular vector for the
+> singular value abs(SSMAX).
 
