@@ -1,0 +1,31 @@
+# ZDSCAL
+
+## Function Signature
+
+```fortran
+ZDSCAL(N,DA,ZX,INCX)
+```
+
+## Description
+
+
+    ZDSCAL scales a vector by a constant.
+
+## Parameters
+
+### N (in)
+
+N is INTEGER number of elements in input vector(s)
+
+### DA (in)
+
+DA is DOUBLE PRECISION On entry, DA specifies the scalar alpha.
+
+### ZX (in,out)
+
+ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+
+### INCX (in)
+
+INCX is INTEGER storage spacing between elements of ZX
+
