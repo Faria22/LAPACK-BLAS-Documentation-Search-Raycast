@@ -58,8 +58,8 @@ This extension currently includes documentation for:
 
 This extension is designed to work completely offline:
 
-1. **Inventory** (`docs/inventory.json`): Contains metadata for all routines including names, descriptions, categories, and official URLs
-2. **Documentation Files** (`docs/*.md`): Markdown files containing the full documentation for each routine
+1. **Inventory** (`assets/docs/inventory.json`): Contains metadata for all routines including names, descriptions, categories, and official URLs
+2. **Documentation Files** (`assets/docs/*.md`): Markdown files containing the full documentation for each routine
 3. **Local Loading**: All files are bundled with the extension and loaded from the local filesystem
 
 No network requests are made during normal operation, making the search instant and reliable.
@@ -68,7 +68,7 @@ No network requests are made during normal operation, making the search instant 
 
 To add documentation for additional LAPACK/BLAS routines:
 
-1. Add an entry to `docs/inventory.json`:
+1. Add an entry to `assets/docs/inventory.json`:
 ```json
 {
   "id": "routine-name",
@@ -81,7 +81,7 @@ To add documentation for additional LAPACK/BLAS routines:
 }
 ```
 
-2. Create a markdown file at `docs/routine-name.md` with the documentation
+2. Create a markdown file at `assets/docs/routine-name.md` with the documentation
 
 3. Rebuild the extension: `npm run build`
 

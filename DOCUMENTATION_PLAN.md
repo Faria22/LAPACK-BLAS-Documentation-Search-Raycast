@@ -7,8 +7,8 @@ This document describes how to obtain, validate, and manage the URLs for LAPACK/
 ## Current Implementation
 
 The extension uses a **local-first approach** where:
-1. All documentation is stored as markdown files in the `docs/` directory
-2. A JSON inventory file (`docs/inventory.json`) maps function names to their documentation files and official URLs
+1. All documentation is stored as markdown files in the `assets/docs/` directory
+2. A JSON inventory file (`assets/assets/docs/inventory.json`) maps function names to their documentation files and official URLs
 3. No web access is required during runtime - everything is bundled with the extension
 
 ## Sources for LAPACK/BLAS Documentation URLs
@@ -36,7 +36,7 @@ LAPACK routines:
 1. Navigate to https://netlib.org/lapack/explore-html/
 2. Use the search function to find the routine
 3. Copy the URL from the browser's address bar
-4. Add to `docs/inventory.json`
+4. Add to `assets/docs/inventory.json`
 
 ### Method 2: Automated Scraping (For Bulk Updates)
 
@@ -90,13 +90,13 @@ Option A - Manual:
 Option B - Automated:
 ```bash
 # Download and convert HTML to markdown
-curl -s [URL] | pandoc -f html -t markdown > docs/routine-name.md
+curl -s [URL] | pandoc -f html -t markdown > assets/docs/routine-name.md
 # Then manually clean up and format
 ```
 
 ### Step 4: Update Inventory
 
-Add an entry to `docs/inventory.json`:
+Add an entry to `assets/docs/inventory.json`:
 
 ```json
 {
@@ -128,7 +128,7 @@ Create a script to check all URLs in inventory:
 
 ```javascript
 // validate-urls.js
-const inventory = require('./docs/inventory.json');
+const inventory = require('./assets/docs/inventory.json');
 const https = require('https');
 
 async function validateUrl(url) {

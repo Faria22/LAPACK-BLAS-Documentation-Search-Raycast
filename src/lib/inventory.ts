@@ -1,4 +1,4 @@
-import inventoryData from "../../docs/inventory.json";
+import inventoryData from "../../assets/docs/inventory.json";
 
 export interface InventoryItem {
   id: string;

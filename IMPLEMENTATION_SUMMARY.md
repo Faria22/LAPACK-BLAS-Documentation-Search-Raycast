@@ -93,14 +93,14 @@ import inventoryData from "../../docs/inventory.json";
 
 ### Build System
 - Raycast CLI (`ray`) handles bundling
-- All files in `docs/` directory are included automatically
+- All files in `assets/docs/` directory are included automatically
 - TypeScript compilation with React JSX support
 
 ## Extensibility
 
 ### Adding New Routines
 
-1. **Add to inventory** (`docs/inventory.json`):
+1. **Add to inventory** (`assets/docs/inventory.json`):
 ```json
 {
   "id": "routine-name",
@@ -113,7 +113,7 @@ import inventoryData from "../../docs/inventory.json";
 }
 ```
 
-2. **Create markdown file** (`docs/routine-name.md`):
+2. **Create markdown file** (`assets/docs/routine-name.md`):
 ```markdown
 # ROUTINE-NAME - Description
 
