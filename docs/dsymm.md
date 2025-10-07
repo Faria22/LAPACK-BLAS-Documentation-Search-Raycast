@@ -1,13 +1,17 @@
-# DSYMM
-
-## Function Signature
-
 ```fortran
-DSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+subroutine dsymm	(	character	side,
+		character	uplo,
+		integer	m,
+		integer	n,
+		double precision	alpha,
+		double precision, dimension(lda,*)	a,
+		integer	lda,
+		double precision, dimension(ldb,*)	b,
+		integer	ldb,
+		double precision	beta,
+		double precision, dimension(ldc,*)	c,
+		integer	ldc )
 ```
-
-## Description
-
 
  DSYMM  performs one of the matrix-matrix operations
 
@@ -21,52 +25,83 @@ DSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
  C are  m by n matrices.
 
 ## Parameters
+Side : Character*1 [in]
+> On entry,  SIDE  specifies whether  the  symmetric matrix  A
+> appears on the  left or right  in the  operation as follows:
+> SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
+> SIDE = 'R' or 'r'   C := alpha*B*A + beta*C,
 
-### SIDE (in)
+Uplo : Character*1 [in]
+> On  entry,   UPLO  specifies  whether  the  upper  or  lower
+> triangular  part  of  the  symmetric  matrix   A  is  to  be
+> referenced as follows:
+> UPLO = 'U' or 'u'   Only the upper triangular part of the
+> symmetric matrix is to be referenced.
+> UPLO = 'L' or 'l'   Only the lower triangular part of the
+> symmetric matrix is to be referenced.
 
-SIDE is CHARACTER*1 On entry, SIDE specifies whether the symmetric matrix A appears on the left or right in the operation as follows: SIDE = 'L' or 'l' C := alpha*A*B + beta*C, SIDE = 'R' or 'r' C := alpha*B*A + beta*C,
+M : Integer [in]
+> On entry,  M  specifies the number of rows of the matrix  C.
+> M  must be at least zero.
 
-### UPLO (in)
+N : Integer [in]
+> On entry, N specifies the number of columns of the matrix C.
+> N  must be at least zero.
 
-UPLO is CHARACTER*1 On entry, UPLO specifies whether the upper or lower triangular part of the symmetric matrix A is to be referenced as follows: UPLO = 'U' or 'u' Only the upper triangular part of the symmetric matrix is to be referenced. UPLO = 'L' or 'l' Only the lower triangular part of the symmetric matrix is to be referenced.
+Alpha : Double Precision. [in]
+> On entry, ALPHA specifies the scalar alpha.
 
-### M (in)
+A : Double Precision Array, Dimension ( Lda, Ka ), Where Ka is [in]
+> m  when  SIDE = 'L' or 'l'  and is  n otherwise.
+> Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
+> the array  A  must contain the  symmetric matrix,  such that
+> when  UPLO = 'U' or 'u', the leading m by m upper triangular
+> part of the array  A  must contain the upper triangular part
+> of the  symmetric matrix and the  strictly  lower triangular
+> part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
+> the leading  m by m  lower triangular part  of the  array  A
+> must  contain  the  lower triangular part  of the  symmetric
+> matrix and the  strictly upper triangular part of  A  is not
+> referenced.
+> Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
+> the array  A  must contain the  symmetric matrix,  such that
+> when  UPLO = 'U' or 'u', the leading n by n upper triangular
+> part of the array  A  must contain the upper triangular part
+> of the  symmetric matrix and the  strictly  lower triangular
+> part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
+> the leading  n by n  lower triangular part  of the  array  A
+> must  contain  the  lower triangular part  of the  symmetric
+> matrix and the  strictly upper triangular part of  A  is not
+> referenced.
 
-M is INTEGER On entry, M specifies the number of rows of the matrix C. M must be at least zero.
+Lda : Integer [in]
+> On entry, LDA specifies the first dimension of A as declared
+> in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
+> LDA must be at least  max( 1, m ), otherwise  LDA must be at
+> least  max( 1, n ).
 
-### N (in)
+B : Double Precision Array, Dimension ( Ldb, N ) [in]
+> Before entry, the leading  m by n part of the array  B  must
+> contain the matrix B.
 
-N is INTEGER On entry, N specifies the number of columns of the matrix C. N must be at least zero.
+Ldb : Integer [in]
+> On entry, LDB specifies the first dimension of B as declared
+> in  the  calling  (sub)  program.   LDB  must  be  at  least
+> max( 1, m ).
 
-### ALPHA (in)
+Beta : Double Precision. [in]
+> On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+> supplied as zero then C need not be set on input.
 
-ALPHA is DOUBLE PRECISION. On entry, ALPHA specifies the scalar alpha.
+C : Double Precision Array, Dimension ( Ldc, N ) [in,out]
+> Before entry, the leading  m by n  part of the array  C must
+> contain the matrix  C,  except when  beta  is zero, in which
+> case C need not be set on entry.
+> On exit, the array  C  is overwritten by the  m by n updated
+> matrix.
 
-### A (in)
-
-A is DOUBLE PRECISION array, dimension ( LDA, ka ), where ka is m when SIDE = 'L' or 'l' and is n otherwise. Before entry with SIDE = 'L' or 'l', the m by m part of the array A must contain the symmetric matrix, such that when UPLO = 'U' or 'u', the leading m by m upper triangular part of the array A must contain the upper triangular part of the symmetric matrix and the strictly lower triangular part of A is not referenced, and when UPLO = 'L' or 'l', the leading m by m lower triangular part of the array A must contain the lower triangular part of the symmetric matrix and the strictly upper triangular part of A is not referenced. Before entry with SIDE = 'R' or 'r', the n by n part of the array A must contain the symmetric matrix, such that when UPLO = 'U' or 'u', the leading n by n upper triangular part of the array A must contain the upper triangular part of the symmetric matrix and the strictly lower triangular part of A is not referenced, and when UPLO = 'L' or 'l', the leading n by n lower triangular part of the array A must contain the lower triangular part of the symmetric matrix and the strictly upper triangular part of A is not referenced.
-
-### LDA (in)
-
-LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. When SIDE = 'L' or 'l' then LDA must be at least max( 1, m ), otherwise LDA must be at least max( 1, n ).
-
-### B (in)
-
-B is DOUBLE PRECISION array, dimension ( LDB, N ) Before entry, the leading m by n part of the array B must contain the matrix B.
-
-### LDB (in)
-
-LDB is INTEGER On entry, LDB specifies the first dimension of B as declared in the calling (sub) program. LDB must be at least max( 1, m ).
-
-### BETA (in)
-
-BETA is DOUBLE PRECISION. On entry, BETA specifies the scalar beta. When BETA is supplied as zero then C need not be set on input.
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension ( LDC, N ) Before entry, the leading m by n part of the array C must contain the matrix C, except when beta is zero, in which case C need not be set on entry. On exit, the array C is overwritten by the m by n updated matrix.
-
-### LDC (in)
-
-LDC is INTEGER On entry, LDC specifies the first dimension of C as declared in the calling (sub) program. LDC must be at least max( 1, m ).
+Ldc : Integer [in]
+> On entry, LDC specifies the first dimension of C as declared
+> in  the  calling  (sub)  program.   LDC  must  be  at  least
+> max( 1, m ).
 

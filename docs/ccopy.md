@@ -1,35 +1,24 @@
-# CCOPY
-
-## Function Signature
-
 ```fortran
-CCOPY(N,CX,INCX,CY,INCY)
+subroutine ccopy	(	integer	n,
+		complex, dimension(*)	cx,
+		integer	incx,
+		complex, dimension(*)	cy,
+		integer	incy )
 ```
-
-## Description
-
 
     CCOPY copies a vector x to a vector y.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Cx : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of CX
 
-### CX (in)
+Cy : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [out]
 
-CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of CX
-
-### CY (out)
-
-CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of CY
+Incy : Integer [in]
+> storage spacing between elements of CY
 

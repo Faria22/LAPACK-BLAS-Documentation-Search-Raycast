@@ -1,13 +1,16 @@
-# DGEMV
-
-## Function Signature
-
 ```fortran
-DGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+subroutine dgemv	(	character	trans,
+		integer	m,
+		integer	n,
+		double precision	alpha,
+		double precision, dimension(lda,*)	a,
+		integer	lda,
+		double precision, dimension(*)	x,
+		integer	incx,
+		double precision	beta,
+		double precision, dimension(*)	y,
+		integer	incy )
 ```
-
-## Description
-
 
  DGEMV  performs one of the matrix-vector operations
 
@@ -17,48 +20,59 @@ DGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
  m by n matrix.
 
 ## Parameters
+Trans : Character*1 [in]
+> On entry, TRANS specifies the operation to be performed as
+> follows:
+> TRANS = 'N' or 'n'   y := alpha*A*x + beta*y.
+> TRANS = 'T' or 't'   y := alpha*A**T*x + beta*y.
+> TRANS = 'C' or 'c'   y := alpha*A**T*x + beta*y.
 
-### TRANS (in)
+M : Integer [in]
+> On entry, M specifies the number of rows of the matrix A.
+> M must be at least zero.
 
-TRANS is CHARACTER*1 On entry, TRANS specifies the operation to be performed as follows: TRANS = 'N' or 'n' y := alpha*A*x + beta*y. TRANS = 'T' or 't' y := alpha*A**T*x + beta*y. TRANS = 'C' or 'c' y := alpha*A**T*x + beta*y.
+N : Integer [in]
+> On entry, N specifies the number of columns of the matrix A.
+> N must be at least zero.
 
-### M (in)
+Alpha : Double Precision. [in]
+> On entry, ALPHA specifies the scalar alpha.
 
-M is INTEGER On entry, M specifies the number of rows of the matrix A. M must be at least zero.
+A : Double Precision Array, Dimension ( Lda, N ) [in]
+> Before entry, the leading m by n part of the array A must
+> contain the matrix of coefficients.
 
-### N (in)
+Lda : Integer [in]
+> On entry, LDA specifies the first dimension of A as declared
+> in the calling (sub) program. LDA must be at least
+> max( 1, m ).
 
-N is INTEGER On entry, N specifies the number of columns of the matrix A. N must be at least zero.
+X : Double Precision Array, Dimension At Least [in]
+> ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+> and at least
+> ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+> Before entry, the incremented array X must contain the
+> vector x.
 
-### ALPHA (in)
+Incx : Integer [in]
+> On entry, INCX specifies the increment for the elements of
+> X. INCX must not be zero.
 
-ALPHA is DOUBLE PRECISION. On entry, ALPHA specifies the scalar alpha.
+Beta : Double Precision. [in]
+> On entry, BETA specifies the scalar beta. When BETA is
+> supplied as zero then Y need not be set on input.
 
-### A (in)
+Y : Double Precision Array, Dimension At Least [in,out]
+> ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+> and at least
+> ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+> Before entry with BETA non-zero, the incremented array Y
+> must contain the vector y. On exit, Y is overwritten by the
+> updated vector y.
+> If either m or n is zero, then Y not referenced and the function
+> performs a quick return.
 
-A is DOUBLE PRECISION array, dimension ( LDA, N ) Before entry, the leading m by n part of the array A must contain the matrix of coefficients.
-
-### LDA (in)
-
-LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least max( 1, m ).
-
-### X (in)
-
-X is DOUBLE PRECISION array, dimension at least ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( m - 1 )*abs( INCX ) ) otherwise. Before entry, the incremented array X must contain the vector x.
-
-### INCX (in)
-
-INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero.
-
-### BETA (in)
-
-BETA is DOUBLE PRECISION. On entry, BETA specifies the scalar beta. When BETA is supplied as zero then Y need not be set on input.
-
-### Y (in,out)
-
-Y is DOUBLE PRECISION array, dimension at least ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( n - 1 )*abs( INCY ) ) otherwise. Before entry with BETA non-zero, the incremented array Y must contain the vector y. On exit, Y is overwritten by the updated vector y. If either m or n is zero, then Y not referenced and the function performs a quick return.
-
-### INCY (in)
-
-INCY is INTEGER On entry, INCY specifies the increment for the elements of Y. INCY must not be zero.
+Incy : Integer [in]
+> On entry, INCY specifies the increment for the elements of
+> Y. INCY must not be zero.
 

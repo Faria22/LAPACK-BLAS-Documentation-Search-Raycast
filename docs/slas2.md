@@ -1,13 +1,10 @@
-# SLAS2
-
-## Function Signature
-
 ```fortran
-SLAS2(F, G, H, SSMIN, SSMAX)
+subroutine slas2	(	real	f,
+		real	g,
+		real	h,
+		real	ssmin,
+		real	ssmax )
 ```
-
-## Description
-
 
  SLAS2  computes the singular values of the 2-by-2 matrix
     [  F   G  ]
@@ -16,24 +13,18 @@ SLAS2(F, G, H, SSMIN, SSMAX)
  larger singular value.
 
 ## Parameters
+F : Real [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### F (in)
+G : Real [in]
+> The (1,2) element of the 2-by-2 matrix.
 
-F is REAL The (1,1) element of the 2-by-2 matrix.
+H : Real [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### G (in)
+Ssmin : Real [out]
+> The smaller singular value.
 
-G is REAL The (1,2) element of the 2-by-2 matrix.
-
-### H (in)
-
-H is REAL The (2,2) element of the 2-by-2 matrix.
-
-### SSMIN (out)
-
-SSMIN is REAL The smaller singular value.
-
-### SSMAX (out)
-
-SSMAX is REAL The larger singular value.
+Ssmax : Real [out]
+> The larger singular value.
 

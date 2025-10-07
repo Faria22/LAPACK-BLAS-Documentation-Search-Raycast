@@ -1,16 +1,31 @@
-# DLASD6
-
-## Function Signature
-
 ```fortran
-DLASD6(ICOMPQ, NL, NR, SQRE, D, VF, VL, ALPHA, BETA,
-*                          IDXQ, PERM, GIVPTR, GIVCOL, LDGCOL, GIVNUM,
-*                          LDGNUM, POLES, DIFL, DIFR, Z, K, C, S, WORK,
-*                          IWORK, INFO)
+subroutine dlasd6	(	icompq,
+		nl,
+		nr,
+		sqre,
+		d,
+		vf,
+		vl,
+		alpha,
+		beta,
+		*                          idxq,
+		perm,
+		givptr,
+		givcol,
+		ldgcol,
+		givnum,
+		*                          ldgnum,
+		poles,
+		difl,
+		difr,
+		z,
+		k,
+		c,
+		s,
+		work,
+		*                          iwork,
+		info )
 ```
-
-## Description
-
 
  DLASD6 computes the SVD of an updated upper bidiagonal matrix B
  obtained by merging two smaller ones by appending a row. This
@@ -58,108 +73,120 @@ DLASD6(ICOMPQ, NL, NR, SQRE, D, VF, VL, ALPHA, BETA,
  DLASD6 is called from DLASDA.
 
 ## Parameters
+Icompq : Integer [in]
+> Specifies whether singular vectors are to be computed in
+> factored form:
+> = 0: Compute singular values only.
+> = 1: Compute singular vectors in factored form as well.
 
-### ICOMPQ (in)
+Nl : Integer [in]
+> The row dimension of the upper block.  NL >= 1.
 
-ICOMPQ is INTEGER Specifies whether singular vectors are to be computed in factored form: = 0: Compute singular values only. = 1: Compute singular vectors in factored form as well.
+Nr : Integer [in]
+> The row dimension of the lower block.  NR >= 1.
 
-### NL (in)
+Sqre : Integer [in]
+> = 0: the lower block is an NR-by-NR square matrix.
+> = 1: the lower block is an NR-by-(NR+1) rectangular matrix.
+> The bidiagonal matrix has row dimension N = NL + NR + 1,
+> and column dimension M = N + SQRE.
 
-NL is INTEGER The row dimension of the upper block. NL >= 1.
+D : Double Precision Array, Dimension ( Nl+nr+1 ). [in,out]
+> On entry D(1:NL,1:NL) contains the singular values of the
+> upper block, and D(NL+2:N) contains the singular values
+> of the lower block. On exit D(1:N) contains the singular
+> values of the modified matrix.
 
-### NR (in)
+Vf : Double Precision Array, Dimension ( M ) [in,out]
+> On entry, VF(1:NL+1) contains the first components of all
+> right singular vectors of the upper block; and VF(NL+2:M)
+> contains the first components of all right singular vectors
+> of the lower block. On exit, VF contains the first components
+> of all right singular vectors of the bidiagonal matrix.
 
-NR is INTEGER The row dimension of the lower block. NR >= 1.
+Vl : Double Precision Array, Dimension ( M ) [in,out]
+> On entry, VL(1:NL+1) contains the  last components of all
+> right singular vectors of the upper block; and VL(NL+2:M)
+> contains the last components of all right singular vectors of
+> the lower block. On exit, VL contains the last components of
+> all right singular vectors of the bidiagonal matrix.
 
-### SQRE (in)
+Alpha : Double Precision [in,out]
+> Contains the diagonal element associated with the added row.
 
-SQRE is INTEGER = 0: the lower block is an NR-by-NR square matrix. = 1: the lower block is an NR-by-(NR+1) rectangular matrix. The bidiagonal matrix has row dimension N = NL + NR + 1, and column dimension M = N + SQRE.
+Beta : Double Precision [in,out]
+> Contains the off-diagonal element associated with the added
+> row.
 
-### D (in,out)
+Idxq : Integer Array, Dimension ( N ) [in,out]
+> This contains the permutation which will reintegrate the
+> subproblem just solved back into sorted order, i.e.
+> D( IDXQ( I = 1, N ) ) will be in ascending order.
 
-D is DOUBLE PRECISION array, dimension ( NL+NR+1 ). On entry D(1:NL,1:NL) contains the singular values of the upper block, and D(NL+2:N) contains the singular values of the lower block. On exit D(1:N) contains the singular values of the modified matrix.
+Perm : Integer Array, Dimension ( N ) [out]
+> The permutations (from deflation and sorting) to be applied
+> to each block. Not referenced if ICOMPQ = 0.
 
-### VF (in,out)
+Givptr : Integer [out]
+> The number of Givens rotations which took place in this
+> subproblem. Not referenced if ICOMPQ = 0.
 
-VF is DOUBLE PRECISION array, dimension ( M ) On entry, VF(1:NL+1) contains the first components of all right singular vectors of the upper block; and VF(NL+2:M) contains the first components of all right singular vectors of the lower block. On exit, VF contains the first components of all right singular vectors of the bidiagonal matrix.
+Givcol : Integer Array, Dimension ( Ldgcol, 2 ) [out]
+> Each pair of numbers indicates a pair of columns to take place
+> in a Givens rotation. Not referenced if ICOMPQ = 0.
 
-### VL (in,out)
+Ldgcol : Integer [in]
+> leading dimension of GIVCOL, must be at least N.
 
-VL is DOUBLE PRECISION array, dimension ( M ) On entry, VL(1:NL+1) contains the last components of all right singular vectors of the upper block; and VL(NL+2:M) contains the last components of all right singular vectors of the lower block. On exit, VL contains the last components of all right singular vectors of the bidiagonal matrix.
+Givnum : Double Precision Array, Dimension ( Ldgnum, 2 ) [out]
+> Each number indicates the C or S value to be used in the
+> corresponding Givens rotation. Not referenced if ICOMPQ = 0.
 
-### ALPHA (in,out)
+Ldgnum : Integer [in]
+> The leading dimension of GIVNUM and POLES, must be at least N.
 
-ALPHA is DOUBLE PRECISION Contains the diagonal element associated with the added row.
+Poles : Double Precision Array, Dimension ( Ldgnum, 2 ) [out]
+> On exit, POLES(1,*) is an array containing the new singular
+> values obtained from solving the secular equation, and
+> POLES(2,*) is an array containing the poles in the secular
+> equation. Not referenced if ICOMPQ = 0.
 
-### BETA (in,out)
+Difl : Double Precision Array, Dimension ( N ) [out]
+> On exit, DIFL(I) is the distance between I-th updated
+> (undeflated) singular value and the I-th (undeflated) old
+> singular value.
 
-BETA is DOUBLE PRECISION Contains the off-diagonal element associated with the added row.
+Difr : Double Precision Array, [out]
+> dimension ( LDDIFR, 2 ) if ICOMPQ = 1 and
+> dimension ( K ) if ICOMPQ = 0.
+> On exit, DIFR(I,1) = D(I) - DSIGMA(I+1), DIFR(K,1) is not
+> defined and will not be referenced.
+> If ICOMPQ = 1, DIFR(1:K,2) is an array containing the
+> normalizing factors for the right singular vector matrix.
+> See DLASD8 for details on DIFL and DIFR.
 
-### IDXQ (in,out)
+Z : Double Precision Array, Dimension ( M ) [out]
+> The first elements of this array contain the components
+> of the deflation-adjusted updating row vector.
 
-IDXQ is INTEGER array, dimension ( N ) This contains the permutation which will reintegrate the subproblem just solved back into sorted order, i.e. D( IDXQ( I = 1, N ) ) will be in ascending order.
+K : Integer [out]
+> Contains the dimension of the non-deflated matrix,
+> This is the order of the related secular equation. 1 <= K <=N.
 
-### PERM (out)
+C : Double Precision [out]
+> C contains garbage if SQRE =0 and the C-value of a Givens
+> rotation related to the right null space if SQRE = 1.
 
-PERM is INTEGER array, dimension ( N ) The permutations (from deflation and sorting) to be applied to each block. Not referenced if ICOMPQ = 0.
+S : Double Precision [out]
+> S contains garbage if SQRE =0 and the S-value of a Givens
+> rotation related to the right null space if SQRE = 1.
 
-### GIVPTR (out)
+Work : Double Precision Array, Dimension ( 4 * M ) [out]
 
-GIVPTR is INTEGER The number of Givens rotations which took place in this subproblem. Not referenced if ICOMPQ = 0.
+Iwork : Integer Array, Dimension ( 3 * N ) [out]
 
-### GIVCOL (out)
-
-GIVCOL is INTEGER array, dimension ( LDGCOL, 2 ) Each pair of numbers indicates a pair of columns to take place in a Givens rotation. Not referenced if ICOMPQ = 0.
-
-### LDGCOL (in)
-
-LDGCOL is INTEGER leading dimension of GIVCOL, must be at least N.
-
-### GIVNUM (out)
-
-GIVNUM is DOUBLE PRECISION array, dimension ( LDGNUM, 2 ) Each number indicates the C or S value to be used in the corresponding Givens rotation. Not referenced if ICOMPQ = 0.
-
-### LDGNUM (in)
-
-LDGNUM is INTEGER The leading dimension of GIVNUM and POLES, must be at least N.
-
-### POLES (out)
-
-POLES is DOUBLE PRECISION array, dimension ( LDGNUM, 2 ) On exit, POLES(1,*) is an array containing the new singular values obtained from solving the secular equation, and POLES(2,*) is an array containing the poles in the secular equation. Not referenced if ICOMPQ = 0.
-
-### DIFL (out)
-
-DIFL is DOUBLE PRECISION array, dimension ( N ) On exit, DIFL(I) is the distance between I-th updated (undeflated) singular value and the I-th (undeflated) old singular value.
-
-### DIFR (out)
-
-DIFR is DOUBLE PRECISION array, dimension ( LDDIFR, 2 ) if ICOMPQ = 1 and dimension ( K ) if ICOMPQ = 0. On exit, DIFR(I,1) = D(I) - DSIGMA(I+1), DIFR(K,1) is not defined and will not be referenced. If ICOMPQ = 1, DIFR(1:K,2) is an array containing the normalizing factors for the right singular vector matrix. See DLASD8 for details on DIFL and DIFR.
-
-### Z (out)
-
-Z is DOUBLE PRECISION array, dimension ( M ) The first elements of this array contain the components of the deflation-adjusted updating row vector.
-
-### K (out)
-
-K is INTEGER Contains the dimension of the non-deflated matrix, This is the order of the related secular equation. 1 <= K <=N.
-
-### C (out)
-
-C is DOUBLE PRECISION C contains garbage if SQRE =0 and the C-value of a Givens rotation related to the right null space if SQRE = 1.
-
-### S (out)
-
-S is DOUBLE PRECISION S contains garbage if SQRE =0 and the S-value of a Givens rotation related to the right null space if SQRE = 1.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension ( 4 * M )
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension ( 3 * N )
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, a singular value did not converge
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, a singular value did not converge
 

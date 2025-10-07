@@ -1,40 +1,29 @@
-# SAXPY
-
-## Function Signature
-
 ```fortran
-SAXPY(N,SA,SX,INCX,SY,INCY)
+subroutine saxpy	(	integer	n,
+		real	sa,
+		real, dimension(*)	sx,
+		integer	incx,
+		real, dimension(*)	sy,
+		integer	incy )
 ```
-
-## Description
-
 
     SAXPY constant times a vector plus a vector.
     uses unrolled loops for increments equal to one.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Sa : Real [in]
+> On entry, SA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Sx : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-### SA (in)
+Incx : Integer [in]
+> storage spacing between elements of SX
 
-SA is REAL On entry, SA specifies the scalar alpha.
+Sy : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-### SX (in)
-
-SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of SX
-
-### SY (in,out)
-
-SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of SY
+Incy : Integer [in]
+> storage spacing between elements of SY
 

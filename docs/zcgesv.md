@@ -1,16 +1,19 @@
-# ZCGESV
-
-ZCGESV computes the solution to system of linear equations A * X = B for GE matrices
-
-## Function Signature
-
 ```fortran
-ZCGESV(N, NRHS, A, LDA, IPIV, B, LDB, X, LDX, WORK,
-*                          SWORK, RWORK, ITER, INFO)
+subroutine zcgesv	(	n,
+		nrhs,
+		a,
+		lda,
+		ipiv,
+		b,
+		ldb,
+		x,
+		ldx,
+		work,
+		*                          swork,
+		rwork,
+		iter,
+		info )
 ```
-
-## Description
-
 
  ZCGESV computes the solution to a complex system of linear equations
     A * X = B,
@@ -44,60 +47,73 @@ ZCGESV(N, NRHS, A, LDA, IPIV, B, LDB, X, LDX, WORK,
  respectively.
 
 ## Parameters
+N : Integer [in]
+> The number of linear equations, i.e., the order of the
+> matrix A.  N >= 0.
 
-### N (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-N is INTEGER The number of linear equations, i.e., the order of the matrix A. N >= 0.
+A : Complex*16 Array, [in,out]
+> dimension (LDA,N)
+> On entry, the N-by-N coefficient matrix A.
+> On exit, if iterative refinement has been successfully used
+> (INFO = 0 and ITER >= 0, see description below), then A is
+> unchanged, if double precision factorization has been used
+> (INFO = 0 and ITER < 0, see description below), then the
+> array A contains the factors L and U from the factorization
+> A = P*L*U; the unit diagonal elements of L are not stored.
 
-### NRHS (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Ipiv : Integer Array, Dimension (n) [out]
+> The pivot indices that define the permutation matrix P;
+> row i of the matrix was interchanged with row IPIV(i).
+> Corresponds either to the single precision factorization
+> (if INFO = 0 and ITER >= 0) or the double precision
+> factorization (if INFO = 0 and ITER < 0).
 
-### A (in,out)
+B : Complex*16 Array, Dimension (ldb,nrhs) [in]
+> The N-by-NRHS right hand side matrix B.
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the N-by-N coefficient matrix A. On exit, if iterative refinement has been successfully used (INFO = 0 and ITER >= 0, see description below), then A is unchanged, if double precision factorization has been used (INFO = 0 and ITER < 0, see description below), then the array A contains the factors L and U from the factorization A = P*L*U; the unit diagonal elements of L are not stored.
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### LDA (in)
+X : Complex*16 Array, Dimension (ldx,nrhs) [out]
+> If INFO = 0, the N-by-NRHS solution matrix X.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Ldx : Integer [in]
+> The leading dimension of the array X.  LDX >= max(1,N).
 
-### IPIV (out)
+Work : Complex*16 Array, Dimension (n,nrhs) [out]
+> This array is used to hold the residual vectors.
 
-IPIV is INTEGER array, dimension (N) The pivot indices that define the permutation matrix P; row i of the matrix was interchanged with row IPIV(i). Corresponds either to the single precision factorization (if INFO = 0 and ITER >= 0) or the double precision factorization (if INFO = 0 and ITER < 0).
+Swork : Complex Array, Dimension (n*(n+nrhs)) [out]
+> This array is used to use the single precision matrix and the
+> right-hand sides or solutions in single precision.
 
-### B (in)
+Rwork : Double Precision Array, Dimension (n) [out]
 
-B is COMPLEX*16 array, dimension (LDB,NRHS) The N-by-NRHS right hand side matrix B.
+Iter : Integer [out]
+> < 0: iterative refinement has failed, COMPLEX*16
+> factorization has been performed
+> -1 : the routine fell back to full precision for
+> implementation- or machine-specific reasons
+> -2 : narrowing the precision induced an overflow,
+> the routine fell back to full precision
+> -3 : failure of CGETRF
+> -31: stop the iterative refinement after the 30th
+> iterations
+> > 0: iterative refinement has been successfully used.
+> Returns the number of iterations
 
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### X (out)
-
-X is COMPLEX*16 array, dimension (LDX,NRHS) If INFO = 0, the N-by-NRHS solution matrix X.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the array X. LDX >= max(1,N).
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (N,NRHS) This array is used to hold the residual vectors.
-
-### SWORK (out)
-
-SWORK is COMPLEX array, dimension (N*(N+NRHS)) This array is used to use the single precision matrix and the right-hand sides or solutions in single precision.
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (N)
-
-### ITER (out)
-
-ITER is INTEGER < 0: iterative refinement has failed, COMPLEX*16 factorization has been performed -1 : the routine fell back to full precision for implementation- or machine-specific reasons -2 : narrowing the precision induced an overflow, the routine fell back to full precision -3 : failure of CGETRF -31: stop the iterative refinement after the 30th iterations > 0: iterative refinement has been successfully used. Returns the number of iterations
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, U(i,i) computed in COMPLEX*16 is exactly zero. The factorization has been completed, but the factor U is exactly singular, so the solution could not be computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, U(i,i) computed in COMPLEX*16 is exactly
+> zero.  The factorization has been completed, but the
+> factor U is exactly singular, so the solution
+> could not be computed.
 

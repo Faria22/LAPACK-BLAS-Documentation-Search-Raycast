@@ -1,14 +1,16 @@
-# ZUNGTSQR_ROW
-
-## Function Signature
-
 ```fortran
-ZUNGTSQR_ROW(M, N, MB, NB, A, LDA, T, LDT, WORK,
-*      $                         LWORK, INFO)
+subroutine zungtsqr_row	(	m,
+		n,
+		mb,
+		nb,
+		a,
+		lda,
+		t,
+		ldt,
+		work,
+		*      $                         lwork,
+		info )
 ```
-
-## Description
-
 
  ZUNGTSQR_ROW generates an M-by-N complex matrix Q_out with
  orthonormal columns from the output of ZLATSQR. These N orthonormal
@@ -29,48 +31,71 @@ ZUNGTSQR_ROW(M, N, MB, NB, A, LDA, T, LDT, WORK,
  the order in which ZLATSQR generates the output blocks.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A. M >= N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Mb : Integer [in]
+> The row block size used by ZLATSQR to return
+> arrays A and T. MB > N.
+> (Note that if MB > M, then M is used instead of MB
+> as the row block size).
 
-### N (in)
+Nb : Integer [in]
+> The column block size used by ZLATSQR to return
+> arrays A and T. NB >= 1.
+> (Note that if NB > N, then N is used instead of NB
+> as the column block size).
 
-N is INTEGER The number of columns of the matrix A. M >= N >= 0.
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> On entry:
+> The elements on and above the diagonal are not used as
+> input. The elements below the diagonal represent the unit
+> lower-trapezoidal blocked matrix V computed by ZLATSQR
+> that defines the input matrices Q_in(k) (ones on the
+> diagonal are not stored). See ZLATSQR for more details.
+> On exit:
+> The array A contains an M-by-N orthonormal matrix Q_out,
+> i.e the columns of A are orthogonal unit vectors.
 
-### MB (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-MB is INTEGER The row block size used by ZLATSQR to return arrays A and T. MB > N. (Note that if MB > M, then M is used instead of MB as the row block size).
+T : Complex*16 Array, [in]
+> dimension (LDT, N * NIRB)
+> where NIRB = Number_of_input_row_blocks
+> = MAX( 1, CEIL((M-N)/(MB-N)) )
+> Let NICB = Number_of_input_col_blocks
+> = CEIL(N/NB)
+> The upper-triangular block reflectors used to define the
+> input matrices Q_in(k), k=(1:NIRB*NICB). The block
+> reflectors are stored in compact form in NIRB block
+> reflector sequences. Each of the NIRB block reflector
+> sequences is stored in a larger NB-by-N column block of T
+> and consists of NICB smaller NB-by-NB upper-triangular
+> column blocks. See ZLATSQR for more details on the format
+> of T.
 
-### NB (in)
+Ldt : Integer [in]
+> The leading dimension of the array T.
+> LDT >= max(1,min(NB,N)).
 
-NB is INTEGER The column block size used by ZLATSQR to return arrays A and T. NB >= 1. (Note that if NB > N, then N is used instead of NB as the column block size).
+Work : (workspace) Complex*16 Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### A (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> LWORK >= NBLOCAL * MAX(NBLOCAL,(N-NBLOCAL)),
+> where NBLOCAL=MIN(NB,N).
+> If LWORK = -1, then a workspace query is assumed.
+> The routine only calculates the optimal size of the WORK
+> array, returns this value as the first entry of the WORK
+> array, and no error message related to LWORK is issued
+> by XERBLA.
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry: The elements on and above the diagonal are not used as input. The elements below the diagonal represent the unit lower-trapezoidal blocked matrix V computed by ZLATSQR that defines the input matrices Q_in(k) (ones on the diagonal are not stored). See ZLATSQR for more details. On exit: The array A contains an M-by-N orthonormal matrix Q_out, i.e the columns of A are orthogonal unit vectors.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### T (in)
-
-T is COMPLEX*16 array, dimension (LDT, N * NIRB) where NIRB = Number_of_input_row_blocks = MAX( 1, CEIL((M-N)/(MB-N)) ) Let NICB = Number_of_input_col_blocks = CEIL(N/NB) The upper-triangular block reflectors used to define the input matrices Q_in(k), k=(1:NIRB*NICB). The block reflectors are stored in compact form in NIRB block reflector sequences. Each of the NIRB block reflector sequences is stored in a larger NB-by-N column block of T and consists of NICB smaller NB-by-NB upper-triangular column blocks. See ZLATSQR for more details on the format of T.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= max(1,min(NB,N)).
-
-### WORK (out)
-
-(workspace) COMPLEX*16 array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= NBLOCAL * MAX(NBLOCAL,(N-NBLOCAL)), where NBLOCAL=MIN(NB,N). If LWORK = -1, then a workspace query is assumed. The routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

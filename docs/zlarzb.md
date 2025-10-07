@@ -1,14 +1,21 @@
-# ZLARZB
-
-## Function Signature
-
 ```fortran
-ZLARZB(SIDE, TRANS, DIRECT, STOREV, M, N, K, L, V,
-*                          LDV, T, LDT, C, LDC, WORK, LDWORK)
+subroutine zlarzb	(	side,
+		trans,
+		direct,
+		storev,
+		m,
+		n,
+		k,
+		l,
+		v,
+		*                          ldv,
+		t,
+		ldt,
+		c,
+		ldc,
+		work,
+		ldwork )
 ```
-
-## Description
-
 
  ZLARZB applies a complex block reflector H or its transpose H**H
  to a complex distributed M-by-N  C from the left or the right.
@@ -16,68 +23,66 @@ ZLARZB(SIDE, TRANS, DIRECT, STOREV, M, N, K, L, V,
  Currently, only STOREV = 'R' and DIRECT = 'B' are supported.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply H or H**H from the Left
+> = 'R': apply H or H**H from the Right
 
-### SIDE (in)
+Trans : Character*1 [in]
+> = 'N': apply H (No transpose)
+> = 'C': apply H**H (Conjugate transpose)
 
-SIDE is CHARACTER*1 = 'L': apply H or H**H from the Left = 'R': apply H or H**H from the Right
+Direct : Character*1 [in]
+> Indicates how H is formed from a product of elementary
+> reflectors
+> = 'F': H = H(1) H(2) . . . H(k) (Forward, not supported yet)
+> = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-### TRANS (in)
+Storev : Character*1 [in]
+> Indicates how the vectors which define the elementary
+> reflectors are stored:
+> = 'C': Columnwise                        (not supported yet)
+> = 'R': Rowwise
 
-TRANS is CHARACTER*1 = 'N': apply H (No transpose) = 'C': apply H**H (Conjugate transpose)
+M : Integer [in]
+> The number of rows of the matrix C.
 
-### DIRECT (in)
+N : Integer [in]
+> The number of columns of the matrix C.
 
-DIRECT is CHARACTER*1 Indicates how H is formed from a product of elementary reflectors = 'F': H = H(1) H(2) . . . H(k) (Forward, not supported yet) = 'B': H = H(k) . . . H(2) H(1) (Backward)
+K : Integer [in]
+> The order of the matrix T (= the number of elementary
+> reflectors whose product defines the block reflector).
 
-### STOREV (in)
+L : Integer [in]
+> The number of columns of the matrix V containing the
+> meaningful part of the Householder reflectors.
+> If SIDE = 'L', M >= L >= 0, if SIDE = 'R', N >= L >= 0.
 
-STOREV is CHARACTER*1 Indicates how the vectors which define the elementary reflectors are stored: = 'C': Columnwise (not supported yet) = 'R': Rowwise
+V : Complex*16 Array, Dimension (ldv,nv). [in]
+> If STOREV = 'C', NV = K; if STOREV = 'R', NV = L.
 
-### M (in)
+Ldv : Integer [in]
+> The leading dimension of the array V.
+> If STOREV = 'C', LDV >= L; if STOREV = 'R', LDV >= K.
 
-M is INTEGER The number of rows of the matrix C.
+T : Complex*16 Array, Dimension (ldt,k) [in]
+> The triangular K-by-K matrix T in the representation of the
+> block reflector.
 
-### N (in)
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= K.
 
-N is INTEGER The number of columns of the matrix C.
+C : Complex*16 Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by H*C or H**H*C or C*H or C*H**H.
 
-### K (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-K is INTEGER The order of the matrix T (= the number of elementary reflectors whose product defines the block reflector).
+Work : Complex*16 Array, Dimension (ldwork,k) [out]
 
-### L (in)
-
-L is INTEGER The number of columns of the matrix V containing the meaningful part of the Householder reflectors. If SIDE = 'L', M >= L >= 0, if SIDE = 'R', N >= L >= 0.
-
-### V (in)
-
-V is COMPLEX*16 array, dimension (LDV,NV). If STOREV = 'C', NV = K; if STOREV = 'R', NV = L.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. If STOREV = 'C', LDV >= L; if STOREV = 'R', LDV >= K.
-
-### T (in)
-
-T is COMPLEX*16 array, dimension (LDT,K) The triangular K-by-K matrix T in the representation of the block reflector.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= K.
-
-### C (in,out)
-
-C is COMPLEX*16 array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by H*C or H**H*C or C*H or C*H**H.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (LDWORK,K)
-
-### LDWORK (in)
-
-LDWORK is INTEGER The leading dimension of the array WORK. If SIDE = 'L', LDWORK >= max(1,N); if SIDE = 'R', LDWORK >= max(1,M).
+Ldwork : Integer [in]
+> The leading dimension of the array WORK.
+> If SIDE = 'L', LDWORK >= max(1,N);
+> if SIDE = 'R', LDWORK >= max(1,M).
 

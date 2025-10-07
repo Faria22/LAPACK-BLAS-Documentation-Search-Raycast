@@ -1,129 +1,120 @@
-# CLAQZ2
-
-## Function Signature
-
 ```fortran
-CLAQZ2(ILSCHUR, ILQ, ILZ, N, ILO, IHI, NW, A, LDA, B,
-*     $    LDB, Q, LDQ, Z, LDZ, NS, ND, ALPHA, BETA, QC, LDQC, ZC, LDZC,
-*     $    WORK, LWORK, RWORK, REC, INFO)
+subroutine claqz2	(	ilschur,
+		ilq,
+		ilz,
+		n,
+		ilo,
+		ihi,
+		nw,
+		a,
+		lda,
+		b,
+		*     $    ldb,
+		q,
+		ldq,
+		z,
+		ldz,
+		ns,
+		nd,
+		alpha,
+		beta,
+		qc,
+		ldqc,
+		zc,
+		ldzc,
+		*     $    work,
+		lwork,
+		rwork,
+		rec,
+		info )
 ```
-
-## Description
-
 
  CLAQZ2 performs AED
 
 ## Parameters
+Ilschur : Logical [in]
+> Determines whether or not to update the full Schur form
 
-### ILSCHUR (in)
+Ilq : Logical [in]
+> Determines whether or not to update the matrix Q
 
-ILSCHUR is LOGICAL Determines whether or not to update the full Schur form
+Ilz : Logical [in]
+> Determines whether or not to update the matrix Z
 
-### ILQ (in)
+N : Integer [in]
+> The order of the matrices A, B, Q, and Z.  N >= 0.
 
-ILQ is LOGICAL Determines whether or not to update the matrix Q
+Ilo : Integer [in]
 
-### ILZ (in)
+Ihi : Integer [in]
+> ILO and IHI mark the rows and columns of (A,B) which
+> are to be normalized
 
-ILZ is LOGICAL Determines whether or not to update the matrix Z
+Nw : Integer [in]
+> The desired size of the deflation window.
 
-### N (in)
+A : Complex Array, Dimension (lda, N) [in,out]
 
-N is INTEGER The order of the matrices A, B, Q, and Z. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max( 1, N ).
 
-### ILO (in)
+B : Complex Array, Dimension (ldb, N) [in,out]
 
-ILO is INTEGER
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max( 1, N ).
 
-### IHI (in)
+Q : Complex Array, Dimension (ldq, N) [in,out]
 
-IHI is INTEGER ILO and IHI mark the rows and columns of (A,B) which are to be normalized
+Ldq : Integer [in]
 
-### NW (in)
+Z : Complex Array, Dimension (ldz, N) [in,out]
 
-NW is INTEGER The desired size of the deflation window.
+Ldz : Integer [in]
 
-### A (in,out)
+Ns : Integer [out]
+> The number of unconverged eigenvalues available to
+> use as shifts.
 
-A is COMPLEX array, dimension (LDA, N)
+Nd : Integer [out]
+> The number of converged eigenvalues found.
 
-### LDA (in)
+Alpha : Complex Array, Dimension (n) [out]
+> Each scalar alpha defining an eigenvalue
+> of GNEP.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max( 1, N ).
+Beta : Complex Array, Dimension (n) [out]
+> The scalars beta that define the eigenvalues of GNEP.
+> Together, the quantities alpha = ALPHA(j) and
+> beta = BETA(j) represent the j-th eigenvalue of the matrix
+> pair (A,B), in one of the forms lambda = alpha/beta or
+> mu = beta/alpha.  Since either lambda or mu may overflow,
+> they should not, in general, be computed.
 
-### B (in,out)
+Qc : Complex Array, Dimension (ldqc, Nw) [in,out]
 
-B is COMPLEX array, dimension (LDB, N)
+Ldqc : Integer [in]
 
-### LDB (in)
+Zc : Complex Array, Dimension (ldzc, Nw) [in,out]
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max( 1, N ).
+Ldzc : Integer [in]
 
-### Q (in,out)
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 
-Q is COMPLEX array, dimension (LDQ, N)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,N).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### LDQ (in)
+Rwork : Real Array, Dimension (n) [out]
 
-LDQ is INTEGER
+Rec : Integer [in]
+> REC indicates the current recursion level. Should be set
+> to 0 on first call.
 
-### Z (in,out)
-
-Z is COMPLEX array, dimension (LDZ, N)
-
-### LDZ (in)
-
-LDZ is INTEGER
-
-### NS (out)
-
-NS is INTEGER The number of unconverged eigenvalues available to use as shifts.
-
-### ND (out)
-
-ND is INTEGER The number of converged eigenvalues found.
-
-### ALPHA (out)
-
-ALPHA is COMPLEX array, dimension (N) Each scalar alpha defining an eigenvalue of GNEP.
-
-### BETA (out)
-
-BETA is COMPLEX array, dimension (N) The scalars beta that define the eigenvalues of GNEP. Together, the quantities alpha = ALPHA(j) and beta = BETA(j) represent the j-th eigenvalue of the matrix pair (A,B), in one of the forms lambda = alpha/beta or mu = beta/alpha. Since either lambda or mu may overflow, they should not, in general, be computed.
-
-### QC (in,out)
-
-QC is COMPLEX array, dimension (LDQC, NW)
-
-### LDQC (in)
-
-LDQC is INTEGER
-
-### ZC (in,out)
-
-ZC is COMPLEX array, dimension (LDZC, NW)
-
-### LDZC (in)
-
-LDZ is INTEGER
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,N). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (N)
-
-### REC (in)
-
-REC is INTEGER REC indicates the current recursion level. Should be set to 0 on first call.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

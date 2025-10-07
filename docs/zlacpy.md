@@ -1,44 +1,40 @@
-# ZLACPY
-
-## Function Signature
-
 ```fortran
-ZLACPY(UPLO, M, N, A, LDA, B, LDB)
+subroutine zlacpy	(	character	uplo,
+		integer	m,
+		integer	n,
+		complex*16, dimension(lda, *)	a,
+		integer	lda,
+		complex*16, dimension(ldb, *)	b,
+		integer	ldb )
 ```
-
-## Description
-
 
  ZLACPY copies all or part of a two-dimensional matrix A to another
  matrix B.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies the part of the matrix A to be copied to B.
+> = 'U':      Upper triangular part
+> = 'L':      Lower triangular part
+> Otherwise:  All of the matrix A
 
-### UPLO (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-UPLO is CHARACTER*1 Specifies the part of the matrix A to be copied to B. = 'U': Upper triangular part = 'L': Lower triangular part Otherwise: All of the matrix A
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-### M (in)
+A : Complex*16 Array, Dimension (lda,n) [in]
+> The m by n matrix A.  If UPLO = 'U', only the upper trapezium
+> is accessed; if UPLO = 'L', only the lower trapezium is
+> accessed.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-### N (in)
+B : Complex*16 Array, Dimension (ldb,n) [out]
+> On exit, B = A in the locations specified by UPLO.
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
-
-### A (in)
-
-A is COMPLEX*16 array, dimension (LDA,N) The m by n matrix A. If UPLO = 'U', only the upper trapezium is accessed; if UPLO = 'L', only the lower trapezium is accessed.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### B (out)
-
-B is COMPLEX*16 array, dimension (LDB,N) On exit, B = A in the locations specified by UPLO.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,M).
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,M).
 

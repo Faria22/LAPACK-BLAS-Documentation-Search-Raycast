@@ -1,32 +1,22 @@
-# SSCAL
-
-## Function Signature
-
 ```fortran
-SSCAL(N,SA,SX,INCX)
+subroutine sscal	(	integer	n,
+		real	sa,
+		real, dimension(*)	sx,
+		integer	incx )
 ```
-
-## Description
-
 
     SSCAL scales a vector by a constant.
     uses unrolled loops for increment equal to 1.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Sa : Real [in]
+> On entry, SA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Sx : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-### SA (in)
-
-SA is REAL On entry, SA specifies the scalar alpha.
-
-### SX (in,out)
-
-SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of SX
+Incx : Integer [in]
+> storage spacing between elements of SX
 

@@ -1,13 +1,13 @@
-# DLARFX
-
-## Function Signature
-
 ```fortran
-DLARFX(SIDE, M, N, V, TAU, C, LDC, WORK)
+subroutine dlarfx	(	character	side,
+		integer	m,
+		integer	n,
+		double precision, dimension(*)	v,
+		double precision	tau,
+		double precision, dimension(ldc, *)	c,
+		integer	ldc,
+		double precision, dimension(*)	work )
 ```
-
-## Description
-
 
  DLARFX applies a real elementary reflector H to a real m by n
  matrix C, from either the left or the right. H is represented in the
@@ -22,36 +22,33 @@ DLARFX(SIDE, M, N, V, TAU, C, LDC, WORK)
  This version uses inline code if H has order < 11.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': form  H * C
+> = 'R': form  C * H
 
-### SIDE (in)
+M : Integer [in]
+> The number of rows of the matrix C.
 
-SIDE is CHARACTER*1 = 'L': form H * C = 'R': form C * H
+N : Integer [in]
+> The number of columns of the matrix C.
 
-### M (in)
+V : Double Precision Array, Dimension (m) If Side = 'l' [in]
+> or (N) if SIDE = 'R'
+> The vector v in the representation of H.
 
-M is INTEGER The number of rows of the matrix C.
+Tau : Double Precision [in]
+> The value tau in the representation of H.
 
-### N (in)
+C : Double Precision Array, Dimension (ldc,n) [in,out]
+> On entry, the m by n matrix C.
+> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+> or C * H if SIDE = 'R'.
 
-N is INTEGER The number of columns of the matrix C.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= (1,M).
 
-### V (in)
-
-V is DOUBLE PRECISION array, dimension (M) if SIDE = 'L' or (N) if SIDE = 'R' The vector v in the representation of H.
-
-### TAU (in)
-
-TAU is DOUBLE PRECISION The value tau in the representation of H.
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC,N) On entry, the m by n matrix C. On exit, C is overwritten by the matrix H * C if SIDE = 'L', or C * H if SIDE = 'R'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= (1,M).
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (N) if SIDE = 'L' or (M) if SIDE = 'R' WORK is not referenced if H has order < 11.
+Work : Double Precision Array, Dimension [out]
+> (N) if SIDE = 'L'
+> or (M) if SIDE = 'R'
+> WORK is not referenced if H has order < 11.
 

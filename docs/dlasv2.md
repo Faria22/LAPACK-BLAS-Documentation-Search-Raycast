@@ -1,13 +1,14 @@
-# DLASV2
-
-## Function Signature
-
 ```fortran
-DLASV2(F, G, H, SSMIN, SSMAX, SNR, CSR, SNL, CSL)
+subroutine dlasv2	(	double precision	f,
+		double precision	g,
+		double precision	h,
+		double precision	ssmin,
+		double precision	ssmax,
+		double precision	snr,
+		double precision	csr,
+		double precision	snl,
+		double precision	csl )
 ```
-
-## Description
-
 
  DLASV2 computes the singular value decomposition of a 2-by-2
  triangular matrix
@@ -21,40 +22,30 @@ DLASV2(F, G, H, SSMIN, SSMAX, SNR, CSR, SNL, CSL)
     [-SNL  CSL ] [  0   H  ] [ SNR  CSR ]     [  0    SSMIN ].
 
 ## Parameters
+F : Double Precision [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### F (in)
+G : Double Precision [in]
+> The (1,2) element of the 2-by-2 matrix.
 
-F is DOUBLE PRECISION The (1,1) element of the 2-by-2 matrix.
+H : Double Precision [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### G (in)
+Ssmin : Double Precision [out]
+> abs(SSMIN) is the smaller singular value.
 
-G is DOUBLE PRECISION The (1,2) element of the 2-by-2 matrix.
+Ssmax : Double Precision [out]
+> abs(SSMAX) is the larger singular value.
 
-### H (in)
+Snl : Double Precision [out]
 
-H is DOUBLE PRECISION The (2,2) element of the 2-by-2 matrix.
+Csl : Double Precision [out]
+> The vector (CSL, SNL) is a unit left singular vector for the
+> singular value abs(SSMAX).
 
-### SSMIN (out)
+Snr : Double Precision [out]
 
-SSMIN is DOUBLE PRECISION abs(SSMIN) is the smaller singular value.
-
-### SSMAX (out)
-
-SSMAX is DOUBLE PRECISION abs(SSMAX) is the larger singular value.
-
-### SNL (out)
-
-SNL is DOUBLE PRECISION
-
-### CSL (out)
-
-CSL is DOUBLE PRECISION The vector (CSL, SNL) is a unit left singular vector for the singular value abs(SSMAX).
-
-### SNR (out)
-
-SNR is DOUBLE PRECISION
-
-### CSR (out)
-
-CSR is DOUBLE PRECISION The vector (CSR, SNR) is a unit right singular vector for the singular value abs(SSMAX).
+Csr : Double Precision [out]
+> The vector (CSR, SNR) is a unit right singular vector for the
+> singular value abs(SSMAX).
 

@@ -1,14 +1,17 @@
-# DLASD0
-
-## Function Signature
-
 ```fortran
-DLASD0(N, SQRE, D, E, U, LDU, VT, LDVT, SMLSIZ, IWORK,
-*                          WORK, INFO)
+subroutine dlasd0	(	n,
+		sqre,
+		d,
+		e,
+		u,
+		ldu,
+		vt,
+		ldvt,
+		smlsiz,
+		iwork,
+		*                          work,
+		info )
 ```
-
-## Description
-
 
  Using a divide and conquer approach, DLASD0 computes the singular
  value decomposition (SVD) of a real upper bidiagonal N-by-M
@@ -20,52 +23,48 @@ DLASD0(N, SQRE, D, E, U, LDU, VT, LDVT, SMLSIZ, IWORK,
  and optionally, the singular vectors in compact form.
 
 ## Parameters
+N : Integer [in]
+> On entry, the row dimension of the upper bidiagonal matrix.
+> This is also the dimension of the main diagonal array D.
 
-### N (in)
+Sqre : Integer [in]
+> Specifies the column dimension of the bidiagonal matrix.
+> = 0: The bidiagonal matrix has column dimension M = N;
+> = 1: The bidiagonal matrix has column dimension M = N+1;
 
-N is INTEGER On entry, the row dimension of the upper bidiagonal matrix. This is also the dimension of the main diagonal array D.
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry D contains the main diagonal of the bidiagonal
+> matrix.
+> On exit D, if INFO = 0, contains its singular values.
 
-### SQRE (in)
+E : Double Precision Array, Dimension (m-1) [in,out]
+> Contains the subdiagonal entries of the bidiagonal matrix.
+> On exit, E has been destroyed.
 
-SQRE is INTEGER Specifies the column dimension of the bidiagonal matrix. = 0: The bidiagonal matrix has column dimension M = N; = 1: The bidiagonal matrix has column dimension M = N+1;
+U : Double Precision Array, Dimension (ldu, N) [in,out]
+> On exit, U contains the left singular vectors,
+> if U passed in as (N, N) Identity.
 
-### D (in,out)
+Ldu : Integer [in]
+> On entry, leading dimension of U.
 
-D is DOUBLE PRECISION array, dimension (N) On entry D contains the main diagonal of the bidiagonal matrix. On exit D, if INFO = 0, contains its singular values.
+Vt : Double Precision Array, Dimension (ldvt, M) [in,out]
+> On exit, VT**T contains the right singular vectors,
+> if VT passed in as (M, M) Identity.
 
-### E (in,out)
+Ldvt : Integer [in]
+> On entry, leading dimension of VT.
 
-E is DOUBLE PRECISION array, dimension (M-1) Contains the subdiagonal entries of the bidiagonal matrix. On exit, E has been destroyed.
+Smlsiz : Integer [in]
+> On entry, maximum size of the subproblems at the
+> bottom of the computation tree.
 
-### U (in,out)
+Iwork : Integer Array, Dimension (8*n) [out]
 
-U is DOUBLE PRECISION array, dimension (LDU, N) On exit, U contains the left singular vectors, if U passed in as (N, N) Identity.
+Work : Double Precision Array, Dimension (3*m**2+2*m) [out]
 
-### LDU (in)
-
-LDU is INTEGER On entry, leading dimension of U.
-
-### VT (in,out)
-
-VT is DOUBLE PRECISION array, dimension (LDVT, M) On exit, VT**T contains the right singular vectors, if VT passed in as (M, M) Identity.
-
-### LDVT (in)
-
-LDVT is INTEGER On entry, leading dimension of VT.
-
-### SMLSIZ (in)
-
-SMLSIZ is INTEGER On entry, maximum size of the subproblems at the bottom of the computation tree.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (8*N)
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (3*M**2+2*M)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, a singular value did not converge
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, a singular value did not converge
 

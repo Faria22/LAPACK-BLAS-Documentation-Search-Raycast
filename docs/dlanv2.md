@@ -1,13 +1,15 @@
-# DLANV2
-
-## Function Signature
-
 ```fortran
-DLANV2(A, B, C, D, RT1R, RT1I, RT2R, RT2I, CS, SN)
+subroutine dlanv2	(	double precision	a,
+		double precision	b,
+		double precision	c,
+		double precision	d,
+		double precision	rt1r,
+		double precision	rt1i,
+		double precision	rt2r,
+		double precision	rt2i,
+		double precision	cs,
+		double precision	sn )
 ```
-
-## Description
-
 
  DLANV2 computes the Schur factorization of a real 2-by-2 nonsymmetric
  matrix in standard form:
@@ -21,44 +23,29 @@ DLANV2(A, B, C, D, RT1R, RT1I, RT2R, RT2I, CS, SN)
  conjugate eigenvalues.
 
 ## Parameters
+A : Double Precision [in,out]
 
-### A (in,out)
+B : Double Precision [in,out]
 
-A is DOUBLE PRECISION
+C : Double Precision [in,out]
 
-### B (in,out)
+D : Double Precision [in,out]
+> On entry, the elements of the input matrix.
+> On exit, they are overwritten by the elements of the
+> standardised Schur form.
 
-B is DOUBLE PRECISION
+Rt1r : Double Precision [out]
 
-### C (in,out)
+Rt1i : Double Precision [out]
 
-C is DOUBLE PRECISION
+Rt2r : Double Precision [out]
 
-### D (in,out)
+Rt2i : Double Precision [out]
+> The real and imaginary parts of the eigenvalues. If the
+> eigenvalues are a complex conjugate pair, RT1I > 0.
 
-D is DOUBLE PRECISION On entry, the elements of the input matrix. On exit, they are overwritten by the elements of the standardised Schur form.
+Cs : Double Precision [out]
 
-### RT1R (out)
-
-RT1R is DOUBLE PRECISION
-
-### RT1I (out)
-
-RT1I is DOUBLE PRECISION
-
-### RT2R (out)
-
-RT2R is DOUBLE PRECISION
-
-### RT2I (out)
-
-RT2I is DOUBLE PRECISION The real and imaginary parts of the eigenvalues. If the eigenvalues are a complex conjugate pair, RT1I > 0.
-
-### CS (out)
-
-CS is DOUBLE PRECISION
-
-### SN (out)
-
-SN is DOUBLE PRECISION Parameters of the rotation matrix.
+Sn : Double Precision [out]
+> Parameters of the rotation matrix.
 

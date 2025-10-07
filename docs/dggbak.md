@@ -1,14 +1,16 @@
-# DGGBAK
-
-## Function Signature
-
 ```fortran
-DGGBAK(JOB, SIDE, N, ILO, IHI, LSCALE, RSCALE, M, V,
-*                          LDV, INFO)
+subroutine dggbak	(	job,
+		side,
+		n,
+		ilo,
+		ihi,
+		lscale,
+		rscale,
+		m,
+		v,
+		*                          ldv,
+		info )
 ```
-
-## Description
-
 
  DGGBAK forms the right or left eigenvectors of a real generalized
  eigenvalue problem A*x = lambda*B*x, by backward transformation on
@@ -16,48 +18,48 @@ DGGBAK(JOB, SIDE, N, ILO, IHI, LSCALE, RSCALE, M, V,
  DGGBAL.
 
 ## Parameters
+Job : Character*1 [in]
+> Specifies the type of backward transformation required:
+> = 'N':  do nothing, return immediately;
+> = 'P':  do backward transformation for permutation only;
+> = 'S':  do backward transformation for scaling only;
+> = 'B':  do backward transformations for both permutation and
+> scaling.
+> JOB must be the same as the argument JOB supplied to DGGBAL.
 
-### JOB (in)
+Side : Character*1 [in]
+> = 'R':  V contains right eigenvectors;
+> = 'L':  V contains left eigenvectors.
 
-JOB is CHARACTER*1 Specifies the type of backward transformation required: = 'N': do nothing, return immediately; = 'P': do backward transformation for permutation only; = 'S': do backward transformation for scaling only; = 'B': do backward transformations for both permutation and scaling. JOB must be the same as the argument JOB supplied to DGGBAL.
+N : Integer [in]
+> The number of rows of the matrix V.  N >= 0.
 
-### SIDE (in)
+Ilo : Integer [in]
 
-SIDE is CHARACTER*1 = 'R': V contains right eigenvectors; = 'L': V contains left eigenvectors.
+Ihi : Integer [in]
+> The integers ILO and IHI determined by DGGBAL.
+> 1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
 
-### N (in)
+Lscale : Double Precision Array, Dimension (n) [in]
+> Details of the permutations and/or scaling factors applied
+> to the left side of A and B, as returned by DGGBAL.
 
-N is INTEGER The number of rows of the matrix V. N >= 0.
+Rscale : Double Precision Array, Dimension (n) [in]
+> Details of the permutations and/or scaling factors applied
+> to the right side of A and B, as returned by DGGBAL.
 
-### ILO (in)
+M : Integer [in]
+> The number of columns of the matrix V.  M >= 0.
 
-ILO is INTEGER
+V : Double Precision Array, Dimension (ldv,m) [in,out]
+> On entry, the matrix of right or left eigenvectors to be
+> transformed, as returned by DTGEVC.
+> On exit, V is overwritten by the transformed eigenvectors.
 
-### IHI (in)
+Ldv : Integer [in]
+> The leading dimension of the matrix V. LDV >= max(1,N).
 
-IHI is INTEGER The integers ILO and IHI determined by DGGBAL. 1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
-
-### LSCALE (in)
-
-LSCALE is DOUBLE PRECISION array, dimension (N) Details of the permutations and/or scaling factors applied to the left side of A and B, as returned by DGGBAL.
-
-### RSCALE (in)
-
-RSCALE is DOUBLE PRECISION array, dimension (N) Details of the permutations and/or scaling factors applied to the right side of A and B, as returned by DGGBAL.
-
-### M (in)
-
-M is INTEGER The number of columns of the matrix V. M >= 0.
-
-### V (in,out)
-
-V is DOUBLE PRECISION array, dimension (LDV,M) On entry, the matrix of right or left eigenvectors to be transformed, as returned by DTGEVC. On exit, V is overwritten by the transformed eigenvectors.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the matrix V. LDV >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

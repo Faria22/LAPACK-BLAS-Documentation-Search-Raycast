@@ -1,15 +1,26 @@
-# CLAQZ0
-
-## Function Signature
-
 ```fortran
-CLAQZ0(WANTS, WANTQ, WANTZ, N, ILO, IHI, A, LDA, B,
-*     $    LDB, ALPHA, BETA, Q, LDQ, Z, LDZ, WORK, LWORK, RWORK, REC,
-*     $    INFO)
+subroutine claqz0	(	wants,
+		wantq,
+		wantz,
+		n,
+		ilo,
+		ihi,
+		a,
+		lda,
+		b,
+		*     $    ldb,
+		alpha,
+		beta,
+		q,
+		ldq,
+		z,
+		ldz,
+		work,
+		lwork,
+		rwork,
+		rec,
+		*     $    info )
 ```
-
-## Description
-
 
  CLAQZ0 computes the eigenvalues of a matrix pair (H,T),
  where H is an upper Hessenberg matrix and T is upper triangular,
@@ -64,88 +75,111 @@ CLAQZ0(WANTS, WANTQ, WANTZ, N, ILO, IHI, A, LDA, B,
       multipole rational QZ method with aggressive early deflation"
 
 ## Parameters
+Wants : Character*1 [in]
+> = 'E': Compute eigenvalues only;
+> = 'S': Compute eigenvalues and the Schur form.
 
-### WANTS (in)
+Wantq : Character*1 [in]
+> = 'N': Left Schur vectors (Q) are not computed;
+> = 'I': Q is initialized to the unit matrix and the matrix Q
+> of left Schur vectors of (A,B) is returned;
+> = 'V': Q must contain an unitary matrix Q1 on entry and
+> the product Q1*Q is returned.
 
-WANTS is CHARACTER*1 = 'E': Compute eigenvalues only; = 'S': Compute eigenvalues and the Schur form.
+Wantz : Character*1 [in]
+> = 'N': Right Schur vectors (Z) are not computed;
+> = 'I': Z is initialized to the unit matrix and the matrix Z
+> of right Schur vectors of (A,B) is returned;
+> = 'V': Z must contain an unitary matrix Z1 on entry and
+> the product Z1*Z is returned.
 
-### WANTQ (in)
+N : Integer [in]
+> The order of the matrices A, B, Q, and Z.  N >= 0.
 
-WANTQ is CHARACTER*1 = 'N': Left Schur vectors (Q) are not computed; = 'I': Q is initialized to the unit matrix and the matrix Q of left Schur vectors of (A,B) is returned; = 'V': Q must contain an unitary matrix Q1 on entry and the product Q1*Q is returned.
+Ilo : Integer [in]
 
-### WANTZ (in)
+Ihi : Integer [in]
+> ILO and IHI mark the rows and columns of A which are in
+> Hessenberg form.  It is assumed that A is already upper
+> triangular in rows and columns 1:ILO-1 and IHI+1:N.
+> If N > 0, 1 <= ILO <= IHI <= N; if N = 0, ILO=1 and IHI=0.
 
-WANTZ is CHARACTER*1 = 'N': Right Schur vectors (Z) are not computed; = 'I': Z is initialized to the unit matrix and the matrix Z of right Schur vectors of (A,B) is returned; = 'V': Z must contain an unitary matrix Z1 on entry and the product Z1*Z is returned.
+A : Complex Array, Dimension (lda, N) [in,out]
+> On entry, the N-by-N upper Hessenberg matrix A.
+> On exit, if JOB = 'S', A contains the upper triangular
+> matrix S from the generalized Schur factorization.
+> If JOB = 'E', the diagonal of A matches that of S, but
+> the rest of A is unspecified.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max( 1, N ).
 
-N is INTEGER The order of the matrices A, B, Q, and Z. N >= 0.
+B : Complex Array, Dimension (ldb, N) [in,out]
+> On entry, the N-by-N upper triangular matrix B.
+> On exit, if JOB = 'S', B contains the upper triangular
+> matrix P from the generalized Schur factorization.
+> If JOB = 'E', the diagonal of B matches that of P, but
+> the rest of B is unspecified.
 
-### ILO (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max( 1, N ).
 
-ILO is INTEGER
+Alpha : Complex Array, Dimension (n) [out]
+> Each scalar alpha defining an eigenvalue
+> of GNEP.
 
-### IHI (in)
+Beta : Complex Array, Dimension (n) [out]
+> The scalars beta that define the eigenvalues of GNEP.
+> Together, the quantities alpha = ALPHA(j) and
+> beta = BETA(j) represent the j-th eigenvalue of the matrix
+> pair (A,B), in one of the forms lambda = alpha/beta or
+> mu = beta/alpha.  Since either lambda or mu may overflow,
+> they should not, in general, be computed.
 
-IHI is INTEGER ILO and IHI mark the rows and columns of A which are in Hessenberg form. It is assumed that A is already upper triangular in rows and columns 1:ILO-1 and IHI+1:N. If N > 0, 1 <= ILO <= IHI <= N; if N = 0, ILO=1 and IHI=0.
+Q : Complex Array, Dimension (ldq, N) [in,out]
+> On entry, if COMPQ = 'V', the unitary matrix Q1 used in
+> the reduction of (A,B) to generalized Hessenberg form.
+> On exit, if COMPQ = 'I', the unitary matrix of left Schur
+> vectors of (A,B), and if COMPQ = 'V', the unitary matrix
+> of left Schur vectors of (A,B).
+> Not referenced if COMPQ = 'N'.
 
-### A (in,out)
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= 1.
+> If COMPQ='V' or 'I', then LDQ >= N.
 
-A is COMPLEX array, dimension (LDA, N) On entry, the N-by-N upper Hessenberg matrix A. On exit, if JOB = 'S', A contains the upper triangular matrix S from the generalized Schur factorization. If JOB = 'E', the diagonal of A matches that of S, but the rest of A is unspecified.
+Z : Complex Array, Dimension (ldz, N) [in,out]
+> On entry, if COMPZ = 'V', the unitary matrix Z1 used in
+> the reduction of (A,B) to generalized Hessenberg form.
+> On exit, if COMPZ = 'I', the unitary matrix of
+> right Schur vectors of (H,T), and if COMPZ = 'V', the
+> unitary matrix of right Schur vectors of (A,B).
+> Not referenced if COMPZ = 'N'.
 
-### LDA (in)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDZ >= 1.
+> If COMPZ='V' or 'I', then LDZ >= N.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max( 1, N ).
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,N).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is COMPLEX array, dimension (LDB, N) On entry, the N-by-N upper triangular matrix B. On exit, if JOB = 'S', B contains the upper triangular matrix P from the generalized Schur factorization. If JOB = 'E', the diagonal of B matches that of P, but the rest of B is unspecified.
+Rwork : Real Array, Dimension (n) [out]
 
-### LDB (in)
+Rec : Integer [in]
+> REC indicates the current recursion level. Should be set
+> to 0 on first call.
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max( 1, N ).
-
-### ALPHA (out)
-
-ALPHA is COMPLEX array, dimension (N) Each scalar alpha defining an eigenvalue of GNEP.
-
-### BETA (out)
-
-BETA is COMPLEX array, dimension (N) The scalars beta that define the eigenvalues of GNEP. Together, the quantities alpha = ALPHA(j) and beta = BETA(j) represent the j-th eigenvalue of the matrix pair (A,B), in one of the forms lambda = alpha/beta or mu = beta/alpha. Since either lambda or mu may overflow, they should not, in general, be computed.
-
-### Q (in,out)
-
-Q is COMPLEX array, dimension (LDQ, N) On entry, if COMPQ = 'V', the unitary matrix Q1 used in the reduction of (A,B) to generalized Hessenberg form. On exit, if COMPQ = 'I', the unitary matrix of left Schur vectors of (A,B), and if COMPQ = 'V', the unitary matrix of left Schur vectors of (A,B). Not referenced if COMPQ = 'N'.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= 1. If COMPQ='V' or 'I', then LDQ >= N.
-
-### Z (in,out)
-
-Z is COMPLEX array, dimension (LDZ, N) On entry, if COMPZ = 'V', the unitary matrix Z1 used in the reduction of (A,B) to generalized Hessenberg form. On exit, if COMPZ = 'I', the unitary matrix of right Schur vectors of (H,T), and if COMPZ = 'V', the unitary matrix of right Schur vectors of (A,B). Not referenced if COMPZ = 'N'.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1. If COMPZ='V' or 'I', then LDZ >= N.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,N). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (N)
-
-### REC (in)
-
-REC is INTEGER REC indicates the current recursion level. Should be set to 0 on first call.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value = 1,...,N: the QZ iteration did not converge. (A,B) is not in Schur form, but ALPHA(i) and BETA(i), i=INFO+1,...,N should be correct.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> = 1,...,N: the QZ iteration did not converge.  (A,B) is not
+> in Schur form, but ALPHA(i) and
+> BETA(i), i=INFO+1,...,N should be correct.
 

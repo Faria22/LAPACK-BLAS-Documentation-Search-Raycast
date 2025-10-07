@@ -1,13 +1,14 @@
-# ZHEEQUB
-
-## Function Signature
-
 ```fortran
-ZHEEQUB(UPLO, N, A, LDA, S, SCOND, AMAX, WORK, INFO)
+subroutine zheequb	(	character	uplo,
+		integer	n,
+		complex*16, dimension(lda, *)	a,
+		integer	lda,
+		double precision, dimension(*)	s,
+		double precision	scond,
+		double precision	amax,
+		complex*16, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  ZHEEQUB computes row and column scalings intended to equilibrate a
  Hermitian matrix A (with respect to the Euclidean norm) and reduce
@@ -18,40 +19,37 @@ ZHEEQUB(UPLO, N, A, LDA, S, SCOND, AMAX, WORK, INFO)
  scalings.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A. N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+A : Complex*16 Array, Dimension (lda,n) [in]
+> The N-by-N Hermitian matrix whose scaling factors are to be
+> computed.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+S : Double Precision Array, Dimension (n) [out]
+> If INFO = 0, S contains the scale factors for A.
 
-### A (in)
+Scond : Double Precision [out]
+> If INFO = 0, S contains the ratio of the smallest S(i) to
+> the largest S(i). If SCOND >= 0.1 and AMAX is neither too
+> large nor too small, it is not worth scaling by S.
 
-A is COMPLEX*16 array, dimension (LDA,N) The N-by-N Hermitian matrix whose scaling factors are to be computed.
+Amax : Double Precision [out]
+> Largest absolute value of any matrix element. If AMAX is
+> very close to overflow or very close to underflow, the
+> matrix should be scaled.
 
-### LDA (in)
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### S (out)
-
-S is DOUBLE PRECISION array, dimension (N) If INFO = 0, S contains the scale factors for A.
-
-### SCOND (out)
-
-SCOND is DOUBLE PRECISION If INFO = 0, S contains the ratio of the smallest S(i) to the largest S(i). If SCOND >= 0.1 and AMAX is neither too large nor too small, it is not worth scaling by S.
-
-### AMAX (out)
-
-AMAX is DOUBLE PRECISION Largest absolute value of any matrix element. If AMAX is very close to overflow or very close to underflow, the matrix should be scaled.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the i-th diagonal element is nonpositive.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the i-th diagonal element is nonpositive.
 

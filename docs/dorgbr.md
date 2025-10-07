@@ -1,13 +1,15 @@
-# DORGBR
-
-## Function Signature
-
 ```fortran
-DORGBR(VECT, M, N, K, A, LDA, TAU, WORK, LWORK, INFO)
+subroutine dorgbr	(	character	vect,
+		integer	m,
+		integer	n,
+		integer	k,
+		double precision, dimension(lda, *)	a,
+		integer	lda,
+		double precision, dimension(*)	tau,
+		double precision, dimension(*)	work,
+		integer	lwork,
+		integer	info )
 ```
-
-## Description
-
 
  DORGBR generates one of the real orthogonal matrices Q or P**T
  determined by DGEBRD when reducing a real matrix A to bidiagonal
@@ -29,44 +31,57 @@ DORGBR(VECT, M, N, K, A, LDA, TAU, WORK, LWORK, INFO)
  an N-by-N matrix.
 
 ## Parameters
+Vect : Character*1 [in]
+> Specifies whether the matrix Q or the matrix P**T is
+> required, as defined in the transformation applied by DGEBRD:
+> = 'Q':  generate Q;
+> = 'P':  generate P**T.
 
-### VECT (in)
+M : Integer [in]
+> The number of rows of the matrix Q or P**T to be returned.
+> M >= 0.
 
-VECT is CHARACTER*1 Specifies whether the matrix Q or the matrix P**T is required, as defined in the transformation applied by DGEBRD: = 'Q': generate Q; = 'P': generate P**T.
+N : Integer [in]
+> The number of columns of the matrix Q or P**T to be returned.
+> N >= 0.
+> If VECT = 'Q', M >= N >= min(M,K);
+> if VECT = 'P', N >= M >= min(N,K).
 
-### M (in)
+K : Integer [in]
+> If VECT = 'Q', the number of columns in the original M-by-K
+> matrix reduced by DGEBRD.
+> If VECT = 'P', the number of rows in the original K-by-N
+> matrix reduced by DGEBRD.
+> K >= 0.
 
-M is INTEGER The number of rows of the matrix Q or P**T to be returned. M >= 0.
+A : Double Precision Array, Dimension (lda,n) [in,out]
+> On entry, the vectors which define the elementary reflectors,
+> as returned by DGEBRD.
+> On exit, the M-by-N matrix Q or P**T.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix Q or P**T to be returned. N >= 0. If VECT = 'Q', M >= N >= min(M,K); if VECT = 'P', N >= M >= min(N,K).
+Tau : Double Precision Array, Dimension [in]
+> (min(M,K)) if VECT = 'Q'
+> (min(N,K)) if VECT = 'P'
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i) or G(i), which determines Q or P**T, as
+> returned by DGEBRD in its array argument TAUQ or TAUP.
 
-### K (in)
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-K is INTEGER If VECT = 'Q', the number of columns in the original M-by-K matrix reduced by DGEBRD. If VECT = 'P', the number of rows in the original K-by-N matrix reduced by DGEBRD. K >= 0.
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= max(1,min(M,N)).
+> For optimum performance LWORK >= min(M,N)*NB, where NB
+> is the optimal blocksize.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### A (in,out)
-
-A is DOUBLE PRECISION array, dimension (LDA,N) On entry, the vectors which define the elementary reflectors, as returned by DGEBRD. On exit, the M-by-N matrix Q or P**T.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### TAU (in)
-
-TAU is DOUBLE PRECISION array, dimension (min(M,K)) if VECT = 'Q' (min(N,K)) if VECT = 'P' TAU(i) must contain the scalar factor of the elementary reflector H(i) or G(i), which determines Q or P**T, as returned by DGEBRD in its array argument TAUQ or TAUP.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,min(M,N)). For optimum performance LWORK >= min(M,N)*NB, where NB is the optimal blocksize. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

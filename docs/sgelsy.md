@@ -1,16 +1,18 @@
-# SGELSY
-
-SGELSY solves overdetermined or underdetermined systems for GE matrices
-
-## Function Signature
-
 ```fortran
-SGELSY(M, N, NRHS, A, LDA, B, LDB, JPVT, RCOND, RANK,
-*                          WORK, LWORK, INFO)
+subroutine sgelsy	(	m,
+		n,
+		nrhs,
+		a,
+		lda,
+		b,
+		ldb,
+		jpvt,
+		rcond,
+		rank,
+		*                          work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  SGELSY computes the minimum-norm solution to a real linear least
  squares problem:
@@ -50,56 +52,69 @@ SGELSY(M, N, NRHS, A, LDA, B, LDB, JPVT, RCOND, RANK,
      more simple.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of
+> columns of matrices B and X. NRHS >= 0.
 
-### N (in)
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, A has been overwritten by details of its
+> complete orthogonal factorization.
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-### NRHS (in)
+B : Real Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the M-by-NRHS right hand side matrix B.
+> On exit, the N-by-NRHS solution matrix X.
+> If M = 0 or N = 0, B is not referenced.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of matrices B and X. NRHS >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,M,N).
 
-### A (in,out)
+Jpvt : Integer Array, Dimension (n) [in,out]
+> On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+> to the front of AP, otherwise column i is a free column.
+> On exit, if JPVT(i) = k, then the i-th column of AP
+> was the k-th column of A.
 
-A is REAL array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A has been overwritten by details of its complete orthogonal factorization.
+Rcond : Real [in]
+> RCOND is used to determine the effective rank of A, which
+> is defined as the order of the largest leading triangular
+> submatrix R11 in the QR factorization with pivoting of A,
+> whose estimated condition number < 1/RCOND.
 
-### LDA (in)
+Rank : Integer [out]
+> The effective rank of A, i.e., the order of the submatrix
+> R11.  This is the same as the order of the submatrix T11
+> in the complete orthogonal factorization of A.
+> If NRHS = 0, RANK = 0 on output.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Work : Real Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### B (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> The unblocked strategy requires that:
+> LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
+> where MN = min( M, N ).
+> The block algorithm requires that:
+> LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+> where NB is an upper bound on the blocksize returned
+> by ILAENV for the routines SGEQP3, STZRZF, STZRQF, SORMQR,
+> and SORMRZ.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-B is REAL array, dimension (LDB,NRHS) On entry, the M-by-NRHS right hand side matrix B. On exit, the N-by-NRHS solution matrix X. If M = 0 or N = 0, B is not referenced.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,M,N).
-
-### JPVT (in,out)
-
-JPVT is INTEGER array, dimension (N) On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted to the front of AP, otherwise column i is a free column. On exit, if JPVT(i) = k, then the i-th column of AP was the k-th column of A.
-
-### RCOND (in)
-
-RCOND is REAL RCOND is used to determine the effective rank of A, which is defined as the order of the largest leading triangular submatrix R11 in the QR factorization with pivoting of A, whose estimated condition number < 1/RCOND.
-
-### RANK (out)
-
-RANK is INTEGER The effective rank of A, i.e., the order of the submatrix R11. This is the same as the order of the submatrix T11 in the complete orthogonal factorization of A. If NRHS = 0, RANK = 0 on output.
-
-### WORK (out)
-
-WORK is REAL array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. The unblocked strategy requires that: LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ), where MN = min( M, N ). The block algorithm requires that: LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ), where NB is an upper bound on the blocksize returned by ILAENV for the routines SGEQP3, STZRZF, STZRQF, SORMQR, and SORMRZ. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: If INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: If INFO = -i, the i-th argument had an illegal value.
 

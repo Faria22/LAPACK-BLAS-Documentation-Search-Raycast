@@ -1,13 +1,12 @@
-# DAXPBY
-
-## Function Signature
-
 ```fortran
-DAXPBY(N,DA,DX,INCX,DB,DY,INCY)
+subroutine daxpby	(	integer	n,
+		double precision	da,
+		double precision, dimension(*)	dx,
+		integer	incx,
+		double precision	db,
+		double precision, dimension(*)	dy,
+		integer	incy )
 ```
-
-## Description
-
 
     DAXPBY constant times a vector plus constant times a vector.
 
@@ -15,32 +14,22 @@ DAXPBY(N,DA,DX,INCX,DB,DY,INCY)
 
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Da : Double Precision [in]
+> On entry, DA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-### DA (in)
+Incx : Integer [in]
+> storage spacing between elements of DX
 
-DA is DOUBLE PRECISION On entry, DA specifies the scalar alpha.
+Db : Double Precision [in]
+> On entry, DB specifies the scalar beta.
 
-### DX (in)
+Dy : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of DX
-
-### DB (in)
-
-DB is DOUBLE PRECISION On entry, DB specifies the scalar beta.
-
-### DY (in,out)
-
-DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of DY
+Incy : Integer [in]
+> storage spacing between elements of DY
 

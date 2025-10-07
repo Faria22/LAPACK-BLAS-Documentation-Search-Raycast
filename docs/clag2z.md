@@ -1,13 +1,12 @@
-# CLAG2Z
-
-## Function Signature
-
 ```fortran
-CLAG2Z(M, N, SA, LDSA, A, LDA, INFO)
+subroutine clag2z	(	integer	m,
+		integer	n,
+		complex, dimension(ldsa, *)	sa,
+		integer	ldsa,
+		complex*16, dimension(lda, *)	a,
+		integer	lda,
+		integer	info )
 ```
-
-## Description
-
 
  CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX*16 matrix, A.
 
@@ -18,32 +17,24 @@ CLAG2Z(M, N, SA, LDSA, A, LDA, INFO)
  This is an auxiliary routine so there is no argument checking.
 
 ## Parameters
+M : Integer [in]
+> The number of lines of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of lines of the matrix A. M >= 0.
+Sa : Complex Array, Dimension (ldsa,n) [in]
+> On entry, the M-by-N coefficient matrix SA.
 
-### N (in)
+Ldsa : Integer [in]
+> The leading dimension of the array SA.  LDSA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+A : Complex*16 Array, Dimension (lda,n) [out]
+> On exit, the M-by-N coefficient matrix A.
 
-### SA (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-SA is COMPLEX array, dimension (LDSA,N) On entry, the M-by-N coefficient matrix SA.
-
-### LDSA (in)
-
-LDSA is INTEGER The leading dimension of the array SA. LDSA >= max(1,M).
-
-### A (out)
-
-A is COMPLEX*16 array, dimension (LDA,N) On exit, the M-by-N coefficient matrix A.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit
+Info : Integer [out]
+> = 0:  successful exit
 

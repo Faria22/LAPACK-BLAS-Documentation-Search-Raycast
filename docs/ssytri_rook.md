@@ -1,45 +1,49 @@
-# SSYTRI_ROOK
-
-## Function Signature
-
 ```fortran
-SSYTRI_ROOK(UPLO, N, A, LDA, IPIV, WORK, INFO)
+subroutine ssytri_rook	(	character	uplo,
+		integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		integer, dimension(*)	ipiv,
+		real, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  SSYTRI_ROOK computes the inverse of a real symmetric
  matrix A using the factorization A = U*D*U**T or A = L*D*L**T
  computed by SSYTRF_ROOK.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the block diagonal matrix D and the multipliers
+> used to obtain the factor U or L as computed by SSYTRF_ROOK.
+> On exit, if INFO = 0, the (symmetric) inverse of the original
+> matrix.  If UPLO = 'U', the upper triangular part of the
+> inverse is formed and the part of A below the diagonal is not
+> referenced; if UPLO = 'L' the lower triangular part of the
+> inverse is formed and the part of A above the diagonal is
+> not referenced.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by SSYTRF_ROOK.
 
-### A (in,out)
+Work : Real Array, Dimension (n) [out]
 
-A is REAL array, dimension (LDA,N) On entry, the block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by SSYTRF_ROOK. On exit, if INFO = 0, the (symmetric) inverse of the original matrix. If UPLO = 'U', the upper triangular part of the inverse is formed and the part of A below the diagonal is not referenced; if UPLO = 'L' the lower triangular part of the inverse is formed and the part of A above the diagonal is not referenced.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by SSYTRF_ROOK.
-
-### WORK (out)
-
-WORK is REAL array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its inverse could not be computed.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its
+> inverse could not be computed.
 

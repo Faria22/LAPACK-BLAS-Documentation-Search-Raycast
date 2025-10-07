@@ -1,15 +1,26 @@
-# CLAED8
-
-## Function Signature
-
 ```fortran
-CLAED8(K, N, QSIZ, Q, LDQ, D, RHO, CUTPNT, Z, DLAMBDA,
-*                          Q2, LDQ2, W, INDXP, INDX, INDXQ, PERM, GIVPTR,
-*                          GIVCOL, GIVNUM, INFO)
+subroutine claed8	(	k,
+		n,
+		qsiz,
+		q,
+		ldq,
+		d,
+		rho,
+		cutpnt,
+		z,
+		dlambda,
+		*                          q2,
+		ldq2,
+		w,
+		indxp,
+		indx,
+		indxq,
+		perm,
+		givptr,
+		*                          givcol,
+		givnum,
+		info )
 ```
-
-## Description
-
 
  CLAED8 merges the two sets of eigenvalues together into a single
  sorted set.  Then it tries to deflate the size of the problem.
@@ -19,88 +30,100 @@ CLAED8(K, N, QSIZ, Q, LDQ, D, RHO, CUTPNT, Z, DLAMBDA,
  equation problem is reduced by one.
 
 ## Parameters
+K : Integer [out]
+> Contains the number of non-deflated eigenvalues.
+> This is the order of the related secular equation.
 
-### K (out)
+N : Integer [in]
+> The dimension of the symmetric tridiagonal matrix.  N >= 0.
 
-K is INTEGER Contains the number of non-deflated eigenvalues. This is the order of the related secular equation.
+Qsiz : Integer [in]
+> The dimension of the unitary matrix used to reduce
+> the dense or band matrix to tridiagonal form.
+> QSIZ >= N if ICOMPQ = 1.
 
-### N (in)
+Q : Complex Array, Dimension (ldq,n) [in,out]
+> On entry, Q contains the eigenvectors of the partially solved
+> system which has been previously updated in matrix
+> multiplies with other partially solved eigensystems.
+> On exit, Q contains the trailing (N-K) updated eigenvectors
+> (those which were deflated) in its last N-K columns.
 
-N is INTEGER The dimension of the symmetric tridiagonal matrix. N >= 0.
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= max( 1, N ).
 
-### QSIZ (in)
+D : Real Array, Dimension (n) [in,out]
+> On entry, D contains the eigenvalues of the two submatrices to
+> be combined.  On exit, D contains the trailing (N-K) updated
+> eigenvalues (those which were deflated) sorted into increasing
+> order.
 
-QSIZ is INTEGER The dimension of the unitary matrix used to reduce the dense or band matrix to tridiagonal form. QSIZ >= N if ICOMPQ = 1.
+Rho : Real [in,out]
+> Contains the off diagonal element associated with the rank-1
+> cut which originally split the two submatrices which are now
+> being recombined. RHO is modified during the computation to
+> the value required by SLAED3.
 
-### Q (in,out)
+Cutpnt : Integer [in]
+> Contains the location of the last eigenvalue in the leading
+> sub-matrix.  MIN(1,N) <= CUTPNT <= N.
 
-Q is COMPLEX array, dimension (LDQ,N) On entry, Q contains the eigenvectors of the partially solved system which has been previously updated in matrix multiplies with other partially solved eigensystems. On exit, Q contains the trailing (N-K) updated eigenvectors (those which were deflated) in its last N-K columns.
+Z : Real Array, Dimension (n) [in]
+> On input this vector contains the updating vector (the last
+> row of the first sub-eigenvector matrix and the first row of
+> the second sub-eigenvector matrix).  The contents of Z are
+> destroyed during the updating process.
 
-### LDQ (in)
+Dlambda : Real Array, Dimension (n) [out]
+> Contains a copy of the first K eigenvalues which will be used
+> by SLAED3 to form the secular equation.
 
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max( 1, N ).
+Q2 : Complex Array, Dimension (ldq2,n) [out]
+> If ICOMPQ = 0, Q2 is not referenced.  Otherwise,
+> Contains a copy of the first K eigenvectors which will be used
+> by SLAED7 in a matrix multiply (SGEMM) to update the new
+> eigenvectors.
 
-### D (in,out)
+Ldq2 : Integer [in]
+> The leading dimension of the array Q2.  LDQ2 >= max( 1, N ).
 
-D is REAL array, dimension (N) On entry, D contains the eigenvalues of the two submatrices to be combined. On exit, D contains the trailing (N-K) updated eigenvalues (those which were deflated) sorted into increasing order.
+W : Real Array, Dimension (n) [out]
+> This will hold the first k values of the final
+> deflation-altered z-vector and will be passed to SLAED3.
 
-### RHO (in,out)
+Indxp : Integer Array, Dimension (n) [out]
+> This will contain the permutation used to place deflated
+> values of D at the end of the array. On output INDXP(1:K)
+> points to the nondeflated D-values and INDXP(K+1:N)
+> points to the deflated eigenvalues.
 
-RHO is REAL Contains the off diagonal element associated with the rank-1 cut which originally split the two submatrices which are now being recombined. RHO is modified during the computation to the value required by SLAED3.
+Indx : Integer Array, Dimension (n) [out]
+> This will contain the permutation used to sort the contents of
+> D into ascending order.
 
-### CUTPNT (in)
+Indxq : Integer Array, Dimension (n) [in]
+> This contains the permutation which separately sorts the two
+> sub-problems in D into ascending order.  Note that elements in
+> the second half of this permutation must first have CUTPNT
+> added to their values in order to be accurate.
 
-CUTPNT is INTEGER Contains the location of the last eigenvalue in the leading sub-matrix. MIN(1,N) <= CUTPNT <= N.
+Perm : Integer Array, Dimension (n) [out]
+> Contains the permutations (from deflation and sorting) to be
+> applied to each eigenblock.
 
-### Z (in)
+Givptr : Integer [out]
+> Contains the number of Givens rotations which took place in
+> this subproblem.
 
-Z is REAL array, dimension (N) On input this vector contains the updating vector (the last row of the first sub-eigenvector matrix and the first row of the second sub-eigenvector matrix). The contents of Z are destroyed during the updating process.
+Givcol : Integer Array, Dimension (2, N) [out]
+> Each pair of numbers indicates a pair of columns to take place
+> in a Givens rotation.
 
-### DLAMBDA (out)
+Givnum : Real Array, Dimension (2, N) [out]
+> Each number indicates the S value to be used in the
+> corresponding Givens rotation.
 
-DLAMBDA is REAL array, dimension (N) Contains a copy of the first K eigenvalues which will be used by SLAED3 to form the secular equation.
-
-### Q2 (out)
-
-Q2 is COMPLEX array, dimension (LDQ2,N) If ICOMPQ = 0, Q2 is not referenced. Otherwise, Contains a copy of the first K eigenvectors which will be used by SLAED7 in a matrix multiply (SGEMM) to update the new eigenvectors.
-
-### LDQ2 (in)
-
-LDQ2 is INTEGER The leading dimension of the array Q2. LDQ2 >= max( 1, N ).
-
-### W (out)
-
-W is REAL array, dimension (N) This will hold the first k values of the final deflation-altered z-vector and will be passed to SLAED3.
-
-### INDXP (out)
-
-INDXP is INTEGER array, dimension (N) This will contain the permutation used to place deflated values of D at the end of the array. On output INDXP(1:K) points to the nondeflated D-values and INDXP(K+1:N) points to the deflated eigenvalues.
-
-### INDX (out)
-
-INDX is INTEGER array, dimension (N) This will contain the permutation used to sort the contents of D into ascending order.
-
-### INDXQ (in)
-
-INDXQ is INTEGER array, dimension (N) This contains the permutation which separately sorts the two sub-problems in D into ascending order. Note that elements in the second half of this permutation must first have CUTPNT added to their values in order to be accurate.
-
-### PERM (out)
-
-PERM is INTEGER array, dimension (N) Contains the permutations (from deflation and sorting) to be applied to each eigenblock.
-
-### GIVPTR (out)
-
-GIVPTR is INTEGER Contains the number of Givens rotations which took place in this subproblem.
-
-### GIVCOL (out)
-
-GIVCOL is INTEGER array, dimension (2, N) Each pair of numbers indicates a pair of columns to take place in a Givens rotation.
-
-### GIVNUM (out)
-
-GIVNUM is REAL array, dimension (2, N) Each number indicates the S value to be used in the corresponding Givens rotation.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

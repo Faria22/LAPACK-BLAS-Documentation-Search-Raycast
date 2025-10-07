@@ -1,15 +1,27 @@
-# DTGSYL
-
-## Function Signature
-
 ```fortran
-DTGSYL(TRANS, IJOB, M, N, A, LDA, B, LDB, C, LDC, D,
-*                          LDD, E, LDE, F, LDF, SCALE, DIF, WORK, LWORK,
-*                          IWORK, INFO)
+subroutine dtgsyl	(	trans,
+		ijob,
+		m,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		c,
+		ldc,
+		d,
+		*                          ldd,
+		e,
+		lde,
+		f,
+		ldf,
+		scale,
+		dif,
+		work,
+		lwork,
+		*                          iwork,
+		info )
 ```
-
-## Description
-
 
  DTGSYL solves the generalized Sylvester equation:
 
@@ -52,92 +64,104 @@ DTGSYL(TRANS, IJOB, M, N, A, LDA, B, LDB, C, LDC, D,
  This is a level 3 BLAS algorithm.
 
 ## Parameters
+Trans : Character*1 [in]
+> = 'N': solve the generalized Sylvester equation (1).
+> = 'T': solve the 'transposed' system (3).
 
-### TRANS (in)
+Ijob : Integer [in]
+> Specifies what kind of functionality to be performed.
+> = 0: solve (1) only.
+> = 1: The functionality of 0 and 3.
+> = 2: The functionality of 0 and 4.
+> = 3: Only an estimate of Dif[(A,D), (B,E)] is computed.
+> (look ahead strategy IJOB  = 1 is used).
+> = 4: Only an estimate of Dif[(A,D), (B,E)] is computed.
+> ( DGECON on sub-systems is used ).
+> Not referenced if TRANS = 'T'.
 
-TRANS is CHARACTER*1 = 'N': solve the generalized Sylvester equation (1). = 'T': solve the 'transposed' system (3).
+M : Integer [in]
+> The order of the matrices A and D, and the row dimension of
+> the matrices C, F, R and L.
 
-### IJOB (in)
+N : Integer [in]
+> The order of the matrices B and E, and the column dimension
+> of the matrices C, F, R and L.
 
-IJOB is INTEGER Specifies what kind of functionality to be performed. = 0: solve (1) only. = 1: The functionality of 0 and 3. = 2: The functionality of 0 and 4. = 3: Only an estimate of Dif[(A,D), (B,E)] is computed. (look ahead strategy IJOB = 1 is used). = 4: Only an estimate of Dif[(A,D), (B,E)] is computed. ( DGECON on sub-systems is used ). Not referenced if TRANS = 'T'.
+A : Double Precision Array, Dimension (lda, M) [in]
+> The upper quasi triangular matrix A.
 
-### M (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1, M).
 
-M is INTEGER The order of the matrices A and D, and the row dimension of the matrices C, F, R and L.
+B : Double Precision Array, Dimension (ldb, N) [in]
+> The upper quasi triangular matrix B.
 
-### N (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1, N).
 
-N is INTEGER The order of the matrices B and E, and the column dimension of the matrices C, F, R and L.
+C : Double Precision Array, Dimension (ldc, N) [in,out]
+> On entry, C contains the right-hand-side of the first matrix
+> equation in (1) or (3).
+> On exit, if IJOB = 0, 1 or 2, C has been overwritten by
+> the solution R. If IJOB = 3 or 4 and TRANS = 'N', C holds R,
+> the solution achieved during the computation of the
+> Dif-estimate.
 
-### A (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1, M).
 
-A is DOUBLE PRECISION array, dimension (LDA, M) The upper quasi triangular matrix A.
+D : Double Precision Array, Dimension (ldd, M) [in]
+> The upper triangular matrix D.
 
-### LDA (in)
+Ldd : Integer [in]
+> The leading dimension of the array D. LDD >= max(1, M).
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1, M).
+E : Double Precision Array, Dimension (lde, N) [in]
+> The upper triangular matrix E.
 
-### B (in)
+Lde : Integer [in]
+> The leading dimension of the array E. LDE >= max(1, N).
 
-B is DOUBLE PRECISION array, dimension (LDB, N) The upper quasi triangular matrix B.
+F : Double Precision Array, Dimension (ldf, N) [in,out]
+> On entry, F contains the right-hand-side of the second matrix
+> equation in (1) or (3).
+> On exit, if IJOB = 0, 1 or 2, F has been overwritten by
+> the solution L. If IJOB = 3 or 4 and TRANS = 'N', F holds L,
+> the solution achieved during the computation of the
+> Dif-estimate.
 
-### LDB (in)
+Ldf : Integer [in]
+> The leading dimension of the array F. LDF >= max(1, M).
 
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1, N).
+Dif : Double Precision [out]
+> On exit DIF is the reciprocal of a lower bound of the
+> reciprocal of the Dif-function, i.e. DIF is an upper bound of
+> Dif[(A,D), (B,E)] = sigma_min(Z), where Z as in (2).
+> IF IJOB = 0 or TRANS = 'T', DIF is not touched.
 
-### C (in,out)
+Scale : Double Precision [out]
+> On exit SCALE is the scaling factor in (1) or (3).
+> If 0 < SCALE < 1, C and F hold the solutions R and L, resp.,
+> to a slightly perturbed system but the input matrices A, B, D
+> and E have not been changed. If SCALE = 0, C and F hold the
+> solutions R and L, respectively, to the homogeneous system
+> with C = F = 0. Normally, SCALE = 1.
 
-C is DOUBLE PRECISION array, dimension (LDC, N) On entry, C contains the right-hand-side of the first matrix equation in (1) or (3). On exit, if IJOB = 0, 1 or 2, C has been overwritten by the solution R. If IJOB = 3 or 4 and TRANS = 'N', C holds R, the solution achieved during the computation of the Dif-estimate.
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### LDC (in)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK > = 1.
+> If IJOB = 1 or 2 and TRANS = 'N', LWORK >= max(1,2*M*N).
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1, M).
+Iwork : Integer Array, Dimension (m+n+6) [out]
 
-### D (in)
-
-D is DOUBLE PRECISION array, dimension (LDD, M) The upper triangular matrix D.
-
-### LDD (in)
-
-LDD is INTEGER The leading dimension of the array D. LDD >= max(1, M).
-
-### E (in)
-
-E is DOUBLE PRECISION array, dimension (LDE, N) The upper triangular matrix E.
-
-### LDE (in)
-
-LDE is INTEGER The leading dimension of the array E. LDE >= max(1, N).
-
-### F (in,out)
-
-F is DOUBLE PRECISION array, dimension (LDF, N) On entry, F contains the right-hand-side of the second matrix equation in (1) or (3). On exit, if IJOB = 0, 1 or 2, F has been overwritten by the solution L. If IJOB = 3 or 4 and TRANS = 'N', F holds L, the solution achieved during the computation of the Dif-estimate.
-
-### LDF (in)
-
-LDF is INTEGER The leading dimension of the array F. LDF >= max(1, M).
-
-### DIF (out)
-
-DIF is DOUBLE PRECISION On exit DIF is the reciprocal of a lower bound of the reciprocal of the Dif-function, i.e. DIF is an upper bound of Dif[(A,D), (B,E)] = sigma_min(Z), where Z as in (2). IF IJOB = 0 or TRANS = 'T', DIF is not touched.
-
-### SCALE (out)
-
-SCALE is DOUBLE PRECISION On exit SCALE is the scaling factor in (1) or (3). If 0 < SCALE < 1, C and F hold the solutions R and L, resp., to a slightly perturbed system but the input matrices A, B, D and E have not been changed. If SCALE = 0, C and F hold the solutions R and L, respectively, to the homogeneous system with C = F = 0. Normally, SCALE = 1.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK > = 1. If IJOB = 1 or 2 and TRANS = 'N', LWORK >= max(1,2*M*N). If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (M+N+6)
-
-### INFO (out)
-
-INFO is INTEGER =0: successful exit <0: If INFO = -i, the i-th argument had an illegal value. >0: (A, D) and (B, E) have common or close eigenvalues.
+Info : Integer [out]
+> =0: successful exit
+> <0: If INFO = -i, the i-th argument had an illegal value.
+> >0: (A, D) and (B, E) have common or close eigenvalues.
 

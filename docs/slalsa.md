@@ -1,16 +1,31 @@
-# SLALSA
-
-## Function Signature
-
 ```fortran
-SLALSA(ICOMPQ, SMLSIZ, N, NRHS, B, LDB, BX, LDBX, U,
-*                          LDU, VT, K, DIFL, DIFR, Z, POLES, GIVPTR,
-*                          GIVCOL, LDGCOL, PERM, GIVNUM, C, S, WORK,
-*                          IWORK, INFO)
+subroutine slalsa	(	icompq,
+		smlsiz,
+		n,
+		nrhs,
+		b,
+		ldb,
+		bx,
+		ldbx,
+		u,
+		*                          ldu,
+		vt,
+		k,
+		difl,
+		difr,
+		z,
+		poles,
+		givptr,
+		*                          givcol,
+		ldgcol,
+		perm,
+		givnum,
+		c,
+		s,
+		work,
+		*                          iwork,
+		info )
 ```
-
-## Description
-
 
  SLALSA is an intermediate step in solving the least squares problem
  by computing the SVD of the coefficient matrix in compact form (The
@@ -24,108 +39,109 @@ SLALSA(ICOMPQ, SMLSIZ, N, NRHS, B, LDB, BX, LDBX, U,
  compact form by SLALSA.
 
 ## Parameters
+Icompq : Integer [in]
+> Specifies whether the left or the right singular vector
+> matrix is involved.
+> = 0: Left singular vector matrix
+> = 1: Right singular vector matrix
 
-### ICOMPQ (in)
+Smlsiz : Integer [in]
+> The maximum size of the subproblems at the bottom of the
+> computation tree.
 
-ICOMPQ is INTEGER Specifies whether the left or the right singular vector matrix is involved. = 0: Left singular vector matrix = 1: Right singular vector matrix
+N : Integer [in]
+> The row and column dimensions of the upper bidiagonal matrix.
 
-### SMLSIZ (in)
+Nrhs : Integer [in]
+> The number of columns of B and BX. NRHS must be at least 1.
 
-SMLSIZ is INTEGER The maximum size of the subproblems at the bottom of the computation tree.
+B : Real Array, Dimension ( Ldb, Nrhs ) [in,out]
+> On input, B contains the right hand sides of the least
+> squares problem in rows 1 through M.
+> On output, B contains the solution X in rows 1 through N.
 
-### N (in)
+Ldb : Integer [in]
+> The leading dimension of B in the calling subprogram.
+> LDB must be at least max(1,MAX( M, N ) ).
 
-N is INTEGER The row and column dimensions of the upper bidiagonal matrix.
+Bx : Real Array, Dimension ( Ldbx, Nrhs ) [out]
+> On exit, the result of applying the left or right singular
+> vector matrix to B.
 
-### NRHS (in)
+Ldbx : Integer [in]
+> The leading dimension of BX.
 
-NRHS is INTEGER The number of columns of B and BX. NRHS must be at least 1.
+U : Real Array, Dimension ( Ldu, Smlsiz ). [in]
+> On entry, U contains the left singular vector matrices of all
+> subproblems at the bottom level.
 
-### B (in,out)
+Ldu : Integer, Ldu = > N. [in]
+> The leading dimension of arrays U, VT, DIFL, DIFR,
+> POLES, GIVNUM, and Z.
 
-B is REAL array, dimension ( LDB, NRHS ) On input, B contains the right hand sides of the least squares problem in rows 1 through M. On output, B contains the solution X in rows 1 through N.
+Vt : Real Array, Dimension ( Ldu, Smlsiz+1 ). [in]
+> On entry, VT**T contains the right singular vector matrices of
+> all subproblems at the bottom level.
 
-### LDB (in)
+K : Integer Array, Dimension ( N ). [in]
 
-LDB is INTEGER The leading dimension of B in the calling subprogram. LDB must be at least max(1,MAX( M, N ) ).
+Difl : Real Array, Dimension ( Ldu, Nlvl ). [in]
+> where NLVL = INT(log_2 (N/(SMLSIZ+1))) + 1.
 
-### BX (out)
+Difr : Real Array, Dimension ( Ldu, 2 * Nlvl ). [in]
+> On entry, DIFL(*, I) and DIFR(*, 2 * I -1) record
+> distances between singular values on the I-th level and
+> singular values on the (I -1)-th level, and DIFR(*, 2 * I)
+> record the normalizing factors of the right singular vectors
+> matrices of subproblems on I-th level.
 
-BX is REAL array, dimension ( LDBX, NRHS ) On exit, the result of applying the left or right singular vector matrix to B.
+Z : Real Array, Dimension ( Ldu, Nlvl ). [in]
+> On entry, Z(1, I) contains the components of the deflation-
+> adjusted updating row vector for subproblems on the I-th
+> level.
 
-### LDBX (in)
+Poles : Real Array, Dimension ( Ldu, 2 * Nlvl ). [in]
+> On entry, POLES(*, 2 * I -1: 2 * I) contains the new and old
+> singular values involved in the secular equations on the I-th
+> level.
 
-LDBX is INTEGER The leading dimension of BX.
+Givptr : Integer Array, Dimension ( N ). [in]
+> On entry, GIVPTR( I ) records the number of Givens
+> rotations performed on the I-th problem on the computation
+> tree.
 
-### U (in)
+Givcol : Integer Array, Dimension ( Ldgcol, 2 * Nlvl ). [in]
+> On entry, for each I, GIVCOL(*, 2 * I - 1: 2 * I) records the
+> locations of Givens rotations performed on the I-th level on
+> the computation tree.
 
-U is REAL array, dimension ( LDU, SMLSIZ ). On entry, U contains the left singular vector matrices of all subproblems at the bottom level.
+Ldgcol : Integer, Ldgcol = > N. [in]
+> The leading dimension of arrays GIVCOL and PERM.
 
-### LDU (in)
+Perm : Integer Array, Dimension ( Ldgcol, Nlvl ). [in]
+> On entry, PERM(*, I) records permutations done on the I-th
+> level of the computation tree.
 
-LDU is INTEGER, LDU = > N. The leading dimension of arrays U, VT, DIFL, DIFR, POLES, GIVNUM, and Z.
+Givnum : Real Array, Dimension ( Ldu, 2 * Nlvl ). [in]
+> On entry, GIVNUM(*, 2 *I -1 : 2 * I) records the C- and S-
+> values of Givens rotations performed on the I-th level on the
+> computation tree.
 
-### VT (in)
+C : Real Array, Dimension ( N ). [in]
+> On entry, if the I-th subproblem is not square,
+> C( I ) contains the C-value of a Givens rotation related to
+> the right null space of the I-th subproblem.
 
-VT is REAL array, dimension ( LDU, SMLSIZ+1 ). On entry, VT**T contains the right singular vector matrices of all subproblems at the bottom level.
+S : Real Array, Dimension ( N ). [in]
+> On entry, if the I-th subproblem is not square,
+> S( I ) contains the S-value of a Givens rotation related to
+> the right null space of the I-th subproblem.
 
-### K (in)
+Work : Real Array, Dimension (n) [out]
 
-K is INTEGER array, dimension ( N ).
+Iwork : Integer Array, Dimension (3*n) [out]
 
-### DIFL (in)
-
-DIFL is REAL array, dimension ( LDU, NLVL ). where NLVL = INT(log_2 (N/(SMLSIZ+1))) + 1.
-
-### DIFR (in)
-
-DIFR is REAL array, dimension ( LDU, 2 * NLVL ). On entry, DIFL(*, I) and DIFR(*, 2 * I -1) record distances between singular values on the I-th level and singular values on the (I -1)-th level, and DIFR(*, 2 * I) record the normalizing factors of the right singular vectors matrices of subproblems on I-th level.
-
-### Z (in)
-
-Z is REAL array, dimension ( LDU, NLVL ). On entry, Z(1, I) contains the components of the deflation- adjusted updating row vector for subproblems on the I-th level.
-
-### POLES (in)
-
-POLES is REAL array, dimension ( LDU, 2 * NLVL ). On entry, POLES(*, 2 * I -1: 2 * I) contains the new and old singular values involved in the secular equations on the I-th level.
-
-### GIVPTR (in)
-
-GIVPTR is INTEGER array, dimension ( N ). On entry, GIVPTR( I ) records the number of Givens rotations performed on the I-th problem on the computation tree.
-
-### GIVCOL (in)
-
-GIVCOL is INTEGER array, dimension ( LDGCOL, 2 * NLVL ). On entry, for each I, GIVCOL(*, 2 * I - 1: 2 * I) records the locations of Givens rotations performed on the I-th level on the computation tree.
-
-### LDGCOL (in)
-
-LDGCOL is INTEGER, LDGCOL = > N. The leading dimension of arrays GIVCOL and PERM.
-
-### PERM (in)
-
-PERM is INTEGER array, dimension ( LDGCOL, NLVL ). On entry, PERM(*, I) records permutations done on the I-th level of the computation tree.
-
-### GIVNUM (in)
-
-GIVNUM is REAL array, dimension ( LDU, 2 * NLVL ). On entry, GIVNUM(*, 2 *I -1 : 2 * I) records the C- and S- values of Givens rotations performed on the I-th level on the computation tree.
-
-### C (in)
-
-C is REAL array, dimension ( N ). On entry, if the I-th subproblem is not square, C( I ) contains the C-value of a Givens rotation related to the right null space of the I-th subproblem.
-
-### S (in)
-
-S is REAL array, dimension ( N ). On entry, if the I-th subproblem is not square, S( I ) contains the S-value of a Givens rotation related to the right null space of the I-th subproblem.
-
-### WORK (out)
-
-WORK is REAL array, dimension (N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (3*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

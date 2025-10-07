@@ -1,33 +1,28 @@
-# SLARRR
-
-## Function Signature
-
 ```fortran
-SLARRR(N, D, E, INFO)
+subroutine slarrr	(	integer	n,
+		real, dimension(*)	d,
+		real, dimension(*)	e,
+		integer	info )
 ```
-
-## Description
-
 
  Perform tests to decide whether the symmetric tridiagonal matrix T
  warrants expensive computations which guarantee high relative accuracy
  in the eigenvalues.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix. N > 0.
 
-### N (in)
+D : Real Array, Dimension (n) [in]
+> The N diagonal elements of the tridiagonal matrix T.
 
-N is INTEGER The order of the matrix. N > 0.
+E : Real Array, Dimension (n) [in,out]
+> On entry, the first (N-1) entries contain the subdiagonal
+> elements of the tridiagonal matrix T; E(N) is set to ZERO.
 
-### D (in)
-
-D is REAL array, dimension (N) The N diagonal elements of the tridiagonal matrix T.
-
-### E (in,out)
-
-E is REAL array, dimension (N) On entry, the first (N-1) entries contain the subdiagonal elements of the tridiagonal matrix T; E(N) is set to ZERO.
-
-### INFO (out)
-
-INFO is INTEGER INFO = 0(default) : the matrix warrants computations preserving relative accuracy. INFO = 1 : the matrix warrants computations guaranteeing only absolute accuracy.
+Info : Integer [out]
+> INFO = 0(default) : the matrix warrants computations preserving
+> relative accuracy.
+> INFO = 1          : the matrix warrants computations guaranteeing
+> only absolute accuracy.
 

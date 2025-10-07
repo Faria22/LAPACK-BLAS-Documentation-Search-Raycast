@@ -1,13 +1,7 @@
-# XERBLA
-
-## Function Signature
-
 ```fortran
-XERBLA(SRNAME, INFO)
+subroutine xerbla	(	srname,
+		integer	info )
 ```
-
-## Description
-
 
  XERBLA  is an error handler for the LAPACK routines.
  It is called by an LAPACK routine if an input parameter has an
@@ -17,12 +11,10 @@ XERBLA(SRNAME, INFO)
  call system-specific exception-handling facilities.
 
 ## Parameters
+Srname : Character*(*) [in]
+> The name of the routine which called XERBLA.
 
-### SRNAME (in)
-
-SRNAME is CHARACTER*(*) The name of the routine which called XERBLA.
-
-### INFO (in)
-
-INFO is INTEGER The position of the invalid parameter in the parameter list of the calling routine.
+Info : Integer [in]
+> The position of the invalid parameter in the parameter list
+> of the calling routine.
 

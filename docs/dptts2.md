@@ -1,13 +1,11 @@
-# DPTTS2
-
-## Function Signature
-
 ```fortran
-DPTTS2(N, NRHS, D, E, B, LDB)
+subroutine dptts2	(	integer	n,
+		integer	nrhs,
+		double precision, dimension(*)	d,
+		double precision, dimension(*)	e,
+		double precision, dimension(ldb, *)	b,
+		integer	ldb )
 ```
-
-## Description
-
 
  DPTTS2 solves a tridiagonal system of the form
     A * X = B
@@ -17,28 +15,28 @@ DPTTS2(N, NRHS, D, E, B, LDB)
  are N by NRHS matrices.
 
 ## Parameters
+N : Integer [in]
+> The order of the tridiagonal matrix A.  N >= 0.
 
-### N (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-N is INTEGER The order of the tridiagonal matrix A. N >= 0.
+D : Double Precision Array, Dimension (n) [in]
+> The n diagonal elements of the diagonal matrix D from the
+> L*D*L**T factorization of A.
 
-### NRHS (in)
+E : Double Precision Array, Dimension (n-1) [in]
+> The (n-1) subdiagonal elements of the unit bidiagonal factor
+> L from the L*D*L**T factorization of A.  E can also be regarded
+> as the superdiagonal of the unit bidiagonal factor U from the
+> factorization A = U**T*D*U.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+B : Double Precision Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side vectors B for the system of
+> linear equations.
+> On exit, the solution vectors, X.
 
-### D (in)
-
-D is DOUBLE PRECISION array, dimension (N) The n diagonal elements of the diagonal matrix D from the L*D*L**T factorization of A.
-
-### E (in)
-
-E is DOUBLE PRECISION array, dimension (N-1) The (n-1) subdiagonal elements of the unit bidiagonal factor L from the L*D*L**T factorization of A. E can also be regarded as the superdiagonal of the unit bidiagonal factor U from the factorization A = U**T*D*U.
-
-### B (in,out)
-
-B is DOUBLE PRECISION array, dimension (LDB,NRHS) On entry, the right hand side vectors B for the system of linear equations. On exit, the solution vectors, X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 

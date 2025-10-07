@@ -1,14 +1,16 @@
-# DLAEXC
-
-## Function Signature
-
 ```fortran
-DLAEXC(WANTQ, N, T, LDT, Q, LDQ, J1, N1, N2, WORK,
-*                          INFO)
+subroutine dlaexc	(	wantq,
+		n,
+		t,
+		ldt,
+		q,
+		ldq,
+		j1,
+		n1,
+		n2,
+		work,
+		*                          info )
 ```
-
-## Description
-
 
  DLAEXC swaps adjacent diagonal blocks T11 and T22 of order 1 or 2 in
  an upper quasi-triangular matrix T by an orthogonal similarity
@@ -20,48 +22,44 @@ DLAEXC(WANTQ, N, T, LDT, Q, LDQ, J1, N1, N2, WORK,
  opposite sign.
 
 ## Parameters
+Wantq : Logical [in]
+> = .TRUE. : accumulate the transformation in the matrix Q;
+> = .FALSE.: do not accumulate the transformation.
 
-### WANTQ (in)
+N : Integer [in]
+> The order of the matrix T. N >= 0.
 
-WANTQ is LOGICAL = .TRUE. : accumulate the transformation in the matrix Q; = .FALSE.: do not accumulate the transformation.
+T : Double Precision Array, Dimension (ldt,n) [in,out]
+> On entry, the upper quasi-triangular matrix T, in Schur
+> canonical form.
+> On exit, the updated matrix T, again in Schur canonical form.
 
-### N (in)
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= max(1,N).
 
-N is INTEGER The order of the matrix T. N >= 0.
+Q : Double Precision Array, Dimension (ldq,n) [in,out]
+> On entry, if WANTQ is .TRUE., the orthogonal matrix Q.
+> On exit, if WANTQ is .TRUE., the updated matrix Q.
+> If WANTQ is .FALSE., Q is not referenced.
 
-### T (in,out)
+Ldq : Integer [in]
+> The leading dimension of the array Q.
+> LDQ >= 1; and if WANTQ is .TRUE., LDQ >= N.
 
-T is DOUBLE PRECISION array, dimension (LDT,N) On entry, the upper quasi-triangular matrix T, in Schur canonical form. On exit, the updated matrix T, again in Schur canonical form.
+J1 : Integer [in]
+> The index of the first row of the first block T11.
 
-### LDT (in)
+N1 : Integer [in]
+> The order of the first block T11. N1 = 0, 1 or 2.
 
-LDT is INTEGER The leading dimension of the array T. LDT >= max(1,N).
+N2 : Integer [in]
+> The order of the second block T22. N2 = 0, 1 or 2.
 
-### Q (in,out)
+Work : Double Precision Array, Dimension (n) [out]
 
-Q is DOUBLE PRECISION array, dimension (LDQ,N) On entry, if WANTQ is .TRUE., the orthogonal matrix Q. On exit, if WANTQ is .TRUE., the updated matrix Q. If WANTQ is .FALSE., Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= 1; and if WANTQ is .TRUE., LDQ >= N.
-
-### J1 (in)
-
-J1 is INTEGER The index of the first row of the first block T11.
-
-### N1 (in)
-
-N1 is INTEGER The order of the first block T11. N1 = 0, 1 or 2.
-
-### N2 (in)
-
-N2 is INTEGER The order of the second block T22. N2 = 0, 1 or 2.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit = 1: the transformed matrix T would be too far from Schur form; the blocks are not swapped and T and Q are unchanged.
+Info : Integer [out]
+> = 0: successful exit
+> = 1: the transformed matrix T would be too far from Schur
+> form; the blocks are not swapped and T and Q are
+> unchanged.
 

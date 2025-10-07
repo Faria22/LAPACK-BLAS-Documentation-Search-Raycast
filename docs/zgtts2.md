@@ -1,13 +1,15 @@
-# ZGTTS2
-
-## Function Signature
-
 ```fortran
-ZGTTS2(ITRANS, N, NRHS, DL, D, DU, DU2, IPIV, B, LDB)
+subroutine zgtts2	(	integer	itrans,
+		integer	n,
+		integer	nrhs,
+		complex*16, dimension(*)	dl,
+		complex*16, dimension(*)	d,
+		complex*16, dimension(*)	du,
+		complex*16, dimension(*)	du2,
+		integer, dimension(*)	ipiv,
+		complex*16, dimension(ldb, *)	b,
+		integer	ldb )
 ```
-
-## Description
-
 
  ZGTTS2 solves one of the systems of equations
     A * X = B,  A**T * X = B,  or  A**H * X = B,
@@ -15,44 +17,43 @@ ZGTTS2(ITRANS, N, NRHS, DL, D, DU, DU2, IPIV, B, LDB)
  by ZGTTRF.
 
 ## Parameters
+Itrans : Integer [in]
+> Specifies the form of the system of equations.
+> = 0:  A * X = B     (No transpose)
+> = 1:  A**T * X = B  (Transpose)
+> = 2:  A**H * X = B  (Conjugate transpose)
 
-### ITRANS (in)
+N : Integer [in]
+> The order of the matrix A.
 
-ITRANS is INTEGER Specifies the form of the system of equations. = 0: A * X = B (No transpose) = 1: A**T * X = B (Transpose) = 2: A**H * X = B (Conjugate transpose)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### N (in)
+Dl : Complex*16 Array, Dimension (n-1) [in]
+> The (n-1) multipliers that define the matrix L from the
+> LU factorization of A.
 
-N is INTEGER The order of the matrix A.
+D : Complex*16 Array, Dimension (n) [in]
+> The n diagonal elements of the upper triangular matrix U from
+> the LU factorization of A.
 
-### NRHS (in)
+Du : Complex*16 Array, Dimension (n-1) [in]
+> The (n-1) elements of the first super-diagonal of U.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Du2 : Complex*16 Array, Dimension (n-2) [in]
+> The (n-2) elements of the second super-diagonal of U.
 
-### DL (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices; for 1 <= i <= n, row i of the matrix was
+> interchanged with row IPIV(i).  IPIV(i) will always be either
+> i or i+1; IPIV(i) = i indicates a row interchange was not
+> required.
 
-DL is COMPLEX*16 array, dimension (N-1) The (n-1) multipliers that define the matrix L from the LU factorization of A.
+B : Complex*16 Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the matrix of right hand side vectors B.
+> On exit, B is overwritten by the solution vectors X.
 
-### D (in)
-
-D is COMPLEX*16 array, dimension (N) The n diagonal elements of the upper triangular matrix U from the LU factorization of A.
-
-### DU (in)
-
-DU is COMPLEX*16 array, dimension (N-1) The (n-1) elements of the first super-diagonal of U.
-
-### DU2 (in)
-
-DU2 is COMPLEX*16 array, dimension (N-2) The (n-2) elements of the second super-diagonal of U.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices; for 1 <= i <= n, row i of the matrix was interchanged with row IPIV(i). IPIV(i) will always be either i or i+1; IPIV(i) = i indicates a row interchange was not required.
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) On entry, the matrix of right hand side vectors B. On exit, B is overwritten by the solution vectors X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 

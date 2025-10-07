@@ -1,15 +1,15 @@
-# SGBSV
-
-SGBSV computes the solution to system of linear equations A * X = B for GB matrices
-
-## Function Signature
-
 ```fortran
-SGBSV(N, KL, KU, NRHS, AB, LDAB, IPIV, B, LDB, INFO)
+subroutine sgbsv	(	integer	n,
+		integer	kl,
+		integer	ku,
+		integer	nrhs,
+		real, dimension(ldab, *)	ab,
+		integer	ldab,
+		integer, dimension(*)	ipiv,
+		real, dimension(ldb, *)	b,
+		integer	ldb,
+		integer	info )
 ```
-
-## Description
-
 
  SGBSV computes the solution to a real system of linear equations
  A * X = B, where A is a band matrix of order N with KL subdiagonals
@@ -22,44 +22,50 @@ SGBSV(N, KL, KU, NRHS, AB, LDAB, IPIV, B, LDB, INFO)
  is then used to solve the system of equations A * X = B.
 
 ## Parameters
+N : Integer [in]
+> The number of linear equations, i.e., the order of the
+> matrix A.  N >= 0.
 
-### N (in)
+Kl : Integer [in]
+> The number of subdiagonals within the band of A.  KL >= 0.
 
-N is INTEGER The number of linear equations, i.e., the order of the matrix A. N >= 0.
+Ku : Integer [in]
+> The number of superdiagonals within the band of A.  KU >= 0.
 
-### KL (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-KL is INTEGER The number of subdiagonals within the band of A. KL >= 0.
+Ab : Real Array, Dimension (ldab,n) [in,out]
+> On entry, the matrix A in band storage, in rows KL+1 to
+> 2*KL+KU+1; rows 1 to KL of the array need not be set.
+> The j-th column of A is stored in the j-th column of the
+> array AB as follows:
+> AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU)<=i<=min(N,j+KL)
+> On exit, details of the factorization: U is stored as an
+> upper triangular band matrix with KL+KU superdiagonals in
+> rows 1 to KL+KU+1, and the multipliers used during the
+> factorization are stored in rows KL+KU+2 to 2*KL+KU+1.
+> See below for further details.
 
-### KU (in)
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
 
-KU is INTEGER The number of superdiagonals within the band of A. KU >= 0.
+Ipiv : Integer Array, Dimension (n) [out]
+> The pivot indices that define the permutation matrix P;
+> row i of the matrix was interchanged with row IPIV(i).
 
-### NRHS (in)
+B : Real Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the N-by-NRHS right hand side matrix B.
+> On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### AB (in,out)
-
-AB is REAL array, dimension (LDAB,N) On entry, the matrix A in band storage, in rows KL+1 to 2*KL+KU+1; rows 1 to KL of the array need not be set. The j-th column of A is stored in the j-th column of the array AB as follows: AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU)<=i<=min(N,j+KL) On exit, details of the factorization: U is stored as an upper triangular band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and the multipliers used during the factorization are stored in rows KL+KU+2 to 2*KL+KU+1. See below for further details.
-
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= 2*KL+KU+1.
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (N) The pivot indices that define the permutation matrix P; row i of the matrix was interchanged with row IPIV(i).
-
-### B (in,out)
-
-B is REAL array, dimension (LDB,NRHS) On entry, the N-by-NRHS right hand side matrix B. On exit, if INFO = 0, the N-by-NRHS solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, U(i,i) is exactly zero. The factorization has been completed, but the factor U is exactly singular, and the solution has not been computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
+> has been completed, but the factor U is exactly
+> singular, and the solution has not been computed.
 

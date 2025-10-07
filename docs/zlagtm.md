@@ -1,14 +1,17 @@
-# ZLAGTM
-
-## Function Signature
-
 ```fortran
-ZLAGTM(TRANS, N, NRHS, ALPHA, DL, D, DU, X, LDX, BETA,
-*                          B, LDB)
+subroutine zlagtm	(	trans,
+		n,
+		nrhs,
+		alpha,
+		dl,
+		d,
+		du,
+		x,
+		ldx,
+		beta,
+		*                          b,
+		ldb )
 ```
-
-## Description
-
 
  ZLAGTM performs a matrix-matrix product of the form
 
@@ -19,52 +22,47 @@ ZLAGTM(TRANS, N, NRHS, ALPHA, DL, D, DU, X, LDX, BETA,
  0., 1., or -1.
 
 ## Parameters
+Trans : Character*1 [in]
+> Specifies the operation applied to A.
+> = 'N':  No transpose, B := alpha * A * X + beta * B
+> = 'T':  Transpose,    B := alpha * A**T * X + beta * B
+> = 'C':  Conjugate transpose, B := alpha * A**H * X + beta * B
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-TRANS is CHARACTER*1 Specifies the operation applied to A. = 'N': No transpose, B := alpha * A * X + beta * B = 'T': Transpose, B := alpha * A**T * X + beta * B = 'C': Conjugate transpose, B := alpha * A**H * X + beta * B
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrices X and B.
 
-### N (in)
+Alpha : Double Precision [in]
+> The scalar alpha.  ALPHA must be 0., 1., or -1.; otherwise,
+> it is assumed to be 0.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Dl : Complex*16 Array, Dimension (n-1) [in]
+> The (n-1) sub-diagonal elements of T.
 
-### NRHS (in)
+D : Complex*16 Array, Dimension (n) [in]
+> The diagonal elements of T.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrices X and B.
+Du : Complex*16 Array, Dimension (n-1) [in]
+> The (n-1) super-diagonal elements of T.
 
-### ALPHA (in)
+X : Complex*16 Array, Dimension (ldx,nrhs) [in]
+> The N by NRHS matrix X.
 
-ALPHA is DOUBLE PRECISION The scalar alpha. ALPHA must be 0., 1., or -1.; otherwise, it is assumed to be 0.
+Ldx : Integer [in]
+> The leading dimension of the array X.  LDX >= max(N,1).
 
-### DL (in)
+Beta : Double Precision [in]
+> The scalar beta.  BETA must be 0., 1., or -1.; otherwise,
+> it is assumed to be 1.
 
-DL is COMPLEX*16 array, dimension (N-1) The (n-1) sub-diagonal elements of T.
+B : Complex*16 Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the N by NRHS matrix B.
+> On exit, B is overwritten by the matrix expression
+> B := alpha * A * X + beta * B.
 
-### D (in)
-
-D is COMPLEX*16 array, dimension (N) The diagonal elements of T.
-
-### DU (in)
-
-DU is COMPLEX*16 array, dimension (N-1) The (n-1) super-diagonal elements of T.
-
-### X (in)
-
-X is COMPLEX*16 array, dimension (LDX,NRHS) The N by NRHS matrix X.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the array X. LDX >= max(N,1).
-
-### BETA (in)
-
-BETA is DOUBLE PRECISION The scalar beta. BETA must be 0., 1., or -1.; otherwise, it is assumed to be 1.
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) On entry, the N by NRHS matrix B. On exit, B is overwritten by the matrix expression B := alpha * A * X + beta * B.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(N,1).
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(N,1).
 

@@ -5,11 +5,148 @@ Parse LAPACK/BLAS Fortran source files and generate markdown documentation.
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 def extract_routine_name(filepath: Path) -> str:
     """Extract the routine name from the filepath."""
     return filepath.stem
+
+def parse_fortran_types(content: str, routine_name: str) -> Dict[str, str]:
+    """Extract parameter types from Fortran declarations."""
+    param_types = {}
+    
+    # First, find the parameter list from the comment section (Definition section)
+    # This is the SUBROUTINE line in comments (starts with *)
+    comment_sub_match = re.search(
+        rf'^\*\s*SUBROUTINE\s+{routine_name}\s*\((.*?)\)',
+        content, re.IGNORECASE | re.MULTILINE | re.DOTALL
+    )
+    
+    if not comment_sub_match:
+        comment_sub_match = re.search(
+            rf'^\*\s*(?:(?:DOUBLE PRECISION|REAL|INTEGER|COMPLEX|LOGICAL|CHARACTER)\s+)?FUNCTION\s+{routine_name}\s*\((.*?)\)',
+            content, re.IGNORECASE | re.MULTILINE | re.DOTALL
+        )
+    
+    if not comment_sub_match:
+        return param_types
+    
+    # Get parameter names from comment declaration
+    full_match = comment_sub_match.group(0)
+    params_match = re.search(rf'{routine_name}\s*\((.*?)\)', full_match, re.IGNORECASE)
+    if not params_match:
+        return param_types
+    
+    params_str = params_match.group(1)
+    param_names = [p.strip().upper() for p in params_str.split(',')]
+    
+    # Find declarations right after the comment subroutine line
+    # Look for ".. Scalar Arguments .." and ".. Array Arguments .." sections
+    decl_start = content.find(comment_sub_match.group(0)) + len(comment_sub_match.group(0))
+    
+    # Get the next ~500 characters which should contain the declarations
+    decl_section = content[decl_start:decl_start + 1000]
+    
+    # Parse scalar arguments from comment section
+    scalar_match = re.search(r'\*\s*\.\.\s*Scalar Arguments\s*\.\.\s*\n(.*?)(?:\*\s*\.\.|$)', 
+                            decl_section, re.DOTALL | re.IGNORECASE)
+    if scalar_match:
+        scalar_text = scalar_match.group(1)
+        # Process each line separately
+        for line in scalar_text.split('\n'):
+            line = line.strip().lstrip('*').strip()
+            if not line or line.startswith('..'):
+                continue
+            type_match = re.match(r'((?:INTEGER|DOUBLE\s+PRECISION|REAL|COMPLEX\*?\d*|CHARACTER\*?\d*|LOGICAL))\s+(.*)', 
+                                line, re.IGNORECASE)
+            if type_match:
+                var_type = type_match.group(1).strip()
+                var_names = type_match.group(2).strip()
+                for var_name in var_names.split(','):
+                    var_name = var_name.strip().upper()
+                    if var_name in param_names:
+                        param_types[var_name] = var_type.lower()
+    
+    # Parse array arguments from comment section
+    array_match = re.search(r'\*\s*\.\.\s*Array Arguments\s*\.\.\s*\n(.*?)(?:\*\s*\.\.|$)', 
+                           decl_section, re.DOTALL | re.IGNORECASE)
+    if array_match:
+        array_text = array_match.group(1)
+        for line in array_text.split('\n'):
+            line = line.strip().lstrip('*').strip()
+            if not line or line.startswith('..'):
+                continue
+            type_match = re.match(r'((?:INTEGER|DOUBLE\s+PRECISION|REAL|COMPLEX\*?\d*|CHARACTER\*?\d*|LOGICAL))\s+(.*)', 
+                                line, re.IGNORECASE)
+            if type_match:
+                var_type = type_match.group(1).strip()
+                var_decls = type_match.group(2).strip()
+                var_matches = re.finditer(r'(\w+)\s*\(([^)]+)\)', var_decls)
+                for var_match in var_matches:
+                    var_name = var_match.group(1).strip().upper()
+                    dimension = var_match.group(2).strip()
+                    if var_name in param_names:
+                        param_types[var_name] = f"{var_type.lower()}, dimension({dimension})"
+    
+    # If we didn't find declarations in comment section, try BLAS style (after actual subroutine)
+    if not param_types:
+        actual_sub_match = re.search(
+            rf'^\s+SUBROUTINE\s+{routine_name}\s*\(([^)]*(?:\n[^)]*)*)\)',
+            content, re.IGNORECASE | re.MULTILINE
+        )
+        
+        if actual_sub_match:
+            decl_start = content.find(actual_sub_match.group(0)) + len(actual_sub_match.group(0))
+            decl_end_match = re.search(r'^\s*\*\s*={50,}', content[decl_start:], re.MULTILINE)
+            
+            if decl_end_match:
+                decl_text = content[decl_start:decl_start + decl_end_match.start()]
+                
+                # Parse scalar arguments (BLAS style)
+                scalar_match = re.search(r'\*\s*\.\.\s*Scalar Arguments\s*\.\.\s*\n(.*?)(?:\*\s*\.\.|$)', 
+                                        decl_text, re.DOTALL | re.IGNORECASE)
+                if scalar_match:
+                    scalar_text = scalar_match.group(1)
+                    for line in scalar_text.split('\n'):
+                        if line.strip().startswith('*'):
+                            continue
+                        line = line.strip()
+                        if not line:
+                            continue
+                        type_match = re.match(r'((?:INTEGER|DOUBLE\s+PRECISION|REAL|COMPLEX\*?\d*|CHARACTER\*?\d*|LOGICAL))\s+(.*)', 
+                                            line, re.IGNORECASE)
+                        if type_match:
+                            var_type = type_match.group(1).strip()
+                            var_names = type_match.group(2).strip()
+                            for var_name in var_names.split(','):
+                                var_name = var_name.strip().upper()
+                                if var_name in param_names:
+                                    param_types[var_name] = var_type.lower()
+                
+                # Parse array arguments (BLAS style)
+                array_match = re.search(r'\*\s*\.\.\s*Array Arguments\s*\.\.\s*\n(.*?)(?:\*\s*\.\.|$)', 
+                                       decl_text, re.DOTALL | re.IGNORECASE)
+                if array_match:
+                    array_text = array_match.group(1)
+                    for line in array_text.split('\n'):
+                        if line.strip().startswith('*'):
+                            continue
+                        line = line.strip()
+                        if not line:
+                            continue
+                        type_match = re.match(r'((?:INTEGER|DOUBLE\s+PRECISION|REAL|COMPLEX\*?\d*|CHARACTER\*?\d*|LOGICAL))\s+(.*)', 
+                                            line, re.IGNORECASE)
+                        if type_match:
+                            var_type = type_match.group(1).strip()
+                            var_decls = type_match.group(2).strip()
+                            var_matches = re.finditer(r'(\w+)\s*\(([^)]+)\)', var_decls)
+                            for var_match in var_matches:
+                                var_name = var_match.group(1).strip().upper()
+                                dimension = var_match.group(2).strip()
+                                if var_name in param_names:
+                                    param_types[var_name] = f"{var_type.lower()}, dimension({dimension})"
+    
+    return param_types
 
 def parse_fortran_file(filepath: Path) -> Optional[Dict]:
     """Parse a Fortran file and extract documentation."""
@@ -24,17 +161,23 @@ def parse_fortran_file(filepath: Path) -> Optional[Dict]:
     brief_match = re.search(r'\*>\s*\\brief\s*<b>(.*?)</b>', content, re.IGNORECASE)
     brief = brief_match.group(1).strip() if brief_match else ""
     
-    # Extract the function signature
-    signature_match = re.search(r'SUBROUTINE\s+(\w+)\s*\((.*?)\)', content, re.IGNORECASE | re.DOTALL)
+    # Extract the function signature from comment
+    signature_match = re.search(r'\*\s*SUBROUTINE\s+(\w+)\s*\((.*?)\)', content, re.IGNORECASE | re.DOTALL)
+    is_function = False
     if not signature_match:
         # Try FUNCTION instead
-        signature_match = re.search(r'FUNCTION\s+(\w+)\s*\((.*?)\)', content, re.IGNORECASE | re.DOTALL)
+        signature_match = re.search(r'\*\s*FUNCTION\s+(\w+)\s*\((.*?)\)', content, re.IGNORECASE | re.DOTALL)
+        is_function = True
     
     if not signature_match:
         return None
     
     routine_name = signature_match.group(1).strip()
     params_str = signature_match.group(2).strip()
+    param_names = [p.strip() for p in params_str.split(',')]
+    
+    # Extract parameter types from Fortran declarations
+    param_types = parse_fortran_types(content, routine_name)
     
     # Extract purpose/description
     purpose_match = re.search(r'\*>\s*\\par\s+Purpose:.*?\*>\s*\\verbatim\s*(.*?)\*>\s*\\endverbatim', 
@@ -57,46 +200,113 @@ def parse_fortran_file(filepath: Path) -> Optional[Dict]:
         )
         
         for param_match in param_blocks:
-            param_type = param_match.group(1).strip()  # in, out, in/out
+            param_io = param_match.group(1).strip()  # in, out, in,out
             param_name = param_match.group(2).strip()
             param_desc = param_match.group(3).strip()
             param_desc = re.sub(r'\*>', '', param_desc)
             param_desc = re.sub(r'^\s*\*\s*', '', param_desc, flags=re.MULTILINE)
-            param_desc = ' '.join(param_desc.split())
+            
+            # Extract the type info from the first line of description
+            lines = param_desc.split('\n')
+            first_line = lines[0].strip() if lines else ""
+            rest_desc = '\n'.join(lines[1:]).strip() if len(lines) > 1 else ""
+            
+            # The first line typically contains the type info
+            type_info = ""
+            if first_line:
+                # Extract type from first line (e.g., "TRANSA is CHARACTER*1")
+                type_match = re.match(r'^\w+\s+is\s+(.+?)(?=\s+On entry|$)', first_line, re.IGNORECASE)
+                if type_match:
+                    type_info = type_match.group(1).strip()
+                else:
+                    type_info = first_line
+            
+            # Combine the rest of the description
+            full_desc = rest_desc if rest_desc else ""
+            if not type_info and first_line:
+                full_desc = param_desc
             
             parameters.append({
                 'name': param_name,
-                'type': param_type,
-                'description': param_desc
+                'io': param_io,
+                'type_info': type_info,
+                'description': full_desc,
+                'fortran_type': param_types.get(param_name.upper(), "")
             })
     
     return {
         'name': routine_name,
         'brief': brief,
-        'signature': f"{routine_name}({params_str})",
+        'param_names': param_names,
+        'param_types': param_types,
         'purpose': purpose,
-        'parameters': parameters
+        'parameters': parameters,
+        'is_function': is_function
     }
 
 def generate_markdown(routine_info: Dict) -> str:
     """Generate markdown documentation from parsed routine info."""
-    md = f"# {routine_info['name']}\n\n"
+    md = ""
     
-    if routine_info['brief']:
-        md += f"{routine_info['brief']}\n\n"
+    # Generate formatted signature with types
+    routine_type = "function" if routine_info.get('is_function') else "subroutine"
+    routine_name = routine_info['name'].lower()
     
-    md += f"## Function Signature\n\n"
-    md += f"```fortran\n{routine_info['signature']}\n```\n\n"
+    # Build parameter list with types
+    param_lines = []
+    for param_name in routine_info['param_names']:
+        param_name_clean = param_name.strip().upper()
+        param_type = routine_info['param_types'].get(param_name_clean, "")
+        
+        if param_type:
+            # Convert dimension variables to lowercase
+            param_type_lower = re.sub(r'dimension\(([^)]+)\)', 
+                                     lambda m: f"dimension({m.group(1).lower()})", 
+                                     param_type)
+            param_lines.append(f"\t{param_type_lower}\t{param_name.strip().lower()}")
+        else:
+            param_lines.append(f"\t{param_name.strip().lower()}")
     
+    # Format signature
+    md += f"```fortran\n{routine_type} {routine_name}\t("
+    if param_lines:
+        md += "\t" + param_lines[0].lstrip() + ",\n"
+        for i, line in enumerate(param_lines[1:], 1):
+            if i < len(param_lines) - 1:
+                md += f"\t\t{line.strip()},\n"
+            else:
+                md += f"\t\t{line.strip()} )\n"
+    else:
+        md += " )\n"
+    md += "```\n"
+    
+    # Add description without heading
     if routine_info['purpose']:
-        md += f"## Description\n\n"
         md += f"{routine_info['purpose']}\n\n"
     
+    # Add parameters section
     if routine_info['parameters']:
-        md += f"## Parameters\n\n"
+        md += f"## Parameters\n"
         for param in routine_info['parameters']:
-            md += f"### {param['name']} ({param['type']})\n\n"
-            md += f"{param['description']}\n\n"
+            # Format: Parameter_name : Type [in/out]
+            io_tag = f"[{param['io']}]" if param['io'] else ""
+            type_info = param['type_info']
+            
+            # Capitalize first letter of type info
+            if type_info:
+                type_parts = type_info.split()
+                type_info = ' '.join([p.capitalize() if p.lower() not in ['is', 'or', 'and', 'the', 'of', 'a', 'an'] else p for p in type_parts])
+            
+            md += f"{param['name'].capitalize()} : {type_info} {io_tag}\n"
+            
+            # Add description with > prefix
+            if param['description']:
+                desc_lines = param['description'].split('\n')
+                for line in desc_lines:
+                    line = line.strip()
+                    if line:
+                        md += f"> {line}\n"
+            md += "\n"
     
     return md
 

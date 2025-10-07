@@ -1,14 +1,14 @@
-# CLATDF
-
-## Function Signature
-
 ```fortran
-CLATDF(IJOB, N, Z, LDZ, RHS, RDSUM, RDSCAL, IPIV,
-*                          JPIV)
+subroutine clatdf	(	ijob,
+		n,
+		z,
+		ldz,
+		rhs,
+		rdsum,
+		rdscal,
+		ipiv,
+		*                          jpiv )
 ```
-
-## Description
-
 
  CLATDF computes the contribution to the reciprocal Dif-estimate
  by solving for x in Z * x = b, where b is chosen such that the norm
@@ -21,40 +21,52 @@ CLATDF(IJOB, N, Z, LDZ, RHS, RDSUM, RDSCAL, IPIV,
  triangular with unit diagonal elements and U is upper triangular.
 
 ## Parameters
+Ijob : Integer [in]
+> IJOB = 2: First compute an approximative null-vector e
+> of Z using CGECON, e is normalized and solve for
+> Zx = +-e - f with the sign giving the greater value of
+> 2-norm(x).  About 5 times as expensive as Default.
+> IJOB .ne. 2: Local look ahead strategy where
+> all entries of the r.h.s. b is chosen as either +1 or
+> -1.  Default.
 
-### IJOB (in)
+N : Integer [in]
+> The number of columns of the matrix Z.
 
-IJOB is INTEGER IJOB = 2: First compute an approximative null-vector e of Z using CGECON, e is normalized and solve for Zx = +-e - f with the sign giving the greater value of 2-norm(x). About 5 times as expensive as Default. IJOB .ne. 2: Local look ahead strategy where all entries of the r.h.s. b is chosen as either +1 or -1. Default.
+Z : Complex Array, Dimension (ldz, N) [in]
+> On entry, the LU part of the factorization of the n-by-n
+> matrix Z computed by CGETC2:  Z = P * L * U * Q
 
-### N (in)
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDA >= max(1, N).
 
-N is INTEGER The number of columns of the matrix Z.
+Rhs : Complex Array, Dimension (n). [in,out]
+> On entry, RHS contains contributions from other subsystems.
+> On exit, RHS contains the solution of the subsystem with
+> entries according to the value of IJOB (see above).
 
-### Z (in)
+Rdsum : Real [in,out]
+> On entry, the sum of squares of computed contributions to
+> the Dif-estimate under computation by CTGSYL, where the
+> scaling factor RDSCAL (see below) has been factored out.
+> On exit, the corresponding sum of squares updated with the
+> contributions from the current sub-system.
+> If TRANS = 'T' RDSUM is not touched.
+> NOTE: RDSUM only makes sense when CTGSY2 is called by CTGSYL.
 
-Z is COMPLEX array, dimension (LDZ, N) On entry, the LU part of the factorization of the n-by-n matrix Z computed by CGETC2: Z = P * L * U * Q
+Rdscal : Real [in,out]
+> On entry, scaling factor used to prevent overflow in RDSUM.
+> On exit, RDSCAL is updated w.r.t. the current contributions
+> in RDSUM.
+> If TRANS = 'T', RDSCAL is not touched.
+> NOTE: RDSCAL only makes sense when CTGSY2 is called by
+> CTGSYL.
 
-### LDZ (in)
+Ipiv : Integer Array, Dimension (n). [in]
+> The pivot indices; for 1 <= i <= N, row i of the
+> matrix has been interchanged with row IPIV(i).
 
-LDZ is INTEGER The leading dimension of the array Z. LDA >= max(1, N).
-
-### RHS (in,out)
-
-RHS is COMPLEX array, dimension (N). On entry, RHS contains contributions from other subsystems. On exit, RHS contains the solution of the subsystem with entries according to the value of IJOB (see above).
-
-### RDSUM (in,out)
-
-RDSUM is REAL On entry, the sum of squares of computed contributions to the Dif-estimate under computation by CTGSYL, where the scaling factor RDSCAL (see below) has been factored out. On exit, the corresponding sum of squares updated with the contributions from the current sub-system. If TRANS = 'T' RDSUM is not touched. NOTE: RDSUM only makes sense when CTGSY2 is called by CTGSYL.
-
-### RDSCAL (in,out)
-
-RDSCAL is REAL On entry, scaling factor used to prevent overflow in RDSUM. On exit, RDSCAL is updated w.r.t. the current contributions in RDSUM. If TRANS = 'T', RDSCAL is not touched. NOTE: RDSCAL only makes sense when CTGSY2 is called by CTGSYL.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N). The pivot indices; for 1 <= i <= N, row i of the matrix has been interchanged with row IPIV(i).
-
-### JPIV (in)
-
-JPIV is INTEGER array, dimension (N). The pivot indices; for 1 <= j <= N, column j of the matrix has been interchanged with column JPIV(j).
+Jpiv : Integer Array, Dimension (n). [in]
+> The pivot indices; for 1 <= j <= N, column j of the
+> matrix has been interchanged with column JPIV(j).
 

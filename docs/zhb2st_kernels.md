@@ -1,78 +1,59 @@
-# ZHB2ST_KERNELS
-
-## Function Signature
-
 ```fortran
-ZHB2ST_KERNELS(UPLO, WANTZ, TTYPE,
-*                                   ST, ED, SWEEP, N, NB, IB,
-*                                   A, LDA, V, TAU, LDVT, WORK)
+subroutine zhb2st_kernels	(	uplo,
+		wantz,
+		ttype,
+		*                                   st,
+		ed,
+		sweep,
+		n,
+		nb,
+		ib,
+		*                                   a,
+		lda,
+		v,
+		tau,
+		ldvt,
+		work )
 ```
-
-## Description
-
 
  ZHB2ST_KERNELS is an internal routine used by the ZHETRD_HB2ST
  subroutine.
 
 ## Parameters
+Uplo : Character*1 [in]
 
-### UPLO (in)
+Wantz : Logical Which Indicate If Eigenvalue Are Requested or Both [in]
+> Eigenvalue/Eigenvectors.
 
-UPLO is CHARACTER*1
+Ttype : Integer [in]
 
-### WANTZ (in)
+St : Integer [in]
+> internal parameter for indices.
 
-WANTZ is LOGICAL which indicate if Eigenvalue are requested or both Eigenvalue/Eigenvectors.
+Ed : Integer [in]
+> internal parameter for indices.
 
-### TTYPE (in)
+Sweep : Integer [in]
+> internal parameter for indices.
 
-TTYPE is INTEGER
+N : Integer. The Order of the Matrix A. [in]
 
-### ST (in)
+Nb : Integer. The Size of the Band. [in]
 
-ST is INTEGER internal parameter for indices.
+Ib : Integer. [in]
 
-### ED (in)
+A : Complex*16 Array. A Pointer To the Matrix A. [in, out]
 
-ED is INTEGER internal parameter for indices.
+Lda : Integer. The Leading Dimension of the Matrix A. [in]
 
-### SWEEP (in)
+V : Complex*16 Array, Dimension 2*n If Eigenvalues Only Are [out]
+> requested or to be queried for vectors.
 
-SWEEP is INTEGER internal parameter for indices.
+Tau : Complex*16 Array, Dimension (2*n). [out]
+> The scalar factors of the Householder reflectors are stored
+> in this array.
 
-### N (in)
+Ldvt : Integer. [in]
 
-N is INTEGER. The order of the matrix A.
-
-### NB (in)
-
-NB is INTEGER. The size of the band.
-
-### IB (in)
-
-IB is INTEGER.
-
-### A (in, out)
-
-A is COMPLEX*16 array. A pointer to the matrix A.
-
-### LDA (in)
-
-LDA is INTEGER. The leading dimension of the matrix A.
-
-### V (out)
-
-V is COMPLEX*16 array, dimension 2*n if eigenvalues only are requested or to be queried for vectors.
-
-### TAU (out)
-
-TAU is COMPLEX*16 array, dimension (2*n). The scalar factors of the Householder reflectors are stored in this array.
-
-### LDVT (in)
-
-LDVT is INTEGER.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array. Workspace of size nb.
+Work : Complex*16 Array. Workspace of Size Nb. [out]
 

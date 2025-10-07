@@ -1,15 +1,22 @@
-# SLARRB
-
-## Function Signature
-
 ```fortran
-SLARRB(N, D, LLD, IFIRST, ILAST, RTOL1,
-*                          RTOL2, OFFSET, W, WGAP, WERR, WORK, IWORK,
-*                          PIVMIN, SPDIAM, TWIST, INFO)
+subroutine slarrb	(	n,
+		d,
+		lld,
+		ifirst,
+		ilast,
+		rtol1,
+		*                          rtol2,
+		offset,
+		w,
+		wgap,
+		werr,
+		work,
+		iwork,
+		*                          pivmin,
+		spdiam,
+		twist,
+		info )
 ```
-
-## Description
-
 
  Given the relatively robust representation(RRR) L D L^T, SLARRB
  does "limited" bisection to refine the eigenvalues of L D L^T,
@@ -21,72 +28,71 @@ SLARRB(N, D, LLD, IFIRST, ILAST, RTOL1,
  semi-widths in the arrays W and WERR respectively.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix.
 
-### N (in)
+D : Real Array, Dimension (n) [in]
+> The N diagonal elements of the diagonal matrix D.
 
-N is INTEGER The order of the matrix.
+Lld : Real Array, Dimension (n-1) [in]
+> The (N-1) elements L(i)*L(i)*D(i).
 
-### D (in)
+Ifirst : Integer [in]
+> The index of the first eigenvalue to be computed.
 
-D is REAL array, dimension (N) The N diagonal elements of the diagonal matrix D.
+Ilast : Integer [in]
+> The index of the last eigenvalue to be computed.
 
-### LLD (in)
+Rtol1 : Real [in]
 
-LLD is REAL array, dimension (N-1) The (N-1) elements L(i)*L(i)*D(i).
+Rtol2 : Real [in]
+> Tolerance for the convergence of the bisection intervals.
+> An interval [LEFT,RIGHT] has converged if
+> RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
+> where GAP is the (estimated) distance to the nearest
+> eigenvalue.
 
-### IFIRST (in)
+Offset : Integer [in]
+> Offset for the arrays W, WGAP and WERR, i.e., the IFIRST-OFFSET
+> through ILAST-OFFSET elements of these arrays are to be used.
 
-IFIRST is INTEGER The index of the first eigenvalue to be computed.
+W : Real Array, Dimension (n) [in,out]
+> On input, W( IFIRST-OFFSET ) through W( ILAST-OFFSET ) are
+> estimates of the eigenvalues of L D L^T indexed IFIRST through
+> ILAST.
+> On output, these estimates are refined.
 
-### ILAST (in)
+Wgap : Real Array, Dimension (n-1) [in,out]
+> On input, the (estimated) gaps between consecutive
+> eigenvalues of L D L^T, i.e., WGAP(I-OFFSET) is the gap between
+> eigenvalues I and I+1. Note that if IFIRST = ILAST
+> then WGAP(IFIRST-OFFSET) must be set to ZERO.
+> On output, these gaps are refined.
 
-ILAST is INTEGER The index of the last eigenvalue to be computed.
+Werr : Real Array, Dimension (n) [in,out]
+> On input, WERR( IFIRST-OFFSET ) through WERR( ILAST-OFFSET ) are
+> the errors in the estimates of the corresponding elements in W.
+> On output, these errors are refined.
 
-### RTOL1 (in)
+Work : Real Array, Dimension (2*n) [out]
+> Workspace.
 
-RTOL1 is REAL
+Iwork : Integer Array, Dimension (2*n) [out]
+> Workspace.
 
-### RTOL2 (in)
+Pivmin : Real [in]
+> The minimum pivot in the Sturm sequence.
 
-RTOL2 is REAL Tolerance for the convergence of the bisection intervals. An interval [LEFT,RIGHT] has converged if RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) ) where GAP is the (estimated) distance to the nearest eigenvalue.
+Spdiam : Real [in]
+> The spectral diameter of the matrix.
 
-### OFFSET (in)
+Twist : Integer [in]
+> The twist index for the twisted factorization that is used
+> for the negcount.
+> TWIST = N: Compute negcount from L D L^T - LAMBDA I = L+ D+ L+^T
+> TWIST = 1: Compute negcount from L D L^T - LAMBDA I = U- D- U-^T
+> TWIST = R: Compute negcount from L D L^T - LAMBDA I = N(r) D(r) N(r)
 
-OFFSET is INTEGER Offset for the arrays W, WGAP and WERR, i.e., the IFIRST-OFFSET through ILAST-OFFSET elements of these arrays are to be used.
-
-### W (in,out)
-
-W is REAL array, dimension (N) On input, W( IFIRST-OFFSET ) through W( ILAST-OFFSET ) are estimates of the eigenvalues of L D L^T indexed IFIRST through ILAST. On output, these estimates are refined.
-
-### WGAP (in,out)
-
-WGAP is REAL array, dimension (N-1) On input, the (estimated) gaps between consecutive eigenvalues of L D L^T, i.e., WGAP(I-OFFSET) is the gap between eigenvalues I and I+1. Note that if IFIRST = ILAST then WGAP(IFIRST-OFFSET) must be set to ZERO. On output, these gaps are refined.
-
-### WERR (in,out)
-
-WERR is REAL array, dimension (N) On input, WERR( IFIRST-OFFSET ) through WERR( ILAST-OFFSET ) are the errors in the estimates of the corresponding elements in W. On output, these errors are refined.
-
-### WORK (out)
-
-WORK is REAL array, dimension (2*N) Workspace.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (2*N) Workspace.
-
-### PIVMIN (in)
-
-PIVMIN is REAL The minimum pivot in the Sturm sequence.
-
-### SPDIAM (in)
-
-SPDIAM is REAL The spectral diameter of the matrix.
-
-### TWIST (in)
-
-TWIST is INTEGER The twist index for the twisted factorization that is used for the negcount. TWIST = N: Compute negcount from L D L^T - LAMBDA I = L+ D+ L+^T TWIST = 1: Compute negcount from L D L^T - LAMBDA I = U- D- U-^T TWIST = R: Compute negcount from L D L^T - LAMBDA I = N(r) D(r) N(r)
-
-### INFO (out)
-
-INFO is INTEGER Error flag.
+Info : Integer [out]
+> Error flag.
 

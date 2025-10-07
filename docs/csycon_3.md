@@ -1,14 +1,15 @@
-# CSYCON_3
-
-## Function Signature
-
 ```fortran
-CSYCON_3(UPLO, N, A, LDA, E, IPIV, ANORM, RCOND,
-*                            WORK, INFO)
+subroutine csycon_3	(	uplo,
+		n,
+		a,
+		lda,
+		e,
+		ipiv,
+		anorm,
+		rcond,
+		*                            work,
+		info )
 ```
-
-## Description
-
  CSYCON_3 estimates the reciprocal of the condition number (in the
  1-norm) of a complex symmetric matrix A using the factorization
  computed by CSYTRF_RK or CSYTRF_BK:
@@ -25,44 +26,53 @@ CSYCON_3(UPLO, N, A, LDA, E, IPIV, ANORM, RCOND,
  This routine uses BLAS3 solver CSYTRS_3.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are
+> stored as an upper or lower triangular matrix:
+> = 'U':  Upper triangular, form is A = P*U*D*(U**T)*(P**T);
+> = 'L':  Lower triangular, form is A = P*L*D*(L**T)*(P**T).
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix: = 'U': Upper triangular, form is A = P*U*D*(U**T)*(P**T); = 'L': Lower triangular, form is A = P*L*D*(L**T)*(P**T).
+A : Complex Array, Dimension (lda,n) [in]
+> Diagonal of the block diagonal matrix D and factors U or L
+> as computed by CSYTRF_RK and CSYTRF_BK:
+> a) ONLY diagonal elements of the symmetric block diagonal
+> matrix D on the diagonal of A, i.e. D(k,k) = A(k,k);
+> (superdiagonal (or subdiagonal) elements of D
+> should be provided on entry in array E), and
+> b) If UPLO = 'U': factor U in the superdiagonal part of A.
+> If UPLO = 'L': factor L in the subdiagonal part of A.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+E : Complex Array, Dimension (n) [in]
+> On entry, contains the superdiagonal (or subdiagonal)
+> elements of the symmetric block diagonal matrix D
+> with 1-by-1 or 2-by-2 diagonal blocks, where
+> If UPLO = 'U': E(i) = D(i-1,i),i=2:N, E(1) not referenced;
+> If UPLO = 'L': E(i) = D(i+1,i),i=1:N-1, E(N) not referenced.
+> NOTE: For 1-by-1 diagonal block D(k), where
+> 1 <= k <= N, the element E(k) is not referenced in both
+> UPLO = 'U' or UPLO = 'L' cases.
 
-### A (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by CSYTRF_RK or CSYTRF_BK.
 
-A is COMPLEX array, dimension (LDA,N) Diagonal of the block diagonal matrix D and factors U or L as computed by CSYTRF_RK and CSYTRF_BK: a) ONLY diagonal elements of the symmetric block diagonal matrix D on the diagonal of A, i.e. D(k,k) = A(k,k); (superdiagonal (or subdiagonal) elements of D should be provided on entry in array E), and b) If UPLO = 'U': factor U in the superdiagonal part of A. If UPLO = 'L': factor L in the subdiagonal part of A.
+Anorm : Real [in]
+> The 1-norm of the original matrix A.
 
-### LDA (in)
+Rcond : Real [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Work : Complex Array, Dimension (2*n) [out]
 
-### E (in)
-
-E is COMPLEX array, dimension (N) On entry, contains the superdiagonal (or subdiagonal) elements of the symmetric block diagonal matrix D with 1-by-1 or 2-by-2 diagonal blocks, where If UPLO = 'U': E(i) = D(i-1,i),i=2:N, E(1) not referenced; If UPLO = 'L': E(i) = D(i+1,i),i=1:N-1, E(N) not referenced. NOTE: For 1-by-1 diagonal block D(k), where 1 <= k <= N, the element E(k) is not referenced in both UPLO = 'U' or UPLO = 'L' cases.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by CSYTRF_RK or CSYTRF_BK.
-
-### ANORM (in)
-
-ANORM is REAL The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is REAL The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

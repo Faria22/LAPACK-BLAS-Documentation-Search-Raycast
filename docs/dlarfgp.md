@@ -1,13 +1,10 @@
-# DLARFGP
-
-## Function Signature
-
 ```fortran
-DLARFGP(N, ALPHA, X, INCX, TAU)
+subroutine dlarfgp	(	integer	n,
+		double precision	alpha,
+		double precision, dimension(*)	x,
+		integer	incx,
+		double precision	tau )
 ```
-
-## Description
-
 
  DLARFGP generates a real elementary reflector H of order n, such
  that
@@ -28,24 +25,21 @@ DLARFGP(N, ALPHA, X, INCX, TAU)
  the unit matrix.
 
 ## Parameters
+N : Integer [in]
+> The order of the elementary reflector.
 
-### N (in)
+Alpha : Double Precision [in,out]
+> On entry, the value alpha.
+> On exit, it is overwritten with the value beta.
 
-N is INTEGER The order of the elementary reflector.
+X : Double Precision Array, Dimension [in,out]
+> (1+(N-2)*abs(INCX))
+> On entry, the vector x.
+> On exit, it is overwritten with the vector v.
 
-### ALPHA (in,out)
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-ALPHA is DOUBLE PRECISION On entry, the value alpha. On exit, it is overwritten with the value beta.
-
-### X (in,out)
-
-X is DOUBLE PRECISION array, dimension (1+(N-2)*abs(INCX)) On entry, the vector x. On exit, it is overwritten with the vector v.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X. INCX > 0.
-
-### TAU (out)
-
-TAU is DOUBLE PRECISION The value tau.
+Tau : Double Precision [out]
+> The value tau.
 

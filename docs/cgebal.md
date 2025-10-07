@@ -1,13 +1,13 @@
-# CGEBAL
-
-## Function Signature
-
 ```fortran
-CGEBAL(JOB, N, A, LDA, ILO, IHI, SCALE, INFO)
+subroutine cgebal	(	character	job,
+		integer	n,
+		complex, dimension(lda, *)	a,
+		integer	lda,
+		integer	ilo,
+		integer	ihi,
+		real, dimension(*)	scale,
+		integer	info )
 ```
-
-## Description
-
 
  CGEBAL balances a general complex matrix A.  This involves, first,
  permuting A by a similarity transformation to isolate eigenvalues
@@ -20,36 +20,45 @@ CGEBAL(JOB, N, A, LDA, ILO, IHI, SCALE, INFO)
  accuracy of the computed eigenvalues and/or eigenvectors.
 
 ## Parameters
+Job : Character*1 [in]
+> Specifies the operations to be performed on A:
+> = 'N':  none:  simply set ILO = 1, IHI = N, SCALE(I) = 1.0
+> for i = 1,...,N;
+> = 'P':  permute only;
+> = 'S':  scale only;
+> = 'B':  both permute and scale.
 
-### JOB (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-JOB is CHARACTER*1 Specifies the operations to be performed on A: = 'N': none: simply set ILO = 1, IHI = N, SCALE(I) = 1.0 for i = 1,...,N; = 'P': permute only; = 'S': scale only; = 'B': both permute and scale.
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the input matrix A.
+> On exit,  A is overwritten by the balanced matrix.
+> If JOB = 'N', A is not referenced.
+> See Further Details.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ilo : Integer [out]
 
-### A (in,out)
+Ihi : Integer [out]
+> ILO and IHI are set to integers such that on exit
+> A(i,j) = 0 if i > j and j = 1,...,ILO-1 or I = IHI+1,...,N.
+> If JOB = 'N' or 'S', ILO = 1 and IHI = N.
 
-A is COMPLEX array, dimension (LDA,N) On entry, the input matrix A. On exit, A is overwritten by the balanced matrix. If JOB = 'N', A is not referenced. See Further Details.
+Scale : Real Array, Dimension (n) [out]
+> Details of the permutations and scaling factors applied to
+> A.  If P(j) is the index of the row and column interchanged
+> with row and column j and D(j) is the scaling factor
+> applied to row and column j, then
+> SCALE(j) = P(j)    for j = 1,...,ILO-1
+> = D(j)    for j = ILO,...,IHI
+> = P(j)    for j = IHI+1,...,N.
+> The order in which the interchanges are made is N to IHI+1,
+> then 1 to ILO-1.
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### ILO (out)
-
-ILO is INTEGER
-
-### IHI (out)
-
-IHI is INTEGER ILO and IHI are set to integers such that on exit A(i,j) = 0 if i > j and j = 1,...,ILO-1 or I = IHI+1,...,N. If JOB = 'N' or 'S', ILO = 1 and IHI = N.
-
-### SCALE (out)
-
-SCALE is REAL array, dimension (N) Details of the permutations and scaling factors applied to A. If P(j) is the index of the row and column interchanged with row and column j and D(j) is the scaling factor applied to row and column j, then SCALE(j) = P(j) for j = 1,...,ILO-1 = D(j) for j = ILO,...,IHI = P(j) for j = IHI+1,...,N. The order in which the interchanges are made is N to IHI+1, then 1 to ILO-1.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

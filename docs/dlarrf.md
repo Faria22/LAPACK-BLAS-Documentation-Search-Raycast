@@ -1,16 +1,23 @@
-# DLARRF
-
-## Function Signature
-
 ```fortran
-DLARRF(N, D, L, LD, CLSTRT, CLEND,
-*                          W, WGAP, WERR,
-*                          SPDIAM, CLGAPL, CLGAPR, PIVMIN, SIGMA,
-*                          DPLUS, LPLUS, WORK, INFO)
+subroutine dlarrf	(	n,
+		d,
+		l,
+		ld,
+		clstrt,
+		clend,
+		*                          w,
+		wgap,
+		werr,
+		*                          spdiam,
+		clgapl,
+		clgapr,
+		pivmin,
+		sigma,
+		*                          dplus,
+		lplus,
+		work,
+		info )
 ```
-
-## Description
-
 
  Given the initial representation L D L^T and its cluster of close
  eigenvalues (in a relative measure), W( CLSTRT ), W( CLSTRT+1 ), ...
@@ -19,76 +26,67 @@ DLARRF(N, D, L, LD, CLSTRT, CLEND,
  eigenvalues of L(+) D(+) L(+)^T is relatively isolated.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix (subblock, if the matrix split).
 
-### N (in)
+D : Double Precision Array, Dimension (n) [in]
+> The N diagonal elements of the diagonal matrix D.
 
-N is INTEGER The order of the matrix (subblock, if the matrix split).
+L : Double Precision Array, Dimension (n-1) [in]
+> The (N-1) subdiagonal elements of the unit bidiagonal
+> matrix L.
 
-### D (in)
+Ld : Double Precision Array, Dimension (n-1) [in]
+> The (N-1) elements L(i)*D(i).
 
-D is DOUBLE PRECISION array, dimension (N) The N diagonal elements of the diagonal matrix D.
+Clstrt : Integer [in]
+> The index of the first eigenvalue in the cluster.
 
-### L (in)
+Clend : Integer [in]
+> The index of the last eigenvalue in the cluster.
 
-L is DOUBLE PRECISION array, dimension (N-1) The (N-1) subdiagonal elements of the unit bidiagonal matrix L.
+W : Double Precision Array, Dimension [in]
+> dimension is >=  (CLEND-CLSTRT+1)
+> The eigenvalue APPROXIMATIONS of L D L^T in ascending order.
+> W( CLSTRT ) through W( CLEND ) form the cluster of relatively
+> close eigenalues.
 
-### LD (in)
+Wgap : Double Precision Array, Dimension [in,out]
+> dimension is >=  (CLEND-CLSTRT+1)
+> The separation from the right neighbor eigenvalue in W.
 
-LD is DOUBLE PRECISION array, dimension (N-1) The (N-1) elements L(i)*D(i).
+Werr : Double Precision Array, Dimension [in]
+> dimension is  >=  (CLEND-CLSTRT+1)
+> WERR contain the semiwidth of the uncertainty
+> interval of the corresponding eigenvalue APPROXIMATION in W
 
-### CLSTRT (in)
+Spdiam : Double Precision [in]
+> estimate of the spectral diameter obtained from the
+> Gerschgorin intervals
 
-CLSTRT is INTEGER The index of the first eigenvalue in the cluster.
+Clgapl : Double Precision [in]
 
-### CLEND (in)
+Clgapr : Double Precision [in]
+> absolute gap on each end of the cluster.
+> Set by the calling routine to protect against shifts too close
+> to eigenvalues outside the cluster.
 
-CLEND is INTEGER The index of the last eigenvalue in the cluster.
+Pivmin : Double Precision [in]
+> The minimum pivot allowed in the Sturm sequence.
 
-### W (in)
+Sigma : Double Precision [out]
+> The shift used to form L(+) D(+) L(+)^T.
 
-W is DOUBLE PRECISION array, dimension dimension is >= (CLEND-CLSTRT+1) The eigenvalue APPROXIMATIONS of L D L^T in ascending order. W( CLSTRT ) through W( CLEND ) form the cluster of relatively close eigenalues.
+Dplus : Double Precision Array, Dimension (n) [out]
+> The N diagonal elements of the diagonal matrix D(+).
 
-### WGAP (in,out)
+Lplus : Double Precision Array, Dimension (n-1) [out]
+> The first (N-1) elements of LPLUS contain the subdiagonal
+> elements of the unit bidiagonal matrix L(+).
 
-WGAP is DOUBLE PRECISION array, dimension dimension is >= (CLEND-CLSTRT+1) The separation from the right neighbor eigenvalue in W.
+Work : Double Precision Array, Dimension (2*n) [out]
+> Workspace.
 
-### WERR (in)
-
-WERR is DOUBLE PRECISION array, dimension dimension is >= (CLEND-CLSTRT+1) WERR contain the semiwidth of the uncertainty interval of the corresponding eigenvalue APPROXIMATION in W
-
-### SPDIAM (in)
-
-SPDIAM is DOUBLE PRECISION estimate of the spectral diameter obtained from the Gerschgorin intervals
-
-### CLGAPL (in)
-
-CLGAPL is DOUBLE PRECISION
-
-### CLGAPR (in)
-
-CLGAPR is DOUBLE PRECISION absolute gap on each end of the cluster. Set by the calling routine to protect against shifts too close to eigenvalues outside the cluster.
-
-### PIVMIN (in)
-
-PIVMIN is DOUBLE PRECISION The minimum pivot allowed in the Sturm sequence.
-
-### SIGMA (out)
-
-SIGMA is DOUBLE PRECISION The shift used to form L(+) D(+) L(+)^T.
-
-### DPLUS (out)
-
-DPLUS is DOUBLE PRECISION array, dimension (N) The N diagonal elements of the diagonal matrix D(+).
-
-### LPLUS (out)
-
-LPLUS is DOUBLE PRECISION array, dimension (N-1) The first (N-1) elements of LPLUS contain the subdiagonal elements of the unit bidiagonal matrix L(+).
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (2*N) Workspace.
-
-### INFO (out)
-
-INFO is INTEGER Signals processing OK (=0) or failure (=1)
+Info : Integer [out]
+> Signals processing OK (=0) or failure (=1)
 

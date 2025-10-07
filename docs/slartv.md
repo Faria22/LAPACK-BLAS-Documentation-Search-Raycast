@@ -1,13 +1,13 @@
-# SLARTV
-
-## Function Signature
-
 ```fortran
-SLARTV(N, X, INCX, Y, INCY, C, S, INCC)
+subroutine slartv	(	integer	n,
+		real, dimension(*)	x,
+		integer	incx,
+		real, dimension(*)	y,
+		integer	incy,
+		real, dimension(*)	c,
+		real, dimension(*)	s,
+		integer	incc )
 ```
-
-## Description
-
 
  SLARTV applies a vector of real plane rotations to elements of the
  real vectors x and y. For i = 1,2,...,n
@@ -16,36 +16,29 @@ SLARTV(N, X, INCX, Y, INCY, C, S, INCC)
     ( y(i) )    ( -s(i)  c(i) ) ( y(i) )
 
 ## Parameters
+N : Integer [in]
+> The number of plane rotations to be applied.
 
-### N (in)
+X : Real Array, [in,out]
+> dimension (1+(N-1)*INCX)
+> The vector x.
 
-N is INTEGER The number of plane rotations to be applied.
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-### X (in,out)
+Y : Real Array, [in,out]
+> dimension (1+(N-1)*INCY)
+> The vector y.
 
-X is REAL array, dimension (1+(N-1)*INCX) The vector x.
+Incy : Integer [in]
+> The increment between elements of Y. INCY > 0.
 
-### INCX (in)
+C : Real Array, Dimension (1+(n-1)*incc) [in]
+> The cosines of the plane rotations.
 
-INCX is INTEGER The increment between elements of X. INCX > 0.
+S : Real Array, Dimension (1+(n-1)*incc) [in]
+> The sines of the plane rotations.
 
-### Y (in,out)
-
-Y is REAL array, dimension (1+(N-1)*INCY) The vector y.
-
-### INCY (in)
-
-INCY is INTEGER The increment between elements of Y. INCY > 0.
-
-### C (in)
-
-C is REAL array, dimension (1+(N-1)*INCC) The cosines of the plane rotations.
-
-### S (in)
-
-S is REAL array, dimension (1+(N-1)*INCC) The sines of the plane rotations.
-
-### INCC (in)
-
-INCC is INTEGER The increment between elements of C and S. INCC > 0.
+Incc : Integer [in]
+> The increment between elements of C and S. INCC > 0.
 

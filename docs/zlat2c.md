@@ -1,13 +1,12 @@
-# ZLAT2C
-
-## Function Signature
-
 ```fortran
-ZLAT2C(UPLO, N, A, LDA, SA, LDSA, INFO)
+subroutine zlat2c	(	character	uplo,
+		integer	n,
+		complex*16, dimension(lda, *)	a,
+		integer	lda,
+		complex, dimension(ldsa, *)	sa,
+		integer	ldsa,
+		integer	info )
 ```
-
-## Description
-
 
  ZLAT2C converts a COMPLEX*16 triangular matrix, SA, to a COMPLEX
  triangular matrix, A.
@@ -19,32 +18,30 @@ ZLAT2C(UPLO, N, A, LDA, SA, LDSA, INFO)
  This is an auxiliary routine so there is no argument checking.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  A is upper triangular;
+> = 'L':  A is lower triangular.
 
-### UPLO (in)
+N : Integer [in]
+> The number of rows and columns of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': A is upper triangular; = 'L': A is lower triangular.
+A : Complex*16 Array, Dimension (lda,n) [in]
+> On entry, the N-by-N triangular coefficient matrix A.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The number of rows and columns of the matrix A. N >= 0.
+Sa : Complex Array, Dimension (ldsa,n) [out]
+> Only the UPLO part of SA is referenced.  On exit, if INFO=0,
+> the N-by-N coefficient matrix SA; if INFO>0, the content of
+> the UPLO part of SA is unspecified.
 
-### A (in)
+Ldsa : Integer [in]
+> The leading dimension of the array SA.  LDSA >= max(1,M).
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the N-by-N triangular coefficient matrix A.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### SA (out)
-
-SA is COMPLEX array, dimension (LDSA,N) Only the UPLO part of SA is referenced. On exit, if INFO=0, the N-by-N coefficient matrix SA; if INFO>0, the content of the UPLO part of SA is unspecified.
-
-### LDSA (in)
-
-LDSA is INTEGER The leading dimension of the array SA. LDSA >= max(1,M).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. = 1: an entry of the matrix A is greater than the SINGLE PRECISION overflow threshold, in this case, the content of the UPLO part of SA in exit is unspecified.
+Info : Integer [out]
+> = 0:  successful exit.
+> = 1:  an entry of the matrix A is greater than the SINGLE
+> PRECISION overflow threshold, in this case, the content
+> of the UPLO part of SA in exit is unspecified.
 

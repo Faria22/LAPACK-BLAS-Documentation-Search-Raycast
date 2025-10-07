@@ -1,14 +1,14 @@
-# ZSYCON
-
-## Function Signature
-
 ```fortran
-ZSYCON(UPLO, N, A, LDA, IPIV, ANORM, RCOND, WORK,
-*                          INFO)
+subroutine zsycon	(	uplo,
+		n,
+		a,
+		lda,
+		ipiv,
+		anorm,
+		rcond,
+		work,
+		*                          info )
 ```
-
-## Description
-
 
  ZSYCON estimates the reciprocal of the condition number (in the
  1-norm) of a complex symmetric matrix A using the factorization
@@ -18,40 +18,37 @@ ZSYCON(UPLO, N, A, LDA, IPIV, ANORM, RCOND, WORK,
  condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the details of the factorization are stored
+> as an upper or lower triangular matrix.
+> = 'U':  Upper triangular, form is A = U*D*U**T;
+> = 'L':  Lower triangular, form is A = L*D*L**T.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the details of the factorization are stored as an upper or lower triangular matrix. = 'U': Upper triangular, form is A = U*D*U**T; = 'L': Lower triangular, form is A = L*D*L**T.
+A : Complex*16 Array, Dimension (lda,n) [in]
+> The block diagonal matrix D and the multipliers used to
+> obtain the factor U or L as computed by ZSYTRF.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by ZSYTRF.
 
-### A (in)
+Anorm : Double Precision [in]
+> The 1-norm of the original matrix A.
 
-A is COMPLEX*16 array, dimension (LDA,N) The block diagonal matrix D and the multipliers used to obtain the factor U or L as computed by ZSYTRF.
+Rcond : Double Precision [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> estimate of the 1-norm of inv(A) computed in this routine.
 
-### LDA (in)
+Work : Complex*16 Array, Dimension (2*n) [out]
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by ZSYTRF.
-
-### ANORM (in)
-
-ANORM is DOUBLE PRECISION The 1-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is DOUBLE PRECISION The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an estimate of the 1-norm of inv(A) computed in this routine.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (2*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

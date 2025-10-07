@@ -1,14 +1,19 @@
-# SLAED3
-
-## Function Signature
-
 ```fortran
-SLAED3(K, N, N1, D, Q, LDQ, RHO, DLAMBDA, Q2, INDX,
-*                          CTOT, W, S, INFO)
+subroutine slaed3	(	k,
+		n,
+		n1,
+		d,
+		q,
+		ldq,
+		rho,
+		dlambda,
+		q2,
+		indx,
+		*                          ctot,
+		w,
+		s,
+		info )
 ```
-
-## Description
-
 
  SLAED3 finds the roots of the secular equation, as defined by the
  values in D, W, and RHO, between 1 and K.  It makes the
@@ -19,60 +24,66 @@ SLAED3(K, N, N1, D, Q, LDQ, RHO, DLAMBDA, Q2, INDX,
 
 
 ## Parameters
+K : Integer [in]
+> The number of terms in the rational function to be solved by
+> SLAED4.  K >= 0.
 
-### K (in)
+N : Integer [in]
+> The number of rows and columns in the Q matrix.
+> N >= K (deflation may result in N>K).
 
-K is INTEGER The number of terms in the rational function to be solved by SLAED4. K >= 0.
+N1 : Integer [in]
+> The location of the last eigenvalue in the leading submatrix.
+> min(1,N) <= N1 <= N/2.
 
-### N (in)
+D : Real Array, Dimension (n) [out]
+> D(I) contains the updated eigenvalues for
+> 1 <= I <= K.
 
-N is INTEGER The number of rows and columns in the Q matrix. N >= K (deflation may result in N>K).
+Q : Real Array, Dimension (ldq,n) [out]
+> Initially the first K columns are used as workspace.
+> On output the columns 1 to K contain
+> the updated eigenvectors.
 
-### N1 (in)
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= max(1,N).
 
-N1 is INTEGER The location of the last eigenvalue in the leading submatrix. min(1,N) <= N1 <= N/2.
+Rho : Real [in]
+> The value of the parameter in the rank one update equation.
+> RHO >= 0 required.
 
-### D (out)
+Dlambda : Real Array, Dimension (k) [in]
+> The first K elements of this array contain the old roots
+> of the deflated updating problem.  These are the poles
+> of the secular equation.
 
-D is REAL array, dimension (N) D(I) contains the updated eigenvalues for 1 <= I <= K.
+Q2 : Real Array, Dimension (ldq2*n) [in]
+> The first K columns of this matrix contain the non-deflated
+> eigenvectors for the split problem.
 
-### Q (out)
+Indx : Integer Array, Dimension (n) [in]
+> The permutation used to arrange the columns of the deflated
+> Q matrix into three groups (see SLAED2).
+> The rows of the eigenvectors found by SLAED4 must be likewise
+> permuted before the matrix multiply can take place.
 
-Q is REAL array, dimension (LDQ,N) Initially the first K columns are used as workspace. On output the columns 1 to K contain the updated eigenvectors.
+Ctot : Integer Array, Dimension (4) [in]
+> A count of the total number of the various types of columns
+> in Q, as described in INDX.  The fourth column type is any
+> column which has been deflated.
 
-### LDQ (in)
+W : Real Array, Dimension (k) [in,out]
+> The first K elements of this array contain the components
+> of the deflation-adjusted updating vector. Destroyed on
+> output.
 
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N).
+S : Real Array, Dimension (n1 + 1)*k [out]
+> Will contain the eigenvectors of the repaired matrix which
+> will be multiplied by the previously accumulated eigenvectors
+> to update the system.
 
-### RHO (in)
-
-RHO is REAL The value of the parameter in the rank one update equation. RHO >= 0 required.
-
-### DLAMBDA (in)
-
-DLAMBDA is REAL array, dimension (K) The first K elements of this array contain the old roots of the deflated updating problem. These are the poles of the secular equation.
-
-### Q2 (in)
-
-Q2 is REAL array, dimension (LDQ2*N) The first K columns of this matrix contain the non-deflated eigenvectors for the split problem.
-
-### INDX (in)
-
-INDX is INTEGER array, dimension (N) The permutation used to arrange the columns of the deflated Q matrix into three groups (see SLAED2). The rows of the eigenvectors found by SLAED4 must be likewise permuted before the matrix multiply can take place.
-
-### CTOT (in)
-
-CTOT is INTEGER array, dimension (4) A count of the total number of the various types of columns in Q, as described in INDX. The fourth column type is any column which has been deflated.
-
-### W (in,out)
-
-W is REAL array, dimension (K) The first K elements of this array contain the components of the deflation-adjusted updating vector. Destroyed on output.
-
-### S (out)
-
-S is REAL array, dimension (N1 + 1)*K Will contain the eigenvectors of the repaired matrix which will be multiplied by the previously accumulated eigenvectors to update the system.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = 1, an eigenvalue did not converge
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = 1, an eigenvalue did not converge
 

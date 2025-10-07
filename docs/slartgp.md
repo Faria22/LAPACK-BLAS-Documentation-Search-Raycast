@@ -1,13 +1,10 @@
-# SLARTGP
-
-## Function Signature
-
 ```fortran
-SLARTGP(F, G, CS, SN, R)
+subroutine slartgp	(	real	f,
+		real	g,
+		real	cs,
+		real	sn,
+		real	r )
 ```
-
-## Description
-
 
  SLARTGP generates a plane rotation so that
 
@@ -23,24 +20,20 @@ SLARTGP(F, G, CS, SN, R)
  The sign is chosen so that R >= 0.
 
 ## Parameters
+F : Real [in]
+> The first component of vector to be rotated.
 
-### F (in)
+G : Real [in]
+> The second component of vector to be rotated.
 
-F is REAL The first component of vector to be rotated.
+Cs : Real [out]
+> The cosine of the rotation.
 
-### G (in)
+Sn : Real [out]
+> The sine of the rotation.
 
-G is REAL The second component of vector to be rotated.
-
-### CS (out)
-
-CS is REAL The cosine of the rotation.
-
-### SN (out)
-
-SN is REAL The sine of the rotation.
-
-### R (out)
-
-R is REAL The nonzero component of the rotated vector. This version has a few statements commented out for thread safety (machine parameters are computed on each entry). 10 feb 03, SJH.
+R : Real [out]
+> The nonzero component of the rotated vector.
+> This version has a few statements commented out for thread safety
+> (machine parameters are computed on each entry). 10 feb 03, SJH.
 

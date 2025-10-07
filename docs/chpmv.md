@@ -1,13 +1,14 @@
-# CHPMV
-
-## Function Signature
-
 ```fortran
-CHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+subroutine chpmv	(	character	uplo,
+		integer	n,
+		complex	alpha,
+		complex, dimension(*)	ap,
+		complex, dimension(*)	x,
+		integer	incx,
+		complex	beta,
+		complex, dimension(*)	y,
+		integer	incy )
 ```
-
-## Description
-
 
  CHPMV  performs the matrix-vector operation
 
@@ -17,40 +18,57 @@ CHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
  A is an n by n hermitian matrix, supplied in packed form.
 
 ## Parameters
+Uplo : Character*1 [in]
+> On entry, UPLO specifies whether the upper or lower
+> triangular part of the matrix A is supplied in the packed
+> array AP as follows:
+> UPLO = 'U' or 'u'   The upper triangular part of A is
+> supplied in AP.
+> UPLO = 'L' or 'l'   The lower triangular part of A is
+> supplied in AP.
 
-### UPLO (in)
+N : Integer [in]
+> On entry, N specifies the order of the matrix A.
+> N must be at least zero.
 
-UPLO is CHARACTER*1 On entry, UPLO specifies whether the upper or lower triangular part of the matrix A is supplied in the packed array AP as follows: UPLO = 'U' or 'u' The upper triangular part of A is supplied in AP. UPLO = 'L' or 'l' The lower triangular part of A is supplied in AP.
+Alpha : Complex [in]
+> On entry, ALPHA specifies the scalar alpha.
 
-### N (in)
+Ap : Complex Array, Dimension At Least [in]
+> ( ( n*( n + 1 ) )/2 ).
+> Before entry with UPLO = 'U' or 'u', the array AP must
+> contain the upper triangular part of the hermitian matrix
+> packed sequentially, column by column, so that AP( 1 )
+> contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
+> and a( 2, 2 ) respectively, and so on.
+> Before entry with UPLO = 'L' or 'l', the array AP must
+> contain the lower triangular part of the hermitian matrix
+> packed sequentially, column by column, so that AP( 1 )
+> contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 2, 1 )
+> and a( 3, 1 ) respectively, and so on.
+> Note that the imaginary parts of the diagonal elements need
+> not be set and are assumed to be zero.
 
-N is INTEGER On entry, N specifies the order of the matrix A. N must be at least zero.
+X : Complex Array, Dimension At Least [in]
+> ( 1 + ( n - 1 )*abs( INCX ) ).
+> Before entry, the incremented array X must contain the n
+> element vector x.
 
-### ALPHA (in)
+Incx : Integer [in]
+> On entry, INCX specifies the increment for the elements of
+> X. INCX must not be zero.
 
-ALPHA is COMPLEX On entry, ALPHA specifies the scalar alpha.
+Beta : Complex [in]
+> On entry, BETA specifies the scalar beta. When BETA is
+> supplied as zero then Y need not be set on input.
 
-### AP (in)
+Y : Complex Array, Dimension At Least [in,out]
+> ( 1 + ( n - 1 )*abs( INCY ) ).
+> Before entry, the incremented array Y must contain the n
+> element vector y. On exit, Y is overwritten by the updated
+> vector y.
 
-AP is COMPLEX array, dimension at least ( ( n*( n + 1 ) )/2 ). Before entry with UPLO = 'U' or 'u', the array AP must contain the upper triangular part of the hermitian matrix packed sequentially, column by column, so that AP( 1 ) contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 ) respectively, and so on. Before entry with UPLO = 'L' or 'l', the array AP must contain the lower triangular part of the hermitian matrix packed sequentially, column by column, so that AP( 1 ) contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 ) respectively, and so on. Note that the imaginary parts of the diagonal elements need not be set and are assumed to be zero.
-
-### X (in)
-
-X is COMPLEX array, dimension at least ( 1 + ( n - 1 )*abs( INCX ) ). Before entry, the incremented array X must contain the n element vector x.
-
-### INCX (in)
-
-INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero.
-
-### BETA (in)
-
-BETA is COMPLEX On entry, BETA specifies the scalar beta. When BETA is supplied as zero then Y need not be set on input.
-
-### Y (in,out)
-
-Y is COMPLEX array, dimension at least ( 1 + ( n - 1 )*abs( INCY ) ). Before entry, the incremented array Y must contain the n element vector y. On exit, Y is overwritten by the updated vector y.
-
-### INCY (in)
-
-INCY is INTEGER On entry, INCY specifies the increment for the elements of Y. INCY must not be zero.
+Incy : Integer [in]
+> On entry, INCY specifies the increment for the elements of
+> Y. INCY must not be zero.
 

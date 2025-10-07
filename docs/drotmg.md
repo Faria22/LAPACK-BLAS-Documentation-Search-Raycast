@@ -1,13 +1,10 @@
-# DROTMG
-
-## Function Signature
-
 ```fortran
-DROTMG(DD1,DD2,DX1,DY1,DPARAM)
+subroutine drotmg	(	double precision	dd1,
+		double precision	dd2,
+		double precision	dx1,
+		double precision	dy1,
+		double precision, dimension(5)	dparam )
 ```
-
-## Description
-
 
     CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS
     THE SECOND COMPONENT OF THE 2-VECTOR  (DSQRT(DD1)*DX1,DSQRT(DD2)    DY2)**T.
@@ -28,24 +25,18 @@ DROTMG(DD1,DD2,DX1,DY1,DPARAM)
 
 
 ## Parameters
+Dd1 : Double Precision [in,out]
 
-### DD1 (in,out)
+Dd2 : Double Precision [in,out]
 
-DD1 is DOUBLE PRECISION
+Dx1 : Double Precision [in,out]
 
-### DD2 (in,out)
+Dy1 : Double Precision [in]
 
-DD2 is DOUBLE PRECISION
-
-### DX1 (in,out)
-
-DX1 is DOUBLE PRECISION
-
-### DY1 (in)
-
-DY1 is DOUBLE PRECISION
-
-### DPARAM (out)
-
-DPARAM is DOUBLE PRECISION array, dimension (5) DPARAM(1)=DFLAG DPARAM(2)=DH11 DPARAM(3)=DH21 DPARAM(4)=DH12 DPARAM(5)=DH22
+Dparam : Double Precision Array, Dimension (5) [out]
+> DPARAM(1)=DFLAG
+> DPARAM(2)=DH11
+> DPARAM(3)=DH21
+> DPARAM(4)=DH12
+> DPARAM(5)=DH22
 

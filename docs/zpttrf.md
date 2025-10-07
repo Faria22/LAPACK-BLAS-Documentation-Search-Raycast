@@ -1,33 +1,35 @@
-# ZPTTRF
-
-## Function Signature
-
 ```fortran
-ZPTTRF(N, D, E, INFO)
+subroutine zpttrf	(	integer	n,
+		double precision, dimension(*)	d,
+		complex*16, dimension(*)	e,
+		integer	info )
 ```
-
-## Description
-
 
  ZPTTRF computes the L*D*L**H factorization of a complex Hermitian
  positive definite tridiagonal matrix A.  The factorization may also
  be regarded as having the form A = U**H *D*U.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### N (in)
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, the n diagonal elements of the tridiagonal matrix
+> A.  On exit, the n diagonal elements of the diagonal matrix
+> D from the L*D*L**H factorization of A.
 
-N is INTEGER The order of the matrix A. N >= 0.
+E : Complex*16 Array, Dimension (n-1) [in,out]
+> On entry, the (n-1) subdiagonal elements of the tridiagonal
+> matrix A.  On exit, the (n-1) subdiagonal elements of the
+> unit bidiagonal factor L from the L*D*L**H factorization of A.
+> E can also be regarded as the superdiagonal of the unit
+> bidiagonal factor U from the U**H *D*U factorization of A.
 
-### D (in,out)
-
-D is DOUBLE PRECISION array, dimension (N) On entry, the n diagonal elements of the tridiagonal matrix A. On exit, the n diagonal elements of the diagonal matrix D from the L*D*L**H factorization of A.
-
-### E (in,out)
-
-E is COMPLEX*16 array, dimension (N-1) On entry, the (n-1) subdiagonal elements of the tridiagonal matrix A. On exit, the (n-1) subdiagonal elements of the unit bidiagonal factor L from the L*D*L**H factorization of A. E can also be regarded as the superdiagonal of the unit bidiagonal factor U from the U**H *D*U factorization of A.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value > 0: if INFO = k, the leading principal minor of order k is not positive; if k < N, the factorization could not be completed, while if k = N, the factorization was completed, but D(N) <= 0.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -k, the k-th argument had an illegal value
+> > 0: if INFO = k, the leading principal minor of order k
+> is not positive; if k < N, the factorization could not
+> be completed, while if k = N, the factorization was
+> completed, but D(N) <= 0.
 

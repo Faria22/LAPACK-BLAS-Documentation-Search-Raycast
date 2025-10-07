@@ -1,13 +1,13 @@
-# DLAED6
-
-## Function Signature
-
 ```fortran
-DLAED6(KNITER, ORGATI, RHO, D, Z, FINIT, TAU, INFO)
+subroutine dlaed6	(	integer	kniter,
+		logical	orgati,
+		double precision	rho,
+		double precision, dimension(3)	d,
+		double precision, dimension(3)	z,
+		double precision	finit,
+		double precision	tau,
+		integer	info )
 ```
-
-## Description
-
 
  DLAED6 computes the positive or negative root (closest to the origin)
  of
@@ -25,36 +25,32 @@ DLAED6(KNITER, ORGATI, RHO, D, Z, FINIT, TAU, INFO)
  in some extremely rare situations.
 
 ## Parameters
+Kniter : Integer [in]
+> Refer to DLAED4 for its significance.
 
-### KNITER (in)
+Orgati : Logical [in]
+> If ORGATI is true, the needed root is between d(2) and
+> d(3); otherwise it is between d(1) and d(2).  See
+> DLAED4 for further details.
 
-KNITER is INTEGER Refer to DLAED4 for its significance.
+Rho : Double Precision [in]
+> Refer to the equation f(x) above.
 
-### ORGATI (in)
+D : Double Precision Array, Dimension (3) [in]
+> D satisfies d(1) < d(2) < d(3).
 
-ORGATI is LOGICAL If ORGATI is true, the needed root is between d(2) and d(3); otherwise it is between d(1) and d(2). See DLAED4 for further details.
+Z : Double Precision Array, Dimension (3) [in]
+> Each of the elements in z must be positive.
 
-### RHO (in)
+Finit : Double Precision [in]
+> The value of f at 0. It is more accurate than the one
+> evaluated inside this routine (if someone wants to do
+> so).
 
-RHO is DOUBLE PRECISION Refer to the equation f(x) above.
+Tau : Double Precision [out]
+> The root of the equation f(x).
 
-### D (in)
-
-D is DOUBLE PRECISION array, dimension (3) D satisfies d(1) < d(2) < d(3).
-
-### Z (in)
-
-Z is DOUBLE PRECISION array, dimension (3) Each of the elements in z must be positive.
-
-### FINIT (in)
-
-FINIT is DOUBLE PRECISION The value of f at 0. It is more accurate than the one evaluated inside this routine (if someone wants to do so).
-
-### TAU (out)
-
-TAU is DOUBLE PRECISION The root of the equation f(x).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit > 0: if INFO = 1, failure to converge
+Info : Integer [out]
+> = 0: successful exit
+> > 0: if INFO = 1, failure to converge
 

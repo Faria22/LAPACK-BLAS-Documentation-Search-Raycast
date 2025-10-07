@@ -1,14 +1,15 @@
-# SLAQZ1
-
-## Function Signature
-
 ```fortran
-SLAQZ1(A, LDA, B, LDB, SR1, SR2, SI, BETA1, BETA2,
-*     $    V)
+subroutine slaqz1	(	a,
+		lda,
+		b,
+		ldb,
+		sr1,
+		sr2,
+		si,
+		beta1,
+		beta2,
+		*     $    v )
 ```
-
-## Description
-
 
       Given a 3-by-3 matrix pencil (A,B), SLAQZ1 sets v to a
       scalar multiple of the first column of the product
@@ -25,44 +26,31 @@ SLAQZ1(A, LDA, B, LDB, SR1, SR2, SI, BETA1, BETA2,
       in the QZ algorithm.
 
 ## Parameters
+A : Real Array, Dimension (lda,n) [in]
+> The 3-by-3 matrix A in (*).
 
-### A (in)
+Lda : Integer [in]
+> The leading dimension of A as declared in
+> the calling procedure.
 
-A is REAL array, dimension (LDA,N) The 3-by-3 matrix A in (*).
+B : Real Array, Dimension (ldb,n) [in]
+> The 3-by-3 matrix B in (*).
 
-### LDA (in)
+Ldb : Integer [in]
+> The leading dimension of B as declared in
+> the calling procedure.
 
-LDA is INTEGER The leading dimension of A as declared in the calling procedure.
+Sr1 : Real [in]
 
-### B (in)
+Sr2 : Real [in]
 
-B is REAL array, dimension (LDB,N) The 3-by-3 matrix B in (*).
+Si : Real [in]
 
-### LDB (in)
+Beta1 : Real [in]
 
-LDB is INTEGER The leading dimension of B as declared in the calling procedure.
+Beta2 : Real [in]
 
-### SR1 (in)
-
-SR1 is REAL
-
-### SR2 (in)
-
-SR2 is REAL
-
-### SI (in)
-
-SI is REAL
-
-### BETA1 (in)
-
-BETA1 is REAL
-
-### BETA2 (in)
-
-BETA2 is REAL
-
-### V (out)
-
-V is REAL array, dimension (N) A scalar multiple of the first column of the matrix K in (*).
+V : Real Array, Dimension (n) [out]
+> A scalar multiple of the first column of the
+> matrix K in (*).
 

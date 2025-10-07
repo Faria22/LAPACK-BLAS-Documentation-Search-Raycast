@@ -1,17 +1,25 @@
-# SGEESX
-
-SGEESX computes the eigenvalues, the Schur form, and, optionally, the matrix of Schur vectors for GE matrices
-
-## Function Signature
-
 ```fortran
-SGEESX(JOBVS, SORT, SELECT, SENSE, N, A, LDA, SDIM,
-*                          WR, WI, VS, LDVS, RCONDE, RCONDV, WORK, LWORK,
-*                          IWORK, LIWORK, BWORK, INFO)
+subroutine sgeesx	(	jobvs,
+		sort,
+		select,
+		sense,
+		n,
+		a,
+		lda,
+		sdim,
+		*                          wr,
+		wi,
+		vs,
+		ldvs,
+		rconde,
+		rcondv,
+		work,
+		lwork,
+		*                          iwork,
+		liwork,
+		bwork,
+		info )
 ```
-
-## Description
-
 
  SGEESX computes for an N-by-N real nonsymmetric matrix A, the
  eigenvalues, the real Schur form T, and, optionally, the matrix of
@@ -38,84 +46,133 @@ SGEESX(JOBVS, SORT, SELECT, SENSE, N, A, LDA, SDIM,
  where b*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
 
 ## Parameters
+Jobvs : Character*1 [in]
+> = 'N': Schur vectors are not computed;
+> = 'V': Schur vectors are computed.
 
-### JOBVS (in)
+Sort : Character*1 [in]
+> Specifies whether or not to order the eigenvalues on the
+> diagonal of the Schur form.
+> = 'N': Eigenvalues are not ordered;
+> = 'S': Eigenvalues are ordered (see SELECT).
 
-JOBVS is CHARACTER*1 = 'N': Schur vectors are not computed; = 'V': Schur vectors are computed.
+Select : a Logical Function of Two Real Arguments [in]
+> SELECT must be declared EXTERNAL in the calling subroutine.
+> If SORT = 'S', SELECT is used to select eigenvalues to sort
+> to the top left of the Schur form.
+> If SORT = 'N', SELECT is not referenced.
+> An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if
+> SELECT(WR(j),WI(j)) is true; i.e., if either one of a
+> complex conjugate pair of eigenvalues is selected, then both
+> are.  Note that a selected complex eigenvalue may no longer
+> satisfy SELECT(WR(j),WI(j)) = .TRUE. after ordering, since
+> ordering may change the value of complex eigenvalues
+> (especially if the eigenvalue is ill-conditioned); in this
+> case INFO may be set to N+3 (see INFO below).
 
-### SORT (in)
+Sense : Character*1 [in]
+> Determines which reciprocal condition numbers are computed.
+> = 'N': None are computed;
+> = 'E': Computed for average of selected eigenvalues only;
+> = 'V': Computed for selected right invariant subspace only;
+> = 'B': Computed for both.
+> If SENSE = 'E', 'V' or 'B', SORT must equal 'S'.
 
-SORT is CHARACTER*1 Specifies whether or not to order the eigenvalues on the diagonal of the Schur form. = 'N': Eigenvalues are not ordered; = 'S': Eigenvalues are ordered (see SELECT).
+N : Integer [in]
+> The order of the matrix A. N >= 0.
 
-### SELECT (in)
+A : Real Array, Dimension (lda, N) [in,out]
+> On entry, the N-by-N matrix A.
+> On exit, A is overwritten by its real Schur form T.
 
-SELECT is a LOGICAL FUNCTION of two REAL arguments SELECT must be declared EXTERNAL in the calling subroutine. If SORT = 'S', SELECT is used to select eigenvalues to sort to the top left of the Schur form. If SORT = 'N', SELECT is not referenced. An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if SELECT(WR(j),WI(j)) is true; i.e., if either one of a complex conjugate pair of eigenvalues is selected, then both are. Note that a selected complex eigenvalue may no longer satisfy SELECT(WR(j),WI(j)) = .TRUE. after ordering, since ordering may change the value of complex eigenvalues (especially if the eigenvalue is ill-conditioned); in this case INFO may be set to N+3 (see INFO below).
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### SENSE (in)
+Sdim : Integer [out]
+> If SORT = 'N', SDIM = 0.
+> If SORT = 'S', SDIM = number of eigenvalues (after sorting)
+> for which SELECT is true. (Complex conjugate
+> pairs for which SELECT is true for either
+> eigenvalue count as 2.)
 
-SENSE is CHARACTER*1 Determines which reciprocal condition numbers are computed. = 'N': None are computed; = 'E': Computed for average of selected eigenvalues only; = 'V': Computed for selected right invariant subspace only; = 'B': Computed for both. If SENSE = 'E', 'V' or 'B', SORT must equal 'S'.
+Wr : Real Array, Dimension (n) [out]
 
-### N (in)
+Wi : Real Array, Dimension (n) [out]
+> WR and WI contain the real and imaginary parts, respectively,
+> of the computed eigenvalues, in the same order that they
+> appear on the diagonal of the output Schur form T.  Complex
+> conjugate pairs of eigenvalues appear consecutively with the
+> eigenvalue having the positive imaginary part first.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Vs : Real Array, Dimension (ldvs,n) [out]
+> If JOBVS = 'V', VS contains the orthogonal matrix Z of Schur
+> vectors.
+> If JOBVS = 'N', VS is not referenced.
 
-### A (in,out)
+Ldvs : Integer [in]
+> The leading dimension of the array VS.  LDVS >= 1, and if
+> JOBVS = 'V', LDVS >= N.
 
-A is REAL array, dimension (LDA, N) On entry, the N-by-N matrix A. On exit, A is overwritten by its real Schur form T.
+Rconde : Real [out]
+> If SENSE = 'E' or 'B', RCONDE contains the reciprocal
+> condition number for the average of the selected eigenvalues.
+> Not referenced if SENSE = 'N' or 'V'.
 
-### LDA (in)
+Rcondv : Real [out]
+> If SENSE = 'V' or 'B', RCONDV contains the reciprocal
+> condition number for the selected right invariant subspace.
+> Not referenced if SENSE = 'N' or 'E'.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Work : Real Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### SDIM (out)
+Lwork : Integer [in]
+> The dimension of the array WORK.  LWORK >= max(1,3*N).
+> Also, if SENSE = 'E' or 'V' or 'B',
+> LWORK >= N+2*SDIM*(N-SDIM), where SDIM is the number of
+> selected eigenvalues computed by this routine.  Note that
+> N+2*SDIM*(N-SDIM) <= N+N*N/2. Note also that an error is only
+> returned if LWORK < max(1,3*N), but if SENSE = 'E' or 'V' or
+> 'B' this may not be large enough.
+> For good performance, LWORK must generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates upper bounds on the optimal sizes of the
+> arrays WORK and IWORK, returns these values as the first
+> entries of the WORK and IWORK arrays, and no error messages
+> related to LWORK or LIWORK are issued by XERBLA.
 
-SDIM is INTEGER If SORT = 'N', SDIM = 0. If SORT = 'S', SDIM = number of eigenvalues (after sorting) for which SELECT is true. (Complex conjugate pairs for which SELECT is true for either eigenvalue count as 2.)
+Iwork : Integer Array, Dimension (max(1,liwork)) [out]
+> On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
 
-### WR (out)
+Liwork : Integer [in]
+> The dimension of the array IWORK.
+> LIWORK >= 1; if SENSE = 'V' or 'B', LIWORK >= SDIM*(N-SDIM).
+> Note that SDIM*(N-SDIM) <= N*N/4. Note also that an error is
+> only returned if LIWORK < 1, but if SENSE = 'V' or 'B' this
+> may not be large enough.
+> If LIWORK = -1, then a workspace query is assumed; the
+> routine only calculates upper bounds on the optimal sizes of
+> the arrays WORK and IWORK, returns these values as the first
+> entries of the WORK and IWORK arrays, and no error messages
+> related to LWORK or LIWORK are issued by XERBLA.
 
-WR is REAL array, dimension (N)
+Bwork : Logical Array, Dimension (n) [out]
+> Not referenced if SORT = 'N'.
 
-### WI (out)
-
-WI is REAL array, dimension (N) WR and WI contain the real and imaginary parts, respectively, of the computed eigenvalues, in the same order that they appear on the diagonal of the output Schur form T. Complex conjugate pairs of eigenvalues appear consecutively with the eigenvalue having the positive imaginary part first.
-
-### VS (out)
-
-VS is REAL array, dimension (LDVS,N) If JOBVS = 'V', VS contains the orthogonal matrix Z of Schur vectors. If JOBVS = 'N', VS is not referenced.
-
-### LDVS (in)
-
-LDVS is INTEGER The leading dimension of the array VS. LDVS >= 1, and if JOBVS = 'V', LDVS >= N.
-
-### RCONDE (out)
-
-RCONDE is REAL If SENSE = 'E' or 'B', RCONDE contains the reciprocal condition number for the average of the selected eigenvalues. Not referenced if SENSE = 'N' or 'V'.
-
-### RCONDV (out)
-
-RCONDV is REAL If SENSE = 'V' or 'B', RCONDV contains the reciprocal condition number for the selected right invariant subspace. Not referenced if SENSE = 'N' or 'E'.
-
-### WORK (out)
-
-WORK is REAL array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,3*N). Also, if SENSE = 'E' or 'V' or 'B', LWORK >= N+2*SDIM*(N-SDIM), where SDIM is the number of selected eigenvalues computed by this routine. Note that N+2*SDIM*(N-SDIM) <= N+N*N/2. Note also that an error is only returned if LWORK < max(1,3*N), but if SENSE = 'E' or 'V' or 'B' this may not be large enough. For good performance, LWORK must generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates upper bounds on the optimal sizes of the arrays WORK and IWORK, returns these values as the first entries of the WORK and IWORK arrays, and no error messages related to LWORK or LIWORK are issued by XERBLA.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MAX(1,LIWORK)) On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
-
-### LIWORK (in)
-
-LIWORK is INTEGER The dimension of the array IWORK. LIWORK >= 1; if SENSE = 'V' or 'B', LIWORK >= SDIM*(N-SDIM). Note that SDIM*(N-SDIM) <= N*N/4. Note also that an error is only returned if LIWORK < 1, but if SENSE = 'V' or 'B' this may not be large enough. If LIWORK = -1, then a workspace query is assumed; the routine only calculates upper bounds on the optimal sizes of the arrays WORK and IWORK, returns these values as the first entries of the WORK and IWORK arrays, and no error messages related to LWORK or LIWORK are issued by XERBLA.
-
-### BWORK (out)
-
-BWORK is LOGICAL array, dimension (N) Not referenced if SORT = 'N'.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, and i is <= N: the QR algorithm failed to compute all the eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI contain those eigenvalues which have converged; if JOBVS = 'V', VS contains the transformation which reduces A to its partially converged Schur form. = N+1: the eigenvalues could not be reordered because some eigenvalues were too close to separate (the problem is very ill-conditioned); = N+2: after reordering, roundoff changed values of some complex eigenvalues so that leading eigenvalues in the Schur form no longer satisfy SELECT=.TRUE. This could also be caused by underflow due to scaling.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value.
+> > 0: if INFO = i, and i is
+> <= N: the QR algorithm failed to compute all the
+> eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI
+> contain those eigenvalues which have converged; if
+> JOBVS = 'V', VS contains the transformation which
+> reduces A to its partially converged Schur form.
+> = N+1: the eigenvalues could not be reordered because some
+> eigenvalues were too close to separate (the problem
+> is very ill-conditioned);
+> = N+2: after reordering, roundoff changed values of some
+> complex eigenvalues so that leading eigenvalues in
+> the Schur form no longer satisfy SELECT=.TRUE.  This
+> could also be caused by underflow due to scaling.
 

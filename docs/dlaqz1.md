@@ -1,14 +1,15 @@
-# DLAQZ1
-
-## Function Signature
-
 ```fortran
-DLAQZ1(A, LDA, B, LDB, SR1, SR2, SI, BETA1, BETA2,
-*     $    V)
+subroutine dlaqz1	(	a,
+		lda,
+		b,
+		ldb,
+		sr1,
+		sr2,
+		si,
+		beta1,
+		beta2,
+		*     $    v )
 ```
-
-## Description
-
 
       Given a 3-by-3 matrix pencil (A,B), DLAQZ1 sets v to a
       scalar multiple of the first column of the product
@@ -25,44 +26,31 @@ DLAQZ1(A, LDA, B, LDB, SR1, SR2, SI, BETA1, BETA2,
       in the QZ algorithm.
 
 ## Parameters
+A : Double Precision Array, Dimension (lda,n) [in]
+> The 3-by-3 matrix A in (*).
 
-### A (in)
+Lda : Integer [in]
+> The leading dimension of A as declared in
+> the calling procedure.
 
-A is DOUBLE PRECISION array, dimension (LDA,N) The 3-by-3 matrix A in (*).
+B : Double Precision Array, Dimension (ldb,n) [in]
+> The 3-by-3 matrix B in (*).
 
-### LDA (in)
+Ldb : Integer [in]
+> The leading dimension of B as declared in
+> the calling procedure.
 
-LDA is INTEGER The leading dimension of A as declared in the calling procedure.
+Sr1 : Double Precision [in]
 
-### B (in)
+Sr2 : Double Precision [in]
 
-B is DOUBLE PRECISION array, dimension (LDB,N) The 3-by-3 matrix B in (*).
+Si : Double Precision [in]
 
-### LDB (in)
+Beta1 : Double Precision [in]
 
-LDB is INTEGER The leading dimension of B as declared in the calling procedure.
+Beta2 : Double Precision [in]
 
-### SR1 (in)
-
-SR1 is DOUBLE PRECISION
-
-### SR2 (in)
-
-SR2 is DOUBLE PRECISION
-
-### SI (in)
-
-SI is DOUBLE PRECISION
-
-### BETA1 (in)
-
-BETA1 is DOUBLE PRECISION
-
-### BETA2 (in)
-
-BETA2 is DOUBLE PRECISION
-
-### V (out)
-
-V is DOUBLE PRECISION array, dimension (N) A scalar multiple of the first column of the matrix K in (*).
+V : Double Precision Array, Dimension (n) [out]
+> A scalar multiple of the first column of the
+> matrix K in (*).
 

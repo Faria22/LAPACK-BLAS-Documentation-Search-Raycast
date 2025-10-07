@@ -1,13 +1,10 @@
-# ZLARFGP
-
-## Function Signature
-
 ```fortran
-ZLARFGP(N, ALPHA, X, INCX, TAU)
+subroutine zlarfgp	(	integer	n,
+		complex*16	alpha,
+		complex*16, dimension(*)	x,
+		integer	incx,
+		complex*16	tau )
 ```
-
-## Description
-
 
  ZLARFGP generates a complex elementary reflector H of order n, such
  that
@@ -28,24 +25,21 @@ ZLARFGP(N, ALPHA, X, INCX, TAU)
  and H is taken to be the unit matrix.
 
 ## Parameters
+N : Integer [in]
+> The order of the elementary reflector.
 
-### N (in)
+Alpha : Complex*16 [in,out]
+> On entry, the value alpha.
+> On exit, it is overwritten with the value beta.
 
-N is INTEGER The order of the elementary reflector.
+X : Complex*16 Array, Dimension [in,out]
+> (1+(N-2)*abs(INCX))
+> On entry, the vector x.
+> On exit, it is overwritten with the vector v.
 
-### ALPHA (in,out)
+Incx : Integer [in]
+> The increment between elements of X. INCX > 0.
 
-ALPHA is COMPLEX*16 On entry, the value alpha. On exit, it is overwritten with the value beta.
-
-### X (in,out)
-
-X is COMPLEX*16 array, dimension (1+(N-2)*abs(INCX)) On entry, the vector x. On exit, it is overwritten with the vector v.
-
-### INCX (in)
-
-INCX is INTEGER The increment between elements of X. INCX > 0.
-
-### TAU (out)
-
-TAU is COMPLEX*16 The value tau.
+Tau : Complex*16 [out]
+> The value tau.
 

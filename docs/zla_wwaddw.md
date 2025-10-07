@@ -1,13 +1,9 @@
-# ZLA_WWADDW
-
-## Function Signature
-
 ```fortran
-ZLA_WWADDW(N, X, Y, W)
+subroutine zla_wwaddw	(	integer	n,
+		complex*16, dimension(*)	x,
+		complex*16, dimension(*)	y,
+		complex*16, dimension(*)	w )
 ```
-
-## Description
-
 
     ZLA_WWADDW adds a vector W into a doubled-single vector (X, Y).
 
@@ -15,20 +11,15 @@ ZLA_WWADDW(N, X, Y, W)
     arithmetic, but not for decimal.
 
 ## Parameters
+N : Integer [in]
+> The length of vectors X, Y, and W.
 
-### N (in)
+X : Complex*16 Array, Dimension (n) [in,out]
+> The first part of the doubled-single accumulation vector.
 
-N is INTEGER The length of vectors X, Y, and W.
+Y : Complex*16 Array, Dimension (n) [in,out]
+> The second part of the doubled-single accumulation vector.
 
-### X (in,out)
-
-X is COMPLEX*16 array, dimension (N) The first part of the doubled-single accumulation vector.
-
-### Y (in,out)
-
-Y is COMPLEX*16 array, dimension (N) The second part of the doubled-single accumulation vector.
-
-### W (in)
-
-W is COMPLEX*16 array, dimension (N) The vector to be added.
+W : Complex*16 Array, Dimension (n) [in]
+> The vector to be added.
 

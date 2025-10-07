@@ -1,16 +1,34 @@
-# ZBBCSD
-
-## Function Signature
-
 ```fortran
-ZBBCSD(JOBU1, JOBU2, JOBV1T, JOBV2T, TRANS, M, P, Q,
-*                          THETA, PHI, U1, LDU1, U2, LDU2, V1T, LDV1T,
-*                          V2T, LDV2T, B11D, B11E, B12D, B12E, B21D, B21E,
-*                          B22D, B22E, RWORK, LRWORK, INFO)
+subroutine zbbcsd	(	jobu1,
+		jobu2,
+		jobv1t,
+		jobv2t,
+		trans,
+		m,
+		p,
+		q,
+		*                          theta,
+		phi,
+		u1,
+		ldu1,
+		u2,
+		ldu2,
+		v1t,
+		ldv1t,
+		*                          v2t,
+		ldv2t,
+		b11d,
+		b11e,
+		b12d,
+		b12e,
+		b21d,
+		b21e,
+		*                          b22d,
+		b22e,
+		rwork,
+		lrwork,
+		info )
 ```
-
-## Description
-
 
  ZBBCSD computes the CS decomposition of a unitary matrix in
  bidiagonal-block form,
@@ -41,120 +59,140 @@ ZBBCSD(JOBU1, JOBU2, JOBV1T, JOBV2T, TRANS, M, P, Q,
  singular vector matrices.
 
 ## Parameters
+Jobu1 : Character [in]
+> = 'Y':      U1 is updated;
+> otherwise:  U1 is not updated.
 
-### JOBU1 (in)
+Jobu2 : Character [in]
+> = 'Y':      U2 is updated;
+> otherwise:  U2 is not updated.
 
-JOBU1 is CHARACTER = 'Y': U1 is updated; otherwise: U1 is not updated.
+Jobv1t : Character [in]
+> = 'Y':      V1T is updated;
+> otherwise:  V1T is not updated.
 
-### JOBU2 (in)
+Jobv2t : Character [in]
+> = 'Y':      V2T is updated;
+> otherwise:  V2T is not updated.
 
-JOBU2 is CHARACTER = 'Y': U2 is updated; otherwise: U2 is not updated.
+Trans : Character [in]
+> = 'T':      X, U1, U2, V1T, and V2T are stored in row-major
+> order;
+> otherwise:  X, U1, U2, V1T, and V2T are stored in column-
+> major order.
 
-### JOBV1T (in)
+M : Integer [in]
+> The number of rows and columns in X, the unitary matrix in
+> bidiagonal-block form.
 
-JOBV1T is CHARACTER = 'Y': V1T is updated; otherwise: V1T is not updated.
+P : Integer [in]
+> The number of rows in the top-left block of X. 0 <= P <= M.
 
-### JOBV2T (in)
+Q : Integer [in]
+> The number of columns in the top-left block of X.
+> 0 <= Q <= MIN(P,M-P,M-Q).
 
-JOBV2T is CHARACTER = 'Y': V2T is updated; otherwise: V2T is not updated.
+Theta : Double Precision Array, Dimension (q) [in,out]
+> On entry, the angles THETA(1),...,THETA(Q) that, along with
+> PHI(1), ...,PHI(Q-1), define the matrix in bidiagonal-block
+> form. On exit, the angles whose cosines and sines define the
+> diagonal blocks in the CS decomposition.
 
-### TRANS (in)
+Phi : Double Precision Array, Dimension (q-1) [in,out]
+> The angles PHI(1),...,PHI(Q-1) that, along with THETA(1),...,
+> THETA(Q), define the matrix in bidiagonal-block form.
 
-TRANS is CHARACTER = 'T': X, U1, U2, V1T, and V2T are stored in row-major order; otherwise: X, U1, U2, V1T, and V2T are stored in column- major order.
+U1 : Complex*16 Array, Dimension (ldu1,p) [in,out]
+> On entry, a P-by-P matrix. On exit, U1 is postmultiplied
+> by the left singular vector matrix common to [ B11 ; 0 ] and
+> [ B12 0 0 ; 0 -I 0 0 ].
 
-### M (in)
+Ldu1 : Integer [in]
+> The leading dimension of the array U1, LDU1 >= MAX(1,P).
 
-M is INTEGER The number of rows and columns in X, the unitary matrix in bidiagonal-block form.
+U2 : Complex*16 Array, Dimension (ldu2,m-p) [in,out]
+> On entry, an (M-P)-by-(M-P) matrix. On exit, U2 is
+> postmultiplied by the left singular vector matrix common to
+> [ B21 ; 0 ] and [ B22 0 0 ; 0 0 I ].
 
-### P (in)
+Ldu2 : Integer [in]
+> The leading dimension of the array U2, LDU2 >= MAX(1,M-P).
 
-P is INTEGER The number of rows in the top-left block of X. 0 <= P <= M.
+V1t : Complex*16 Array, Dimension (ldv1t,q) [in,out]
+> On entry, a Q-by-Q matrix. On exit, V1T is premultiplied
+> by the conjugate transpose of the right singular vector
+> matrix common to [ B11 ; 0 ] and [ B21 ; 0 ].
 
-### Q (in)
+Ldv1t : Integer [in]
+> The leading dimension of the array V1T, LDV1T >= MAX(1,Q).
 
-Q is INTEGER The number of columns in the top-left block of X. 0 <= Q <= MIN(P,M-P,M-Q).
+V2t : Complex*16 Array, Dimension (ldv2t,m-q) [in,out]
+> On entry, an (M-Q)-by-(M-Q) matrix. On exit, V2T is
+> premultiplied by the conjugate transpose of the right
+> singular vector matrix common to [ B12 0 0 ; 0 -I 0 ] and
+> [ B22 0 0 ; 0 0 I ].
 
-### THETA (in,out)
+Ldv2t : Integer [in]
+> The leading dimension of the array V2T, LDV2T >= MAX(1,M-Q).
 
-THETA is DOUBLE PRECISION array, dimension (Q) On entry, the angles THETA(1),...,THETA(Q) that, along with PHI(1), ...,PHI(Q-1), define the matrix in bidiagonal-block form. On exit, the angles whose cosines and sines define the diagonal blocks in the CS decomposition.
+B11d : Double Precision Array, Dimension (q) [out]
+> When ZBBCSD converges, B11D contains the cosines of THETA(1),
+> ..., THETA(Q). If ZBBCSD fails to converge, then B11D
+> contains the diagonal of the partially reduced top-left
+> block.
 
-### PHI (in,out)
+B11e : Double Precision Array, Dimension (q-1) [out]
+> When ZBBCSD converges, B11E contains zeros. If ZBBCSD fails
+> to converge, then B11E contains the superdiagonal of the
+> partially reduced top-left block.
 
-PHI is DOUBLE PRECISION array, dimension (Q-1) The angles PHI(1),...,PHI(Q-1) that, along with THETA(1),..., THETA(Q), define the matrix in bidiagonal-block form.
+B12d : Double Precision Array, Dimension (q) [out]
+> When ZBBCSD converges, B12D contains the negative sines of
+> THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then
+> B12D contains the diagonal of the partially reduced top-right
+> block.
 
-### U1 (in,out)
+B12e : Double Precision Array, Dimension (q-1) [out]
+> When ZBBCSD converges, B12E contains zeros. If ZBBCSD fails
+> to converge, then B12E contains the subdiagonal of the
+> partially reduced top-right block.
 
-U1 is COMPLEX*16 array, dimension (LDU1,P) On entry, a P-by-P matrix. On exit, U1 is postmultiplied by the left singular vector matrix common to [ B11 ; 0 ] and [ B12 0 0 ; 0 -I 0 0 ].
+B21d : Double Precision Array, Dimension (q) [out]
+> When ZBBCSD converges, B21D contains the negative sines of
+> THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then
+> B21D contains the diagonal of the partially reduced bottom-left
+> block.
 
-### LDU1 (in)
+B21e : Double Precision Array, Dimension (q-1) [out]
+> When ZBBCSD converges, B21E contains zeros. If ZBBCSD fails
+> to converge, then B21E contains the subdiagonal of the
+> partially reduced bottom-left block.
 
-LDU1 is INTEGER The leading dimension of the array U1, LDU1 >= MAX(1,P).
+B22d : Double Precision Array, Dimension (q) [out]
+> When ZBBCSD converges, B22D contains the negative sines of
+> THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then
+> B22D contains the diagonal of the partially reduced bottom-right
+> block.
 
-### U2 (in,out)
+B22e : Double Precision Array, Dimension (q-1) [out]
+> When ZBBCSD converges, B22E contains zeros. If ZBBCSD fails
+> to converge, then B22E contains the subdiagonal of the
+> partially reduced bottom-right block.
 
-U2 is COMPLEX*16 array, dimension (LDU2,M-P) On entry, an (M-P)-by-(M-P) matrix. On exit, U2 is postmultiplied by the left singular vector matrix common to [ B21 ; 0 ] and [ B22 0 0 ; 0 0 I ].
+Rwork : Double Precision Array, Dimension (max(1,lrwork)) [out]
+> On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
 
-### LDU2 (in)
+Lrwork : Integer [in]
+> The dimension of the array RWORK. LRWORK >= MAX(1,8*Q).
+> If LRWORK = -1, then a workspace query is assumed; the
+> routine only calculates the optimal size of the RWORK array,
+> returns this value as the first entry of the work array, and
+> no error message related to LRWORK is issued by XERBLA.
 
-LDU2 is INTEGER The leading dimension of the array U2, LDU2 >= MAX(1,M-P).
-
-### V1T (in,out)
-
-V1T is COMPLEX*16 array, dimension (LDV1T,Q) On entry, a Q-by-Q matrix. On exit, V1T is premultiplied by the conjugate transpose of the right singular vector matrix common to [ B11 ; 0 ] and [ B21 ; 0 ].
-
-### LDV1T (in)
-
-LDV1T is INTEGER The leading dimension of the array V1T, LDV1T >= MAX(1,Q).
-
-### V2T (in,out)
-
-V2T is COMPLEX*16 array, dimension (LDV2T,M-Q) On entry, an (M-Q)-by-(M-Q) matrix. On exit, V2T is premultiplied by the conjugate transpose of the right singular vector matrix common to [ B12 0 0 ; 0 -I 0 ] and [ B22 0 0 ; 0 0 I ].
-
-### LDV2T (in)
-
-LDV2T is INTEGER The leading dimension of the array V2T, LDV2T >= MAX(1,M-Q).
-
-### B11D (out)
-
-B11D is DOUBLE PRECISION array, dimension (Q) When ZBBCSD converges, B11D contains the cosines of THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then B11D contains the diagonal of the partially reduced top-left block.
-
-### B11E (out)
-
-B11E is DOUBLE PRECISION array, dimension (Q-1) When ZBBCSD converges, B11E contains zeros. If ZBBCSD fails to converge, then B11E contains the superdiagonal of the partially reduced top-left block.
-
-### B12D (out)
-
-B12D is DOUBLE PRECISION array, dimension (Q) When ZBBCSD converges, B12D contains the negative sines of THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then B12D contains the diagonal of the partially reduced top-right block.
-
-### B12E (out)
-
-B12E is DOUBLE PRECISION array, dimension (Q-1) When ZBBCSD converges, B12E contains zeros. If ZBBCSD fails to converge, then B12E contains the subdiagonal of the partially reduced top-right block.
-
-### B21D (out)
-
-B21D is DOUBLE PRECISION array, dimension (Q) When ZBBCSD converges, B21D contains the negative sines of THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then B21D contains the diagonal of the partially reduced bottom-left block.
-
-### B21E (out)
-
-B21E is DOUBLE PRECISION array, dimension (Q-1) When ZBBCSD converges, B21E contains zeros. If ZBBCSD fails to converge, then B21E contains the subdiagonal of the partially reduced bottom-left block.
-
-### B22D (out)
-
-B22D is DOUBLE PRECISION array, dimension (Q) When ZBBCSD converges, B22D contains the negative sines of THETA(1), ..., THETA(Q). If ZBBCSD fails to converge, then B22D contains the diagonal of the partially reduced bottom-right block.
-
-### B22E (out)
-
-B22E is DOUBLE PRECISION array, dimension (Q-1) When ZBBCSD converges, B22E contains zeros. If ZBBCSD fails to converge, then B22E contains the subdiagonal of the partially reduced bottom-right block.
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK)) On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
-
-### LRWORK (in)
-
-LRWORK is INTEGER The dimension of the array RWORK. LRWORK >= MAX(1,8*Q). If LRWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the RWORK array, returns this value as the first entry of the work array, and no error message related to LRWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if ZBBCSD did not converge, INFO specifies the number of nonzero entries in PHI, and B11D, B11E, etc., contain the partially reduced matrix.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if ZBBCSD did not converge, INFO specifies the number
+> of nonzero entries in PHI, and B11D, B11E, etc.,
+> contain the partially reduced matrix.
 

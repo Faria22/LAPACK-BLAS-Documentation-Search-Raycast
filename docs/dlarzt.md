@@ -1,13 +1,14 @@
-# DLARZT
-
-## Function Signature
-
 ```fortran
-DLARZT(DIRECT, STOREV, N, K, V, LDV, TAU, T, LDT)
+subroutine dlarzt	(	character	direct,
+		character	storev,
+		integer	n,
+		integer	k,
+		double precision, dimension(ldv, *)	v,
+		integer	ldv,
+		double precision, dimension(*)	tau,
+		double precision, dimension(ldt, *)	t,
+		integer	ldt )
 ```
-
-## Description
-
 
  DLARZT forms the triangular factor T of a real block reflector
  H of order > n, which is defined as a product of k elementary
@@ -30,40 +31,43 @@ DLARZT(DIRECT, STOREV, N, K, V, LDV, TAU, T, LDT)
  Currently, only STOREV = 'R' and DIRECT = 'B' are supported.
 
 ## Parameters
+Direct : Character*1 [in]
+> Specifies the order in which the elementary reflectors are
+> multiplied to form the block reflector:
+> = 'F': H = H(1) H(2) . . . H(k) (Forward, not supported yet)
+> = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-### DIRECT (in)
+Storev : Character*1 [in]
+> Specifies how the vectors which define the elementary
+> reflectors are stored (see also Further Details):
+> = 'C': columnwise                        (not supported yet)
+> = 'R': rowwise
 
-DIRECT is CHARACTER*1 Specifies the order in which the elementary reflectors are multiplied to form the block reflector: = 'F': H = H(1) H(2) . . . H(k) (Forward, not supported yet) = 'B': H = H(k) . . . H(2) H(1) (Backward)
+N : Integer [in]
+> The order of the block reflector H. N >= 0.
 
-### STOREV (in)
+K : Integer [in]
+> The order of the triangular factor T (= the number of
+> elementary reflectors). K >= 1.
 
-STOREV is CHARACTER*1 Specifies how the vectors which define the elementary reflectors are stored (see also Further Details): = 'C': columnwise (not supported yet) = 'R': rowwise
+V : Double Precision Array, Dimension [in,out]
+> (LDV,K) if STOREV = 'C'
+> (LDV,N) if STOREV = 'R'
+> The matrix V. See further details.
 
-### N (in)
+Ldv : Integer [in]
+> The leading dimension of the array V.
+> If STOREV = 'C', LDV >= max(1,N); if STOREV = 'R', LDV >= K.
 
-N is INTEGER The order of the block reflector H. N >= 0.
+Tau : Double Precision Array, Dimension (k) [in]
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i).
 
-### K (in)
+T : Double Precision Array, Dimension (ldt,k) [out]
+> The k by k triangular factor T of the block reflector.
+> If DIRECT = 'F', T is upper triangular; if DIRECT = 'B', T is
+> lower triangular. The rest of the array is not used.
 
-K is INTEGER The order of the triangular factor T (= the number of elementary reflectors). K >= 1.
-
-### V (in,out)
-
-V is DOUBLE PRECISION array, dimension (LDV,K) if STOREV = 'C' (LDV,N) if STOREV = 'R' The matrix V. See further details.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. If STOREV = 'C', LDV >= max(1,N); if STOREV = 'R', LDV >= K.
-
-### TAU (in)
-
-TAU is DOUBLE PRECISION array, dimension (K) TAU(i) must contain the scalar factor of the elementary reflector H(i).
-
-### T (out)
-
-T is DOUBLE PRECISION array, dimension (LDT,K) The k by k triangular factor T of the block reflector. If DIRECT = 'F', T is upper triangular; if DIRECT = 'B', T is lower triangular. The rest of the array is not used.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= K.
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= K.
 

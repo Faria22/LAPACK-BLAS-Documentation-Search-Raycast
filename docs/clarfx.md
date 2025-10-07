@@ -1,13 +1,13 @@
-# CLARFX
-
-## Function Signature
-
 ```fortran
-CLARFX(SIDE, M, N, V, TAU, C, LDC, WORK)
+subroutine clarfx	(	character	side,
+		integer	m,
+		integer	n,
+		complex, dimension(*)	v,
+		complex	tau,
+		complex, dimension(ldc, *)	c,
+		integer	ldc,
+		complex, dimension(*)	work )
 ```
-
-## Description
-
 
  CLARFX applies a complex elementary reflector H to a complex m by n
  matrix C, from either the left or the right. H is represented in the
@@ -22,36 +22,32 @@ CLARFX(SIDE, M, N, V, TAU, C, LDC, WORK)
  This version uses inline code if H has order < 11.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': form  H * C
+> = 'R': form  C * H
 
-### SIDE (in)
+M : Integer [in]
+> The number of rows of the matrix C.
 
-SIDE is CHARACTER*1 = 'L': form H * C = 'R': form C * H
+N : Integer [in]
+> The number of columns of the matrix C.
 
-### M (in)
+V : Complex Array, Dimension (m) If Side = 'l' [in]
+> or (N) if SIDE = 'R'
+> The vector v in the representation of H.
 
-M is INTEGER The number of rows of the matrix C.
+Tau : Complex [in]
+> The value tau in the representation of H.
 
-### N (in)
+C : Complex Array, Dimension (ldc,n) [in,out]
+> On entry, the m by n matrix C.
+> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+> or C * H if SIDE = 'R'.
 
-N is INTEGER The number of columns of the matrix C.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### V (in)
-
-V is COMPLEX array, dimension (M) if SIDE = 'L' or (N) if SIDE = 'R' The vector v in the representation of H.
-
-### TAU (in)
-
-TAU is COMPLEX The value tau in the representation of H.
-
-### C (in,out)
-
-C is COMPLEX array, dimension (LDC,N) On entry, the m by n matrix C. On exit, C is overwritten by the matrix H * C if SIDE = 'L', or C * H if SIDE = 'R'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N) if SIDE = 'L' or (M) if SIDE = 'R' WORK is not referenced if H has order < 11.
+Work : Complex Array, Dimension (n) If Side = 'l' [out]
+> or (M) if SIDE = 'R'
+> WORK is not referenced if H has order < 11.
 

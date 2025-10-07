@@ -1,13 +1,14 @@
-# ZGERC
-
-## Function Signature
-
 ```fortran
-ZGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+subroutine zgerc	(	integer	m,
+		integer	n,
+		complex*16	alpha,
+		complex*16, dimension(*)	x,
+		integer	incx,
+		complex*16, dimension(*)	y,
+		integer	incy,
+		complex*16, dimension(lda,*)	a,
+		integer	lda )
 ```
-
-## Description
-
 
  ZGERC  performs the rank 1 operation
 
@@ -17,40 +18,42 @@ ZGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
  vector and A is an m by n matrix.
 
 ## Parameters
+M : Integer [in]
+> On entry, M specifies the number of rows of the matrix A.
+> M must be at least zero.
 
-### M (in)
+N : Integer [in]
+> On entry, N specifies the number of columns of the matrix A.
+> N must be at least zero.
 
-M is INTEGER On entry, M specifies the number of rows of the matrix A. M must be at least zero.
+Alpha : Complex*16 [in]
+> On entry, ALPHA specifies the scalar alpha.
 
-### N (in)
+X : Complex*16 Array, Dimension At Least [in]
+> ( 1 + ( m - 1 )*abs( INCX ) ).
+> Before entry, the incremented array X must contain the m
+> element vector x.
 
-N is INTEGER On entry, N specifies the number of columns of the matrix A. N must be at least zero.
+Incx : Integer [in]
+> On entry, INCX specifies the increment for the elements of
+> X. INCX must not be zero.
 
-### ALPHA (in)
+Y : Complex*16 Array, Dimension At Least [in]
+> ( 1 + ( n - 1 )*abs( INCY ) ).
+> Before entry, the incremented array Y must contain the n
+> element vector y.
 
-ALPHA is COMPLEX*16 On entry, ALPHA specifies the scalar alpha.
+Incy : Integer [in]
+> On entry, INCY specifies the increment for the elements of
+> Y. INCY must not be zero.
 
-### X (in)
+A : Complex*16 Array, Dimension ( Lda, N ) [in,out]
+> Before entry, the leading m by n part of the array A must
+> contain the matrix of coefficients. On exit, A is
+> overwritten by the updated matrix.
 
-X is COMPLEX*16 array, dimension at least ( 1 + ( m - 1 )*abs( INCX ) ). Before entry, the incremented array X must contain the m element vector x.
-
-### INCX (in)
-
-INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero.
-
-### Y (in)
-
-Y is COMPLEX*16 array, dimension at least ( 1 + ( n - 1 )*abs( INCY ) ). Before entry, the incremented array Y must contain the n element vector y.
-
-### INCY (in)
-
-INCY is INTEGER On entry, INCY specifies the increment for the elements of Y. INCY must not be zero.
-
-### A (in,out)
-
-A is COMPLEX*16 array, dimension ( LDA, N ) Before entry, the leading m by n part of the array A must contain the matrix of coefficients. On exit, A is overwritten by the updated matrix.
-
-### LDA (in)
-
-LDA is INTEGER On entry, LDA specifies the first dimension of A as declared in the calling (sub) program. LDA must be at least max( 1, m ).
+Lda : Integer [in]
+> On entry, LDA specifies the first dimension of A as declared
+> in the calling (sub) program. LDA must be at least
+> max( 1, m ).
 

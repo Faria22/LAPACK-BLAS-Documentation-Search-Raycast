@@ -1,14 +1,16 @@
-# SGBTRS
-
-## Function Signature
-
 ```fortran
-SGBTRS(TRANS, N, KL, KU, NRHS, AB, LDAB, IPIV, B, LDB,
-*                          INFO)
+subroutine sgbtrs	(	trans,
+		n,
+		kl,
+		ku,
+		nrhs,
+		ab,
+		ldab,
+		ipiv,
+		b,
+		ldb,
+		*                          info )
 ```
-
-## Description
-
 
  SGBTRS solves a system of linear equations
     A * X = B  or  A**T * X = B
@@ -16,48 +18,47 @@ SGBTRS(TRANS, N, KL, KU, NRHS, AB, LDAB, IPIV, B, LDB,
  by SGBTRF.
 
 ## Parameters
+Trans : Character*1 [in]
+> Specifies the form of the system of equations.
+> = 'N':  A * X = B  (No transpose)
+> = 'T':  A**T* X = B  (Transpose)
+> = 'C':  A**T* X = B  (Conjugate transpose = Transpose)
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-TRANS is CHARACTER*1 Specifies the form of the system of equations. = 'N': A * X = B (No transpose) = 'T': A**T* X = B (Transpose) = 'C': A**T* X = B (Conjugate transpose = Transpose)
+Kl : Integer [in]
+> The number of subdiagonals within the band of A.  KL >= 0.
 
-### N (in)
+Ku : Integer [in]
+> The number of superdiagonals within the band of A.  KU >= 0.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### KL (in)
+Ab : Real Array, Dimension (ldab,n) [in]
+> Details of the LU factorization of the band matrix A, as
+> computed by SGBTRF.  U is stored as an upper triangular band
+> matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
+> the multipliers used during the factorization are stored in
+> rows KL+KU+2 to 2*KL+KU+1.
 
-KL is INTEGER The number of subdiagonals within the band of A. KL >= 0.
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
 
-### KU (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices; for 1 <= i <= N, row i of the matrix was
+> interchanged with row IPIV(i).
 
-KU is INTEGER The number of superdiagonals within the band of A. KU >= 0.
+B : Real Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side matrix B.
+> On exit, the solution matrix X.
 
-### NRHS (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
-
-### AB (in)
-
-AB is REAL array, dimension (LDAB,N) Details of the LU factorization of the band matrix A, as computed by SGBTRF. U is stored as an upper triangular band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and the multipliers used during the factorization are stored in rows KL+KU+2 to 2*KL+KU+1.
-
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= 2*KL+KU+1.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices; for 1 <= i <= N, row i of the matrix was interchanged with row IPIV(i).
-
-### B (in,out)
-
-B is REAL array, dimension (LDB,NRHS) On entry, the right hand side matrix B. On exit, the solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

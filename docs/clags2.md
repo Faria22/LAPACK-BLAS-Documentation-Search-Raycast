@@ -1,14 +1,18 @@
-# CLAGS2
-
-## Function Signature
-
 ```fortran
-CLAGS2(UPPER, A1, A2, A3, B1, B2, B3, CSU, SNU, CSV,
-*                          SNV, CSQ, SNQ)
+subroutine clags2	(	upper,
+		a1,
+		a2,
+		a3,
+		b1,
+		b2,
+		b3,
+		csu,
+		snu,
+		csv,
+		*                          snv,
+		csq,
+		snq )
 ```
-
-## Description
-
 
  CLAGS2 computes 2-by-2 unitary matrices U, V and Q, such
  that if ( UPPER ) then
@@ -42,56 +46,38 @@ CLAGS2(UPPER, A1, A2, A3, B1, B2, B3, CSU, SNU, CSV,
  zero.
 
 ## Parameters
+Upper : Logical [in]
+> = .TRUE.: the input matrices A and B are upper triangular.
+> = .FALSE.: the input matrices A and B are lower triangular.
 
-### UPPER (in)
+A1 : Real [in]
 
-UPPER is LOGICAL = .TRUE.: the input matrices A and B are upper triangular. = .FALSE.: the input matrices A and B are lower triangular.
+A2 : Complex [in]
 
-### A1 (in)
+A3 : Real [in]
+> On entry, A1, A2 and A3 are elements of the input 2-by-2
+> upper (lower) triangular matrix A.
 
-A1 is REAL
+B1 : Real [in]
 
-### A2 (in)
+B2 : Complex [in]
 
-A2 is COMPLEX
+B3 : Real [in]
+> On entry, B1, B2 and B3 are elements of the input 2-by-2
+> upper (lower) triangular matrix B.
 
-### A3 (in)
+Csu : Real [out]
 
-A3 is REAL On entry, A1, A2 and A3 are elements of the input 2-by-2 upper (lower) triangular matrix A.
+Snu : Complex [out]
+> The desired unitary matrix U.
 
-### B1 (in)
+Csv : Real [out]
 
-B1 is REAL
+Snv : Complex [out]
+> The desired unitary matrix V.
 
-### B2 (in)
+Csq : Real [out]
 
-B2 is COMPLEX
-
-### B3 (in)
-
-B3 is REAL On entry, B1, B2 and B3 are elements of the input 2-by-2 upper (lower) triangular matrix B.
-
-### CSU (out)
-
-CSU is REAL
-
-### SNU (out)
-
-SNU is COMPLEX The desired unitary matrix U.
-
-### CSV (out)
-
-CSV is REAL
-
-### SNV (out)
-
-SNV is COMPLEX The desired unitary matrix V.
-
-### CSQ (out)
-
-CSQ is REAL
-
-### SNQ (out)
-
-SNQ is COMPLEX The desired unitary matrix Q.
+Snq : Complex [out]
+> The desired unitary matrix Q.
 

@@ -1,14 +1,16 @@
-# ZTBTRS
-
-## Function Signature
-
 ```fortran
-ZTBTRS(UPLO, TRANS, DIAG, N, KD, NRHS, AB, LDAB, B,
-*                          LDB, INFO)
+subroutine ztbtrs	(	uplo,
+		trans,
+		diag,
+		n,
+		kd,
+		nrhs,
+		ab,
+		ldab,
+		b,
+		*                          ldb,
+		info )
 ```
-
-## Description
-
 
  ZTBTRS solves a triangular system of the form
 
@@ -24,48 +26,54 @@ ZTBTRS(UPLO, TRANS, DIAG, N, KD, NRHS, AB, LDAB, B,
  caller should verify that A is nonsingular within some tolerance before calling this subroutine.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  A is upper triangular;
+> = 'L':  A is lower triangular.
 
-### UPLO (in)
+Trans : Character*1 [in]
+> Specifies the form of the system of equations:
+> = 'N':  A * X = B     (No transpose)
+> = 'T':  A**T * X = B  (Transpose)
+> = 'C':  A**H * X = B  (Conjugate transpose)
 
-UPLO is CHARACTER*1 = 'U': A is upper triangular; = 'L': A is lower triangular.
+Diag : Character*1 [in]
+> = 'N':  A is non-unit triangular;
+> = 'U':  A is unit triangular.
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-TRANS is CHARACTER*1 Specifies the form of the system of equations: = 'N': A * X = B (No transpose) = 'T': A**T * X = B (Transpose) = 'C': A**H * X = B (Conjugate transpose)
+Kd : Integer [in]
+> The number of superdiagonals or subdiagonals of the
+> triangular band matrix A.  KD >= 0.
 
-### DIAG (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-DIAG is CHARACTER*1 = 'N': A is non-unit triangular; = 'U': A is unit triangular.
+Ab : Complex*16 Array, Dimension (ldab,n) [in]
+> The upper or lower triangular band matrix A, stored in the
+> first kd+1 rows of AB.  The j-th column of A is stored
+> in the j-th column of the array AB as follows:
+> if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+> If DIAG = 'U', the diagonal elements of A are not referenced
+> and are assumed to be 1.
 
-### N (in)
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KD+1.
 
-N is INTEGER The order of the matrix A. N >= 0.
+B : Complex*16 Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side matrix B.
+> On exit, if INFO = 0, the solution matrix X.
 
-### KD (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-KD is INTEGER The number of superdiagonals or subdiagonals of the triangular band matrix A. KD >= 0.
-
-### NRHS (in)
-
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
-
-### AB (in)
-
-AB is COMPLEX*16 array, dimension (LDAB,N) The upper or lower triangular band matrix A, stored in the first kd+1 rows of AB. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+kd). If DIAG = 'U', the diagonal elements of A are not referenced and are assumed to be 1.
-
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KD+1.
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) On entry, the right hand side matrix B. On exit, if INFO = 0, the solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the i-th diagonal element of A is exactly zero, indicating that the matrix is singular and the solutions X have not been computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the i-th diagonal element of A is exactly zero,
+> indicating that the matrix is singular and the
+> solutions X have not been computed.
 

@@ -1,14 +1,18 @@
-# CSTEIN
-
-## Function Signature
-
 ```fortran
-CSTEIN(N, D, E, M, W, IBLOCK, ISPLIT, Z, LDZ, WORK,
-*                          IWORK, IFAIL, INFO)
+subroutine cstein	(	n,
+		d,
+		e,
+		m,
+		w,
+		iblock,
+		isplit,
+		z,
+		ldz,
+		work,
+		*                          iwork,
+		ifail,
+		info )
 ```
-
-## Description
-
 
  CSTEIN computes the eigenvectors of a real symmetric tridiagonal
  matrix T corresponding to specified eigenvalues, using inverse
@@ -24,56 +28,64 @@ CSTEIN(N, D, E, M, W, IBLOCK, ISPLIT, Z, LDZ, WORK,
 
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix.  N >= 0.
 
-### N (in)
+D : Real Array, Dimension (n) [in]
+> The n diagonal elements of the tridiagonal matrix T.
 
-N is INTEGER The order of the matrix. N >= 0.
+E : Real Array, Dimension (n-1) [in]
+> The (n-1) subdiagonal elements of the tridiagonal matrix
+> T, stored in elements 1 to N-1.
 
-### D (in)
+M : Integer [in]
+> The number of eigenvectors to be found.  0 <= M <= N.
 
-D is REAL array, dimension (N) The n diagonal elements of the tridiagonal matrix T.
+W : Real Array, Dimension (n) [in]
+> The first M elements of W contain the eigenvalues for
+> which eigenvectors are to be computed.  The eigenvalues
+> should be grouped by split-off block and ordered from
+> smallest to largest within the block.  ( The output array
+> W from SSTEBZ with ORDER = 'B' is expected here. )
 
-### E (in)
+Iblock : Integer Array, Dimension (n) [in]
+> The submatrix indices associated with the corresponding
+> eigenvalues in W; IBLOCK(i)=1 if eigenvalue W(i) belongs to
+> the first submatrix from the top, =2 if W(i) belongs to
+> the second submatrix, etc.  ( The output array IBLOCK
+> from SSTEBZ is expected here. )
 
-E is REAL array, dimension (N-1) The (n-1) subdiagonal elements of the tridiagonal matrix T, stored in elements 1 to N-1.
+Isplit : Integer Array, Dimension (n) [in]
+> The splitting points, at which T breaks up into submatrices.
+> The first submatrix consists of rows/columns 1 to
+> ISPLIT( 1 ), the second of rows/columns ISPLIT( 1 )+1
+> through ISPLIT( 2 ), etc.
+> ( The output array ISPLIT from SSTEBZ is expected here. )
 
-### M (in)
+Z : Complex Array, Dimension (ldz, M) [out]
+> The computed eigenvectors.  The eigenvector associated
+> with the eigenvalue W(i) is stored in the i-th column of
+> Z.  Any vector which fails to converge is set to its current
+> iterate after MAXITS iterations.
+> The imaginary parts of the eigenvectors are set to zero.
 
-M is INTEGER The number of eigenvectors to be found. 0 <= M <= N.
+Ldz : Integer [in]
+> The leading dimension of the array Z.  LDZ >= max(1,N).
 
-### W (in)
+Work : Real Array, Dimension (5*n) [out]
 
-W is REAL array, dimension (N) The first M elements of W contain the eigenvalues for which eigenvectors are to be computed. The eigenvalues should be grouped by split-off block and ordered from smallest to largest within the block. ( The output array W from SSTEBZ with ORDER = 'B' is expected here. )
+Iwork : Integer Array, Dimension (n) [out]
 
-### IBLOCK (in)
+Ifail : Integer Array, Dimension (m) [out]
+> On normal exit, all elements of IFAIL are zero.
+> If one or more eigenvectors fail to converge after
+> MAXITS iterations, then their indices are stored in
+> array IFAIL.
 
-IBLOCK is INTEGER array, dimension (N) The submatrix indices associated with the corresponding eigenvalues in W; IBLOCK(i)=1 if eigenvalue W(i) belongs to the first submatrix from the top, =2 if W(i) belongs to the second submatrix, etc. ( The output array IBLOCK from SSTEBZ is expected here. )
-
-### ISPLIT (in)
-
-ISPLIT is INTEGER array, dimension (N) The splitting points, at which T breaks up into submatrices. The first submatrix consists of rows/columns 1 to ISPLIT( 1 ), the second of rows/columns ISPLIT( 1 )+1 through ISPLIT( 2 ), etc. ( The output array ISPLIT from SSTEBZ is expected here. )
-
-### Z (out)
-
-Z is COMPLEX array, dimension (LDZ, M) The computed eigenvectors. The eigenvector associated with the eigenvalue W(i) is stored in the i-th column of Z. Any vector which fails to converge is set to its current iterate after MAXITS iterations. The imaginary parts of the eigenvectors are set to zero.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= max(1,N).
-
-### WORK (out)
-
-WORK is REAL array, dimension (5*N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N)
-
-### IFAIL (out)
-
-IFAIL is INTEGER array, dimension (M) On normal exit, all elements of IFAIL are zero. If one or more eigenvectors fail to converge after MAXITS iterations, then their indices are stored in array IFAIL.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, then i eigenvectors failed to converge in MAXITS iterations. Their indices are stored in array IFAIL.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> > 0: if INFO = i, then i eigenvectors failed to converge
+> in MAXITS iterations.  Their indices are stored in
+> array IFAIL.
 

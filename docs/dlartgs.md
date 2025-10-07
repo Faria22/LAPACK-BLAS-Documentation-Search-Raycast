@@ -1,13 +1,10 @@
-# DLARTGS
-
-## Function Signature
-
 ```fortran
-DLARTGS(X, Y, SIGMA, CS, SN)
+subroutine dlartgs	(	double precision	x,
+		double precision	y,
+		double precision	sigma,
+		double precision	cs,
+		double precision	sn )
 ```
-
-## Description
-
 
  DLARTGS generates a plane rotation designed to introduce a bulge in
  Golub-Reinsch-style implicit QR iteration for the bidiagonal SVD
@@ -21,24 +18,18 @@ DLARTGS(X, Y, SIGMA, CS, SN)
  rotation is by PI/2.
 
 ## Parameters
+X : Double Precision [in]
+> The (1,1) entry of an upper bidiagonal matrix.
 
-### X (in)
+Y : Double Precision [in]
+> The (1,2) entry of an upper bidiagonal matrix.
 
-X is DOUBLE PRECISION The (1,1) entry of an upper bidiagonal matrix.
+Sigma : Double Precision [in]
+> The shift.
 
-### Y (in)
+Cs : Double Precision [out]
+> The cosine of the rotation.
 
-Y is DOUBLE PRECISION The (1,2) entry of an upper bidiagonal matrix.
-
-### SIGMA (in)
-
-SIGMA is DOUBLE PRECISION The shift.
-
-### CS (out)
-
-CS is DOUBLE PRECISION The cosine of the rotation.
-
-### SN (out)
-
-SN is DOUBLE PRECISION The sine of the rotation.
+Sn : Double Precision [out]
+> The sine of the rotation.
 

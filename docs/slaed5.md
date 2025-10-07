@@ -1,13 +1,11 @@
-# SLAED5
-
-## Function Signature
-
 ```fortran
-SLAED5(I, D, Z, DELTA, RHO, DLAM)
+subroutine slaed5	(	integer	i,
+		real, dimension(2)	d,
+		real, dimension(2)	z,
+		real, dimension(2)	delta,
+		real	rho,
+		real	dlam )
 ```
-
-## Description
-
 
  This subroutine computes the I-th eigenvalue of a symmetric rank-one
  modification of a 2-by-2 diagonal matrix
@@ -22,28 +20,22 @@ SLAED5(I, D, Z, DELTA, RHO, DLAM)
  Z is one.
 
 ## Parameters
+I : Integer [in]
+> The index of the eigenvalue to be computed.  I = 1 or I = 2.
 
-### I (in)
+D : Real Array, Dimension (2) [in]
+> The original eigenvalues.  We assume D(1) < D(2).
 
-I is INTEGER The index of the eigenvalue to be computed. I = 1 or I = 2.
+Z : Real Array, Dimension (2) [in]
+> The components of the updating vector.
 
-### D (in)
+Delta : Real Array, Dimension (2) [out]
+> The vector DELTA contains the information necessary
+> to construct the eigenvectors.
 
-D is REAL array, dimension (2) The original eigenvalues. We assume D(1) < D(2).
+Rho : Real [in]
+> The scalar in the symmetric updating formula.
 
-### Z (in)
-
-Z is REAL array, dimension (2) The components of the updating vector.
-
-### DELTA (out)
-
-DELTA is REAL array, dimension (2) The vector DELTA contains the information necessary to construct the eigenvectors.
-
-### RHO (in)
-
-RHO is REAL The scalar in the symmetric updating formula.
-
-### DLAM (out)
-
-DLAM is REAL The computed lambda_I, the I-th updated eigenvalue.
+Dlam : Real [out]
+> The computed lambda_I, the I-th updated eigenvalue.
 

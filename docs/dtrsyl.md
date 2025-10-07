@@ -1,14 +1,18 @@
-# DTRSYL
-
-## Function Signature
-
 ```fortran
-DTRSYL(TRANA, TRANB, ISGN, M, N, A, LDA, B, LDB, C,
-*                          LDC, SCALE, INFO)
+subroutine dtrsyl	(	trana,
+		tranb,
+		isgn,
+		m,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		c,
+		*                          ldc,
+		scale,
+		info )
 ```
-
-## Description
-
 
  DTRSYL solves the real Sylvester matrix equation:
 
@@ -26,56 +30,57 @@ DTRSYL(TRANA, TRANB, ISGN, M, N, A, LDA, B, LDB, C,
  off-diagonal elements of opposite sign.
 
 ## Parameters
+Trana : Character*1 [in]
+> Specifies the option op(A):
+> = 'N': op(A) = A    (No transpose)
+> = 'T': op(A) = A**T (Transpose)
+> = 'C': op(A) = A**H (Conjugate transpose = Transpose)
 
-### TRANA (in)
+Tranb : Character*1 [in]
+> Specifies the option op(B):
+> = 'N': op(B) = B    (No transpose)
+> = 'T': op(B) = B**T (Transpose)
+> = 'C': op(B) = B**H (Conjugate transpose = Transpose)
 
-TRANA is CHARACTER*1 Specifies the option op(A): = 'N': op(A) = A (No transpose) = 'T': op(A) = A**T (Transpose) = 'C': op(A) = A**H (Conjugate transpose = Transpose)
+Isgn : Integer [in]
+> Specifies the sign in the equation:
+> = +1: solve op(A)*X + X*op(B) = scale*C
+> = -1: solve op(A)*X - X*op(B) = scale*C
 
-### TRANB (in)
+M : Integer [in]
+> The order of the matrix A, and the number of rows in the
+> matrices X and C. M >= 0.
 
-TRANB is CHARACTER*1 Specifies the option op(B): = 'N': op(B) = B (No transpose) = 'T': op(B) = B**T (Transpose) = 'C': op(B) = B**H (Conjugate transpose = Transpose)
+N : Integer [in]
+> The order of the matrix B, and the number of columns in the
+> matrices X and C. N >= 0.
 
-### ISGN (in)
+A : Double Precision Array, Dimension (lda,m) [in]
+> The upper quasi-triangular matrix A, in Schur canonical form.
 
-ISGN is INTEGER Specifies the sign in the equation: = +1: solve op(A)*X + X*op(B) = scale*C = -1: solve op(A)*X - X*op(B) = scale*C
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-### M (in)
+B : Double Precision Array, Dimension (ldb,n) [in]
+> The upper quasi-triangular matrix B, in Schur canonical form.
 
-M is INTEGER The order of the matrix A, and the number of rows in the matrices X and C. M >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-### N (in)
+C : Double Precision Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N right hand side matrix C.
+> On exit, C is overwritten by the solution matrix X.
 
-N is INTEGER The order of the matrix B, and the number of columns in the matrices X and C. N >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M)
 
-### A (in)
+Scale : Double Precision [out]
+> The scale factor, scale, set <= 1 to avoid overflow in X.
 
-A is DOUBLE PRECISION array, dimension (LDA,M) The upper quasi-triangular matrix A, in Schur canonical form.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### B (in)
-
-B is DOUBLE PRECISION array, dimension (LDB,N) The upper quasi-triangular matrix B, in Schur canonical form.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC,N) On entry, the M-by-N right hand side matrix C. On exit, C is overwritten by the solution matrix X.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M)
-
-### SCALE (out)
-
-SCALE is DOUBLE PRECISION The scale factor, scale, set <= 1 to avoid overflow in X.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value = 1: A and B have common or very close eigenvalues; perturbed values were used to solve the equation (but the matrices A and B are unchanged).
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> = 1: A and B have common or very close eigenvalues; perturbed
+> values were used to solve the equation (but the matrices
+> A and B are unchanged).
 

@@ -1,13 +1,11 @@
-# SROTM
-
-## Function Signature
-
 ```fortran
-SROTM(N,SX,INCX,SY,INCY,SPARAM)
+subroutine srotm	(	integer	n,
+		real, dimension(*)	sx,
+		integer	incx,
+		real, dimension(*)	sy,
+		integer	incy,
+		real, dimension(5)	sparam )
 ```
-
-## Description
-
 
     APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX
 
@@ -30,28 +28,23 @@ SROTM(N,SX,INCX,SY,INCY,SPARAM)
 
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Sx : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of SX
 
-### SX (in,out)
+Sy : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+Incy : Integer [in]
+> storage spacing between elements of SY
 
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of SX
-
-### SY (in,out)
-
-SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of SY
-
-### SPARAM (in)
-
-SPARAM is REAL array, dimension (5) SPARAM(1)=SFLAG SPARAM(2)=SH11 SPARAM(3)=SH21 SPARAM(4)=SH12 SPARAM(5)=SH22
+Sparam : Real Array, Dimension (5) [in]
+> SPARAM(1)=SFLAG
+> SPARAM(2)=SH11
+> SPARAM(3)=SH21
+> SPARAM(4)=SH12
+> SPARAM(5)=SH22
 

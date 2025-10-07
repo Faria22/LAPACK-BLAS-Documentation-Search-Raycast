@@ -1,14 +1,17 @@
-# CGBCON
-
-## Function Signature
-
 ```fortran
-CGBCON(NORM, N, KL, KU, AB, LDAB, IPIV, ANORM, RCOND,
-*                          WORK, RWORK, INFO)
+subroutine cgbcon	(	norm,
+		n,
+		kl,
+		ku,
+		ab,
+		ldab,
+		ipiv,
+		anorm,
+		rcond,
+		*                          work,
+		rwork,
+		info )
 ```
-
-## Description
-
 
  CGBCON estimates the reciprocal of the condition number of a complex
  general band matrix A, in either the 1-norm or the infinity-norm,
@@ -19,52 +22,48 @@ CGBCON(NORM, N, KL, KU, AB, LDAB, IPIV, ANORM, RCOND,
     RCOND = 1 / ( norm(A) * norm(inv(A)) ).
 
 ## Parameters
+Norm : Character*1 [in]
+> Specifies whether the 1-norm condition number or the
+> infinity-norm condition number is required:
+> = '1' or 'O':  1-norm;
+> = 'I':         Infinity-norm.
 
-### NORM (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-NORM is CHARACTER*1 Specifies whether the 1-norm condition number or the infinity-norm condition number is required: = '1' or 'O': 1-norm; = 'I': Infinity-norm.
+Kl : Integer [in]
+> The number of subdiagonals within the band of A.  KL >= 0.
 
-### N (in)
+Ku : Integer [in]
+> The number of superdiagonals within the band of A.  KU >= 0.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ab : Complex Array, Dimension (ldab,n) [in]
+> Details of the LU factorization of the band matrix A, as
+> computed by CGBTRF.  U is stored as an upper triangular band
+> matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
+> the multipliers used during the factorization are stored in
+> rows KL+KU+2 to 2*KL+KU+1.
 
-### KL (in)
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
 
-KL is INTEGER The number of subdiagonals within the band of A. KL >= 0.
+Ipiv : Integer Array, Dimension (n) [in]
+> The pivot indices; for 1 <= i <= N, row i of the matrix was
+> interchanged with row IPIV(i).
 
-### KU (in)
+Anorm : Real [in]
+> If NORM = '1' or 'O', the 1-norm of the original matrix A.
+> If NORM = 'I', the infinity-norm of the original matrix A.
 
-KU is INTEGER The number of superdiagonals within the band of A. KU >= 0.
+Rcond : Real [out]
+> The reciprocal of the condition number of the matrix A,
+> computed as RCOND = 1/(norm(A) * norm(inv(A))).
 
-### AB (in)
+Work : Complex Array, Dimension (2*n) [out]
 
-AB is COMPLEX array, dimension (LDAB,N) Details of the LU factorization of the band matrix A, as computed by CGBTRF. U is stored as an upper triangular band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and the multipliers used during the factorization are stored in rows KL+KU+2 to 2*KL+KU+1.
+Rwork : Real Array, Dimension (n) [out]
 
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= 2*KL+KU+1.
-
-### IPIV (in)
-
-IPIV is INTEGER array, dimension (N) The pivot indices; for 1 <= i <= N, row i of the matrix was interchanged with row IPIV(i).
-
-### ANORM (in)
-
-ANORM is REAL If NORM = '1' or 'O', the 1-norm of the original matrix A. If NORM = 'I', the infinity-norm of the original matrix A.
-
-### RCOND (out)
-
-RCOND is REAL The reciprocal of the condition number of the matrix A, computed as RCOND = 1/(norm(A) * norm(inv(A))).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (2*N)
-
-### RWORK (out)
-
-RWORK is REAL array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

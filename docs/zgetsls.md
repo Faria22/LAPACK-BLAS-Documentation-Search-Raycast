@@ -1,14 +1,16 @@
-# ZGETSLS
-
-## Function Signature
-
 ```fortran
-ZGETSLS(TRANS, M, N, NRHS, A, LDA, B, LDB,
-*     $                     WORK, LWORK, INFO)
+subroutine zgetsls	(	trans,
+		m,
+		n,
+		nrhs,
+		a,
+		lda,
+		b,
+		ldb,
+		*     $                     work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  ZGETSLS solves overdetermined or underdetermined complex linear systems
  involving an M-by-N matrix A, using a tall skinny QR or short wide LQ
@@ -47,48 +49,65 @@ ZGETSLS(TRANS, M, N, NRHS, A, LDA, B, LDB,
  matrix X.
 
 ## Parameters
+Trans : Character*1 [in]
+> = 'N': the linear system involves A;
+> = 'C': the linear system involves A**H.
 
-### TRANS (in)
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-TRANS is CHARACTER*1 = 'N': the linear system involves A; = 'C': the linear system involves A**H.
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-### M (in)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of
+> columns of the matrices B and X. NRHS >=0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit,
+> A is overwritten by details of its QR or LQ
+> factorization as returned by ZGEQR or ZGELQ.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+B : Complex*16 Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the matrix B of right hand side vectors, stored
+> columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
+> if TRANS = 'C'.
+> On exit, if INFO = 0, B is overwritten by the solution
+> vectors, stored columnwise:
+> if TRANS = 'N' and m >= n, rows 1 to n of B contain the least
+> squares solution vectors.
+> if TRANS = 'N' and m < n, rows 1 to N of B contain the
+> minimum norm solution vectors;
+> if TRANS = 'C' and m >= n, rows 1 to M of B contain the
+> minimum norm solution vectors;
+> if TRANS = 'C' and m < n, rows 1 to M of B contain the
+> least squares solution vectors.
 
-### NRHS (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= MAX(1,M,N).
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrices B and X. NRHS >=0.
+Work : (workspace) Complex*16 Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) contains optimal (or either minimal
+> or optimal, if query was assumed) LWORK.
+> See LWORK for details.
 
-### A (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= 1.
+> If LWORK = -1 or -2, then a workspace query is assumed.
+> If LWORK = -1, the routine calculates optimal size of WORK for the
+> optimal performance and returns this value in WORK(1).
+> If LWORK = -2, the routine calculates minimal size of WORK and
+> returns this value in WORK(1).
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, A is overwritten by details of its QR or LQ factorization as returned by ZGEQR or ZGELQ.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### B (in,out)
-
-B is COMPLEX*16 array, dimension (LDB,NRHS) On entry, the matrix B of right hand side vectors, stored columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS if TRANS = 'C'. On exit, if INFO = 0, B is overwritten by the solution vectors, stored columnwise: if TRANS = 'N' and m >= n, rows 1 to n of B contain the least squares solution vectors. if TRANS = 'N' and m < n, rows 1 to N of B contain the minimum norm solution vectors; if TRANS = 'C' and m >= n, rows 1 to M of B contain the minimum norm solution vectors; if TRANS = 'C' and m < n, rows 1 to M of B contain the least squares solution vectors.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= MAX(1,M,N).
-
-### WORK (out)
-
-(workspace) COMPLEX*16 array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) contains optimal (or either minimal or optimal, if query was assumed) LWORK. See LWORK for details.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1. If LWORK = -1 or -2, then a workspace query is assumed. If LWORK = -1, the routine calculates optimal size of WORK for the optimal performance and returns this value in WORK(1). If LWORK = -2, the routine calculates minimal size of WORK and returns this value in WORK(1).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the i-th diagonal element of the triangular factor of A is exactly zero, so that A does not have full rank; the least squares solution could not be computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO =  i, the i-th diagonal element of the
+> triangular factor of A is exactly zero, so that A does not have
+> full rank; the least squares solution could not be
+> computed.
 

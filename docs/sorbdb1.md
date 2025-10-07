@@ -1,14 +1,20 @@
-# SORBDB1
-
-## Function Signature
-
 ```fortran
-SORBDB1(M, P, Q, X11, LDX11, X21, LDX21, THETA, PHI,
-*                           TAUP1, TAUP2, TAUQ1, WORK, LWORK, INFO)
+subroutine sorbdb1	(	m,
+		p,
+		q,
+		x11,
+		ldx11,
+		x21,
+		ldx21,
+		theta,
+		phi,
+		*                           taup1,
+		taup2,
+		tauq1,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  SORBDB1 simultaneously bidiagonalizes the blocks of a tall and skinny
  matrix X with orthonormal columns:
@@ -32,64 +38,61 @@ SORBDB1(M, P, Q, X11, LDX11, X21, LDX21, THETA, PHI,
 
 
 ## Parameters
+M : Integer [in]
+> The number of rows X11 plus the number of rows in X21.
 
-### M (in)
+P : Integer [in]
+> The number of rows in X11. 0 <= P <= M.
 
-M is INTEGER The number of rows X11 plus the number of rows in X21.
+Q : Integer [in]
+> The number of columns in X11 and X21. 0 <= Q <=
+> MIN(P,M-P,M-Q).
 
-### P (in)
+X11 : Real Array, Dimension (ldx11,q) [in,out]
+> On entry, the top block of the matrix X to be reduced. On
+> exit, the columns of tril(X11) specify reflectors for P1 and
+> the rows of triu(X11,1) specify reflectors for Q1.
 
-P is INTEGER The number of rows in X11. 0 <= P <= M.
+Ldx11 : Integer [in]
+> The leading dimension of X11. LDX11 >= P.
 
-### Q (in)
+X21 : Real Array, Dimension (ldx21,q) [in,out]
+> On entry, the bottom block of the matrix X to be reduced. On
+> exit, the columns of tril(X21) specify reflectors for P2.
 
-Q is INTEGER The number of columns in X11 and X21. 0 <= Q <= MIN(P,M-P,M-Q).
+Ldx21 : Integer [in]
+> The leading dimension of X21. LDX21 >= M-P.
 
-### X11 (in,out)
+Theta : Real Array, Dimension (q) [out]
+> The entries of the bidiagonal blocks B11, B21 are defined by
+> THETA and PHI. See Further Details.
 
-X11 is REAL array, dimension (LDX11,Q) On entry, the top block of the matrix X to be reduced. On exit, the columns of tril(X11) specify reflectors for P1 and the rows of triu(X11,1) specify reflectors for Q1.
+Phi : Real Array, Dimension (q-1) [out]
+> The entries of the bidiagonal blocks B11, B21 are defined by
+> THETA and PHI. See Further Details.
 
-### LDX11 (in)
+Taup1 : Real Array, Dimension (p) [out]
+> The scalar factors of the elementary reflectors that define
+> P1.
 
-LDX11 is INTEGER The leading dimension of X11. LDX11 >= P.
+Taup2 : Real Array, Dimension (m-p) [out]
+> The scalar factors of the elementary reflectors that define
+> P2.
 
-### X21 (in,out)
+Tauq1 : Real Array, Dimension (q) [out]
+> The scalar factors of the elementary reflectors that define
+> Q1.
 
-X21 is REAL array, dimension (LDX21,Q) On entry, the bottom block of the matrix X to be reduced. On exit, the columns of tril(X21) specify reflectors for P2.
+Work : Real Array, Dimension (lwork) [out]
 
-### LDX21 (in)
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= M-Q.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-LDX21 is INTEGER The leading dimension of X21. LDX21 >= M-P.
-
-### THETA (out)
-
-THETA is REAL array, dimension (Q) The entries of the bidiagonal blocks B11, B21 are defined by THETA and PHI. See Further Details.
-
-### PHI (out)
-
-PHI is REAL array, dimension (Q-1) The entries of the bidiagonal blocks B11, B21 are defined by THETA and PHI. See Further Details.
-
-### TAUP1 (out)
-
-TAUP1 is REAL array, dimension (P) The scalar factors of the elementary reflectors that define P1.
-
-### TAUP2 (out)
-
-TAUP2 is REAL array, dimension (M-P) The scalar factors of the elementary reflectors that define P2.
-
-### TAUQ1 (out)
-
-TAUQ1 is REAL array, dimension (Q) The scalar factors of the elementary reflectors that define Q1.
-
-### WORK (out)
-
-WORK is REAL array, dimension (LWORK)
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= M-Q. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

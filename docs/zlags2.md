@@ -1,14 +1,18 @@
-# ZLAGS2
-
-## Function Signature
-
 ```fortran
-ZLAGS2(UPPER, A1, A2, A3, B1, B2, B3, CSU, SNU, CSV,
-*                          SNV, CSQ, SNQ)
+subroutine zlags2	(	upper,
+		a1,
+		a2,
+		a3,
+		b1,
+		b2,
+		b3,
+		csu,
+		snu,
+		csv,
+		*                          snv,
+		csq,
+		snq )
 ```
-
-## Description
-
 
  ZLAGS2 computes 2-by-2 unitary matrices U, V and Q, such
  that if ( UPPER ) then
@@ -42,56 +46,38 @@ ZLAGS2(UPPER, A1, A2, A3, B1, B2, B3, CSU, SNU, CSV,
  zero.
 
 ## Parameters
+Upper : Logical [in]
+> = .TRUE.: the input matrices A and B are upper triangular.
+> = .FALSE.: the input matrices A and B are lower triangular.
 
-### UPPER (in)
+A1 : Double Precision [in]
 
-UPPER is LOGICAL = .TRUE.: the input matrices A and B are upper triangular. = .FALSE.: the input matrices A and B are lower triangular.
+A2 : Complex*16 [in]
 
-### A1 (in)
+A3 : Double Precision [in]
+> On entry, A1, A2 and A3 are elements of the input 2-by-2
+> upper (lower) triangular matrix A.
 
-A1 is DOUBLE PRECISION
+B1 : Double Precision [in]
 
-### A2 (in)
+B2 : Complex*16 [in]
 
-A2 is COMPLEX*16
+B3 : Double Precision [in]
+> On entry, B1, B2 and B3 are elements of the input 2-by-2
+> upper (lower) triangular matrix B.
 
-### A3 (in)
+Csu : Double Precision [out]
 
-A3 is DOUBLE PRECISION On entry, A1, A2 and A3 are elements of the input 2-by-2 upper (lower) triangular matrix A.
+Snu : Complex*16 [out]
+> The desired unitary matrix U.
 
-### B1 (in)
+Csv : Double Precision [out]
 
-B1 is DOUBLE PRECISION
+Snv : Complex*16 [out]
+> The desired unitary matrix V.
 
-### B2 (in)
+Csq : Double Precision [out]
 
-B2 is COMPLEX*16
-
-### B3 (in)
-
-B3 is DOUBLE PRECISION On entry, B1, B2 and B3 are elements of the input 2-by-2 upper (lower) triangular matrix B.
-
-### CSU (out)
-
-CSU is DOUBLE PRECISION
-
-### SNU (out)
-
-SNU is COMPLEX*16 The desired unitary matrix U.
-
-### CSV (out)
-
-CSV is DOUBLE PRECISION
-
-### SNV (out)
-
-SNV is COMPLEX*16 The desired unitary matrix V.
-
-### CSQ (out)
-
-CSQ is DOUBLE PRECISION
-
-### SNQ (out)
-
-SNQ is COMPLEX*16 The desired unitary matrix Q.
+Snq : Complex*16 [out]
+> The desired unitary matrix Q.
 

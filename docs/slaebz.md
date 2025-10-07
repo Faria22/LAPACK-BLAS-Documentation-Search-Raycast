@@ -1,15 +1,25 @@
-# SLAEBZ
-
-## Function Signature
-
 ```fortran
-SLAEBZ(IJOB, NITMAX, N, MMAX, MINP, NBMIN, ABSTOL,
-*                          RELTOL, PIVMIN, D, E, E2, NVAL, AB, C, MOUT,
-*                          NAB, WORK, IWORK, INFO)
+subroutine slaebz	(	ijob,
+		nitmax,
+		n,
+		mmax,
+		minp,
+		nbmin,
+		abstol,
+		*                          reltol,
+		pivmin,
+		d,
+		e,
+		e2,
+		nval,
+		ab,
+		c,
+		mout,
+		*                          nab,
+		work,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  SLAEBZ contains the iteration loops which compute and use the
  function N(w), which is the count of eigenvalues of a symmetric
@@ -50,84 +60,128 @@ SLAEBZ(IJOB, NITMAX, N, MMAX, MINP, NBMIN, ABSTOL,
  values.
 
 ## Parameters
+Ijob : Integer [in]
+> Specifies what is to be done:
+> = 1:  Compute NAB for the initial intervals.
+> = 2:  Perform bisection iteration to find eigenvalues of T.
+> = 3:  Perform bisection iteration to invert N(w), i.e.,
+> to find a point which has a specified number of
+> eigenvalues of T to its left.
+> Other values will cause SLAEBZ to return with INFO=-1.
 
-### IJOB (in)
+Nitmax : Integer [in]
+> The maximum number of "levels" of bisection to be
+> performed, i.e., an interval of width W will not be made
+> smaller than 2^(-NITMAX) * W.  If not all intervals
+> have converged after NITMAX iterations, then INFO is set
+> to the number of non-converged intervals.
 
-IJOB is INTEGER Specifies what is to be done: = 1: Compute NAB for the initial intervals. = 2: Perform bisection iteration to find eigenvalues of T. = 3: Perform bisection iteration to invert N(w), i.e., to find a point which has a specified number of eigenvalues of T to its left. Other values will cause SLAEBZ to return with INFO=-1.
+N : Integer [in]
+> The dimension n of the tridiagonal matrix T.  It must be at
+> least 1.
 
-### NITMAX (in)
+Mmax : Integer [in]
+> The maximum number of intervals.  If more than MMAX intervals
+> are generated, then SLAEBZ will quit with INFO=MMAX+1.
 
-NITMAX is INTEGER The maximum number of "levels" of bisection to be performed, i.e., an interval of width W will not be made smaller than 2^(-NITMAX) * W. If not all intervals have converged after NITMAX iterations, then INFO is set to the number of non-converged intervals.
+Minp : Integer [in]
+> The initial number of intervals.  It may not be greater than
+> MMAX.
 
-### N (in)
+Nbmin : Integer [in]
+> The smallest number of intervals that should be processed
+> using a vector loop.  If zero, then only the scalar loop
+> will be used.
 
-N is INTEGER The dimension n of the tridiagonal matrix T. It must be at least 1.
+Abstol : Real [in]
+> The minimum (absolute) width of an interval.  When an
+> interval is narrower than ABSTOL, or than RELTOL times the
+> larger (in magnitude) endpoint, then it is considered to be
+> sufficiently small, i.e., converged.  This must be at least
+> zero.
 
-### MMAX (in)
+Reltol : Real [in]
+> The minimum relative width of an interval.  When an interval
+> is narrower than ABSTOL, or than RELTOL times the larger (in
+> magnitude) endpoint, then it is considered to be
+> sufficiently small, i.e., converged.  Note: this should
+> always be at least radix*machine epsilon.
 
-MMAX is INTEGER The maximum number of intervals. If more than MMAX intervals are generated, then SLAEBZ will quit with INFO=MMAX+1.
+Pivmin : Real [in]
+> The minimum absolute value of a "pivot" in the Sturm
+> sequence loop.
+> This must be at least  max |e(j)**2|*safe_min  and at
+> least safe_min, where safe_min is at least
+> the smallest number that can divide one without overflow.
 
-### MINP (in)
+D : Real Array, Dimension (n) [in]
+> The diagonal elements of the tridiagonal matrix T.
 
-MINP is INTEGER The initial number of intervals. It may not be greater than MMAX.
+E : Real Array, Dimension (n) [in]
+> The offdiagonal elements of the tridiagonal matrix T in
+> positions 1 through N-1.  E(N) is arbitrary.
 
-### NBMIN (in)
+E2 : Real Array, Dimension (n) [in]
+> The squares of the offdiagonal elements of the tridiagonal
+> matrix T.  E2(N) is ignored.
 
-NBMIN is INTEGER The smallest number of intervals that should be processed using a vector loop. If zero, then only the scalar loop will be used.
+Nval : Integer Array, Dimension (minp) [in,out]
+> If IJOB=1 or 2, not referenced.
+> If IJOB=3, the desired values of N(w).  The elements of NVAL
+> will be reordered to correspond with the intervals in AB.
+> Thus, NVAL(j) on output will not, in general be the same as
+> NVAL(j) on input, but it will correspond with the interval
+> (AB(j,1),AB(j,2)] on output.
 
-### ABSTOL (in)
+Ab : Real Array, Dimension (mmax,2) [in,out]
+> The endpoints of the intervals.  AB(j,1) is  a(j), the left
+> endpoint of the j-th interval, and AB(j,2) is b(j), the
+> right endpoint of the j-th interval.  The input intervals
+> will, in general, be modified, split, and reordered by the
+> calculation.
 
-ABSTOL is REAL The minimum (absolute) width of an interval. When an interval is narrower than ABSTOL, or than RELTOL times the larger (in magnitude) endpoint, then it is considered to be sufficiently small, i.e., converged. This must be at least zero.
+C : Real Array, Dimension (mmax) [in,out]
+> If IJOB=1, ignored.
+> If IJOB=2, workspace.
+> If IJOB=3, then on input C(j) should be initialized to the
+> first search point in the binary search.
 
-### RELTOL (in)
+Mout : Integer [out]
+> If IJOB=1, the number of eigenvalues in the intervals.
+> If IJOB=2 or 3, the number of intervals output.
+> If IJOB=3, MOUT will equal MINP.
 
-RELTOL is REAL The minimum relative width of an interval. When an interval is narrower than ABSTOL, or than RELTOL times the larger (in magnitude) endpoint, then it is considered to be sufficiently small, i.e., converged. Note: this should always be at least radix*machine epsilon.
+Nab : Integer Array, Dimension (mmax,2) [in,out]
+> If IJOB=1, then on output NAB(i,j) will be set to N(AB(i,j)).
+> If IJOB=2, then on input, NAB(i,j) should be set.  It must
+> satisfy the condition:
+> N(AB(i,1)) <= NAB(i,1) <= NAB(i,2) <= N(AB(i,2)),
+> which means that in interval i only eigenvalues
+> NAB(i,1)+1,...,NAB(i,2) will be considered.  Usually,
+> NAB(i,j)=N(AB(i,j)), from a previous call to SLAEBZ with
+> IJOB=1.
+> On output, NAB(i,j) will contain
+> max(na(k),min(nb(k),N(AB(i,j)))), where k is the index of
+> the input interval that the output interval
+> (AB(j,1),AB(j,2)] came from, and na(k) and nb(k) are the
+> the input values of NAB(k,1) and NAB(k,2).
+> If IJOB=3, then on output, NAB(i,j) contains N(AB(i,j)),
+> unless N(w) > NVAL(i) for all search points  w , in which
+> case NAB(i,1) will not be modified, i.e., the output
+> value will be the same as the input value (modulo
+> reorderings -- see NVAL and AB), or unless N(w) < NVAL(i)
+> for all search points  w , in which case NAB(i,2) will
+> not be modified.  Normally, NAB should be set to some
+> distinctive value(s) before SLAEBZ is called.
 
-### PIVMIN (in)
+Work : Real Array, Dimension (mmax) [out]
+> Workspace.
 
-PIVMIN is REAL The minimum absolute value of a "pivot" in the Sturm sequence loop. This must be at least max |e(j)**2|*safe_min and at least safe_min, where safe_min is at least the smallest number that can divide one without overflow.
+Iwork : Integer Array, Dimension (mmax) [out]
+> Workspace.
 
-### D (in)
-
-D is REAL array, dimension (N) The diagonal elements of the tridiagonal matrix T.
-
-### E (in)
-
-E is REAL array, dimension (N) The offdiagonal elements of the tridiagonal matrix T in positions 1 through N-1. E(N) is arbitrary.
-
-### E2 (in)
-
-E2 is REAL array, dimension (N) The squares of the offdiagonal elements of the tridiagonal matrix T. E2(N) is ignored.
-
-### NVAL (in,out)
-
-NVAL is INTEGER array, dimension (MINP) If IJOB=1 or 2, not referenced. If IJOB=3, the desired values of N(w). The elements of NVAL will be reordered to correspond with the intervals in AB. Thus, NVAL(j) on output will not, in general be the same as NVAL(j) on input, but it will correspond with the interval (AB(j,1),AB(j,2)] on output.
-
-### AB (in,out)
-
-AB is REAL array, dimension (MMAX,2) The endpoints of the intervals. AB(j,1) is a(j), the left endpoint of the j-th interval, and AB(j,2) is b(j), the right endpoint of the j-th interval. The input intervals will, in general, be modified, split, and reordered by the calculation.
-
-### C (in,out)
-
-C is REAL array, dimension (MMAX) If IJOB=1, ignored. If IJOB=2, workspace. If IJOB=3, then on input C(j) should be initialized to the first search point in the binary search.
-
-### MOUT (out)
-
-MOUT is INTEGER If IJOB=1, the number of eigenvalues in the intervals. If IJOB=2 or 3, the number of intervals output. If IJOB=3, MOUT will equal MINP.
-
-### NAB (in,out)
-
-NAB is INTEGER array, dimension (MMAX,2) If IJOB=1, then on output NAB(i,j) will be set to N(AB(i,j)). If IJOB=2, then on input, NAB(i,j) should be set. It must satisfy the condition: N(AB(i,1)) <= NAB(i,1) <= NAB(i,2) <= N(AB(i,2)), which means that in interval i only eigenvalues NAB(i,1)+1,...,NAB(i,2) will be considered. Usually, NAB(i,j)=N(AB(i,j)), from a previous call to SLAEBZ with IJOB=1. On output, NAB(i,j) will contain max(na(k),min(nb(k),N(AB(i,j)))), where k is the index of the input interval that the output interval (AB(j,1),AB(j,2)] came from, and na(k) and nb(k) are the the input values of NAB(k,1) and NAB(k,2). If IJOB=3, then on output, NAB(i,j) contains N(AB(i,j)), unless N(w) > NVAL(i) for all search points w , in which case NAB(i,1) will not be modified, i.e., the output value will be the same as the input value (modulo reorderings -- see NVAL and AB), or unless N(w) < NVAL(i) for all search points w , in which case NAB(i,2) will not be modified. Normally, NAB should be set to some distinctive value(s) before SLAEBZ is called.
-
-### WORK (out)
-
-WORK is REAL array, dimension (MMAX) Workspace.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MMAX) Workspace.
-
-### INFO (out)
-
-INFO is INTEGER = 0: All intervals converged. = 1--MMAX: The last INFO intervals did not converge. = MMAX+1: More than MMAX intervals were generated.
+Info : Integer [out]
+> = 0:       All intervals converged.
+> = 1--MMAX: The last INFO intervals did not converge.
+> = MMAX+1:  More than MMAX intervals were generated.
 

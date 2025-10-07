@@ -1,13 +1,13 @@
-# SLAED4
-
-## Function Signature
-
 ```fortran
-SLAED4(N, I, D, Z, DELTA, RHO, DLAM, INFO)
+subroutine slaed4	(	integer	n,
+		integer	i,
+		real, dimension(*)	d,
+		real, dimension(*)	z,
+		real, dimension(*)	delta,
+		real	rho,
+		real	dlam,
+		integer	info )
 ```
-
-## Description
-
 
  This subroutine computes the I-th updated eigenvalue of a symmetric
  rank-one modification to a diagonal matrix whose elements are
@@ -26,36 +26,32 @@ SLAED4(N, I, D, Z, DELTA, RHO, DLAM, INFO)
  secular equation by simpler interpolating rational functions.
 
 ## Parameters
+N : Integer [in]
+> The length of all arrays.
 
-### N (in)
+I : Integer [in]
+> The index of the eigenvalue to be computed.  1 <= I <= N.
 
-N is INTEGER The length of all arrays.
+D : Real Array, Dimension (n) [in]
+> The original eigenvalues.  It is assumed that they are in
+> order, D(I) < D(J)  for I < J.
 
-### I (in)
+Z : Real Array, Dimension (n) [in]
+> The components of the updating vector.
 
-I is INTEGER The index of the eigenvalue to be computed. 1 <= I <= N.
+Delta : Real Array, Dimension (n) [out]
+> If N > 2, DELTA contains (D(j) - lambda_I) in its  j-th
+> component.  If N = 1, then DELTA(1) = 1. If N = 2, see SLAED5
+> for detail. The vector DELTA contains the information necessary
+> to construct the eigenvectors by SLAED3 and SLAED9.
 
-### D (in)
+Rho : Real [in]
+> The scalar in the symmetric updating formula.
 
-D is REAL array, dimension (N) The original eigenvalues. It is assumed that they are in order, D(I) < D(J) for I < J.
+Dlam : Real [out]
+> The computed lambda_I, the I-th updated eigenvalue.
 
-### Z (in)
-
-Z is REAL array, dimension (N) The components of the updating vector.
-
-### DELTA (out)
-
-DELTA is REAL array, dimension (N) If N > 2, DELTA contains (D(j) - lambda_I) in its j-th component. If N = 1, then DELTA(1) = 1. If N = 2, see SLAED5 for detail. The vector DELTA contains the information necessary to construct the eigenvectors by SLAED3 and SLAED9.
-
-### RHO (in)
-
-RHO is REAL The scalar in the symmetric updating formula.
-
-### DLAM (out)
-
-DLAM is REAL The computed lambda_I, the I-th updated eigenvalue.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit > 0: if INFO = 1, the updating process failed.
+Info : Integer [out]
+> = 0:  successful exit
+> > 0:  if INFO = 1, the updating process failed.
 

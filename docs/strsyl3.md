@@ -1,15 +1,22 @@
-# STRSYL3
-
-## Function Signature
-
 ```fortran
-STRSYL3(TRANA, TRANB, ISGN, M, N, A, LDA, B, LDB,
-*                           C, LDC, SCALE, IWORK, LIWORK, SWORK,
-*                           LDSWORK, INFO)
+subroutine strsyl3	(	trana,
+		tranb,
+		isgn,
+		m,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		*                           c,
+		ldc,
+		scale,
+		iwork,
+		liwork,
+		swork,
+		*                           ldswork,
+		info )
 ```
-
-## Description
-
 
   STRSYL3 solves the real Sylvester matrix equation:
 
@@ -29,72 +36,81 @@ STRSYL3(TRANA, TRANB, ISGN, M, N, A, LDA, B, LDB,
   This is the block version of the algorithm.
 
 ## Parameters
+Trana : Character*1 [in]
+> Specifies the option op(A):
+> = 'N': op(A) = A    (No transpose)
+> = 'T': op(A) = A**T (Transpose)
+> = 'C': op(A) = A**H (Conjugate transpose = Transpose)
 
-### TRANA (in)
+Tranb : Character*1 [in]
+> Specifies the option op(B):
+> = 'N': op(B) = B    (No transpose)
+> = 'T': op(B) = B**T (Transpose)
+> = 'C': op(B) = B**H (Conjugate transpose = Transpose)
 
-TRANA is CHARACTER*1 Specifies the option op(A): = 'N': op(A) = A (No transpose) = 'T': op(A) = A**T (Transpose) = 'C': op(A) = A**H (Conjugate transpose = Transpose)
+Isgn : Integer [in]
+> Specifies the sign in the equation:
+> = +1: solve op(A)*X + X*op(B) = scale*C
+> = -1: solve op(A)*X - X*op(B) = scale*C
 
-### TRANB (in)
+M : Integer [in]
+> The order of the matrix A, and the number of rows in the
+> matrices X and C. M >= 0.
 
-TRANB is CHARACTER*1 Specifies the option op(B): = 'N': op(B) = B (No transpose) = 'T': op(B) = B**T (Transpose) = 'C': op(B) = B**H (Conjugate transpose = Transpose)
+N : Integer [in]
+> The order of the matrix B, and the number of columns in the
+> matrices X and C. N >= 0.
 
-### ISGN (in)
+A : Real Array, Dimension (lda,m) [in]
+> The upper quasi-triangular matrix A, in Schur canonical form.
 
-ISGN is INTEGER Specifies the sign in the equation: = +1: solve op(A)*X + X*op(B) = scale*C = -1: solve op(A)*X - X*op(B) = scale*C
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-### M (in)
+B : Real Array, Dimension (ldb,n) [in]
+> The upper quasi-triangular matrix B, in Schur canonical form.
 
-M is INTEGER The order of the matrix A, and the number of rows in the matrices X and C. M >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-### N (in)
+C : Real Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N right hand side matrix C.
+> On exit, C is overwritten by the solution matrix X.
 
-N is INTEGER The order of the matrix B, and the number of columns in the matrices X and C. N >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M)
 
-### A (in)
+Scale : Real [out]
+> The scale factor, scale, set <= 1 to avoid overflow in X.
 
-A is REAL array, dimension (LDA,M) The upper quasi-triangular matrix A, in Schur canonical form.
+Iwork : Integer Array, Dimension (max(1,liwork)) [out]
+> On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
 
-### LDA (in)
+Liwork : Integer [in]
+> The dimension of the array IWORK. LIWORK >=  ((M + NB - 1) / NB + 1)
+> + ((N + NB - 1) / NB + 1), where NB is the optimal block size.
+> If LIWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal dimension of the IWORK array,
+> returns this value as the first entry of the IWORK array, and
+> no error message related to LIWORK is issued by XERBLA.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Swork : Real Array, Dimension (max(2, Rows), [out]
+> MAX(1,COLS)).
+> On exit, if INFO = 0, SWORK(1) returns the optimal value ROWS
+> and SWORK(2) returns the optimal COLS.
 
-### B (in)
+Ldswork : Integer [in]
+> LDSWORK >= MAX(2,ROWS), where ROWS = ((M + NB - 1) / NB + 1)
+> and NB is the optimal block size.
+> If LDSWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal dimensions of the SWORK matrix,
+> returns these values as the first and second entry of the SWORK
+> matrix, and no error message related LWORK is issued by XERBLA.
 
-B is REAL array, dimension (LDB,N) The upper quasi-triangular matrix B, in Schur canonical form.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### C (in,out)
-
-C is REAL array, dimension (LDC,N) On entry, the M-by-N right hand side matrix C. On exit, C is overwritten by the solution matrix X.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M)
-
-### SCALE (out)
-
-SCALE is REAL The scale factor, scale, set <= 1 to avoid overflow in X.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MAX(1,LIWORK)) On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
-
-### LIWORK (in)
-
-IWORK is INTEGER The dimension of the array IWORK. LIWORK >= ((M + NB - 1) / NB + 1) + ((N + NB - 1) / NB + 1), where NB is the optimal block size. If LIWORK = -1, then a workspace query is assumed; the routine only calculates the optimal dimension of the IWORK array, returns this value as the first entry of the IWORK array, and no error message related to LIWORK is issued by XERBLA.
-
-### SWORK (out)
-
-SWORK is REAL array, dimension (MAX(2, ROWS), MAX(1,COLS)). On exit, if INFO = 0, SWORK(1) returns the optimal value ROWS and SWORK(2) returns the optimal COLS.
-
-### LDSWORK (in)
-
-LDSWORK is INTEGER LDSWORK >= MAX(2,ROWS), where ROWS = ((M + NB - 1) / NB + 1) and NB is the optimal block size. If LDSWORK = -1, then a workspace query is assumed; the routine only calculates the optimal dimensions of the SWORK matrix, returns these values as the first and second entry of the SWORK matrix, and no error message related LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value = 1: A and B have common or very close eigenvalues; perturbed values were used to solve the equation (but the matrices A and B are unchanged).
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> = 1: A and B have common or very close eigenvalues; perturbed
+> values were used to solve the equation (but the matrices
+> A and B are unchanged).
 

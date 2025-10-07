@@ -1,13 +1,10 @@
-# DLARTGP
-
-## Function Signature
-
 ```fortran
-DLARTGP(F, G, CS, SN, R)
+subroutine dlartgp	(	double precision	f,
+		double precision	g,
+		double precision	cs,
+		double precision	sn,
+		double precision	r )
 ```
-
-## Description
-
 
  DLARTGP generates a plane rotation so that
 
@@ -23,24 +20,20 @@ DLARTGP(F, G, CS, SN, R)
  The sign is chosen so that R >= 0.
 
 ## Parameters
+F : Double Precision [in]
+> The first component of vector to be rotated.
 
-### F (in)
+G : Double Precision [in]
+> The second component of vector to be rotated.
 
-F is DOUBLE PRECISION The first component of vector to be rotated.
+Cs : Double Precision [out]
+> The cosine of the rotation.
 
-### G (in)
+Sn : Double Precision [out]
+> The sine of the rotation.
 
-G is DOUBLE PRECISION The second component of vector to be rotated.
-
-### CS (out)
-
-CS is DOUBLE PRECISION The cosine of the rotation.
-
-### SN (out)
-
-SN is DOUBLE PRECISION The sine of the rotation.
-
-### R (out)
-
-R is DOUBLE PRECISION The nonzero component of the rotated vector. This version has a few statements commented out for thread safety (machine parameters are computed on each entry). 10 feb 03, SJH.
+R : Double Precision [out]
+> The nonzero component of the rotated vector.
+> This version has a few statements commented out for thread safety
+> (machine parameters are computed on each entry). 10 feb 03, SJH.
 

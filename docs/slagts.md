@@ -1,13 +1,15 @@
-# SLAGTS
-
-## Function Signature
-
 ```fortran
-SLAGTS(JOB, N, A, B, C, D, IN, Y, TOL, INFO)
+subroutine slagts	(	integer	job,
+		integer	n,
+		real, dimension(*)	a,
+		real, dimension(*)	b,
+		real, dimension(*)	c,
+		real, dimension(*)	d,
+		integer, dimension(*)	in,
+		real, dimension(*)	y,
+		real	tol,
+		integer	info )
 ```
-
-## Description
-
 
  SLAGTS may be used to solve one of the systems of equations
 
@@ -24,44 +26,65 @@ SLAGTS(JOB, N, A, B, C, D, IN, Y, TOL, INFO)
  being intended for use in applications such as inverse iteration.
 
 ## Parameters
+Job : Integer [in]
+> Specifies the job to be performed by SLAGTS as follows:
+> =  1: The equations  (T - lambda*I)x = y  are to be solved,
+> but diagonal elements of U are not to be perturbed.
+> = -1: The equations  (T - lambda*I)x = y  are to be solved
+> and, if overflow would otherwise occur, the diagonal
+> elements of U are to be perturbed. See argument TOL
+> below.
+> =  2: The equations  (T - lambda*I)**Tx = y  are to be solved,
+> but diagonal elements of U are not to be perturbed.
+> = -2: The equations  (T - lambda*I)**Tx = y  are to be solved
+> and, if overflow would otherwise occur, the diagonal
+> elements of U are to be perturbed. See argument TOL
+> below.
 
-### JOB (in)
+N : Integer [in]
+> The order of the matrix T.
 
-JOB is INTEGER Specifies the job to be performed by SLAGTS as follows: = 1: The equations (T - lambda*I)x = y are to be solved, but diagonal elements of U are not to be perturbed. = -1: The equations (T - lambda*I)x = y are to be solved and, if overflow would otherwise occur, the diagonal elements of U are to be perturbed. See argument TOL below. = 2: The equations (T - lambda*I)**Tx = y are to be solved, but diagonal elements of U are not to be perturbed. = -2: The equations (T - lambda*I)**Tx = y are to be solved and, if overflow would otherwise occur, the diagonal elements of U are to be perturbed. See argument TOL below.
+A : Real Array, Dimension (n) [in]
+> On entry, A must contain the diagonal elements of U as
+> returned from SLAGTF.
 
-### N (in)
+B : Real Array, Dimension (n-1) [in]
+> On entry, B must contain the first super-diagonal elements of
+> U as returned from SLAGTF.
 
-N is INTEGER The order of the matrix T.
+C : Real Array, Dimension (n-1) [in]
+> On entry, C must contain the sub-diagonal elements of L as
+> returned from SLAGTF.
 
-### A (in)
+D : Real Array, Dimension (n-2) [in]
+> On entry, D must contain the second super-diagonal elements
+> of U as returned from SLAGTF.
 
-A is REAL array, dimension (N) On entry, A must contain the diagonal elements of U as returned from SLAGTF.
+In : Integer Array, Dimension (n) [in]
+> On entry, IN must contain details of the matrix P as returned
+> from SLAGTF.
 
-### B (in)
+Y : Real Array, Dimension (n) [in,out]
+> On entry, the right hand side vector y.
+> On exit, Y is overwritten by the solution vector x.
 
-B is REAL array, dimension (N-1) On entry, B must contain the first super-diagonal elements of U as returned from SLAGTF.
+Tol : Real [in,out]
+> On entry, with  JOB < 0, TOL should be the minimum
+> perturbation to be made to very small diagonal elements of U.
+> TOL should normally be chosen as about eps*norm(U), where eps
+> is the relative machine precision, but if TOL is supplied as
+> non-positive, then it is reset to eps*max( abs( u(i,j) ) ).
+> If  JOB > 0  then TOL is not referenced.
+> On exit, TOL is changed as described above, only if TOL is
+> non-positive on entry. Otherwise TOL is unchanged.
 
-### C (in)
-
-C is REAL array, dimension (N-1) On entry, C must contain the sub-diagonal elements of L as returned from SLAGTF.
-
-### D (in)
-
-D is REAL array, dimension (N-2) On entry, D must contain the second super-diagonal elements of U as returned from SLAGTF.
-
-### IN (in)
-
-IN is INTEGER array, dimension (N) On entry, IN must contain details of the matrix P as returned from SLAGTF.
-
-### Y (in,out)
-
-Y is REAL array, dimension (N) On entry, the right hand side vector y. On exit, Y is overwritten by the solution vector x.
-
-### TOL (in,out)
-
-TOL is REAL On entry, with JOB < 0, TOL should be the minimum perturbation to be made to very small diagonal elements of U. TOL should normally be chosen as about eps*norm(U), where eps is the relative machine precision, but if TOL is supplied as non-positive, then it is reset to eps*max( abs( u(i,j) ) ). If JOB > 0 then TOL is not referenced. On exit, TOL is changed as described above, only if TOL is non-positive on entry. Otherwise TOL is unchanged.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: overflow would occur when computing the INFO(th) element of the solution vector x. This can only occur when JOB is supplied as positive and either means that a diagonal element of U is very small, or that the elements of the right-hand side vector y are very large.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
+> > 0: overflow would occur when computing the INFO(th)
+> element of the solution vector x. This can only occur
+> when JOB is supplied as positive and either means
+> that a diagonal element of U is very small, or that
+> the elements of the right-hand side vector y are very
+> large.
 

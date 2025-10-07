@@ -1,14 +1,19 @@
-# DORMRZ
-
-## Function Signature
-
 ```fortran
-DORMRZ(SIDE, TRANS, M, N, K, L, A, LDA, TAU, C, LDC,
-*                          WORK, LWORK, INFO)
+subroutine dormrz	(	side,
+		trans,
+		m,
+		n,
+		k,
+		l,
+		a,
+		lda,
+		tau,
+		c,
+		ldc,
+		*                          work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  DORMRZ overwrites the general real M-by-N matrix C with
 
@@ -25,60 +30,67 @@ DORMRZ(SIDE, TRANS, M, N, K, L, A, LDA, TAU, C, LDC,
  if SIDE = 'R'.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**T from the Left;
+> = 'R': apply Q or Q**T from the Right.
 
-### SIDE (in)
+Trans : Character*1 [in]
+> = 'N':  No transpose, apply Q;
+> = 'T':  Transpose, apply Q**T.
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**T from the Left; = 'R': apply Q or Q**T from the Right.
+M : Integer [in]
+> The number of rows of the matrix C. M >= 0.
 
-### TRANS (in)
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-TRANS is CHARACTER*1 = 'N': No transpose, apply Q; = 'T': Transpose, apply Q**T.
+K : Integer [in]
+> The number of elementary reflectors whose product defines
+> the matrix Q.
+> If SIDE = 'L', M >= K >= 0;
+> if SIDE = 'R', N >= K >= 0.
 
-### M (in)
+L : Integer [in]
+> The number of columns of the matrix A containing
+> the meaningful part of the Householder reflectors.
+> If SIDE = 'L', M >= L >= 0, if SIDE = 'R', N >= L >= 0.
 
-M is INTEGER The number of rows of the matrix C. M >= 0.
+A : Double Precision Array, Dimension [in]
+> (LDA,M) if SIDE = 'L',
+> (LDA,N) if SIDE = 'R'
+> The i-th row must contain the vector which defines the
+> elementary reflector H(i), for i = 1,2,...,k, as returned by
+> DTZRZF in the last k rows of its array argument A.
+> A is modified by the routine but restored on exit.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,K).
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
+Tau : Double Precision Array, Dimension (k) [in]
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i), as returned by DTZRZF.
 
-### K (in)
+C : Double Precision Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 
-K is INTEGER The number of elementary reflectors whose product defines the matrix Q. If SIDE = 'L', M >= K >= 0; if SIDE = 'R', N >= K >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### L (in)
+Work : Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-L is INTEGER The number of columns of the matrix A containing the meaningful part of the Householder reflectors. If SIDE = 'L', M >= L >= 0, if SIDE = 'R', N >= L >= 0.
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> If SIDE = 'L', LWORK >= max(1,N);
+> if SIDE = 'R', LWORK >= max(1,M).
+> For good performance, LWORK should generally be larger.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-### A (in)
-
-A is DOUBLE PRECISION array, dimension (LDA,M) if SIDE = 'L', (LDA,N) if SIDE = 'R' The i-th row must contain the vector which defines the elementary reflector H(i), for i = 1,2,...,k, as returned by DTZRZF in the last k rows of its array argument A. A is modified by the routine but restored on exit.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,K).
-
-### TAU (in)
-
-TAU is DOUBLE PRECISION array, dimension (K) TAU(i) must contain the scalar factor of the elementary reflector H(i), as returned by DTZRZF.
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If SIDE = 'L', LWORK >= max(1,N); if SIDE = 'R', LWORK >= max(1,M). For good performance, LWORK should generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

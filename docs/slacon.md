@@ -1,40 +1,40 @@
-# SLACON
-
-## Function Signature
-
 ```fortran
-SLACON(N, V, X, ISGN, EST, KASE)
+subroutine slacon	(	integer	n,
+		real, dimension(*)	v,
+		real, dimension(*)	x,
+		integer, dimension(*)	isgn,
+		real	est,
+		integer	kase )
 ```
-
-## Description
-
 
  SLACON estimates the 1-norm of a square, real matrix A.
  Reverse communication is used for evaluating matrix-vector products.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix.  N >= 1.
 
-### N (in)
+V : Real Array, Dimension (n) [out]
+> On the final return, V = A*W,  where  EST = norm(V)/norm(W)
+> (W is not returned).
 
-N is INTEGER The order of the matrix. N >= 1.
+X : Real Array, Dimension (n) [in,out]
+> On an intermediate return, X should be overwritten by
+> A * X,   if KASE=1,
+> A**T * X,  if KASE=2,
+> and SLACON must be re-called with all the other parameters
+> unchanged.
 
-### V (out)
+Isgn : Integer Array, Dimension (n) [out]
 
-V is REAL array, dimension (N) On the final return, V = A*W, where EST = norm(V)/norm(W) (W is not returned).
+Est : Real [in,out]
+> On entry with KASE = 1 or 2 and JUMP = 3, EST should be
+> unchanged from the previous call to SLACON.
+> On exit, EST is an estimate (a lower bound) for norm(A).
 
-### X (in,out)
-
-X is REAL array, dimension (N) On an intermediate return, X should be overwritten by A * X, if KASE=1, A**T * X, if KASE=2, and SLACON must be re-called with all the other parameters unchanged.
-
-### ISGN (out)
-
-ISGN is INTEGER array, dimension (N)
-
-### EST (in,out)
-
-EST is REAL On entry with KASE = 1 or 2 and JUMP = 3, EST should be unchanged from the previous call to SLACON. On exit, EST is an estimate (a lower bound) for norm(A).
-
-### KASE (in,out)
-
-KASE is INTEGER On the initial call to SLACON, KASE should be 0. On an intermediate return, KASE will be 1 or 2, indicating whether X should be overwritten by A * X or A**T * X. On the final return from SLACON, KASE will again be 0.
+Kase : Integer [in,out]
+> On the initial call to SLACON, KASE should be 0.
+> On an intermediate return, KASE will be 1 or 2, indicating
+> whether X should be overwritten by A * X  or A**T * X.
+> On the final return from SLACON, KASE will again be 0.
 

@@ -1,13 +1,14 @@
-# CTPTRS
-
-## Function Signature
-
 ```fortran
-CTPTRS(UPLO, TRANS, DIAG, N, NRHS, AP, B, LDB, INFO)
+subroutine ctptrs	(	character	uplo,
+		character	trans,
+		character	diag,
+		integer	n,
+		integer	nrhs,
+		complex, dimension(*)	ap,
+		complex, dimension(ldb, *)	b,
+		integer	ldb,
+		integer	info )
 ```
-
-## Description
-
 
  CTPTRS solves a triangular system of the form
 
@@ -23,40 +24,45 @@ CTPTRS(UPLO, TRANS, DIAG, N, NRHS, AP, B, LDB, INFO)
  caller should verify that A is nonsingular within some tolerance before calling this subroutine.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  A is upper triangular;
+> = 'L':  A is lower triangular.
 
-### UPLO (in)
+Trans : Character*1 [in]
+> Specifies the form of the system of equations:
+> = 'N':  A * X = B     (No transpose)
+> = 'T':  A**T * X = B  (Transpose)
+> = 'C':  A**H * X = B  (Conjugate transpose)
 
-UPLO is CHARACTER*1 = 'U': A is upper triangular; = 'L': A is lower triangular.
+Diag : Character*1 [in]
+> = 'N':  A is non-unit triangular;
+> = 'U':  A is unit triangular.
 
-### TRANS (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-TRANS is CHARACTER*1 Specifies the form of the system of equations: = 'N': A * X = B (No transpose) = 'T': A**T * X = B (Transpose) = 'C': A**H * X = B (Conjugate transpose)
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### DIAG (in)
+Ap : Complex Array, Dimension (n*(n+1)/2) [in]
+> The upper or lower triangular matrix A, packed columnwise in
+> a linear array.  The j-th column of A is stored in the array
+> AP as follows:
+> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
 
-DIAG is CHARACTER*1 = 'N': A is non-unit triangular; = 'U': A is unit triangular.
+B : Complex Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the right hand side matrix B.
+> On exit, if INFO = 0, the solution matrix X.
 
-### N (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
-
-### NRHS (in)
-
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
-
-### AP (in)
-
-AP is COMPLEX array, dimension (N*(N+1)/2) The upper or lower triangular matrix A, packed columnwise in a linear array. The j-th column of A is stored in the array AP as follows: if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j; if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
-
-### B (in,out)
-
-B is COMPLEX array, dimension (LDB,NRHS) On entry, the right hand side matrix B. On exit, if INFO = 0, the solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the i-th diagonal element of A is exactly zero, indicating that the matrix is singular and the solutions X have not been computed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the i-th diagonal element of A is exactly zero,
+> indicating that the matrix is singular and the
+> solutions X have not been computed.
 

@@ -1,13 +1,11 @@
-# ZLA_LIN_BERR
-
-## Function Signature
-
 ```fortran
-ZLA_LIN_BERR(N, NZ, NRHS, RES, AYB, BERR)
+subroutine zla_lin_berr	(	integer	n,
+		integer	nz,
+		integer	nrhs,
+		complex*16, dimension(n, nrhs)	res,
+		double precision, dimension(n, nrhs)	ayb,
+		double precision, dimension(nrhs)	berr )
 ```
-
-## Description
-
 
     ZLA_LIN_BERR computes componentwise relative backward error from
     the formula
@@ -16,28 +14,27 @@ ZLA_LIN_BERR(N, NZ, NRHS, RES, AYB, BERR)
     or vector Z.
 
 ## Parameters
+N : Integer [in]
+> The number of linear equations, i.e., the order of the
+> matrix A.  N >= 0.
 
-### N (in)
+Nz : Integer [in]
+> We add (NZ+1)*SLAMCH( 'Safe minimum' ) to R(i) in the numerator to
+> guard against spuriously zero residuals. Default value is N.
 
-N is INTEGER The number of linear equations, i.e., the order of the matrix A. N >= 0.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrices AYB, RES, and BERR.  NRHS >= 0.
 
-### NZ (in)
+Res : Complex*16 Array, Dimension (n,nrhs) [in]
+> The residual matrix, i.e., the matrix R in the relative backward
+> error formula above.
 
-NZ is INTEGER We add (NZ+1)*SLAMCH( 'Safe minimum' ) to R(i) in the numerator to guard against spuriously zero residuals. Default value is N.
+Ayb : Double Precision Array, Dimension (n, Nrhs) [in]
+> The denominator in the relative backward error formula above, i.e.,
+> the matrix abs(op(A_s))*abs(Y) + abs(B_s). The matrices A, Y, and B
+> are from iterative refinement (see zla_gerfsx_extended.f).
 
-### NRHS (in)
-
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrices AYB, RES, and BERR. NRHS >= 0.
-
-### RES (in)
-
-RES is COMPLEX*16 array, dimension (N,NRHS) The residual matrix, i.e., the matrix R in the relative backward error formula above.
-
-### AYB (in)
-
-AYB is DOUBLE PRECISION array, dimension (N, NRHS) The denominator in the relative backward error formula above, i.e., the matrix abs(op(A_s))*abs(Y) + abs(B_s). The matrices A, Y, and B are from iterative refinement (see zla_gerfsx_extended.f).
-
-### BERR (out)
-
-BERR is DOUBLE PRECISION array, dimension (NRHS) The componentwise relative backward error from the formula above.
+Berr : Double Precision Array, Dimension (nrhs) [out]
+> The componentwise relative backward error from the formula above.
 

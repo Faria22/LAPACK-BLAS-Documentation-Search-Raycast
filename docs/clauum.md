@@ -1,13 +1,10 @@
-# CLAUUM
-
-## Function Signature
-
 ```fortran
-CLAUUM(UPLO, N, A, LDA, INFO)
+subroutine clauum	(	character	uplo,
+		integer	n,
+		complex, dimension(lda, *)	a,
+		integer	lda,
+		integer	info )
 ```
-
-## Description
-
 
  CLAUUM computes the product U * U**H or L**H * L, where the triangular
  factor U or L is stored in the upper or lower triangular part of
@@ -21,24 +18,26 @@ CLAUUM(UPLO, N, A, LDA, INFO)
  This is the blocked form of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the triangular factor stored in the array A
+> is upper or lower triangular:
+> = 'U':  Upper triangular
+> = 'L':  Lower triangular
 
-### UPLO (in)
+N : Integer [in]
+> The order of the triangular factor U or L.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the triangular factor stored in the array A is upper or lower triangular: = 'U': Upper triangular = 'L': Lower triangular
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry, the triangular factor U or L.
+> On exit, if UPLO = 'U', the upper triangle of A is
+> overwritten with the upper triangle of the product U * U**H;
+> if UPLO = 'L', the lower triangle of A is overwritten with
+> the lower triangle of the product L**H * L.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the triangular factor U or L. N >= 0.
-
-### A (in,out)
-
-A is COMPLEX array, dimension (LDA,N) On entry, the triangular factor U or L. On exit, if UPLO = 'U', the upper triangle of A is overwritten with the upper triangle of the product U * U**H; if UPLO = 'L', the lower triangle of A is overwritten with the lower triangle of the product L**H * L.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -k, the k-th argument had an illegal value
 

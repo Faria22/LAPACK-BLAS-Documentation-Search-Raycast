@@ -1,13 +1,8 @@
-# DLASQ2
-
-## Function Signature
-
 ```fortran
-DLASQ2(N, Z, INFO)
+subroutine dlasq2	(	integer	n,
+		double precision, dimension(*)	z,
+		integer	info )
 ```
-
-## Description
-
 
  DLASQ2 computes all the eigenvalues of the symmetric positive
  definite tridiagonal matrix associated with the qd array Z to high
@@ -26,16 +21,28 @@ DLASQ2(N, Z, INFO)
  is passed to DLASQ3.
 
 ## Parameters
+N : Integer [in]
+> The number of rows and columns in the matrix. N >= 0.
 
-### N (in)
+Z : Double Precision Array, Dimension ( 4*n ) [in,out]
+> On entry Z holds the qd array. On exit, entries 1 to N hold
+> the eigenvalues in decreasing order, Z( 2*N+1 ) holds the
+> trace, and Z( 2*N+2 ) holds the sum of the eigenvalues. If
+> N > 2, then Z( 2*N+3 ) holds the iteration count, Z( 2*N+4 )
+> holds NDIVS/NIN^2, and Z( 2*N+5 ) holds the percentage of
+> shifts that failed.
 
-N is INTEGER The number of rows and columns in the matrix. N >= 0.
-
-### Z (in,out)
-
-Z is DOUBLE PRECISION array, dimension ( 4*N ) On entry Z holds the qd array. On exit, entries 1 to N hold the eigenvalues in decreasing order, Z( 2*N+1 ) holds the trace, and Z( 2*N+2 ) holds the sum of the eigenvalues. If N > 2, then Z( 2*N+3 ) holds the iteration count, Z( 2*N+4 ) holds NDIVS/NIN^2, and Z( 2*N+5 ) holds the percentage of shifts that failed.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if the i-th argument is a scalar and had an illegal value, then INFO = -i, if the i-th argument is an array and the j-entry had an illegal value, then INFO = -(i*100+j) > 0: the algorithm failed = 1, a split was marked by a positive value in E = 2, current block of Z not diagonalized after 100*N iterations (in inner while loop). On exit Z holds a qd array with the same eigenvalues as the given Z. = 3, termination criterion of outer while loop not met (program created more than N unreduced blocks)
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if the i-th argument is a scalar and had an illegal
+> value, then INFO = -i, if the i-th argument is an
+> array and the j-entry had an illegal value, then
+> INFO = -(i*100+j)
+> > 0: the algorithm failed
+> = 1, a split was marked by a positive value in E
+> = 2, current block of Z not diagonalized after 100*N
+> iterations (in inner while loop).  On exit Z holds
+> a qd array with the same eigenvalues as the given Z.
+> = 3, termination criterion of outer while loop not met
+> (program created more than N unreduced blocks)
 

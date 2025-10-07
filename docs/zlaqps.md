@@ -1,14 +1,19 @@
-# ZLAQPS
-
-## Function Signature
-
 ```fortran
-ZLAQPS(M, N, OFFSET, NB, KB, A, LDA, JPVT, TAU, VN1,
-*                          VN2, AUXV, F, LDF)
+subroutine zlaqps	(	m,
+		n,
+		offset,
+		nb,
+		kb,
+		a,
+		lda,
+		jpvt,
+		tau,
+		vn1,
+		*                          vn2,
+		auxv,
+		f,
+		ldf )
 ```
-
-## Description
-
 
  ZLAQPS computes a step of QR factorization with column pivoting
  of a complex M-by-N matrix A by using Blas-3.  It tries to factorize
@@ -22,60 +27,52 @@ ZLAQPS(M, N, OFFSET, NB, KB, A, LDA, JPVT, TAU, VN1,
  Block A(1:OFFSET,1:N) is accordingly pivoted, but not factorized.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A. M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A. N >= 0
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Offset : Integer [in]
+> The number of rows of A that have been factorized in
+> previous steps.
 
-### N (in)
+Nb : Integer [in]
+> The number of columns to factorize.
 
-N is INTEGER The number of columns of the matrix A. N >= 0
+Kb : Integer [out]
+> The number of columns actually factorized.
 
-### OFFSET (in)
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, block A(OFFSET+1:M,1:KB) is the triangular
+> factor obtained and block A(1:OFFSET,1:N) has been
+> accordingly pivoted, but no factorized.
+> The rest of the matrix, block A(OFFSET+1:M,KB+1:N) has
+> been updated.
 
-OFFSET is INTEGER The number of rows of A that have been factorized in previous steps.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,M).
 
-### NB (in)
+Jpvt : Integer Array, Dimension (n) [in,out]
+> JPVT(I) = K <==> Column K of the full matrix A has been
+> permuted into position I in AP.
 
-NB is INTEGER The number of columns to factorize.
+Tau : Complex*16 Array, Dimension (kb) [out]
+> The scalar factors of the elementary reflectors.
 
-### KB (out)
+Vn1 : Double Precision Array, Dimension (n) [in,out]
+> The vector with the partial column norms.
 
-KB is INTEGER The number of columns actually factorized.
+Vn2 : Double Precision Array, Dimension (n) [in,out]
+> The vector with the exact column norms.
 
-### A (in,out)
+Auxv : Complex*16 Array, Dimension (nb) [in,out]
+> Auxiliary vector.
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, block A(OFFSET+1:M,1:KB) is the triangular factor obtained and block A(1:OFFSET,1:N) has been accordingly pivoted, but no factorized. The rest of the matrix, block A(OFFSET+1:M,KB+1:N) has been updated.
+F : Complex*16 Array, Dimension (ldf,nb) [in,out]
+> Matrix F**H = L * Y**H * A.
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### JPVT (in,out)
-
-JPVT is INTEGER array, dimension (N) JPVT(I) = K <==> Column K of the full matrix A has been permuted into position I in AP.
-
-### TAU (out)
-
-TAU is COMPLEX*16 array, dimension (KB) The scalar factors of the elementary reflectors.
-
-### VN1 (in,out)
-
-VN1 is DOUBLE PRECISION array, dimension (N) The vector with the partial column norms.
-
-### VN2 (in,out)
-
-VN2 is DOUBLE PRECISION array, dimension (N) The vector with the exact column norms.
-
-### AUXV (in,out)
-
-AUXV is COMPLEX*16 array, dimension (NB) Auxiliary vector.
-
-### F (in,out)
-
-F is COMPLEX*16 array, dimension (LDF,NB) Matrix F**H = L * Y**H * A.
-
-### LDF (in)
-
-LDF is INTEGER The leading dimension of the array F. LDF >= max(1,N).
+Ldf : Integer [in]
+> The leading dimension of the array F. LDF >= max(1,N).
 

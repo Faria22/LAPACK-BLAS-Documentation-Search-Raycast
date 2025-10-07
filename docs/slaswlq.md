@@ -1,14 +1,16 @@
-# SLASWLQ
-
-## Function Signature
-
 ```fortran
-SLASWLQ(M, N, MB, NB, A, LDA, T, LDT, WORK,
-*                            LWORK, INFO)
+subroutine slaswlq	(	m,
+		n,
+		mb,
+		nb,
+		a,
+		lda,
+		t,
+		ldt,
+		work,
+		*                            lwork,
+		info )
 ```
-
-## Description
-
 
  SLASWLQ computes a blocked Tall-Skinny LQ factorization of
  a real M-by-N matrix A for M <= N:
@@ -26,48 +28,52 @@ SLASWLQ(M, N, MB, NB, A, LDA, T, LDT, WORK,
 
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= M >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+Mb : Integer [in]
+> The row block size to be used in the blocked QR.
+> M >= MB >= 1
 
-### N (in)
+Nb : Integer [in]
+> The column block size to be used in the blocked QR.
+> NB > 0.
 
-N is INTEGER The number of columns of the matrix A. N >= M >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix A.
+> On exit, the elements on and below the diagonal
+> of the array contain the N-by-N lower triangular matrix L;
+> the elements above the diagonal represent Q by the rows
+> of blocked V (see Further Details).
 
-### MB (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-MB is INTEGER The row block size to be used in the blocked QR. M >= MB >= 1
+T : Real Array, [out]
+> dimension (LDT, N * Number_of_row_blocks)
+> where Number_of_row_blocks = CEIL((N-M)/(NB-M))
+> The blocked upper triangular block reflectors stored in compact form
+> as a sequence of upper triangular blocks.
+> See Further Details below.
 
-### NB (in)
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= MB.
 
-NB is INTEGER The column block size to be used in the blocked QR. NB > 0.
+Work : (workspace) Real Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the minimal LWORK.
 
-### A (in,out)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MB*M, otherwise.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the minimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-A is REAL array, dimension (LDA,N) On entry, the M-by-N matrix A. On exit, the elements on and below the diagonal of the array contain the N-by-N lower triangular matrix L; the elements above the diagonal represent Q by the rows of blocked V (see Further Details).
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### T (out)
-
-T is REAL array, dimension (LDT, N * Number_of_row_blocks) where Number_of_row_blocks = CEIL((N-M)/(NB-M)) The blocked upper triangular block reflectors stored in compact form as a sequence of upper triangular blocks. See Further Details below.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= MB.
-
-### WORK (out)
-
-(workspace) REAL array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the minimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MB*M, otherwise. If LWORK = -1, then a workspace query is assumed; the routine only calculates the minimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

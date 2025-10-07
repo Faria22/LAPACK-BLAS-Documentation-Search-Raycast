@@ -1,13 +1,12 @@
-# SAXPBY
-
-## Function Signature
-
 ```fortran
-SAXPBY(N,SA,SX,INCX,SB,SY,INCY)
+subroutine saxpby	(	integer	n,
+		real	sa,
+		real, dimension(*)	sx,
+		integer	incx,
+		real	sb,
+		real, dimension(*)	sy,
+		integer	incy )
 ```
-
-## Description
-
 
     SAXPBY constant times a vector plus constant times a vector.
 
@@ -15,32 +14,22 @@ SAXPBY(N,SA,SX,INCX,SB,SY,INCY)
 
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Sa : Real [in]
+> On entry, SA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Sx : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-### SA (in)
+Incx : Integer [in]
+> storage spacing between elements of SX
 
-SA is REAL On entry, SA specifies the scalar alpha.
+Sb : Real [in]
+> On entry, SB specifies the scalar beta.
 
-### SX (in)
+Sy : Real Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [in,out]
 
-SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of SX
-
-### SB (in)
-
-SB is REAL On entry, SB specifies the scalar beta.
-
-### SY (in,out)
-
-SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of SY
+Incy : Integer [in]
+> storage spacing between elements of SY
 

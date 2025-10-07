@@ -1,14 +1,19 @@
-# DGEMLQ
-
-## Function Signature
-
 ```fortran
-DGEMLQ(SIDE, TRANS, M, N, K, A, LDA, T,
-*     $                   TSIZE, C, LDC, WORK, LWORK, INFO)
+subroutine dgemlq	(	side,
+		trans,
+		m,
+		n,
+		k,
+		a,
+		lda,
+		t,
+		*     $                   tsize,
+		c,
+		ldc,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
      DGEMLQ overwrites the general real M-by-N matrix C with
 
@@ -21,60 +26,58 @@ DGEMLQ(SIDE, TRANS, M, N, K, A, LDA, T,
 
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**T from the Left;
+> = 'R': apply Q or Q**T from the Right.
 
-### SIDE (in)
+Trans : Character*1 [in]
+> = 'N':  No transpose, apply Q;
+> = 'T':  Transpose, apply Q**T.
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**T from the Left; = 'R': apply Q or Q**T from the Right.
+M : Integer [in]
+> The number of rows of the matrix A.  M >=0.
 
-### TRANS (in)
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-TRANS is CHARACTER*1 = 'N': No transpose, apply Q; = 'T': Transpose, apply Q**T.
+K : Integer [in]
+> The number of elementary reflectors whose product defines
+> the matrix Q.
+> If SIDE = 'L', M >= K >= 0;
+> if SIDE = 'R', N >= K >= 0.
 
-### M (in)
+A : Double Precision Array, Dimension [in]
+> (LDA,M) if SIDE = 'L',
+> (LDA,N) if SIDE = 'R'
+> Part of the data structure to represent Q as returned by DGELQ.
 
-M is INTEGER The number of rows of the matrix A. M >=0.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,K).
 
-### N (in)
+T : Double Precision Array, Dimension (max(5,tsize)). [in]
+> Part of the data structure to represent Q as returned by DGELQ.
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
+Tsize : Integer [in]
+> The dimension of the array T. TSIZE >= 5.
 
-### K (in)
+C : Double Precision Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
-K is INTEGER The number of elementary reflectors whose product defines the matrix Q. If SIDE = 'L', M >= K >= 0; if SIDE = 'R', N >= K >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### A (in)
+Work : (workspace) Double Precision Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the minimal LWORK.
 
-A is DOUBLE PRECISION array, dimension (LDA,M) if SIDE = 'L', (LDA,N) if SIDE = 'R' Part of the data structure to represent Q as returned by DGELQ.
+Lwork : Integer [in]
+> The dimension of the array WORK. LWORK >= 1.
+> If LWORK = -1, then a workspace query is assumed. The routine
+> only calculates the size of the WORK array, returns this
+> value as WORK(1), and no error message related to WORK
+> is issued by XERBLA.
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,K).
-
-### T (in)
-
-T is DOUBLE PRECISION array, dimension (MAX(5,TSIZE)). Part of the data structure to represent Q as returned by DGELQ.
-
-### TSIZE (in)
-
-TSIZE is INTEGER The dimension of the array T. TSIZE >= 5.
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-(workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the minimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. LWORK >= 1. If LWORK = -1, then a workspace query is assumed. The routine only calculates the size of the WORK array, returns this value as WORK(1), and no error message related to WORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

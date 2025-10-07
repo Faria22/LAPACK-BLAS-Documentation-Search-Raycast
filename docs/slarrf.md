@@ -1,16 +1,23 @@
-# SLARRF
-
-## Function Signature
-
 ```fortran
-SLARRF(N, D, L, LD, CLSTRT, CLEND,
-*                          W, WGAP, WERR,
-*                          SPDIAM, CLGAPL, CLGAPR, PIVMIN, SIGMA,
-*                          DPLUS, LPLUS, WORK, INFO)
+subroutine slarrf	(	n,
+		d,
+		l,
+		ld,
+		clstrt,
+		clend,
+		*                          w,
+		wgap,
+		werr,
+		*                          spdiam,
+		clgapl,
+		clgapr,
+		pivmin,
+		sigma,
+		*                          dplus,
+		lplus,
+		work,
+		info )
 ```
-
-## Description
-
 
  Given the initial representation L D L^T and its cluster of close
  eigenvalues (in a relative measure), W( CLSTRT ), W( CLSTRT+1 ), ...
@@ -19,76 +26,67 @@ SLARRF(N, D, L, LD, CLSTRT, CLEND,
  eigenvalues of L(+) D(+) L(+)^T is relatively isolated.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix (subblock, if the matrix split).
 
-### N (in)
+D : Real Array, Dimension (n) [in]
+> The N diagonal elements of the diagonal matrix D.
 
-N is INTEGER The order of the matrix (subblock, if the matrix split).
+L : Real Array, Dimension (n-1) [in]
+> The (N-1) subdiagonal elements of the unit bidiagonal
+> matrix L.
 
-### D (in)
+Ld : Real Array, Dimension (n-1) [in]
+> The (N-1) elements L(i)*D(i).
 
-D is REAL array, dimension (N) The N diagonal elements of the diagonal matrix D.
+Clstrt : Integer [in]
+> The index of the first eigenvalue in the cluster.
 
-### L (in)
+Clend : Integer [in]
+> The index of the last eigenvalue in the cluster.
 
-L is REAL array, dimension (N-1) The (N-1) subdiagonal elements of the unit bidiagonal matrix L.
+W : Real Array, Dimension [in]
+> dimension is >=  (CLEND-CLSTRT+1)
+> The eigenvalue APPROXIMATIONS of L D L^T in ascending order.
+> W( CLSTRT ) through W( CLEND ) form the cluster of relatively
+> close eigenalues.
 
-### LD (in)
+Wgap : Real Array, Dimension [in,out]
+> dimension is >=  (CLEND-CLSTRT+1)
+> The separation from the right neighbor eigenvalue in W.
 
-LD is REAL array, dimension (N-1) The (N-1) elements L(i)*D(i).
+Werr : Real Array, Dimension [in]
+> dimension is >=  (CLEND-CLSTRT+1)
+> WERR contain the semiwidth of the uncertainty
+> interval of the corresponding eigenvalue APPROXIMATION in W
 
-### CLSTRT (in)
+Spdiam : Real [in]
+> estimate of the spectral diameter obtained from the
+> Gerschgorin intervals
 
-CLSTRT is INTEGER The index of the first eigenvalue in the cluster.
+Clgapl : Real [in]
 
-### CLEND (in)
+Clgapr : Real [in]
+> absolute gap on each end of the cluster.
+> Set by the calling routine to protect against shifts too close
+> to eigenvalues outside the cluster.
 
-CLEND is INTEGER The index of the last eigenvalue in the cluster.
+Pivmin : Real [in]
+> The minimum pivot allowed in the Sturm sequence.
 
-### W (in)
+Sigma : Real [out]
+> The shift used to form L(+) D(+) L(+)^T.
 
-W is REAL array, dimension dimension is >= (CLEND-CLSTRT+1) The eigenvalue APPROXIMATIONS of L D L^T in ascending order. W( CLSTRT ) through W( CLEND ) form the cluster of relatively close eigenalues.
+Dplus : Real Array, Dimension (n) [out]
+> The N diagonal elements of the diagonal matrix D(+).
 
-### WGAP (in,out)
+Lplus : Real Array, Dimension (n-1) [out]
+> The first (N-1) elements of LPLUS contain the subdiagonal
+> elements of the unit bidiagonal matrix L(+).
 
-WGAP is REAL array, dimension dimension is >= (CLEND-CLSTRT+1) The separation from the right neighbor eigenvalue in W.
+Work : Real Array, Dimension (2*n) [out]
+> Workspace.
 
-### WERR (in)
-
-WERR is REAL array, dimension dimension is >= (CLEND-CLSTRT+1) WERR contain the semiwidth of the uncertainty interval of the corresponding eigenvalue APPROXIMATION in W
-
-### SPDIAM (in)
-
-SPDIAM is REAL estimate of the spectral diameter obtained from the Gerschgorin intervals
-
-### CLGAPL (in)
-
-CLGAPL is REAL
-
-### CLGAPR (in)
-
-CLGAPR is REAL absolute gap on each end of the cluster. Set by the calling routine to protect against shifts too close to eigenvalues outside the cluster.
-
-### PIVMIN (in)
-
-PIVMIN is REAL The minimum pivot allowed in the Sturm sequence.
-
-### SIGMA (out)
-
-SIGMA is REAL The shift used to form L(+) D(+) L(+)^T.
-
-### DPLUS (out)
-
-DPLUS is REAL array, dimension (N) The N diagonal elements of the diagonal matrix D(+).
-
-### LPLUS (out)
-
-LPLUS is REAL array, dimension (N-1) The first (N-1) elements of LPLUS contain the subdiagonal elements of the unit bidiagonal matrix L(+).
-
-### WORK (out)
-
-WORK is REAL array, dimension (2*N) Workspace.
-
-### INFO (out)
-
-INFO is INTEGER Signals processing OK (=0) or failure (=1)
+Info : Integer [out]
+> Signals processing OK (=0) or failure (=1)
 

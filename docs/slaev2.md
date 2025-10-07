@@ -1,13 +1,12 @@
-# SLAEV2
-
-## Function Signature
-
 ```fortran
-SLAEV2(A, B, C, RT1, RT2, CS1, SN1)
+subroutine slaev2	(	real	a,
+		real	b,
+		real	c,
+		real	rt1,
+		real	rt2,
+		real	cs1,
+		real	sn1 )
 ```
-
-## Description
-
 
  SLAEV2 computes the eigendecomposition of a 2-by-2 symmetric matrix
     [  A   B  ]
@@ -20,32 +19,24 @@ SLAEV2(A, B, C, RT1, RT2, CS1, SN1)
     [-SN1  CS1 ] [  B   C  ] [ SN1  CS1 ]     [  0  RT2 ].
 
 ## Parameters
+A : Real [in]
+> The (1,1) element of the 2-by-2 matrix.
 
-### A (in)
+B : Real [in]
+> The (1,2) element and the conjugate of the (2,1) element of
+> the 2-by-2 matrix.
 
-A is REAL The (1,1) element of the 2-by-2 matrix.
+C : Real [in]
+> The (2,2) element of the 2-by-2 matrix.
 
-### B (in)
+Rt1 : Real [out]
+> The eigenvalue of larger absolute value.
 
-B is REAL The (1,2) element and the conjugate of the (2,1) element of the 2-by-2 matrix.
+Rt2 : Real [out]
+> The eigenvalue of smaller absolute value.
 
-### C (in)
+Cs1 : Real [out]
 
-C is REAL The (2,2) element of the 2-by-2 matrix.
-
-### RT1 (out)
-
-RT1 is REAL The eigenvalue of larger absolute value.
-
-### RT2 (out)
-
-RT2 is REAL The eigenvalue of smaller absolute value.
-
-### CS1 (out)
-
-CS1 is REAL
-
-### SN1 (out)
-
-SN1 is REAL The vector (CS1, SN1) is a unit right eigenvector for RT1.
+Sn1 : Real [out]
+> The vector (CS1, SN1) is a unit right eigenvector for RT1.
 

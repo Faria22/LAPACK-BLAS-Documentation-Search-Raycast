@@ -1,14 +1,17 @@
-# STPQRT
-
-## Function Signature
-
 ```fortran
-STPQRT(M, N, L, NB, A, LDA, B, LDB, T, LDT, WORK,
-*                          INFO)
+subroutine stpqrt	(	m,
+		n,
+		l,
+		nb,
+		a,
+		lda,
+		b,
+		ldb,
+		t,
+		ldt,
+		work,
+		*                          info )
 ```
-
-## Description
-
 
  STPQRT computes a blocked QR factorization of a real
  "triangular-pentagonal" matrix C, which is composed of a
@@ -16,52 +19,48 @@ STPQRT(M, N, L, NB, A, LDA, B, LDB, T, LDT, WORK,
  WY representation for Q.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix B.
+> M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix B, and the order of the
+> triangular matrix A.
+> N >= 0.
 
-M is INTEGER The number of rows of the matrix B. M >= 0.
+L : Integer [in]
+> The number of rows of the upper trapezoidal part of B.
+> MIN(M,N) >= L >= 0.  See Further Details.
 
-### N (in)
+Nb : Integer [in]
+> The block size to be used in the blocked QR.  N >= NB >= 1.
 
-N is INTEGER The number of columns of the matrix B, and the order of the triangular matrix A. N >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the upper triangular N-by-N matrix A.
+> On exit, the elements on and above the diagonal of the array
+> contain the upper triangular matrix R.
 
-### L (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-L is INTEGER The number of rows of the upper trapezoidal part of B. MIN(M,N) >= L >= 0. See Further Details.
+B : Real Array, Dimension (ldb,n) [in,out]
+> On entry, the pentagonal M-by-N matrix B.  The first M-L rows
+> are rectangular, and the last L rows are upper trapezoidal.
+> On exit, B contains the pentagonal matrix V.  See Further Details.
 
-### NB (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,M).
 
-NB is INTEGER The block size to be used in the blocked QR. N >= NB >= 1.
+T : Real Array, Dimension (ldt,n) [out]
+> The upper triangular block reflectors stored in compact form
+> as a sequence of upper triangular blocks.  See Further Details.
 
-### A (in,out)
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= NB.
 
-A is REAL array, dimension (LDA,N) On entry, the upper triangular N-by-N matrix A. On exit, the elements on and above the diagonal of the array contain the upper triangular matrix R.
+Work : Real Array, Dimension (nb*n) [out]
 
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### B (in,out)
-
-B is REAL array, dimension (LDB,N) On entry, the pentagonal M-by-N matrix B. The first M-L rows are rectangular, and the last L rows are upper trapezoidal. On exit, B contains the pentagonal matrix V. See Further Details.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,M).
-
-### T (out)
-
-T is REAL array, dimension (LDT,N) The upper triangular block reflectors stored in compact form as a sequence of upper triangular blocks. See Further Details.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= NB.
-
-### WORK (out)
-
-WORK is REAL array, dimension (NB*N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

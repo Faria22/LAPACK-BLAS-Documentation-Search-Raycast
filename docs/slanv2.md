@@ -1,13 +1,15 @@
-# SLANV2
-
-## Function Signature
-
 ```fortran
-SLANV2(A, B, C, D, RT1R, RT1I, RT2R, RT2I, CS, SN)
+subroutine slanv2	(	real	a,
+		real	b,
+		real	c,
+		real	d,
+		real	rt1r,
+		real	rt1i,
+		real	rt2r,
+		real	rt2i,
+		real	cs,
+		real	sn )
 ```
-
-## Description
-
 
  SLANV2 computes the Schur factorization of a real 2-by-2 nonsymmetric
  matrix in standard form:
@@ -21,44 +23,29 @@ SLANV2(A, B, C, D, RT1R, RT1I, RT2R, RT2I, CS, SN)
  conjugate eigenvalues.
 
 ## Parameters
+A : Real [in,out]
 
-### A (in,out)
+B : Real [in,out]
 
-A is REAL
+C : Real [in,out]
 
-### B (in,out)
+D : Real [in,out]
+> On entry, the elements of the input matrix.
+> On exit, they are overwritten by the elements of the
+> standardised Schur form.
 
-B is REAL
+Rt1r : Real [out]
 
-### C (in,out)
+Rt1i : Real [out]
 
-C is REAL
+Rt2r : Real [out]
 
-### D (in,out)
+Rt2i : Real [out]
+> The real and imaginary parts of the eigenvalues. If the
+> eigenvalues are a complex conjugate pair, RT1I > 0.
 
-D is REAL On entry, the elements of the input matrix. On exit, they are overwritten by the elements of the standardised Schur form.
+Cs : Real [out]
 
-### RT1R (out)
-
-RT1R is REAL
-
-### RT1I (out)
-
-RT1I is REAL
-
-### RT2R (out)
-
-RT2R is REAL
-
-### RT2I (out)
-
-RT2I is REAL The real and imaginary parts of the eigenvalues. If the eigenvalues are a complex conjugate pair, RT1I > 0.
-
-### CS (out)
-
-CS is REAL
-
-### SN (out)
-
-SN is REAL Parameters of the rotation matrix.
+Sn : Real [out]
+> Parameters of the rotation matrix.
 

@@ -1,13 +1,14 @@
-# DPBEQU
-
-## Function Signature
-
 ```fortran
-DPBEQU(UPLO, N, KD, AB, LDAB, S, SCOND, AMAX, INFO)
+subroutine dpbequ	(	character	uplo,
+		integer	n,
+		integer	kd,
+		double precision, dimension(ldab, *)	ab,
+		integer	ldab,
+		double precision, dimension(*)	s,
+		double precision	scond,
+		double precision	amax,
+		integer	info )
 ```
-
-## Description
-
 
  DPBEQU computes row and column scalings intended to equilibrate a
  symmetric positive definite band matrix A and reduce its condition
@@ -19,40 +20,42 @@ DPBEQU(UPLO, N, KD, AB, LDAB, S, SCOND, AMAX, INFO)
  scalings.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangular of A is stored;
+> = 'L':  Lower triangular of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangular of A is stored; = 'L': Lower triangular of A is stored.
+Kd : Integer [in]
+> The number of superdiagonals of the matrix A if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-### N (in)
+Ab : Double Precision Array, Dimension (ldab,n) [in]
+> The upper or lower triangle of the symmetric band matrix A,
+> stored in the first KD+1 rows of the array.  The j-th column
+> of A is stored in the j-th column of the array AB as follows:
+> if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 
-N is INTEGER The order of the matrix A. N >= 0.
+Ldab : Integer [in]
+> The leading dimension of the array A.  LDAB >= KD+1.
 
-### KD (in)
+S : Double Precision Array, Dimension (n) [out]
+> If INFO = 0, S contains the scale factors for A.
 
-KD is INTEGER The number of superdiagonals of the matrix A if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KD >= 0.
+Scond : Double Precision [out]
+> If INFO = 0, S contains the ratio of the smallest S(i) to
+> the largest S(i).  If SCOND >= 0.1 and AMAX is neither too
+> large nor too small, it is not worth scaling by S.
 
-### AB (in)
+Amax : Double Precision [out]
+> Absolute value of largest matrix element.  If AMAX is very
+> close to overflow or very close to underflow, the matrix
+> should be scaled.
 
-AB is DOUBLE PRECISION array, dimension (LDAB,N) The upper or lower triangle of the symmetric band matrix A, stored in the first KD+1 rows of the array. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+kd).
-
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array A. LDAB >= KD+1.
-
-### S (out)
-
-S is DOUBLE PRECISION array, dimension (N) If INFO = 0, S contains the scale factors for A.
-
-### SCOND (out)
-
-SCOND is DOUBLE PRECISION If INFO = 0, S contains the ratio of the smallest S(i) to the largest S(i). If SCOND >= 0.1 and AMAX is neither too large nor too small, it is not worth scaling by S.
-
-### AMAX (out)
-
-AMAX is DOUBLE PRECISION Absolute value of largest matrix element. If AMAX is very close to overflow or very close to underflow, the matrix should be scaled.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, the i-th diagonal element is nonpositive.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> > 0:  if INFO = i, the i-th diagonal element is nonpositive.
 

@@ -1,14 +1,17 @@
-# SORML2
-
-## Function Signature
-
 ```fortran
-SORML2(SIDE, TRANS, M, N, K, A, LDA, TAU, C, LDC,
-*                          WORK, INFO)
+subroutine sorml2	(	side,
+		trans,
+		m,
+		n,
+		k,
+		a,
+		lda,
+		tau,
+		c,
+		ldc,
+		*                          work,
+		info )
 ```
-
-## Description
-
 
  SORML2 overwrites the general real m by n matrix C with
 
@@ -29,52 +32,53 @@ SORML2(SIDE, TRANS, M, N, K, A, LDA, TAU, C, LDC,
  if SIDE = 'R'.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**T from the Left
+> = 'R': apply Q or Q**T from the Right
 
-### SIDE (in)
+Trans : Character*1 [in]
+> = 'N': apply Q  (No transpose)
+> = 'T': apply Q**T (Transpose)
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**T from the Left = 'R': apply Q or Q**T from the Right
+M : Integer [in]
+> The number of rows of the matrix C. M >= 0.
 
-### TRANS (in)
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-TRANS is CHARACTER*1 = 'N': apply Q (No transpose) = 'T': apply Q**T (Transpose)
+K : Integer [in]
+> The number of elementary reflectors whose product defines
+> the matrix Q.
+> If SIDE = 'L', M >= K >= 0;
+> if SIDE = 'R', N >= K >= 0.
 
-### M (in)
+A : Real Array, Dimension [in]
+> (LDA,M) if SIDE = 'L',
+> (LDA,N) if SIDE = 'R'
+> The i-th row must contain the vector which defines the
+> elementary reflector H(i), for i = 1,2,...,k, as returned by
+> SGELQF in the first k rows of its array argument A.
+> A is modified by the routine but restored on exit.
 
-M is INTEGER The number of rows of the matrix C. M >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,K).
 
-### N (in)
+Tau : Real Array, Dimension (k) [in]
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i), as returned by SGELQF.
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
+C : Real Array, Dimension (ldc,n) [in,out]
+> On entry, the m by n matrix C.
+> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
-### K (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-K is INTEGER The number of elementary reflectors whose product defines the matrix Q. If SIDE = 'L', M >= K >= 0; if SIDE = 'R', N >= K >= 0.
+Work : Real Array, Dimension [out]
+> (N) if SIDE = 'L',
+> (M) if SIDE = 'R'
 
-### A (in)
-
-A is REAL array, dimension (LDA,M) if SIDE = 'L', (LDA,N) if SIDE = 'R' The i-th row must contain the vector which defines the elementary reflector H(i), for i = 1,2,...,k, as returned by SGELQF in the first k rows of its array argument A. A is modified by the routine but restored on exit.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,K).
-
-### TAU (in)
-
-TAU is REAL array, dimension (K) TAU(i) must contain the scalar factor of the elementary reflector H(i), as returned by SGELQF.
-
-### C (in,out)
-
-C is REAL array, dimension (LDC,N) On entry, the m by n matrix C. On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is REAL array, dimension (N) if SIDE = 'L', (M) if SIDE = 'R'
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0: successful exit
+> < 0: if INFO = -i, the i-th argument had an illegal value
 

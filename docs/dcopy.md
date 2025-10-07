@@ -1,36 +1,25 @@
-# DCOPY
-
-## Function Signature
-
 ```fortran
-DCOPY(N,DX,INCX,DY,INCY)
+subroutine dcopy	(	integer	n,
+		double precision, dimension(*)	dx,
+		integer	incx,
+		double precision, dimension(*)	dy,
+		integer	incy )
 ```
-
-## Description
-
 
     DCOPY copies a vector, x, to a vector, y.
     uses unrolled loops for increments equal to 1.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Dx : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of DX
 
-### DX (in)
+Dy : Double Precision Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [out]
 
-DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of DX
-
-### DY (out)
-
-DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of DY
+Incy : Integer [in]
+> storage spacing between elements of DY
 

@@ -1,18 +1,31 @@
-# ZGGESX
-
-ZGGESX computes the eigenvalues, the Schur form, and, optionally, the matrix of Schur vectors for GE matrices
-
-## Function Signature
-
 ```fortran
-ZGGESX(JOBVSL, JOBVSR, SORT, SELCTG, SENSE, N, A, LDA,
-*                          B, LDB, SDIM, ALPHA, BETA, VSL, LDVSL, VSR,
-*                          LDVSR, RCONDE, RCONDV, WORK, LWORK, RWORK,
-*                          IWORK, LIWORK, BWORK, INFO)
+subroutine zggesx	(	jobvsl,
+		jobvsr,
+		sort,
+		selctg,
+		sense,
+		n,
+		a,
+		lda,
+		*                          b,
+		ldb,
+		sdim,
+		alpha,
+		beta,
+		vsl,
+		ldvsl,
+		vsr,
+		*                          ldvsr,
+		rconde,
+		rcondv,
+		work,
+		lwork,
+		rwork,
+		*                          iwork,
+		liwork,
+		bwork,
+		info )
 ```
-
-## Description
-
 
  ZGGESX computes for a pair of N-by-N complex nonsymmetric matrices
  (A,B), the generalized eigenvalues, the complex Schur form (S,T),
@@ -43,108 +56,155 @@ ZGGESX(JOBVSL, JOBVSR, SORT, SELCTG, SENSE, N, A, LDA,
  triangular.
 
 ## Parameters
+Jobvsl : Character*1 [in]
+> = 'N':  do not compute the left Schur vectors;
+> = 'V':  compute the left Schur vectors.
 
-### JOBVSL (in)
+Jobvsr : Character*1 [in]
+> = 'N':  do not compute the right Schur vectors;
+> = 'V':  compute the right Schur vectors.
 
-JOBVSL is CHARACTER*1 = 'N': do not compute the left Schur vectors; = 'V': compute the left Schur vectors.
+Sort : Character*1 [in]
+> Specifies whether or not to order the eigenvalues on the
+> diagonal of the generalized Schur form.
+> = 'N':  Eigenvalues are not ordered;
+> = 'S':  Eigenvalues are ordered (see SELCTG).
 
-### JOBVSR (in)
+Selctg : a Logical Function of Two Complex*16 Arguments [in]
+> SELCTG must be declared EXTERNAL in the calling subroutine.
+> If SORT = 'N', SELCTG is not referenced.
+> If SORT = 'S', SELCTG is used to select eigenvalues to sort
+> to the top left of the Schur form.
+> Note that a selected complex eigenvalue may no longer satisfy
+> SELCTG(ALPHA(j),BETA(j)) = .TRUE. after ordering, since
+> ordering may change the value of complex eigenvalues
+> (especially if the eigenvalue is ill-conditioned), in this
+> case INFO is set to N+3 see INFO below).
 
-JOBVSR is CHARACTER*1 = 'N': do not compute the right Schur vectors; = 'V': compute the right Schur vectors.
+Sense : Character*1 [in]
+> Determines which reciprocal condition numbers are computed.
+> = 'N': None are computed;
+> = 'E': Computed for average of selected eigenvalues only;
+> = 'V': Computed for selected deflating subspaces only;
+> = 'B': Computed for both.
+> If SENSE = 'E', 'V', or 'B', SORT must equal 'S'.
 
-### SORT (in)
+N : Integer [in]
+> The order of the matrices A, B, VSL, and VSR.  N >= 0.
 
-SORT is CHARACTER*1 Specifies whether or not to order the eigenvalues on the diagonal of the generalized Schur form. = 'N': Eigenvalues are not ordered; = 'S': Eigenvalues are ordered (see SELCTG).
+A : Complex*16 Array, Dimension (lda, N) [in,out]
+> On entry, the first of the pair of matrices.
+> On exit, A has been overwritten by its generalized Schur
+> form S.
 
-### SELCTG (in)
+Lda : Integer [in]
+> The leading dimension of A.  LDA >= max(1,N).
 
-SELCTG is a LOGICAL FUNCTION of two COMPLEX*16 arguments SELCTG must be declared EXTERNAL in the calling subroutine. If SORT = 'N', SELCTG is not referenced. If SORT = 'S', SELCTG is used to select eigenvalues to sort to the top left of the Schur form. Note that a selected complex eigenvalue may no longer satisfy SELCTG(ALPHA(j),BETA(j)) = .TRUE. after ordering, since ordering may change the value of complex eigenvalues (especially if the eigenvalue is ill-conditioned), in this case INFO is set to N+3 see INFO below).
+B : Complex*16 Array, Dimension (ldb, N) [in,out]
+> On entry, the second of the pair of matrices.
+> On exit, B has been overwritten by its generalized Schur
+> form T.
 
-### SENSE (in)
+Ldb : Integer [in]
+> The leading dimension of B.  LDB >= max(1,N).
 
-SENSE is CHARACTER*1 Determines which reciprocal condition numbers are computed. = 'N': None are computed; = 'E': Computed for average of selected eigenvalues only; = 'V': Computed for selected deflating subspaces only; = 'B': Computed for both. If SENSE = 'E', 'V', or 'B', SORT must equal 'S'.
+Sdim : Integer [out]
+> If SORT = 'N', SDIM = 0.
+> If SORT = 'S', SDIM = number of eigenvalues (after sorting)
+> for which SELCTG is true.
 
-### N (in)
+Alpha : Complex*16 Array, Dimension (n) [out]
 
-N is INTEGER The order of the matrices A, B, VSL, and VSR. N >= 0.
+Beta : Complex*16 Array, Dimension (n) [out]
+> On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the
+> generalized eigenvalues.  ALPHA(j) and BETA(j),j=1,...,N  are
+> the diagonals of the complex Schur form (S,T).  BETA(j) will
+> be non-negative real.
+> Note: the quotients ALPHA(j)/BETA(j) may easily over- or
+> underflow, and BETA(j) may even be zero.  Thus, the user
+> should avoid naively computing the ratio alpha/beta.
+> However, ALPHA will be always less than and usually
+> comparable with norm(A) in magnitude, and BETA always less
+> than and usually comparable with norm(B).
 
-### A (in,out)
+Vsl : Complex*16 Array, Dimension (ldvsl,n) [out]
+> If JOBVSL = 'V', VSL will contain the left Schur vectors.
+> Not referenced if JOBVSL = 'N'.
 
-A is COMPLEX*16 array, dimension (LDA, N) On entry, the first of the pair of matrices. On exit, A has been overwritten by its generalized Schur form S.
+Ldvsl : Integer [in]
+> The leading dimension of the matrix VSL. LDVSL >=1, and
+> if JOBVSL = 'V', LDVSL >= N.
 
-### LDA (in)
+Vsr : Complex*16 Array, Dimension (ldvsr,n) [out]
+> If JOBVSR = 'V', VSR will contain the right Schur vectors.
+> Not referenced if JOBVSR = 'N'.
 
-LDA is INTEGER The leading dimension of A. LDA >= max(1,N).
+Ldvsr : Integer [in]
+> The leading dimension of the matrix VSR. LDVSR >= 1, and
+> if JOBVSR = 'V', LDVSR >= N.
 
-### B (in,out)
+Rconde : Double Precision Array, Dimension ( 2 ) [out]
+> If SENSE = 'E' or 'B', RCONDE(1) and RCONDE(2) contain the
+> reciprocal condition numbers for the average of the selected
+> eigenvalues.
+> Not referenced if SENSE = 'N' or 'V'.
 
-B is COMPLEX*16 array, dimension (LDB, N) On entry, the second of the pair of matrices. On exit, B has been overwritten by its generalized Schur form T.
+Rcondv : Double Precision Array, Dimension ( 2 ) [out]
+> If SENSE = 'V' or 'B', RCONDV(1) and RCONDV(2) contain the
+> reciprocal condition number for the selected deflating
+> subspaces.
+> Not referenced if SENSE = 'N' or 'E'.
 
-### LDB (in)
+Work : Complex*16 Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-LDB is INTEGER The leading dimension of B. LDB >= max(1,N).
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> If N = 0, LWORK >= 1, else if SENSE = 'E', 'V', or 'B',
+> LWORK >= MAX(1,2*N,2*SDIM*(N-SDIM)), else
+> LWORK >= MAX(1,2*N).  Note that 2*SDIM*(N-SDIM) <= N*N/2.
+> Note also that an error is only returned if
+> LWORK < MAX(1,2*N), but if SENSE = 'E' or 'V' or 'B' this may
+> not be large enough.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the bound on the optimal size of the WORK
+> array and the minimum size of the IWORK array, returns these
+> values as the first entries of the WORK and IWORK arrays, and
+> no error message related to LWORK or LIWORK is issued by
+> XERBLA.
 
-### SDIM (out)
+Rwork : Double Precision Array, Dimension ( 8*n ) [out]
+> Real workspace.
 
-SDIM is INTEGER If SORT = 'N', SDIM = 0. If SORT = 'S', SDIM = number of eigenvalues (after sorting) for which SELCTG is true.
+Iwork : Integer Array, Dimension (max(1,liwork)) [out]
+> On exit, if INFO = 0, IWORK(1) returns the minimum LIWORK.
 
-### ALPHA (out)
+Liwork : Integer [in]
+> The dimension of the array IWORK.
+> If SENSE = 'N' or N = 0, LIWORK >= 1, otherwise
+> LIWORK >= N+2.
+> If LIWORK = -1, then a workspace query is assumed; the
+> routine only calculates the bound on the optimal size of the
+> WORK array and the minimum size of the IWORK array, returns
+> these values as the first entries of the WORK and IWORK
+> arrays, and no error message related to LWORK or LIWORK is
+> issued by XERBLA.
 
-ALPHA is COMPLEX*16 array, dimension (N)
+Bwork : Logical Array, Dimension (n) [out]
+> Not referenced if SORT = 'N'.
 
-### BETA (out)
-
-BETA is COMPLEX*16 array, dimension (N) On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the generalized eigenvalues. ALPHA(j) and BETA(j),j=1,...,N are the diagonals of the complex Schur form (S,T). BETA(j) will be non-negative real. Note: the quotients ALPHA(j)/BETA(j) may easily over- or underflow, and BETA(j) may even be zero. Thus, the user should avoid naively computing the ratio alpha/beta. However, ALPHA will be always less than and usually comparable with norm(A) in magnitude, and BETA always less than and usually comparable with norm(B).
-
-### VSL (out)
-
-VSL is COMPLEX*16 array, dimension (LDVSL,N) If JOBVSL = 'V', VSL will contain the left Schur vectors. Not referenced if JOBVSL = 'N'.
-
-### LDVSL (in)
-
-LDVSL is INTEGER The leading dimension of the matrix VSL. LDVSL >=1, and if JOBVSL = 'V', LDVSL >= N.
-
-### VSR (out)
-
-VSR is COMPLEX*16 array, dimension (LDVSR,N) If JOBVSR = 'V', VSR will contain the right Schur vectors. Not referenced if JOBVSR = 'N'.
-
-### LDVSR (in)
-
-LDVSR is INTEGER The leading dimension of the matrix VSR. LDVSR >= 1, and if JOBVSR = 'V', LDVSR >= N.
-
-### RCONDE (out)
-
-RCONDE is DOUBLE PRECISION array, dimension ( 2 ) If SENSE = 'E' or 'B', RCONDE(1) and RCONDE(2) contain the reciprocal condition numbers for the average of the selected eigenvalues. Not referenced if SENSE = 'N' or 'V'.
-
-### RCONDV (out)
-
-RCONDV is DOUBLE PRECISION array, dimension ( 2 ) If SENSE = 'V' or 'B', RCONDV(1) and RCONDV(2) contain the reciprocal condition number for the selected deflating subspaces. Not referenced if SENSE = 'N' or 'E'.
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If N = 0, LWORK >= 1, else if SENSE = 'E', 'V', or 'B', LWORK >= MAX(1,2*N,2*SDIM*(N-SDIM)), else LWORK >= MAX(1,2*N). Note that 2*SDIM*(N-SDIM) <= N*N/2. Note also that an error is only returned if LWORK < MAX(1,2*N), but if SENSE = 'E' or 'V' or 'B' this may not be large enough. If LWORK = -1, then a workspace query is assumed; the routine only calculates the bound on the optimal size of the WORK array and the minimum size of the IWORK array, returns these values as the first entries of the WORK and IWORK arrays, and no error message related to LWORK or LIWORK is issued by XERBLA.
-
-### RWORK (out)
-
-RWORK is DOUBLE PRECISION array, dimension ( 8*N ) Real workspace.
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (MAX(1,LIWORK)) On exit, if INFO = 0, IWORK(1) returns the minimum LIWORK.
-
-### LIWORK (in)
-
-LIWORK is INTEGER The dimension of the array IWORK. If SENSE = 'N' or N = 0, LIWORK >= 1, otherwise LIWORK >= N+2. If LIWORK = -1, then a workspace query is assumed; the routine only calculates the bound on the optimal size of the WORK array and the minimum size of the IWORK array, returns these values as the first entries of the WORK and IWORK arrays, and no error message related to LWORK or LIWORK is issued by XERBLA.
-
-### BWORK (out)
-
-BWORK is LOGICAL array, dimension (N) Not referenced if SORT = 'N'.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. = 1,...,N: The QZ iteration failed. (A,B) are not in Schur form, but ALPHA(j) and BETA(j) should be correct for j=INFO+1,...,N. > N: =N+1: other than QZ iteration failed in ZHGEQZ =N+2: after reordering, roundoff changed values of some complex eigenvalues so that leading eigenvalues in the Generalized Schur form no longer satisfy SELCTG=.TRUE. This could also be caused due to scaling. =N+3: reordering failed in ZTGSEN.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
+> = 1,...,N:
+> The QZ iteration failed.  (A,B) are not in Schur
+> form, but ALPHA(j) and BETA(j) should be correct for
+> j=INFO+1,...,N.
+> > N:  =N+1: other than QZ iteration failed in ZHGEQZ
+> =N+2: after reordering, roundoff changed values of
+> some complex eigenvalues so that leading
+> eigenvalues in the Generalized Schur form no
+> longer satisfy SELCTG=.TRUE.  This could also
+> be caused due to scaling.
+> =N+3: reordering failed in ZTGSEN.
 

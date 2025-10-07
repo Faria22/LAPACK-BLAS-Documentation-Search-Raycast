@@ -1,14 +1,19 @@
-# CGEMLQT
-
-## Function Signature
-
 ```fortran
-CGEMLQT(SIDE, TRANS, M, N, K, MB, V, LDV, T, LDT,
-*                          C, LDC, WORK, INFO)
+subroutine cgemlqt	(	side,
+		trans,
+		m,
+		n,
+		k,
+		mb,
+		v,
+		ldv,
+		t,
+		ldt,
+		*                          c,
+		ldc,
+		work,
+		info )
 ```
-
-## Description
-
 
  CGEMLQT overwrites the general complex M-by-N matrix C with
 
@@ -26,60 +31,59 @@ CGEMLQT(SIDE, TRANS, M, N, K, MB, V, LDV, T, LDT,
  Q is of order M if SIDE = 'L' and of order N  if SIDE = 'R'.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**H from the Left;
+> = 'R': apply Q or Q**H from the Right.
 
-### SIDE (in)
+Trans : Character*1 [in]
+> = 'N':  No transpose, apply Q;
+> = 'C':  Conjugate transpose, apply Q**H.
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**H from the Left; = 'R': apply Q or Q**H from the Right.
+M : Integer [in]
+> The number of rows of the matrix C. M >= 0.
 
-### TRANS (in)
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-TRANS is CHARACTER*1 = 'N': No transpose, apply Q; = 'C': Conjugate transpose, apply Q**H.
+K : Integer [in]
+> The number of elementary reflectors whose product defines
+> the matrix Q.
+> If SIDE = 'L', M >= K >= 0;
+> if SIDE = 'R', N >= K >= 0.
 
-### M (in)
+Mb : Integer [in]
+> The block size used for the storage of T.  K >= MB >= 1.
+> This must be the same value of MB used to generate T
+> in CGELQT.
 
-M is INTEGER The number of rows of the matrix C. M >= 0.
+V : Complex Array, Dimension [in]
+> (LDV,M) if SIDE = 'L',
+> (LDV,N) if SIDE = 'R'
+> The i-th row must contain the vector which defines the
+> elementary reflector H(i), for i = 1,2,...,k, as returned by
+> CGELQT in the first K rows of its array argument A.
 
-### N (in)
+Ldv : Integer [in]
+> The leading dimension of the array V. LDV >= max(1,K).
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
+T : Complex Array, Dimension (ldt,k) [in]
+> The upper triangular factors of the block reflectors
+> as returned by CGELQT, stored as a MB-by-K matrix.
 
-### K (in)
+Ldt : Integer [in]
+> The leading dimension of the array T.  LDT >= MB.
 
-K is INTEGER The number of elementary reflectors whose product defines the matrix Q. If SIDE = 'L', M >= K >= 0; if SIDE = 'R', N >= K >= 0.
+C : Complex Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by Q C, Q**H C, C Q**H or C Q.
 
-### MB (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-MB is INTEGER The block size used for the storage of T. K >= MB >= 1. This must be the same value of MB used to generate T in CGELQT.
+Work : Complex Array. The Dimension of [out]
+> WORK is N*MB if SIDE = 'L', or  M*MB if SIDE = 'R'.
 
-### V (in)
-
-V is COMPLEX array, dimension (LDV,M) if SIDE = 'L', (LDV,N) if SIDE = 'R' The i-th row must contain the vector which defines the elementary reflector H(i), for i = 1,2,...,k, as returned by CGELQT in the first K rows of its array argument A.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. LDV >= max(1,K).
-
-### T (in)
-
-T is COMPLEX array, dimension (LDT,K) The upper triangular factors of the block reflectors as returned by CGELQT, stored as a MB-by-K matrix.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= MB.
-
-### C (in,out)
-
-C is COMPLEX array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by Q C, Q**H C, C Q**H or C Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX array. The dimension of WORK is N*MB if SIDE = 'L', or M*MB if SIDE = 'R'.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

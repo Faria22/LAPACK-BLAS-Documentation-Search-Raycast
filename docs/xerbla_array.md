@@ -1,13 +1,8 @@
-# XERBLA_ARRAY
-
-## Function Signature
-
 ```fortran
-XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
+subroutine xerbla_array	(	srname_array,
+		integer	srname_len,
+		integer	info )
 ```
-
-## Description
-
 
  XERBLA_ARRAY assists other languages in calling XERBLA, the LAPACK
  and BLAS error handler.  Rather than taking a Fortran string argument
@@ -29,16 +24,13 @@ XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
  errors.  XERBLA_ARRAY calls XERBLA.
 
 ## Parameters
+Srname_array : Character(1) Array, Dimension (srname_len) [in]
+> The name of the routine which called XERBLA_ARRAY.
 
-### SRNAME_ARRAY (in)
+Srname_len : Integer [in]
+> The length of the name in SRNAME_ARRAY.
 
-SRNAME_ARRAY is CHARACTER(1) array, dimension (SRNAME_LEN) The name of the routine which called XERBLA_ARRAY.
-
-### SRNAME_LEN (in)
-
-SRNAME_LEN is INTEGER The length of the name in SRNAME_ARRAY.
-
-### INFO (in)
-
-INFO is INTEGER The position of the invalid parameter in the parameter list of the calling routine.
+Info : Integer [in]
+> The position of the invalid parameter in the parameter list
+> of the calling routine.
 

@@ -1,14 +1,20 @@
-# SSPRFS
-
-## Function Signature
-
 ```fortran
-SSPRFS(UPLO, N, NRHS, AP, AFP, IPIV, B, LDB, X, LDX,
-*                          FERR, BERR, WORK, IWORK, INFO)
+subroutine ssprfs	(	uplo,
+		n,
+		nrhs,
+		ap,
+		afp,
+		ipiv,
+		b,
+		ldb,
+		x,
+		ldx,
+		*                          ferr,
+		berr,
+		work,
+		iwork,
+		info )
 ```
-
-## Description
-
 
  SSPRFS improves the computed solution to a system of linear
  equations when the coefficient matrix is symmetric indefinite
@@ -16,64 +22,68 @@ SSPRFS(UPLO, N, NRHS, AP, AFP, IPIV, B, LDB, X, LDX,
  for the solution.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrices B and X.  NRHS >= 0.
 
-### N (in)
+Ap : Real Array, Dimension (n*(n+1)/2) [in]
+> The upper or lower triangle of the symmetric matrix A, packed
+> columnwise in a linear array.  The j-th column of A is stored
+> in the array AP as follows:
+> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Afp : Real Array, Dimension (n*(n+1)/2) [in]
+> The factored form of the matrix A.  AFP contains the block
+> diagonal matrix D and the multipliers used to obtain the
+> factor U or L from the factorization A = U*D*U**T or
+> A = L*D*L**T as computed by SSPTRF, stored as a packed
+> triangular matrix.
 
-### NRHS (in)
+Ipiv : Integer Array, Dimension (n) [in]
+> Details of the interchanges and the block structure of D
+> as determined by SSPTRF.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrices B and X. NRHS >= 0.
+B : Real Array, Dimension (ldb,nrhs) [in]
+> The right hand side matrix B.
 
-### AP (in)
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-AP is REAL array, dimension (N*(N+1)/2) The upper or lower triangle of the symmetric matrix A, packed columnwise in a linear array. The j-th column of A is stored in the array AP as follows: if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j; if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+X : Real Array, Dimension (ldx,nrhs) [in,out]
+> On entry, the solution matrix X, as computed by SSPTRS.
+> On exit, the improved solution matrix X.
 
-### AFP (in)
+Ldx : Integer [in]
+> The leading dimension of the array X.  LDX >= max(1,N).
 
-AFP is REAL array, dimension (N*(N+1)/2) The factored form of the matrix A. AFP contains the block diagonal matrix D and the multipliers used to obtain the factor U or L from the factorization A = U*D*U**T or A = L*D*L**T as computed by SSPTRF, stored as a packed triangular matrix.
+Ferr : Real Array, Dimension (nrhs) [out]
+> The estimated forward error bound for each solution vector
+> X(j) (the j-th column of the solution matrix X).
+> If XTRUE is the true solution corresponding to X(j), FERR(j)
+> is an estimated upper bound for the magnitude of the largest
+> element in (X(j) - XTRUE) divided by the magnitude of the
+> largest element in X(j).  The estimate is as reliable as
+> the estimate for RCOND, and is almost always a slight
+> overestimate of the true error.
 
-### IPIV (in)
+Berr : Real Array, Dimension (nrhs) [out]
+> The componentwise relative backward error of each solution
+> vector X(j) (i.e., the smallest relative change in
+> any element of A or B that makes X(j) an exact solution).
 
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D as determined by SSPTRF.
+Work : Real Array, Dimension (3*n) [out]
 
-### B (in)
+Iwork : Integer Array, Dimension (n) [out]
 
-B is REAL array, dimension (LDB,NRHS) The right hand side matrix B.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### X (in,out)
-
-X is REAL array, dimension (LDX,NRHS) On entry, the solution matrix X, as computed by SSPTRS. On exit, the improved solution matrix X.
-
-### LDX (in)
-
-LDX is INTEGER The leading dimension of the array X. LDX >= max(1,N).
-
-### FERR (out)
-
-FERR is REAL array, dimension (NRHS) The estimated forward error bound for each solution vector X(j) (the j-th column of the solution matrix X). If XTRUE is the true solution corresponding to X(j), FERR(j) is an estimated upper bound for the magnitude of the largest element in (X(j) - XTRUE) divided by the magnitude of the largest element in X(j). The estimate is as reliable as the estimate for RCOND, and is almost always a slight overestimate of the true error.
-
-### BERR (out)
-
-BERR is REAL array, dimension (NRHS) The componentwise relative backward error of each solution vector X(j) (i.e., the smallest relative change in any element of A or B that makes X(j) an exact solution).
-
-### WORK (out)
-
-WORK is REAL array, dimension (3*N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

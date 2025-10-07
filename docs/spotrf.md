@@ -1,13 +1,10 @@
-# SPOTRF
-
-## Function Signature
-
 ```fortran
-SPOTRF(UPLO, N, A, LDA, INFO)
+subroutine spotrf	(	character	uplo,
+		integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		integer	info )
 ```
-
-## Description
-
 
  SPOTRF computes the Cholesky factorization of a real symmetric
  positive definite matrix A.
@@ -20,24 +17,31 @@ SPOTRF(UPLO, N, A, LDA, INFO)
  This is the block version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+> N-by-N upper triangular part of A contains the upper
+> triangular part of the matrix A, and the strictly lower
+> triangular part of A is not referenced.  If UPLO = 'L', the
+> leading N-by-N lower triangular part of A contains the lower
+> triangular part of the matrix A, and the strictly upper
+> triangular part of A is not referenced.
+> On exit, if INFO = 0, the factor U or L from the Cholesky
+> factorization A = U**T*U or A = L*L**T.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-N is INTEGER The order of the matrix A. N >= 0.
-
-### A (in,out)
-
-A is REAL array, dimension (LDA,N) On entry, the symmetric matrix A. If UPLO = 'U', the leading N-by-N upper triangular part of A contains the upper triangular part of the matrix A, and the strictly lower triangular part of A is not referenced. If UPLO = 'L', the leading N-by-N lower triangular part of A contains the lower triangular part of the matrix A, and the strictly upper triangular part of A is not referenced. On exit, if INFO = 0, the factor U or L from the Cholesky factorization A = U**T*U or A = L*L**T.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the leading principal minor of order i is not positive, and the factorization could not be completed.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the leading principal minor of order i
+> is not positive, and the factorization could not be
+> completed.
 

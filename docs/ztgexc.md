@@ -1,14 +1,19 @@
-# ZTGEXC
-
-## Function Signature
-
 ```fortran
-ZTGEXC(WANTQ, WANTZ, N, A, LDA, B, LDB, Q, LDQ, Z,
-*                          LDZ, IFST, ILST, INFO)
+subroutine ztgexc	(	wantq,
+		wantz,
+		n,
+		a,
+		lda,
+		b,
+		ldb,
+		q,
+		ldq,
+		z,
+		*                          ldz,
+		ifst,
+		ilst,
+		info )
 ```
-
-## Description
-
 
  ZTGEXC reorders the generalized Schur decomposition of a complex
  matrix pair (A,B), using an unitary equivalence transformation
@@ -25,60 +30,62 @@ ZTGEXC(WANTQ, WANTZ, N, A, LDA, B, LDB, Q, LDQ, Z,
         Q(in) * B(in) * Z(in)**H = Q(out) * B(out) * Z(out)**H
 
 ## Parameters
+Wantq : Logical [in]
+> .TRUE. : update the left transformation matrix Q;
+> .FALSE.: do not update Q.
 
-### WANTQ (in)
+Wantz : Logical [in]
+> .TRUE. : update the right transformation matrix Z;
+> .FALSE.: do not update Z.
 
-WANTQ is LOGICAL .TRUE. : update the left transformation matrix Q; .FALSE.: do not update Q.
+N : Integer [in]
+> The order of the matrices A and B. N >= 0.
 
-### WANTZ (in)
+A : Complex*16 Array, Dimension (lda,n) [in,out]
+> On entry, the upper triangular matrix A in the pair (A, B).
+> On exit, the updated matrix A.
 
-WANTZ is LOGICAL .TRUE. : update the right transformation matrix Z; .FALSE.: do not update Z.
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,N).
 
-### N (in)
+B : Complex*16 Array, Dimension (ldb,n) [in,out]
+> On entry, the upper triangular matrix B in the pair (A, B).
+> On exit, the updated matrix B.
 
-N is INTEGER The order of the matrices A and B. N >= 0.
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,N).
 
-### A (in,out)
+Q : Complex*16 Array, Dimension (ldq,n) [in,out]
+> On entry, if WANTQ = .TRUE., the unitary matrix Q.
+> On exit, the updated matrix Q.
+> If WANTQ = .FALSE., Q is not referenced.
 
-A is COMPLEX*16 array, dimension (LDA,N) On entry, the upper triangular matrix A in the pair (A, B). On exit, the updated matrix A.
+Ldq : Integer [in]
+> The leading dimension of the array Q. LDQ >= 1;
+> If WANTQ = .TRUE., LDQ >= N.
 
-### LDA (in)
+Z : Complex*16 Array, Dimension (ldz,n) [in,out]
+> On entry, if WANTZ = .TRUE., the unitary matrix Z.
+> On exit, the updated matrix Z.
+> If WANTZ = .FALSE., Z is not referenced.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Ldz : Integer [in]
+> The leading dimension of the array Z. LDZ >= 1;
+> If WANTZ = .TRUE., LDZ >= N.
 
-### B (in,out)
+Ifst : Integer [in]
 
-B is COMPLEX*16 array, dimension (LDB,N) On entry, the upper triangular matrix B in the pair (A, B). On exit, the updated matrix B.
+Ilst : Integer [in,out]
+> Specify the reordering of the diagonal blocks of (A, B).
+> The block with row index IFST is moved to row ILST, by a
+> sequence of swapping between adjacent blocks.
 
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### Q (in,out)
-
-Q is COMPLEX*16 array, dimension (LDQ,N) On entry, if WANTQ = .TRUE., the unitary matrix Q. On exit, the updated matrix Q. If WANTQ = .FALSE., Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= 1; If WANTQ = .TRUE., LDQ >= N.
-
-### Z (in,out)
-
-Z is COMPLEX*16 array, dimension (LDZ,N) On entry, if WANTZ = .TRUE., the unitary matrix Z. On exit, the updated matrix Z. If WANTZ = .FALSE., Z is not referenced.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1; If WANTZ = .TRUE., LDZ >= N.
-
-### IFST (in)
-
-IFST is INTEGER
-
-### ILST (in,out)
-
-ILST is INTEGER Specify the reordering of the diagonal blocks of (A, B). The block with row index IFST is moved to row ILST, by a sequence of swapping between adjacent blocks.
-
-### INFO (out)
-
-INFO is INTEGER =0: Successful exit. <0: if INFO = -i, the i-th argument had an illegal value. =1: The transformed matrix pair (A, B) would be too far from generalized Schur form; the problem is ill- conditioned. (A, B) may have been partially reordered, and ILST points to the first row of the current position of the block being moved.
+Info : Integer [out]
+> =0:  Successful exit.
+> <0:  if INFO = -i, the i-th argument had an illegal value.
+> =1:  The transformed matrix pair (A, B) would be too far
+> from generalized Schur form; the problem is ill-
+> conditioned. (A, B) may have been partially reordered,
+> and ILST points to the first row of the current
+> position of the block being moved.
 

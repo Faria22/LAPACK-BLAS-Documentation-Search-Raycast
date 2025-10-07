@@ -1,13 +1,13 @@
-# SLARFY
-
-## Function Signature
-
 ```fortran
-SLARFY(UPLO, N, V, INCV, TAU, C, LDC, WORK)
+subroutine slarfy	(	character	uplo,
+		integer	n,
+		real, dimension(*)	v,
+		integer	incv,
+		real	tau,
+		real, dimension(ldc, *)	c,
+		integer	ldc,
+		real, dimension(*)	work )
 ```
-
-## Description
-
 
  SLARFY applies an elementary reflector, or Householder matrix, H,
  to an n x n symmetric matrix C, from both the left and the right.
@@ -21,36 +21,32 @@ SLARFY(UPLO, N, V, INCV, TAU, C, LDC, WORK)
  If  tau  is  zero, then  H  is taken to be the unit matrix.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> symmetric matrix C is stored.
+> = 'U':  Upper triangle
+> = 'L':  Lower triangle
 
-### UPLO (in)
+N : Integer [in]
+> The number of rows and columns of the matrix C.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the symmetric matrix C is stored. = 'U': Upper triangle = 'L': Lower triangle
+V : Real Array, Dimension [in]
+> (1 + (N-1)*abs(INCV))
+> The vector v as described above.
 
-### N (in)
+Incv : Integer [in]
+> The increment between successive elements of v.  INCV must
+> not be zero.
 
-N is INTEGER The number of rows and columns of the matrix C. N >= 0.
+Tau : Real [in]
+> The value tau as described above.
 
-### V (in)
+C : Real Array, Dimension (ldc, N) [in,out]
+> On entry, the matrix C.
+> On exit, C is overwritten by H * C * H'.
 
-V is REAL array, dimension (1 + (N-1)*abs(INCV)) The vector v as described above.
+Ldc : Integer [in]
+> The leading dimension of the array C.  LDC >= max( 1, N ).
 
-### INCV (in)
-
-INCV is INTEGER The increment between successive elements of v. INCV must not be zero.
-
-### TAU (in)
-
-TAU is REAL The value tau as described above.
-
-### C (in,out)
-
-C is REAL array, dimension (LDC, N) On entry, the matrix C. On exit, C is overwritten by H * C * H'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max( 1, N ).
-
-### WORK (out)
-
-WORK is REAL array, dimension (N)
+Work : Real Array, Dimension (n) [out]
 

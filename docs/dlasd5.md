@@ -1,13 +1,12 @@
-# DLASD5
-
-## Function Signature
-
 ```fortran
-DLASD5(I, D, Z, DELTA, RHO, DSIGMA, WORK)
+subroutine dlasd5	(	integer	i,
+		double precision, dimension(2)	d,
+		double precision, dimension(2)	z,
+		double precision, dimension(2)	delta,
+		double precision	rho,
+		double precision	dsigma,
+		double precision, dimension(2)	work )
 ```
-
-## Description
-
 
  This subroutine computes the square root of the I-th eigenvalue
  of a positive symmetric rank-one modification of a 2-by-2 diagonal
@@ -23,32 +22,26 @@ DLASD5(I, D, Z, DELTA, RHO, DSIGMA, WORK)
  Z is one.
 
 ## Parameters
+I : Integer [in]
+> The index of the eigenvalue to be computed.  I = 1 or I = 2.
 
-### I (in)
+D : Double Precision Array, Dimension ( 2 ) [in]
+> The original eigenvalues.  We assume 0 <= D(1) < D(2).
 
-I is INTEGER The index of the eigenvalue to be computed. I = 1 or I = 2.
+Z : Double Precision Array, Dimension ( 2 ) [in]
+> The components of the updating vector.
 
-### D (in)
+Delta : Double Precision Array, Dimension ( 2 ) [out]
+> Contains (D(j) - sigma_I) in its  j-th component.
+> The vector DELTA contains the information necessary
+> to construct the eigenvectors.
 
-D is DOUBLE PRECISION array, dimension ( 2 ) The original eigenvalues. We assume 0 <= D(1) < D(2).
+Rho : Double Precision [in]
+> The scalar in the symmetric updating formula.
 
-### Z (in)
+Dsigma : Double Precision [out]
+> The computed sigma_I, the I-th updated eigenvalue.
 
-Z is DOUBLE PRECISION array, dimension ( 2 ) The components of the updating vector.
-
-### DELTA (out)
-
-DELTA is DOUBLE PRECISION array, dimension ( 2 ) Contains (D(j) - sigma_I) in its j-th component. The vector DELTA contains the information necessary to construct the eigenvectors.
-
-### RHO (in)
-
-RHO is DOUBLE PRECISION The scalar in the symmetric updating formula.
-
-### DSIGMA (out)
-
-DSIGMA is DOUBLE PRECISION The computed sigma_I, the I-th updated eigenvalue.
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension ( 2 ) WORK contains (D(j) + sigma_I) in its j-th component.
+Work : Double Precision Array, Dimension ( 2 ) [out]
+> WORK contains (D(j) + sigma_I) in its  j-th component.
 

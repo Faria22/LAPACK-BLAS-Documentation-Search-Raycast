@@ -1,13 +1,14 @@
-# CLAIC1
-
-## Function Signature
-
 ```fortran
-CLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
+subroutine claic1	(	integer	job,
+		integer	j,
+		complex, dimension(j)	x,
+		real	sest,
+		complex, dimension(j)	w,
+		complex	gamma,
+		real	sestpr,
+		complex	s,
+		complex	c )
 ```
-
-## Description
-
 
  CLAIC1 applies one step of incremental condition estimation in
  its simplest version:
@@ -36,40 +37,31 @@ CLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
  where  alpha =  x**H*w.
 
 ## Parameters
+Job : Integer [in]
+> = 1: an estimate for the largest singular value is computed.
+> = 2: an estimate for the smallest singular value is computed.
 
-### JOB (in)
+J : Integer [in]
+> Length of X and W
 
-JOB is INTEGER = 1: an estimate for the largest singular value is computed. = 2: an estimate for the smallest singular value is computed.
+X : Complex Array, Dimension (j) [in]
+> The j-vector x.
 
-### J (in)
+Sest : Real [in]
+> Estimated singular value of j by j matrix L
 
-J is INTEGER Length of X and W
+W : Complex Array, Dimension (j) [in]
+> The j-vector w.
 
-### X (in)
+Gamma : Complex [in]
+> The diagonal element gamma.
 
-X is COMPLEX array, dimension (J) The j-vector x.
+Sestpr : Real [out]
+> Estimated singular value of (j+1) by (j+1) matrix Lhat.
 
-### SEST (in)
+S : Complex [out]
+> Sine needed in forming xhat.
 
-SEST is REAL Estimated singular value of j by j matrix L
-
-### W (in)
-
-W is COMPLEX array, dimension (J) The j-vector w.
-
-### GAMMA (in)
-
-GAMMA is COMPLEX The diagonal element gamma.
-
-### SESTPR (out)
-
-SESTPR is REAL Estimated singular value of (j+1) by (j+1) matrix Lhat.
-
-### S (out)
-
-S is COMPLEX Sine needed in forming xhat.
-
-### C (out)
-
-C is COMPLEX Cosine needed in forming xhat.
+C : Complex [out]
+> Cosine needed in forming xhat.
 

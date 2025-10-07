@@ -1,15 +1,27 @@
-# DLAED8
-
-## Function Signature
-
 ```fortran
-DLAED8(ICOMPQ, K, N, QSIZ, D, Q, LDQ, INDXQ, RHO,
-*                          CUTPNT, Z, DLAMBDA, Q2, LDQ2, W, PERM, GIVPTR,
-*                          GIVCOL, GIVNUM, INDXP, INDX, INFO)
+subroutine dlaed8	(	icompq,
+		k,
+		n,
+		qsiz,
+		d,
+		q,
+		ldq,
+		indxq,
+		rho,
+		*                          cutpnt,
+		z,
+		dlambda,
+		q2,
+		ldq2,
+		w,
+		perm,
+		givptr,
+		*                          givcol,
+		givnum,
+		indxp,
+		indx,
+		info )
 ```
-
-## Description
-
 
  DLAED8 merges the two sets of eigenvalues together into a single
  sorted set.  Then it tries to deflate the size of the problem.
@@ -19,92 +31,106 @@ DLAED8(ICOMPQ, K, N, QSIZ, D, Q, LDQ, INDXQ, RHO,
  equation problem is reduced by one.
 
 ## Parameters
+Icompq : Integer [in]
+> = 0:  Compute eigenvalues only.
+> = 1:  Compute eigenvectors of original dense symmetric matrix
+> also.  On entry, Q contains the orthogonal matrix used
+> to reduce the original matrix to tridiagonal form.
 
-### ICOMPQ (in)
+K : Integer [out]
+> The number of non-deflated eigenvalues, and the order of the
+> related secular equation.
 
-ICOMPQ is INTEGER = 0: Compute eigenvalues only. = 1: Compute eigenvectors of original dense symmetric matrix also. On entry, Q contains the orthogonal matrix used to reduce the original matrix to tridiagonal form.
+N : Integer [in]
+> The dimension of the symmetric tridiagonal matrix.  N >= 0.
 
-### K (out)
+Qsiz : Integer [in]
+> The dimension of the orthogonal matrix used to reduce
+> the full matrix to tridiagonal form.  QSIZ >= N if ICOMPQ = 1.
 
-K is INTEGER The number of non-deflated eigenvalues, and the order of the related secular equation.
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, the eigenvalues of the two submatrices to be
+> combined.  On exit, the trailing (N-K) updated eigenvalues
+> (those which were deflated) sorted into increasing order.
 
-### N (in)
+Q : Double Precision Array, Dimension (ldq,n) [in,out]
+> If ICOMPQ = 0, Q is not referenced.  Otherwise,
+> on entry, Q contains the eigenvectors of the partially solved
+> system which has been previously updated in matrix
+> multiplies with other partially solved eigensystems.
+> On exit, Q contains the trailing (N-K) updated eigenvectors
+> (those which were deflated) in its last N-K columns.
 
-N is INTEGER The dimension of the symmetric tridiagonal matrix. N >= 0.
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= max(1,N).
 
-### QSIZ (in)
+Indxq : Integer Array, Dimension (n) [in]
+> The permutation which separately sorts the two sub-problems
+> in D into ascending order.  Note that elements in the second
+> half of this permutation must first have CUTPNT added to
+> their values in order to be accurate.
 
-QSIZ is INTEGER The dimension of the orthogonal matrix used to reduce the full matrix to tridiagonal form. QSIZ >= N if ICOMPQ = 1.
+Rho : Double Precision [in,out]
+> On entry, the off-diagonal element associated with the rank-1
+> cut which originally split the two submatrices which are now
+> being recombined.
+> On exit, RHO has been modified to the value required by
+> DLAED3.
 
-### D (in,out)
+Cutpnt : Integer [in]
+> The location of the last eigenvalue in the leading
+> sub-matrix.  min(1,N) <= CUTPNT <= N.
 
-D is DOUBLE PRECISION array, dimension (N) On entry, the eigenvalues of the two submatrices to be combined. On exit, the trailing (N-K) updated eigenvalues (those which were deflated) sorted into increasing order.
+Z : Double Precision Array, Dimension (n) [in]
+> On entry, Z contains the updating vector (the last row of
+> the first sub-eigenvector matrix and the first row of the
+> second sub-eigenvector matrix).
+> On exit, the contents of Z are destroyed by the updating
+> process.
 
-### Q (in,out)
+Dlambda : Double Precision Array, Dimension (n) [out]
+> A copy of the first K eigenvalues which will be used by
+> DLAED3 to form the secular equation.
 
-Q is DOUBLE PRECISION array, dimension (LDQ,N) If ICOMPQ = 0, Q is not referenced. Otherwise, on entry, Q contains the eigenvectors of the partially solved system which has been previously updated in matrix multiplies with other partially solved eigensystems. On exit, Q contains the trailing (N-K) updated eigenvectors (those which were deflated) in its last N-K columns.
+Q2 : Double Precision Array, Dimension (ldq2,n) [out]
+> If ICOMPQ = 0, Q2 is not referenced.  Otherwise,
+> a copy of the first K eigenvectors which will be used by
+> DLAED7 in a matrix multiply (DGEMM) to update the new
+> eigenvectors.
 
-### LDQ (in)
+Ldq2 : Integer [in]
+> The leading dimension of the array Q2.  LDQ2 >= max(1,N).
 
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N).
+W : Double Precision Array, Dimension (n) [out]
+> The first k values of the final deflation-altered z-vector and
+> will be passed to DLAED3.
 
-### INDXQ (in)
+Perm : Integer Array, Dimension (n) [out]
+> The permutations (from deflation and sorting) to be applied
+> to each eigenblock.
 
-INDXQ is INTEGER array, dimension (N) The permutation which separately sorts the two sub-problems in D into ascending order. Note that elements in the second half of this permutation must first have CUTPNT added to their values in order to be accurate.
+Givptr : Integer [out]
+> The number of Givens rotations which took place in this
+> subproblem.
 
-### RHO (in,out)
+Givcol : Integer Array, Dimension (2, N) [out]
+> Each pair of numbers indicates a pair of columns to take place
+> in a Givens rotation.
 
-RHO is DOUBLE PRECISION On entry, the off-diagonal element associated with the rank-1 cut which originally split the two submatrices which are now being recombined. On exit, RHO has been modified to the value required by DLAED3.
+Givnum : Double Precision Array, Dimension (2, N) [out]
+> Each number indicates the S value to be used in the
+> corresponding Givens rotation.
 
-### CUTPNT (in)
+Indxp : Integer Array, Dimension (n) [out]
+> The permutation used to place deflated values of D at the end
+> of the array.  INDXP(1:K) points to the nondeflated D-values
+> and INDXP(K+1:N) points to the deflated eigenvalues.
 
-CUTPNT is INTEGER The location of the last eigenvalue in the leading sub-matrix. min(1,N) <= CUTPNT <= N.
+Indx : Integer Array, Dimension (n) [out]
+> The permutation used to sort the contents of D into ascending
+> order.
 
-### Z (in)
-
-Z is DOUBLE PRECISION array, dimension (N) On entry, Z contains the updating vector (the last row of the first sub-eigenvector matrix and the first row of the second sub-eigenvector matrix). On exit, the contents of Z are destroyed by the updating process.
-
-### DLAMBDA (out)
-
-DLAMBDA is DOUBLE PRECISION array, dimension (N) A copy of the first K eigenvalues which will be used by DLAED3 to form the secular equation.
-
-### Q2 (out)
-
-Q2 is DOUBLE PRECISION array, dimension (LDQ2,N) If ICOMPQ = 0, Q2 is not referenced. Otherwise, a copy of the first K eigenvectors which will be used by DLAED7 in a matrix multiply (DGEMM) to update the new eigenvectors.
-
-### LDQ2 (in)
-
-LDQ2 is INTEGER The leading dimension of the array Q2. LDQ2 >= max(1,N).
-
-### W (out)
-
-W is DOUBLE PRECISION array, dimension (N) The first k values of the final deflation-altered z-vector and will be passed to DLAED3.
-
-### PERM (out)
-
-PERM is INTEGER array, dimension (N) The permutations (from deflation and sorting) to be applied to each eigenblock.
-
-### GIVPTR (out)
-
-GIVPTR is INTEGER The number of Givens rotations which took place in this subproblem.
-
-### GIVCOL (out)
-
-GIVCOL is INTEGER array, dimension (2, N) Each pair of numbers indicates a pair of columns to take place in a Givens rotation.
-
-### GIVNUM (out)
-
-GIVNUM is DOUBLE PRECISION array, dimension (2, N) Each number indicates the S value to be used in the corresponding Givens rotation.
-
-### INDXP (out)
-
-INDXP is INTEGER array, dimension (N) The permutation used to place deflated values of D at the end of the array. INDXP(1:K) points to the nondeflated D-values and INDXP(K+1:N) points to the deflated eigenvalues.
-
-### INDX (out)
-
-INDX is INTEGER array, dimension (N) The permutation used to sort the contents of D into ascending order.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

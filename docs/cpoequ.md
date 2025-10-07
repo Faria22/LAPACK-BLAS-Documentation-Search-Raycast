@@ -1,13 +1,12 @@
-# CPOEQU
-
-## Function Signature
-
 ```fortran
-CPOEQU(N, A, LDA, S, SCOND, AMAX, INFO)
+subroutine cpoequ	(	integer	n,
+		complex, dimension(lda, *)	a,
+		integer	lda,
+		real, dimension(*)	s,
+		real	scond,
+		real	amax,
+		integer	info )
 ```
-
-## Description
-
 
  CPOEQU computes row and column scalings intended to equilibrate a
  Hermitian positive definite matrix A and reduce its condition number
@@ -19,32 +18,32 @@ CPOEQU(N, A, LDA, S, SCOND, AMAX, INFO)
  scalings.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### N (in)
+A : Complex Array, Dimension (lda,n) [in]
+> The N-by-N Hermitian positive definite matrix whose scaling
+> factors are to be computed.  Only the diagonal elements of A
+> are referenced.
 
-N is INTEGER The order of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### A (in)
+S : Real Array, Dimension (n) [out]
+> If INFO = 0, S contains the scale factors for A.
 
-A is COMPLEX array, dimension (LDA,N) The N-by-N Hermitian positive definite matrix whose scaling factors are to be computed. Only the diagonal elements of A are referenced.
+Scond : Real [out]
+> If INFO = 0, S contains the ratio of the smallest S(i) to
+> the largest S(i).  If SCOND >= 0.1 and AMAX is neither too
+> large nor too small, it is not worth scaling by S.
 
-### LDA (in)
+Amax : Real [out]
+> Absolute value of largest matrix element.  If AMAX is very
+> close to overflow or very close to underflow, the matrix
+> should be scaled.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
-
-### S (out)
-
-S is REAL array, dimension (N) If INFO = 0, S contains the scale factors for A.
-
-### SCOND (out)
-
-SCOND is REAL If INFO = 0, S contains the ratio of the smallest S(i) to the largest S(i). If SCOND >= 0.1 and AMAX is neither too large nor too small, it is not worth scaling by S.
-
-### AMAX (out)
-
-AMAX is REAL Absolute value of largest matrix element. If AMAX is very close to overflow or very close to underflow, the matrix should be scaled.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, the i-th diagonal element is nonpositive.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, the i-th diagonal element is nonpositive.
 

@@ -1,44 +1,37 @@
-# DLASDT
-
-## Function Signature
-
 ```fortran
-DLASDT(N, LVL, ND, INODE, NDIML, NDIMR, MSUB)
+subroutine dlasdt	(	integer	n,
+		integer	lvl,
+		integer	nd,
+		integer, dimension(*)	inode,
+		integer, dimension(*)	ndiml,
+		integer, dimension(*)	ndimr,
+		integer	msub )
 ```
-
-## Description
-
 
  DLASDT creates a tree of subproblems for bidiagonal divide and
  conquer.
 
 ## Parameters
+N : Integer [in]
+> On entry, the number of diagonal elements of the
+> bidiagonal matrix.
 
-### N (in)
+Lvl : Integer [out]
+> On exit, the number of levels on the computation tree.
 
-N is INTEGER On entry, the number of diagonal elements of the bidiagonal matrix.
+Nd : Integer [out]
+> On exit, the number of nodes on the tree.
 
-### LVL (out)
+Inode : Integer Array, Dimension ( N ) [out]
+> On exit, centers of subproblems.
 
-LVL is INTEGER On exit, the number of levels on the computation tree.
+Ndiml : Integer Array, Dimension ( N ) [out]
+> On exit, row dimensions of left children.
 
-### ND (out)
+Ndimr : Integer Array, Dimension ( N ) [out]
+> On exit, row dimensions of right children.
 
-ND is INTEGER On exit, the number of nodes on the tree.
-
-### INODE (out)
-
-INODE is INTEGER array, dimension ( N ) On exit, centers of subproblems.
-
-### NDIML (out)
-
-NDIML is INTEGER array, dimension ( N ) On exit, row dimensions of left children.
-
-### NDIMR (out)
-
-NDIMR is INTEGER array, dimension ( N ) On exit, row dimensions of right children.
-
-### MSUB (in)
-
-MSUB is INTEGER On entry, the maximum row dimension each subproblem at the bottom of the tree can be of.
+Msub : Integer [in]
+> On entry, the maximum row dimension each subproblem at the
+> bottom of the tree can be of.
 

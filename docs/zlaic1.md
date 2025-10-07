@@ -1,13 +1,14 @@
-# ZLAIC1
-
-## Function Signature
-
 ```fortran
-ZLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
+subroutine zlaic1	(	integer	job,
+		integer	j,
+		complex*16, dimension(j)	x,
+		double precision	sest,
+		complex*16, dimension(j)	w,
+		complex*16	gamma,
+		double precision	sestpr,
+		complex*16	s,
+		complex*16	c )
 ```
-
-## Description
-
 
  ZLAIC1 applies one step of incremental condition estimation in
  its simplest version:
@@ -36,40 +37,31 @@ ZLAIC1(JOB, J, X, SEST, W, GAMMA, SESTPR, S, C)
  where  alpha =  x**H * w.
 
 ## Parameters
+Job : Integer [in]
+> = 1: an estimate for the largest singular value is computed.
+> = 2: an estimate for the smallest singular value is computed.
 
-### JOB (in)
+J : Integer [in]
+> Length of X and W
 
-JOB is INTEGER = 1: an estimate for the largest singular value is computed. = 2: an estimate for the smallest singular value is computed.
+X : Complex*16 Array, Dimension (j) [in]
+> The j-vector x.
 
-### J (in)
+Sest : Double Precision [in]
+> Estimated singular value of j by j matrix L
 
-J is INTEGER Length of X and W
+W : Complex*16 Array, Dimension (j) [in]
+> The j-vector w.
 
-### X (in)
+Gamma : Complex*16 [in]
+> The diagonal element gamma.
 
-X is COMPLEX*16 array, dimension (J) The j-vector x.
+Sestpr : Double Precision [out]
+> Estimated singular value of (j+1) by (j+1) matrix Lhat.
 
-### SEST (in)
+S : Complex*16 [out]
+> Sine needed in forming xhat.
 
-SEST is DOUBLE PRECISION Estimated singular value of j by j matrix L
-
-### W (in)
-
-W is COMPLEX*16 array, dimension (J) The j-vector w.
-
-### GAMMA (in)
-
-GAMMA is COMPLEX*16 The diagonal element gamma.
-
-### SESTPR (out)
-
-SESTPR is DOUBLE PRECISION Estimated singular value of (j+1) by (j+1) matrix Lhat.
-
-### S (out)
-
-S is COMPLEX*16 Sine needed in forming xhat.
-
-### C (out)
-
-C is COMPLEX*16 Cosine needed in forming xhat.
+C : Complex*16 [out]
+> Cosine needed in forming xhat.
 

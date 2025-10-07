@@ -1,14 +1,23 @@
-# SGSVJ1
-
-## Function Signature
-
 ```fortran
-SGSVJ1(JOBV, M, N, N1, A, LDA, D, SVA, MV, V, LDV,
-*                          EPS, SFMIN, TOL, NSWEEP, WORK, LWORK, INFO)
+subroutine sgsvj1	(	jobv,
+		m,
+		n,
+		n1,
+		a,
+		lda,
+		d,
+		sva,
+		mv,
+		v,
+		ldv,
+		*                          eps,
+		sfmin,
+		tol,
+		nsweep,
+		work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  SGSVJ1 is called from SGESVJ as a pre-processor and that is its main
  purpose. It applies Jacobi rotations in the same way as SGESVJ does, but
@@ -39,76 +48,95 @@ SGSVJ1(JOBV, M, N, N1, A, LDA, D, SVA, MV, V, LDV,
  is given in TOL.
 
 ## Parameters
+Jobv : Character*1 [in]
+> Specifies whether the output from this procedure is used
+> to compute the matrix V:
+> = 'V': the product of the Jacobi rotations is accumulated
+> by postmultiplying the N-by-N array V.
+> (See the description of V.)
+> = 'A': the product of the Jacobi rotations is accumulated
+> by postmultiplying the MV-by-N array V.
+> (See the descriptions of MV and V.)
+> = 'N': the Jacobi rotations are not accumulated.
 
-### JOBV (in)
+M : Integer [in]
+> The number of rows of the input matrix A.  M >= 0.
 
-JOBV is CHARACTER*1 Specifies whether the output from this procedure is used to compute the matrix V: = 'V': the product of the Jacobi rotations is accumulated by postmultiplying the N-by-N array V. (See the description of V.) = 'A': the product of the Jacobi rotations is accumulated by postmultiplying the MV-by-N array V. (See the descriptions of MV and V.) = 'N': the Jacobi rotations are not accumulated.
+N : Integer [in]
+> The number of columns of the input matrix A.
+> M >= N >= 0.
 
-### M (in)
+N1 : Integer [in]
+> N1 specifies the 2 x 2 block partition, the first N1 columns are
+> rotated 'against' the remaining N-N1 columns of A.
 
-M is INTEGER The number of rows of the input matrix A. M >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, M-by-N matrix A, such that A*diag(D) represents
+> the input matrix.
+> On exit,
+> A_onexit * D_onexit represents the input matrix A*diag(D)
+> post-multiplied by a sequence of Jacobi rotations, where the
+> rotation threshold and the total number of sweeps are given in
+> TOL and NSWEEP, respectively.
+> (See the descriptions of N1, D, TOL and NSWEEP.)
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the input matrix A. M >= N >= 0.
+D : Real Array, Dimension (n) [in,out]
+> The array D accumulates the scaling factors from the fast scaled
+> Jacobi rotations.
+> On entry, A*diag(D) represents the input matrix.
+> On exit, A_onexit*diag(D_onexit) represents the input matrix
+> post-multiplied by a sequence of Jacobi rotations, where the
+> rotation threshold and the total number of sweeps are given in
+> TOL and NSWEEP, respectively.
+> (See the descriptions of N1, A, TOL and NSWEEP.)
 
-### N1 (in)
+Sva : Real Array, Dimension (n) [in,out]
+> On entry, SVA contains the Euclidean norms of the columns of
+> the matrix A*diag(D).
+> On exit, SVA contains the Euclidean norms of the columns of
+> the matrix onexit*diag(D_onexit).
 
-N1 is INTEGER N1 specifies the 2 x 2 block partition, the first N1 columns are rotated 'against' the remaining N-N1 columns of A.
+Mv : Integer [in]
+> If JOBV = 'A', then MV rows of V are post-multiplied by a
+> sequence of Jacobi rotations.
+> If JOBV = 'N',   then MV is not referenced.
 
-### A (in,out)
+V : Real Array, Dimension (ldv,n) [in,out]
+> If JOBV = 'V' then N rows of V are post-multiplied by a
+> sequence of Jacobi rotations.
+> If JOBV = 'A' then MV rows of V are post-multiplied by a
+> sequence of Jacobi rotations.
+> If JOBV = 'N',   then V is not referenced.
 
-A is REAL array, dimension (LDA,N) On entry, M-by-N matrix A, such that A*diag(D) represents the input matrix. On exit, A_onexit * D_onexit represents the input matrix A*diag(D) post-multiplied by a sequence of Jacobi rotations, where the rotation threshold and the total number of sweeps are given in TOL and NSWEEP, respectively. (See the descriptions of N1, D, TOL and NSWEEP.)
+Ldv : Integer [in]
+> The leading dimension of the array V,  LDV >= 1.
+> If JOBV = 'V', LDV >= N.
+> If JOBV = 'A', LDV >= MV.
 
-### LDA (in)
+Eps : Real [in]
+> EPS = SLAMCH('Epsilon')
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+Sfmin : Real [in]
+> SFMIN = SLAMCH('Safe Minimum')
 
-### D (in,out)
+Tol : Real [in]
+> TOL is the threshold for Jacobi rotations. For a pair
+> A(:,p), A(:,q) of pivot columns, the Jacobi rotation is
+> applied only if ABS(COS(angle(A(:,p),A(:,q)))) > TOL.
 
-D is REAL array, dimension (N) The array D accumulates the scaling factors from the fast scaled Jacobi rotations. On entry, A*diag(D) represents the input matrix. On exit, A_onexit*diag(D_onexit) represents the input matrix post-multiplied by a sequence of Jacobi rotations, where the rotation threshold and the total number of sweeps are given in TOL and NSWEEP, respectively. (See the descriptions of N1, A, TOL and NSWEEP.)
+Nsweep : Integer [in]
+> NSWEEP is the number of sweeps of Jacobi rotations to be
+> performed.
 
-### SVA (in,out)
+Work : Real Array, Dimension (lwork) [out]
 
-SVA is REAL array, dimension (N) On entry, SVA contains the Euclidean norms of the columns of the matrix A*diag(D). On exit, SVA contains the Euclidean norms of the columns of the matrix onexit*diag(D_onexit).
+Lwork : Integer [in]
+> LWORK is the dimension of WORK. LWORK >= M.
 
-### MV (in)
-
-MV is INTEGER If JOBV = 'A', then MV rows of V are post-multiplied by a sequence of Jacobi rotations. If JOBV = 'N', then MV is not referenced.
-
-### V (in,out)
-
-V is REAL array, dimension (LDV,N) If JOBV = 'V' then N rows of V are post-multiplied by a sequence of Jacobi rotations. If JOBV = 'A' then MV rows of V are post-multiplied by a sequence of Jacobi rotations. If JOBV = 'N', then V is not referenced.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V, LDV >= 1. If JOBV = 'V', LDV >= N. If JOBV = 'A', LDV >= MV.
-
-### EPS (in)
-
-EPS is REAL EPS = SLAMCH('Epsilon')
-
-### SFMIN (in)
-
-SFMIN is REAL SFMIN = SLAMCH('Safe Minimum')
-
-### TOL (in)
-
-TOL is REAL TOL is the threshold for Jacobi rotations. For a pair A(:,p), A(:,q) of pivot columns, the Jacobi rotation is applied only if ABS(COS(angle(A(:,p),A(:,q)))) > TOL.
-
-### NSWEEP (in)
-
-NSWEEP is INTEGER NSWEEP is the number of sweeps of Jacobi rotations to be performed.
-
-### WORK (out)
-
-WORK is REAL array, dimension (LWORK)
-
-### LWORK (in)
-
-LWORK is INTEGER LWORK is the dimension of WORK. LWORK >= M.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, then the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, then the i-th argument had an illegal value
 

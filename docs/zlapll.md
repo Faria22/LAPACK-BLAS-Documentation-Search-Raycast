@@ -1,13 +1,11 @@
-# ZLAPLL
-
-## Function Signature
-
 ```fortran
-ZLAPLL(N, X, INCX, Y, INCY, SSMIN)
+subroutine zlapll	(	integer	n,
+		complex*16, dimension(*)	x,
+		integer	incx,
+		complex*16, dimension(*)	y,
+		integer	incy,
+		double precision	ssmin )
 ```
-
-## Description
-
 
  Given two column vectors X and Y, let
 
@@ -19,28 +17,23 @@ ZLAPLL(N, X, INCX, Y, INCY, SSMIN)
  as the measurement of the linear dependency of the vectors X and Y.
 
 ## Parameters
+N : Integer [in]
+> The length of the vectors X and Y.
 
-### N (in)
+X : Complex*16 Array, Dimension (1+(n-1)*incx) [in,out]
+> On entry, X contains the N-vector X.
+> On exit, X is overwritten.
 
-N is INTEGER The length of the vectors X and Y.
+Incx : Integer [in]
+> The increment between successive elements of X. INCX > 0.
 
-### X (in,out)
+Y : Complex*16 Array, Dimension (1+(n-1)*incy) [in,out]
+> On entry, Y contains the N-vector Y.
+> On exit, Y is overwritten.
 
-X is COMPLEX*16 array, dimension (1+(N-1)*INCX) On entry, X contains the N-vector X. On exit, X is overwritten.
+Incy : Integer [in]
+> The increment between successive elements of Y. INCY > 0.
 
-### INCX (in)
-
-INCX is INTEGER The increment between successive elements of X. INCX > 0.
-
-### Y (in,out)
-
-Y is COMPLEX*16 array, dimension (1+(N-1)*INCY) On entry, Y contains the N-vector Y. On exit, Y is overwritten.
-
-### INCY (in)
-
-INCY is INTEGER The increment between successive elements of Y. INCY > 0.
-
-### SSMIN (out)
-
-SSMIN is DOUBLE PRECISION The smallest singular value of the N-by-2 matrix A = ( X Y ).
+Ssmin : Double Precision [out]
+> The smallest singular value of the N-by-2 matrix A = ( X Y ).
 

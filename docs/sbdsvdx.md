@@ -1,14 +1,22 @@
-# SBDSVDX
-
-## Function Signature
-
 ```fortran
-SBDSVDX(UPLO, JOBZ, RANGE, N, D, E, VL, VU, IL, IU,
-*    $                    NS, S, Z, LDZ, WORK, IWORK, INFO)
+subroutine sbdsvdx	(	uplo,
+		jobz,
+		range,
+		n,
+		d,
+		e,
+		vl,
+		vu,
+		il,
+		iu,
+		*    $                    ns,
+		s,
+		z,
+		ldz,
+		work,
+		iwork,
+		info )
 ```
-
-## Description
-
 
   SBDSVDX computes the singular value decomposition (SVD) of a real
   N-by-N (upper or lower) bidiagonal matrix B, B = U * S * VT,
@@ -43,72 +51,89 @@ SBDSVDX(UPLO, JOBZ, RANGE, N, D, E, VL, VU, IL, IU,
   35:740-766, 2013.)
 
 ## Parameters
+Uplo : Character*1 [in]
+> = 'U':  B is upper bidiagonal;
+> = 'L':  B is lower bidiagonal.
 
-### UPLO (in)
+Jobz : Character*1 [in]
+> = 'N':  Compute singular values only;
+> = 'V':  Compute singular values and singular vectors.
 
-UPLO is CHARACTER*1 = 'U': B is upper bidiagonal; = 'L': B is lower bidiagonal.
+Range : Character*1 [in]
+> = 'A': all singular values will be found.
+> = 'V': all singular values in the half-open interval [VL,VU)
+> will be found.
+> = 'I': the IL-th through IU-th singular values will be found.
 
-### JOBZ (in)
+N : Integer [in]
+> The order of the bidiagonal matrix.  N >= 0.
 
-JOBZ is CHARACTER*1 = 'N': Compute singular values only; = 'V': Compute singular values and singular vectors.
+D : Real Array, Dimension (n) [in]
+> The n diagonal elements of the bidiagonal matrix B.
 
-### RANGE (in)
+E : Real Array, Dimension (max(1,n-1)) [in]
+> The (n-1) superdiagonal elements of the bidiagonal matrix
+> B in elements 1 to N-1.
 
-RANGE is CHARACTER*1 = 'A': all singular values will be found. = 'V': all singular values in the half-open interval [VL,VU) will be found. = 'I': the IL-th through IU-th singular values will be found.
+Vl : Real [in]
+> If RANGE='V', the lower bound of the interval to
+> be searched for singular values. VU > VL.
+> Not referenced if RANGE = 'A' or 'I'.
 
-### N (in)
+Vu : Real [in]
+> If RANGE='V', the upper bound of the interval to
+> be searched for singular values. VU > VL.
+> Not referenced if RANGE = 'A' or 'I'.
 
-N is INTEGER The order of the bidiagonal matrix. N >= 0.
+Il : Integer [in]
+> If RANGE='I', the index of the
+> smallest singular value to be returned.
+> 1 <= IL <= IU <= min(M,N), if min(M,N) > 0.
+> Not referenced if RANGE = 'A' or 'V'.
 
-### D (in)
+Iu : Integer [in]
+> If RANGE='I', the index of the
+> largest singular value to be returned.
+> 1 <= IL <= IU <= min(M,N), if min(M,N) > 0.
+> Not referenced if RANGE = 'A' or 'V'.
 
-D is REAL array, dimension (N) The n diagonal elements of the bidiagonal matrix B.
+Ns : Integer [out]
+> The total number of singular values found.  0 <= NS <= N.
+> If RANGE = 'A', NS = N, and if RANGE = 'I', NS = IU-IL+1.
 
-### E (in)
+S : Real Array, Dimension (n) [out]
+> The first NS elements contain the selected singular values in
+> ascending order.
 
-E is REAL array, dimension (max(1,N-1)) The (n-1) superdiagonal elements of the bidiagonal matrix B in elements 1 to N-1.
+Z : Real Array, Dimension (2*n,k) [out]
+> If JOBZ = 'V', then if INFO = 0 the first NS columns of Z
+> contain the singular vectors of the matrix B corresponding to
+> the selected singular values, with U in rows 1 to N and V
+> in rows N+1 to N*2, i.e.
+> Z = [ U ]
+> [ V ]
+> If JOBZ = 'N', then Z is not referenced.
+> Note: The user must ensure that at least K = NS+1 columns are
+> supplied in the array Z; if RANGE = 'V', the exact value of
+> NS is not known in advance and an upper bound must be used.
 
-### VL (in)
+Ldz : Integer [in]
+> The leading dimension of the array Z. LDZ >= 1, and if
+> JOBZ = 'V', LDZ >= max(2,N*2).
 
-VL is REAL If RANGE='V', the lower bound of the interval to be searched for singular values. VU > VL. Not referenced if RANGE = 'A' or 'I'.
+Work : Real Array, Dimension (14*n) [out]
 
-### VU (in)
+Iwork : Integer Array, Dimension (12*n) [out]
+> If JOBZ = 'V', then if INFO = 0, the first NS elements of
+> IWORK are zero. If INFO > 0, then IWORK contains the indices
+> of the eigenvectors that failed to converge in DSTEVX.
 
-VU is REAL If RANGE='V', the upper bound of the interval to be searched for singular values. VU > VL. Not referenced if RANGE = 'A' or 'I'.
-
-### IL (in)
-
-IL is INTEGER If RANGE='I', the index of the smallest singular value to be returned. 1 <= IL <= IU <= min(M,N), if min(M,N) > 0. Not referenced if RANGE = 'A' or 'V'.
-
-### IU (in)
-
-IU is INTEGER If RANGE='I', the index of the largest singular value to be returned. 1 <= IL <= IU <= min(M,N), if min(M,N) > 0. Not referenced if RANGE = 'A' or 'V'.
-
-### NS (out)
-
-NS is INTEGER The total number of singular values found. 0 <= NS <= N. If RANGE = 'A', NS = N, and if RANGE = 'I', NS = IU-IL+1.
-
-### S (out)
-
-S is REAL array, dimension (N) The first NS elements contain the selected singular values in ascending order.
-
-### Z (out)
-
-Z is REAL array, dimension (2*N,K) If JOBZ = 'V', then if INFO = 0 the first NS columns of Z contain the singular vectors of the matrix B corresponding to the selected singular values, with U in rows 1 to N and V in rows N+1 to N*2, i.e. Z = [ U ] [ V ] If JOBZ = 'N', then Z is not referenced. Note: The user must ensure that at least K = NS+1 columns are supplied in the array Z; if RANGE = 'V', the exact value of NS is not known in advance and an upper bound must be used.
-
-### LDZ (in)
-
-LDZ is INTEGER The leading dimension of the array Z. LDZ >= 1, and if JOBZ = 'V', LDZ >= max(2,N*2).
-
-### WORK (out)
-
-WORK is REAL array, dimension (14*N)
-
-### IWORK (out)
-
-IWORK is INTEGER array, dimension (12*N) If JOBZ = 'V', then if INFO = 0, the first NS elements of IWORK are zero. If INFO > 0, then IWORK contains the indices of the eigenvectors that failed to converge in DSTEVX.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value > 0: if INFO = i, then i eigenvectors failed to converge in SSTEVX. The indices of the eigenvectors (as returned by SSTEVX) are stored in the array IWORK. if INFO = N*2 + 1, an internal error occurred.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
+> > 0:  if INFO = i, then i eigenvectors failed to converge
+> in SSTEVX. The indices of the eigenvectors
+> (as returned by SSTEVX) are stored in the
+> array IWORK.
+> if INFO = N*2 + 1, an internal error occurred.
 

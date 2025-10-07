@@ -1,40 +1,39 @@
-# CTFTTP
-
-## Function Signature
-
 ```fortran
-CTFTTP(TRANSR, UPLO, N, ARF, AP, INFO)
+subroutine ctfttp	(	character	transr,
+		character	uplo,
+		integer	n,
+		complex, dimension(0: *)	arf,
+		complex, dimension(0: *)	ap,
+		integer	info )
 ```
-
-## Description
-
 
  CTFTTP copies a triangular matrix A from rectangular full packed
  format (TF) to standard packed format (TP).
 
 ## Parameters
+Transr : Character*1 [in]
+> = 'N':  ARF is in Normal format;
+> = 'C':  ARF is in Conjugate-transpose format;
 
-### TRANSR (in)
+Uplo : Character*1 [in]
+> = 'U':  A is upper triangular;
+> = 'L':  A is lower triangular.
 
-TRANSR is CHARACTER*1 = 'N': ARF is in Normal format; = 'C': ARF is in Conjugate-transpose format;
+N : Integer [in]
+> The order of the matrix A. N >= 0.
 
-### UPLO (in)
+Arf : Complex Array, Dimension ( N*(n+1)/2 ), [in]
+> On entry, the upper or lower triangular matrix A stored in
+> RFP format. For a further discussion see Notes below.
 
-UPLO is CHARACTER*1 = 'U': A is upper triangular; = 'L': A is lower triangular.
+Ap : Complex Array, Dimension ( N*(n+1)/2 ), [out]
+> On exit, the upper or lower triangular matrix A, packed
+> columnwise in a linear array. The j-th column of A is stored
+> in the array AP as follows:
+> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
 
-### N (in)
-
-N is INTEGER The order of the matrix A. N >= 0.
-
-### ARF (in)
-
-ARF is COMPLEX array, dimension ( N*(N+1)/2 ), On entry, the upper or lower triangular matrix A stored in RFP format. For a further discussion see Notes below.
-
-### AP (out)
-
-AP is COMPLEX array, dimension ( N*(N+1)/2 ), On exit, the upper or lower triangular matrix A, packed columnwise in a linear array. The j-th column of A is stored in the array AP as follows: if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j; if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

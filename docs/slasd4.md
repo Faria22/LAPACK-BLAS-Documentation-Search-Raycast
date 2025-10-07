@@ -1,13 +1,14 @@
-# SLASD4
-
-## Function Signature
-
 ```fortran
-SLASD4(N, I, D, Z, DELTA, RHO, SIGMA, WORK, INFO)
+subroutine slasd4	(	integer	n,
+		integer	i,
+		real, dimension(*)	d,
+		real, dimension(*)	z,
+		real, dimension(*)	delta,
+		real	rho,
+		real	sigma,
+		real, dimension(*)	work,
+		integer	info )
 ```
-
-## Description
-
 
  This subroutine computes the square root of the I-th updated
  eigenvalue of a positive symmetric rank-one modification to
@@ -27,40 +28,36 @@ SLASD4(N, I, D, Z, DELTA, RHO, SIGMA, WORK, INFO)
  secular equation by simpler interpolating rational functions.
 
 ## Parameters
+N : Integer [in]
+> The length of all arrays.
 
-### N (in)
+I : Integer [in]
+> The index of the eigenvalue to be computed.  1 <= I <= N.
 
-N is INTEGER The length of all arrays.
+D : Real Array, Dimension ( N ) [in]
+> The original eigenvalues.  It is assumed that they are in
+> order, 0 <= D(I) < D(J)  for I < J.
 
-### I (in)
+Z : Real Array, Dimension ( N ) [in]
+> The components of the updating vector.
 
-I is INTEGER The index of the eigenvalue to be computed. 1 <= I <= N.
+Delta : Real Array, Dimension ( N ) [out]
+> If N .ne. 1, DELTA contains (D(j) - sigma_I) in its  j-th
+> component.  If N = 1, then DELTA(1) = 1.  The vector DELTA
+> contains the information necessary to construct the
+> (singular) eigenvectors.
 
-### D (in)
+Rho : Real [in]
+> The scalar in the symmetric updating formula.
 
-D is REAL array, dimension ( N ) The original eigenvalues. It is assumed that they are in order, 0 <= D(I) < D(J) for I < J.
+Sigma : Real [out]
+> The computed sigma_I, the I-th updated eigenvalue.
 
-### Z (in)
+Work : Real Array, Dimension ( N ) [out]
+> If N .ne. 1, WORK contains (D(j) + sigma_I) in its  j-th
+> component.  If N = 1, then WORK( 1 ) = 1.
 
-Z is REAL array, dimension ( N ) The components of the updating vector.
-
-### DELTA (out)
-
-DELTA is REAL array, dimension ( N ) If N .ne. 1, DELTA contains (D(j) - sigma_I) in its j-th component. If N = 1, then DELTA(1) = 1. The vector DELTA contains the information necessary to construct the (singular) eigenvectors.
-
-### RHO (in)
-
-RHO is REAL The scalar in the symmetric updating formula.
-
-### SIGMA (out)
-
-SIGMA is REAL The computed sigma_I, the I-th updated eigenvalue.
-
-### WORK (out)
-
-WORK is REAL array, dimension ( N ) If N .ne. 1, WORK contains (D(j) + sigma_I) in its j-th component. If N = 1, then WORK( 1 ) = 1.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit > 0: if INFO = 1, the updating process failed.
+Info : Integer [out]
+> = 0:  successful exit
+> > 0:  if INFO = 1, the updating process failed.
 

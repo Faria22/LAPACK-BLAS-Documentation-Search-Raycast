@@ -1,13 +1,11 @@
-# DLAED5
-
-## Function Signature
-
 ```fortran
-DLAED5(I, D, Z, DELTA, RHO, DLAM)
+subroutine dlaed5	(	integer	i,
+		double precision, dimension(2)	d,
+		double precision, dimension(2)	z,
+		double precision, dimension(2)	delta,
+		double precision	rho,
+		double precision	dlam )
 ```
-
-## Description
-
 
  This subroutine computes the I-th eigenvalue of a symmetric rank-one
  modification of a 2-by-2 diagonal matrix
@@ -22,28 +20,22 @@ DLAED5(I, D, Z, DELTA, RHO, DLAM)
  Z is one.
 
 ## Parameters
+I : Integer [in]
+> The index of the eigenvalue to be computed.  I = 1 or I = 2.
 
-### I (in)
+D : Double Precision Array, Dimension (2) [in]
+> The original eigenvalues.  We assume D(1) < D(2).
 
-I is INTEGER The index of the eigenvalue to be computed. I = 1 or I = 2.
+Z : Double Precision Array, Dimension (2) [in]
+> The components of the updating vector.
 
-### D (in)
+Delta : Double Precision Array, Dimension (2) [out]
+> The vector DELTA contains the information necessary
+> to construct the eigenvectors.
 
-D is DOUBLE PRECISION array, dimension (2) The original eigenvalues. We assume D(1) < D(2).
+Rho : Double Precision [in]
+> The scalar in the symmetric updating formula.
 
-### Z (in)
-
-Z is DOUBLE PRECISION array, dimension (2) The components of the updating vector.
-
-### DELTA (out)
-
-DELTA is DOUBLE PRECISION array, dimension (2) The vector DELTA contains the information necessary to construct the eigenvectors.
-
-### RHO (in)
-
-RHO is DOUBLE PRECISION The scalar in the symmetric updating formula.
-
-### DLAM (out)
-
-DLAM is DOUBLE PRECISION The computed lambda_I, the I-th updated eigenvalue.
+Dlam : Double Precision [out]
+> The computed lambda_I, the I-th updated eigenvalue.
 

@@ -1,35 +1,24 @@
-# ZCOPY
-
-## Function Signature
-
 ```fortran
-ZCOPY(N,ZX,INCX,ZY,INCY)
+subroutine zcopy	(	integer	n,
+		complex*16, dimension(*)	zx,
+		integer	incx,
+		complex*16, dimension(*)	zy,
+		integer	incy )
 ```
-
-## Description
-
 
     ZCOPY copies a vector, x, to a vector, y.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Zx : Complex*16 Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in]
 
-N is INTEGER number of elements in input vector(s)
+Incx : Integer [in]
+> storage spacing between elements of ZX
 
-### ZX (in)
+Zy : Complex*16 Array, Dimension ( 1 + ( N - 1 )*abs( Incy ) ) [out]
 
-ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of ZX
-
-### ZY (out)
-
-ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-
-### INCY (in)
-
-INCY is INTEGER storage spacing between elements of ZY
+Incy : Integer [in]
+> storage spacing between elements of ZY
 

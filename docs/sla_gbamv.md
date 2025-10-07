@@ -1,14 +1,18 @@
-# SLA_GBAMV
-
-## Function Signature
-
 ```fortran
-SLA_GBAMV(TRANS, M, N, KL, KU, ALPHA, AB, LDAB, X,
-*                             INCX, BETA, Y, INCY)
+subroutine sla_gbamv	(	trans,
+		m,
+		n,
+		kl,
+		ku,
+		alpha,
+		ab,
+		ldab,
+		x,
+		*                             incx,
+		beta,
+		y,
+		incy )
 ```
-
-## Description
-
 
  SLA_GBAMV  performs one of the matrix-vector operations
 
@@ -28,56 +32,76 @@ SLA_GBAMV(TRANS, M, N, KL, KU, ALPHA, AB, LDAB, X,
  in computing that entry have at least one zero multiplicand.
 
 ## Parameters
+Trans : Integer [in]
+> On entry, TRANS specifies the operation to be performed as
+> follows:
+> BLAS_NO_TRANS      y := alpha*abs(A)*abs(x) + beta*abs(y)
+> BLAS_TRANS         y := alpha*abs(A**T)*abs(x) + beta*abs(y)
+> BLAS_CONJ_TRANS    y := alpha*abs(A**T)*abs(x) + beta*abs(y)
+> Unchanged on exit.
 
-### TRANS (in)
+M : Integer [in]
+> On entry, M specifies the number of rows of the matrix A.
+> M must be at least zero.
+> Unchanged on exit.
 
-TRANS is INTEGER On entry, TRANS specifies the operation to be performed as follows: BLAS_NO_TRANS y := alpha*abs(A)*abs(x) + beta*abs(y) BLAS_TRANS y := alpha*abs(A**T)*abs(x) + beta*abs(y) BLAS_CONJ_TRANS y := alpha*abs(A**T)*abs(x) + beta*abs(y) Unchanged on exit.
+N : Integer [in]
+> On entry, N specifies the number of columns of the matrix A.
+> N must be at least zero.
+> Unchanged on exit.
 
-### M (in)
+Kl : Integer [in]
+> The number of subdiagonals within the band of A.  KL >= 0.
 
-M is INTEGER On entry, M specifies the number of rows of the matrix A. M must be at least zero. Unchanged on exit.
+Ku : Integer [in]
+> The number of superdiagonals within the band of A.  KU >= 0.
 
-### N (in)
+Alpha : Real [in]
+> On entry, ALPHA specifies the scalar alpha.
+> Unchanged on exit.
 
-N is INTEGER On entry, N specifies the number of columns of the matrix A. N must be at least zero. Unchanged on exit.
+Ab : Real Array, Dimension ( Ldab, N ) [in]
+> Before entry, the leading m by n part of the array AB must
+> contain the matrix of coefficients.
+> Unchanged on exit.
 
-### KL (in)
+Ldab : Integer [in]
+> On entry, LDA specifies the first dimension of AB as declared
+> in the calling (sub) program. LDAB must be at least
+> max( 1, m ).
+> Unchanged on exit.
 
-KL is INTEGER The number of subdiagonals within the band of A. KL >= 0.
+X : Real Array, Dimension [in]
+> ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+> and at least
+> ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+> Before entry, the incremented array X must contain the
+> vector x.
+> Unchanged on exit.
 
-### KU (in)
+Incx : Integer [in]
+> On entry, INCX specifies the increment for the elements of
+> X. INCX must not be zero.
+> Unchanged on exit.
 
-KU is INTEGER The number of superdiagonals within the band of A. KU >= 0.
+Beta : Real [in]
+> On entry, BETA specifies the scalar beta. When BETA is
+> supplied as zero then Y need not be set on input.
+> Unchanged on exit.
 
-### ALPHA (in)
+Y : Real Array, Dimension [in,out]
+> ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+> and at least
+> ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+> Before entry with BETA non-zero, the incremented array Y
+> must contain the vector y. On exit, Y is overwritten by the
+> updated vector y.
+> If either m or n is zero, then Y not referenced and the function
+> performs a quick return.
 
-ALPHA is REAL On entry, ALPHA specifies the scalar alpha. Unchanged on exit.
-
-### AB (in)
-
-AB is REAL array, dimension ( LDAB, n ) Before entry, the leading m by n part of the array AB must contain the matrix of coefficients. Unchanged on exit.
-
-### LDAB (in)
-
-LDAB is INTEGER On entry, LDA specifies the first dimension of AB as declared in the calling (sub) program. LDAB must be at least max( 1, m ). Unchanged on exit.
-
-### X (in)
-
-X is REAL array, dimension ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( m - 1 )*abs( INCX ) ) otherwise. Before entry, the incremented array X must contain the vector x. Unchanged on exit.
-
-### INCX (in)
-
-INCX is INTEGER On entry, INCX specifies the increment for the elements of X. INCX must not be zero. Unchanged on exit.
-
-### BETA (in)
-
-BETA is REAL On entry, BETA specifies the scalar beta. When BETA is supplied as zero then Y need not be set on input. Unchanged on exit.
-
-### Y (in,out)
-
-Y is REAL array, dimension ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n' and at least ( 1 + ( n - 1 )*abs( INCY ) ) otherwise. Before entry with BETA non-zero, the incremented array Y must contain the vector y. On exit, Y is overwritten by the updated vector y. If either m or n is zero, then Y not referenced and the function performs a quick return.
-
-### INCY (in)
-
-INCY is INTEGER On entry, INCY specifies the increment for the elements of Y. INCY must not be zero. Unchanged on exit. Level 2 Blas routine.
+Incy : Integer [in]
+> On entry, INCY specifies the increment for the elements of
+> Y. INCY must not be zero.
+> Unchanged on exit.
+> Level 2 Blas routine.
 

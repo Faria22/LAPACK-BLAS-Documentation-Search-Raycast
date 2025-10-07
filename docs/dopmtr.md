@@ -1,14 +1,16 @@
-# DOPMTR
-
-## Function Signature
-
 ```fortran
-DOPMTR(SIDE, UPLO, TRANS, M, N, AP, TAU, C, LDC, WORK,
-*                          INFO)
+subroutine dopmtr	(	side,
+		uplo,
+		trans,
+		m,
+		n,
+		ap,
+		tau,
+		c,
+		ldc,
+		work,
+		*                          info )
 ```
-
-## Description
-
 
  DOPMTR overwrites the general real M-by-N matrix C with
 
@@ -26,48 +28,50 @@ DOPMTR(SIDE, UPLO, TRANS, M, N, AP, TAU, C, LDC, WORK,
  if UPLO = 'L', Q = H(1) H(2) . . . H(nq-1).
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**T from the Left;
+> = 'R': apply Q or Q**T from the Right.
 
-### SIDE (in)
+Uplo : Character*1 [in]
+> = 'U': Upper triangular packed storage used in previous
+> call to DSPTRD;
+> = 'L': Lower triangular packed storage used in previous
+> call to DSPTRD.
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**T from the Left; = 'R': apply Q or Q**T from the Right.
+Trans : Character*1 [in]
+> = 'N':  No transpose, apply Q;
+> = 'T':  Transpose, apply Q**T.
 
-### UPLO (in)
+M : Integer [in]
+> The number of rows of the matrix C. M >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangular packed storage used in previous call to DSPTRD; = 'L': Lower triangular packed storage used in previous call to DSPTRD.
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-### TRANS (in)
+Ap : Double Precision Array, Dimension [in]
+> (M*(M+1)/2) if SIDE = 'L'
+> (N*(N+1)/2) if SIDE = 'R'
+> The vectors which define the elementary reflectors, as
+> returned by DSPTRD.  AP is modified by the routine but
+> restored on exit.
 
-TRANS is CHARACTER*1 = 'N': No transpose, apply Q; = 'T': Transpose, apply Q**T.
+Tau : Double Precision Array, Dimension (m-1) If Side = 'l' [in]
+> or (N-1) if SIDE = 'R'
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i), as returned by DSPTRD.
 
-### M (in)
+C : Double Precision Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
-M is INTEGER The number of rows of the matrix C. M >= 0.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### N (in)
+Work : Double Precision Array, Dimension [out]
+> (N) if SIDE = 'L'
+> (M) if SIDE = 'R'
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
-
-### AP (in)
-
-AP is DOUBLE PRECISION array, dimension (M*(M+1)/2) if SIDE = 'L' (N*(N+1)/2) if SIDE = 'R' The vectors which define the elementary reflectors, as returned by DSPTRD. AP is modified by the routine but restored on exit.
-
-### TAU (in)
-
-TAU is DOUBLE PRECISION array, dimension (M-1) if SIDE = 'L' or (N-1) if SIDE = 'R' TAU(i) must contain the scalar factor of the elementary reflector H(i), as returned by DSPTRD.
-
-### C (in,out)
-
-C is DOUBLE PRECISION array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is DOUBLE PRECISION array, dimension (N) if SIDE = 'L' (M) if SIDE = 'R'
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

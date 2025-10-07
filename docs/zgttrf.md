@@ -1,13 +1,12 @@
-# ZGTTRF
-
-## Function Signature
-
 ```fortran
-ZGTTRF(N, DL, D, DU, DU2, IPIV, INFO)
+subroutine zgttrf	(	integer	n,
+		complex*16, dimension(*)	dl,
+		complex*16, dimension(*)	d,
+		complex*16, dimension(*)	du,
+		complex*16, dimension(*)	du2,
+		integer, dimension(*)	ipiv,
+		integer	info )
 ```
-
-## Description
-
 
  ZGTTRF computes an LU factorization of a complex tridiagonal matrix A
  using elimination with partial pivoting and row interchanges.
@@ -19,32 +18,41 @@ ZGTTRF(N, DL, D, DU, DU2, IPIV, INFO)
  diagonal and first two superdiagonals.
 
 ## Parameters
+N : Integer [in]
+> The order of the matrix A.
 
-### N (in)
+Dl : Complex*16 Array, Dimension (n-1) [in,out]
+> On entry, DL must contain the (n-1) sub-diagonal elements of
+> A.
+> On exit, DL is overwritten by the (n-1) multipliers that
+> define the matrix L from the LU factorization of A.
 
-N is INTEGER The order of the matrix A.
+D : Complex*16 Array, Dimension (n) [in,out]
+> On entry, D must contain the diagonal elements of A.
+> On exit, D is overwritten by the n diagonal elements of the
+> upper triangular matrix U from the LU factorization of A.
 
-### DL (in,out)
+Du : Complex*16 Array, Dimension (n-1) [in,out]
+> On entry, DU must contain the (n-1) super-diagonal elements
+> of A.
+> On exit, DU is overwritten by the (n-1) elements of the first
+> super-diagonal of U.
 
-DL is COMPLEX*16 array, dimension (N-1) On entry, DL must contain the (n-1) sub-diagonal elements of A. On exit, DL is overwritten by the (n-1) multipliers that define the matrix L from the LU factorization of A.
+Du2 : Complex*16 Array, Dimension (n-2) [out]
+> On exit, DU2 is overwritten by the (n-2) elements of the
+> second super-diagonal of U.
 
-### D (in,out)
+Ipiv : Integer Array, Dimension (n) [out]
+> The pivot indices; for 1 <= i <= n, row i of the matrix was
+> interchanged with row IPIV(i).  IPIV(i) will always be either
+> i or i+1; IPIV(i) = i indicates a row interchange was not
+> required.
 
-D is COMPLEX*16 array, dimension (N) On entry, D must contain the diagonal elements of A. On exit, D is overwritten by the n diagonal elements of the upper triangular matrix U from the LU factorization of A.
-
-### DU (in,out)
-
-DU is COMPLEX*16 array, dimension (N-1) On entry, DU must contain the (n-1) super-diagonal elements of A. On exit, DU is overwritten by the (n-1) elements of the first super-diagonal of U.
-
-### DU2 (out)
-
-DU2 is COMPLEX*16 array, dimension (N-2) On exit, DU2 is overwritten by the (n-2) elements of the second super-diagonal of U.
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (N) The pivot indices; for 1 <= i <= n, row i of the matrix was interchanged with row IPIV(i). IPIV(i) will always be either i or i+1; IPIV(i) = i indicates a row interchange was not required.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -k, the k-th argument had an illegal value > 0: if INFO = k, U(k,k) is exactly zero. The factorization has been completed, but the factor U is exactly singular, and division by zero will occur if it is used to solve a system of equations.
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -k, the k-th argument had an illegal value
+> > 0:  if INFO = k, U(k,k) is exactly zero. The factorization
+> has been completed, but the factor U is exactly
+> singular, and division by zero will occur if it is used
+> to solve a system of equations.
 

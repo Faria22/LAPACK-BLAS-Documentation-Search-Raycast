@@ -1,13 +1,11 @@
-# SLAORHR_COL_GETRFNP
-
-## Function Signature
-
 ```fortran
-SLAORHR_COL_GETRFNP(M, N, A, LDA, D, INFO)
+subroutine slaorhr_col_getrfnp	(	integer	m,
+		integer	n,
+		real, dimension(lda, *)	a,
+		integer	lda,
+		real, dimension(*)	d,
+		integer	info )
 ```
-
-## Description
-
 
  SLAORHR_COL_GETRFNP computes the modified LU factorization without
  pivoting of a real general M-by-N matrix A. The factorization has
@@ -52,28 +50,26 @@ SLAORHR_COL_GETRFNP(M, N, A, LDA, D, INFO)
      vol. 85, pp. 3-31, 2015.
 
 ## Parameters
+M : Integer [in]
+> The number of rows of the matrix A.  M >= 0.
 
-### M (in)
+N : Integer [in]
+> The number of columns of the matrix A.  N >= 0.
 
-M is INTEGER The number of rows of the matrix A. M >= 0.
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the M-by-N matrix to be factored.
+> On exit, the factors L and U from the factorization
+> A-S=L*U; the unit diagonal elements of L are not stored.
 
-### N (in)
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,M).
 
-N is INTEGER The number of columns of the matrix A. N >= 0.
+D : Real Array, Dimension Min(m,n) [out]
+> The diagonal elements of the diagonal M-by-N sign matrix S,
+> D(i) = S(i,i), where 1 <= i <= min(M,N). The elements can
+> be only plus or minus one.
 
-### A (in,out)
-
-A is REAL array, dimension (LDA,N) On entry, the M-by-N matrix to be factored. On exit, the factors L and U from the factorization A-S=L*U; the unit diagonal elements of L are not stored.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
-
-### D (out)
-
-D is REAL array, dimension min(M,N) The diagonal elements of the diagonal M-by-N sign matrix S, D(i) = S(i,i), where 1 <= i <= min(M,N). The elements can be only plus or minus one.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

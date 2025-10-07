@@ -1,13 +1,14 @@
-# ZLARF1F
-
-## Function Signature
-
 ```fortran
-ZLARF1F(SIDE, M, N, V, INCV, TAU, C, LDC, WORK)
+subroutine zlarf1f	(	character	side,
+		integer	m,
+		integer	n,
+		complex*16, dimension(*)	v,
+		integer	incv,
+		complex*16	tau,
+		complex*16, dimension(ldc, *)	c,
+		integer	ldc,
+		complex*16, dimension(*)	work )
 ```
-
-## Description
-
 
  ZLARF1F applies a complex elementary reflector H to a real m by n matrix
  C, from either the left or the right. H is represented in the form
@@ -22,36 +23,37 @@ ZLARF1F(SIDE, M, N, V, INCV, TAU, C, LDC, WORK)
  tau.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': form  H * C
+> \param[in] M
+> \verbatim
+> M is INTEGER
+> The number of rows of the matrix C.
 
-### SIDE (in)
+N : Integer [in]
+> The number of columns of the matrix C.
 
-SIDE is CHARACTER*1 = 'L': form H * C \param[in] M \verbatim M is INTEGER The number of rows of the matrix C.
+V : Complex*16 Array, Dimension [in]
+> (1 + (M-1)*abs(INCV)) if SIDE = 'L'
+> or (1 + (N-1)*abs(INCV)) if SIDE = 'R'
+> The vector v in the representation of H. V is not used if
+> TAU = 0. V(1) is not referenced or modified.
 
-### N (in)
+Incv : Integer [in]
+> The increment between elements of v. INCV <> 0.
 
-N is INTEGER The number of columns of the matrix C.
+Tau : Complex*16 [in]
+> The value tau in the representation of H.
 
-### V (in)
+C : Complex*16 Array, Dimension (ldc,n) [in,out]
+> On entry, the m by n matrix C.
+> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+> or C * H if SIDE = 'R'.
 
-V is COMPLEX*16 array, dimension (1 + (M-1)*abs(INCV)) if SIDE = 'L' or (1 + (N-1)*abs(INCV)) if SIDE = 'R' The vector v in the representation of H. V is not used if TAU = 0. V(1) is not referenced or modified.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### INCV (in)
-
-INCV is INTEGER The increment between elements of v. INCV <> 0.
-
-### TAU (in)
-
-TAU is COMPLEX*16 The value tau in the representation of H.
-
-### C (in,out)
-
-C is COMPLEX*16 array, dimension (LDC,N) On entry, the m by n matrix C. On exit, C is overwritten by the matrix H * C if SIDE = 'L', or C * H if SIDE = 'R'.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX*16 array, dimension (N) if SIDE = 'L' or (M) if SIDE = 'R'
+Work : Complex*16 Array, Dimension [out]
+> (N) if SIDE = 'L'
+> or (M) if SIDE = 'R'
 

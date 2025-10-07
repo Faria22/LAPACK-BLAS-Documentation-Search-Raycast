@@ -1,14 +1,22 @@
-# DLAED2
-
-## Function Signature
-
 ```fortran
-DLAED2(K, N, N1, D, Q, LDQ, INDXQ, RHO, Z, DLAMBDA, W,
-*                          Q2, INDX, INDXC, INDXP, COLTYP, INFO)
+subroutine dlaed2	(	k,
+		n,
+		n1,
+		d,
+		q,
+		ldq,
+		indxq,
+		rho,
+		z,
+		dlambda,
+		w,
+		*                          q2,
+		indx,
+		indxc,
+		indxp,
+		coltyp,
+		info )
 ```
-
-## Description
-
 
  DLAED2 merges the two sets of eigenvalues together into a single
  sorted set.  Then it tries to deflate the size of the problem.
@@ -18,72 +26,92 @@ DLAED2(K, N, N1, D, Q, LDQ, INDXQ, RHO, Z, DLAMBDA, W,
  equation problem is reduced by one.
 
 ## Parameters
+K : Integer [out]
+> The number of non-deflated eigenvalues, and the order of the
+> related secular equation. 0 <= K <=N.
 
-### K (out)
+N : Integer [in]
+> The dimension of the symmetric tridiagonal matrix.  N >= 0.
 
-K is INTEGER The number of non-deflated eigenvalues, and the order of the related secular equation. 0 <= K <=N.
+N1 : Integer [in]
+> The location of the last eigenvalue in the leading sub-matrix.
+> min(1,N) <= N1 <= N/2.
 
-### N (in)
+D : Double Precision Array, Dimension (n) [in,out]
+> On entry, D contains the eigenvalues of the two submatrices to
+> be combined.
+> On exit, D contains the trailing (N-K) updated eigenvalues
+> (those which were deflated) sorted into increasing order.
 
-N is INTEGER The dimension of the symmetric tridiagonal matrix. N >= 0.
+Q : Double Precision Array, Dimension (ldq, N) [in,out]
+> On entry, Q contains the eigenvectors of two submatrices in
+> the two square blocks with corners at (1,1), (N1,N1)
+> and (N1+1, N1+1), (N,N).
+> On exit, Q contains the trailing (N-K) updated eigenvectors
+> (those which were deflated) in its last N-K columns.
 
-### N1 (in)
+Ldq : Integer [in]
+> The leading dimension of the array Q.  LDQ >= max(1,N).
 
-N1 is INTEGER The location of the last eigenvalue in the leading sub-matrix. min(1,N) <= N1 <= N/2.
+Indxq : Integer Array, Dimension (n) [in,out]
+> The permutation which separately sorts the two sub-problems
+> in D into ascending order.  Note that elements in the second
+> half of this permutation must first have N1 added to their
+> values. Destroyed on exit.
 
-### D (in,out)
+Rho : Double Precision [in,out]
+> On entry, the off-diagonal element associated with the rank-1
+> cut which originally split the two submatrices which are now
+> being recombined.
+> On exit, RHO has been modified to the value required by
+> DLAED3.
 
-D is DOUBLE PRECISION array, dimension (N) On entry, D contains the eigenvalues of the two submatrices to be combined. On exit, D contains the trailing (N-K) updated eigenvalues (those which were deflated) sorted into increasing order.
+Z : Double Precision Array, Dimension (n) [in]
+> On entry, Z contains the updating vector (the last
+> row of the first sub-eigenvector matrix and the first row of
+> the second sub-eigenvector matrix).
+> On exit, the contents of Z have been destroyed by the updating
+> process.
 
-### Q (in,out)
+Dlambda : Double Precision Array, Dimension (n) [out]
+> A copy of the first K eigenvalues which will be used by
+> DLAED3 to form the secular equation.
 
-Q is DOUBLE PRECISION array, dimension (LDQ, N) On entry, Q contains the eigenvectors of two submatrices in the two square blocks with corners at (1,1), (N1,N1) and (N1+1, N1+1), (N,N). On exit, Q contains the trailing (N-K) updated eigenvectors (those which were deflated) in its last N-K columns.
+W : Double Precision Array, Dimension (n) [out]
+> The first k values of the final deflation-altered z-vector
+> which will be passed to DLAED3.
 
-### LDQ (in)
+Q2 : Double Precision Array, Dimension (n1**2+(n-n1)**2) [out]
+> A copy of the first K eigenvectors which will be used by
+> DLAED3 in a matrix multiply (DGEMM) to solve for the new
+> eigenvectors.
 
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= max(1,N).
+Indx : Integer Array, Dimension (n) [out]
+> The permutation used to sort the contents of DLAMBDA into
+> ascending order.
 
-### INDXQ (in,out)
+Indxc : Integer Array, Dimension (n) [out]
+> The permutation used to arrange the columns of the deflated
+> Q matrix into three groups:  the first group contains non-zero
+> elements only at and above N1, the second contains
+> non-zero elements only below N1, and the third is dense.
 
-INDXQ is INTEGER array, dimension (N) The permutation which separately sorts the two sub-problems in D into ascending order. Note that elements in the second half of this permutation must first have N1 added to their values. Destroyed on exit.
+Indxp : Integer Array, Dimension (n) [out]
+> The permutation used to place deflated values of D at the end
+> of the array.  INDXP(1:K) points to the nondeflated D-values
+> and INDXP(K+1:N) points to the deflated eigenvalues.
 
-### RHO (in,out)
+Coltyp : Integer Array, Dimension (n) [out]
+> During execution, a label which will indicate which of the
+> following types a column in the Q2 matrix is:
+> 1 : non-zero in the upper half only;
+> 2 : dense;
+> 3 : non-zero in the lower half only;
+> 4 : deflated.
+> On exit, COLTYP(i) is the number of columns of type i,
+> for i=1 to 4 only.
 
-RHO is DOUBLE PRECISION On entry, the off-diagonal element associated with the rank-1 cut which originally split the two submatrices which are now being recombined. On exit, RHO has been modified to the value required by DLAED3.
-
-### Z (in)
-
-Z is DOUBLE PRECISION array, dimension (N) On entry, Z contains the updating vector (the last row of the first sub-eigenvector matrix and the first row of the second sub-eigenvector matrix). On exit, the contents of Z have been destroyed by the updating process.
-
-### DLAMBDA (out)
-
-DLAMBDA is DOUBLE PRECISION array, dimension (N) A copy of the first K eigenvalues which will be used by DLAED3 to form the secular equation.
-
-### W (out)
-
-W is DOUBLE PRECISION array, dimension (N) The first k values of the final deflation-altered z-vector which will be passed to DLAED3.
-
-### Q2 (out)
-
-Q2 is DOUBLE PRECISION array, dimension (N1**2+(N-N1)**2) A copy of the first K eigenvectors which will be used by DLAED3 in a matrix multiply (DGEMM) to solve for the new eigenvectors.
-
-### INDX (out)
-
-INDX is INTEGER array, dimension (N) The permutation used to sort the contents of DLAMBDA into ascending order.
-
-### INDXC (out)
-
-INDXC is INTEGER array, dimension (N) The permutation used to arrange the columns of the deflated Q matrix into three groups: the first group contains non-zero elements only at and above N1, the second contains non-zero elements only below N1, and the third is dense.
-
-### INDXP (out)
-
-INDXP is INTEGER array, dimension (N) The permutation used to place deflated values of D at the end of the array. INDXP(1:K) points to the nondeflated D-values and INDXP(K+1:N) points to the deflated eigenvalues.
-
-### COLTYP (out)
-
-COLTYP is INTEGER array, dimension (N) During execution, a label which will indicate which of the following types a column in the Q2 matrix is: 1 : non-zero in the upper half only; 2 : dense; 3 : non-zero in the lower half only; 4 : deflated. On exit, COLTYP(i) is the number of columns of type i, for i=1 to 4 only.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit. < 0: if INFO = -i, the i-th argument had an illegal value.
+Info : Integer [out]
+> = 0:  successful exit.
+> < 0:  if INFO = -i, the i-th argument had an illegal value.
 

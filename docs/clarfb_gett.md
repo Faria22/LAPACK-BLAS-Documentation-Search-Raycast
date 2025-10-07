@@ -1,14 +1,17 @@
-# CLARFB_GETT
-
-## Function Signature
-
 ```fortran
-CLARFB_GETT(IDENT, M, N, K, T, LDT, A, LDA, B, LDB,
-*      $                        WORK, LDWORK)
+subroutine clarfb_gett	(	ident,
+		m,
+		n,
+		k,
+		t,
+		ldt,
+		a,
+		lda,
+		b,
+		ldb,
+		*      $                        work,
+		ldwork )
 ```
-
-## Description
-
 
  CLARFB_GETT applies a complex Householder block reflector H from the
  left to a complex (K+M)-by-N  "triangular-pentagonal" matrix
@@ -19,52 +22,61 @@ CLARFB_GETT(IDENT, M, N, K, T, LDT, A, LDA, B, LDB,
  arrays A, B and T. See Further Details section.
 
 ## Parameters
+Ident : Character*1 [in]
+> If IDENT = not 'I', or not 'i', then V1 is unit
+> lower-triangular and stored in the left K-by-K block of
+> the input matrix A,
+> If IDENT = 'I' or 'i', then  V1 is an identity matrix and
+> not stored.
+> See Further Details section.
 
-### IDENT (in)
+M : Integer [in]
+> The number of rows of the matrix B.
+> M >= 0.
 
-IDENT is CHARACTER*1 If IDENT = not 'I', or not 'i', then V1 is unit lower-triangular and stored in the left K-by-K block of the input matrix A, If IDENT = 'I' or 'i', then V1 is an identity matrix and not stored. See Further Details section.
+N : Integer [in]
+> The number of columns of the matrices A and B.
+> N >= 0.
 
-### M (in)
+K : Integer [in]
+> The number or rows of the matrix A.
+> K is also order of the matrix T, i.e. the number of
+> elementary reflectors whose product defines the block
+> reflector. 0 <= K <= N.
 
-M is INTEGER The number of rows of the matrix B. M >= 0.
+T : Complex Array, Dimension (ldt,k) [in]
+> The upper-triangular K-by-K matrix T in the representation
+> of the block reflector.
 
-### N (in)
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= K.
 
-N is INTEGER The number of columns of the matrices A and B. N >= 0.
+A : Complex Array, Dimension (lda,n) [in,out]
+> On entry:
+> a) In the K-by-N upper-trapezoidal part A: input matrix A.
+> b) In the columns below the diagonal: columns of V1
+> (ones are not stored on the diagonal).
+> On exit:
+> A is overwritten by rectangular K-by-N product H*A.
+> See Further Details section.
 
-### K (in)
+Lda : Integer [in]
+> The leading dimension of the array A. LDA >= max(1,K).
 
-K is INTEGER The number or rows of the matrix A. K is also order of the matrix T, i.e. the number of elementary reflectors whose product defines the block reflector. 0 <= K <= N.
+B : Complex Array, Dimension (ldb,n) [in,out]
+> On entry:
+> a) In the M-by-(N-K) right block: input matrix B.
+> b) In the M-by-N left block: columns of V2.
+> On exit:
+> B is overwritten by rectangular M-by-N product H*B.
+> See Further Details section.
 
-### T (in)
+Ldb : Integer [in]
+> The leading dimension of the array B. LDB >= max(1,M).
 
-T is COMPLEX array, dimension (LDT,K) The upper-triangular K-by-K matrix T in the representation of the block reflector.
+Work : Complex Array, [out]
+> dimension (LDWORK,max(K,N-K))
 
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= K.
-
-### A (in,out)
-
-A is COMPLEX array, dimension (LDA,N) On entry: a) In the K-by-N upper-trapezoidal part A: input matrix A. b) In the columns below the diagonal: columns of V1 (ones are not stored on the diagonal). On exit: A is overwritten by rectangular K-by-N product H*A. See Further Details section.
-
-### LDA (in)
-
-LDB is INTEGER The leading dimension of the array A. LDA >= max(1,K).
-
-### B (in,out)
-
-B is COMPLEX array, dimension (LDB,N) On entry: a) In the M-by-(N-K) right block: input matrix B. b) In the M-by-N left block: columns of V2. On exit: B is overwritten by rectangular M-by-N product H*B. See Further Details section.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (LDWORK,max(K,N-K))
-
-### LDWORK (in)
-
-LDWORK is INTEGER The leading dimension of the array WORK. LDWORK>=max(1,K).
+Ldwork : Integer [in]
+> The leading dimension of the array WORK. LDWORK>=max(1,K).
 

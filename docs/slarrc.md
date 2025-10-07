@@ -1,62 +1,54 @@
-# SLARRC
-
-## Function Signature
-
 ```fortran
-SLARRC(JOBT, N, VL, VU, D, E, PIVMIN,
-*                                   EIGCNT, LCNT, RCNT, INFO)
+subroutine slarrc	(	jobt,
+		n,
+		vl,
+		vu,
+		d,
+		e,
+		pivmin,
+		*                                   eigcnt,
+		lcnt,
+		rcnt,
+		info )
 ```
-
-## Description
-
 
  Find the number of eigenvalues of the symmetric tridiagonal matrix T
  that are in the interval (VL,VU] if JOBT = 'T', and of L D L^T
  if JOBT = 'L'.
 
 ## Parameters
+Jobt : Character*1 [in]
+> = 'T':  Compute Sturm count for matrix T.
+> = 'L':  Compute Sturm count for matrix L D L^T.
 
-### JOBT (in)
+N : Integer [in]
+> The order of the matrix. N > 0.
 
-JOBT is CHARACTER*1 = 'T': Compute Sturm count for matrix T. = 'L': Compute Sturm count for matrix L D L^T.
+Vl : Real [in]
+> The lower bound for the eigenvalues.
 
-### N (in)
+Vu : Real [in]
+> The upper bound for the eigenvalues.
 
-N is INTEGER The order of the matrix. N > 0.
+D : Real Array, Dimension (n) [in]
+> JOBT = 'T': The N diagonal elements of the tridiagonal matrix T.
+> JOBT = 'L': The N diagonal elements of the diagonal matrix D.
 
-### VL (in)
+E : Real Array, Dimension (n) [in]
+> JOBT = 'T': The N-1 offdiagonal elements of the matrix T.
+> JOBT = 'L': The N-1 offdiagonal elements of the matrix L.
 
-VL is REAL The lower bound for the eigenvalues.
+Pivmin : Real [in]
+> The minimum pivot in the Sturm sequence for T.
 
-### VU (in)
+Eigcnt : Integer [out]
+> The number of eigenvalues of the symmetric tridiagonal matrix T
+> that are in the interval (VL,VU]
 
-VU is REAL The upper bound for the eigenvalues.
+Lcnt : Integer [out]
 
-### D (in)
+Rcnt : Integer [out]
+> The left and right negcounts of the interval.
 
-D is REAL array, dimension (N) JOBT = 'T': The N diagonal elements of the tridiagonal matrix T. JOBT = 'L': The N diagonal elements of the diagonal matrix D.
-
-### E (in)
-
-E is REAL array, dimension (N) JOBT = 'T': The N-1 offdiagonal elements of the matrix T. JOBT = 'L': The N-1 offdiagonal elements of the matrix L.
-
-### PIVMIN (in)
-
-PIVMIN is REAL The minimum pivot in the Sturm sequence for T.
-
-### EIGCNT (out)
-
-EIGCNT is INTEGER The number of eigenvalues of the symmetric tridiagonal matrix T that are in the interval (VL,VU]
-
-### LCNT (out)
-
-LCNT is INTEGER
-
-### RCNT (out)
-
-RCNT is INTEGER The left and right negcounts of the interval.
-
-### INFO (out)
-
-INFO is INTEGER
+Info : Integer [out]
 

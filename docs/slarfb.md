@@ -1,77 +1,87 @@
-# SLARFB
-
-## Function Signature
-
 ```fortran
-SLARFB(SIDE, TRANS, DIRECT, STOREV, M, N, K, V, LDV,
-*                          T, LDT, C, LDC, WORK, LDWORK)
+subroutine slarfb	(	side,
+		trans,
+		direct,
+		storev,
+		m,
+		n,
+		k,
+		v,
+		ldv,
+		*                          t,
+		ldt,
+		c,
+		ldc,
+		work,
+		ldwork )
 ```
-
-## Description
-
 
  SLARFB applies a real block reflector H or its transpose H**T to a
  real m by n matrix C, from either the left or the right.
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply H or H**T from the Left
+> = 'R': apply H or H**T from the Right
 
-### SIDE (in)
+Trans : Character*1 [in]
+> = 'N': apply H (No transpose)
+> = 'T': apply H**T (Transpose)
 
-SIDE is CHARACTER*1 = 'L': apply H or H**T from the Left = 'R': apply H or H**T from the Right
+Direct : Character*1 [in]
+> Indicates how H is formed from a product of elementary
+> reflectors
+> = 'F': H = H(1) H(2) . . . H(k) (Forward)
+> = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-### TRANS (in)
+Storev : Character*1 [in]
+> Indicates how the vectors which define the elementary
+> reflectors are stored:
+> = 'C': Columnwise
+> = 'R': Rowwise
 
-TRANS is CHARACTER*1 = 'N': apply H (No transpose) = 'T': apply H**T (Transpose)
+M : Integer [in]
+> The number of rows of the matrix C.
 
-### DIRECT (in)
+N : Integer [in]
+> The number of columns of the matrix C.
 
-DIRECT is CHARACTER*1 Indicates how H is formed from a product of elementary reflectors = 'F': H = H(1) H(2) . . . H(k) (Forward) = 'B': H = H(k) . . . H(2) H(1) (Backward)
+K : Integer [in]
+> The order of the matrix T (= the number of elementary
+> reflectors whose product defines the block reflector).
+> If SIDE = 'L', M >= K >= 0;
+> if SIDE = 'R', N >= K >= 0.
 
-### STOREV (in)
+V : Real Array, Dimension [in]
+> (LDV,K) if STOREV = 'C'
+> (LDV,M) if STOREV = 'R' and SIDE = 'L'
+> (LDV,N) if STOREV = 'R' and SIDE = 'R'
+> The matrix V. See Further Details.
 
-STOREV is CHARACTER*1 Indicates how the vectors which define the elementary reflectors are stored: = 'C': Columnwise = 'R': Rowwise
+Ldv : Integer [in]
+> The leading dimension of the array V.
+> If STOREV = 'C' and SIDE = 'L', LDV >= max(1,M);
+> if STOREV = 'C' and SIDE = 'R', LDV >= max(1,N);
+> if STOREV = 'R', LDV >= K.
 
-### M (in)
+T : Real Array, Dimension (ldt,k) [in]
+> The triangular k by k matrix T in the representation of the
+> block reflector.
 
-M is INTEGER The number of rows of the matrix C.
+Ldt : Integer [in]
+> The leading dimension of the array T. LDT >= K.
 
-### N (in)
+C : Real Array, Dimension (ldc,n) [in,out]
+> On entry, the m by n matrix C.
+> On exit, C is overwritten by H*C or H**T*C or C*H or C*H**T.
 
-N is INTEGER The number of columns of the matrix C.
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-### K (in)
+Work : Real Array, Dimension (ldwork,k) [out]
 
-K is INTEGER The order of the matrix T (= the number of elementary reflectors whose product defines the block reflector). If SIDE = 'L', M >= K >= 0; if SIDE = 'R', N >= K >= 0.
-
-### V (in)
-
-V is REAL array, dimension (LDV,K) if STOREV = 'C' (LDV,M) if STOREV = 'R' and SIDE = 'L' (LDV,N) if STOREV = 'R' and SIDE = 'R' The matrix V. See Further Details.
-
-### LDV (in)
-
-LDV is INTEGER The leading dimension of the array V. If STOREV = 'C' and SIDE = 'L', LDV >= max(1,M); if STOREV = 'C' and SIDE = 'R', LDV >= max(1,N); if STOREV = 'R', LDV >= K.
-
-### T (in)
-
-T is REAL array, dimension (LDT,K) The triangular k by k matrix T in the representation of the block reflector.
-
-### LDT (in)
-
-LDT is INTEGER The leading dimension of the array T. LDT >= K.
-
-### C (in,out)
-
-C is REAL array, dimension (LDC,N) On entry, the m by n matrix C. On exit, C is overwritten by H*C or H**T*C or C*H or C*H**T.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is REAL array, dimension (LDWORK,K)
-
-### LDWORK (in)
-
-LDWORK is INTEGER The leading dimension of the array WORK. If SIDE = 'L', LDWORK >= max(1,N); if SIDE = 'R', LDWORK >= max(1,M).
+Ldwork : Integer [in]
+> The leading dimension of the array WORK.
+> If SIDE = 'L', LDWORK >= max(1,N);
+> if SIDE = 'R', LDWORK >= max(1,M).
 

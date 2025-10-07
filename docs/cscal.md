@@ -1,31 +1,21 @@
-# CSCAL
-
-## Function Signature
-
 ```fortran
-CSCAL(N,CA,CX,INCX)
+subroutine cscal	(	integer	n,
+		complex	ca,
+		complex, dimension(*)	cx,
+		integer	incx )
 ```
-
-## Description
-
 
     CSCAL scales a vector by a constant.
 
 ## Parameters
+N : Integer [in]
+> number of elements in input vector(s)
 
-### N (in)
+Ca : Complex [in]
+> On entry, CA specifies the scalar alpha.
 
-N is INTEGER number of elements in input vector(s)
+Cx : Complex Array, Dimension ( 1 + ( N - 1 )*abs( Incx ) ) [in,out]
 
-### CA (in)
-
-CA is COMPLEX On entry, CA specifies the scalar alpha.
-
-### CX (in,out)
-
-CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-
-### INCX (in)
-
-INCX is INTEGER storage spacing between elements of CX
+Incx : Integer [in]
+> storage spacing between elements of CX
 

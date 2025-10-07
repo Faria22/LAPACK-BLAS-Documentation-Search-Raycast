@@ -1,14 +1,18 @@
-# CUNMTR
-
-## Function Signature
-
 ```fortran
-CUNMTR(SIDE, UPLO, TRANS, M, N, A, LDA, TAU, C, LDC,
-*                          WORK, LWORK, INFO)
+subroutine cunmtr	(	side,
+		uplo,
+		trans,
+		m,
+		n,
+		a,
+		lda,
+		tau,
+		c,
+		ldc,
+		*                          work,
+		lwork,
+		info )
 ```
-
-## Description
-
 
  CUNMTR overwrites the general complex M-by-N matrix C with
 
@@ -25,56 +29,65 @@ CUNMTR(SIDE, UPLO, TRANS, M, N, A, LDA, TAU, C, LDC,
  if UPLO = 'L', Q = H(1) H(2) . . . H(nq-1).
 
 ## Parameters
+Side : Character*1 [in]
+> = 'L': apply Q or Q**H from the Left;
+> = 'R': apply Q or Q**H from the Right.
 
-### SIDE (in)
+Uplo : Character*1 [in]
+> = 'U': Upper triangle of A contains elementary reflectors
+> from CHETRD;
+> = 'L': Lower triangle of A contains elementary reflectors
+> from CHETRD.
 
-SIDE is CHARACTER*1 = 'L': apply Q or Q**H from the Left; = 'R': apply Q or Q**H from the Right.
+Trans : Character*1 [in]
+> = 'N':  No transpose, apply Q;
+> = 'C':  Conjugate transpose, apply Q**H.
 
-### UPLO (in)
+M : Integer [in]
+> The number of rows of the matrix C. M >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A contains elementary reflectors from CHETRD; = 'L': Lower triangle of A contains elementary reflectors from CHETRD.
+N : Integer [in]
+> The number of columns of the matrix C. N >= 0.
 
-### TRANS (in)
+A : Complex Array, Dimension [in]
+> (LDA,M) if SIDE = 'L'
+> (LDA,N) if SIDE = 'R'
+> The vectors which define the elementary reflectors, as
+> returned by CHETRD.
 
-TRANS is CHARACTER*1 = 'N': No transpose, apply Q; = 'C': Conjugate transpose, apply Q**H.
+Lda : Integer [in]
+> The leading dimension of the array A.
+> LDA >= max(1,M) if SIDE = 'L'; LDA >= max(1,N) if SIDE = 'R'.
 
-### M (in)
+Tau : Complex Array, Dimension [in]
+> (M-1) if SIDE = 'L'
+> (N-1) if SIDE = 'R'
+> TAU(i) must contain the scalar factor of the elementary
+> reflector H(i), as returned by CHETRD.
 
-M is INTEGER The number of rows of the matrix C. M >= 0.
+C : Complex Array, Dimension (ldc,n) [in,out]
+> On entry, the M-by-N matrix C.
+> On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 
-### N (in)
+Ldc : Integer [in]
+> The leading dimension of the array C. LDC >= max(1,M).
 
-N is INTEGER The number of columns of the matrix C. N >= 0.
+Work : Complex Array, Dimension (max(1,lwork)) [out]
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-### A (in)
+Lwork : Integer [in]
+> The dimension of the array WORK.
+> If SIDE = 'L', LWORK >= max(1,N);
+> if SIDE = 'R', LWORK >= max(1,M).
+> For optimum performance LWORK >= N*NB if SIDE = 'L', and
+> LWORK >=M*NB if SIDE = 'R', where NB is the optimal
+> blocksize.
+> If LWORK = -1, then a workspace query is assumed; the routine
+> only calculates the optimal size of the WORK array, returns
+> this value as the first entry of the WORK array, and no error
+> message related to LWORK is issued by XERBLA.
 
-A is COMPLEX array, dimension (LDA,M) if SIDE = 'L' (LDA,N) if SIDE = 'R' The vectors which define the elementary reflectors, as returned by CHETRD.
-
-### LDA (in)
-
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M) if SIDE = 'L'; LDA >= max(1,N) if SIDE = 'R'.
-
-### TAU (in)
-
-TAU is COMPLEX array, dimension (M-1) if SIDE = 'L' (N-1) if SIDE = 'R' TAU(i) must contain the scalar factor of the elementary reflector H(i), as returned by CHETRD.
-
-### C (in,out)
-
-C is COMPLEX array, dimension (LDC,N) On entry, the M-by-N matrix C. On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
-
-### LDC (in)
-
-LDC is INTEGER The leading dimension of the array C. LDC >= max(1,M).
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The dimension of the array WORK. If SIDE = 'L', LWORK >= max(1,N); if SIDE = 'R', LWORK >= max(1,M). For optimum performance LWORK >= N*NB if SIDE = 'L', and LWORK >=M*NB if SIDE = 'R', where NB is the optimal blocksize. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 

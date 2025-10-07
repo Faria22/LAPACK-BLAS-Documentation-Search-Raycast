@@ -1,16 +1,17 @@
-# SSYSV_RK
-
-SSYSV_RK computes the solution to system of linear equations A * X = B for SY matrices
-
-## Function Signature
-
 ```fortran
-SSYSV_RK(UPLO, N, NRHS, A, LDA, E, IPIV, B, LDB,
-*                            WORK, LWORK, INFO)
+subroutine ssysv_rk	(	uplo,
+		n,
+		nrhs,
+		a,
+		lda,
+		e,
+		ipiv,
+		b,
+		ldb,
+		*                            work,
+		lwork,
+		info )
 ```
-
-## Description
-
  SSYSV_RK computes the solution to a real system of linear
  equations A * X = B, where A is an N-by-N symmetric matrix
  and X and B are N-by-NRHS matrices.
@@ -29,52 +30,97 @@ SSYSV_RK(UPLO, N, NRHS, A, LDA, E, IPIV, B, LDB,
  the system of equations A * X = B by calling BLAS3 routine SSYTRS_3.
 
 ## Parameters
+Uplo : Character*1 [in]
+> Specifies whether the upper or lower triangular part of the
+> symmetric matrix A is stored:
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-### UPLO (in)
+N : Integer [in]
+> The number of linear equations, i.e., the order of the
+> matrix A.  N >= 0.
 
-UPLO is CHARACTER*1 Specifies whether the upper or lower triangular part of the symmetric matrix A is stored: = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+Nrhs : Integer [in]
+> The number of right hand sides, i.e., the number of columns
+> of the matrix B.  NRHS >= 0.
 
-### N (in)
+A : Real Array, Dimension (lda,n) [in,out]
+> On entry, the symmetric matrix A.
+> If UPLO = 'U': the leading N-by-N upper triangular part
+> of A contains the upper triangular part of the matrix A,
+> and the strictly lower triangular part of A is not
+> referenced.
+> If UPLO = 'L': the leading N-by-N lower triangular part
+> of A contains the lower triangular part of the matrix A,
+> and the strictly upper triangular part of A is not
+> referenced.
+> On exit, if INFO = 0, diagonal of the block diagonal
+> matrix D and factors U or L  as computed by SSYTRF_RK:
+> a) ONLY diagonal elements of the symmetric block diagonal
+> matrix D on the diagonal of A, i.e. D(k,k) = A(k,k);
+> (superdiagonal (or subdiagonal) elements of D
+> are stored on exit in array E), and
+> b) If UPLO = 'U': factor U in the superdiagonal part of A.
+> If UPLO = 'L': factor L in the subdiagonal part of A.
+> For more info see the description of DSYTRF_RK routine.
 
-N is INTEGER The number of linear equations, i.e., the order of the matrix A. N >= 0.
+Lda : Integer [in]
+> The leading dimension of the array A.  LDA >= max(1,N).
 
-### NRHS (in)
+E : Real Array, Dimension (n) [out]
+> On exit, contains the output computed by the factorization
+> routine DSYTRF_RK, i.e. the superdiagonal (or subdiagonal)
+> elements of the symmetric block diagonal matrix D
+> with 1-by-1 or 2-by-2 diagonal blocks, where
+> If UPLO = 'U': E(i) = D(i-1,i), i=2:N, E(1) is set to 0;
+> If UPLO = 'L': E(i) = D(i+1,i), i=1:N-1, E(N) is set to 0.
+> NOTE: For 1-by-1 diagonal block D(k), where
+> 1 <= k <= N, the element E(k) is set to 0 in both
+> UPLO = 'U' or UPLO = 'L' cases.
+> For more info see the description of DSYTRF_RK routine.
 
-NRHS is INTEGER The number of right hand sides, i.e., the number of columns of the matrix B. NRHS >= 0.
+Ipiv : Integer Array, Dimension (n) [out]
+> Details of the interchanges and the block structure of D,
+> as determined by SSYTRF_RK.
+> For more info see the description of DSYTRF_RK routine.
 
-### A (in,out)
+B : Real Array, Dimension (ldb,nrhs) [in,out]
+> On entry, the N-by-NRHS right hand side matrix B.
+> On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
-A is REAL array, dimension (LDA,N) On entry, the symmetric matrix A. If UPLO = 'U': the leading N-by-N upper triangular part of A contains the upper triangular part of the matrix A, and the strictly lower triangular part of A is not referenced. If UPLO = 'L': the leading N-by-N lower triangular part of A contains the lower triangular part of the matrix A, and the strictly upper triangular part of A is not referenced. On exit, if INFO = 0, diagonal of the block diagonal matrix D and factors U or L as computed by SSYTRF_RK: a) ONLY diagonal elements of the symmetric block diagonal matrix D on the diagonal of A, i.e. D(k,k) = A(k,k); (superdiagonal (or subdiagonal) elements of D are stored on exit in array E), and b) If UPLO = 'U': factor U in the superdiagonal part of A. If UPLO = 'L': factor L in the subdiagonal part of A. For more info see the description of DSYTRF_RK routine.
+Ldb : Integer [in]
+> The leading dimension of the array B.  LDB >= max(1,N).
 
-### LDA (in)
+Work : Real Array, Dimension ( Max(1,lwork) ). [out]
+> Work array used in the factorization stage.
+> On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
-LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+Lwork : Integer [in]
+> The length of WORK.  LWORK >= 1. For best performance
+> of factorization stage LWORK >= max(1,N*NB), where NB is
+> the optimal blocksize for DSYTRF_RK.
+> If LWORK = -1, then a workspace query is assumed;
+> the routine only calculates the optimal size of the WORK
+> array for factorization stage, returns this value as
+> the first entry of the WORK array, and no error message
+> related to LWORK is issued by XERBLA.
 
-### E (out)
-
-E is REAL array, dimension (N) On exit, contains the output computed by the factorization routine DSYTRF_RK, i.e. the superdiagonal (or subdiagonal) elements of the symmetric block diagonal matrix D with 1-by-1 or 2-by-2 diagonal blocks, where If UPLO = 'U': E(i) = D(i-1,i), i=2:N, E(1) is set to 0; If UPLO = 'L': E(i) = D(i+1,i), i=1:N-1, E(N) is set to 0. NOTE: For 1-by-1 diagonal block D(k), where 1 <= k <= N, the element E(k) is set to 0 in both UPLO = 'U' or UPLO = 'L' cases. For more info see the description of DSYTRF_RK routine.
-
-### IPIV (out)
-
-IPIV is INTEGER array, dimension (N) Details of the interchanges and the block structure of D, as determined by SSYTRF_RK. For more info see the description of DSYTRF_RK routine.
-
-### B (in,out)
-
-B is REAL array, dimension (LDB,NRHS) On entry, the N-by-NRHS right hand side matrix B. On exit, if INFO = 0, the N-by-NRHS solution matrix X.
-
-### LDB (in)
-
-LDB is INTEGER The leading dimension of the array B. LDB >= max(1,N).
-
-### WORK (out)
-
-WORK is REAL array, dimension ( MAX(1,LWORK) ). Work array used in the factorization stage. On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-### LWORK (in)
-
-LWORK is INTEGER The length of WORK. LWORK >= 1. For best performance of factorization stage LWORK >= max(1,N*NB), where NB is the optimal blocksize for DSYTRF_RK. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array for factorization stage, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: If INFO = -k, the k-th argument had an illegal value > 0: If INFO = k, the matrix A is singular, because: If UPLO = 'U': column k in the upper triangular part of A contains all zeros. If UPLO = 'L': column k in the lower triangular part of A contains all zeros. Therefore D(k,k) is exactly zero, and superdiagonal elements of column k of U (or subdiagonal elements of column k of L ) are all zeros. The factorization has been completed, but the block diagonal matrix D is exactly singular, and division by zero will occur if it is used to solve a system of equations. NOTE: INFO only stores the first occurrence of a singularity, any subsequent occurrence of singularity is not stored in INFO even though the factorization always completes.
+Info : Integer [out]
+> = 0: successful exit
+> < 0: If INFO = -k, the k-th argument had an illegal value
+> > 0: If INFO = k, the matrix A is singular, because:
+> If UPLO = 'U': column k in the upper
+> triangular part of A contains all zeros.
+> If UPLO = 'L': column k in the lower
+> triangular part of A contains all zeros.
+> Therefore D(k,k) is exactly zero, and superdiagonal
+> elements of column k of U (or subdiagonal elements of
+> column k of L ) are all zeros. The factorization has
+> been completed, but the block diagonal matrix D is
+> exactly singular, and division by zero will occur if
+> it is used to solve a system of equations.
+> NOTE: INFO only stores the first occurrence of
+> a singularity, any subsequent occurrence of singularity
+> is not stored in INFO even though the factorization
+> always completes.
 

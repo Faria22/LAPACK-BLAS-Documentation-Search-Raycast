@@ -1,66 +1,78 @@
-# CHBTRD
-
-## Function Signature
-
 ```fortran
-CHBTRD(VECT, UPLO, N, KD, AB, LDAB, D, E, Q, LDQ,
-*                          WORK, INFO)
+subroutine chbtrd	(	vect,
+		uplo,
+		n,
+		kd,
+		ab,
+		ldab,
+		d,
+		e,
+		q,
+		ldq,
+		*                          work,
+		info )
 ```
-
-## Description
-
 
  CHBTRD reduces a complex Hermitian band matrix A to real symmetric
  tridiagonal form T by a unitary similarity transformation:
  Q**H * A * Q = T.
 
 ## Parameters
+Vect : Character*1 [in]
+> = 'N':  do not form Q;
+> = 'V':  form Q;
+> = 'U':  update a matrix X, by forming X*Q.
 
-### VECT (in)
+Uplo : Character*1 [in]
+> = 'U':  Upper triangle of A is stored;
+> = 'L':  Lower triangle of A is stored.
 
-VECT is CHARACTER*1 = 'N': do not form Q; = 'V': form Q; = 'U': update a matrix X, by forming X*Q.
+N : Integer [in]
+> The order of the matrix A.  N >= 0.
 
-### UPLO (in)
+Kd : Integer [in]
+> The number of superdiagonals of the matrix A if UPLO = 'U',
+> or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+Ab : Complex Array, Dimension (ldab,n) [in,out]
+> On entry, the upper or lower triangle of the Hermitian band
+> matrix A, stored in the first KD+1 rows of the array.  The
+> j-th column of A is stored in the j-th column of the array AB
+> as follows:
+> if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+> if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+> On exit, the diagonal elements of AB are overwritten by the
+> diagonal elements of the tridiagonal matrix T; if KD > 0, the
+> elements on the first superdiagonal (if UPLO = 'U') or the
+> first subdiagonal (if UPLO = 'L') are overwritten by the
+> off-diagonal elements of T; the rest of AB is overwritten by
+> values generated during the reduction.
 
-### N (in)
+Ldab : Integer [in]
+> The leading dimension of the array AB.  LDAB >= KD+1.
 
-N is INTEGER The order of the matrix A. N >= 0.
+D : Real Array, Dimension (n) [out]
+> The diagonal elements of the tridiagonal matrix T.
 
-### KD (in)
+E : Real Array, Dimension (n-1) [out]
+> The off-diagonal elements of the tridiagonal matrix T:
+> E(i) = T(i,i+1) if UPLO = 'U'; E(i) = T(i+1,i) if UPLO = 'L'.
 
-KD is INTEGER The number of superdiagonals of the matrix A if UPLO = 'U', or the number of subdiagonals if UPLO = 'L'. KD >= 0.
+Q : Complex Array, Dimension (ldq,n) [in,out]
+> On entry, if VECT = 'U', then Q must contain an N-by-N
+> matrix X; if VECT = 'N' or 'V', then Q need not be set.
+> On exit:
+> if VECT = 'V', Q contains the N-by-N unitary matrix Q;
+> if VECT = 'U', Q contains the product X*Q;
+> if VECT = 'N', the array Q is not referenced.
 
-### AB (in,out)
+Ldq : Integer [in]
+> The leading dimension of the array Q.
+> LDQ >= 1, and LDQ >= N if VECT = 'V' or 'U'.
 
-AB is COMPLEX array, dimension (LDAB,N) On entry, the upper or lower triangle of the Hermitian band matrix A, stored in the first KD+1 rows of the array. The j-th column of A is stored in the j-th column of the array AB as follows: if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j; if UPLO = 'L', AB(1+i-j,j) = A(i,j) for j<=i<=min(n,j+kd). On exit, the diagonal elements of AB are overwritten by the diagonal elements of the tridiagonal matrix T; if KD > 0, the elements on the first superdiagonal (if UPLO = 'U') or the first subdiagonal (if UPLO = 'L') are overwritten by the off-diagonal elements of T; the rest of AB is overwritten by values generated during the reduction.
+Work : Complex Array, Dimension (n) [out]
 
-### LDAB (in)
-
-LDAB is INTEGER The leading dimension of the array AB. LDAB >= KD+1.
-
-### D (out)
-
-D is REAL array, dimension (N) The diagonal elements of the tridiagonal matrix T.
-
-### E (out)
-
-E is REAL array, dimension (N-1) The off-diagonal elements of the tridiagonal matrix T: E(i) = T(i,i+1) if UPLO = 'U'; E(i) = T(i+1,i) if UPLO = 'L'.
-
-### Q (in,out)
-
-Q is COMPLEX array, dimension (LDQ,N) On entry, if VECT = 'U', then Q must contain an N-by-N matrix X; if VECT = 'N' or 'V', then Q need not be set. On exit: if VECT = 'V', Q contains the N-by-N unitary matrix Q; if VECT = 'U', Q contains the product X*Q; if VECT = 'N', the array Q is not referenced.
-
-### LDQ (in)
-
-LDQ is INTEGER The leading dimension of the array Q. LDQ >= 1, and LDQ >= N if VECT = 'V' or 'U'.
-
-### WORK (out)
-
-WORK is COMPLEX array, dimension (N)
-
-### INFO (out)
-
-INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value
+Info : Integer [out]
+> = 0:  successful exit
+> < 0:  if INFO = -i, the i-th argument had an illegal value
 
