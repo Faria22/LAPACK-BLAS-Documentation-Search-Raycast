@@ -19,8 +19,9 @@
     {
       "name": "lapack-blas-docs",
       "title": "LAPACK/BLAS Docs",
-      "description": "Search LAPACK/BLAS Documenation using simplified markdown files.",
-      "mode": "no-view"
+      "subtitle": "Search through LAPACK/BLAS documentation",
+      "description": "Search LAPACK/BLAS documentation using simplified markdown files.",
+      "mode": "view"
     }
   ],
   "dependencies": {
