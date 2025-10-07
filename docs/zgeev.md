@@ -1,0 +1,85 @@
+# ZGEEV
+
+ZGEEV computes the eigenvalues and, optionally, the left and/or right eigenvectors for GE matrices
+
+## Function Signature
+
+```fortran
+ZGEEV(JOBVL, JOBVR, N, A, LDA, W, VL, LDVL, VR, LDVR,
+*                         WORK, LWORK, RWORK, INFO)
+```
+
+## Description
+
+
+ ZGEEV computes for an N-by-N complex nonsymmetric matrix A, the
+ eigenvalues and, optionally, the left and/or right eigenvectors.
+
+ The right eigenvector v(j) of A satisfies
+                  A * v(j) = lambda(j) * v(j)
+ where lambda(j) is its eigenvalue.
+ The left eigenvector u(j) of A satisfies
+               u(j)**H * A = lambda(j) * u(j)**H
+ where u(j)**H denotes the conjugate transpose of u(j).
+
+ The computed eigenvectors are normalized to have Euclidean norm
+ equal to 1 and largest component real.
+
+## Parameters
+
+### JOBVL (in)
+
+JOBVL is CHARACTER*1 = 'N': left eigenvectors of A are not computed; = 'V': left eigenvectors of are computed.
+
+### JOBVR (in)
+
+JOBVR is CHARACTER*1 = 'N': right eigenvectors of A are not computed; = 'V': right eigenvectors of A are computed.
+
+### N (in)
+
+N is INTEGER The order of the matrix A. N >= 0.
+
+### A (in,out)
+
+A is COMPLEX*16 array, dimension (LDA,N) On entry, the N-by-N matrix A. On exit, A has been overwritten.
+
+### LDA (in)
+
+LDA is INTEGER The leading dimension of the array A. LDA >= max(1,N).
+
+### W (out)
+
+W is COMPLEX*16 array, dimension (N) W contains the computed eigenvalues.
+
+### VL (out)
+
+VL is COMPLEX*16 array, dimension (LDVL,N) If JOBVL = 'V', the left eigenvectors u(j) are stored one after another in the columns of VL, in the same order as their eigenvalues. If JOBVL = 'N', VL is not referenced. u(j) = VL(:,j), the j-th column of VL.
+
+### LDVL (in)
+
+LDVL is INTEGER The leading dimension of the array VL. LDVL >= 1; if JOBVL = 'V', LDVL >= N.
+
+### VR (out)
+
+VR is COMPLEX*16 array, dimension (LDVR,N) If JOBVR = 'V', the right eigenvectors v(j) are stored one after another in the columns of VR, in the same order as their eigenvalues. If JOBVR = 'N', VR is not referenced. v(j) = VR(:,j), the j-th column of VR.
+
+### LDVR (in)
+
+LDVR is INTEGER The leading dimension of the array VR. LDVR >= 1; if JOBVR = 'V', LDVR >= N.
+
+### WORK (out)
+
+WORK is COMPLEX*16 array, dimension (MAX(1,LWORK)) On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+### LWORK (in)
+
+LWORK is INTEGER The dimension of the array WORK. LWORK >= max(1,2*N). For good performance, LWORK must generally be larger. If LWORK = -1, then a workspace query is assumed; the routine only calculates the optimal size of the WORK array, returns this value as the first entry of the WORK array, and no error message related to LWORK is issued by XERBLA.
+
+### RWORK (out)
+
+RWORK is DOUBLE PRECISION array, dimension (2*N)
+
+### INFO (out)
+
+INFO is INTEGER = 0: successful exit < 0: if INFO = -i, the i-th argument had an illegal value. > 0: if INFO = i, the QR algorithm failed to compute all the eigenvalues, and no eigenvectors have been computed; elements i+1:N of W contain eigenvalues which have converged.
+

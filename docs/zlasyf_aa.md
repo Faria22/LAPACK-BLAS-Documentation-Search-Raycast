@@ -1,0 +1,68 @@
+# ZLASYF_AA
+
+## Function Signature
+
+```fortran
+ZLASYF_AA(UPLO, J1, M, NB, A, LDA, IPIV,
+*                             H, LDH, WORK)
+```
+
+## Description
+
+
+ DLATRF_AA factorizes a panel of a complex symmetric matrix A using
+ the Aasen's algorithm. The panel consists of a set of NB rows of A
+ when UPLO is U, or a set of NB columns when UPLO is L.
+
+ In order to factorize the panel, the Aasen's algorithm requires the
+ last row, or column, of the previous panel. The first row, or column,
+ of A is set to be the first row, or column, of an identity matrix,
+ which is used to factorize the first panel.
+
+ The resulting J-th row of U, or J-th column of L, is stored in the
+ (J-1)-th row, or column, of A (without the unit diagonals), while
+ the diagonal and subdiagonal of A are overwritten by those of T.
+
+
+## Parameters
+
+### UPLO (in)
+
+UPLO is CHARACTER*1 = 'U': Upper triangle of A is stored; = 'L': Lower triangle of A is stored.
+
+### J1 (in)
+
+J1 is INTEGER The location of the first row, or column, of the panel within the submatrix of A, passed to this routine, e.g., when called by ZSYTRF_AA, for the first panel, J1 is 1, while for the remaining panels, J1 is 2.
+
+### M (in)
+
+M is INTEGER The dimension of the submatrix. M >= 0.
+
+### NB (in)
+
+NB is INTEGER The dimension of the panel to be facotorized.
+
+### A (in,out)
+
+A is COMPLEX*16 array, dimension (LDA,M) for the first panel, while dimension (LDA,M+1) for the remaining panels. On entry, A contains the last row, or column, of the previous panel, and the trailing submatrix of A to be factorized, except for the first panel, only the panel is passed. On exit, the leading panel is factorized.
+
+### LDA (in)
+
+LDA is INTEGER The leading dimension of the array A. LDA >= max(1,M).
+
+### IPIV (out)
+
+IPIV is INTEGER array, dimension (M) Details of the row and column interchanges, the row and column k were interchanged with the row and column IPIV(k).
+
+### H (in,out)
+
+H is COMPLEX*16 workspace, dimension (LDH,NB).
+
+### LDH (in)
+
+LDH is INTEGER The leading dimension of the workspace H. LDH >= max(1,M).
+
+### WORK (out)
+
+WORK is COMPLEX*16 workspace, dimension (M).
+
