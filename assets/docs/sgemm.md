@@ -64,7 +64,3 @@ SUBROUTINE SGEMM(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
 
 **LDC** : *INTEGER*
 > The first dimension of C. LDC >= max(1,M).
-
-## Notes
-
-SGEMM is a Level 3 BLAS routine optimized for single precision operations.

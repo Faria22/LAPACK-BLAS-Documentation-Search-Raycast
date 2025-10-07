@@ -33,7 +33,3 @@ SUBROUTINE SAXPY(N, ALPHA, X, INCX, Y, INCY)
 
 **INCY** : *INTEGER*
 > The increment for the elements of Y. INCY must not be zero.
-
-## Notes
-
-SAXPY is a Level 1 BLAS routine for single precision operations.

@@ -29,7 +29,3 @@ SUBROUTINE SGESV(N, NRHS, A, LDA, IPIV, B, LDB, INFO)
 
 **INFO** : *INTEGER*
 > Success indicator.
-
-## Notes
-
-LAPACK driver routine for single precision.

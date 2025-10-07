@@ -48,7 +48,3 @@ SUBROUTINE DGEMV(TRANS, M, N, ALPHA, A, LDA, X, INCX, BETA, Y, INCY)
 
 **INCY** : *INTEGER*
 > The increment for Y.
-
-## Notes
-
-DGEMV is a Level 2 BLAS routine.

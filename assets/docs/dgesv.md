@@ -51,12 +51,3 @@ SUBROUTINE DGESV(N, NRHS, A, LDA, IPIV, B, LDB, INFO)
 > = 0: successful exit
 > < 0: if INFO = -i, the i-th argument had an illegal value
 > > 0: if INFO = i, U(i,i) is exactly zero. The factorization has been completed, but the factor U is exactly singular, so the solution could not be computed.
-
-## Notes
-
-DGESV is a driver routine that combines factorization and solving in one call. For repeated solutions with the same coefficient matrix A, consider using DGETRF and DGETRS separately.
-
-## References
-
-- LAPACK Working Note 41
-- Netlib LAPACK Documentation

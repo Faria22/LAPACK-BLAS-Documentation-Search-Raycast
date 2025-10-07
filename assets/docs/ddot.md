@@ -34,7 +34,3 @@ DOUBLE PRECISION FUNCTION DDOT(N, X, INCX, Y, INCY)
 ## Returns
 
 The dot product of vectors X and Y.
-
-## Notes
-
-DDOT is a Level 1 BLAS routine.

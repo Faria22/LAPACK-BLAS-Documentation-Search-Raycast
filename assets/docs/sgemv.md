@@ -26,7 +26,3 @@ SUBROUTINE SGEMV(TRANS, M, N, ALPHA, A, LDA, X, INCX, BETA, Y, INCY)
 
 **X, Y** : *REAL arrays*
 > Input and output vectors.
-
-## Notes
-
-Level 2 BLAS routine.

@@ -35,12 +35,3 @@ SUBROUTINE DAXPY(N, ALPHA, X, INCX, Y, INCY)
 
 **INCY** : *INTEGER*
 > The increment for the elements of Y. INCY must not be zero.
-
-## Notes
-
-DAXPY is a Level 1 BLAS routine. It is commonly used in iterative methods and as a building block for more complex linear algebra operations.
-
-## References
-
-- BLAS (Basic Linear Algebra Subprograms)
-- Netlib LAPACK Documentation

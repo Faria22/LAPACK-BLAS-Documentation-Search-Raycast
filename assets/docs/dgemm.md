@@ -64,12 +64,3 @@ SUBROUTINE DGEMM(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
 
 **LDC** : *INTEGER*
 > The first dimension of C as declared in the calling program. LDC >= max(1,M).
-
-## Notes
-
-DGEMM is a Level 3 BLAS routine. Level 3 BLAS perform O(n^3) floating point operations on O(n^2) data, making them ideal for efficient use of the memory hierarchy and cache.
-
-## References
-
-- BLAS (Basic Linear Algebra Subprograms)
-- Netlib LAPACK Documentation
