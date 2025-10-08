@@ -11,7 +11,7 @@
 - Removed legacy markdown files for routines not present in the official Netlib topics index to keep the dataset aligned.
 - Removed the unused helper script (`scripts/update_markdown_description_blocks.py`) now that Netlib regeneration handles formatting.
 
-## [Initial Version] - 2025-01-07
+## [Initial Version] - {PR_MERGE_DATE}
 
 ### Added
 - Initial implementation of LAPACK/BLAS Documentation Search extension
