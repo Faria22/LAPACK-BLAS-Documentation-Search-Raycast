@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytri_3
-(
+subroutine dsytri_3 (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -16,11 +15,11 @@ subroutine dsytri_3
 DSYTRI_3 computes the inverse of a real symmetric indefinite
 matrix A using the factorization computed by DSYTRF_RK or DSYTRF_BK:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 DSYTRI_3 sets the leading dimension of the workspace  before calling
@@ -28,7 +27,7 @@ DSYTRI_3X that actually computes the inverse.  This is the blocked
 version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix.
 > = 'U':  Upper triangle of A is stored;
@@ -79,7 +78,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)). [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.
-> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)*(NB+3).
+> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)\*(NB+3).
 > 
 > If LWORK = -1, then a workspace query is assumed;
 > the routine only calculates the optimal size of the optimal

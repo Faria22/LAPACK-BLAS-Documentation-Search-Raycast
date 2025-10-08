@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctfttr
-(
+subroutine ctfttr (
         character transr,
         character uplo,
         integer n,
@@ -15,18 +14,18 @@ CTFTTR copies a triangular matrix A from rectangular full packed
 format (TF) to standard full format (TR).
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  ARF is in Normal format;
 > = 'C':  ARF is in Conjugate-transpose format;
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-ARF : COMPLEX array, dimension ( N*(N+1)/2 ), [in]
+ARF : COMPLEX array, dimension ( N\*(N+1)/2 ), [in]
 > On entry, the upper or lower triangular matrix A stored in
 > RFP format. For a further discussion see Notes below.
 

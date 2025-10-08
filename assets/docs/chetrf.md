@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetrf
-(
+subroutine chetrf (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -16,7 +15,7 @@ CHETRF computes the factorization of a complex Hermitian matrix A
 using the Bunch-Kaufman diagonal pivoting method.  The form of the
 factorization is
 
-A = U*D*U**H  or  A = L*D*L**H
+A = U\*D\*U\*\*H  or  A = L\*D\*L\*\*H
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and D is Hermitian and block diagonal with
@@ -25,7 +24,7 @@ triangular matrices, and D is Hermitian and block diagonal with
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -62,7 +61,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The length of WORK. LWORK >= 1. For best performance
-> LWORK >= N*NB, where NB is the block size returned by ILAENV.
+> LWORK >= N\*NB, where NB is the block size returned by ILAENV.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

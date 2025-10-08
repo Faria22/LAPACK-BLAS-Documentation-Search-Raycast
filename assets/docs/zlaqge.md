@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqge
-(
+subroutine zlaqge (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -24,7 +23,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M by N matrix A.
 > On exit, the equilibrated matrix.  See EQUED for the form of
 > the equilibrated matrix.
@@ -47,7 +46,7 @@ COLCND : DOUBLE PRECISION [in]
 AMAX : DOUBLE PRECISION [in]
 > Absolute value of largest matrix entry.
 
-EQUED : CHARACTER*1 [out]
+EQUED : CHARACTER\*1 [out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration
 > = 'R':  Row equilibration, i.e., A has been premultiplied by
@@ -55,4 +54,4 @@ EQUED : CHARACTER*1 [out]
 > = 'C':  Column equilibration, i.e., A has been postmultiplied
 > by diag(C).
 > = 'B':  Both row and column equilibration, i.e., A has been
-> replaced by diag(R) * A * diag(C).
+> replaced by diag(R) \* A \* diag(C).

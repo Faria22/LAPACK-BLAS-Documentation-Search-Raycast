@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasq5
-(
+subroutine dlasq5 (
         integer i0,
         integer n0,
         double precision, dimension( * ) z,
@@ -28,8 +27,8 @@ I0 : INTEGER [in]
 N0 : INTEGER [in]
 > Last index.
 
-Z : DOUBLE PRECISION array, dimension ( 4*N ) [in]
-> Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+Z : DOUBLE PRECISION array, dimension ( 4\*N ) [in]
+> Z holds the qd array. EMIN is stored in Z(4\*N0) to avoid
 > an extra argument.
 
 PP : INTEGER [in]

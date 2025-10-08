@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgbcon
-(
+subroutine dgbcon (
         character norm,
         integer n,
         integer kl,
@@ -22,10 +21,10 @@ using the LU factorization computed by DGBTRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
 condition number is computed as
-RCOND = 1 / ( norm(A) * norm(inv(A)) ).
+RCOND = 1 / ( norm(A) \* norm(inv(A)) ).
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies whether the 1-norm condition number or the
 > infinity-norm condition number is required:
 > = '1' or 'O':  1-norm;
@@ -45,10 +44,10 @@ AB : DOUBLE PRECISION array, dimension (LDAB,N) [in]
 > computed by DGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAB : INTEGER [in]
-> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
+> The leading dimension of the array AB.  LDAB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices; for 1 <= i <= N, row i of the matrix was
@@ -60,9 +59,9 @@ ANORM : DOUBLE PRECISION [in]
 
 RCOND : DOUBLE PRECISION [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(norm(A) * norm(inv(A))).
+> computed as RCOND = 1/(norm(A) \* norm(inv(A))).
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

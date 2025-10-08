@@ -1,6 +1,5 @@
 ```fortran
-subroutine clacrt
-(
+subroutine clacrt (
         integer n,
         complex, dimension( * ) cx,
         integer incx,
@@ -24,14 +23,14 @@ N : INTEGER [in]
 
 CX : COMPLEX array, dimension (N) [in,out]
 > On input, the vector x.
-> On output, CX is overwritten with c*x + s*y.
+> On output, CX is overwritten with c\*x + s\*y.
 
 INCX : INTEGER [in]
 > The increment between successive values of CX.  INCX <> 0.
 
 CY : COMPLEX array, dimension (N) [in,out]
 > On input, the vector y.
-> On output, CY is overwritten with -s*x + c*y.
+> On output, CY is overwritten with -s\*x + c\*y.
 
 INCY : INTEGER [in]
 > The increment between successive values of CY.  INCY <> 0.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarre
-(
+subroutine slarre (
         character range,
         integer n,
         real vl,
@@ -44,7 +43,7 @@ As an added benefit, SLARRE also outputs the n
 Gerschgorin intervals for the matrices L_i D_i L_i^T.
 
 ## Parameters
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': ()   all eigenvalues will be found.
 > = 'V': () all eigenvalues in the half-open interval
 > (VL, VU] will be found.
@@ -103,7 +102,7 @@ RTOL1 : REAL [in]
 RTOL2 : REAL [in]
 > Parameters for bisection.
 > An interval [LEFT,RIGHT] has converged if
-> RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
+> RIGHT-LEFT < MAX( RTOL1\*GAP, RTOL2\*MAX(|LEFT|,|RIGHT|) )
 
 SPLTOL : REAL [in]
 > The threshold for splitting.
@@ -148,17 +147,17 @@ INDEXW : INTEGER array, dimension (N) [out]
 > for example, INDEXW(i)= 10 and IBLOCK(i)=2 imply that the
 > i-th eigenvalue W(i) is the 10-th eigenvalue in block 2
 
-GERS : REAL array, dimension (2*N) [out]
+GERS : REAL array, dimension (2\*N) [out]
 > The N Gerschgorin intervals (the i-th Gerschgorin interval
-> is (GERS(2*i-1), GERS(2*i)).
+> is (GERS(2\*i-1), GERS(2\*i)).
 
 PIVMIN : REAL [out]
 > The minimum pivot in the Sturm sequence for T.
 
-WORK : REAL array, dimension (6*N) [out]
+WORK : REAL array, dimension (6\*N) [out]
 > Workspace.
 
-IWORK : INTEGER array, dimension (5*N) [out]
+IWORK : INTEGER array, dimension (5\*N) [out]
 > Workspace.
 
 INFO : INTEGER [out]

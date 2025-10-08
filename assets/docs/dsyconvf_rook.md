@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsyconvf_rook
-(
+subroutine dsyconvf_rook (
         character uplo,
         character way,
         integer n,
@@ -28,13 +27,13 @@ on exit in parameter A. IPIV format for DSYTRF_ROOK and
 DSYTRF_RK (or DSYTRF_BK) is the same and is not converted.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix A.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-WAY : CHARACTER*1 [in]
+WAY : CHARACTER\*1 [in]
 > = 'C': Convert
 > = 'R': Revert
 

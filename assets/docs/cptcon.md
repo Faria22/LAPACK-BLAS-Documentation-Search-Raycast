@@ -1,6 +1,5 @@
 ```fortran
-subroutine cptcon
-(
+subroutine cptcon (
         integer n,
         real, dimension( * ) d,
         complex, dimension( * ) e,
@@ -13,12 +12,12 @@ subroutine cptcon
 
 CPTCON computes the reciprocal of the condition number (in the
 1-norm) of a complex Hermitian positive definite tridiagonal matrix
-using the factorization A = L*D*L**H or A = U**H*D*U computed by
+using the factorization A = L\*D\*L\*\*H or A = U\*\*H\*D\*U computed by
 CPTTRF.
 
 Norm(inv(A)) is computed by a direct method, and the reciprocal of
 the condition number is computed as
-RCOND = 1 / (ANORM * norm(inv(A))).
+RCOND = 1 / (ANORM \* norm(inv(A))).
 
 ## Parameters
 N : INTEGER [in]
@@ -37,7 +36,7 @@ ANORM : REAL [in]
 
 RCOND : REAL [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is the
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is the
 > 1-norm of inv(A) computed in this routine.
 
 RWORK : REAL array, dimension (N) [out]

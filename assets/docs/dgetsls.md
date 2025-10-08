@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgetsls
-(
+subroutine dgetsls (
         character trans,
         integer m,
         integer n,
@@ -34,17 +33,17 @@ The following options are provided:
 
 1. If TRANS = 'N' and m >= n:  find the least squares solution of
 an overdetermined system, i.e., solve the least squares problem
-minimize || B - A*X ||.
+minimize || B - A\*X ||.
 
 2. If TRANS = 'N' and m < n:  find the minimum norm solution of
-an underdetermined system A * X = B.
+an underdetermined system A \* X = B.
 
 3. If TRANS = 'T' and m >= n:  find the minimum norm solution of
-an undetermined system A**T * X = B.
+an undetermined system A\*\*T \* X = B.
 
 4. If TRANS = 'T' and m < n:  find the least squares solution of
 an overdetermined system, i.e., solve the least squares problem
-minimize || B - A**T * X ||.
+minimize || B - A\*\*T \* X ||.
 
 Several right hand side vectors b and solution vectors x can be
 handled in a single call; they are stored as the columns of the
@@ -52,9 +51,9 @@ M-by-NRHS right hand side matrix B and the N-by-NRHS solution
 matrix X.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': the linear system involves A;
-> = 'T': the linear system involves A**T.
+> = 'T': the linear system involves A\*\*T.
 
 M : INTEGER [in]
 > The number of rows of the matrix A.  M >= 0.

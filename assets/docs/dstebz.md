@@ -1,6 +1,5 @@
 ```fortran
-subroutine dstebz
-(
+subroutine dstebz (
         character range,
         character order,
         integer n,
@@ -28,21 +27,21 @@ in the half-open interval (VL, VU], or the IL-th through IU-th
 eigenvalues.
 
 To avoid overflow, the matrix must be scaled so that its
-largest element is no greater than overflow**(1/2) * underflow**(1/4) in absolute value, and for greatest
+largest element is no greater than overflow\*\*(1/2) \* underflow\*\*(1/4) in absolute value, and for greatest
 accuracy, it should not be much smaller than that.
 
 See W. Kahan , Report CS41, Computer Science Dept., Stanford
 University, July 21, 1966.
 
 ## Parameters
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': ()   all eigenvalues will be found.
 > = 'V': () all eigenvalues in the half-open interval
 > (VL, VU] will be found.
 > = 'I': () the IL-th through IU-th eigenvalues (of the
 > entire matrix) will be found.
 
-ORDER : CHARACTER*1 [in]
+ORDER : CHARACTER\*1 [in]
 > = 'B': () the eigenvalues will be grouped by
 > split-off block (see IBLOCK, ISPLIT) and
 > ordered from smallest to largest within
@@ -87,11 +86,11 @@ ABSTOL : DOUBLE PRECISION [in]
 > The absolute tolerance for the eigenvalues.  An eigenvalue
 > (or cluster) is considered to be located if it has been
 > determined to lie in an interval whose width is ABSTOL or
-> less.  If ABSTOL is less than or equal to zero, then ULP*|T|
+> less.  If ABSTOL is less than or equal to zero, then ULP\*|T|
 > will be used, where |T| means the 1-norm of T.
 > 
 > Eigenvalues will be computed most accurately when ABSTOL is
-> set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+> set to twice the underflow threshold 2\*DLAMCH('S'), not zero.
 
 D : DOUBLE PRECISION array, dimension (N) [in]
 > The n diagonal elements of the tridiagonal matrix T.
@@ -130,9 +129,9 @@ ISPLIT : INTEGER array, dimension (N) [out]
 > since the user cannot know a priori what value NSPLIT will
 > have, N words must be reserved for ISPLIT.)
 
-WORK : DOUBLE PRECISION array, dimension (4*N) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N) [out]
 
-IWORK : INTEGER array, dimension (3*N) [out]
+IWORK : INTEGER array, dimension (3\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

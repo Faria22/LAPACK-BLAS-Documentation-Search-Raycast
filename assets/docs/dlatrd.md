@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlatrd
-(
+subroutine dlatrd (
         character uplo,
         integer n,
         integer nb,
@@ -15,7 +14,7 @@ subroutine dlatrd
 
 DLATRD reduces NB rows and columns of a real symmetric matrix A to
 symmetric tridiagonal form by an orthogonal similarity
-transformation Q**T * A * Q, and returns the matrices V and W which are
+transformation Q\*\*T \* A \* Q, and returns the matrices V and W which are
 needed to apply the transformation to the unreduced part of A.
 
 If UPLO = 'U', DLATRD reduces the last NB rows and columns of a
@@ -26,7 +25,7 @@ matrix, of which the lower triangle is supplied.
 This is an auxiliary routine called by DSYTRD.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U': Upper triangular

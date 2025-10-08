@@ -1,6 +1,5 @@
 ```fortran
-subroutine chesv_rook
-(
+subroutine chesv_rook (
         character uplo,
         integer n,
         integer nrhs,
@@ -16,14 +15,14 @@ subroutine chesv_rook
 ```
 
 CHESV_ROOK computes the solution to a complex system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N Hermitian matrix and X and B are N-by-NRHS
 matrices.
 
 The bounded Bunch-Kaufman () diagonal pivoting method is used
 to factor A as
-A = U * D * U**T,  if UPLO = 'U', or
-A = L * D * L**T,  if UPLO = 'L',
+A = U \* D \* U\*\*T,  if UPLO = 'U', or
+A = L \* D \* L\*\*T,  if UPLO = 'L',
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and D is Hermitian and block diagonal with
 1-by-1 and 2-by-2 diagonal blocks.
@@ -33,10 +32,10 @@ Hermition matrix A using the bounded Bunch-Kaufman () diagonal
 pivoting method.
 
 The factored form of A is then used to solve the system
-of equations A * X = B by calling CHETRS_ROOK (uses BLAS 2).
+of equations A \* X = B by calling CHETRS_ROOK (uses BLAS 2).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -59,7 +58,7 @@ A : COMPLEX array, dimension (LDA,N) [in,out]
 > 
 > On exit, if INFO = 0, the block diagonal matrix D and the
 > multipliers used to obtain the factor U or L from the
-> factorization A = U*D*U**H or A = L*D*L**H as computed by
+> factorization A = U\*D\*U\*\*H or A = L\*D\*L\*\*H as computed by
 > CHETRF_ROOK.
 
 LDA : INTEGER [in]
@@ -102,7 +101,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >= 1, and for best performance
-> LWORK >= max(1,N*NB), where NB is the optimal blocksize for
+> LWORK >= max(1,N\*NB), where NB is the optimal blocksize for
 > CHETRF_ROOK.
 > for LWORK < N, TRS will be done with Level BLAS 2
 > for LWORK >= N, TRS will be done with Level BLAS 3

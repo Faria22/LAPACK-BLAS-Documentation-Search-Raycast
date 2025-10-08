@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaic1
-(
+subroutine slaic1 (
         integer job,
         integer j,
         real, dimension( j ) x,
@@ -18,26 +17,26 @@ its simplest version:
 
 Let x, twonorm(x) = 1, be an approximate singular vector of an j-by-j
 lower triangular matrix L, such that
-twonorm(L*x) = sest
+twonorm(L\*x) = sest
 Then SLAIC1 computes sestpr, s, c such that
 the vector
-[ s*x ]
+[ s\*x ]
 xhat = [  c  ]
 is an approximate singular vector of
 [ L      0  ]
-Lhat = [ w**T gamma ]
+Lhat = [ w\*\*T gamma ]
 in the sense that
-twonorm(Lhat*xhat) = sestpr.
+twonorm(Lhat\*xhat) = sestpr.
 
 Depending on JOB, an estimate for the largest or smallest singular
 value is computed.
 
-Note that [s c]**T and sestpr**2 is an eigenpair of the system
+Note that [s c]\*\*T and sestpr\*\*2 is an eigenpair of the system
 
-diag(sest*sest, 0) + [alpha  gamma] * [ alpha ]
+diag(sest\*sest, 0) + [alpha  gamma] \* [ alpha ]
 [ gamma ]
 
-where  alpha =  x**T*w.
+where  alpha =  x\*\*T\*w.
 
 ## Parameters
 JOB : INTEGER [in]

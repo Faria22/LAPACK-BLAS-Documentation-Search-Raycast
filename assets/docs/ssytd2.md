@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssytd2
-(
+subroutine ssytd2 (
         character uplo,
         integer n,
         real, dimension( lda, * ) a,
@@ -13,10 +12,10 @@ subroutine ssytd2
 ```
 
 SSYTD2 reduces a real symmetric matrix A to symmetric tridiagonal
-form T by an orthogonal similarity transformation: Q**T * A * Q = T.
+form T by an orthogonal similarity transformation: Q\*\*T \* A \* Q = T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorbdb6
-(
+subroutine sorbdb6 (
         integer m1,
         integer m2,
         integer n,
@@ -29,7 +28,7 @@ be zero if and only if it lies entirely in the range of Q.
 
 The projection is computed with at most two iterations of the
 classical Gram-Schmidt algorithm, see
-* L. Giraud, J. Langou, M. Rozložník.
+\* L. Giraud, J. Langou, M. Rozložník.
 2002. CERFACS Technical Report No. TR/PA/02/33. URL:
 https://www.cerfacs.fr/algor/reports/2002/TR_PA_02_33.pdf
 

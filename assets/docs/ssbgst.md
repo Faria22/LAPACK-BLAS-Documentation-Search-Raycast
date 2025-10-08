@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssbgst
-(
+subroutine ssbgst (
         character vect,
         character uplo,
         integer n,
@@ -18,20 +17,20 @@ subroutine ssbgst
 ```
 
 SSBGST reduces a real symmetric-definite banded generalized
-eigenproblem  A*x = lambda*B*x  to standard form  C*y = lambda*y,
+eigenproblem  A\*x = lambda\*B\*x  to standard form  C\*y = lambda\*y,
 such that C has the same bandwidth as A.
 
-B must have been previously factorized as S**T*S by SPBSTF, using a
-split Cholesky factorization. A is overwritten by C = X**T*A*X, where
-X = S**(-1)*Q and Q is an orthogonal matrix chosen to preserve the
+B must have been previously factorized as S\*\*T\*S by SPBSTF, using a
+split Cholesky factorization. A is overwritten by C = X\*\*T\*A\*X, where
+X = S\*\*(-1)\*Q and Q is an orthogonal matrix chosen to preserve the
 bandwidth of A.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  do not form the transformation matrix X;
 > = 'V':  form X.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -54,7 +53,7 @@ AB : REAL array, dimension (LDAB,N) [in,out]
 > if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
 > 
-> On exit, the transformed matrix X**T*A*X, stored in the same
+> On exit, the transformed matrix X\*\*T\*A\*X, stored in the same
 > format as A.
 
 LDAB : INTEGER [in]
@@ -76,7 +75,7 @@ LDX : INTEGER [in]
 > The leading dimension of the array X.
 > LDX >= max(1,N) if VECT = 'V'; LDX >= 1 otherwise.
 
-WORK : REAL array, dimension (2*N) [out]
+WORK : REAL array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

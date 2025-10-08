@@ -1,6 +1,5 @@
 ```fortran
-subroutine slas2
-(
+subroutine slas2 (
         real f,
         real g,
         real h,

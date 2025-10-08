@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarfb
-(
+subroutine dlarfb (
         character side,
         character trans,
         character direct,
@@ -19,25 +18,25 @@ subroutine dlarfb
 )
 ```
 
-DLARFB applies a real block reflector H or its transpose H**T to a
+DLARFB applies a real block reflector H or its transpose H\*\*T to a
 real m by n matrix C, from either the left or the right.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply H or H**T from the Left
-> = 'R': apply H or H**T from the Right
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply H or H\*\*T from the Left
+> = 'R': apply H or H\*\*T from the Right
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': apply H (No transpose)
-> = 'T': apply H**T (Transpose)
+> = 'T': apply H\*\*T (Transpose)
 
-DIRECT : CHARACTER*1 [in]
+DIRECT : CHARACTER\*1 [in]
 > Indicates how H is formed from a product of elementary
 > reflectors
 > = 'F': H = H(1) H(2) . . . H(k) (Forward)
 > = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-STOREV : CHARACTER*1 [in]
+STOREV : CHARACTER\*1 [in]
 > Indicates how the vectors which define the elementary
 > reflectors are stored:
 > = 'C': Columnwise
@@ -76,7 +75,7 @@ LDT : INTEGER [in]
 
 C : DOUBLE PRECISION array, dimension (LDC,N) [in,out]
 > On entry, the m by n matrix C.
-> On exit, C is overwritten by H*C or H**T*C or C*H or C*H**T.
+> On exit, C is overwritten by H\*C or H\*\*T\*C or C\*H or C\*H\*\*T.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

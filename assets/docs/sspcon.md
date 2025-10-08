@@ -1,6 +1,5 @@
 ```fortran
-subroutine sspcon
-(
+subroutine sspcon (
         character uplo,
         integer n,
         real, dimension( * ) ap,
@@ -15,22 +14,22 @@ subroutine sspcon
 
 SSPCON estimates the reciprocal of the condition number (in the
 1-norm) of a real symmetric packed matrix A using the factorization
-A = U*D*U**T or A = L*D*L**T computed by SSPTRF.
+A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by SSPTRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
-condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
+condition number is computed as RCOND = 1 / (ANORM \* norm(inv(A))).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-AP : REAL array, dimension (N*(N+1)/2) [in]
+AP : REAL array, dimension (N\*(N+1)/2) [in]
 > The block diagonal matrix D and the multipliers used to
 > obtain the factor U or L as computed by SSPTRF, stored as a
 > packed triangular matrix.
@@ -44,10 +43,10 @@ ANORM : REAL [in]
 
 RCOND : REAL [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is an
 > estimate of the 1-norm of inv(A) computed in this routine.
 
-WORK : REAL array, dimension (2*N) [out]
+WORK : REAL array, dimension (2\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

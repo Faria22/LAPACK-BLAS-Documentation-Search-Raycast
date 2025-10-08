@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgeqp3
-(
+subroutine dgeqp3 (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ subroutine dgeqp3
 ```
 
 DGEQP3 computes a QR factorization with column pivoting of a
-matrix A:  A*P = Q*R  using Level 3 BLAS.
+matrix A:  A\*P = Q\*R  using Level 3 BLAS.
 
 ## Parameters
 M : INTEGER [in]
@@ -36,9 +35,9 @@ LDA : INTEGER [in]
 
 JPVT : INTEGER array, dimension (N) [in,out]
 > On entry, if JPVT(J).ne.0, the J-th column of A is permuted
-> to the front of A*P (a leading column); if JPVT(J)=0,
+> to the front of A\*P (a leading column); if JPVT(J)=0,
 > the J-th column of A is a free column.
-> On exit, if JPVT(J)=K, then the J-th column of A*P was the
+> On exit, if JPVT(J)=K, then the J-th column of A\*P was the
 > the K-th column of A.
 
 TAU : DOUBLE PRECISION array, dimension (min(M,N)) [out]
@@ -48,8 +47,8 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= 3*N+1.
-> For optimal performance LWORK >= 2*N+( N+1 )*NB, where NB
+> The dimension of the array WORK. LWORK >= 3\*N+1.
+> For optimal performance LWORK >= 2\*N+( N+1 )\*NB, where NB
 > is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

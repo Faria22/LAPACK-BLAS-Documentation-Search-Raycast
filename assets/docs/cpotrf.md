@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpotrf
-(
+subroutine cpotrf (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -13,14 +12,14 @@ CPOTRF computes the Cholesky factorization of a complex Hermitian
 positive definite matrix A.
 
 The factorization has the form
-A = U**H * U,  if UPLO = 'U', or
-A = L  * L**H,  if UPLO = 'L',
+A = U\*\*H \* U,  if UPLO = 'U', or
+A = L  \* L\*\*H,  if UPLO = 'L',
 where U is an upper triangular matrix and L is lower triangular.
 
 This is the block version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -37,7 +36,7 @@ A : COMPLEX array, dimension (LDA,N) [in,out]
 > triangular part of A is not referenced.
 > 
 > On exit, if INFO = 0, the factor U or L from the Cholesky
-> factorization A = U**H*U or A = L*L**H.
+> factorization A = U\*\*H\*U or A = L\*L\*\*H.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

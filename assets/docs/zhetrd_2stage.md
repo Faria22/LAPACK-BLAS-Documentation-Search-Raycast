@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetrd_2stage
-(
+subroutine zhetrd_2stage (
         character vect,
         character uplo,
         integer n,
@@ -19,26 +18,26 @@ subroutine zhetrd_2stage
 
 ZHETRD_2STAGE reduces a complex Hermitian matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q1**H Q2**H* A * Q2 * Q1 = T.
+Q1\*\*H Q2\*\*H\* A \* Q2 \* Q1 = T.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  No need for the Housholder representation,
 > in particular for the second stage (Band to
-> tridiagonal) and thus LHOUS2 is of size max(1, 4*N);
+> tridiagonal) and thus LHOUS2 is of size max(1, 4\*N);
 > = 'V':  the Householder representation is needed to
 > either generate Q1 Q2 or to apply Q1 Q2,
 > then LHOUS2 is to be queried and computed.
 > (NOT AVAILABLE IN THIS RELEASE).
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 > N-by-N upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -66,11 +65,11 @@ D : DOUBLE PRECISION array, dimension (N) [out]
 E : DOUBLE PRECISION array, dimension (N-1) [out]
 > The off-diagonal elements of the tridiagonal matrix T.
 
-TAU : COMPLEX*16 array, dimension (N-KD) [out]
+TAU : COMPLEX\*16 array, dimension (N-KD) [out]
 > The scalar factors of the elementary reflectors of
 > the first stage (see Further Details).
 
-HOUS2 : COMPLEX*16 array, dimension (MAX(1,LHOUS2)) [out]
+HOUS2 : COMPLEX\*16 array, dimension (MAX(1,LHOUS2)) [out]
 > Stores the Householder representation of the stage2
 > band to tridiagonal.
 
@@ -83,10 +82,10 @@ LHOUS2 : INTEGER [in]
 > only calculates the optimal size of the HOUS2 array, returns
 > this value as the first entry of the HOUS2 array, and no error
 > message related to LHOUS2 is issued by XERBLA.
-> If VECT='N', LHOUS2 = max(1, 4*n);
+> If VECT='N', LHOUS2 = max(1, 4\*n);
 > if VECT='V', option not yet available.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
@@ -99,10 +98,10 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 > LWORK = MAX(1, dimension) where
-> dimension   = max(stage1,stage2) + (KD+1)*N
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N
+> dimension   = max(stage1,stage2) + (KD+1)\*N
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice

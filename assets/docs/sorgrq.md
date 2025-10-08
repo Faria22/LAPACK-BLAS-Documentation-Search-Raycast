@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorgrq
-(
+subroutine sorgrq (
         integer m,
         integer n,
         integer k,
@@ -51,7 +50,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,M).
-> For optimum performance LWORK >= M*NB, where NB is the
+> For optimum performance LWORK >= M\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

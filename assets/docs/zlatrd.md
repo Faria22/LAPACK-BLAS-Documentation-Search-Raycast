@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlatrd
-(
+subroutine zlatrd (
         character uplo,
         integer n,
         integer nb,
@@ -15,7 +14,7 @@ subroutine zlatrd
 
 ZLATRD reduces NB rows and columns of a complex Hermitian matrix A to
 Hermitian tridiagonal form by a unitary similarity
-transformation Q**H * A * Q, and returns the matrices V and W which are
+transformation Q\*\*H \* A \* Q, and returns the matrices V and W which are
 needed to apply the transformation to the unreduced part of A.
 
 If UPLO = 'U', ZLATRD reduces the last NB rows and columns of a
@@ -26,7 +25,7 @@ matrix, of which the lower triangle is supplied.
 This is an auxiliary routine called by ZHETRD.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U': Upper triangular
@@ -38,7 +37,7 @@ N : INTEGER [in]
 NB : INTEGER [in]
 > The number of rows and columns to be reduced.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 > n-by-n upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -68,12 +67,12 @@ E : DOUBLE PRECISION array, dimension (N-1) [out]
 > if UPLO = 'L', E(1:nb) contains the subdiagonal elements of
 > the first NB columns of the reduced matrix.
 
-TAU : COMPLEX*16 array, dimension (N-1) [out]
+TAU : COMPLEX\*16 array, dimension (N-1) [out]
 > The scalar factors of the elementary reflectors, stored in
 > TAU(n-nb:n-1) if UPLO = 'U', and in TAU(1:nb) if UPLO = 'L'.
 > See Further Details.
 
-W : COMPLEX*16 array, dimension (LDW,NB) [out]
+W : COMPLEX\*16 array, dimension (LDW,NB) [out]
 > The n-by-nb matrix W required to update the unreduced part
 > of A.
 

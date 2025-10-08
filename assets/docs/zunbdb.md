@@ -1,6 +1,5 @@
 ```fortran
-subroutine zunbdb
-(
+subroutine zunbdb (
         character trans,
         character signs,
         integer m,
@@ -30,7 +29,7 @@ ZUNBDB simultaneously bidiagonalizes the blocks of an M-by-M
 partitioned unitary matrix X:
 
 [ B11 | B12 0  0 ]
-[ X11 | X12 ]   [ P1 |    ] [  0  |  0 -I  0 ] [ Q1 |    ]**H
+[ X11 | X12 ]   [ P1 |    ] [  0  |  0 -I  0 ] [ Q1 |    ]\*\*H
 X = [-----------] = [---------] [----------------] [---------]   .
 [ X21 | X22 ]   [    | P2 ] [ B21 | B22 0  0 ] [    | Q2 ]
 [  0  |  0  0  I ]
@@ -70,7 +69,7 @@ Q : INTEGER [in]
 > The number of columns in X11 and X21. 0 <= Q <=
 > MIN(P,M-P,M-Q).
 
-X11 : COMPLEX*16 array, dimension (LDX11,Q) [in,out]
+X11 : COMPLEX\*16 array, dimension (LDX11,Q) [in,out]
 > On entry, the top-left block of the unitary matrix to be
 > reduced. On exit, the form depends on TRANS:
 > If TRANS = 'N', then
@@ -84,7 +83,7 @@ LDX11 : INTEGER [in]
 > The leading dimension of X11. If TRANS = 'N', then LDX11 >=
 > P; else LDX11 >= Q.
 
-X12 : COMPLEX*16 array, dimension (LDX12,M-Q) [in,out]
+X12 : COMPLEX\*16 array, dimension (LDX12,M-Q) [in,out]
 > On entry, the top-right block of the unitary matrix to
 > be reduced. On exit, the form depends on TRANS:
 > If TRANS = 'N', then
@@ -98,7 +97,7 @@ LDX12 : INTEGER [in]
 > The leading dimension of X12. If TRANS = 'N', then LDX12 >=
 > P; else LDX11 >= M-Q.
 
-X21 : COMPLEX*16 array, dimension (LDX21,Q) [in,out]
+X21 : COMPLEX\*16 array, dimension (LDX21,Q) [in,out]
 > On entry, the bottom-left block of the unitary matrix to
 > be reduced. On exit, the form depends on TRANS:
 > If TRANS = 'N', then
@@ -110,7 +109,7 @@ LDX21 : INTEGER [in]
 > The leading dimension of X21. If TRANS = 'N', then LDX21 >=
 > M-P; else LDX21 >= Q.
 
-X22 : COMPLEX*16 array, dimension (LDX22,M-Q) [in,out]
+X22 : COMPLEX\*16 array, dimension (LDX22,M-Q) [in,out]
 > On entry, the bottom-right block of the unitary matrix to
 > be reduced. On exit, the form depends on TRANS:
 > If TRANS = 'N', then
@@ -134,23 +133,23 @@ PHI : DOUBLE PRECISION array, dimension (Q-1) [out]
 > be computed from the angles THETA and PHI. See Further
 > Details.
 
-TAUP1 : COMPLEX*16 array, dimension (P) [out]
+TAUP1 : COMPLEX\*16 array, dimension (P) [out]
 > The scalar factors of the elementary reflectors that define
 > P1.
 
-TAUP2 : COMPLEX*16 array, dimension (M-P) [out]
+TAUP2 : COMPLEX\*16 array, dimension (M-P) [out]
 > The scalar factors of the elementary reflectors that define
 > P2.
 
-TAUQ1 : COMPLEX*16 array, dimension (Q) [out]
+TAUQ1 : COMPLEX\*16 array, dimension (Q) [out]
 > The scalar factors of the elementary reflectors that define
 > Q1.
 
-TAUQ2 : COMPLEX*16 array, dimension (M-Q) [out]
+TAUQ2 : COMPLEX\*16 array, dimension (M-Q) [out]
 > The scalar factors of the elementary reflectors that define
 > Q2.
 
-WORK : COMPLEX*16 array, dimension (LWORK) [out]
+WORK : COMPLEX\*16 array, dimension (LWORK) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= M-Q.

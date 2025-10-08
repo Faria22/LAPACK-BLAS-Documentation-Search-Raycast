@@ -1,6 +1,5 @@
 ```fortran
-subroutine dptts2
-(
+subroutine dptts2 (
         integer n,
         integer nrhs,
         double precision, dimension( * ) d,
@@ -11,8 +10,8 @@ subroutine dptts2
 ```
 
 DPTTS2 solves a tridiagonal system of the form
-A * X = B
-using the L*D*L**T factorization of A computed by DPTTRF.  D is a
+A \* X = B
+using the L\*D\*L\*\*T factorization of A computed by DPTTRF.  D is a
 diagonal matrix specified in the vector D, L is a unit bidiagonal
 matrix whose subdiagonal is specified in the vector E, and X and B
 are N by NRHS matrices.
@@ -27,13 +26,13 @@ NRHS : INTEGER [in]
 
 D : DOUBLE PRECISION array, dimension (N) [in]
 > The n diagonal elements of the diagonal matrix D from the
-> L*D*L**T factorization of A.
+> L\*D\*L\*\*T factorization of A.
 
 E : DOUBLE PRECISION array, dimension (N-1) [in]
 > The (n-1) subdiagonal elements of the unit bidiagonal factor
-> L from the L*D*L**T factorization of A.  E can also be regarded
+> L from the L\*D\*L\*\*T factorization of A.  E can also be regarded
 > as the superdiagonal of the unit bidiagonal factor U from the
-> factorization A = U**T*D*U.
+> factorization A = U\*\*T\*D\*U.
 
 B : DOUBLE PRECISION array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side vectors B for the system of

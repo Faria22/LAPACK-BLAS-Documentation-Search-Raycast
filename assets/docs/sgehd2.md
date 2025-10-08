@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgehd2
-(
+subroutine sgehd2 (
         integer n,
         integer ilo,
         integer ihi,
@@ -13,7 +12,7 @@ subroutine sgehd2
 ```
 
 SGEHD2 reduces a real general matrix A to upper Hessenberg form H by
-an orthogonal similarity transformation:  Q**T * A * Q = H .
+an orthogonal similarity transformation:  Q\*\*T \* A \* Q = H .
 
 ## Parameters
 N : INTEGER [in]

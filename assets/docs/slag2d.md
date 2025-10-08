@@ -1,6 +1,5 @@
 ```fortran
-subroutine slag2d
-(
+subroutine slag2d (
         integer m,
         integer n,
         real, dimension( ldsa, * ) sa,

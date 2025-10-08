@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed9
-(
+subroutine dlaed9 (
         integer k,
         integer kstart,
         integer kstop,

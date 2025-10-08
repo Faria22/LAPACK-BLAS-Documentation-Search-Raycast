@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpoequ
-(
+subroutine zpoequ (
         integer n,
         complex*16, dimension( lda, * ) a,
         integer lda,
@@ -15,7 +14,7 @@ ZPOEQU computes row and column scalings intended to equilibrate a
 Hermitian positive definite matrix A and reduce its condition number
 (with respect to the two-norm).  S contains the scale factors,
 S(i) = 1/sqrt(A(i,i)), chosen so that the scaled matrix B with
-elements B(i,j) = S(i)*A(i,j)*S(j) has ones on the diagonal.  This
+elements B(i,j) = S(i)\*A(i,j)\*S(j) has ones on the diagonal.  This
 choice of S puts the condition number of B within a factor N of the
 smallest possible condition number over all possible diagonal
 scalings.
@@ -24,7 +23,7 @@ scalings.
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The N-by-N Hermitian positive definite matrix whose scaling
 > factors are to be computed.  Only the diagonal elements of A
 > are referenced.

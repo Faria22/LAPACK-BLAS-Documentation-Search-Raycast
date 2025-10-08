@@ -1,6 +1,5 @@
 ```fortran
-subroutine slapmr
-(
+subroutine slapmr (
         logical forwrd,
         integer m,
         integer n,
@@ -14,11 +13,11 @@ SLAPMR rearranges the rows of the M by N matrix X as specified
 by the permutation K(1),K(2),...,K(M) of the integers 1,...,M.
 If FORWRD = .TRUE.,  forward permutation:
 
-X(K(I),*) is moved X(I,*) for I = 1,2,...,M.
+X(K(I),\*) is moved X(I,\*) for I = 1,2,...,M.
 
 If FORWRD = .FALSE., backward permutation:
 
-X(I,*) is moved to X(K(I),*) for I = 1,2,...,M.
+X(I,\*) is moved to X(K(I),\*) for I = 1,2,...,M.
 
 ## Parameters
 FORWRD : LOGICAL [in]

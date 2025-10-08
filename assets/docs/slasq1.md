@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasq1
-(
+subroutine slasq1 (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) e,
@@ -35,14 +34,14 @@ E : REAL array, dimension (N) [in,out]
 > of the bidiagonal matrix whose SVD is desired.
 > On exit, E is overwritten.
 
-WORK : REAL array, dimension (4*N) [out]
+WORK : REAL array, dimension (4\*N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit
 > < 0: if INFO = -i, the i-th argument had an illegal value
 > > 0: the algorithm failed
 > = 1, a split was marked by a positive value in E
-> = 2, current block of Z not diagonalized after 100*N
+> = 2, current block of Z not diagonalized after 100\*N
 > iterations (in inner while loop)  On exit D and E
 > represent a matrix with the same singular values
 > which the calling subroutine could use to finish the

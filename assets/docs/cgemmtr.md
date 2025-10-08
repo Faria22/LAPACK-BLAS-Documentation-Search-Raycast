@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgemmtr
-(
+subroutine cgemmtr (
         character uplo,
         character transa,
         character transb,
@@ -19,11 +18,11 @@ subroutine cgemmtr
 
 CGEMMTR  performs one of the matrix-matrix operations
 
-C := alpha*op( A )*op( B ) + beta*C,
+C := alpha\*op( A )\*op( B ) + beta\*C,
 
 where  op( X ) is one of
 
-op( X ) = X   or   op( X ) = X**T,
+op( X ) = X   or   op( X ) = X\*\*T,
 
 alpha and beta are scalars, and A, B and C are matrices, with op( A )
 an n by k matrix,  op( B )  a  k by n matrix and  C an n by n matrix.
@@ -32,7 +31,7 @@ triangular part of the result matrix C. This behaviour can be used if
 the resulting matrix C is known to be Hermitian or symmetric.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the lower or the upper
 > triangular part of C is access and updated.
 > 
@@ -40,25 +39,25 @@ UPLO : CHARACTER*1 [in]
 > 
 > UPLO = 'U' or 'u', the upper triangular part of C is used.
 
-TRANSA : CHARACTER*1 [in]
+TRANSA : CHARACTER\*1 [in]
 > On entry, TRANSA specifies the form of op( A ) to be used in
 > the matrix multiplication as follows:
 > 
 > TRANSA = 'N' or 'n',  op( A ) = A.
 > 
-> TRANSA = 'T' or 't',  op( A ) = A**T.
+> TRANSA = 'T' or 't',  op( A ) = A\*\*T.
 > 
-> TRANSA = 'C' or 'c',  op( A ) = A**H.
+> TRANSA = 'C' or 'c',  op( A ) = A\*\*H.
 
-TRANSB : CHARACTER*1 [in]
+TRANSB : CHARACTER\*1 [in]
 > On entry, TRANSB specifies the form of op( B ) to be used in
 > the matrix multiplication as follows:
 > 
 > TRANSB = 'N' or 'n',  op( B ) = B.
 > 
-> TRANSB = 'T' or 't',  op( B ) = B**T.
+> TRANSB = 'T' or 't',  op( B ) = B\*\*T.
 > 
-> TRANSB = 'C' or 'c',  op( B ) = B**H.
+> TRANSB = 'C' or 'c',  op( B ) = B\*\*H.
 
 N : INTEGER [in]
 > On entry,  N specifies the number of rows and columns of
@@ -109,7 +108,7 @@ C : COMPLEX array, dimension ( LDC, N ) [in,out]
 > case C need not be set on entry.
 > On exit, the upper or lower triangular part of the matrix
 > C  is overwritten by the n by n matrix
-> ( alpha*op( A )*op( B ) + beta*C ).
+> ( alpha\*op( A )\*op( B ) + beta\*C ).
 
 LDC : INTEGER [in]
 > On entry, LDC specifies the first dimension of C as declared

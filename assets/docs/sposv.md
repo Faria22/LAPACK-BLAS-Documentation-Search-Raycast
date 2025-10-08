@@ -1,6 +1,5 @@
 ```fortran
-subroutine sposv
-(
+subroutine sposv (
         character uplo,
         integer n,
         integer nrhs,
@@ -13,19 +12,19 @@ subroutine sposv
 ```
 
 SPOSV computes the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric positive definite matrix and X and B
 are N-by-NRHS matrices.
 
 The Cholesky decomposition is used to factor A as
-A = U**T* U,  if UPLO = 'U', or
-A = L * L**T,  if UPLO = 'L',
+A = U\*\*T\* U,  if UPLO = 'U', or
+A = L \* L\*\*T,  if UPLO = 'L',
 where U is an upper triangular matrix and L is a lower triangular
 matrix.  The factored form of A is then used to solve the system of
-equations A * X = B.
+equations A \* X = B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -47,7 +46,7 @@ A : REAL array, dimension (LDA,N) [in,out]
 > triangular part of A is not referenced.
 > 
 > On exit, if INFO = 0, the factor U or L from the Cholesky
-> factorization A = U**T*U or A = L*L**T.
+> factorization A = U\*\*T\*U or A = L\*L\*\*T.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

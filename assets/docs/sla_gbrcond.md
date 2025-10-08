@@ -1,6 +1,5 @@
 ```fortran
-real function sla_gbrcond
-(
+real function sla_gbrcond (
         character trans,
         integer n,
         integer kl,
@@ -18,22 +17,22 @@ real function sla_gbrcond
 )
 ```
 
-SLA_GBRCOND Estimates the Skeel condition number of  op(A) * op2(C)
+SLA_GBRCOND Estimates the Skeel condition number of  op(A) \* op2(C)
 where op2 is determined by CMODE as follows
 CMODE =  1    op2(C) = C
 CMODE =  0    op2(C) = I
 CMODE = -1    op2(C) = inv(C)
 The Skeel condition number  cond(A) = norminf( |inv(A)||A| )
 is computed by computing scaling factors R such that
-diag(R)*A*op2(C) is row equilibrated and computing the standard
+diag(R)\*A\*op2(C) is row equilibrated and computing the standard
 infinity-norm condition number.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate Transpose = Transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate Transpose = Transpose)
 
 N : INTEGER [in]
 > The number of linear equations, i.e., the order of the
@@ -59,30 +58,30 @@ AFB : REAL array, dimension (LDAFB,N) [in]
 > computed by SGBTRF.  U is stored as an upper triangular
 > band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
 > and the multipliers used during the factorization are stored
-> in rows KL+KU+2 to 2*KL+KU+1.
+> in rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL+KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
-> The pivot indices from the factorization A = P*L*U
+> The pivot indices from the factorization A = P\*L\*U
 > as computed by SGBTRF; row i of the matrix was interchanged
 > with row IPIV(i).
 
 CMODE : INTEGER [in]
-> Determines op2(C) in the formula op(A) * op2(C) as follows:
+> Determines op2(C) in the formula op(A) \* op2(C) as follows:
 > CMODE =  1    op2(C) = C
 > CMODE =  0    op2(C) = I
 > CMODE = -1    op2(C) = inv(C)
 
 C : REAL array, dimension (N) [in]
-> The vector C in the formula op(A) * op2(C).
+> The vector C in the formula op(A) \* op2(C).
 
 INFO : INTEGER [out]
 > = 0:  Successful exit.
 > i > 0:  The ith argument is invalid.
 
-WORK : REAL array, dimension (5*N). [out]
+WORK : REAL array, dimension (5\*N). [out]
 > Workspace.
 
 IWORK : INTEGER array, dimension (N). [out]

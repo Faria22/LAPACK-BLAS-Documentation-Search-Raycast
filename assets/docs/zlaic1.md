@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaic1
-(
+subroutine zlaic1 (
         integer job,
         integer j,
         complex*16, dimension( j ) x,
@@ -18,26 +17,26 @@ its simplest version:
 
 Let x, twonorm(x) = 1, be an approximate singular vector of an j-by-j
 lower triangular matrix L, such that
-twonorm(L*x) = sest
+twonorm(L\*x) = sest
 Then ZLAIC1 computes sestpr, s, c such that
 the vector
-[ s*x ]
+[ s\*x ]
 xhat = [  c  ]
 is an approximate singular vector of
 [ L       0  ]
-Lhat = [ w**H gamma ]
+Lhat = [ w\*\*H gamma ]
 in the sense that
-twonorm(Lhat*xhat) = sestpr.
+twonorm(Lhat\*xhat) = sestpr.
 
 Depending on JOB, an estimate for the largest or smallest singular
 value is computed.
 
-Note that [s c]**H and sestpr**2 is an eigenpair of the system
+Note that [s c]\*\*H and sestpr\*\*2 is an eigenpair of the system
 
-diag(sest*sest, 0) + [alpha  gamma] * [ conjg(alpha) ]
+diag(sest\*sest, 0) + [alpha  gamma] \* [ conjg(alpha) ]
 [ conjg(gamma) ]
 
-where  alpha =  x**H * w.
+where  alpha =  x\*\*H \* w.
 
 ## Parameters
 JOB : INTEGER [in]
@@ -47,23 +46,23 @@ JOB : INTEGER [in]
 J : INTEGER [in]
 > Length of X and W
 
-X : COMPLEX*16 array, dimension (J) [in]
+X : COMPLEX\*16 array, dimension (J) [in]
 > The j-vector x.
 
 SEST : DOUBLE PRECISION [in]
 > Estimated singular value of j by j matrix L
 
-W : COMPLEX*16 array, dimension (J) [in]
+W : COMPLEX\*16 array, dimension (J) [in]
 > The j-vector w.
 
-GAMMA : COMPLEX*16 [in]
+GAMMA : COMPLEX\*16 [in]
 > The diagonal element gamma.
 
 SESTPR : DOUBLE PRECISION [out]
 > Estimated singular value of (j+1) by (j+1) matrix Lhat.
 
-S : COMPLEX*16 [out]
+S : COMPLEX\*16 [out]
 > Sine needed in forming xhat.
 
-C : COMPLEX*16 [out]
+C : COMPLEX\*16 [out]
 > Cosine needed in forming xhat.

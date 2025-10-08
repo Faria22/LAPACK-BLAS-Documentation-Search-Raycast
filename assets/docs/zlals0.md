@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlals0
-(
+subroutine zlals0 (
         integer icompq,
         integer nl,
         integer nr,
@@ -81,7 +80,7 @@ SQRE : INTEGER [in]
 NRHS : INTEGER [in]
 > The number of columns of B and BX. NRHS must be at least 1.
 
-B : COMPLEX*16 array, dimension ( LDB, NRHS ) [in,out]
+B : COMPLEX\*16 array, dimension ( LDB, NRHS ) [in,out]
 > On input, B contains the right hand sides of the least
 > squares problem in rows 1 through M. On output, B contains
 > the solution X in rows 1 through N.
@@ -90,7 +89,7 @@ LDB : INTEGER [in]
 > The leading dimension of B. LDB must be at least
 > max(1,MAX( M, N ) ).
 
-BX : COMPLEX*16 array, dimension ( LDBX, NRHS ) [out]
+BX : COMPLEX\*16 array, dimension ( LDBX, NRHS ) [out]
 
 LDBX : INTEGER [in]
 > The leading dimension of BX.
@@ -152,7 +151,7 @@ S : DOUBLE PRECISION [in]
 > rotation related to the right null space if SQRE = 1.
 
 RWORK : DOUBLE PRECISION array, dimension [out]
-> ( K*(1+NRHS) + 2*NRHS )
+> ( K\*(1+NRHS) + 2\*NRHS )
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

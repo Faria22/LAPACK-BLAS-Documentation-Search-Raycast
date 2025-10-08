@@ -1,6 +1,5 @@
 ```fortran
-double precision function dlamc3
-(
+double precision function dlamc3 (
         double precision a,
         double precision b
 )

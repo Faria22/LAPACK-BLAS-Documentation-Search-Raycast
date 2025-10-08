@@ -1,6 +1,5 @@
 ```fortran
-double precision function dzsum1
-(
+double precision function dzsum1 (
         integer n,
         complex*16, dimension( * ) cx,
         integer incx
@@ -17,7 +16,7 @@ The change is to use the 'genuine' absolute value.
 N : INTEGER [in]
 > The number of elements in the vector CX.
 
-CX : COMPLEX*16 array, dimension (N) [in]
+CX : COMPLEX\*16 array, dimension (N) [in]
 > The vector whose elements will be summed.
 
 INCX : INTEGER [in]

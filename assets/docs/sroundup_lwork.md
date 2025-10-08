@@ -1,6 +1,5 @@
 ```fortran
-real function sroundup_lwork
-(
+real function sroundup_lwork (
         integer lwork
 )
 ```
@@ -11,7 +10,7 @@ multiplying LWORK by 1+eps when it is necessary, where eps is the relative machi
 E.g.,
 
 float( 16777217            ) == 16777216
-float( 16777217 ) * (1.+eps) == 16777218
+float( 16777217 ) \* (1.+eps) == 16777218
 
 \return SROUNDUP_LWORK
 \verbatim

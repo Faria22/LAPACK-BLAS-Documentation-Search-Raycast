@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqr0
-(
+subroutine slaqr0 (
         logical wantt,
         logical wantz,
         integer n,
@@ -22,13 +21,13 @@ subroutine slaqr0
 
 SLAQR0 computes the eigenvalues of a Hessenberg matrix H
 and, optionally, the matrices T and Z from the Schur decomposition
-H = Z T Z**T, where T is an upper quasi-triangular matrix (the
+H = Z T Z\*\*T, where T is an upper quasi-triangular matrix (the
 Schur form), and Z is the orthogonal matrix of Schur vectors.
 
 Optionally Z may be postmultiplied into an input orthogonal
 matrix Q so that this routine can give the Schur factorization
 of a matrix A which has been reduced to the Hessenberg form H
-by the orthogonal matrix Q:  A = Q*H*Q**T = (QZ)*T*(QZ)**T.
+by the orthogonal matrix Q:  A = Q\*H\*Q\*\*T = (QZ)\*T\*(QZ)\*\*T.
 
 ## Parameters
 WANTT : LOGICAL [in]
@@ -61,7 +60,7 @@ H : REAL array, dimension (LDH,N) [in,out]
 > decomposition (the Schur form); 2-by-2 diagonal blocks
 > (corresponding to complex conjugate pairs of eigenvalues)
 > are returned in standard form, with H(i,i) = H(i+1,i+1)
-> and H(i+1,i)*H(i,i+1) < 0. If INFO = 0 and WANTT is
+> and H(i+1,i)\*H(i,i+1) < 0. If INFO = 0 and WANTT is
 > .FALSE., then the contents of H are unspecified on exit.
 > (The output value of H when INFO > 0 is given under the
 > description of INFO below.)
@@ -84,7 +83,7 @@ WI : REAL array, dimension (IHI) [out]
 > the eigenvalues are stored in the same order as on the
 > diagonal of the Schur form returned in H, with
 > WR(i) = H(i,i) and, if H(i:i+1,i:i+1) is a 2-by-2 diagonal
-> block, WI(i) = sqrt(-H(i+1,i)*H(i,i+1)) and
+> block, WI(i) = sqrt(-H(i+1,i)\*H(i,i+1)) and
 > WI(i+1) = -WI(i).
 
 ILOZ : INTEGER [in]
@@ -97,7 +96,7 @@ IHIZ : INTEGER [in]
 Z : REAL array, dimension (LDZ,IHI) [in,out]
 > If WANTZ is .FALSE., then Z is not referenced.
 > If WANTZ is .TRUE., then Z(ILO:IHI,ILOZ:IHIZ) is
-> replaced by Z(ILO:IHI,ILOZ:IHIZ)*U where U is the
+> replaced by Z(ILO:IHI,ILOZ:IHIZ)\*U where U is the
 > orthogonal Schur factor of H(ILO:IHI,ILO:IHI).
 > (The output value of Z when INFO > 0 is given under
 > the description of INFO below.)
@@ -112,7 +111,7 @@ WORK : REAL array, dimension LWORK [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.  LWORK >= max(1,N)
-> is sufficient, but LWORK typically as large as 6*N may
+> is sufficient, but LWORK typically as large as 6\*N may
 > be required for optimal performance.  A workspace query
 > to determine the optimal workspace size is recommended.
 > 
@@ -138,7 +137,7 @@ INFO : INTEGER [out]
 > 
 > If INFO > 0 and WANTT is .TRUE., then on exit
 > 
-> (*)  (initial value of H)*U  = U*(final value of H)
+> (\*)  (initial value of H)\*U  = U\*(final value of H)
 > 
 > where U is an orthogonal matrix.  The final
 > value of H is upper Hessenberg and quasi-triangular
@@ -147,9 +146,9 @@ INFO : INTEGER [out]
 > If INFO > 0 and WANTZ is .TRUE., then on exit
 > 
 > (final value of Z(ILO:IHI,ILOZ:IHIZ)
-> =  (initial value of Z(ILO:IHI,ILOZ:IHIZ)*U
+> =  (initial value of Z(ILO:IHI,ILOZ:IHIZ)\*U
 > 
-> where U is the orthogonal matrix in (*) (regard-
+> where U is the orthogonal matrix in (\*) (regard-
 > less of the value of WANTT.)
 > 
 > If INFO > 0 and WANTZ is .FALSE., then Z is not

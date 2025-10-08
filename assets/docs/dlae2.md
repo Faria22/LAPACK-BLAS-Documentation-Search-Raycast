@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlae2
-(
+subroutine dlae2 (
         double precision a,
         double precision b,
         double precision c,

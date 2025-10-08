@@ -1,6 +1,5 @@
 ```fortran
-subroutine clatrs3
-(
+subroutine clatrs3 (
         character uplo,
         character trans,
         character diag,
@@ -21,40 +20,40 @@ subroutine clatrs3
 
 CLATRS3 solves one of the triangular systems
 
-A * X = B * diag(scale),  A**T * X = B * diag(scale), or
-A**H * X = B * diag(scale)
+A \* X = B \* diag(scale),  A\*\*T \* X = B \* diag(scale), or
+A\*\*H \* X = B \* diag(scale)
 
 with scaling to prevent overflow.  Here A is an upper or lower
-triangular matrix, A**T denotes the transpose of A, A**H denotes the
+triangular matrix, A\*\*T denotes the transpose of A, A\*\*H denotes the
 conjugate transpose of A. X and B are n-by-nrhs matrices and scale
 is an nrhs-element vector of scaling factors. A scaling factor scale(j)
 is usually less than or equal to 1, chosen such that X(:,j) is less
 than the overflow threshold. If the matrix A is singular (A(j,j) = 0
-for some j), then a non-trivial solution to A*X = 0 is returned. If
+for some j), then a non-trivial solution to A\*X = 0 is returned. If
 the system is so badly scaled that the solution cannot be represented
-as (1/scale(k))*X(:,k), then x(:,k) = 0 and scale(k) is returned.
+as (1/scale(k))\*X(:,k), then x(:,k) = 0 and scale(k) is returned.
 
 This is a BLAS-3 version of LATRS for solving several right
 hand sides simultaneously.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower triangular.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the operation applied to A.
-> = 'N':  Solve A * x = s*b  (No transpose)
-> = 'T':  Solve A**T* x = s*b  (Transpose)
-> = 'C':  Solve A**T* x = s*b  (Conjugate transpose)
+> = 'N':  Solve A \* x = s\*b  (No transpose)
+> = 'T':  Solve A\*\*T\* x = s\*b  (Transpose)
+> = 'C':  Solve A\*\*T\* x = s\*b  (Conjugate transpose)
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A is unit triangular.
 > = 'N':  Non-unit triangular
 > = 'U':  Unit triangular
 
-NORMIN : CHARACTER*1 [in]
+NORMIN : CHARACTER\*1 [in]
 > Specifies whether CNORM has been set or not.
 > = 'Y':  CNORM contains the column norms on entry
 > = 'N':  CNORM is not set on entry.  On exit, the norms will
@@ -88,12 +87,12 @@ LDX : INTEGER [in]
 
 SCALE : REAL array, dimension (NRHS) [out]
 > The scaling factor s(k) is for the triangular system
-> A * x(:,k) = s(k)*b(:,k)  or  A**T* x(:,k) = s(k)*b(:,k).
+> A \* x(:,k) = s(k)\*b(:,k)  or  A\*\*T\* x(:,k) = s(k)\*b(:,k).
 > If SCALE = 0, the matrix A is singular or badly scaled.
 > If A(j,j) = 0 is encountered, a non-trivial vector x(:,k)
-> that is an exact or approximate solution to A*x(:,k) = 0
+> that is an exact or approximate solution to A\*x(:,k) = 0
 > is returned. If the system so badly scaled that solution
-> cannot be presented as x(:,k) * 1/s(k), then x(:,k) = 0
+> cannot be presented as x(:,k) \* 1/s(k), then x(:,k) = 0
 > is returned.
 
 CNORM : REAL array, dimension (N) [in,out]
@@ -116,7 +115,7 @@ LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > 
 > If MIN(N,NRHS) = 0, LWORK >= 1, else
-> LWORK >= MAX(1, 2*NBA * MAX(NBA, MIN(NRHS, 32)), where
+> LWORK >= MAX(1, 2\*NBA \* MAX(NBA, MIN(NRHS, 32)), where
 > NBA = (N + NB - 1)/NB and NB is the optimal block size.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

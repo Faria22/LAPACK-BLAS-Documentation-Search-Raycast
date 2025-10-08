@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlarfb_gett
-(
+subroutine zlarfb_gett (
         character ident,
         integer m,
         integer n,
@@ -25,7 +24,7 @@ WY-representation, where the elementary reflectors are in the
 arrays A, B and T. See Further Details section.
 
 ## Parameters
-IDENT : CHARACTER*1 [in]
+IDENT : CHARACTER\*1 [in]
 > If IDENT = not 'I', or not 'i', then V1 is unit
 > lower-triangular and stored in the left K-by-K block of
 > the input matrix A,
@@ -47,14 +46,14 @@ K : INTEGER [in]
 > elementary reflectors whose product defines the block
 > reflector. 0 <= K <= N.
 
-T : COMPLEX*16 array, dimension (LDT,K) [in]
+T : COMPLEX\*16 array, dimension (LDT,K) [in]
 > The upper-triangular K-by-K matrix T in the representation
 > of the block reflector.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T. LDT >= K.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > 
 > On entry:
 > a) In the K-by-N upper-trapezoidal part A: input matrix A.
@@ -62,28 +61,28 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 > (ones are not stored on the diagonal).
 > 
 > On exit:
-> A is overwritten by rectangular K-by-N product H*A.
+> A is overwritten by rectangular K-by-N product H\*A.
 > 
 > See Further Details section.
 
 LDA : LDB is INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,K).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 > 
 > On entry:
 > a) In the M-by-(N-K) right block: input matrix B.
 > b) In the M-by-N left block: columns of V2.
 > 
 > On exit:
-> B is overwritten by rectangular M-by-N product H*B.
+> B is overwritten by rectangular M-by-N product H\*B.
 > 
 > See Further Details section.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,M).
 
-WORK : COMPLEX*16 array, [out]
+WORK : COMPLEX\*16 array, [out]
 > dimension (LDWORK,max(K,N-K))
 
 LDWORK : INTEGER [in]

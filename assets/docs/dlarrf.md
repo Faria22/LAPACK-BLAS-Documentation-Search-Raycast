@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarrf
-(
+subroutine dlarrf (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) l,
@@ -40,7 +39,7 @@ L : DOUBLE PRECISION array, dimension (N-1) [in]
 > matrix L.
 
 LD : DOUBLE PRECISION array, dimension (N-1) [in]
-> The (N-1) elements L(i)*D(i).
+> The (N-1) elements L(i)\*D(i).
 
 CLSTRT : INTEGER [in]
 > The index of the first eigenvalue in the cluster.
@@ -87,7 +86,7 @@ LPLUS : DOUBLE PRECISION array, dimension (N-1) [out]
 > The first (N-1) elements of LPLUS contain the subdiagonal
 > elements of the unit bidiagonal matrix L(+).
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 > Workspace.
 
 INFO : INTEGER [out]

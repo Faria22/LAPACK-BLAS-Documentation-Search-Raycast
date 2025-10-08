@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgtts2
-(
+subroutine cgtts2 (
         integer itrans,
         integer n,
         integer nrhs,
@@ -15,16 +14,16 @@ subroutine cgtts2
 ```
 
 CGTTS2 solves one of the systems of equations
-A * X = B,  A**T * X = B,  or  A**H * X = B,
+A \* X = B,  A\*\*T \* X = B,  or  A\*\*H \* X = B,
 with a tridiagonal matrix A using the LU factorization computed
 by CGTTRF.
 
 ## Parameters
 ITRANS : INTEGER [in]
 > Specifies the form of the system of equations.
-> = 0:  A * X = B     (No transpose)
-> = 1:  A**T * X = B  (Transpose)
-> = 2:  A**H * X = B  (Conjugate transpose)
+> = 0:  A \* X = B     (No transpose)
+> = 1:  A\*\*T \* X = B  (Transpose)
+> = 2:  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.

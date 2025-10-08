@@ -1,6 +1,5 @@
 ```fortran
-subroutine sladiv
-(
+subroutine sladiv (
         real a,
         real b,
         real c,
@@ -12,9 +11,9 @@ subroutine sladiv
 
 SLADIV performs complex division in  real arithmetic
 
-a + i*b
-p + i*q = ---------
-c + i*d
+a + i\*b
+p + i\*q = ---------
+c + i\*d
 
 The algorithm is due to Michael Baudin and Robert L. Smith
 and can be found in the paper

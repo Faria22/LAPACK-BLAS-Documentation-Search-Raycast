@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaswlq
-(
+subroutine slaswlq (
         integer m,
         integer n,
         integer mb,
@@ -18,7 +17,7 @@ subroutine slaswlq
 SLASWLQ computes a blocked Tall-Skinny LQ factorization of
 a real M-by-N matrix A for M <= N:
 
-A = ( L 0 ) *  Q,
+A = ( L 0 ) \*  Q,
 
 where:
 
@@ -55,7 +54,7 @@ LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
 T : REAL array, [out]
-> dimension (LDT, N * Number_of_row_blocks)
+> dimension (LDT, N \* Number_of_row_blocks)
 > where Number_of_row_blocks = CEIL((N-M)/(NB-M))
 > The blocked upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.
@@ -69,7 +68,7 @@ WORK : (workspace) REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MB*M, otherwise.
+> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MB\*M, otherwise.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the minimal size of the WORK array, returns

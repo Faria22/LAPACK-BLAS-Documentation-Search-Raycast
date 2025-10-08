@@ -1,6 +1,5 @@
 ```fortran
-subroutine zher
-(
+subroutine zher (
         character uplo,
         integer n,
         double precision alpha,
@@ -13,13 +12,13 @@ subroutine zher
 
 ZHER   performs the hermitian rank 1 operation
 
-A := alpha*x*x**H + A,
+A := alpha\*x\*x\*\*H + A,
 
 where alpha is a real scalar, x is an n element vector and A is an
 n by n hermitian matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the array A is to be referenced as
 > follows:
@@ -37,8 +36,8 @@ N : INTEGER [in]
 ALPHA : DOUBLE PRECISION. [in]
 > On entry, ALPHA specifies the scalar alpha.
 
-X : COMPLEX*16 array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+X : COMPLEX\*16 array, dimension at least [in]
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element vector x.
 
@@ -46,7 +45,7 @@ INCX : INTEGER [in]
 > On entry, INCX specifies the increment for the elements of
 > X. INCX must not be zero.
 
-A : COMPLEX*16 array, dimension ( LDA, N ) [in,out]
+A : COMPLEX\*16 array, dimension ( LDA, N ) [in,out]
 > Before entry with  UPLO = 'U' or 'u', the leading n by n
 > upper triangular part of the array A must contain the upper
 > triangular part of the hermitian matrix and the strictly

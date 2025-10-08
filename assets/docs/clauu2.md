@@ -1,6 +1,5 @@
 ```fortran
-subroutine clauu2
-(
+subroutine clauu2 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -9,7 +8,7 @@ subroutine clauu2
 )
 ```
 
-CLAUU2 computes the product U * U**H or L**H * L, where the triangular
+CLAUU2 computes the product U \* U\*\*H or L\*\*H \* L, where the triangular
 factor U or L is stored in the upper or lower triangular part of
 the array A.
 
@@ -21,7 +20,7 @@ overwriting the factor L in A.
 This is the unblocked form of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the triangular factor stored in the array A
 > is upper or lower triangular:
 > = 'U':  Upper triangular
@@ -33,9 +32,9 @@ N : INTEGER [in]
 A : COMPLEX array, dimension (LDA,N) [in,out]
 > On entry, the triangular factor U or L.
 > On exit, if UPLO = 'U', the upper triangle of A is
-> overwritten with the upper triangle of the product U * U**H;
+> overwritten with the upper triangle of the product U \* U\*\*H;
 > if UPLO = 'L', the lower triangle of A is overwritten with
-> the lower triangle of the product L**H * L.
+> the lower triangle of the product L\*\*H \* L.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

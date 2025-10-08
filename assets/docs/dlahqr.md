@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlahqr
-(
+subroutine dlahqr (
         logical wantt,
         logical wantz,
         integer n,
@@ -69,7 +68,7 @@ WI : DOUBLE PRECISION array, dimension (N) [out]
 > eigenvalues are stored in the same order as on the diagonal
 > of the Schur form returned in H, with WR(i) = H(i,i), and, if
 > H(i:i+1,i:i+1) is a 2-by-2 diagonal block,
-> WI(i) = sqrt(H(i+1,i)*H(i,i+1)) and WI(i+1) = -WI(i).
+> WI(i) = sqrt(H(i+1,i)\*H(i,i+1)) and WI(i+1) = -WI(i).
 
 ILOZ : INTEGER [in]
 
@@ -103,12 +102,12 @@ INFO : INTEGER [out]
 > value of H.
 > 
 > If INFO > 0 and WANTT is .TRUE., then on exit
-> (*)       (initial value of H)*U  = U*(final value of H)
+> (\*)       (initial value of H)\*U  = U\*(final value of H)
 > where U is an orthogonal matrix.    The final
 > value of H is upper Hessenberg and triangular in
 > rows and columns INFO+1 through IHI.
 > 
 > If INFO > 0 and WANTZ is .TRUE., then on exit
-> (final value of Z)  = (initial value of Z)*U
-> where U is the orthogonal matrix in (*)
+> (final value of Z)  = (initial value of Z)\*U
+> where U is the orthogonal matrix in (\*)
 > (regardless of the value of WANTT.)

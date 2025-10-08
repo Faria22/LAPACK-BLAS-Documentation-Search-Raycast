@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggesx
-(
+subroutine cggesx (
         character jobvsl,
         character jobvsr,
         character sort,
@@ -35,9 +34,9 @@ CGGESX computes for a pair of N-by-N complex nonsymmetric matrices
 and, optionally, the left and/or right matrices of Schur vectors (VSL
 and VSR).  This gives the generalized Schur factorization
 
-(A,B) = ( (VSL) S (VSR)**H, (VSL) T (VSR)**H )
+(A,B) = ( (VSL) S (VSR)\*\*H, (VSL) T (VSR)\*\*H )
 
-where (VSR)**H is the conjugate-transpose of VSR.
+where (VSR)\*\*H is the conjugate-transpose of VSR.
 
 Optionally, it also orders the eigenvalues so that a selected cluster
 of eigenvalues appears in the leading diagonal blocks of the upper
@@ -50,7 +49,7 @@ an orthonormal basis for the corresponding left and right eigenspaces
 (deflating subspaces).
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar w
-or a ratio alpha/beta = w, such that  A - w*B is singular.  It is
+or a ratio alpha/beta = w, such that  A - w\*B is singular.  It is
 usually represented as the pair (alpha,beta), as there is a
 reasonable interpretation for beta=0 or for both being zero.
 
@@ -59,15 +58,15 @@ upper triangular with non-negative diagonal and S is upper
 triangular.
 
 ## Parameters
-JOBVSL : CHARACTER*1 [in]
+JOBVSL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left Schur vectors;
 > = 'V':  compute the left Schur vectors.
 
-JOBVSR : CHARACTER*1 [in]
+JOBVSR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right Schur vectors;
 > = 'V':  compute the right Schur vectors.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the generalized Schur form.
 > = 'N':  Eigenvalues are not ordered;
@@ -84,7 +83,7 @@ SELCTG : a LOGICAL FUNCTION of two COMPLEX arguments [in]
 > (especially if the eigenvalue is ill-conditioned), in this
 > case INFO is set to N+3 see INFO below).
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N':  None are computed;
 > = 'E':  Computed for average of selected eigenvalues only;
@@ -165,10 +164,10 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If N = 0, LWORK >= 1, else if SENSE = 'E', 'V', or 'B',
-> LWORK >= MAX(1,2*N,2*SDIM*(N-SDIM)), else
-> LWORK >= MAX(1,2*N).  Note that 2*SDIM*(N-SDIM) <= N*N/2.
+> LWORK >= MAX(1,2\*N,2\*SDIM\*(N-SDIM)), else
+> LWORK >= MAX(1,2\*N).  Note that 2\*SDIM\*(N-SDIM) <= N\*N/2.
 > Note also that an error is only returned if
-> LWORK < MAX(1,2*N), but if SENSE = 'E' or 'V' or 'B' this may
+> LWORK < MAX(1,2\*N), but if SENSE = 'E' or 'V' or 'B' this may
 > not be large enough.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -178,7 +177,7 @@ LWORK : INTEGER [in]
 > no error message related to LWORK or LIWORK is issued by
 > XERBLA.
 
-RWORK : REAL array, dimension ( 8*N ) [out]
+RWORK : REAL array, dimension ( 8\*N ) [out]
 > Real workspace.
 
 IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]

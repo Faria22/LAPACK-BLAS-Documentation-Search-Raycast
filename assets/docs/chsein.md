@@ -1,6 +1,5 @@
 ```fortran
-subroutine chsein
-(
+subroutine chsein (
         character side,
         character eigsrc,
         character initv,
@@ -29,17 +28,17 @@ eigenvectors of a complex upper Hessenberg matrix H.
 The right eigenvector x and the left eigenvector y of the matrix H
 corresponding to an eigenvalue w are defined by:
 
-H * x = w * x,     y**h * H = w * y**h
+H \* x = w \* x,     y\*\*h \* H = w \* y\*\*h
 
-where y**h denotes the conjugate transpose of the vector y.
+where y\*\*h denotes the conjugate transpose of the vector y.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R': compute right eigenvectors only;
 > = 'L': compute left eigenvectors only;
 > = 'B': compute both right and left eigenvectors.
 
-EIGSRC : CHARACTER*1 [in]
+EIGSRC : CHARACTER\*1 [in]
 > Specifies the source of eigenvalues supplied in W:
 > = 'Q': the eigenvalues were found using CHSEQR; thus, if
 > H has zero subdiagonal elements, and so is
@@ -52,7 +51,7 @@ EIGSRC : CHARACTER*1 [in]
 > case, CHSEIN must always perform inverse iteration
 > using the whole matrix H.
 
-INITV : CHARACTER*1 [in]
+INITV : CHARACTER\*1 [in]
 > = 'N': no initial vectors are supplied;
 > = 'U': user-supplied initial vectors are stored in the arrays
 > VL and/or VR.
@@ -116,7 +115,7 @@ M : INTEGER [out]
 > store the eigenvectors (= the number of .TRUE. elements in
 > SELECT).
 
-WORK : COMPLEX array, dimension (N*N) [out]
+WORK : COMPLEX array, dimension (N\*N) [out]
 
 RWORK : REAL array, dimension (N) [out]
 

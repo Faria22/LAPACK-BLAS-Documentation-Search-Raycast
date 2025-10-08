@@ -1,6 +1,5 @@
 ```fortran
-subroutine sggglm
-(
+subroutine sggglm (
         integer n,
         integer m,
         integer p,
@@ -19,7 +18,7 @@ subroutine sggglm
 
 SGGGLM solves a general Gauss-Markov linear model (GLM) problem:
 
-minimize || y ||_2   subject to   d = A*x + B*y
+minimize || y ||_2   subject to   d = A\*x + B\*y
 x
 
 where A is an N-by-M matrix, B is an N-by-P matrix, and d is a
@@ -32,14 +31,14 @@ consistent, and there is a unique solution x and a minimal 2-norm
 solution y, which is obtained using a generalized QR factorization
 of the matrices (A, B) given by
 
-A = Q*(R),   B = Q*T*Z.
+A = Q\*(R),   B = Q\*T\*Z.
 (0)
 
 In particular, if matrix B is square nonsingular, then the problem
 GLM is equivalent to the following weighted linear least squares
 problem
 
-minimize || inv(B)*(d-A*x) ||_2
+minimize || inv(B)\*(d-A\*x) ||_2
 x
 
 where inv(B) denotes the inverse of B.
@@ -96,7 +95,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N+M+P).
-> For optimum performance, LWORK >= M+min(N,P)+max(N,P)*NB,
+> For optimum performance, LWORK >= M+min(N,P)+max(N,P)\*NB,
 > where NB is an upper bound for the optimal blocksizes for
 > SGEQRF, SGERQF, SORMQR and SORMRQ.
 > 

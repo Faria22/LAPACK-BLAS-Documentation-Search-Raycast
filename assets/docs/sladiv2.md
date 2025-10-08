@@ -1,6 +1,5 @@
 ```fortran
-real function sladiv2
-(
+real function sladiv2 (
         real a,
         real b,
         real c,

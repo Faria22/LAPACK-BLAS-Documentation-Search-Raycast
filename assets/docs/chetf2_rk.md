@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetf2_rk
-(
+subroutine chetf2_rk (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -14,18 +13,18 @@ subroutine chetf2_rk
 CHETF2_RK computes the factorization of a complex Hermitian matrix A
 using the bounded Bunch-Kaufman (rook) diagonal pivoting method:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 For more information see Further Details section.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular

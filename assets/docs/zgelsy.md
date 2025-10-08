@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgelsy
-(
+subroutine zgelsy (
         integer m,
         integer n,
         integer nrhs,
@@ -20,7 +19,7 @@ subroutine zgelsy
 
 ZGELSY computes the minimum-norm solution to a complex linear least
 squares problem:
-minimize || A * X - B ||
+minimize || A \* X - B ||
 using a complete orthogonal factorization of A.  A is an M-by-N
 matrix which may be rank-deficient.
 
@@ -30,7 +29,7 @@ M-by-NRHS right hand side matrix B and the N-by-NRHS solution
 matrix X.
 
 The routine first computes a QR factorization with column pivoting:
-A * P = Q * [ R11 R12 ]
+A \* P = Q \* [ R11 R12 ]
 [  0  R22 ]
 with R11 defined as the largest leading submatrix whose estimated
 condition number is less than 1/RCOND.  The order of R11, RANK,
@@ -39,10 +38,10 @@ is the effective rank of A.
 Then, R22 is considered to be negligible, and R12 is annihilated
 by unitary transformations from the right, arriving at the
 complete orthogonal factorization:
-A * P = Q * [ T11 0 ] * Z
+A \* P = Q \* [ T11 0 ] \* Z
 [  0  0 ]
 The minimum-norm solution is then
-X = P * Z**H [ inv(T11)*Q1**H*B ]
+X = P \* Z\*\*H [ inv(T11)\*Q1\*\*H\*B ]
 [        0         ]
 where Q1 consists of the first RANK columns of Q.
 
@@ -66,7 +65,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of
 > columns of matrices B and X. NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, A has been overwritten by details of its
 > complete orthogonal factorization.
@@ -74,7 +73,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the M-by-NRHS right hand side matrix B.
 > On exit, the N-by-NRHS solution matrix X.
 > If M = 0 or N = 0, B is not referenced.
@@ -85,7 +84,7 @@ LDB : INTEGER [in]
 JPVT : INTEGER array, dimension (N) [in,out]
 > On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
 > to the front of AP, otherwise column i is a free column.
-> On exit, if JPVT(i) = k, then the i-th column of A*P
+> On exit, if JPVT(i) = k, then the i-th column of A\*P
 > was the k-th column of A.
 
 RCOND : DOUBLE PRECISION [in]
@@ -100,16 +99,16 @@ RANK : INTEGER [out]
 > in the complete orthogonal factorization of A.
 > If NRHS = 0, RANK = 0 on output.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > The unblocked strategy requires that:
-> LWORK >= MN + MAX( 2*MN, N+1, MN+NRHS )
+> LWORK >= MN + MAX( 2\*MN, N+1, MN+NRHS )
 > where MN = min(M,N).
 > The block algorithm requires that:
-> LWORK >= MN + MAX( 2*MN, NB*(N+1), MN+MN*NB, MN+NB*NRHS )
+> LWORK >= MN + MAX( 2\*MN, NB\*(N+1), MN+MN\*NB, MN+NB\*NRHS )
 > where NB is an upper bound on the blocksize returned
 > by ILAENV for the routines ZGEQP3, ZTZRZF, CTZRQF, ZUNMQR,
 > and ZUNMRZ.
@@ -119,7 +118,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension (2*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

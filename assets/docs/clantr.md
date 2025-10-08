@@ -1,6 +1,5 @@
 ```fortran
-real function clantr
-(
+real function clantr (
         character norm,
         character uplo,
         character diag,
@@ -17,17 +16,17 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 trapezoidal or triangular matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in CLANTR as described
 > above.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower trapezoidal.
 > = 'U':  Upper trapezoidal
 > = 'L':  Lower trapezoidal
 > Note that A is triangular instead of trapezoidal if M = N.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A has unit diagonal.
 > = 'N':  Non-unit diagonal
 > = 'U':  Unit diagonal

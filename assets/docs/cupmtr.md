@@ -1,6 +1,5 @@
 ```fortran
-subroutine cupmtr
-(
+subroutine cupmtr (
         character side,
         character uplo,
         character trans,
@@ -18,8 +17,8 @@ subroutine cupmtr
 CUPMTR overwrites the general complex M-by-N matrix C with
 
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'C':      Q**H * C       C * Q**H
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'C':      Q\*\*H \* C       C \* Q\*\*H
 
 where Q is a complex unitary matrix of order nq, with nq = m if
 SIDE = 'L' and nq = n if SIDE = 'R'. Q is defined as the product of
@@ -31,19 +30,19 @@ if UPLO = 'U', Q = H(nq-1) . . . H(2) H(1);
 if UPLO = 'L', Q = H(1) H(2) . . . H(nq-1).
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**H from the Left;
-> = 'R': apply Q or Q**H from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*H from the Left;
+> = 'R': apply Q or Q\*\*H from the Right.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U': Upper triangular packed storage used in previous
 > call to CHPTRD;
 > = 'L': Lower triangular packed storage used in previous
 > call to CHPTRD.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
-> = 'C':  Conjugate transpose, apply Q**H.
+> = 'C':  Conjugate transpose, apply Q\*\*H.
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -52,8 +51,8 @@ N : INTEGER [in]
 > The number of columns of the matrix C. N >= 0.
 
 AP : COMPLEX array, dimension [in]
-> (M*(M+1)/2) if SIDE = 'L'
-> (N*(N+1)/2) if SIDE = 'R'
+> (M\*(M+1)/2) if SIDE = 'L'
+> (N\*(N+1)/2) if SIDE = 'R'
 > The vectors which define the elementary reflectors, as
 > returned by CHPTRD.  AP is modified by the routine but
 > restored on exit.
@@ -65,7 +64,7 @@ TAU : COMPLEX array, dimension (M-1) if SIDE = 'L' [in]
 
 C : COMPLEX array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
+> On exit, C is overwritten by Q\*C or Q\*\*H\*C or C\*Q\*\*H or C\*Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

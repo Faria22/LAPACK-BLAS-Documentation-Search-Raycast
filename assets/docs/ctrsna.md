@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctrsna
-(
+subroutine ctrsna (
         character job,
         character howmny,
         logical, dimension( * ) select,
@@ -24,17 +23,17 @@ subroutine ctrsna
 
 CTRSNA estimates reciprocal condition numbers for specified
 eigenvalues and/or right eigenvectors of a complex upper triangular
-matrix T (or of any matrix Q*T*Q**H with Q unitary).
+matrix T (or of any matrix Q\*T\*Q\*\*H with Q unitary).
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for
 > eigenvalues (S) or eigenvectors (SEP):
 > = 'E': for eigenvalues only (S);
 > = 'V': for eigenvectors only (SEP);
 > = 'B': for both eigenvalues and eigenvectors (S and SEP).
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A': compute condition numbers for all eigenpairs;
 > = 'S': compute condition numbers for selected eigenpairs
 > specified by the array SELECT.
@@ -56,7 +55,7 @@ LDT : INTEGER [in]
 
 VL : COMPLEX array, dimension (LDVL,M) [in]
 > If JOB = 'E' or 'B', VL must contain left eigenvectors of T
-> (or of any Q*T*Q**H with Q unitary), corresponding to the
+> (or of any Q\*T\*Q\*\*H with Q unitary), corresponding to the
 > eigenpairs specified by HOWMNY and SELECT. The eigenvectors
 > must be stored in consecutive columns of VL, as returned by
 > CHSEIN or CTREVC.
@@ -68,7 +67,7 @@ LDVL : INTEGER [in]
 
 VR : COMPLEX array, dimension (LDVR,M) [in]
 > If JOB = 'E' or 'B', VR must contain right eigenvectors of T
-> (or of any Q*T*Q**H with Q unitary), corresponding to the
+> (or of any Q\*T\*Q\*\*H with Q unitary), corresponding to the
 > eigenpairs specified by HOWMNY and SELECT. The eigenvectors
 > must be stored in consecutive columns of VR, as returned by
 > CHSEIN or CTREVC.

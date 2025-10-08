@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasd8
-(
+subroutine slasd8 (
         integer icompq,
         integer k,
         real, dimension( * ) d,
@@ -76,7 +75,7 @@ DSIGMA : REAL array, dimension ( K ) [in]
 > roots of the deflated updating problem.  These are the poles
 > of the secular equation.
 
-WORK : REAL array, dimension (3*K) [out]
+WORK : REAL array, dimension (3\*K) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

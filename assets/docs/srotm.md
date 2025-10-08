@@ -1,6 +1,5 @@
 ```fortran
-subroutine srotm
-(
+subroutine srotm (
         integer n,
         real, dimension(*) sx,
         integer incx,
@@ -12,11 +11,11 @@ subroutine srotm
 
 APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX
 
-(SX**T) , WHERE **T INDICATES TRANSPOSE. THE ELEMENTS OF SX ARE IN
-(SX**T)
+(SX\*\*T) , WHERE \*\*T INDICATES TRANSPOSE. THE ELEMENTS OF SX ARE IN
+(SX\*\*T)
 
-SX(LX+I*INCX), I = 0 TO N-1, WHERE LX = 1 IF INCX .GE. 0, ELSE
-LX = (-INCX)*N, AND SIMILARLY FOR SY USING USING LY AND INCY.
+SX(LX+I\*INCX), I = 0 TO N-1, WHERE LX = 1 IF INCX .GE. 0, ELSE
+LX = (-INCX)\*N, AND SIMILARLY FOR SY USING USING LY AND INCY.
 WITH SPARAM(1)=SFLAG, H HAS ONE OF THE FOLLOWING FORMS..
 
 SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
@@ -30,12 +29,12 @@ SEE  SROTMG FOR A DESCRIPTION OF DATA STORAGE IN SPARAM.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-SX : REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+SX : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of SX
 
-SY : REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+SY : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of SY

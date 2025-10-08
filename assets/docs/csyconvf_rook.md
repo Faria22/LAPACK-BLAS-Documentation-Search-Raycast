@@ -1,6 +1,5 @@
 ```fortran
-subroutine csyconvf_rook
-(
+subroutine csyconvf_rook (
         character uplo,
         character way,
         integer n,
@@ -31,13 +30,13 @@ CSYCONVF_ROOK can also convert in Hermitian matrix case, i.e. between
 formats used in CHETRF_ROOK and CHETRF_RK (or CHETRF_BK).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix A.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-WAY : CHARACTER*1 [in]
+WAY : CHARACTER\*1 [in]
 > = 'C': Convert
 > = 'R': Revert
 

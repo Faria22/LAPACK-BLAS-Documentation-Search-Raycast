@@ -1,6 +1,5 @@
 ```fortran
-subroutine stpmqrt
-(
+subroutine stpmqrt (
         character side,
         character trans,
         integer m,
@@ -26,11 +25,11 @@ real block reflector H to a general
 real matrix C, which consists of two blocks A and B.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'L': apply Q or Q^T from the Left;
 > = 'R': apply Q or Q^T from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
 > = 'T':  Transpose, apply Q^T.
 
@@ -75,7 +74,7 @@ A : REAL array, dimension [in,out]
 > (LDA,K) if SIDE = 'R'
 > On entry, the K-by-N or M-by-K matrix A.
 > On exit, A is overwritten by the corresponding block of
-> Q*C or Q^T*C or C*Q or C*Q^T.  See Further Details.
+> Q\*C or Q^T\*C or C\*Q or C\*Q^T.  See Further Details.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.
@@ -85,14 +84,14 @@ LDA : INTEGER [in]
 B : REAL array, dimension (LDB,N) [in,out]
 > On entry, the M-by-N matrix B.
 > On exit, B is overwritten by the corresponding block of
-> Q*C or Q^T*C or C*Q or C*Q^T.  See Further Details.
+> Q\*C or Q^T\*C or C\*Q or C\*Q^T.  See Further Details.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.
 > LDB >= max(1,M).
 
 WORK : REAL array. The dimension of WORK is [out]
-> N*NB if SIDE = 'L', or  M*NB if SIDE = 'R'.
+> N\*NB if SIDE = 'L', or  M\*NB if SIDE = 'R'.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

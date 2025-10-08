@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgehrd
-(
+subroutine zgehrd (
         integer n,
         integer ilo,
         integer ihi,
@@ -14,7 +13,7 @@ subroutine zgehrd
 ```
 
 ZGEHRD reduces a complex general matrix A to upper Hessenberg form H by
-an unitary similarity transformation:  Q**H * A * Q = H .
+an unitary similarity transformation:  Q\*\*H \* A \* Q = H .
 
 ## Parameters
 N : INTEGER [in]
@@ -30,7 +29,7 @@ IHI : INTEGER [in]
 > set to 1 and N respectively. See Further Details.
 > 1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the N-by-N general matrix to be reduced.
 > On exit, the upper triangle and the first subdiagonal of A
 > are overwritten with the upper Hessenberg matrix H, and the
@@ -41,12 +40,12 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-TAU : COMPLEX*16 array, dimension (N-1) [out]
+TAU : COMPLEX\*16 array, dimension (N-1) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details). Elements 1:ILO-1 and IHI:N-1 of TAU are set to
 > zero.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]

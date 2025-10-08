@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlahqr
-(
+subroutine zlahqr (
         logical wantt,
         logical wantz,
         integer n,
@@ -44,7 +43,7 @@ IHI : INTEGER [in]
 > H if WANTT is .TRUE..
 > 1 <= ILO <= max(1,IHI); IHI <= N.
 
-H : COMPLEX*16 array, dimension (LDH,N) [in,out]
+H : COMPLEX\*16 array, dimension (LDH,N) [in,out]
 > On entry, the upper Hessenberg matrix H.
 > On exit, if INFO is zero and if WANTT is .TRUE., then H
 > is upper triangular in rows and columns ILO:IHI.  If INFO
@@ -55,7 +54,7 @@ H : COMPLEX*16 array, dimension (LDH,N) [in,out]
 LDH : INTEGER [in]
 > The leading dimension of the array H. LDH >= max(1,N).
 
-W : COMPLEX*16 array, dimension (N) [out]
+W : COMPLEX\*16 array, dimension (N) [out]
 > The computed eigenvalues ILO to IHI are stored in the
 > corresponding elements of W. If WANTT is .TRUE., the
 > eigenvalues are stored in the same order as on the diagonal
@@ -68,7 +67,7 @@ IHIZ : INTEGER [in]
 > applied if WANTZ is .TRUE..
 > 1 <= ILOZ <= ILO; IHI <= IHIZ <= N.
 
-Z : COMPLEX*16 array, dimension (LDZ,N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,N) [in,out]
 > If WANTZ is .TRUE., on entry Z must contain the current
 > matrix Z of transformations accumulated by CHSEQR, and on
 > exit Z has been updated; transformations are applied only to
@@ -93,12 +92,12 @@ INFO : INTEGER [out]
 > output value of H.
 > 
 > If INFO > 0 and WANTT is .TRUE., then on exit
-> (*)       (initial value of H)*U  = U*(final value of H)
+> (\*)       (initial value of H)\*U  = U\*(final value of H)
 > where U is an orthogonal matrix.    The final
 > value of H is upper Hessenberg and triangular in
 > rows and columns INFO+1 through IHI.
 > 
 > If INFO > 0 and WANTZ is .TRUE., then on exit
-> (final value of Z)  = (initial value of Z)*U
-> where U is the orthogonal matrix in (*)
+> (final value of Z)  = (initial value of Z)\*U
+> where U is the orthogonal matrix in (\*)
 > (regardless of the value of WANTT.)

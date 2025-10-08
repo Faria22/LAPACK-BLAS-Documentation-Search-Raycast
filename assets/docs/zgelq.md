@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgelq
-(
+subroutine zgelq (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine zgelq
 
 ZGELQ computes an LQ factorization of a complex M-by-N matrix A:
 
-A = ( L 0 ) *  Q
+A = ( L 0 ) \*  Q
 
 where:
 
@@ -30,7 +29,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, the elements on and below the diagonal of the array
 > contain the M-by-min(M,N) lower trapezoidal matrix L
@@ -41,7 +40,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, dimension (MAX(5,TSIZE)) [out]
+T : COMPLEX\*16 array, dimension (MAX(5,TSIZE)) [out]
 > On exit, if INFO = 0, T(1) returns optimal (or either minimal
 > or optimal, if query is assumed) TSIZE. See TSIZE for details.
 > Remaining T contains part of the data structure used to represent Q.
@@ -59,7 +58,7 @@ TSIZE : INTEGER [in]
 > If TSIZE = -2, the routine calculates minimal size of T and
 > returns this value in T(1).
 
-WORK : (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : (workspace) COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) contains optimal (or either minimal
 > or optimal, if query was assumed) LWORK.
 > See LWORK for details.

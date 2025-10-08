@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarrj
-(
+subroutine dlarrj (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) e2,
@@ -45,7 +44,7 @@ ILAST : INTEGER [in]
 RTOL : DOUBLE PRECISION [in]
 > Tolerance for the convergence of the bisection intervals.
 > An interval [LEFT,RIGHT] has converged if
-> RIGHT-LEFT < RTOL*MAX(|LEFT|,|RIGHT|).
+> RIGHT-LEFT < RTOL\*MAX(|LEFT|,|RIGHT|).
 
 OFFSET : INTEGER [in]
 > Offset for the arrays W and WERR, i.e., the IFIRST-OFFSET
@@ -62,10 +61,10 @@ WERR : DOUBLE PRECISION array, dimension (N) [in,out]
 > the errors in the estimates of the corresponding elements in W.
 > On output, these errors are refined.
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 > Workspace.
 
-IWORK : INTEGER array, dimension (2*N) [out]
+IWORK : INTEGER array, dimension (2\*N) [out]
 > Workspace.
 
 PIVMIN : DOUBLE PRECISION [in]

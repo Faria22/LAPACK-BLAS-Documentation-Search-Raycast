@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlacp2
-(
+subroutine zlacp2 (
         character uplo,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ ZLACP2 copies all or part of a real two-dimensional matrix A to a
 complex matrix B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies the part of the matrix A to be copied to B.
 > = 'U':      Upper triangular part
 > = 'L':      Lower triangular part
@@ -35,7 +34,7 @@ A : DOUBLE PRECISION array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-B : COMPLEX*16 array, dimension (LDB,N) [out]
+B : COMPLEX\*16 array, dimension (LDB,N) [out]
 > On exit, B = A in the locations specified by UPLO.
 
 LDB : INTEGER [in]

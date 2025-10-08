@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgemv
-(
+subroutine sgemv (
         character trans,
         integer m,
         integer n,
@@ -17,21 +16,21 @@ subroutine sgemv
 
 SGEMV  performs one of the matrix-vector operations
 
-y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,
+y := alpha\*A\*x + beta\*y,   or   y := alpha\*A\*\*T\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are vectors and A is an
 m by n matrix.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry, TRANS specifies the operation to be performed as
 > follows:
 > 
-> TRANS = 'N' or 'n'   y := alpha*A*x + beta*y.
+> TRANS = 'N' or 'n'   y := alpha\*A\*x + beta\*y.
 > 
-> TRANS = 'T' or 't'   y := alpha*A**T*x + beta*y.
+> TRANS = 'T' or 't'   y := alpha\*A\*\*T\*x + beta\*y.
 > 
-> TRANS = 'C' or 'c'   y := alpha*A**T*x + beta*y.
+> TRANS = 'C' or 'c'   y := alpha\*A\*\*T\*x + beta\*y.
 
 M : INTEGER [in]
 > On entry, M specifies the number of rows of the matrix A.
@@ -54,9 +53,9 @@ LDA : INTEGER [in]
 > max( 1, m ).
 
 X : REAL array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( n - 1 )\*abs( INCX ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+> ( 1 + ( m - 1 )\*abs( INCX ) ) otherwise.
 > Before entry, the incremented array X must contain the
 > vector x.
 
@@ -69,9 +68,9 @@ BETA : REAL [in]
 > supplied as zero then Y need not be set on input.
 
 Y : REAL array, dimension at least [in,out]
-> ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( m - 1 )\*abs( INCY ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+> ( 1 + ( n - 1 )\*abs( INCY ) ) otherwise.
 > Before entry with BETA non-zero, the incremented array Y
 > must contain the vector y. On exit, Y is overwritten by the
 > updated vector y.

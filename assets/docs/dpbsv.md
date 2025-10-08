@@ -1,6 +1,5 @@
 ```fortran
-subroutine dpbsv
-(
+subroutine dpbsv (
         character uplo,
         integer n,
         integer kd,
@@ -14,20 +13,20 @@ subroutine dpbsv
 ```
 
 DPBSV computes the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric positive definite band matrix and X
 and B are N-by-NRHS matrices.
 
 The Cholesky decomposition is used to factor A as
-A = U**T * U,  if UPLO = 'U', or
-A = L * L**T,  if UPLO = 'L',
+A = U\*\*T \* U,  if UPLO = 'U', or
+A = L \* L\*\*T,  if UPLO = 'L',
 where U is an upper triangular band matrix, and L is a lower
 triangular band matrix, with the same number of superdiagonals or
 subdiagonals as A.  The factored form of A is then used to solve the
-system of equations A * X = B.
+system of equations A \* X = B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -53,7 +52,7 @@ AB : DOUBLE PRECISION array, dimension (LDAB,N) [in,out]
 > See below for further details.
 > 
 > On exit, if INFO = 0, the triangular factor U or L from the
-> Cholesky factorization A = U**T*U or A = L*L**T of the band
+> Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T of the band
 > matrix A, in the same storage format as A.
 
 LDAB : INTEGER [in]

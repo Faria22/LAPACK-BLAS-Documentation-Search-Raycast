@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsyswapr
-(
+subroutine dsyswapr (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -14,16 +13,16 @@ DSYSWAPR applies an elementary permutation on the rows and the columns of
 a symmetric matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : DOUBLE PRECISION array, dimension (LDA,*) [in,out]
+A : DOUBLE PRECISION array, dimension (LDA,\*) [in,out]
 > On entry, the N-by-N matrix A. On exit, the permuted matrix
 > where the rows I1 and I2 and columns I1 and I2 are interchanged.
 > If UPLO = 'U', the interchanges are applied to the upper

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarra
-(
+subroutine slarra (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) e,

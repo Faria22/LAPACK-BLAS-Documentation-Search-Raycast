@@ -1,6 +1,5 @@
 ```fortran
-subroutine cherfs
-(
+subroutine cherfs (
         character uplo,
         integer n,
         integer nrhs,
@@ -26,7 +25,7 @@ equations when the coefficient matrix is Hermitian indefinite, and
 provides error bounds and backward error estimates for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -52,8 +51,8 @@ LDA : INTEGER [in]
 AF : COMPLEX array, dimension (LDAF,N) [in]
 > The factored form of the matrix A.  AF contains the block
 > diagonal matrix D and the multipliers used to obtain the
-> factor U or L from the factorization A = U*D*U**H or
-> A = L*D*L**H as computed by CHETRF.
+> factor U or L from the factorization A = U\*D\*U\*\*H or
+> A = L\*D\*L\*\*H as computed by CHETRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -90,7 +89,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 RWORK : REAL array, dimension (N) [out]
 

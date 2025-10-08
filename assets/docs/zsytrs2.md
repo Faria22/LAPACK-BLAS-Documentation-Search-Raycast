@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytrs2
-(
+subroutine zsytrs2 (
         character uplo,
         integer n,
         integer nrhs,
@@ -14,16 +13,16 @@ subroutine zsytrs2
 )
 ```
 
-ZSYTRS2 solves a system of linear equations A*X = B with a complex
-symmetric matrix A using the factorization A = U*D*U**T or
-A = L*D*L**T computed by ZSYTRF and converted by ZSYCONV.
+ZSYTRS2 solves a system of linear equations A\*X = B with a complex
+symmetric matrix A using the factorization A = U\*D\*U\*\*T or
+A = L\*D\*L\*\*T computed by ZSYTRF and converted by ZSYCONV.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -32,7 +31,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > The block diagonal matrix D and the multipliers used to
 > obtain the factor U or L as computed by ZSYTRF.
 > Note that A is input / output. This might be counter-intuitive,
@@ -48,14 +47,14 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZSYTRF.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.
 > On exit, the solution matrix X.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

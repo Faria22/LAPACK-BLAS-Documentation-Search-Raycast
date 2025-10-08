@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgebd2
-(
+subroutine zgebd2 (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine zgebd2
 ```
 
 ZGEBD2 reduces a complex general m by n matrix A to upper or lower
-real bidiagonal form B by a unitary transformation: Q**H * A * P = B.
+real bidiagonal form B by a unitary transformation: Q\*\*H \* A \* P = B.
 
 If m >= n, B is upper bidiagonal; if m < n, B is lower bidiagonal.
 
@@ -26,7 +25,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns in the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the m by n general matrix to be reduced.
 > On exit,
 > if m >= n, the diagonal and the first superdiagonal are
@@ -57,15 +56,15 @@ E : DOUBLE PRECISION array, dimension (min(M,N)-1) [out]
 > if m >= n, E(i) = A(i,i+1) for i = 1,2,...,n-1;
 > if m < n, E(i) = A(i+1,i) for i = 1,2,...,m-1.
 
-TAUQ : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAUQ : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix Q. See Further Details.
 
-TAUP : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAUP : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix P. See Further Details.
 
-WORK : COMPLEX*16 array, dimension (max(M,N)) [out]
+WORK : COMPLEX\*16 array, dimension (max(M,N)) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

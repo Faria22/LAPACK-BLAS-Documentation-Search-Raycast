@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaed2
-(
+subroutine slaed2 (
         integer k,
         integer n,
         integer n1,
@@ -84,7 +83,7 @@ W : REAL array, dimension (N) [out]
 > The first k values of the final deflation-altered z-vector
 > which will be passed to SLAED3.
 
-Q2 : REAL array, dimension (N1**2+(N-N1)**2) [out]
+Q2 : REAL array, dimension (N1\*\*2+(N-N1)\*\*2) [out]
 > A copy of the first K eigenvectors which will be used by
 > SLAED3 in a matrix multiply (SGEMM) to solve for the new
 > eigenvectors.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine clartg
-(
+subroutine clartg (
         complex(wp) f,
         complex(wp) g,
         real(wp) c,
@@ -14,18 +13,18 @@ CLARTG generates a plane rotation so that
 [  C         S  ] . [ F ]  =  [ R ]
 [ -conjg(S)  C  ]   [ G ]     [ 0 ]
 
-where C is real and C**2 + |S|**2 = 1.
+where C is real and C\*\*2 + |S|\*\*2 = 1.
 
 The mathematical formulas used for C and S are
 
 sgn(x) = {  x / |x|,   x != 0
 {  1,         x  = 0
 
-R = sgn(F) * sqrt(|F|**2 + |G|**2)
+R = sgn(F) \* sqrt(|F|\*\*2 + |G|\*\*2)
 
-C = |F| / sqrt(|F|**2 + |G|**2)
+C = |F| / sqrt(|F|\*\*2 + |G|\*\*2)
 
-S = sgn(F) * conjg(G) / sqrt(|F|**2 + |G|**2)
+S = sgn(F) \* conjg(G) / sqrt(|F|\*\*2 + |G|\*\*2)
 
 Special conditions:
 If G=0, then C=1 and S=0.

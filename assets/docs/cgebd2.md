@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgebd2
-(
+subroutine cgebd2 (
         integer m,
         integer n,
         complex, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine cgebd2
 ```
 
 CGEBD2 reduces a complex general m by n matrix A to upper or lower
-real bidiagonal form B by a unitary transformation: Q**H * A * P = B.
+real bidiagonal form B by a unitary transformation: Q\*\*H \* A \* P = B.
 
 If m >= n, B is upper bidiagonal; if m < n, B is lower bidiagonal.
 

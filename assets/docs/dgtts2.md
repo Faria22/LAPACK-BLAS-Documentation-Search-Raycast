@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgtts2
-(
+subroutine dgtts2 (
         integer itrans,
         integer n,
         integer nrhs,
@@ -15,16 +14,16 @@ subroutine dgtts2
 ```
 
 DGTTS2 solves one of the systems of equations
-A*X = B  or  A**T*X = B,
+A\*X = B  or  A\*\*T\*X = B,
 with a tridiagonal matrix A using the LU factorization computed
 by DGTTRF.
 
 ## Parameters
 ITRANS : INTEGER [in]
 > Specifies the form of the system of equations.
-> = 0:  A * X = B  (No transpose)
-> = 1:  A**T* X = B  (Transpose)
-> = 2:  A**T* X = B  (Conjugate transpose = Transpose)
+> = 0:  A \* X = B  (No transpose)
+> = 1:  A\*\*T\* X = B  (Transpose)
+> = 2:  A\*\*T\* X = B  (Conjugate transpose = Transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.

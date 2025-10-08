@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgeev
-(
+subroutine cgeev (
         character jobvl,
         character jobvr,
         integer n,
@@ -22,21 +21,21 @@ CGEEV computes for an N-by-N complex nonsymmetric matrix A, the
 eigenvalues and, optionally, the left and/or right eigenvectors.
 
 The right eigenvector v(j) of A satisfies
-A * v(j) = lambda(j) * v(j)
+A \* v(j) = lambda(j) \* v(j)
 where lambda(j) is its eigenvalue.
 The left eigenvector u(j) of A satisfies
-u(j)**H * A = lambda(j) * u(j)**H
-where u(j)**H denotes the conjugate transpose of u(j).
+u(j)\*\*H \* A = lambda(j) \* u(j)\*\*H
+where u(j)\*\*H denotes the conjugate transpose of u(j).
 
 The computed eigenvectors are normalized to have Euclidean norm
 equal to 1 and largest component real.
 
 ## Parameters
-JOBVL : CHARACTER*1 [in]
+JOBVL : CHARACTER\*1 [in]
 > = 'N': left eigenvectors of A are not computed;
 > = 'V': left eigenvectors of are computed.
 
-JOBVR : CHARACTER*1 [in]
+JOBVR : CHARACTER\*1 [in]
 > = 'N': right eigenvectors of A are not computed;
 > = 'V': right eigenvectors of A are computed.
 
@@ -79,7 +78,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= max(1,2*N).
+> The dimension of the array WORK.  LWORK >= max(1,2\*N).
 > For good performance, LWORK must generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -87,7 +86,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (2*N) [out]
+RWORK : REAL array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

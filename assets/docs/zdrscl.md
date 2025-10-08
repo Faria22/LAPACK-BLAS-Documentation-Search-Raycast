@@ -1,6 +1,5 @@
 ```fortran
-subroutine zdrscl
-(
+subroutine zdrscl (
         integer n,
         double precision sa,
         complex*16, dimension( * ) sx,
@@ -20,10 +19,10 @@ SA : DOUBLE PRECISION [in]
 > The scalar a which is used to divide each component of x.
 > SA must be >= 0, or the subroutine will divide by zero.
 
-SX : COMPLEX*16 array, dimension [in,out]
-> (1+(N-1)*abs(INCX))
+SX : COMPLEX\*16 array, dimension [in,out]
+> (1+(N-1)\*abs(INCX))
 > The n-element vector x.
 
 INCX : INTEGER [in]
 > The increment between successive values of the vector SX.
-> > 0:  SX(1) = X(1) and SX(1+(i-1)*INCX) = x(i),     1< i<= n
+> > 0:  SX(1) = X(1) and SX(1+(i-1)\*INCX) = x(i),     1< i<= n

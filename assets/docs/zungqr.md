@@ -1,6 +1,5 @@
 ```fortran
-subroutine zungqr
-(
+subroutine zungqr (
         integer m,
         integer n,
         integer k,
@@ -32,7 +31,7 @@ K : INTEGER [in]
 > The number of elementary reflectors whose product defines the
 > matrix Q. N >= K >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the i-th column must contain the vector which
 > defines the elementary reflector H(i), for i = 1,2,...,k, as
 > returned by ZGEQRF in the first k columns of its array
@@ -42,16 +41,16 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The first dimension of the array A. LDA >= max(1,M).
 
-TAU : COMPLEX*16 array, dimension (K) [in]
+TAU : COMPLEX\*16 array, dimension (K) [in]
 > TAU(i) must contain the scalar factor of the elementary
 > reflector H(i), as returned by ZGEQRF.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N).
-> For optimum performance LWORK >= N*NB, where NB is the
+> For optimum performance LWORK >= N\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

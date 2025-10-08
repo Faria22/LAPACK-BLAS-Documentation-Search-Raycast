@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgesv
-(
+subroutine sgesv (
         integer n,
         integer nrhs,
         real, dimension( lda, * ) a,
@@ -13,15 +12,15 @@ subroutine sgesv
 ```
 
 SGESV computes the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N matrix and X and B are N-by-NRHS matrices.
 
 The LU decomposition with partial pivoting and row interchanges is
 used to factor A as
-A = P * L * U,
+A = P \* L \* U,
 where P is a permutation matrix, L is unit lower triangular, and U is
 upper triangular.  The factored form of A is then used to solve the
-system of equations A * X = B.
+system of equations A \* X = B.
 
 ## Parameters
 N : INTEGER [in]
@@ -35,7 +34,7 @@ NRHS : INTEGER [in]
 A : REAL array, dimension (LDA,N) [in,out]
 > On entry, the N-by-N coefficient matrix A.
 > On exit, the factors L and U from the factorization
-> A = P*L*U; the unit diagonal elements of L are not stored.
+> A = P\*L\*U; the unit diagonal elements of L are not stored.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

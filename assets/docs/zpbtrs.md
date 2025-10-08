@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpbtrs
-(
+subroutine zpbtrs (
         character uplo,
         integer n,
         integer kd,
@@ -13,12 +12,12 @@ subroutine zpbtrs
 )
 ```
 
-ZPBTRS solves a system of linear equations A*X = B with a Hermitian
+ZPBTRS solves a system of linear equations A\*X = B with a Hermitian
 positive definite band matrix A using the Cholesky factorization
-A = U**H *U or A = L*L**H computed by ZPBTRF.
+A = U\*\*H \*U or A = L\*L\*\*H computed by ZPBTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangular factor stored in AB;
 > = 'L':  Lower triangular factor stored in AB.
 
@@ -33,9 +32,9 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**H *U or A = L*L**H of the band matrix A, stored in the
+> A = U\*\*H \*U or A = L\*L\*\*H of the band matrix A, stored in the
 > first KD+1 rows of the array.  The j-th column of U or L is
 > stored in the j-th column of the array AB as follows:
 > if UPLO ='U', AB(kd+1+i-j,j) = U(i,j) for max(1,j-kd)<=i<=j;
@@ -44,7 +43,7 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [in]
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KD+1.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.
 > On exit, the solution matrix X.
 

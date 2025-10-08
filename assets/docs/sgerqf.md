@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgerqf
-(
+subroutine sgerqf (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -13,7 +12,7 @@ subroutine sgerqf
 ```
 
 SGERQF computes an RQ factorization of a real M-by-N matrix A:
-A = R * Q.
+A = R \* Q.
 
 ## Parameters
 M : INTEGER [in]
@@ -46,7 +45,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= M, otherwise.
-> For optimum performance LWORK >= M*NB, where NB is
+> For optimum performance LWORK >= M\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

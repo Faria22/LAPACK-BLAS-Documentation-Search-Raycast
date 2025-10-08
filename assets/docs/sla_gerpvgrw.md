@@ -1,6 +1,5 @@
 ```fortran
-real function sla_gerpvgrw
-(
+real function sla_gerpvgrw (
         integer n,
         integer ncols,
         real, dimension( lda, * ) a,
@@ -33,7 +32,7 @@ LDA : INTEGER [in]
 
 AF : REAL array, dimension (LDAF,N) [in]
 > The factors L and U from the factorization
-> A = P*L*U as computed by SGETRF.
+> A = P\*L\*U as computed by SGETRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).

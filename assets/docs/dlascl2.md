@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlascl2
-(
+subroutine dlascl2 (
         integer m,
         integer n,
         double precision, dimension( * ) d,
@@ -10,7 +9,7 @@ subroutine dlascl2
 ```
 
 DLASCL2 performs a diagonal scaling on a matrix:
-x <-- D * x
+x <-- D \* x
 where the diagonal matrix D is stored as a vector.
 
 Eventually to be replaced by BLAS_dge_diag_scale in the new BLAS

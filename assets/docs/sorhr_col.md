@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorhr_col
-(
+subroutine sorhr_col (
         integer m,
         integer n,
         integer nb,
@@ -16,7 +15,7 @@ subroutine sorhr_col
 SORHR_COL takes an M-by-N real matrix Q_in with orthonormal columns
 as input, stored in A, and performs Householder Reconstruction (HR),
 i.e. reconstructs Householder vectors V(i) implicitly representing
-another M-by-N matrix Q_out, with the property that Q_in = Q_out*S,
+another M-by-N matrix Q_out, with the property that Q_in = Q_out\*S,
 where S is an N-by-N diagonal matrix with diagonal entries
 equal to +1 or -1. The Householder vectors (columns V(i) of V) are
 stored in A on output, and the diagonal entries of S are stored in D.
@@ -55,7 +54,7 @@ A : REAL array, dimension (LDA,N) [in,out]
 > 
 > The elements above the diagonal contain the factor U
 > of the  LU-decomposition:
-> Q_in - ( S ) = V * U
+> Q_in - ( S ) = V \* U
 > ( 0 )
 > where 0 is a (M-N)-by-(M-N) zero matrix.
 

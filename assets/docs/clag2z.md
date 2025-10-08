@@ -1,6 +1,5 @@
 ```fortran
-subroutine clag2z
-(
+subroutine clag2z (
         integer m,
         integer n,
         complex, dimension( ldsa, * ) sa,
@@ -11,7 +10,7 @@ subroutine clag2z
 )
 ```
 
-CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX*16 matrix, A.
+CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX\*16 matrix, A.
 
 Note that while it is possible to overflow while converting
 from double to single, it is not possible to overflow when
@@ -32,7 +31,7 @@ SA : COMPLEX array, dimension (LDSA,N) [in]
 LDSA : INTEGER [in]
 > The leading dimension of the array SA.  LDSA >= max(1,M).
 
-A : COMPLEX*16 array, dimension (LDA,N) [out]
+A : COMPLEX\*16 array, dimension (LDA,N) [out]
 > On exit, the M-by-N coefficient matrix A.
 
 LDA : INTEGER [in]

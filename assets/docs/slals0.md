@@ -1,6 +1,5 @@
 ```fortran
-subroutine slals0
-(
+subroutine slals0 (
         integer icompq,
         integer nl,
         integer nr,

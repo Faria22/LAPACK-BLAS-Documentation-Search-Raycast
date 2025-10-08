@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorgtsqr_row
-(
+subroutine sorgtsqr_row (
         integer m,
         integer n,
         integer mb,
@@ -21,7 +20,7 @@ columns are the first N columns of a product of complex unitary
 matrices Q(k)_in of order M, which are returned by SLATSQR in
 a special format.
 
-Q_out = first_N_columns_of( Q(1)_in * Q(2)_in * ... * Q(k)_in ).
+Q_out = first_N_columns_of( Q(1)_in \* Q(2)_in \* ... \* Q(k)_in ).
 
 The input matrices Q(k)_in are stored in row and column blocks in A.
 See the documentation of SLATSQR for more details on the format of
@@ -71,14 +70,14 @@ LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
 T : REAL array, [in]
-> dimension (LDT, N * NIRB)
+> dimension (LDT, N \* NIRB)
 > where NIRB = Number_of_input_row_blocks
 > = MAX( 1, CEIL((M-N)/(MB-N)) )
 > Let NICB = Number_of_input_col_blocks
 > = CEIL(N/NB)
 > 
 > The upper-triangular block reflectors used to define the
-> input matrices Q_in(k), k=(1:NIRB*NICB). The block
+> input matrices Q_in(k), k=(1:NIRB\*NICB). The block
 > reflectors are stored in compact form in NIRB block
 > reflector sequences. Each of the NIRB block reflector
 > sequences is stored in a larger NB-by-N column block of T
@@ -95,7 +94,7 @@ WORK : (workspace) REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >= NBLOCAL * MAX(NBLOCAL,(N-NBLOCAL)),
+> LWORK >= NBLOCAL \* MAX(NBLOCAL,(N-NBLOCAL)),
 > where NBLOCAL=MIN(NB,N).
 > If LWORK = -1, then a workspace query is assumed.
 > The routine only calculates the optimal size of the WORK

@@ -1,6 +1,5 @@
 ```fortran
-subroutine chegv
-(
+subroutine chegv (
         integer itype,
         character jobz,
         character uplo,
@@ -19,22 +18,22 @@ subroutine chegv
 
 CHEGV computes all the eigenvalues, and optionally, the eigenvectors
 of a complex generalized Hermitian-definite eigenproblem, of the form
-A*x=(lambda)*B*x,  A*Bx=(lambda)*x,  or B*A*x=(lambda)*x.
+A\*x=(lambda)\*B\*x,  A\*Bx=(lambda)\*x,  or B\*A\*x=(lambda)\*x.
 Here A and B are assumed to be Hermitian and B is also
 positive definite.
 
 ## Parameters
 ITYPE : INTEGER [in]
 > Specifies the problem type to be solved:
-> = 1:  A*x = (lambda)*B*x
-> = 2:  A*B*x = (lambda)*x
-> = 3:  B*A*x = (lambda)*x
+> = 1:  A\*x = (lambda)\*B\*x
+> = 2:  A\*B\*x = (lambda)\*x
+> = 3:  B\*A\*x = (lambda)\*x
 
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -51,8 +50,8 @@ A : COMPLEX array, dimension (LDA, N) [in,out]
 > On exit, if JOBZ = 'V', then if INFO = 0, A contains the
 > matrix Z of eigenvectors.  The eigenvectors are normalized
 > as follows:
-> if ITYPE = 1 or 2, Z**H*B*Z = I;
-> if ITYPE = 3, Z**H*inv(B)*Z = I.
+> if ITYPE = 1 or 2, Z\*\*H\*B\*Z = I;
+> if ITYPE = 3, Z\*\*H\*inv(B)\*Z = I.
 > If JOBZ = 'N', then on exit the upper triangle (if UPLO='U')
 > or the lower triangle (if UPLO='L') of A, including the
 > diagonal, is destroyed.
@@ -69,7 +68,7 @@ B : COMPLEX array, dimension (LDB, N) [in,out]
 > 
 > On exit, if INFO <= N, the part of B containing the matrix is
 > overwritten by the triangular factor U or L from the Cholesky
-> factorization B = U**H*U or B = L*L**H.
+> factorization B = U\*\*H\*U or B = L\*L\*\*H.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
@@ -81,8 +80,8 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of the array WORK.  LWORK >= max(1,2*N-1).
-> For optimal efficiency, LWORK >= (NB+1)*N,
+> The length of the array WORK.  LWORK >= max(1,2\*N-1).
+> For optimal efficiency, LWORK >= (NB+1)\*N,
 > where NB is the blocksize for CHETRD returned by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -90,7 +89,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (max(1, 3*N-2)) [out]
+RWORK : REAL array, dimension (max(1, 3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

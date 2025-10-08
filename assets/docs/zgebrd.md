@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgebrd
-(
+subroutine zgebrd (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -16,7 +15,7 @@ subroutine zgebrd
 ```
 
 ZGEBRD reduces a general complex M-by-N matrix A to upper or lower
-bidiagonal form B by a unitary transformation: Q**H * A * P = B.
+bidiagonal form B by a unitary transformation: Q\*\*H \* A \* P = B.
 
 If m >= n, B is upper bidiagonal; if m < n, B is lower bidiagonal.
 
@@ -27,7 +26,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns in the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N general matrix to be reduced.
 > On exit,
 > if m >= n, the diagonal and the first superdiagonal are
@@ -58,21 +57,21 @@ E : DOUBLE PRECISION array, dimension (min(M,N)-1) [out]
 > if m >= n, E(i) = A(i,i+1) for i = 1,2,...,n-1;
 > if m < n, E(i) = A(i+1,i) for i = 1,2,...,m-1.
 
-TAUQ : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAUQ : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix Q. See Further Details.
 
-TAUP : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAUP : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix P. See Further Details.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The length of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MAX(M,N), otherwise.
-> For optimum performance LWORK >= (M+N)*NB, where NB
+> For optimum performance LWORK >= (M+N)\*NB, where NB
 > is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarzt
-(
+subroutine slarzt (
         character direct,
         character storev,
         integer n,
@@ -24,23 +23,23 @@ If DIRECT = 'B', H = H(k) . . . H(2) H(1) and T is lower triangular.
 If STOREV = 'C', the vector which defines the elementary reflector
 H(i) is stored in the i-th column of the array V, and
 
-H  =  I - V * T * V**T
+H  =  I - V \* T \* V\*\*T
 
 If STOREV = 'R', the vector which defines the elementary reflector
 H(i) is stored in the i-th row of the array V, and
 
-H  =  I - V**T * T * V
+H  =  I - V\*\*T \* T \* V
 
 Currently, only STOREV = 'R' and DIRECT = 'B' are supported.
 
 ## Parameters
-DIRECT : CHARACTER*1 [in]
+DIRECT : CHARACTER\*1 [in]
 > Specifies the order in which the elementary reflectors are
 > multiplied to form the block reflector:
 > = 'F': H = H(1) H(2) . . . H(k) (Forward, not supported yet)
 > = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-STOREV : CHARACTER*1 [in]
+STOREV : CHARACTER\*1 [in]
 > Specifies how the vectors which define the elementary
 > reflectors are stored (see also Further Details):
 > = 'C': columnwise                        (not supported yet)

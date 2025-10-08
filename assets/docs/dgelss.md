@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgelss
-(
+subroutine dgelss (
         integer m,
         integer n,
         integer nrhs,
@@ -20,7 +19,7 @@ subroutine dgelss
 DGELSS computes the minimum norm solution to a real linear least
 squares problem:
 
-Minimize 2-norm(| b - A*x |).
+Minimize 2-norm(| b - A\*x |).
 
 using the singular value decomposition (SVD) of A. A is an M-by-N
 matrix which may be rank-deficient.
@@ -69,19 +68,19 @@ S : DOUBLE PRECISION array, dimension (min(M,N)) [out]
 
 RCOND : DOUBLE PRECISION [in]
 > RCOND is used to determine the effective rank of A.
-> Singular values S(i) <= RCOND*S(1) are treated as zero.
+> Singular values S(i) <= RCOND\*S(1) are treated as zero.
 > If RCOND < 0, machine precision is used instead.
 
 RANK : INTEGER [out]
 > The effective rank of A, i.e., the number of singular values
-> which are greater than RCOND*S(1).
+> which are greater than RCOND\*S(1).
 
 WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= 1, and also:
-> LWORK >= 3*min(M,N) + max( 2*min(M,N), max(M,N), NRHS )
+> LWORK >= 3\*min(M,N) + max( 2\*min(M,N), max(M,N), NRHS )
 > For good performance, LWORK should generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

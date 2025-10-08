@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsymv
-(
+subroutine zsymv (
         character uplo,
         integer n,
         complex*16 alpha,
@@ -16,13 +15,13 @@ subroutine zsymv
 
 ZSYMV  performs the matrix-vector  operation
 
-y := alpha*A*x + beta*y,
+y := alpha\*A\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are n element vectors and
 A is an n by n symmetric matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the array A is to be referenced as
 > follows:
@@ -40,11 +39,11 @@ N : INTEGER [in]
 > N must be at least zero.
 > Unchanged on exit.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry, ALPHA specifies the scalar alpha.
 > Unchanged on exit.
 
-A : COMPLEX*16 array, dimension ( LDA, N ) [in]
+A : COMPLEX\*16 array, dimension ( LDA, N ) [in]
 > Before entry, with  UPLO = 'U' or 'u', the leading n by n
 > upper triangular part of the array A must contain the upper
 > triangular part of the symmetric matrix and the strictly
@@ -61,8 +60,8 @@ LDA : INTEGER [in]
 > max( 1, N ).
 > Unchanged on exit.
 
-X : COMPLEX*16 array, dimension at least [in]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+X : COMPLEX\*16 array, dimension at least [in]
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the N-
 > element vector x.
 > Unchanged on exit.
@@ -72,13 +71,13 @@ INCX : INTEGER [in]
 > X. INCX must not be zero.
 > Unchanged on exit.
 
-BETA : COMPLEX*16 [in]
+BETA : COMPLEX\*16 [in]
 > On entry, BETA specifies the scalar beta. When BETA is
 > supplied as zero then Y need not be set on input.
 > Unchanged on exit.
 
-Y : COMPLEX*16 array, dimension at least [in,out]
-> ( 1 + ( N - 1 )*abs( INCY ) ).
+Y : COMPLEX\*16 array, dimension at least [in,out]
+> ( 1 + ( N - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array Y must contain the n
 > element vector y. On exit, Y is overwritten by the updated
 > vector y.

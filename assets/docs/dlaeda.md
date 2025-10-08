@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaeda
-(
+subroutine dlaeda (
         integer n,
         integer tlvls,
         integer curlvl,
@@ -61,7 +60,7 @@ GIVNUM : DOUBLE PRECISION array, dimension (2, N lg N) [in]
 > Each number indicates the S value to be used in the
 > corresponding Givens rotation.
 
-Q : DOUBLE PRECISION array, dimension (N**2) [in]
+Q : DOUBLE PRECISION array, dimension (N\*\*2) [in]
 > Contains the square eigenblocks from previous levels, the
 > starting positions for blocks are given by QPTR.
 

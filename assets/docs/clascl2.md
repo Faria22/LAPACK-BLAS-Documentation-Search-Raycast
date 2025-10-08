@@ -1,6 +1,5 @@
 ```fortran
-subroutine clascl2
-(
+subroutine clascl2 (
         integer m,
         integer n,
         real, dimension( * ) d,
@@ -10,7 +9,7 @@ subroutine clascl2
 ```
 
 CLASCL2 performs a diagonal scaling on a matrix:
-x <-- D * x
+x <-- D \* x
 where the diagonal REAL matrix D is stored as a matrix.
 
 Eventually to be replaced by BLAS_cge_diag_scale in the new BLAS

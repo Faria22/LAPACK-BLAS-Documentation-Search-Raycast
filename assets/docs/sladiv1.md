@@ -1,6 +1,5 @@
 ```fortran
-subroutine sladiv1
-(
+subroutine sladiv1 (
         real a,
         real b,
         real c,

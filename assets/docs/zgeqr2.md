@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgeqr2
-(
+subroutine zgeqr2 (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -13,7 +12,7 @@ subroutine zgeqr2
 
 ZGEQR2 computes a QR factorization of a complex m-by-n matrix A:
 
-A = Q * ( R ),
+A = Q \* ( R ),
 ( 0 )
 
 where:
@@ -29,7 +28,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the m by n matrix A.
 > On exit, the elements on and above the diagonal of the array
 > contain the min(m,n) by n upper trapezoidal matrix R (R is
@@ -40,11 +39,11 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-TAU : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAU : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetrs_3
-(
+subroutine zhetrs_3 (
         character uplo,
         integer n,
         integer nrhs,
@@ -14,25 +13,25 @@ subroutine zhetrs_3
 )
 ```
 
-ZHETRS_3 solves a system of linear equations A * X = B with a complex
+ZHETRS_3 solves a system of linear equations A \* X = B with a complex
 Hermitian matrix A using the factorization computed
 by ZHETRF_RK or ZHETRF_BK:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This algorithm is using Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix:
-> = 'U':  Upper triangular, form is A = P*U*D*(U**H)*(P**T);
-> = 'L':  Lower triangular, form is A = P*L*D*(L**H)*(P**T).
+> = 'U':  Upper triangular, form is A = P\*U\*D\*(U\*\*H)\*(P\*\*T);
+> = 'L':  Lower triangular, form is A = P\*L\*D\*(L\*\*H)\*(P\*\*T).
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -41,7 +40,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > Diagonal of the block diagonal matrix D and factors U or L
 > as computed by ZHETRF_RK and ZHETRF_BK:
 > a) ONLY diagonal elements of the Hermitian block diagonal
@@ -54,7 +53,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [in]
+E : COMPLEX\*16 array, dimension (N) [in]
 > On entry, contains the superdiagonal (or subdiagonal)
 > elements of the Hermitian block diagonal matrix D
 > with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -69,7 +68,7 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZHETRF_RK or ZHETRF_BK.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.
 > On exit, the solution matrix X.
 

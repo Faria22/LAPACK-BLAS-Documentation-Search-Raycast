@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgebal
-(
+subroutine sgebal (
         character job,
         integer n,
         real, dimension( lda, * ) a,
@@ -23,7 +22,7 @@ Balancing may reduce the 1-norm of the matrix, and improve the
 accuracy of the computed eigenvalues and/or eigenvectors.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the operations to be performed on A:
 > = 'N':  none:  simply set ILO = 1, IHI = N, SCALE(I) = 1.0
 > for i = 1,...,N;

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlacrm
-(
+subroutine zlacrm (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ subroutine zlacrm
 ```
 
 ZLACRM performs a very simple matrix-matrix multiplication:
-C := A * B,
+C := A \* B,
 where A is M by N and complex; B is N by N and real;
 C is M by N and complex.
 
@@ -28,7 +27,7 @@ N : INTEGER [in]
 > the number of columns of the matrix C.
 > N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in]
+A : COMPLEX\*16 array, dimension (LDA, N) [in]
 > On entry, A contains the M by N matrix A.
 
 LDA : INTEGER [in]
@@ -40,10 +39,10 @@ B : DOUBLE PRECISION array, dimension (LDB, N) [in]
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >=max(1,N).
 
-C : COMPLEX*16 array, dimension (LDC, N) [out]
+C : COMPLEX\*16 array, dimension (LDC, N) [out]
 > On exit, C contains the M by N matrix C.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >=max(1,N).
 
-RWORK : DOUBLE PRECISION array, dimension (2*M*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (2\*M\*N) [out]

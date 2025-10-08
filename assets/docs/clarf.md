@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarf
-(
+subroutine clarf (
         character side,
         integer m,
         integer n,
@@ -17,19 +16,19 @@ CLARF applies a complex elementary reflector H to a complex M-by-N
 matrix C, from either the left or the right. H is represented in the
 form
 
-H = I - tau * v * v**H
+H = I - tau \* v \* v\*\*H
 
 where tau is a complex scalar and v is a complex vector.
 
 If tau = 0, then H is taken to be the unit matrix.
 
-To apply H**H (the conjugate transpose of H), supply conjg(tau) instead
+To apply H\*\*H (the conjugate transpose of H), supply conjg(tau) instead
 tau.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': form  H * C
-> = 'R': form  C * H
+SIDE : CHARACTER\*1 [in]
+> = 'L': form  H \* C
+> = 'R': form  C \* H
 
 M : INTEGER [in]
 > The number of rows of the matrix C.
@@ -38,8 +37,8 @@ N : INTEGER [in]
 > The number of columns of the matrix C.
 
 V : COMPLEX array, dimension [in]
-> (1 + (M-1)*abs(INCV)) if SIDE = 'L'
-> or (1 + (N-1)*abs(INCV)) if SIDE = 'R'
+> (1 + (M-1)\*abs(INCV)) if SIDE = 'L'
+> or (1 + (N-1)\*abs(INCV)) if SIDE = 'R'
 > The vector v in the representation of H. V is not used if
 > TAU = 0.
 
@@ -51,8 +50,8 @@ TAU : COMPLEX [in]
 
 C : COMPLEX array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
-> or C * H if SIDE = 'R'.
+> On exit, C is overwritten by the matrix H \* C if SIDE = 'L',
+> or C \* H if SIDE = 'R'.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

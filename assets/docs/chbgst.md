@@ -1,6 +1,5 @@
 ```fortran
-subroutine chbgst
-(
+subroutine chbgst (
         character vect,
         character uplo,
         integer n,
@@ -19,20 +18,20 @@ subroutine chbgst
 ```
 
 CHBGST reduces a complex Hermitian-definite banded generalized
-eigenproblem  A*x = lambda*B*x  to standard form  C*y = lambda*y,
+eigenproblem  A\*x = lambda\*B\*x  to standard form  C\*y = lambda\*y,
 such that C has the same bandwidth as A.
 
-B must have been previously factorized as S**H*S by CPBSTF, using a
-split Cholesky factorization. A is overwritten by C = X**H*A*X, where
-X = S**(-1)*Q and Q is a unitary matrix chosen to preserve the
+B must have been previously factorized as S\*\*H\*S by CPBSTF, using a
+split Cholesky factorization. A is overwritten by C = X\*\*H\*A\*X, where
+X = S\*\*(-1)\*Q and Q is a unitary matrix chosen to preserve the
 bandwidth of A.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  do not form the transformation matrix X;
 > = 'V':  form X.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -55,7 +54,7 @@ AB : COMPLEX array, dimension (LDAB,N) [in,out]
 > if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
 > 
-> On exit, the transformed matrix X**H*A*X, stored in the same
+> On exit, the transformed matrix X\*\*H\*A\*X, stored in the same
 > format as A.
 
 LDAB : INTEGER [in]

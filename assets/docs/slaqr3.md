@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqr3
-(
+subroutine slaqr3 (
         logical wantt,
         logical wantz,
         integer n,
@@ -152,7 +151,7 @@ WORK : REAL array, dimension (LWORK) [out]
 > of LWORK for the given values of N, NW, KTOP and KBOT.
 
 LWORK : INTEGER [in]
-> The dimension of the work array WORK.  LWORK = 2*NW
+> The dimension of the work array WORK.  LWORK = 2\*NW
 > suffices, but greater efficiency may result from larger
 > values of LWORK.
 > 

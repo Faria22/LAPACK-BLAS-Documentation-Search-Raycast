@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaev2
-(
+subroutine zlaev2 (
         complex*16 a,
         complex*16 b,
         complex*16 c,
@@ -22,14 +21,14 @@ eigenvector for RT1, giving the decomposition
 [-SN1     CS1     ] [ CONJG(B) C ] [ SN1     CS1     ]   [  0  RT2 ].
 
 ## Parameters
-A : COMPLEX*16 [in]
+A : COMPLEX\*16 [in]
 > The (1,1) element of the 2-by-2 matrix.
 
-B : COMPLEX*16 [in]
+B : COMPLEX\*16 [in]
 > The (1,2) element and the conjugate of the (2,1) element of
 > the 2-by-2 matrix.
 
-C : COMPLEX*16 [in]
+C : COMPLEX\*16 [in]
 > The (2,2) element of the 2-by-2 matrix.
 
 RT1 : DOUBLE PRECISION [out]
@@ -40,5 +39,5 @@ RT2 : DOUBLE PRECISION [out]
 
 CS1 : DOUBLE PRECISION [out]
 
-SN1 : COMPLEX*16 [out]
+SN1 : COMPLEX\*16 [out]
 > The vector (CS1, SN1) is a unit right eigenvector for RT1.

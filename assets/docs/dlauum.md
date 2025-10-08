@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlauum
-(
+subroutine dlauum (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -9,7 +8,7 @@ subroutine dlauum
 )
 ```
 
-DLAUUM computes the product U * U**T or L**T * L, where the triangular
+DLAUUM computes the product U \* U\*\*T or L\*\*T \* L, where the triangular
 factor U or L is stored in the upper or lower triangular part of
 the array A.
 
@@ -21,7 +20,7 @@ overwriting the factor L in A.
 This is the blocked form of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the triangular factor stored in the array A
 > is upper or lower triangular:
 > = 'U':  Upper triangular
@@ -33,9 +32,9 @@ N : INTEGER [in]
 A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > On entry, the triangular factor U or L.
 > On exit, if UPLO = 'U', the upper triangle of A is
-> overwritten with the upper triangle of the product U * U**T;
+> overwritten with the upper triangle of the product U \* U\*\*T;
 > if UPLO = 'L', the lower triangle of A is overwritten with
-> the lower triangle of the product L**T * L.
+> the lower triangle of the product L\*\*T \* L.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

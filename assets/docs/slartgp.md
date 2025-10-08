@@ -1,6 +1,5 @@
 ```fortran
-subroutine slartgp
-(
+subroutine slartgp (
         real f,
         real g,
         real cs,
@@ -11,7 +10,7 @@ subroutine slartgp
 
 SLARTGP generates a plane rotation so that
 
-[  CS  SN  ]  .  [ F ]  =  [ R ]   where CS**2 + SN**2 = 1.
+[  CS  SN  ]  .  [ F ]  =  [ R ]   where CS\*\*2 + SN\*\*2 = 1.
 [ -SN  CS  ]     [ G ]     [ 0 ]
 
 This is a slower, more accurate version of the Level 1 BLAS routine SROTG,

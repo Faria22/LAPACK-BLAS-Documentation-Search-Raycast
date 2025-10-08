@@ -1,6 +1,5 @@
 ```fortran
-subroutine slatdf
-(
+subroutine slatdf (
         integer ijob,
         integer n,
         real, dimension( ldz, * ) z,
@@ -15,11 +14,11 @@ subroutine slatdf
 
 SLATDF uses the LU factorization of the n-by-n matrix Z computed by
 SGETC2 and computes a contribution to the reciprocal Dif-estimate
-by solving Z * x = b for x, and choosing the r.h.s. b such that
+by solving Z \* x = b for x, and choosing the r.h.s. b such that
 the norm of x is as large as possible. On entry RHS = b holds the
 contribution from earlier solved sub-systems, and on return RHS = x.
 
-The factorization of Z returned by SGETC2 has the form Z = P*L*U*Q,
+The factorization of Z returned by SGETC2 has the form Z = P\*L\*U\*Q,
 where P and Q are permutation matrices. L is lower triangular with
 unit diagonal elements and U is upper triangular.
 
@@ -37,7 +36,7 @@ N : INTEGER [in]
 
 Z : REAL array, dimension (LDZ, N) [in]
 > On entry, the LU part of the factorization of the n-by-n
-> matrix Z computed by SGETC2:  Z = P * L * U * Q
+> matrix Z computed by SGETC2:  Z = P \* L \* U \* Q
 
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDA >= max(1, N).

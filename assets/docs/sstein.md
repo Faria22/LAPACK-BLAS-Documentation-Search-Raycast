@@ -1,6 +1,5 @@
 ```fortran
-subroutine sstein
-(
+subroutine sstein (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) e,
@@ -68,7 +67,7 @@ Z : REAL array, dimension (LDZ, M) [out]
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= max(1,N).
 
-WORK : REAL array, dimension (5*N) [out]
+WORK : REAL array, dimension (5\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sbbcsd
-(
+subroutine sbbcsd (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -44,7 +43,7 @@ X = [----------------]
 [  0  |  0  0  I ]
 
 [  C | -S  0  0 ]
-[ U1 |    ] [  0 |  0 -I  0 ] [ V1 |    ]**T
+[ U1 |    ] [  0 |  0 -I  0 ] [ V1 |    ]\*\*T
 = [---------] [---------------] [---------]   .
 [    | U2 ] [  S |  C  0  0 ] [    | V2 ]
 [  0 |  0  0  I ]
@@ -186,7 +185,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= MAX(1,8*Q).
+> The dimension of the array WORK. LWORK >= MAX(1,8\*Q).
 > 
 > If LWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the WORK array,

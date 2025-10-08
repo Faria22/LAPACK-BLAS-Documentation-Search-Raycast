@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgetsqrhrt
-(
+subroutine zgetsqrhrt (
         integer m,
         integer n,
         integer mb1,
@@ -19,7 +18,7 @@ subroutine zgetsqrhrt
 ZGETSQRHRT computes a NB2-sized column blocked QR-factorization
 of a complex M-by-N matrix A with M >= N,
 
-A = Q * R.
+A = Q \* R.
 
 The routine uses internally a NB1-sized column blocked and MB1-sized
 row blocked TSQR-factorization and perfors the reconstruction
@@ -27,7 +26,7 @@ of the Householder vectors from the TSQR output. The routine also
 converts the R_tsqr factor from the TSQR-factorization output into
 the R factor that corresponds to the Householder QR-factorization,
 
-A = Q_tsqr * R_tsqr = Q * R.
+A = Q_tsqr \* R_tsqr = Q \* R.
 
 The output Q and R factors are stored in the same format as in ZGEQRT
 (Q is in blocked compact WY-representation). See the documentation
@@ -52,7 +51,7 @@ NB2 : INTEGER [in]
 > The block size to be used in the blocked QR that is
 > output. NB2 >= 1.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > 
 > On entry: an M-by-N matrix A.
 > 
@@ -66,26 +65,26 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, dimension (LDT,N)) [out]
+T : COMPLEX\*16 array, dimension (LDT,N)) [out]
 > The upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB2.
 
-WORK : (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : (workspace) COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If MIN(M,N) = 0, LWORK >= 1, else
-> LWORK >= MAX( 1, LWT + LW1, MAX( LWT+N*N+LW2, LWT+N*N+N ) ),
+> LWORK >= MAX( 1, LWT + LW1, MAX( LWT+N\*N+LW2, LWT+N\*N+N ) ),
 > where
 > NUM_ALL_ROW_BLOCKS = CEIL((M-N)/(MB1-N)),
 > NB1LOCAL = MIN(NB1,N).
-> LWT = NUM_ALL_ROW_BLOCKS * N * NB1LOCAL,
-> LW1 = NB1LOCAL * N,
-> LW2 = NB1LOCAL * MAX( NB1LOCAL, ( N - NB1LOCAL ) ).
+> LWT = NUM_ALL_ROW_BLOCKS \* N \* NB1LOCAL,
+> LW1 = NB1LOCAL \* N,
+> LW2 = NB1LOCAL \* MAX( NB1LOCAL, ( N - NB1LOCAL ) ).
 > 
 > If LWORK = -1, then a workspace query is assumed.
 > The routine only calculates the optimal size of the WORK

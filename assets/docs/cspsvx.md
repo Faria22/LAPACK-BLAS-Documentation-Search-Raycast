@@ -1,6 +1,5 @@
 ```fortran
-subroutine cspsvx
-(
+subroutine cspsvx (
         character fact,
         character uplo,
         integer n,
@@ -21,23 +20,23 @@ subroutine cspsvx
 )
 ```
 
-CSPSVX uses the diagonal pivoting factorization A = U*D*U**T or
-A = L*D*L**T to compute the solution to a complex system of linear
-equations A * X = B, where A is an N-by-N symmetric matrix stored
+CSPSVX uses the diagonal pivoting factorization A = U\*D\*U\*\*T or
+A = L\*D\*L\*\*T to compute the solution to a complex system of linear
+equations A \* X = B, where A is an N-by-N symmetric matrix stored
 in packed format and X and B are N-by-NRHS matrices.
 
 Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of A has been
 > supplied on entry.
 > = 'F':  On entry, AFP and IPIV contain the factored form
 > of A.  AP, AFP and IPIV will not be modified.
 > = 'N':  The matrix A will be copied to AFP and factored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -49,25 +48,25 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in]
 > The upper or lower triangle of the symmetric matrix A, packed
 > columnwise in a linear array.  The j-th column of A is stored
 > in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > See below for further details.
 
-AFP : COMPLEX array, dimension (N*(N+1)/2) [in,out]
+AFP : COMPLEX array, dimension (N\*(N+1)/2) [in,out]
 > If FACT = 'F', then AFP is an input argument and on entry
 > contains the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**T or A = L*D*L**T as computed by CSPTRF, stored as
+> A = U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by CSPTRF, stored as
 > a packed triangular matrix in the same storage format as A.
 > 
 > If FACT = 'N', then AFP is an output argument and on exit
 > contains the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**T or A = L*D*L**T as computed by CSPTRF, stored as
+> A = U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by CSPTRF, stored as
 > a packed triangular matrix in the same storage format as A.
 
 IPIV : INTEGER array, dimension (N) [in,out]
@@ -120,7 +119,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 RWORK : REAL array, dimension (N) [out]
 

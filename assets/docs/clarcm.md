@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarcm
-(
+subroutine clarcm (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ subroutine clarcm
 ```
 
 CLARCM performs a very simple matrix-matrix multiplication:
-C := A * B,
+C := A \* B,
 where A is M by M and real; B is M by N and complex;
 C is M by N and complex.
 
@@ -46,4 +45,4 @@ C : COMPLEX array, dimension (LDC, N) [out]
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >=max(1,M).
 
-RWORK : REAL array, dimension (2*M*N) [out]
+RWORK : REAL array, dimension (2\*M\*N) [out]

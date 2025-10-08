@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtrsyl
-(
+subroutine dtrsyl (
         character trana,
         character tranb,
         integer isgn,
@@ -19,10 +18,10 @@ subroutine dtrsyl
 
 DTRSYL solves the real Sylvester matrix equation:
 
-op(A)*X + X*op(B) = scale*C or
-op(A)*X - X*op(B) = scale*C,
+op(A)\*X + X\*op(B) = scale\*C or
+op(A)\*X - X\*op(B) = scale\*C,
 
-where op(A) = A or A**T, and  A and B are both upper quasi-
+where op(A) = A or A\*\*T, and  A and B are both upper quasi-
 triangular. A is M-by-M and B is N-by-N; the right hand side C and
 the solution X are M-by-N; and scale is an output scale factor, set
 <= 1 to avoid overflow in X.
@@ -33,22 +32,22 @@ each 2-by-2 diagonal block has its diagonal elements equal and its
 off-diagonal elements of opposite sign.
 
 ## Parameters
-TRANA : CHARACTER*1 [in]
+TRANA : CHARACTER\*1 [in]
 > Specifies the option op(A):
 > = 'N': op(A) = A    (No transpose)
-> = 'T': op(A) = A**T (Transpose)
-> = 'C': op(A) = A**H (Conjugate transpose = Transpose)
+> = 'T': op(A) = A\*\*T (Transpose)
+> = 'C': op(A) = A\*\*H (Conjugate transpose = Transpose)
 
-TRANB : CHARACTER*1 [in]
+TRANB : CHARACTER\*1 [in]
 > Specifies the option op(B):
 > = 'N': op(B) = B    (No transpose)
-> = 'T': op(B) = B**T (Transpose)
-> = 'C': op(B) = B**H (Conjugate transpose = Transpose)
+> = 'T': op(B) = B\*\*T (Transpose)
+> = 'C': op(B) = B\*\*H (Conjugate transpose = Transpose)
 
 ISGN : INTEGER [in]
 > Specifies the sign in the equation:
-> = +1: solve op(A)*X + X*op(B) = scale*C
-> = -1: solve op(A)*X - X*op(B) = scale*C
+> = +1: solve op(A)\*X + X\*op(B) = scale\*C
+> = -1: solve op(A)\*X - X\*op(B) = scale\*C
 
 M : INTEGER [in]
 > The order of the matrix A, and the number of rows in the

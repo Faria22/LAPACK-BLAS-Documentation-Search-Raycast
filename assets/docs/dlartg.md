@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlartg
-(
+subroutine dlartg (
         real(wp) f,
         real(wp) g,
         real(wp) c,
@@ -14,10 +13,10 @@ DLARTG generates a plane rotation so that
 [  C  S  ]  .  [ F ]  =  [ R ]
 [ -S  C  ]     [ G ]     [ 0 ]
 
-where C**2 + S**2 = 1.
+where C\*\*2 + S\*\*2 = 1.
 
 The mathematical formulas used for C and S are
-R = sign(F) * sqrt(F**2 + G**2)
+R = sign(F) \* sqrt(F\*\*2 + G\*\*2)
 C = F / R
 S = G / R
 Hence C >= 0. The algorithm used to compute these quantities

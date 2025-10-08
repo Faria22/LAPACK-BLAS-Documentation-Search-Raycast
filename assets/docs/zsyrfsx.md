@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsyrfsx
-(
+subroutine zsyrfsx (
         character uplo,
         character equed,
         integer n,
@@ -41,17 +40,17 @@ below. In this case, the solution and error bounds returned are
 for the original unequilibrated system.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
-EQUED : CHARACTER*1 [in]
+EQUED : CHARACTER\*1 [in]
 > Specifies the form of equilibration that was done to A
 > before calling this routine. This is needed to compute
 > the solution and error bounds correctly.
 > = 'N':  No equilibration
 > = 'Y':  Both row and column equilibration, i.e., A has been
-> replaced by diag(S) * A * diag(S).
+> replaced by diag(S) \* A \* diag(S).
 > The right hand side B has been changed accordingly.
 
 N : INTEGER [in]
@@ -61,7 +60,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The symmetric matrix A.  If UPLO = 'U', the leading N-by-N
 > upper triangular part of A contains the upper triangular
 > part of the matrix A, and the strictly lower triangular
@@ -73,11 +72,11 @@ A : COMPLEX*16 array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in]
 > The factored form of the matrix A.  AF contains the block
 > diagonal matrix D and the multipliers used to obtain the
-> factor U or L from the factorization A = U*D*U**T or A =
-> L*D*L**T as computed by ZSYTRF.
+> factor U or L from the factorization A = U\*D\*U\*\*T or A =
+> L\*D\*L\*\*T as computed by ZSYTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -99,13 +98,13 @@ S : DOUBLE PRECISION array, dimension (N) [in,out]
 > is not equivalent to the input matrix, producing error estimates
 > that may not be reliable.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZGETRS.
 > On exit, the improved solution matrix X.
 
@@ -153,21 +152,21 @@ ERR_BNDS_NORM : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated normwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*A, where S scales each row by a power of the
+> Let Z = S\*A, where S scales each row by a power of the
 > radix so all absolute row sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -198,23 +197,23 @@ ERR_BNDS_COMP : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated componentwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*(A*diag(x)), where x is the solution for the
+> Let Z = S\*(A\*diag(x)), where x is the solution for the
 > current right-hand side and S scales each row of
-> A*diag(x) by a power of the radix so all absolute row
+> A\*diag(x) by a power of the radix so all absolute row
 > sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -257,9 +256,9 @@ PARAMS : DOUBLE PRECISION array, dimension NPARAMS [in,out]
 > is true, 0.0 is false.
 > Default: 1.0 (attempt componentwise convergence)
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
-RWORK : DOUBLE PRECISION array, dimension (2*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  Successful exit. The solution to every right-hand side is

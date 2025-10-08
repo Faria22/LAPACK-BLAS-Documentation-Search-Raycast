@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqtr
-(
+subroutine slaqtr (
         logical ltran,
         logical lreal,
         integer n,
@@ -17,11 +16,11 @@ subroutine slaqtr
 
 SLAQTR solves the real quasi-triangular system
 
-op(T)*p = scale*c,               if LREAL = .TRUE.
+op(T)\*p = scale\*c,               if LREAL = .TRUE.
 
 or the complex quasi-triangular systems
 
-op(T + iB)*(p+iq) = scale*(c+id),  if LREAL = .FALSE.
+op(T + iB)\*(p+iq) = scale\*(c+id),  if LREAL = .FALSE.
 
 in real arithmetic, where T is upper quasi-triangular.
 If LREAL = .FALSE., then the first diagonal block of T must be
@@ -33,7 +32,7 @@ B = [ b(1) b(2) ... b(n) ]
 [              .     ]
 [                 w  ]
 
-op(A) = A or A**T, A**T denotes the transpose of
+op(A) = A or A\*\*T, A\*\*T denotes the transpose of
 matrix A.
 
 On input, X = [ c ].  On output, X = [ p ].
@@ -45,8 +44,8 @@ in routine STRSNA.
 ## Parameters
 LTRAN : LOGICAL [in]
 > On entry, LTRAN specifies the option of conjugate transpose:
-> = .FALSE.,    op(T+i*B) = T+i*B,
-> = .TRUE.,     op(T+i*B) = (T+i*B)**T.
+> = .FALSE.,    op(T+i\*B) = T+i\*B,
+> = .TRUE.,     op(T+i\*B) = (T+i\*B)\*\*T.
 
 LREAL : LOGICAL [in]
 > On entry, LREAL specifies the input matrix structure:
@@ -54,7 +53,7 @@ LREAL : LOGICAL [in]
 > = .TRUE.,     the input is real
 
 N : INTEGER [in]
-> On entry, N specifies the order of T+i*B. N >= 0.
+> On entry, N specifies the order of T+i\*B. N >= 0.
 
 T : REAL array, dimension (LDT,N) [in]
 > On entry, T contains a matrix in Schur canonical form.
@@ -76,7 +75,7 @@ W : REAL [in]
 SCALE : REAL [out]
 > On exit, SCALE is the scale factor.
 
-X : REAL array, dimension (2*N) [in,out]
+X : REAL array, dimension (2\*N) [in,out]
 > On entry, X contains the right hand side of the system.
 > On exit, X is overwritten by the solution.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaswp
-(
+subroutine dlaswp (
         integer n,
         double precision, dimension( lda, * ) a,
         integer lda,
@@ -34,10 +33,10 @@ K2 : INTEGER [in]
 > (K2-K1+1) is the number of elements of IPIV for which a row
 > interchange will be done.
 
-IPIV : INTEGER array, dimension (K1+(K2-K1)*abs(INCX)) [in]
+IPIV : INTEGER array, dimension (K1+(K2-K1)\*abs(INCX)) [in]
 > The vector of pivot indices. Only the elements in positions
-> K1 through K1+(K2-K1)*abs(INCX) of IPIV are accessed.
-> IPIV(K1+(K-K1)*abs(INCX)) = L implies rows K and L are to be
+> K1 through K1+(K2-K1)\*abs(INCX) of IPIV are accessed.
+> IPIV(K1+(K-K1)\*abs(INCX)) = L implies rows K and L are to be
 > interchanged.
 
 INCX : INTEGER [in]

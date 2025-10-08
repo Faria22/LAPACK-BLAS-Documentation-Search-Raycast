@@ -1,6 +1,5 @@
 ```fortran
-subroutine srot
-(
+subroutine srot (
         integer n,
         real, dimension(*) sx,
         integer incx,
@@ -17,12 +16,12 @@ applies a plane rotation.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-SX : REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+SX : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of SX
 
-SY : REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+SY : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of SY

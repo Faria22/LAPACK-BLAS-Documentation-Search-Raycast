@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlar2v
-(
+subroutine zlar2v (
         integer n,
         complex*16, dimension( * ) x,
         complex*16, dimension( * ) y,
@@ -26,22 +25,22 @@ defined by the elements of the vectors x, y and z. For i = 1,2,...,n
 N : INTEGER [in]
 > The number of plane rotations to be applied.
 
-X : COMPLEX*16 array, dimension (1+(N-1)*INCX) [in,out]
+X : COMPLEX\*16 array, dimension (1+(N-1)\*INCX) [in,out]
 > The vector x; the elements of x are assumed to be real.
 
-Y : COMPLEX*16 array, dimension (1+(N-1)*INCX) [in,out]
+Y : COMPLEX\*16 array, dimension (1+(N-1)\*INCX) [in,out]
 > The vector y; the elements of y are assumed to be real.
 
-Z : COMPLEX*16 array, dimension (1+(N-1)*INCX) [in,out]
+Z : COMPLEX\*16 array, dimension (1+(N-1)\*INCX) [in,out]
 > The vector z.
 
 INCX : INTEGER [in]
 > The increment between elements of X, Y and Z. INCX > 0.
 
-C : DOUBLE PRECISION array, dimension (1+(N-1)*INCC) [in]
+C : DOUBLE PRECISION array, dimension (1+(N-1)\*INCC) [in]
 > The cosines of the plane rotations.
 
-S : COMPLEX*16 array, dimension (1+(N-1)*INCC) [in]
+S : COMPLEX\*16 array, dimension (1+(N-1)\*INCC) [in]
 > The sines of the plane rotations.
 
 INCC : INTEGER [in]

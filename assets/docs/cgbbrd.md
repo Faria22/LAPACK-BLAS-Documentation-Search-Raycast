@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgbbrd
-(
+subroutine cgbbrd (
         character vect,
         integer m,
         integer n,
@@ -24,18 +23,18 @@ subroutine cgbbrd
 ```
 
 CGBBRD reduces a complex general m-by-n band matrix A to real upper
-bidiagonal form B by a unitary transformation: Q**H * A * P = B.
+bidiagonal form B by a unitary transformation: Q\*\*H \* A \* P = B.
 
-The routine computes B, and optionally forms Q or P**H, or computes
-Q**H*C for a given matrix C.
+The routine computes B, and optionally forms Q or P\*\*H, or computes
+Q\*\*H\*C for a given matrix C.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
-> Specifies whether or not the matrices Q and P**H are to be
+VECT : CHARACTER\*1 [in]
+> Specifies whether or not the matrices Q and P\*\*H are to be
 > formed.
-> = 'N': do not form Q or P**H;
+> = 'N': do not form Q or P\*\*H;
 > = 'Q': form Q only;
-> = 'P': form P**H only;
+> = 'P': form P\*\*H only;
 > = 'B': form both.
 
 M : INTEGER [in]
@@ -88,7 +87,7 @@ LDPT : INTEGER [in]
 
 C : COMPLEX array, dimension (LDC,NCC) [in,out]
 > On entry, an m-by-ncc matrix C.
-> On exit, C is overwritten by Q**H*C.
+> On exit, C is overwritten by Q\*\*H\*C.
 > C is not referenced if NCC = 0.
 
 LDC : INTEGER [in]

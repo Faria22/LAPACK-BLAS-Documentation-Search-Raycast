@@ -1,6 +1,5 @@
 ```fortran
-subroutine spstf2
-(
+subroutine spstf2 (
         character uplo,
         integer n,
         real, dimension( lda, * ) a,
@@ -17,8 +16,8 @@ SPSTF2 computes the Cholesky factorization with complete
 pivoting of a real symmetric positive semidefinite matrix A.
 
 The factorization has the form
-P**T * A * P = U**T * U ,  if UPLO = 'U',
-P**T * A * P = L  * L**T,  if UPLO = 'L',
+P\*\*T \* A \* P = U\*\*T \* U ,  if UPLO = 'U',
+P\*\*T \* A \* P = L  \* L\*\*T,  if UPLO = 'L',
 where U is an upper triangular matrix and L is lower triangular, and
 P is stored as vector PIV.
 
@@ -26,7 +25,7 @@ This algorithm does not attempt to check that A is positive
 semidefinite. This version of the algorithm calls level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored.
 > = 'U':  Upper triangular
@@ -55,14 +54,14 @@ RANK : INTEGER [out]
 > completed.
 
 TOL : REAL [in]
-> User defined tolerance. If TOL < 0, then N*U*MAX( A( K,K ) )
+> User defined tolerance. If TOL < 0, then N\*U\*MAX( A( K,K ) )
 > will be used. The algorithm terminates at the (K-1)st step
 > if the pivot <= TOL.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-WORK : REAL array, dimension (2*N) [out]
+WORK : REAL array, dimension (2\*N) [out]
 > Work space.
 
 INFO : INTEGER [out]

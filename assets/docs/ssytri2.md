@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssytri2
-(
+subroutine ssytri2 (
         character uplo,
         integer n,
         real, dimension( lda, * ) a,
@@ -13,16 +12,16 @@ subroutine ssytri2
 ```
 
 SSYTRI2 computes the inverse of a REAL symmetric indefinite matrix
-A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by
 SSYTRF. SSYTRI2 sets the LEADING DIMENSION of the workspace
 before calling SSYTRI2X that actually computes the inverse.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -49,7 +48,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)*(NB+3).
+> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)\*(NB+3).
 > If LWORK = -1, then a workspace query is assumed; the routine
 > calculates:
 > - the optimal size of the WORK array, returns

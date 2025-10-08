@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgeqrt
-(
+subroutine cgeqrt (
         integer m,
         integer n,
         integer nb,
@@ -44,7 +43,7 @@ T : COMPLEX array, dimension (LDT,MIN(M,N)) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : COMPLEX array, dimension (NB*N) [out]
+WORK : COMPLEX array, dimension (NB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

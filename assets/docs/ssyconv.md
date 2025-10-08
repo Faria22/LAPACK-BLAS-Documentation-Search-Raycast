@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssyconv
-(
+subroutine ssyconv (
         character uplo,
         character way,
         integer n,
@@ -17,13 +16,13 @@ Get Non-diag elements of D (returned in workspace) and
 apply or reverse permutation done in TRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
-WAY : CHARACTER*1 [in]
+WAY : CHARACTER\*1 [in]
 > = 'C': Convert
 > = 'R': Revert
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaein
-(
+subroutine dlaein (
         logical rightv,
         logical noinit,
         integer n,

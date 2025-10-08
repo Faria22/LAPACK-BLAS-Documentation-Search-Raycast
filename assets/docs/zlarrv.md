@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlarrv
-(
+subroutine zlarrv (
         integer n,
         double precision vl,
         double precision vu,
@@ -30,7 +29,7 @@ subroutine zlarrv
 ```
 
 ZLARRV computes the eigenvectors of the tridiagonal matrix
-T = L D L**T given L, D and APPROXIMATIONS to the eigenvalues of L D L**T.
+T = L D L\*\*T given L, D and APPROXIMATIONS to the eigenvalues of L D L\*\*T.
 The input eigenvalues should have been computed by DLARRE.
 
 ## Parameters
@@ -89,7 +88,7 @@ RTOL1 : DOUBLE PRECISION [in]
 RTOL2 : DOUBLE PRECISION [in]
 > Parameters for bisection.
 > An interval [LEFT,RIGHT] has converged if
-> RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
+> RIGHT-LEFT < MAX( RTOL1\*GAP, RTOL2\*MAX(|LEFT|,|RIGHT|) )
 
 W : DOUBLE PRECISION array, dimension (N) [in,out]
 > The first M elements of W contain the APPROXIMATE eigenvalues for
@@ -119,12 +118,12 @@ INDEXW : INTEGER array, dimension (N) [in]
 > for example, INDEXW(i)= 10 and IBLOCK(i)=2 imply that the
 > i-th eigenvalue W(i) is the 10-th eigenvalue in the second block.
 
-GERS : DOUBLE PRECISION array, dimension (2*N) [in]
+GERS : DOUBLE PRECISION array, dimension (2\*N) [in]
 > The N Gerschgorin intervals (the i-th Gerschgorin interval
-> is (GERS(2*i-1), GERS(2*i)). The Gerschgorin intervals should
+> is (GERS(2\*i-1), GERS(2\*i)). The Gerschgorin intervals should
 > be computed from the original UNshifted matrix.
 
-Z : COMPLEX*16 array, dimension (LDZ, max(1,M) ) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, max(1,M) ) [out]
 > If INFO = 0, the first M columns of Z contain the
 > orthonormal eigenvectors of the matrix T
 > corresponding to the input eigenvalues, with the i-th
@@ -136,15 +135,15 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-ISUPPZ : INTEGER array, dimension ( 2*max(1,M) ) [out]
+ISUPPZ : INTEGER array, dimension ( 2\*max(1,M) ) [out]
 > The support of the eigenvectors in Z, i.e., the indices
 > indicating the nonzero elements in Z. The I-th eigenvector
-> is nonzero only in elements ISUPPZ( 2*I-1 ) through
-> ISUPPZ( 2*I ).
+> is nonzero only in elements ISUPPZ( 2\*I-1 ) through
+> ISUPPZ( 2\*I ).
 
-WORK : DOUBLE PRECISION array, dimension (12*N) [out]
+WORK : DOUBLE PRECISION array, dimension (12\*N) [out]
 
-IWORK : INTEGER array, dimension (7*N) [out]
+IWORK : INTEGER array, dimension (7\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

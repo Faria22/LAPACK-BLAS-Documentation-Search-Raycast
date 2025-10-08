@@ -1,6 +1,5 @@
 ```fortran
-subroutine dstev
-(
+subroutine dstev (
         character jobz,
         integer n,
         double precision, dimension( * ) d,
@@ -16,7 +15,7 @@ DSTEV computes all eigenvalues and, optionally, eigenvectors of a
 real symmetric tridiagonal matrix A.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
@@ -43,7 +42,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (max(1,2*N-2)) [out]
+WORK : DOUBLE PRECISION array, dimension (max(1,2\*N-2)) [out]
 > If JOBZ = 'N', WORK is not referenced.
 
 INFO : INTEGER [out]

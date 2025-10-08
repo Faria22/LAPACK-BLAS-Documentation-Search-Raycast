@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztrsna
-(
+subroutine ztrsna (
         character job,
         character howmny,
         logical, dimension( * ) select,
@@ -24,17 +23,17 @@ subroutine ztrsna
 
 ZTRSNA estimates reciprocal condition numbers for specified
 eigenvalues and/or right eigenvectors of a complex upper triangular
-matrix T (or of any matrix Q*T*Q**H with Q unitary).
+matrix T (or of any matrix Q\*T\*Q\*\*H with Q unitary).
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for
 > eigenvalues (S) or eigenvectors (SEP):
 > = 'E': for eigenvalues only (S);
 > = 'V': for eigenvectors only (SEP);
 > = 'B': for both eigenvalues and eigenvectors (S and SEP).
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A': compute condition numbers for all eigenpairs;
 > = 'S': compute condition numbers for selected eigenpairs
 > specified by the array SELECT.
@@ -48,15 +47,15 @@ SELECT : LOGICAL array, dimension (N) [in]
 N : INTEGER [in]
 > The order of the matrix T. N >= 0.
 
-T : COMPLEX*16 array, dimension (LDT,N) [in]
+T : COMPLEX\*16 array, dimension (LDT,N) [in]
 > The upper triangular matrix T.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T. LDT >= max(1,N).
 
-VL : COMPLEX*16 array, dimension (LDVL,M) [in]
+VL : COMPLEX\*16 array, dimension (LDVL,M) [in]
 > If JOB = 'E' or 'B', VL must contain left eigenvectors of T
-> (or of any Q*T*Q**H with Q unitary), corresponding to the
+> (or of any Q\*T\*Q\*\*H with Q unitary), corresponding to the
 > eigenpairs specified by HOWMNY and SELECT. The eigenvectors
 > must be stored in consecutive columns of VL, as returned by
 > ZHSEIN or ZTREVC.
@@ -66,9 +65,9 @@ LDVL : INTEGER [in]
 > The leading dimension of the array VL.
 > LDVL >= 1; and if JOB = 'E' or 'B', LDVL >= N.
 
-VR : COMPLEX*16 array, dimension (LDVR,M) [in]
+VR : COMPLEX\*16 array, dimension (LDVR,M) [in]
 > If JOB = 'E' or 'B', VR must contain right eigenvectors of T
-> (or of any Q*T*Q**H with Q unitary), corresponding to the
+> (or of any Q\*T\*Q\*\*H with Q unitary), corresponding to the
 > eigenpairs specified by HOWMNY and SELECT. The eigenvectors
 > must be stored in consecutive columns of VR, as returned by
 > ZHSEIN or ZTREVC.
@@ -101,7 +100,7 @@ M : INTEGER [out]
 > used to store the estimated condition numbers.
 > If HOWMNY = 'A', M is set to N.
 
-WORK : COMPLEX*16 array, dimension (LDWORK,N+6) [out]
+WORK : COMPLEX\*16 array, dimension (LDWORK,N+6) [out]
 > If JOB = 'E', WORK is not referenced.
 
 LDWORK : INTEGER [in]

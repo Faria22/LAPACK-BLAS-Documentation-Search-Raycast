@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine dlaqz0
-(
+recursive subroutine dlaqz0 (
         character, intent(in) wants,
         character, intent(in) wantq,
         character, intent(in) wantz,
@@ -31,14 +30,14 @@ using the double-shift QZ method.
 Matrix pairs of this type are produced by the reduction to
 generalized upper Hessenberg form of a real matrix pair (A,B):
 
-A = Q1*H*Z1**T,  B = Q1*T*Z1**T,
+A = Q1\*H\*Z1\*\*T,  B = Q1\*T\*Z1\*\*T,
 
 as computed by DGGHRD.
 
 If JOB='S', then the Hessenberg-triangular pair (H,T) is
 also reduced to generalized Schur form,
 
-H = Q*S*Z**T,  T = Q*P*Z**T,
+H = Q\*S\*Z\*\*T,  T = Q\*P\*Z\*\*T,
 
 where Q and Z are orthogonal matrices, P is an upper triangular
 matrix, and S is a quasi-triangular matrix with 1-by-1 and 2-by-2
@@ -58,20 +57,20 @@ factorization may be postmultiplied into an input matrix Q1, and the
 orthogonal matrix Z may be postmultiplied into an input matrix Z1.
 If Q1 and Z1 are the orthogonal matrices from DGGHRD that reduced
 the matrix pair (A,B) to generalized upper Hessenberg form, then the
-output matrices Q1*Q and Z1*Z are the orthogonal factors from the
+output matrices Q1\*Q and Z1\*Z are the orthogonal factors from the
 generalized Schur factorization of (A,B):
 
-A = (Q1*Q)*S*(Z1*Z)**T,  B = (Q1*Q)*P*(Z1*Z)**T.
+A = (Q1\*Q)\*S\*(Z1\*Z)\*\*T,  B = (Q1\*Q)\*P\*(Z1\*Z)\*\*T.
 
 To avoid overflow, eigenvalues of the matrix pair (H,T) (equivalently,
 of (A,B)) are computed as a pair of values (alpha,beta), where alpha is
 complex and beta real.
 If beta is nonzero, lambda = alpha / beta is an eigenvalue of the
 generalized nonsymmetric eigenvalue problem (GNEP)
-A*x = lambda*B*x
+A\*x = lambda\*B\*x
 and if alpha is nonzero, mu = beta / alpha is an eigenvalue of the
 alternate form of the GNEP
-mu*A*y = B*y.
+mu\*A\*y = B\*y.
 Real eigenvalues can be read directly from the generalized Schur
 form:
 alpha = S(i,i), beta = P(i,i).
@@ -85,23 +84,23 @@ Anal., 29(2006), pp. 199--227.
 Ref: T. Steel, D. Camps, K. Meerbergen, R. Vandebril
 
 ## Parameters
-WANTS : CHARACTER*1 [in]
+WANTS : CHARACTER\*1 [in]
 > = 'E': Compute eigenvalues only;
 > = 'S': Compute eigenvalues and the Schur form.
 
-WANTQ : CHARACTER*1 [in]
+WANTQ : CHARACTER\*1 [in]
 > = 'N': Left Schur vectors (Q) are not computed;
 > = 'I': Q is initialized to the unit matrix and the matrix Q
 > of left Schur vectors of (A,B) is returned;
 > = 'V': Q must contain an orthogonal matrix Q1 on entry and
-> the product Q1*Q is returned.
+> the product Q1\*Q is returned.
 
-WANTZ : CHARACTER*1 [in]
+WANTZ : CHARACTER\*1 [in]
 > = 'N': Right Schur vectors (Z) are not computed;
 > = 'I': Z is initialized to the unit matrix and the matrix Z
 > of right Schur vectors of (A,B) is returned;
 > = 'V': Z must contain an orthogonal matrix Z1 on entry and
-> the product Z1*Z is returned.
+> the product Z1\*Z is returned.
 
 N : INTEGER [in]
 > The order of the matrices A, B, Q, and Z.  N >= 0.

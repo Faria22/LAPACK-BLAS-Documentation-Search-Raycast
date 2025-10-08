@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytrf_aa_2stage
-(
+subroutine zsytrf_aa_2stage (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -18,7 +17,7 @@ subroutine zsytrf_aa_2stage
 ZSYTRF_AA_2STAGE computes the factorization of a complex symmetric matrix A
 using the Aasen's algorithm.  The form of the factorization is
 
-A = U**T*T*U  or  A = L*T*L**T
+A = U\*\*T\*T\*U  or  A = L\*T\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is a complex symmetric band matrix with the
@@ -28,14 +27,14 @@ LU factorized with partial pivoting).
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the hermitian matrix A.  If UPLO = 'U', the leading
 > N-by-N upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -50,12 +49,12 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-TB : COMPLEX*16 array, dimension (LTB) [out]
+TB : COMPLEX\*16 array, dimension (LTB) [out]
 > On exit, details of the LU factorization of the band matrix.
 
 LTB : INTEGER [in]
-> The size of the array TB. LTB >= 4*N, internally
-> used to select NB such that LTB >= (3*NB+1)*N.
+> The size of the array TB. LTB >= 4\*N, internally
+> used to select NB such that LTB >= (3\*NB+1)\*N.
 > 
 > If LTB = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of LTB,
@@ -72,11 +71,11 @@ IPIV2 : INTEGER array, dimension (N) [out]
 > the row and column k of T were interchanged with the
 > row and column IPIV(k).
 
-WORK : COMPLEX*16 workspace of size LWORK [out]
+WORK : COMPLEX\*16 workspace of size LWORK [out]
 
 LWORK : INTEGER [in]
 > The size of WORK. LWORK >= N, internally used to select NB
-> such that LWORK >= N*NB.
+> such that LWORK >= N\*NB.
 > 
 > If LWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the WORK array,

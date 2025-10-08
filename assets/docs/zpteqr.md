@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpteqr
-(
+subroutine zpteqr (
         character compz,
         integer n,
         double precision, dimension( * ) d,
@@ -31,7 +30,7 @@ high relative accuracy in the small eigenvalues of the original
 matrix, if these eigenvalues range over many orders of magnitude.)
 
 ## Parameters
-COMPZ : CHARACTER*1 [in]
+COMPZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only.
 > = 'V':  Compute eigenvectors of original Hermitian
 > matrix also.  Array Z contains the unitary matrix
@@ -52,7 +51,7 @@ E : DOUBLE PRECISION array, dimension (N-1) [in,out]
 > matrix.
 > On exit, E has been destroyed.
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [in,out]
 > On entry, if COMPZ = 'V', the unitary matrix used in the
 > reduction to tridiagonal form.
 > On exit, if COMPZ = 'V', the orthonormal eigenvectors of the
@@ -67,7 +66,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > COMPZ = 'V' or 'I', LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (4*N) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

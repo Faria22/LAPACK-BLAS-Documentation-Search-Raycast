@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctfsm
-(
+subroutine ctfsm (
         character transr,
         character side,
         character uplo,
@@ -19,33 +18,33 @@ Level 3 BLAS like routine for A in RFP Format.
 
 CTFSM solves the matrix equation
 
-op( A )*X = alpha*B  or  X*op( A ) = alpha*B
+op( A )\*X = alpha\*B  or  X\*op( A ) = alpha\*B
 
 where alpha is a scalar, X and B are m by n matrices, A is a unit, or
 non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
 
-op( A ) = A   or   op( A ) = A**H.
+op( A ) = A   or   op( A ) = A\*\*H.
 
 A is in Rectangular Full Packed (RFP) Format.
 
 The matrix X is overwritten on B.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal Form of RFP A is stored;
 > = 'C':  The Conjugate-transpose Form of RFP A is stored.
 
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > On entry, SIDE specifies whether op( A ) appears on the left
 > or right of X as follows:
 > 
-> SIDE = 'L' or 'l'   op( A )*X = alpha*B.
+> SIDE = 'L' or 'l'   op( A )\*X = alpha\*B.
 > 
-> SIDE = 'R' or 'r'   X*op( A ) = alpha*B.
+> SIDE = 'R' or 'r'   X\*op( A ) = alpha\*B.
 > 
 > Unchanged on exit.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the RFP matrix A came from
 > an upper or lower triangular matrix as follows:
 > UPLO = 'U' or 'u' RFP A came from an upper triangular matrix
@@ -53,7 +52,7 @@ UPLO : CHARACTER*1 [in]
 > 
 > Unchanged on exit.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry, TRANS  specifies the form of op( A ) to be used
 > in the matrix multiplication as follows:
 > 
@@ -63,7 +62,7 @@ TRANS : CHARACTER*1 [in]
 > 
 > Unchanged on exit.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > On entry, DIAG specifies whether or not RFP A is unit
 > triangular as follows:
 > 
@@ -91,7 +90,7 @@ ALPHA : COMPLEX [in]
 > Unchanged on exit.
 
 A : COMPLEX array, dimension (NT) [in]
-> NT = N*(N+1)/2 if SIDE='R' and NT = M*(M+1)/2 otherwise.
+> NT = N\*(N+1)/2 if SIDE='R' and NT = M\*(M+1)/2 otherwise.
 > On entry, the matrix A in RFP Format.
 > RFP Format is described by TRANSR, UPLO and N as follows:
 > If TRANSR='N' then RFP A is (0:N,0:K-1) when N is even;

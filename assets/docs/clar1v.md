@@ -1,6 +1,5 @@
 ```fortran
-subroutine clar1v
-(
+subroutine clar1v (
         integer n,
         integer b1,
         integer bn,
@@ -27,14 +26,14 @@ subroutine clar1v
 
 CLAR1V computes the (scaled) r-th column of the inverse of
 the sumbmatrix in rows B1 through BN of the tridiagonal matrix
-L D L**T - sigma I. When sigma is close to an eigenvalue, the
+L D L\*\*T - sigma I. When sigma is close to an eigenvalue, the
 computed vector is an accurate eigenvector. Usually, r corresponds
 to the index where the eigenvector is largest in magnitude.
 The following steps accomplish this computation :
-(a) Stationary qd transform,  L D L**T - sigma I = L(+) D(+) L(+)**T,
-(b) Progressive qd transform, L D L**T - sigma I = U(-) D(-) U(-)**T,
+(a) Stationary qd transform,  L D L\*\*T - sigma I = L(+) D(+) L(+)\*\*T,
+(b) Progressive qd transform, L D L\*\*T - sigma I = U(-) D(-) U(-)\*\*T,
 (c) Computation of the diagonal elements of the inverse of
-L D L**T - sigma I by combining the above transforms, and choosing
+L D L\*\*T - sigma I by combining the above transforms, and choosing
 r as the index where the diagonal of the inverse is (one of the)
 largest in magnitude.
 (d) Computation of the (scaled) r-th column of the inverse using the
@@ -43,18 +42,18 @@ the stationary and the bottom part of the progressive transform.
 
 ## Parameters
 N : INTEGER [in]
-> The order of the matrix L D L**T.
+> The order of the matrix L D L\*\*T.
 
 B1 : INTEGER [in]
-> First index of the submatrix of L D L**T.
+> First index of the submatrix of L D L\*\*T.
 
 BN : INTEGER [in]
-> Last index of the submatrix of L D L**T.
+> Last index of the submatrix of L D L\*\*T.
 
 LAMBDA : REAL [in]
 > The shift. In order to compute an accurate eigenvector,
 > LAMBDA should be a good approximation to an eigenvalue
-> of L D L**T.
+> of L D L\*\*T.
 
 L : REAL array, dimension (N-1) [in]
 > The (n-1) subdiagonal elements of the unit bidiagonal matrix
@@ -64,10 +63,10 @@ D : REAL array, dimension (N) [in]
 > The n diagonal elements of the diagonal matrix D.
 
 LD : REAL array, dimension (N-1) [in]
-> The n-1 elements L(i)*D(i).
+> The n-1 elements L(i)\*D(i).
 
 LLD : REAL array, dimension (N-1) [in]
-> The n-1 elements L(i)*L(i)*D(i).
+> The n-1 elements L(i)\*L(i)\*D(i).
 
 PIVMIN : REAL [in]
 > The minimum pivot in the Sturm sequence.
@@ -86,20 +85,20 @@ WANTNC : LOGICAL [in]
 
 NEGCNT : INTEGER [out]
 > If WANTNC is .TRUE. then NEGCNT = the number of pivots < pivmin
-> in the  matrix factorization L D L**T, and NEGCNT = -1 otherwise.
+> in the  matrix factorization L D L\*\*T, and NEGCNT = -1 otherwise.
 
 ZTZ : REAL [out]
 > The square of the 2-norm of Z.
 
 MINGMA : REAL [out]
 > The reciprocal of the largest (in magnitude) diagonal
-> element of the inverse of L D L**T - sigma I.
+> element of the inverse of L D L\*\*T - sigma I.
 
 R : INTEGER [in,out]
 > The twist index for the twisted factorization used to
 > compute Z.
 > On input, 0 <= R <= N. If R is input as 0, R is set to
-> the index where (L D L**T - sigma I)^{-1} is largest
+> the index where (L D L\*\*T - sigma I)^{-1} is largest
 > in magnitude. If 1 <= R <= N, R is unchanged.
 > On output, R contains the twist index used to compute Z.
 > Ideally, R designates the position of the maximum entry in the
@@ -118,6 +117,6 @@ RESID : REAL [out]
 
 RQCORR : REAL [out]
 > The Rayleigh Quotient correction to LAMBDA.
-> RQCORR = MINGMA*TMP
+> RQCORR = MINGMA\*TMP
 
-WORK : REAL array, dimension (4*N) [out]
+WORK : REAL array, dimension (4\*N) [out]

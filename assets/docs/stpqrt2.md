@@ -1,6 +1,5 @@
 ```fortran
-subroutine stpqrt2
-(
+subroutine stpqrt2 (
         integer m,
         integer n,
         integer l,

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasd5
-(
+subroutine slasd5 (
         integer i,
         real, dimension( 2 ) d,
         real, dimension( 2 ) z,
@@ -15,7 +14,7 @@ This subroutine computes the square root of the I-th eigenvalue
 of a positive symmetric rank-one modification of a 2-by-2 diagonal
 matrix
 
-diag( D ) * diag( D ) +  RHO * Z * transpose(Z) .
+diag( D ) \* diag( D ) +  RHO \* Z \* transpose(Z) .
 
 The diagonal entries in the array D are assumed to satisfy
 

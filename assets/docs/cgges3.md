@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgges3
-(
+subroutine cgges3 (
         character jobvsl,
         character jobvsr,
         character sort,
@@ -30,9 +29,9 @@ CGGES3 computes for a pair of N-by-N complex nonsymmetric matrices
 form (S, T), and optionally left and/or right Schur vectors (VSL
 and VSR). This gives the generalized Schur factorization
 
-(A,B) = ( (VSL)*S*(VSR)**H, (VSL)*T*(VSR)**H )
+(A,B) = ( (VSL)\*S\*(VSR)\*\*H, (VSL)\*T\*(VSR)\*\*H )
 
-where (VSR)**H is the conjugate-transpose of VSR.
+where (VSR)\*\*H is the conjugate-transpose of VSR.
 
 Optionally, it also orders the eigenvalues so that a selected cluster
 of eigenvalues appears in the leading diagonal blocks of the upper
@@ -44,7 +43,7 @@ corresponding left and right eigenspaces (deflating subspaces).
 CGGEV instead, which is faster.)
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar w
-or a ratio alpha/beta = w, such that  A - w*B is singular.  It is
+or a ratio alpha/beta = w, such that  A - w\*B is singular.  It is
 usually represented as the pair (alpha,beta), as there is a
 reasonable interpretation for beta=0, and even for both being zero.
 
@@ -53,15 +52,15 @@ and T are upper triangular and, in addition, the diagonal elements
 of T are non-negative real numbers.
 
 ## Parameters
-JOBVSL : CHARACTER*1 [in]
+JOBVSL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left Schur vectors;
 > = 'V':  compute the left Schur vectors.
 
-JOBVSR : CHARACTER*1 [in]
+JOBVSR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right Schur vectors;
 > = 'V':  compute the right Schur vectors.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the generalized Schur form.
 > = 'N':  Eigenvalues are not ordered;
@@ -140,7 +139,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= MAX(1,2*N).
+> The dimension of the array WORK. LWORK >= MAX(1,2\*N).
 > For good performance, LWORK must generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -148,7 +147,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (8*N) [out]
+RWORK : REAL array, dimension (8\*N) [out]
 
 BWORK : LOGICAL array, dimension (N) [out]
 > Not referenced if SORT = 'N'.

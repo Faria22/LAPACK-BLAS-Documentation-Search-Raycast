@@ -1,6 +1,5 @@
 ```fortran
-subroutine chbmv
-(
+subroutine chbmv (
         character uplo,
         integer n,
         integer k,
@@ -17,13 +16,13 @@ subroutine chbmv
 
 CHBMV  performs the matrix-vector  operation
 
-y := alpha*A*x + beta*y,
+y := alpha\*A\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are n element vectors and
 A is an n by n hermitian band matrix, with k super-diagonals.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the band matrix A is being supplied as
 > follows:
@@ -91,7 +90,7 @@ LDA : INTEGER [in]
 > ( k + 1 ).
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the
 > vector x.
 
@@ -103,7 +102,7 @@ BETA : COMPLEX [in]
 > On entry, BETA specifies the scalar beta.
 
 Y : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( n - 1 )*abs( INCY ) ).
+> ( 1 + ( n - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array Y must contain the
 > vector y. On exit, Y is overwritten by the updated vector y.
 

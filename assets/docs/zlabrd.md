@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlabrd
-(
+subroutine zlabrd (
         integer m,
         integer n,
         integer nb,
@@ -19,7 +18,7 @@ subroutine zlabrd
 
 ZLABRD reduces the first NB rows and columns of a complex general
 m by n matrix A to upper or lower real bidiagonal form by a unitary
-transformation Q**H * A * P, and returns the matrices X and Y which
+transformation Q\*\*H \* A \* P, and returns the matrices X and Y which
 are needed to apply the transformation to the unreduced part of A.
 
 If m >= n, A is reduced to upper bidiagonal form; if m < n, to lower
@@ -37,7 +36,7 @@ N : INTEGER [in]
 NB : INTEGER [in]
 > The number of leading rows and columns of A to be reduced.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the m by n general matrix to be reduced.
 > On exit, the first NB rows and columns of the matrix are
 > overwritten; the rest of the array is unchanged.
@@ -66,22 +65,22 @@ E : DOUBLE PRECISION array, dimension (NB) [out]
 > The off-diagonal elements of the first NB rows and columns of
 > the reduced matrix.
 
-TAUQ : COMPLEX*16 array, dimension (NB) [out]
+TAUQ : COMPLEX\*16 array, dimension (NB) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix Q. See Further Details.
 
-TAUP : COMPLEX*16 array, dimension (NB) [out]
+TAUP : COMPLEX\*16 array, dimension (NB) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix P. See Further Details.
 
-X : COMPLEX*16 array, dimension (LDX,NB) [out]
+X : COMPLEX\*16 array, dimension (LDX,NB) [out]
 > The m-by-nb matrix X required to update the unreduced part
 > of A.
 
 LDX : INTEGER [in]
 > The leading dimension of the array X. LDX >= max(1,M).
 
-Y : COMPLEX*16 array, dimension (LDY,NB) [out]
+Y : COMPLEX\*16 array, dimension (LDY,NB) [out]
 > The n-by-nb matrix Y required to update the unreduced part
 > of A.
 

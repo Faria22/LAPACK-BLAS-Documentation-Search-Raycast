@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlag2c
-(
+subroutine zlag2c (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -11,7 +10,7 @@ subroutine zlag2c
 )
 ```
 
-ZLAG2C converts a COMPLEX*16 matrix, SA, to a COMPLEX matrix, A.
+ZLAG2C converts a COMPLEX\*16 matrix, SA, to a COMPLEX matrix, A.
 
 RMAX is the overflow for the SINGLE PRECISION arithmetic
 ZLAG2C checks that all the entries of A are between -RMAX and
@@ -26,7 +25,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > On entry, the M-by-N coefficient matrix A.
 
 LDA : INTEGER [in]

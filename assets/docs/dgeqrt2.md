@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgeqrt2
-(
+subroutine dgeqrt2 (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,

@@ -1,6 +1,5 @@
 ```fortran
-subroutine clags2
-(
+subroutine clags2 (
         logical upper,
         real a1,
         complex a2,
@@ -20,26 +19,26 @@ subroutine clags2
 CLAGS2 computes 2-by-2 unitary matrices U, V and Q, such
 that if ( UPPER ) then
 
-U**H *A*Q = U**H *( A1 A2 )*Q = ( x  0  )
+U\*\*H \*A\*Q = U\*\*H \*( A1 A2 )\*Q = ( x  0  )
 ( 0  A3 )     ( x  x  )
 and
-V**H*B*Q = V**H *( B1 B2 )*Q = ( x  0  )
+V\*\*H\*B\*Q = V\*\*H \*( B1 B2 )\*Q = ( x  0  )
 ( 0  B3 )     ( x  x  )
 
 or if ( .NOT.UPPER ) then
 
-U**H *A*Q = U**H *( A1 0  )*Q = ( x  x  )
+U\*\*H \*A\*Q = U\*\*H \*( A1 0  )\*Q = ( x  x  )
 ( A2 A3 )     ( 0  x  )
 and
-V**H *B*Q = V**H *( B1 0  )*Q = ( x  x  )
+V\*\*H \*B\*Q = V\*\*H \*( B1 0  )\*Q = ( x  x  )
 ( B2 B3 )     ( 0  x  )
 where
 
 U = (   CSU    SNU ), V = (  CSV    SNV ),
-( -SNU**H  CSU )      ( -SNV**H CSV )
+( -SNU\*\*H  CSU )      ( -SNV\*\*H CSV )
 
 Q = (   CSQ    SNQ )
-( -SNQ**H  CSQ )
+( -SNQ\*\*H  CSQ )
 
 The rows of the transformed A and B are parallel. Moreover, if the
 input 2-by-2 matrix A is not zero, then the transformed (1,1) entry

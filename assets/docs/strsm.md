@@ -1,6 +1,5 @@
 ```fortran
-subroutine strsm
-(
+subroutine strsm (
         character side,
         character uplo,
         character transa,
@@ -17,25 +16,25 @@ subroutine strsm
 
 STRSM  solves one of the matrix equations
 
-op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
+op( A )\*X = alpha\*B,   or   X\*op( A ) = alpha\*B,
 
 where alpha is a scalar, X and B are m by n matrices, A is a unit, or
 non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
 
-op( A ) = A   or   op( A ) = A**T.
+op( A ) = A   or   op( A ) = A\*\*T.
 
 The matrix X is overwritten on B.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > On entry, SIDE specifies whether op( A ) appears on the left
 > or right of X as follows:
 > 
-> SIDE = 'L' or 'l'   op( A )*X = alpha*B.
+> SIDE = 'L' or 'l'   op( A )\*X = alpha\*B.
 > 
-> SIDE = 'R' or 'r'   X*op( A ) = alpha*B.
+> SIDE = 'R' or 'r'   X\*op( A ) = alpha\*B.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the matrix A is an upper or
 > lower triangular matrix as follows:
 > 
@@ -43,17 +42,17 @@ UPLO : CHARACTER*1 [in]
 > 
 > UPLO = 'L' or 'l'   A is a lower triangular matrix.
 
-TRANSA : CHARACTER*1 [in]
+TRANSA : CHARACTER\*1 [in]
 > On entry, TRANSA specifies the form of op( A ) to be used in
 > the matrix multiplication as follows:
 > 
 > TRANSA = 'N' or 'n'   op( A ) = A.
 > 
-> TRANSA = 'T' or 't'   op( A ) = A**T.
+> TRANSA = 'T' or 't'   op( A ) = A\*\*T.
 > 
-> TRANSA = 'C' or 'c'   op( A ) = A**T.
+> TRANSA = 'C' or 'c'   op( A ) = A\*\*T.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > On entry, DIAG specifies whether or not A is unit triangular
 > as follows:
 > 

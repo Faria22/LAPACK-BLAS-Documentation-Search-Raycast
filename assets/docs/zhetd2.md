@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetd2
-(
+subroutine zhetd2 (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -14,10 +13,10 @@ subroutine zhetd2
 
 ZHETD2 reduces a complex Hermitian matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q**H * A * Q = T.
+Q\*\*H \* A \* Q = T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular
@@ -26,7 +25,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 > n-by-n upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -56,7 +55,7 @@ E : DOUBLE PRECISION array, dimension (N-1) [out]
 > The off-diagonal elements of the tridiagonal matrix T:
 > E(i) = A(i,i+1) if UPLO = 'U', E(i) = A(i+1,i) if UPLO = 'L'.
 
-TAU : COMPLEX*16 array, dimension (N-1) [out]
+TAU : COMPLEX\*16 array, dimension (N-1) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 

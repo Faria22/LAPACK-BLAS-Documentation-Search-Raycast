@@ -1,6 +1,5 @@
 ```fortran
-subroutine dggesx
-(
+subroutine dggesx (
         character jobvsl,
         character jobvsr,
         character sort,
@@ -35,7 +34,7 @@ DGGESX computes for a pair of N-by-N real nonsymmetric matrices
 optionally, the left and/or right matrices of Schur vectors (VSL and
 VSR).  This gives the generalized Schur factorization
 
-(A,B) = ( (VSL) S (VSR)**T, (VSL) T (VSR)**T )
+(A,B) = ( (VSL) S (VSR)\*\*T, (VSL) T (VSR)\*\*T )
 
 Optionally, it also orders the eigenvalues so that a selected cluster
 of eigenvalues appears in the leading diagonal blocks of the upper
@@ -48,7 +47,7 @@ an orthonormal basis for the corresponding left and right eigenspaces
 (deflating subspaces).
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar w
-or a ratio alpha/beta = w, such that  A - w*B is singular.  It is
+or a ratio alpha/beta = w, such that  A - w\*B is singular.  It is
 usually represented as the pair (alpha,beta), as there is a
 reasonable interpretation for beta=0 or for both being zero.
 
@@ -65,15 +64,15 @@ and the pair of corresponding 2-by-2 blocks in S and T will have a
 complex conjugate pair of generalized eigenvalues.
 
 ## Parameters
-JOBVSL : CHARACTER*1 [in]
+JOBVSL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left Schur vectors;
 > = 'V':  compute the left Schur vectors.
 
-JOBVSR : CHARACTER*1 [in]
+JOBVSR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right Schur vectors;
 > = 'V':  compute the right Schur vectors.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the generalized Schur form.
 > = 'N':  Eigenvalues are not ordered;
@@ -94,7 +93,7 @@ SELCTG : a LOGICAL FUNCTION of three DOUBLE PRECISION arguments [in]
 > (especially if the eigenvalue is ill-conditioned), in this
 > case INFO is set to N+3.
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N':  None are computed;
 > = 'E':  Computed for average of selected eigenvalues only;
@@ -132,8 +131,8 @@ ALPHAR : DOUBLE PRECISION array, dimension (N) [out]
 ALPHAI : DOUBLE PRECISION array, dimension (N) [out]
 
 BETA : DOUBLE PRECISION array, dimension (N) [out]
-> On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
-> be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)*i
+> On exit, (ALPHAR(j) + ALPHAI(j)\*i)/BETA(j), j=1,...,N, will
+> be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)\*i
 > and BETA(j),j=1,...,N  are the diagonals of the complex Schur
 > form (S,T) that would result if the 2-by-2 diagonal blocks of
 > the real Schur form of (A,B) were further reduced to
@@ -183,11 +182,11 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If N = 0, LWORK >= 1, else if SENSE = 'E', 'V', or 'B',
-> LWORK >= max( 8*N, 6*N+16, 2*SDIM*(N-SDIM) ), else
-> LWORK >= max( 8*N, 6*N+16 ).
-> Note that 2*SDIM*(N-SDIM) <= N*N/2.
+> LWORK >= max( 8\*N, 6\*N+16, 2\*SDIM\*(N-SDIM) ), else
+> LWORK >= max( 8\*N, 6\*N+16 ).
+> Note that 2\*SDIM\*(N-SDIM) <= N\*N/2.
 > Note also that an error is only returned if
-> LWORK < max( 8*N, 6*N+16), but if SENSE = 'E' or 'V' or 'B'
+> LWORK < max( 8\*N, 6\*N+16), but if SENSE = 'E' or 'V' or 'B'
 > this may not be large enough.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

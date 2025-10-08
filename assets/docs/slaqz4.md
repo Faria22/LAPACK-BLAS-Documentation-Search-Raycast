@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqz4
-(
+subroutine slaqz4 (
         logical, intent(in) ilschur,
         logical, intent(in) ilq,
         logical, intent(in) ilz,

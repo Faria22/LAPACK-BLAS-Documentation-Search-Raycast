@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarfb_gett
-(
+subroutine dlarfb_gett (
         character ident,
         integer m,
         integer n,
@@ -25,7 +24,7 @@ WY-representation, where the elementary reflectors are in the
 arrays A, B and T. See Further Details section.
 
 ## Parameters
-IDENT : CHARACTER*1 [in]
+IDENT : CHARACTER\*1 [in]
 > If IDENT = not 'I', or not 'i', then V1 is unit
 > lower-triangular and stored in the left K-by-K block of
 > the input matrix A,
@@ -62,7 +61,7 @@ A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > (ones are not stored on the diagonal).
 > 
 > On exit:
-> A is overwritten by rectangular K-by-N product H*A.
+> A is overwritten by rectangular K-by-N product H\*A.
 > 
 > See Further Details section.
 
@@ -76,7 +75,7 @@ B : DOUBLE PRECISION array, dimension (LDB,N) [in,out]
 > b) In the M-by-N left block: columns of V2.
 > 
 > On exit:
-> B is overwritten by rectangular M-by-N product H*B.
+> B is overwritten by rectangular M-by-N product H\*B.
 > 
 > See Further Details section.
 

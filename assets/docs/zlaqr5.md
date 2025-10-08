@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqr5
-(
+subroutine zlaqr5 (
         logical wantt,
         logical wantz,
         integer kacc22,
@@ -70,13 +69,13 @@ NSHFTS : INTEGER [in]
 > NSHFTS gives the number of simultaneous shifts.  NSHFTS
 > must be positive and even.
 
-S : COMPLEX*16 array, dimension (NSHFTS) [in,out]
+S : COMPLEX\*16 array, dimension (NSHFTS) [in,out]
 > S contains the shifts of origin that define the multi-
 > shift QR sweep.  On output S may be reordered.
 
-H : COMPLEX*16 array, dimension (LDH,N) [in,out]
+H : COMPLEX\*16 array, dimension (LDH,N) [in,out]
 > On input H contains a Hessenberg matrix.  On output a
-> multi-shift QR sweep with shifts SR(J)+i*SI(J) is applied
+> multi-shift QR sweep with shifts SR(J)+i\*SI(J) is applied
 > to the isolated diagonal block in rows and columns KTOP
 > through KBOT.
 
@@ -90,7 +89,7 @@ IHIZ : INTEGER [in]
 > Specify the rows of Z to which transformations must be
 > applied if WANTZ is .TRUE.. 1 <= ILOZ <= IHIZ <= N
 
-Z : COMPLEX*16 array, dimension (LDZ,IHIZ) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,IHIZ) [in,out]
 > If WANTZ = .TRUE., then the QR Sweep unitary
 > similarity transformation is accumulated into
 > Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
@@ -100,23 +99,23 @@ LDZ : INTEGER [in]
 > LDA is the leading dimension of Z just as declared in
 > the calling procedure. LDZ >= N.
 
-V : COMPLEX*16 array, dimension (LDV,NSHFTS/2) [out]
+V : COMPLEX\*16 array, dimension (LDV,NSHFTS/2) [out]
 
 LDV : INTEGER [in]
 > LDV is the leading dimension of V as declared in the
 > calling procedure.  LDV >= 3.
 
-U : COMPLEX*16 array, dimension (LDU,2*NSHFTS) [out]
+U : COMPLEX\*16 array, dimension (LDU,2\*NSHFTS) [out]
 
 LDU : INTEGER [in]
 > LDU is the leading dimension of U just as declared in the
-> in the calling subroutine.  LDU >= 2*NSHFTS.
+> in the calling subroutine.  LDU >= 2\*NSHFTS.
 
 NV : INTEGER [in]
 > NV is the number of rows in WV agailable for workspace.
 > NV >= 1.
 
-WV : COMPLEX*16 array, dimension (LDWV,2*NSHFTS) [out]
+WV : COMPLEX\*16 array, dimension (LDWV,2\*NSHFTS) [out]
 
 LDWV : INTEGER [in]
 > LDWV is the leading dimension of WV as declared in the
@@ -126,8 +125,8 @@ NH : INTEGER [in]
 > NH is the number of columns in array WH available for
 > workspace. NH >= 1.
 
-WH : COMPLEX*16 array, dimension (LDWH,NH) [out]
+WH : COMPLEX\*16 array, dimension (LDWH,NH) [out]
 
 LDWH : INTEGER [in]
 > Leading dimension of WH just as declared in the
-> calling procedure.  LDWH >= 2*NSHFTS.
+> calling procedure.  LDWH >= 2\*NSHFTS.

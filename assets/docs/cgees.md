@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgees
-(
+subroutine cgees (
         character jobvs,
         character sort,
         external select,
@@ -21,7 +20,7 @@ subroutine cgees
 
 CGEES computes for an N-by-N complex nonsymmetric matrix A, the
 eigenvalues, the Schur form T, and, optionally, the matrix of Schur
-vectors Z.  This gives the Schur factorization A = Z*T*(Z**H).
+vectors Z.  This gives the Schur factorization A = Z\*T\*(Z\*\*H).
 
 Optionally, it also orders the eigenvalues on the diagonal of the
 Schur form so that selected eigenvalues are at the top left.
@@ -31,11 +30,11 @@ invariant subspace corresponding to the selected eigenvalues.
 A complex matrix is in Schur form if it is upper triangular.
 
 ## Parameters
-JOBVS : CHARACTER*1 [in]
+JOBVS : CHARACTER\*1 [in]
 > = 'N': Schur vectors are not computed;
 > = 'V': Schur vectors are computed.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the Schur form.
 > = 'N': Eigenvalues are not ordered:
@@ -80,7 +79,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= max(1,2*N).
+> The dimension of the array WORK.  LWORK >= max(1,2\*N).
 > For good performance, LWORK must generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

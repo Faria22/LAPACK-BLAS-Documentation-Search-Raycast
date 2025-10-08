@@ -1,6 +1,5 @@
 ```fortran
-double precision function droundup_lwork
-(
+double precision function droundup_lwork (
         integer lwork
 )
 ```
@@ -11,7 +10,7 @@ multiplying LWORK by 1+eps when it is necessary, where eps is the relative machi
 E.g.,
 
 float( 9007199254740993            ) == 9007199254740992
-float( 9007199254740993 ) * (1.+eps) == 9007199254740994
+float( 9007199254740993 ) \* (1.+eps) == 9007199254740994
 
 \return DROUNDUP_LWORK
 \verbatim

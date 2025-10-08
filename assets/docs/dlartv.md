@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlartv
-(
+subroutine dlartv (
         integer n,
         double precision, dimension( * ) x,
         integer incx,
@@ -23,23 +22,23 @@ N : INTEGER [in]
 > The number of plane rotations to be applied.
 
 X : DOUBLE PRECISION array, [in,out]
-> dimension (1+(N-1)*INCX)
+> dimension (1+(N-1)\*INCX)
 > The vector x.
 
 INCX : INTEGER [in]
 > The increment between elements of X. INCX > 0.
 
 Y : DOUBLE PRECISION array, [in,out]
-> dimension (1+(N-1)*INCY)
+> dimension (1+(N-1)\*INCY)
 > The vector y.
 
 INCY : INTEGER [in]
 > The increment between elements of Y. INCY > 0.
 
-C : DOUBLE PRECISION array, dimension (1+(N-1)*INCC) [in]
+C : DOUBLE PRECISION array, dimension (1+(N-1)\*INCC) [in]
 > The cosines of the plane rotations.
 
-S : DOUBLE PRECISION array, dimension (1+(N-1)*INCC) [in]
+S : DOUBLE PRECISION array, dimension (1+(N-1)\*INCC) [in]
 > The sines of the plane rotations.
 
 INCC : INTEGER [in]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zstedc
-(
+subroutine zstedc (
         character compz,
         integer n,
         double precision, dimension( * ) d,
@@ -24,7 +23,7 @@ be found if ZHETRD or ZHPTRD or ZHBTRD has been used to reduce this
 matrix to tridiagonal form.
 
 ## Parameters
-COMPZ : CHARACTER*1 [in]
+COMPZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only.
 > = 'I':  Compute eigenvectors of tridiagonal matrix also.
 > = 'V':  Compute eigenvectors of original Hermitian matrix
@@ -42,7 +41,7 @@ E : DOUBLE PRECISION array, dimension (N-1) [in,out]
 > On entry, the subdiagonal elements of the tridiagonal matrix.
 > On exit, E has been destroyed.
 
-Z : COMPLEX*16 array, dimension (LDZ,N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,N) [in,out]
 > On entry, if COMPZ = 'V', then Z contains the unitary
 > matrix used in the reduction to tridiagonal form.
 > On exit, if INFO = 0, then if COMPZ = 'V', Z contains the
@@ -55,13 +54,13 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1.
 > If eigenvectors are desired, then LDZ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If COMPZ = 'N' or 'I', or N <= 1, LWORK must be at least 1.
-> If COMPZ = 'V' and N > 1, LWORK must be at least N*N.
+> If COMPZ = 'V' and N > 1, LWORK must be at least N\*N.
 > Note that for COMPZ = 'V', then if N is less than or
 > equal to the minimum divide size, usually 25, then LWORK need
 > only be 1.
@@ -79,14 +78,14 @@ LRWORK : INTEGER [in]
 > The dimension of the array RWORK.
 > If COMPZ = 'N' or N <= 1, LRWORK must be at least 1.
 > If COMPZ = 'V' and N > 1, LRWORK must be at least
-> 1 + 3*N + 2*N*lg N + 4*N**2 ,
+> 1 + 3\*N + 2\*N\*lg N + 4\*N\*\*2 ,
 > where lg( N ) = smallest integer k such
-> that 2**k >= N.
+> that 2\*\*k >= N.
 > If COMPZ = 'I' and N > 1, LRWORK must be at least
-> 1 + 4*N + 2*N**2 .
+> 1 + 4\*N + 2\*N\*\*2 .
 > Note that for COMPZ = 'I' or 'V', then if N is less than or
 > equal to the minimum divide size, usually 25, then LRWORK
-> need only be max(1,2*(N-1)).
+> need only be max(1,2\*(N-1)).
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -101,9 +100,9 @@ LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If COMPZ = 'N' or N <= 1, LIWORK must be at least 1.
 > If COMPZ = 'V' or N > 1,  LIWORK must be at least
-> 6 + 6*N + 5*N*lg N.
+> 6 + 6\*N + 5\*N\*lg N.
 > If COMPZ = 'I' or N > 1,  LIWORK must be at least
-> 3 + 5*N .
+> 3 + 5\*N .
 > Note that for COMPZ = 'I' or 'V', then if N is less than or
 > equal to the minimum divide size, usually 25, then LIWORK
 > need only be 1.

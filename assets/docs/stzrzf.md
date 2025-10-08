@@ -1,6 +1,5 @@
 ```fortran
-subroutine stzrzf
-(
+subroutine stzrzf (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -17,7 +16,7 @@ to upper triangular form by means of orthogonal transformations.
 
 The upper trapezoidal matrix A is factored as
 
-A = ( R  0 ) * Z,
+A = ( R  0 ) \* Z,
 
 where Z is an N-by-N orthogonal matrix and R is an M-by-M upper
 triangular matrix.
@@ -48,7 +47,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.  LWORK >= max(1,M).
-> For optimum performance LWORK >= M*NB, where NB is
+> For optimum performance LWORK >= M\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine clacp2
-(
+subroutine clacp2 (
         character uplo,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ CLACP2 copies all or part of a real two-dimensional matrix A to a
 complex matrix B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies the part of the matrix A to be copied to B.
 > = 'U':      Upper triangular part
 > = 'L':      Lower triangular part

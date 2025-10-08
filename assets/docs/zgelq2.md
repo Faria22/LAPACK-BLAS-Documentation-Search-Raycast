@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgelq2
-(
+subroutine zgelq2 (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -13,7 +12,7 @@ subroutine zgelq2
 
 ZGELQ2 computes an LQ factorization of a complex m-by-n matrix A:
 
-A = ( L 0 ) *  Q
+A = ( L 0 ) \*  Q
 
 where:
 
@@ -28,7 +27,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the m by n matrix A.
 > On exit, the elements on and below the diagonal of the array
 > contain the m by min(m,n) lower trapezoidal matrix L (L is
@@ -39,11 +38,11 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-TAU : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAU : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 
-WORK : COMPLEX*16 array, dimension (M) [out]
+WORK : COMPLEX\*16 array, dimension (M) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

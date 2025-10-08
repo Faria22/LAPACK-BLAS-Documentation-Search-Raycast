@@ -1,6 +1,5 @@
 ```fortran
-subroutine chptrd
-(
+subroutine chptrd (
         character uplo,
         integer n,
         complex, dimension( * ) ap,
@@ -13,22 +12,22 @@ subroutine chptrd
 
 CHPTRD reduces a complex Hermitian matrix A stored in packed form to
 real symmetric tridiagonal form T by a unitary similarity
-transformation: Q**H * A * Q = T.
+transformation: Q\*\*H \* A \* Q = T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in,out]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the Hermitian matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > On exit, if UPLO = 'U', the diagonal and first superdiagonal
 > of A are overwritten by the corresponding elements of the
 > tridiagonal matrix T, and the elements above the first

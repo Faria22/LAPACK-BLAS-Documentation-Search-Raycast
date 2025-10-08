@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssytrd_sy2sb
-(
+subroutine ssytrd_sy2sb (
         character uplo,
         integer n,
         integer kd,
@@ -17,10 +16,10 @@ subroutine ssytrd_sy2sb
 
 SSYTRD_SY2SB reduces a real symmetric matrix A to real symmetric
 band-diagonal form AB by a orthogonal similarity transformation:
-Q**T * A * Q = AB.
+Q\*\*T \* A \* Q = AB.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -82,7 +81,7 @@ LWORK : INTEGER [in]
 > only calculates the optimal size of the WORK array, returns
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
-> LWORK_QUERY = N*KD + N*max(KD,FACTOPTNB) + 2*KD*KD
+> LWORK_QUERY = N\*KD + N\*max(KD,FACTOPTNB) + 2\*KD\*KD
 > where FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice otherwise
 > putting LWORK=-1 will provide the size of WORK.

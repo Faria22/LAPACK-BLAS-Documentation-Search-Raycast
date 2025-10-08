@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlapmt
-(
+subroutine zlapmt (
         logical forwrd,
         integer m,
         integer n,
@@ -14,11 +13,11 @@ ZLAPMT rearranges the columns of the M by N matrix X as specified
 by the permutation K(1),K(2),...,K(N) of the integers 1,...,N.
 If FORWRD = .TRUE.,  forward permutation:
 
-X(*,K(J)) is moved X(*,J) for J = 1,2,...,N.
+X(\*,K(J)) is moved X(\*,J) for J = 1,2,...,N.
 
 If FORWRD = .FALSE., backward permutation:
 
-X(*,J) is moved to X(*,K(J)) for J = 1,2,...,N.
+X(\*,J) is moved to X(\*,K(J)) for J = 1,2,...,N.
 
 ## Parameters
 FORWRD : LOGICAL [in]
@@ -31,7 +30,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix X. N >= 0.
 
-X : COMPLEX*16 array, dimension (LDX,N) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,N) [in,out]
 > On entry, the M by N matrix X.
 > On exit, X contains the permuted matrix X.
 

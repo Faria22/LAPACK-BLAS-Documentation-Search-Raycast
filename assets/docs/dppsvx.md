@@ -1,6 +1,5 @@
 ```fortran
-subroutine dppsvx
-(
+subroutine dppsvx (
         character fact,
         character uplo,
         integer n,
@@ -22,9 +21,9 @@ subroutine dppsvx
 )
 ```
 
-DPPSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to
+DPPSVX uses the Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T to
 compute the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric positive definite matrix stored in
 packed format and X and B are N-by-NRHS matrices.
 
@@ -32,7 +31,7 @@ Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of the matrix A is
 > supplied on entry, and if not, whether the matrix A should be
 > equilibrated before it is factored.
@@ -44,7 +43,7 @@ FACT : CHARACTER*1 [in]
 > = 'E':  The matrix A will be equilibrated if necessary, then
 > copied to AFP and factored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -56,43 +55,43 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AP : DOUBLE PRECISION array, dimension (N*(N+1)/2) [in,out]
+AP : DOUBLE PRECISION array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the symmetric matrix
 > A, packed columnwise in a linear array, except if FACT = 'F'
 > and EQUED = 'Y', then A must contain the equilibrated matrix
-> diag(S)*A*diag(S).  The j-th column of A is stored in the
+> diag(S)\*A\*diag(S).  The j-th column of A is stored in the
 > array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = A(i,j) for j<=i<=n.
 > See below for further details.  A is not modified if
 > FACT = 'F' or 'N', or if FACT = 'E' and EQUED = 'N' on exit.
 > 
 > On exit, if FACT = 'E' and EQUED = 'Y', A is overwritten by
-> diag(S)*A*diag(S).
+> diag(S)\*A\*diag(S).
 
-AFP : DOUBLE PRECISION array, dimension (N*(N+1)/2) [in,out]
+AFP : DOUBLE PRECISION array, dimension (N\*(N+1)/2) [in,out]
 > If FACT = 'F', then AFP is an input argument and on entry
 > contains the triangular factor U or L from the Cholesky
-> factorization A = U**T*U or A = L*L**T, in the same storage
+> factorization A = U\*\*T\*U or A = L\*L\*\*T, in the same storage
 > format as A.  If EQUED .ne. 'N', then AFP is the factored
 > form of the equilibrated matrix A.
 > 
 > If FACT = 'N', then AFP is an output argument and on exit
 > returns the triangular factor U or L from the Cholesky
-> factorization A = U**T * U or A = L * L**T of the original
+> factorization A = U\*\*T \* U or A = L \* L\*\*T of the original
 > matrix A.
 > 
 > If FACT = 'E', then AFP is an output argument and on exit
 > returns the triangular factor U or L from the Cholesky
-> factorization A = U**T * U or A = L * L**T of the equilibrated
+> factorization A = U\*\*T \* U or A = L \* L\*\*T of the equilibrated
 > matrix A (see the description of AP for the form of the
 > equilibrated matrix).
 
-EQUED : CHARACTER*1 [in,out]
+EQUED : CHARACTER\*1 [in,out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration (always true if FACT = 'N').
 > = 'Y':  Equilibration was done, i.e., A has been replaced by
-> diag(S) * A * diag(S).
+> diag(S) \* A \* diag(S).
 > EQUED is an input argument if FACT = 'F'; otherwise, it is an
 > output argument.
 
@@ -105,7 +104,7 @@ S : DOUBLE PRECISION array, dimension (N) [in,out]
 B : DOUBLE PRECISION array, dimension (LDB,NRHS) [in,out]
 > On entry, the N-by-NRHS right hand side matrix B.
 > On exit, if EQUED = 'N', B is not modified; if EQUED = 'Y',
-> B is overwritten by diag(S) * B.
+> B is overwritten by diag(S) \* B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
@@ -114,7 +113,7 @@ X : DOUBLE PRECISION array, dimension (LDX,NRHS) [out]
 > If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X to
 > the original system of equations.  Note that if EQUED = 'Y',
 > A and B are modified on exit, and the solution to the
-> equilibrated system is inv(diag(S))*X.
+> equilibrated system is inv(diag(S))\*X.
 
 LDX : INTEGER [in]
 > The leading dimension of the array X.  LDX >= max(1,N).
@@ -141,7 +140,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

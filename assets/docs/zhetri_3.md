@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetri_3
-(
+subroutine zhetri_3 (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -16,11 +15,11 @@ subroutine zhetri_3
 ZHETRI_3 computes the inverse of a complex Hermitian indefinite
 matrix A using the factorization computed by ZHETRF_RK or ZHETRF_BK:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 ZHETRI_3 sets the leading dimension of the workspace  before calling
@@ -28,7 +27,7 @@ ZHETRI_3X that actually computes the inverse.  This is the blocked
 version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix.
 > = 'U':  Upper triangle of A is stored;
@@ -37,7 +36,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, diagonal of the block diagonal matrix D and
 > factors U or L as computed by ZHETRF_RK and ZHETRF_BK:
 > a) ONLY diagonal elements of the Hermitian block diagonal
@@ -59,7 +58,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [in]
+E : COMPLEX\*16 array, dimension (N) [in]
 > On entry, contains the superdiagonal (or subdiagonal)
 > elements of the Hermitian block diagonal matrix D
 > with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -74,11 +73,11 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZHETRF_RK or ZHETRF_BK.
 
-WORK : COMPLEX*16 array, dimension (N+NB+1)*(NB+3). [out]
+WORK : COMPLEX\*16 array, dimension (N+NB+1)\*(NB+3). [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK. LWORK >= (N+NB+1)*(NB+3).
+> The length of WORK. LWORK >= (N+NB+1)\*(NB+3).
 > 
 > If LDWORK = -1, then a workspace query is assumed;
 > the routine only calculates the optimal size of the optimal

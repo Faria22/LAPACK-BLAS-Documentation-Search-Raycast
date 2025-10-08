@@ -1,6 +1,5 @@
 ```fortran
-subroutine sscal
-(
+subroutine sscal (
         integer n,
         real sa,
         real, dimension(*) sx,
@@ -18,7 +17,7 @@ N : INTEGER [in]
 SA : REAL [in]
 > On entry, SA specifies the scalar alpha.
 
-SX : REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+SX : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of SX

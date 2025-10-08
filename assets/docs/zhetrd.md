@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetrd
-(
+subroutine zhetrd (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -16,17 +15,17 @@ subroutine zhetrd
 
 ZHETRD reduces a complex Hermitian matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q**H * A * Q = T.
+Q\*\*H \* A \* Q = T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 > N-by-N upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -56,16 +55,16 @@ E : DOUBLE PRECISION array, dimension (N-1) [out]
 > The off-diagonal elements of the tridiagonal matrix T:
 > E(i) = A(i,i+1) if UPLO = 'U', E(i) = A(i+1,i) if UPLO = 'L'.
 
-TAU : COMPLEX*16 array, dimension (N-1) [out]
+TAU : COMPLEX\*16 array, dimension (N-1) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.  LWORK >= 1.
-> For optimum performance LWORK >= N*NB, where NB is the
+> For optimum performance LWORK >= N\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

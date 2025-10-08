@@ -1,6 +1,5 @@
 ```fortran
-real function slanst
-(
+real function slanst (
         character norm,
         integer n,
         real, dimension( * ) d,
@@ -13,7 +12,7 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 real symmetric tridiagonal matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in SLANST as described
 > above.
 

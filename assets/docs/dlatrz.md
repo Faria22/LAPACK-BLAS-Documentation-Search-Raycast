@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlatrz
-(
+subroutine dlatrz (
         integer m,
         integer n,
         integer l,
@@ -12,7 +11,7 @@ subroutine dlatrz
 ```
 
 DLATRZ factors the M-by-(M+L) real upper trapezoidal matrix
-[ A1 A2 ] = [ A(1:M,1:M) A(1:M,N-L+1:N) ] as ( R  0 ) * Z, by means
+[ A1 A2 ] = [ A(1:M,1:M) A(1:M,N-L+1:N) ] as ( R  0 ) \* Z, by means
 of orthogonal transformations.  Z is an (M+L)-by-(M+L) orthogonal
 matrix and, R and A1 are M-by-M upper triangular matrices.
 

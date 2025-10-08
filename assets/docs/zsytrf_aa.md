@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytrf_aa
-(
+subroutine zsytrf_aa (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine zsytrf_aa
 ZSYTRF_AA computes the factorization of a complex symmetric matrix A
 using the Aasen's algorithm.  The form of the factorization is
 
-A = U**T*T*U  or  A = L*T*L**T
+A = U\*\*T\*T\*U  or  A = L\*T\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is a complex symmetric tridiagonal matrix.
@@ -23,14 +22,14 @@ triangular matrices, and T is a complex symmetric tridiagonal matrix.
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 > N-by-N upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -52,12 +51,12 @@ IPIV : INTEGER array, dimension (N) [out]
 > the row and column k of A were interchanged with the
 > row and column IPIV(k).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK. LWORK >=MAX(1,2*N). For optimum performance
-> LWORK >= N*(1+NB), where NB is the optimal blocksize.
+> The length of WORK. LWORK >=MAX(1,2\*N). For optimum performance
+> LWORK >= N\*(1+NB), where NB is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

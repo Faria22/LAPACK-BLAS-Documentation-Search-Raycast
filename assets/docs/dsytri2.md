@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytri2
-(
+subroutine dsytri2 (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -13,16 +12,16 @@ subroutine dsytri2
 ```
 
 DSYTRI2 computes the inverse of a DOUBLE PRECISION symmetric indefinite matrix
-A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by
 DSYTRF. DSYTRI2 sets the LEADING DIMENSION of the workspace
 before calling DSYTRI2X that actually computes the inverse.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -49,7 +48,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)*(NB+3).
+> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)\*(NB+3).
 > If LWORK = -1, then a workspace query is assumed; the routine
 > calculates:
 > - the optimal size of the WORK array, returns

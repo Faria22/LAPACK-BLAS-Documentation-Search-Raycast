@@ -1,6 +1,5 @@
 ```fortran
-subroutine cunmbr
-(
+subroutine cunmbr (
         character vect,
         character side,
         character trans,
@@ -21,22 +20,22 @@ subroutine cunmbr
 If VECT = 'Q', CUNMBR overwrites the general complex M-by-N matrix C
 with
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'C':      Q**H * C       C * Q**H
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'C':      Q\*\*H \* C       C \* Q\*\*H
 
 If VECT = 'P', CUNMBR overwrites the general complex M-by-N matrix C
 with
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      P * C          C * P
-TRANS = 'C':      P**H * C       C * P**H
+TRANS = 'N':      P \* C          C \* P
+TRANS = 'C':      P\*\*H \* C       C \* P\*\*H
 
-Here Q and P**H are the unitary matrices determined by CGEBRD when
-reducing a complex matrix A to bidiagonal form: A = Q * B * P**H. Q
-and P**H are defined as products of elementary reflectors H(i) and
+Here Q and P\*\*H are the unitary matrices determined by CGEBRD when
+reducing a complex matrix A to bidiagonal form: A = Q \* B \* P\*\*H. Q
+and P\*\*H are defined as products of elementary reflectors H(i) and
 G(i) respectively.
 
 Let nq = m if SIDE = 'L' and nq = n if SIDE = 'R'. Thus nq is the
-order of the unitary matrix Q or P**H that is applied.
+order of the unitary matrix Q or P\*\*H that is applied.
 
 If VECT = 'Q', A is assumed to have been an NQ-by-K matrix:
 if nq >= k, Q = H(1) H(2) . . . H(k);
@@ -47,17 +46,17 @@ if k < nq, P = G(1) G(2) . . . G(k);
 if k >= nq, P = G(1) G(2) . . . G(nq-1).
 
 ## Parameters
-VECT : CHARACTER*1 [in]
-> = 'Q': apply Q or Q**H;
-> = 'P': apply P or P**H.
+VECT : CHARACTER\*1 [in]
+> = 'Q': apply Q or Q\*\*H;
+> = 'P': apply P or P\*\*H.
 
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q, Q**H, P or P**H from the Left;
-> = 'R': apply Q, Q**H, P or P**H from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q, Q\*\*H, P or P\*\*H from the Left;
+> = 'R': apply Q, Q\*\*H, P or P\*\*H from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q or P;
-> = 'C':  Conjugate transpose, apply Q**H or P**H.
+> = 'C':  Conjugate transpose, apply Q\*\*H or P\*\*H.
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -91,8 +90,8 @@ TAU : COMPLEX array, dimension (min(nq,K)) [in]
 
 C : COMPLEX array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q
-> or P*C or P**H*C or C*P or C*P**H.
+> On exit, C is overwritten by Q\*C or Q\*\*H\*C or C\*Q\*\*H or C\*Q
+> or P\*C or P\*\*H\*C or C\*P or C\*P\*\*H.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).
@@ -105,8 +104,8 @@ LWORK : INTEGER [in]
 > If SIDE = 'L', LWORK >= max(1,N);
 > if SIDE = 'R', LWORK >= max(1,M);
 > if N = 0 or M = 0, LWORK >= 1.
-> For optimum performance LWORK >= max(1,N*NB) if SIDE = 'L',
-> and LWORK >= max(1,M*NB) if SIDE = 'R', where NB is the
+> For optimum performance LWORK >= max(1,N\*NB) if SIDE = 'L',
+> and LWORK >= max(1,M\*NB) if SIDE = 'R', where NB is the
 > optimal blocksize. (NB = 0 if M = 0 or N = 0.)
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgglse
-(
+subroutine sgglse (
         integer m,
         integer n,
         integer p,
@@ -20,7 +19,7 @@ subroutine sgglse
 SGGLSE solves the linear equality-constrained least squares (LSE)
 problem:
 
-minimize || c - A*x ||_2   subject to   B*x = d
+minimize || c - A\*x ||_2   subject to   B\*x = d
 
 where A is an M-by-N matrix, B is a P-by-N matrix, c is a given
 M-vector, and d is a given P-vector. It is assumed that
@@ -33,7 +32,7 @@ These conditions ensure that the LSE problem has a unique solution,
 which is obtained using a generalized RQ factorization of the
 matrices (B, A) given by
 
-B = (0 R)*Q,   A = Z*T*Q.
+B = (0 R)\*Q,   A = Z\*T\*Q.
 
 Callers of this subroutine should note that the singularity/rank-deficiency checks
 implemented in this subroutine are rudimentary. The STRTRS subroutine called by this
@@ -90,7 +89,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,M+N+P).
-> For optimum performance LWORK >= P+min(M,N)+max(M,N)*NB,
+> For optimum performance LWORK >= P+min(M,N)+max(M,N)\*NB,
 > where NB is an upper bound for the optimal blocksizes for
 > SGEQRF, SGERQF, SORMQR and SORMRQ.
 > 

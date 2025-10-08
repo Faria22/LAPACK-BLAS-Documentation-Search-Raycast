@@ -1,6 +1,5 @@
 ```fortran
-subroutine zuncsd2by1
-(
+subroutine zuncsd2by1 (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -34,7 +33,7 @@ structure:
 [  I1 0  0 ]
 [  0  C  0 ]
 [ X11 ]   [ U1 |    ] [  0  0  0 ]
-X = [-----] = [---------] [----------] V1**T .
+X = [-----] = [---------] [----------] V1\*\*T .
 [ X21 ]   [    | U2 ] [  0  0  0 ]
 [  0  S  0 ]
 [  0  0  I2]
@@ -67,13 +66,13 @@ P : INTEGER [in]
 Q : INTEGER [in]
 > The number of columns in X11 and X21. 0 <= Q <= M.
 
-X11 : COMPLEX*16 array, dimension (LDX11,Q) [in,out]
+X11 : COMPLEX\*16 array, dimension (LDX11,Q) [in,out]
 > On entry, part of the unitary matrix whose CSD is desired.
 
 LDX11 : INTEGER [in]
 > The leading dimension of X11. LDX11 >= MAX(1,P).
 
-X21 : COMPLEX*16 array, dimension (LDX21,Q) [in,out]
+X21 : COMPLEX\*16 array, dimension (LDX21,Q) [in,out]
 > On entry, part of the unitary matrix whose CSD is desired.
 
 LDX21 : INTEGER [in]
@@ -84,14 +83,14 @@ THETA : DOUBLE PRECISION array, dimension (R), in which R = [out]
 > C = DIAG( COS(THETA(1)), ... , COS(THETA(R)) ) and
 > S = DIAG( SIN(THETA(1)), ... , SIN(THETA(R)) ).
 
-U1 : COMPLEX*16 array, dimension (P) [out]
+U1 : COMPLEX\*16 array, dimension (P) [out]
 > If JOBU1 = 'Y', U1 contains the P-by-P unitary matrix U1.
 
 LDU1 : INTEGER [in]
 > The leading dimension of U1. If JOBU1 = 'Y', LDU1 >=
 > MAX(1,P).
 
-U2 : COMPLEX*16 array, dimension (M-P) [out]
+U2 : COMPLEX\*16 array, dimension (M-P) [out]
 > If JOBU2 = 'Y', U2 contains the (M-P)-by-(M-P) unitary
 > matrix U2.
 
@@ -99,15 +98,15 @@ LDU2 : INTEGER [in]
 > The leading dimension of U2. If JOBU2 = 'Y', LDU2 >=
 > MAX(1,M-P).
 
-V1T : COMPLEX*16 array, dimension (Q) [out]
+V1T : COMPLEX\*16 array, dimension (Q) [out]
 > If JOBV1T = 'Y', V1T contains the Q-by-Q matrix unitary
-> matrix V1**T.
+> matrix V1\*\*T.
 
 LDV1T : INTEGER [in]
 > The leading dimension of V1T. If JOBV1T = 'Y', LDV1T >=
 > MAX(1,Q).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]

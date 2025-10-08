@@ -1,6 +1,5 @@
 ```fortran
-subroutine zunhr_col
-(
+subroutine zunhr_col (
         integer m,
         integer n,
         integer nb,

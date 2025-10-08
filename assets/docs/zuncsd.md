@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine zuncsd
-(
+recursive subroutine zuncsd (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -41,7 +40,7 @@ unitary matrix X:
 
 [  I  0  0 |  0  0  0 ]
 [  0  C  0 |  0 -S  0 ]
-[ X11 | X12 ]   [ U1 |    ] [  0  0  0 |  0  0 -I ] [ V1 |    ]**H
+[ X11 | X12 ]   [ U1 |    ] [  0  0  0 |  0  0 -I ] [ V1 |    ]\*\*H
 X = [-----------] = [---------] [---------------------] [---------]   .
 [ X21 | X22 ]   [    | U2 ] [  0  0  0 |  I  0  0 ] [    | V2 ]
 [  0  S  0 |  0  C  0 ]
@@ -90,25 +89,25 @@ P : INTEGER [in]
 Q : INTEGER [in]
 > The number of columns in X11 and X21. 0 <= Q <= M.
 
-X11 : COMPLEX*16 array, dimension (LDX11,Q) [in,out]
+X11 : COMPLEX\*16 array, dimension (LDX11,Q) [in,out]
 > On entry, part of the unitary matrix whose CSD is desired.
 
 LDX11 : INTEGER [in]
 > The leading dimension of X11. LDX11 >= MAX(1,P).
 
-X12 : COMPLEX*16 array, dimension (LDX12,M-Q) [in,out]
+X12 : COMPLEX\*16 array, dimension (LDX12,M-Q) [in,out]
 > On entry, part of the unitary matrix whose CSD is desired.
 
 LDX12 : INTEGER [in]
 > The leading dimension of X12. LDX12 >= MAX(1,P).
 
-X21 : COMPLEX*16 array, dimension (LDX21,Q) [in,out]
+X21 : COMPLEX\*16 array, dimension (LDX21,Q) [in,out]
 > On entry, part of the unitary matrix whose CSD is desired.
 
 LDX21 : INTEGER [in]
 > The leading dimension of X11. LDX21 >= MAX(1,M-P).
 
-X22 : COMPLEX*16 array, dimension (LDX22,M-Q) [in,out]
+X22 : COMPLEX\*16 array, dimension (LDX22,M-Q) [in,out]
 > On entry, part of the unitary matrix whose CSD is desired.
 
 LDX22 : INTEGER [in]
@@ -119,14 +118,14 @@ THETA : DOUBLE PRECISION array, dimension (R), in which R = [out]
 > C = DIAG( COS(THETA(1)), ... , COS(THETA(R)) ) and
 > S = DIAG( SIN(THETA(1)), ... , SIN(THETA(R)) ).
 
-U1 : COMPLEX*16 array, dimension (LDU1,P) [out]
+U1 : COMPLEX\*16 array, dimension (LDU1,P) [out]
 > If JOBU1 = 'Y', U1 contains the P-by-P unitary matrix U1.
 
 LDU1 : INTEGER [in]
 > The leading dimension of U1. If JOBU1 = 'Y', LDU1 >=
 > MAX(1,P).
 
-U2 : COMPLEX*16 array, dimension (LDU2,M-P) [out]
+U2 : COMPLEX\*16 array, dimension (LDU2,M-P) [out]
 > If JOBU2 = 'Y', U2 contains the (M-P)-by-(M-P) unitary
 > matrix U2.
 
@@ -134,23 +133,23 @@ LDU2 : INTEGER [in]
 > The leading dimension of U2. If JOBU2 = 'Y', LDU2 >=
 > MAX(1,M-P).
 
-V1T : COMPLEX*16 array, dimension (LDV1T,Q) [out]
+V1T : COMPLEX\*16 array, dimension (LDV1T,Q) [out]
 > If JOBV1T = 'Y', V1T contains the Q-by-Q matrix unitary
-> matrix V1**H.
+> matrix V1\*\*H.
 
 LDV1T : INTEGER [in]
 > The leading dimension of V1T. If JOBV1T = 'Y', LDV1T >=
 > MAX(1,Q).
 
-V2T : COMPLEX*16 array, dimension (LDV2T,M-Q) [out]
+V2T : COMPLEX\*16 array, dimension (LDV2T,M-Q) [out]
 > If JOBV2T = 'Y', V2T contains the (M-Q)-by-(M-Q) unitary
-> matrix V2**H.
+> matrix V2\*\*H.
 
 LDV2T : INTEGER [in]
 > The leading dimension of V2T. If JOBV2T = 'Y', LDV2T >=
 > MAX(1,M-Q).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]

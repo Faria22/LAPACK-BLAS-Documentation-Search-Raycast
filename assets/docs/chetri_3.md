@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetri_3
-(
+subroutine chetri_3 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -16,11 +15,11 @@ subroutine chetri_3
 CHETRI_3 computes the inverse of a complex Hermitian indefinite
 matrix A using the factorization computed by CHETRF_RK or CHETRF_BK:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 CHETRI_3 sets the leading dimension of the workspace  before calling
@@ -28,7 +27,7 @@ CHETRI_3X that actually computes the inverse.  This is the blocked
 version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix.
 > = 'U':  Upper triangle of A is stored;
@@ -79,7 +78,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)). [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.
-> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)*(NB+3).
+> If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)\*(NB+3).
 > 
 > If LWORK = -1, then a workspace query is assumed;
 > the routine only calculates the optimal size of the optimal

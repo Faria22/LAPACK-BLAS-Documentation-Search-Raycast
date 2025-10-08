@@ -1,6 +1,5 @@
 ```fortran
-subroutine zunbdb5
-(
+subroutine zunbdb5 (
         integer m1,
         integer m2,
         integer n,
@@ -41,14 +40,14 @@ M2 : INTEGER [in]
 N : INTEGER [in]
 > The number of columns in Q1 and Q2. 0 <= N.
 
-X1 : COMPLEX*16 array, dimension (M1) [in,out]
+X1 : COMPLEX\*16 array, dimension (M1) [in,out]
 > On entry, the top part of the vector to be orthogonalized.
 > On exit, the top part of the projected vector.
 
 INCX1 : INTEGER [in]
 > Increment for entries of X1.
 
-X2 : COMPLEX*16 array, dimension (M2) [in,out]
+X2 : COMPLEX\*16 array, dimension (M2) [in,out]
 > On entry, the bottom part of the vector to be
 > orthogonalized. On exit, the bottom part of the projected
 > vector.
@@ -56,19 +55,19 @@ X2 : COMPLEX*16 array, dimension (M2) [in,out]
 INCX2 : INTEGER [in]
 > Increment for entries of X2.
 
-Q1 : COMPLEX*16 array, dimension (LDQ1, N) [in]
+Q1 : COMPLEX\*16 array, dimension (LDQ1, N) [in]
 > The top part of the orthonormal basis matrix.
 
 LDQ1 : INTEGER [in]
 > The leading dimension of Q1. LDQ1 >= M1.
 
-Q2 : COMPLEX*16 array, dimension (LDQ2, N) [in]
+Q2 : COMPLEX\*16 array, dimension (LDQ2, N) [in]
 > The bottom part of the orthonormal basis matrix.
 
 LDQ2 : INTEGER [in]
 > The leading dimension of Q2. LDQ2 >= M2.
 
-WORK : COMPLEX*16 array, dimension (LWORK) [out]
+WORK : COMPLEX\*16 array, dimension (LWORK) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= N.

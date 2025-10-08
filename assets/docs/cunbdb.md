@@ -1,6 +1,5 @@
 ```fortran
-subroutine cunbdb
-(
+subroutine cunbdb (
         character trans,
         character signs,
         integer m,
@@ -30,7 +29,7 @@ CUNBDB simultaneously bidiagonalizes the blocks of an M-by-M
 partitioned unitary matrix X:
 
 [ B11 | B12 0  0 ]
-[ X11 | X12 ]   [ P1 |    ] [  0  |  0 -I  0 ] [ Q1 |    ]**H
+[ X11 | X12 ]   [ P1 |    ] [  0  |  0 -I  0 ] [ Q1 |    ]\*\*H
 X = [-----------] = [---------] [----------------] [---------]   .
 [ X21 | X22 ]   [    | P2 ] [ B21 | B22 0  0 ] [    | Q2 ]
 [  0  |  0  0  I ]

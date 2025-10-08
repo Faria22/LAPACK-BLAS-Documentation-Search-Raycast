@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpotri
-(
+subroutine cpotri (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -10,11 +9,11 @@ subroutine cpotri
 ```
 
 CPOTRI computes the inverse of a complex Hermitian positive definite
-matrix A using the Cholesky factorization A = U**H*U or A = L*L**H
+matrix A using the Cholesky factorization A = U\*\*H\*U or A = L\*L\*\*H
 computed by CPOTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -23,7 +22,7 @@ N : INTEGER [in]
 
 A : COMPLEX array, dimension (LDA,N) [in,out]
 > On entry, the triangular factor U or L from the Cholesky
-> factorization A = U**H*U or A = L*L**H, as computed by
+> factorization A = U\*\*H\*U or A = L\*L\*\*H, as computed by
 > CPOTRF.
 > On exit, the upper or lower triangle of the (Hermitian)
 > inverse of A, overwriting the input factor U or L.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cheevr
-(
+subroutine cheevr (
         character jobz,
         character range,
         character uplo,
@@ -90,14 +89,14 @@ which do not handle NaNs and infinities in the ieee standard default
 manner.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > 
 > This parameter influences the choice of the algorithm and
 > may alter the computed values.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found.
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found.
@@ -108,7 +107,7 @@ RANGE : CHARACTER*1 [in]
 > This parameter influences the choice of the algorithm and
 > may alter the computed values.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -156,10 +155,10 @@ ABSTOL : REAL [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing A to tridiagonal form.
 > 
@@ -199,11 +198,11 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-ISUPPZ : INTEGER array, dimension ( 2*max(1,M) ) [out]
+ISUPPZ : INTEGER array, dimension ( 2\*max(1,M) ) [out]
 > The support of the eigenvectors in Z, i.e., the indices
 > indicating the nonzero elements in Z. The i-th eigenvector
-> is nonzero only in elements ISUPPZ( 2*i-1 ) through
-> ISUPPZ( 2*i ). This is an output of CSTEMR (tridiagonal
+> is nonzero only in elements ISUPPZ( 2\*i-1 ) through
+> ISUPPZ( 2\*i ). This is an output of CSTEMR (tridiagonal
 > matrix). The support of the eigenvectors of A is typically
 > 1:N because of the unitary transformations applied by CUNMTR.
 > Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
@@ -213,8 +212,8 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The length of the array WORK.
-> If N <= 1, LWORK >= 1, else LWORK >= 2*N.
-> For optimal efficiency, LWORK >= (NB+1)*N,
+> If N <= 1, LWORK >= 1, else LWORK >= 2\*N.
+> For optimal efficiency, LWORK >= (NB+1)\*N,
 > where NB is the max of the blocksize for CHETRD and for
 > CUNMTR as returned by ILAENV.
 > 
@@ -230,7 +229,7 @@ RWORK : REAL array, dimension (MAX(1,LRWORK)) [out]
 
 LRWORK : INTEGER [in]
 > The length of the array RWORK.
-> If N <= 1, LRWORK >= 1, else LRWORK >= 24*N.
+> If N <= 1, LRWORK >= 1, else LRWORK >= 24\*N.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -244,7 +243,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
-> If N <= 1, LIWORK >= 1, else LIWORK >= 10*N.
+> If N <= 1, LIWORK >= 1, else LIWORK >= 10\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK

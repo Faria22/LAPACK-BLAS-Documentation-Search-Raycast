@@ -1,6 +1,5 @@
 ```fortran
-subroutine spotrs
-(
+subroutine spotrs (
         character uplo,
         integer n,
         integer nrhs,
@@ -12,12 +11,12 @@ subroutine spotrs
 )
 ```
 
-SPOTRS solves a system of linear equations A*X = B with a symmetric
+SPOTRS solves a system of linear equations A\*X = B with a symmetric
 positive definite matrix A using the Cholesky factorization
-A = U**T*U or A = L*L**T computed by SPOTRF.
+A = U\*\*T\*U or A = L\*L\*\*T computed by SPOTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -30,7 +29,7 @@ NRHS : INTEGER [in]
 
 A : REAL array, dimension (LDA,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T, as computed by SPOTRF.
+> A = U\*\*T\*U or A = L\*L\*\*T, as computed by SPOTRF.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

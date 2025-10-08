@@ -1,6 +1,5 @@
 ```fortran
-subroutine stbtrs
-(
+subroutine stbtrs (
         character uplo,
         character trans,
         character diag,
@@ -17,7 +16,7 @@ subroutine stbtrs
 
 STBTRS solves a triangular system of the form
 
-A * X = B  or  A**T * X = B,
+A \* X = B  or  A\*\*T \* X = B,
 
 where A is a triangular band matrix of order N, and B is an N-by-NRHS matrix.
 
@@ -29,17 +28,17 @@ If a possible loss of numerical precision due to near-singular matrices is a con
 caller should verify that A is nonsingular within some tolerance before calling this subroutine.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form the system of equations:
-> = 'N':  A * X = B  (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B  (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose = Transpose)
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > = 'N':  A is non-unit triangular;
 > = 'U':  A is unit triangular.
 

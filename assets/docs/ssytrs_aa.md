@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssytrs_aa
-(
+subroutine ssytrs_aa (
         character uplo,
         integer n,
         integer nrhs,
@@ -15,16 +14,16 @@ subroutine ssytrs_aa
 )
 ```
 
-SSYTRS_AA solves a system of linear equations A*X = B with a real
-symmetric matrix A using the factorization A = U**T*T*U or
-A = L*T*L**T computed by SSYTRF_AA.
+SSYTRS_AA solves a system of linear equations A\*X = B with a real
+symmetric matrix A using the factorization A = U\*\*T\*T\*U or
+A = L\*T\*L\*\*T computed by SSYTRF_AA.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U**T*T*U;
-> = 'L':  Lower triangular, form is A = L*T*L**T.
+> = 'U':  Upper triangular, form is A = U\*\*T\*T\*U;
+> = 'L':  Lower triangular, form is A = L\*T\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -53,7 +52,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> If MIN(N,NRHS) = 0, LWORK >= 1, else LWORK >= 3*N-2.
+> If MIN(N,NRHS) = 0, LWORK >= 1, else LWORK >= 3\*N-2.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the minimal size of the WORK array, returns

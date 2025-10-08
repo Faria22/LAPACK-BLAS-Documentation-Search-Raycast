@@ -1,6 +1,5 @@
 ```fortran
-subroutine stgsna
-(
+subroutine stgsna (
         character job,
         character howmny,
         logical, dimension( * ) select,
@@ -27,22 +26,22 @@ subroutine stgsna
 STGSNA estimates reciprocal condition numbers for specified
 eigenvalues and/or eigenvectors of a matrix pair (A, B) in
 generalized real Schur canonical form (or of any matrix pair
-(Q*A*Z**T, Q*B*Z**T) with orthogonal matrices Q and Z, where
-Z**T denotes the transpose of Z.
+(Q\*A\*Z\*\*T, Q\*B\*Z\*\*T) with orthogonal matrices Q and Z, where
+Z\*\*T denotes the transpose of Z.
 
 (A, B) must be in generalized real Schur form (as returned by SGGES),
 i.e. A is block upper triangular with 1-by-1 and 2-by-2 diagonal
 blocks. B is upper triangular.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for
 > eigenvalues (S) or eigenvectors (DIF):
 > = 'E': for eigenvalues only (S);
 > = 'V': for eigenvectors only (DIF);
 > = 'B': for both eigenvalues and eigenvectors (S and DIF).
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A': compute condition numbers for all eigenpairs;
 > = 'S': compute condition numbers for selected eigenpairs
 > specified by the array SELECT.
@@ -129,7 +128,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N).
-> If JOB = 'V' or 'B' LWORK >= 2*N*(N+2)+16.
+> If JOB = 'V' or 'B' LWORK >= 2\*N\*(N+2)+16.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

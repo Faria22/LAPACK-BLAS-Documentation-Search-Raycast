@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytrs_3
-(
+subroutine csytrs_3 (
         character uplo,
         integer n,
         integer nrhs,
@@ -14,25 +13,25 @@ subroutine csytrs_3
 )
 ```
 
-CSYTRS_3 solves a system of linear equations A * X = B with a complex
+CSYTRS_3 solves a system of linear equations A \* X = B with a complex
 symmetric matrix A using the factorization computed
 by CSYTRF_RK or CSYTRF_BK:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This algorithm is using Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix:
-> = 'U':  Upper triangular, form is A = P*U*D*(U**T)*(P**T);
-> = 'L':  Lower triangular, form is A = P*L*D*(L**T)*(P**T).
+> = 'U':  Upper triangular, form is A = P\*U\*D\*(U\*\*T)\*(P\*\*T);
+> = 'L':  Lower triangular, form is A = P\*L\*D\*(L\*\*T)\*(P\*\*T).
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

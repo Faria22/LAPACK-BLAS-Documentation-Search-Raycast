@@ -1,6 +1,5 @@
 ```fortran
-subroutine shsein
-(
+subroutine shsein (
         character side,
         character eigsrc,
         character initv,
@@ -29,17 +28,17 @@ eigenvectors of a real upper Hessenberg matrix H.
 The right eigenvector x and the left eigenvector y of the matrix H
 corresponding to an eigenvalue w are defined by:
 
-H * x = w * x,     y**h * H = w * y**h
+H \* x = w \* x,     y\*\*h \* H = w \* y\*\*h
 
-where y**h denotes the conjugate transpose of the vector y.
+where y\*\*h denotes the conjugate transpose of the vector y.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R': compute right eigenvectors only;
 > = 'L': compute left eigenvectors only;
 > = 'B': compute both right and left eigenvectors.
 
-EIGSRC : CHARACTER*1 [in]
+EIGSRC : CHARACTER\*1 [in]
 > Specifies the source of eigenvalues supplied in (WR,WI):
 > = 'Q': the eigenvalues were found using SHSEQR; thus, if
 > H has zero subdiagonal elements, and so is
@@ -52,7 +51,7 @@ EIGSRC : CHARACTER*1 [in]
 > case, SHSEIN must always perform inverse iteration
 > using the whole matrix H.
 
-INITV : CHARACTER*1 [in]
+INITV : CHARACTER\*1 [in]
 > = 'N': no initial vectors are supplied;
 > = 'U': user-supplied initial vectors are stored in the arrays
 > VL and/or VR.
@@ -133,7 +132,7 @@ M : INTEGER [out]
 > occupies one column and each selected complex eigenvector
 > occupies two columns.
 
-WORK : REAL array, dimension ((N+2)*N) [out]
+WORK : REAL array, dimension ((N+2)\*N) [out]
 
 IFAILL : INTEGER array, dimension (MM) [out]
 > If SIDE = 'L' or 'B', IFAILL(i) = j > 0 if the left

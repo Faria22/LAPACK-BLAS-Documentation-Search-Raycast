@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgetrs
-(
+subroutine dgetrs (
         character trans,
         integer n,
         integer nrhs,
@@ -14,16 +13,16 @@ subroutine dgetrs
 ```
 
 DGETRS solves a system of linear equations
-A * X = B  or  A**T * X = B
+A \* X = B  or  A\*\*T \* X = B
 with a general N-by-N matrix A using the LU factorization computed
 by DGETRF.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B  (No transpose)
-> = 'T':  A**T* X = B  (Transpose)
-> = 'C':  A**T* X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B  (No transpose)
+> = 'T':  A\*\*T\* X = B  (Transpose)
+> = 'C':  A\*\*T\* X = B  (Conjugate transpose = Transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -33,7 +32,7 @@ NRHS : INTEGER [in]
 > of the matrix B.  NRHS >= 0.
 
 A : DOUBLE PRECISION array, dimension (LDA,N) [in]
-> The factors L and U from the factorization A = P*L*U
+> The factors L and U from the factorization A = P\*L\*U
 > as computed by DGETRF.
 
 LDA : INTEGER [in]

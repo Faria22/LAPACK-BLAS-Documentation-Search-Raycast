@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgetri
-(
+subroutine dgetri (
         integer n,
         double precision, dimension( lda, * ) a,
         integer lda,
@@ -15,7 +14,7 @@ DGETRI computes the inverse of a matrix using the LU factorization
 computed by DGETRF.
 
 This method inverts U and then computes inv(A) by solving the system
-inv(A)*L = inv(U) for inv(A).
+inv(A)\*L = inv(U) for inv(A).
 
 ## Parameters
 N : INTEGER [in]
@@ -23,7 +22,7 @@ N : INTEGER [in]
 
 A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > On entry, the factors L and U from the factorization
-> A = P*L*U as computed by DGETRF.
+> A = P\*L\*U as computed by DGETRF.
 > On exit, if INFO = 0, the inverse of the original matrix A.
 
 LDA : INTEGER [in]
@@ -38,7 +37,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.  LWORK >= max(1,N).
-> For optimal performance LWORK >= N*NB, where NB is
+> For optimal performance LWORK >= N\*NB, where NB is
 > the optimal blocksize returned by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

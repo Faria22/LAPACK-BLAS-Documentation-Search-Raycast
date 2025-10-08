@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsyr
-(
+subroutine zsyr (
         character uplo,
         integer n,
         complex*16 alpha,
@@ -13,13 +12,13 @@ subroutine zsyr
 
 ZSYR   performs the symmetric rank 1 operation
 
-A := alpha*x*x**H + A,
+A := alpha\*x\*x\*\*H + A,
 
 where alpha is a complex scalar, x is an n element vector and A is an
 n by n symmetric matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the array A is to be referenced as
 > follows:
@@ -37,12 +36,12 @@ N : INTEGER [in]
 > N must be at least zero.
 > Unchanged on exit.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry, ALPHA specifies the scalar alpha.
 > Unchanged on exit.
 
-X : COMPLEX*16 array, dimension at least [in]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+X : COMPLEX\*16 array, dimension at least [in]
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the N-
 > element vector x.
 > Unchanged on exit.
@@ -52,7 +51,7 @@ INCX : INTEGER [in]
 > X. INCX must not be zero.
 > Unchanged on exit.
 
-A : COMPLEX*16 array, dimension ( LDA, N ) [in,out]
+A : COMPLEX\*16 array, dimension ( LDA, N ) [in,out]
 > Before entry, with  UPLO = 'U' or 'u', the leading n by n
 > upper triangular part of the array A must contain the upper
 > triangular part of the symmetric matrix and the strictly

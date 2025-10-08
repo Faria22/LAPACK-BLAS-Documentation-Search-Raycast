@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaein
-(
+subroutine zlaein (
         logical rightv,
         logical noinit,
         integer n,
@@ -33,17 +32,17 @@ NOINIT : LOGICAL [in]
 N : INTEGER [in]
 > The order of the matrix H.  N >= 0.
 
-H : COMPLEX*16 array, dimension (LDH,N) [in]
+H : COMPLEX\*16 array, dimension (LDH,N) [in]
 > The upper Hessenberg matrix H.
 
 LDH : INTEGER [in]
 > The leading dimension of the array H.  LDH >= max(1,N).
 
-W : COMPLEX*16 [in]
+W : COMPLEX\*16 [in]
 > The eigenvalue of H whose corresponding right or left
 > eigenvector is to be computed.
 
-V : COMPLEX*16 array, dimension (N) [in,out]
+V : COMPLEX\*16 array, dimension (N) [in,out]
 > On entry, if NOINIT = .FALSE., V must contain a starting
 > vector for inverse iteration; otherwise V need not be set.
 > On exit, V contains the computed eigenvector, normalized so
@@ -51,7 +50,7 @@ V : COMPLEX*16 array, dimension (N) [in,out]
 > the magnitude of a complex number (x,y) is taken to be
 > |x| + |y|.
 
-B : COMPLEX*16 array, dimension (LDB,N) [out]
+B : COMPLEX\*16 array, dimension (LDB,N) [out]
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).

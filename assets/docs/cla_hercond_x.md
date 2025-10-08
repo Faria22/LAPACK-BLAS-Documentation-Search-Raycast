@@ -1,6 +1,5 @@
 ```fortran
-real function cla_hercond_x
-(
+real function cla_hercond_x (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -16,10 +15,10 @@ real function cla_hercond_x
 ```
 
 CLA_HERCOND_X computes the infinity norm condition number of
-op(A) * diag(X) where X is a COMPLEX vector.
+op(A) \* diag(X) where X is a COMPLEX vector.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -45,13 +44,13 @@ IPIV : INTEGER array, dimension (N) [in]
 > as determined by CHETRF.
 
 X : COMPLEX array, dimension (N) [in]
-> The vector X in the formula op(A) * diag(X).
+> The vector X in the formula op(A) \* diag(X).
 
 INFO : INTEGER [out]
 > = 0:  Successful exit.
 > i > 0:  The ith argument is invalid.
 
-WORK : COMPLEX array, dimension (2*N). [out]
+WORK : COMPLEX array, dimension (2\*N). [out]
 > Workspace.
 
 RWORK : REAL array, dimension (N). [out]

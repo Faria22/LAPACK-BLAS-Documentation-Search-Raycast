@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlagv2
-(
+subroutine dlagv2 (
         double precision, dimension( lda, * ) a,
         integer lda,
         double precision, dimension( ldb, * ) b,
@@ -62,7 +61,7 @@ ALPHAR : DOUBLE PRECISION array, dimension (2) [out]
 ALPHAI : DOUBLE PRECISION array, dimension (2) [out]
 
 BETA : DOUBLE PRECISION array, dimension (2) [out]
-> (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the
+> (ALPHAR(k)+i\*ALPHAI(k))/BETA(k) are the eigenvalues of the
 > pencil (A,B), k=1,2, i = sqrt(-1).  Note that BETA(k) may
 > be zero.
 

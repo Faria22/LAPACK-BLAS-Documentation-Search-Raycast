@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed1
-(
+subroutine dlaed1 (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( ldq, * ) q,
@@ -22,9 +21,9 @@ the case in which eigenvalues only or eigenvalues and eigenvectors
 of a full symmetric matrix (which was reduced to tridiagonal form)
 are desired.
 
-T = Q(in) ( D(in) + RHO * Z*Z**T ) Q**T(in) = Q(out) * D(out) * Q**T(out)
+T = Q(in) ( D(in) + RHO \* Z\*Z\*\*T ) Q\*\*T(in) = Q(out) \* D(out) \* Q\*\*T(out)
 
-where Z = Q**T*u, u is a vector of length N with ones in the
+where Z = Q\*\*T\*u, u is a vector of length N with ones in the
 CUTPNT and CUTPNT + 1 th elements and zeros elsewhere.
 
 The eigenvectors of the original matrix are stored in Q, and the
@@ -76,9 +75,9 @@ CUTPNT : INTEGER [in]
 > The location of the last eigenvalue in the leading sub-matrix.
 > min(1,N) <= CUTPNT <= N/2.
 
-WORK : DOUBLE PRECISION array, dimension (4*N + N**2) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N + N\*\*2) [out]
 
-IWORK : INTEGER array, dimension (4*N) [out]
+IWORK : INTEGER array, dimension (4\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

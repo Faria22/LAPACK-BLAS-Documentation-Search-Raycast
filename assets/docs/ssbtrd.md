@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssbtrd
-(
+subroutine ssbtrd (
         character vect,
         character uplo,
         integer n,
@@ -18,15 +17,15 @@ subroutine ssbtrd
 
 SSBTRD reduces a real symmetric band matrix A to symmetric
 tridiagonal form T by an orthogonal similarity transformation:
-Q**T * A * Q = T.
+Q\*\*T \* A \* Q = T.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  do not form Q;
 > = 'V':  form Q;
-> = 'U':  update a matrix X, by forming X*Q.
+> = 'U':  update a matrix X, by forming X\*Q.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -67,7 +66,7 @@ Q : REAL array, dimension (LDQ,N) [in,out]
 > 
 > On exit:
 > if VECT = 'V', Q contains the N-by-N orthogonal matrix Q;
-> if VECT = 'U', Q contains the product X*Q;
+> if VECT = 'U', Q contains the product X\*Q;
 > if VECT = 'N', the array Q is not referenced.
 
 LDQ : INTEGER [in]

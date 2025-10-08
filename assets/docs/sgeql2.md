@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgeql2
-(
+subroutine sgeql2 (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -12,7 +11,7 @@ subroutine sgeql2
 ```
 
 SGEQL2 computes a QL factorization of a real m by n matrix A:
-A = Q * L.
+A = Q \* L.
 
 ## Parameters
 M : INTEGER [in]

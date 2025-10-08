@@ -1,6 +1,5 @@
 ```fortran
-real function clanhf
-(
+real function clanhf (
         character norm,
         character transr,
         character uplo,
@@ -39,7 +38,7 @@ N : INTEGER [in]
 > The order of the matrix A.  N >= 0.  When N = 0, CLANHF is
 > set to zero.
 
-A : COMPLEX array, dimension ( N*(N+1)/2 ); [in]
+A : COMPLEX array, dimension ( N\*(N+1)/2 ); [in]
 > On entry, the matrix A in RFP Format.
 > RFP Format is described by TRANSR, UPLO and N as follows:
 > If TRANSR='N' then RFP A is (0:N,0:K-1) when N is even;
@@ -47,9 +46,9 @@ A : COMPLEX array, dimension ( N*(N+1)/2 ); [in]
 > TRANSR = 'C' then RFP is the Conjugate-transpose of RFP A
 > as defined when TRANSR = 'N'. The contents of RFP A are
 > defined by UPLO as follows: If UPLO = 'U' the RFP A
-> contains the ( N*(N+1)/2 ) elements of upper packed A
+> contains the ( N\*(N+1)/2 ) elements of upper packed A
 > either in normal or conjugate-transpose Format. If
-> UPLO = 'L' the RFP A contains the ( N*(N+1) /2 ) elements
+> UPLO = 'L' the RFP A contains the ( N\*(N+1) /2 ) elements
 > of lower packed A either in normal or conjugate-transpose
 > Format. The LDA of RFP A is (N+1)/2 when TRANSR = 'C'. When
 > TRANSR is 'N' the LDA is N+1 when N is even and is N when

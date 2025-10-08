@@ -1,6 +1,5 @@
 ```fortran
-subroutine slartv
-(
+subroutine slartv (
         integer n,
         real, dimension( * ) x,
         integer incx,
@@ -23,23 +22,23 @@ N : INTEGER [in]
 > The number of plane rotations to be applied.
 
 X : REAL array, [in,out]
-> dimension (1+(N-1)*INCX)
+> dimension (1+(N-1)\*INCX)
 > The vector x.
 
 INCX : INTEGER [in]
 > The increment between elements of X. INCX > 0.
 
 Y : REAL array, [in,out]
-> dimension (1+(N-1)*INCY)
+> dimension (1+(N-1)\*INCY)
 > The vector y.
 
 INCY : INTEGER [in]
 > The increment between elements of Y. INCY > 0.
 
-C : REAL array, dimension (1+(N-1)*INCC) [in]
+C : REAL array, dimension (1+(N-1)\*INCC) [in]
 > The cosines of the plane rotations.
 
-S : REAL array, dimension (1+(N-1)*INCC) [in]
+S : REAL array, dimension (1+(N-1)\*INCC) [in]
 > The sines of the plane rotations.
 
 INCC : INTEGER [in]

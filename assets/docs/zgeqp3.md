@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgeqp3
-(
+subroutine zgeqp3 (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine zgeqp3
 ```
 
 ZGEQP3 computes a QR factorization with column pivoting of a
-matrix A:  A*P = Q*R  using Level 3 BLAS.
+matrix A:  A\*P = Q\*R  using Level 3 BLAS.
 
 ## Parameters
 M : INTEGER [in]
@@ -24,7 +23,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, the upper triangle of the array contains the
 > min(M,N)-by-N upper trapezoidal matrix R; the elements below
@@ -37,20 +36,20 @@ LDA : INTEGER [in]
 
 JPVT : INTEGER array, dimension (N) [in,out]
 > On entry, if JPVT(J).ne.0, the J-th column of A is permuted
-> to the front of A*P (a leading column); if JPVT(J)=0,
+> to the front of A\*P (a leading column); if JPVT(J)=0,
 > the J-th column of A is a free column.
-> On exit, if JPVT(J)=K, then the J-th column of A*P was the
+> On exit, if JPVT(J)=K, then the J-th column of A\*P was the
 > the K-th column of A.
 
-TAU : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAU : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= N+1.
-> For optimal performance LWORK >= ( N+1 )*NB, where NB
+> For optimal performance LWORK >= ( N+1 )\*NB, where NB
 > is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -58,7 +57,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension (2*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit.

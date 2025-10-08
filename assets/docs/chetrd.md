@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetrd
-(
+subroutine chetrd (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -16,10 +15,10 @@ subroutine chetrd
 
 CHETRD reduces a complex Hermitian matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q**H * A * Q = T.
+Q\*\*H \* A \* Q = T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -65,7 +64,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.  LWORK >= 1.
-> For optimum performance LWORK >= N*NB, where NB is the
+> For optimum performance LWORK >= N\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctgexc
-(
+subroutine ctgexc (
         logical wantq,
         logical wantz,
         integer n,
@@ -20,7 +19,7 @@ subroutine ctgexc
 
 CTGEXC reorders the generalized Schur decomposition of a complex
 matrix pair (A,B), using an unitary equivalence transformation
-(A, B) := Q * (A, B) * Z**H, so that the diagonal block of (A, B) with
+(A, B) := Q \* (A, B) \* Z\*\*H, so that the diagonal block of (A, B) with
 row index IFST is moved to row ILST.
 
 (A, B) must be in generalized Schur canonical form, that is, A and
@@ -29,8 +28,8 @@ B are both upper triangular.
 Optionally, the matrices Q and Z of generalized Schur vectors are
 updated.
 
-Q(in) * A(in) * Z(in)**H = Q(out) * A(out) * Z(out)**H
-Q(in) * B(in) * Z(in)**H = Q(out) * B(out) * Z(out)**H
+Q(in) \* A(in) \* Z(in)\*\*H = Q(out) \* A(out) \* Z(out)\*\*H
+Q(in) \* B(in) \* Z(in)\*\*H = Q(out) \* B(out) \* Z(out)\*\*H
 
 ## Parameters
 WANTQ : LOGICAL [in]

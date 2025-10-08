@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhsein
-(
+subroutine zhsein (
         character side,
         character eigsrc,
         character initv,
@@ -29,17 +28,17 @@ eigenvectors of a complex upper Hessenberg matrix H.
 The right eigenvector x and the left eigenvector y of the matrix H
 corresponding to an eigenvalue w are defined by:
 
-H * x = w * x,     y**h * H = w * y**h
+H \* x = w \* x,     y\*\*h \* H = w \* y\*\*h
 
-where y**h denotes the conjugate transpose of the vector y.
+where y\*\*h denotes the conjugate transpose of the vector y.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R': compute right eigenvectors only;
 > = 'L': compute left eigenvectors only;
 > = 'B': compute both right and left eigenvectors.
 
-EIGSRC : CHARACTER*1 [in]
+EIGSRC : CHARACTER\*1 [in]
 > Specifies the source of eigenvalues supplied in W:
 > = 'Q': the eigenvalues were found using ZHSEQR; thus, if
 > H has zero subdiagonal elements, and so is
@@ -52,7 +51,7 @@ EIGSRC : CHARACTER*1 [in]
 > case, ZHSEIN must always perform inverse iteration
 > using the whole matrix H.
 
-INITV : CHARACTER*1 [in]
+INITV : CHARACTER\*1 [in]
 > = 'N': no initial vectors are supplied;
 > = 'U': user-supplied initial vectors are stored in the arrays
 > VL and/or VR.
@@ -65,20 +64,20 @@ SELECT : LOGICAL array, dimension (N) [in]
 N : INTEGER [in]
 > The order of the matrix H.  N >= 0.
 
-H : COMPLEX*16 array, dimension (LDH,N) [in]
+H : COMPLEX\*16 array, dimension (LDH,N) [in]
 > The upper Hessenberg matrix H.
 > If a NaN is detected in H, the routine will return with INFO=-6.
 
 LDH : INTEGER [in]
 > The leading dimension of the array H.  LDH >= max(1,N).
 
-W : COMPLEX*16 array, dimension (N) [in,out]
+W : COMPLEX\*16 array, dimension (N) [in,out]
 > On entry, the eigenvalues of H.
 > On exit, the real parts of W may have been altered since
 > close eigenvalues are perturbed slightly in searching for
 > independent eigenvectors.
 
-VL : COMPLEX*16 array, dimension (LDVL,MM) [in,out]
+VL : COMPLEX\*16 array, dimension (LDVL,MM) [in,out]
 > On entry, if INITV = 'U' and SIDE = 'L' or 'B', VL must
 > contain starting vectors for the inverse iteration for the
 > left eigenvectors; the starting vector for each eigenvector
@@ -93,7 +92,7 @@ LDVL : INTEGER [in]
 > The leading dimension of the array VL.
 > LDVL >= max(1,N) if SIDE = 'L' or 'B'; LDVL >= 1 otherwise.
 
-VR : COMPLEX*16 array, dimension (LDVR,MM) [in,out]
+VR : COMPLEX\*16 array, dimension (LDVR,MM) [in,out]
 > On entry, if INITV = 'U' and SIDE = 'R' or 'B', VR must
 > contain starting vectors for the inverse iteration for the
 > right eigenvectors; the starting vector for each eigenvector
@@ -116,7 +115,7 @@ M : INTEGER [out]
 > store the eigenvectors (= the number of .TRUE. elements in
 > SELECT).
 
-WORK : COMPLEX*16 array, dimension (N*N) [out]
+WORK : COMPLEX\*16 array, dimension (N\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

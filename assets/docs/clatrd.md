@@ -1,6 +1,5 @@
 ```fortran
-subroutine clatrd
-(
+subroutine clatrd (
         character uplo,
         integer n,
         integer nb,
@@ -15,7 +14,7 @@ subroutine clatrd
 
 CLATRD reduces NB rows and columns of a complex Hermitian matrix A to
 Hermitian tridiagonal form by a unitary similarity
-transformation Q**H * A * Q, and returns the matrices V and W which are
+transformation Q\*\*H \* A \* Q, and returns the matrices V and W which are
 needed to apply the transformation to the unreduced part of A.
 
 If UPLO = 'U', CLATRD reduces the last NB rows and columns of a
@@ -26,7 +25,7 @@ matrix, of which the lower triangle is supplied.
 This is an auxiliary routine called by CHETRD.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U': Upper triangular

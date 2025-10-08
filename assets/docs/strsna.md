@@ -1,6 +1,5 @@
 ```fortran
-subroutine strsna
-(
+subroutine strsna (
         character job,
         character howmny,
         logical, dimension( * ) select,
@@ -24,7 +23,7 @@ subroutine strsna
 
 STRSNA estimates reciprocal condition numbers for specified
 eigenvalues and/or right eigenvectors of a real upper
-quasi-triangular matrix T (or of any matrix Q*T*Q**T with Q
+quasi-triangular matrix T (or of any matrix Q\*T\*Q\*\*T with Q
 orthogonal).
 
 T must be in Schur canonical form (as returned by SHSEQR), that is,
@@ -33,14 +32,14 @@ block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
 off-diagonal elements of opposite sign.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for
 > eigenvalues (S) or eigenvectors (SEP):
 > = 'E': for eigenvalues only (S);
 > = 'V': for eigenvectors only (SEP);
 > = 'B': for both eigenvalues and eigenvectors (S and SEP).
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A': compute condition numbers for all eigenpairs;
 > = 'S': compute condition numbers for selected eigenpairs
 > specified by the array SELECT.
@@ -66,7 +65,7 @@ LDT : INTEGER [in]
 
 VL : REAL array, dimension (LDVL,M) [in]
 > If JOB = 'E' or 'B', VL must contain left eigenvectors of T
-> (or of any Q*T*Q**T with Q orthogonal), corresponding to the
+> (or of any Q\*T\*Q\*\*T with Q orthogonal), corresponding to the
 > eigenpairs specified by HOWMNY and SELECT. The eigenvectors
 > must be stored in consecutive columns of VL, as returned by
 > SHSEIN or STREVC.
@@ -78,7 +77,7 @@ LDVL : INTEGER [in]
 
 VR : REAL array, dimension (LDVR,M) [in]
 > If JOB = 'E' or 'B', VR must contain right eigenvectors of T
-> (or of any Q*T*Q**T with Q orthogonal), corresponding to the
+> (or of any Q\*T\*Q\*\*T with Q orthogonal), corresponding to the
 > eigenpairs specified by HOWMNY and SELECT. The eigenvectors
 > must be stored in consecutive columns of VR, as returned by
 > SHSEIN or STREVC.
@@ -124,7 +123,7 @@ LDWORK : INTEGER [in]
 > The leading dimension of the array WORK.
 > LDWORK >= 1; and if JOB = 'V' or 'B', LDWORK >= N.
 
-IWORK : INTEGER array, dimension (2*(N-1)) [out]
+IWORK : INTEGER array, dimension (2\*(N-1)) [out]
 > If JOB = 'E', IWORK is not referenced.
 
 INFO : INTEGER [out]

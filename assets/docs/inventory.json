@@ -1599,7 +1599,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d30/group__hetrs_ga1b34df314e475e633f1d41720961399a.html#ga1b34df314e475e633f1d41720961399a",
     "docPath": "chetrs.md",
-    "description": "CHETRS solves a system of linear equations A*X = B with a complex"
+    "description": "CHETRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "chetrs2",
@@ -1608,7 +1608,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d85/group__hetrs2_gad05d3b0e945cc3c3422619d7ebad5318.html#gad05d3b0e945cc3c3422619d7ebad5318",
     "docPath": "chetrs2.md",
-    "description": "CHETRS2 solves a system of linear equations A*X = B with a complex"
+    "description": "CHETRS2 solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "chetrs_3",
@@ -1617,7 +1617,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d94/group__hetrs__3_ga0f15d007ce69e4e4d19ad1617342658e.html#ga0f15d007ce69e4e4d19ad1617342658e",
     "docPath": "chetrs_3.md",
-    "description": "CHETRS_3 solves a system of linear equations A * X = B with a complex"
+    "description": "CHETRS_3 solves a system of linear equations A \\* X = B with a complex"
   },
   {
     "id": "chetrs_aa",
@@ -1626,7 +1626,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/dcb/group__hetrs__aa_ga464a9b7a7220c0753b567af1ab1d0075.html#ga464a9b7a7220c0753b567af1ab1d0075",
     "docPath": "chetrs_aa.md",
-    "description": "CHETRS_AA solves a system of linear equations A*X = B with a complex"
+    "description": "CHETRS_AA solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "chetrs_aa_2stage",
@@ -1635,7 +1635,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d03/group__hetrs__aa__2stage_ga14bd1e42dc5e9b36ffe2e68dbbe3c9c9.html#ga14bd1e42dc5e9b36ffe2e68dbbe3c9c9",
     "docPath": "chetrs_aa_2stage.md",
-    "description": "CHETRS_AA_2STAGE solves a system of linear equations A*X = B with a real"
+    "description": "CHETRS_AA_2STAGE solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "chetrs_rook",
@@ -1644,7 +1644,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/de/d9a/group__hetrs__rook_ga395eb4b3d69bac15520a92ea13c9ef58.html#ga395eb4b3d69bac15520a92ea13c9ef58",
     "docPath": "chetrs_rook.md",
-    "description": "CHETRS_ROOK solves a system of linear equations A*X = B with a complex"
+    "description": "CHETRS_ROOK solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "chfrk",
@@ -1797,7 +1797,7 @@
     "category": "LDL: Hermitian/symmetric indefinite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d39/group__hpsvx_gadc60bfbbc62a81e4b03d8cf25eb2c404.html#gadc60bfbbc62a81e4b03d8cf25eb2c404",
     "docPath": "chpsvx.md",
-    "description": "CHPSVX uses the diagonal pivoting factorization A = U*D*U**H or"
+    "description": "CHPSVX uses the diagonal pivoting factorization A = U\\*D\\*U\\*\\*H or"
   },
   {
     "id": "chptrd",
@@ -1833,7 +1833,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dbd/group__hptrs_ga885040cafb98cb1f84cc0cf7997d474e.html#ga885040cafb98cb1f84cc0cf7997d474e",
     "docPath": "chptrs.md",
-    "description": "CHPTRS solves a system of linear equations A*X = B with a complex"
+    "description": "CHPTRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "chsein",
@@ -2229,7 +2229,7 @@
     "category": "Initialize, copy, convert",
     "url": "https://www.netlib.org/lapack/explore-html/da/d0c/group____lag2___ga9d462a64718913ed2d34fec84227348a.html#ga9d462a64718913ed2d34fec84227348a",
     "docPath": "clag2z.md",
-    "description": "CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX*16 matrix, A."
+    "description": "CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX\\*16 matrix, A."
   },
   {
     "id": "clags2",
@@ -2742,7 +2742,7 @@
     "category": "Householder reflectors",
     "url": "https://www.netlib.org/lapack/explore-html/df/d9a/group__larfb_ga58a7d61cbd01bc6339bf7ab737ead178.html#ga58a7d61cbd01bc6339bf7ab737ead178",
     "docPath": "clarfb.md",
-    "description": "CLARFB applies a complex block reflector H or its transpose H**H to a"
+    "description": "CLARFB applies a complex block reflector H or its transpose H\\*\\*H to a"
   },
   {
     "id": "clarfb_gett",
@@ -2868,7 +2868,7 @@
     "category": "RZ",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d78/group__larzb_ga8c5c576d351f422ef1a6204e81503ea1.html#ga8c5c576d351f422ef1a6204e81503ea1",
     "docPath": "clarzb.md",
-    "description": "CLARZB applies a complex block reflector H or its transpose H**H"
+    "description": "CLARZB applies a complex block reflector H or its transpose H\\*\\*H"
   },
   {
     "id": "clarzt",
@@ -3075,7 +3075,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/d8f/group__lauu2_ga393a4079002c176c90f7fc430a7736fb.html#ga393a4079002c176c90f7fc430a7736fb",
     "docPath": "clauu2.md",
-    "description": "CLAUU2 computes the product U * U**H or L**H * L, where the triangular"
+    "description": "CLAUU2 computes the product U \\* U\\*\\*H or L\\*\\*H \\* L, where the triangular"
   },
   {
     "id": "clauum",
@@ -3084,7 +3084,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d18/group__lauum_gaef7c87b63804e34b8c5c02c3ea081a1a.html#gaef7c87b63804e34b8c5c02c3ea081a1a",
     "docPath": "clauum.md",
-    "description": "CLAUUM computes the product U * U**H or L**H * L, where the triangular"
+    "description": "CLAUUM computes the product U \\* U\\*\\*H or L\\*\\*H \\* L, where the triangular"
   },
   {
     "id": "cpbcon",
@@ -3138,7 +3138,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d0/db0/group__pbsvx_gaaa39df7ee9a8a95e67b62ffb95846e39.html#gaaa39df7ee9a8a95e67b62ffb95846e39",
     "docPath": "cpbsvx.md",
-    "description": "CPBSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to"
+    "description": "CPBSVX uses the Cholesky factorization A = U\\*\\*H\\*U or A = L\\*L\\*\\*H to"
   },
   {
     "id": "cpbtf2",
@@ -3165,7 +3165,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/db/dec/group__pbtrs_ga610a9f5c2f9e1d1216466ce49c115b78.html#ga610a9f5c2f9e1d1216466ce49c115b78",
     "docPath": "cpbtrs.md",
-    "description": "CPBTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "CPBTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "cpftrf",
@@ -3192,7 +3192,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/da/da0/group__pftrs_ga35617efe197ac8a0bdb3635cc6c45f68.html#ga35617efe197ac8a0bdb3635cc6c45f68",
     "docPath": "cpftrs.md",
-    "description": "CPFTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "CPFTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "cpocon",
@@ -3255,7 +3255,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d44/group__posvx_gac46e37182d122df4d0709c54ec9f4884.html#gac46e37182d122df4d0709c54ec9f4884",
     "docPath": "cposvx.md",
-    "description": "CPOSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to"
+    "description": "CPOSVX uses the Cholesky factorization A = U\\*\\*H\\*U or A = L\\*L\\*\\*H to"
   },
   {
     "id": "cposvxx",
@@ -3264,7 +3264,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d95/group__posvxx_ga16a39119f6faf150bb319c0475a96b58.html#ga16a39119f6faf150bb319c0475a96b58",
     "docPath": "cposvxx.md",
-    "description": "CPOSVXX uses the Cholesky factorization A = U**T*U or A = L*L**T"
+    "description": "CPOSVXX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T"
   },
   {
     "id": "cpotf2",
@@ -3309,7 +3309,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dc8/group__potrs_gab45d39d4aaf2ebfc7cead9ce783f8a96.html#gab45d39d4aaf2ebfc7cead9ce783f8a96",
     "docPath": "cpotrs.md",
-    "description": "CPOTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "CPOTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "cppcon",
@@ -3354,7 +3354,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d74/group__ppsvx_ga624f422958b8e141c4f765c56a58dc69.html#ga624f422958b8e141c4f765c56a58dc69",
     "docPath": "cppsvx.md",
-    "description": "CPPSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to"
+    "description": "CPPSVX uses the Cholesky factorization A = U\\*\\*H\\*U or A = L\\*L\\*\\*H to"
   },
   {
     "id": "cpptrf",
@@ -3381,7 +3381,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d15/group__pptrs_gaca9658f8037441ae33150b056a901bbb.html#gaca9658f8037441ae33150b056a901bbb",
     "docPath": "cpptrs.md",
-    "description": "CPPTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "CPPTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "cpstf2",
@@ -3444,7 +3444,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/db/d75/group__ptsvx_ga6995addf466221254614ded8444a508d.html#ga6995addf466221254614ded8444a508d",
     "docPath": "cptsvx.md",
-    "description": "CPTSVX uses the factorization A = L*D*L**H to compute the solution"
+    "description": "CPTSVX uses the factorization A = L\\*D\\*L\\*\\*H to compute the solution"
   },
   {
     "id": "cpttrf",
@@ -3453,7 +3453,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d2c/group__pttrf_ga62b1bf0f377d29013a3bcec3732cea6c.html#ga62b1bf0f377d29013a3bcec3732cea6c",
     "docPath": "cpttrf.md",
-    "description": "CPTTRF computes the L*D*L**H factorization of a complex Hermitian"
+    "description": "CPTTRF computes the L\\*D\\*L\\*\\*H factorization of a complex Hermitian"
   },
   {
     "id": "cpttrs",
@@ -3552,7 +3552,7 @@
     "category": "LDL: Hermitian/symmetric indefinite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d39/group__hpsvx_ga3d05053f176dca9bc58009471ab069c6.html#ga3d05053f176dca9bc58009471ab069c6",
     "docPath": "cspsvx.md",
-    "description": "CSPSVX uses the diagonal pivoting factorization A = U*D*U**T or"
+    "description": "CSPSVX uses the diagonal pivoting factorization A = U\\*D\\*U\\*\\*T or"
   },
   {
     "id": "csptrf",
@@ -3579,7 +3579,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dbd/group__hptrs_gac5e66d0d52e21e52f7add2b7210ef55c.html#gac5e66d0d52e21e52f7add2b7210ef55c",
     "docPath": "csptrs.md",
-    "description": "CSPTRS solves a system of linear equations A*X = B with a complex"
+    "description": "CSPTRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "csrot",
@@ -3993,7 +3993,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d30/group__hetrs_ga2398c575e70adcd5fb030e7ae984d853.html#ga2398c575e70adcd5fb030e7ae984d853",
     "docPath": "csytrs.md",
-    "description": "CSYTRS solves a system of linear equations A*X = B with a complex"
+    "description": "CSYTRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "csytrs2",
@@ -4002,7 +4002,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d85/group__hetrs2_ga1036ba5717f6e273c006b3f330e56115.html#ga1036ba5717f6e273c006b3f330e56115",
     "docPath": "csytrs2.md",
-    "description": "CSYTRS2 solves a system of linear equations A*X = B with a complex"
+    "description": "CSYTRS2 solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "csytrs_3",
@@ -4011,7 +4011,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d94/group__hetrs__3_gae744e26ad8794db617a10fbbe07c4cbe.html#gae744e26ad8794db617a10fbbe07c4cbe",
     "docPath": "csytrs_3.md",
-    "description": "CSYTRS_3 solves a system of linear equations A * X = B with a complex"
+    "description": "CSYTRS_3 solves a system of linear equations A \\* X = B with a complex"
   },
   {
     "id": "csytrs_aa",
@@ -4020,7 +4020,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/dcb/group__hetrs__aa_gae874231e82946d09d4c7a8f9d5388f76.html#gae874231e82946d09d4c7a8f9d5388f76",
     "docPath": "csytrs_aa.md",
-    "description": "CSYTRS_AA solves a system of linear equations A*X = B with a complex"
+    "description": "CSYTRS_AA solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "csytrs_aa_2stage",
@@ -4029,7 +4029,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d03/group__hetrs__aa__2stage_ga10fd4368bd8d31e5799b4c60f785f4cd.html#ga10fd4368bd8d31e5799b4c60f785f4cd",
     "docPath": "csytrs_aa_2stage.md",
-    "description": "CSYTRS_AA_2STAGE solves a system of linear equations A*X = B with a complex"
+    "description": "CSYTRS_AA_2STAGE solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "csytrs_rook",
@@ -4038,7 +4038,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/de/d9a/group__hetrs__rook_ga03b0390baa48469297f82ce7c82302cd.html#ga03b0390baa48469297f82ce7c82302cd",
     "docPath": "csytrs_rook.md",
-    "description": "CSYTRS_ROOK solves a system of linear equations A*X = B with"
+    "description": "CSYTRS_ROOK solves a system of linear equations A\\*X = B with"
   },
   {
     "id": "ctbcon",
@@ -4605,7 +4605,7 @@
     "category": "SVD computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d45/group__ungbr_ga6083c26c1cad455dbf2080c01b91754b.html#ga6083c26c1cad455dbf2080c01b91754b",
     "docPath": "cungbr.md",
-    "description": "CUNGBR generates one of the complex unitary matrices Q or P**H"
+    "description": "CUNGBR generates one of the complex unitary matrices Q or P\\*\\*H"
   },
   {
     "id": "cunghr",
@@ -5928,7 +5928,7 @@
     "category": "LU: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d44/group__la__gbrcond_ga1f7c25e25c54731f48ddb495d8f497be.html#ga1f7c25e25c54731f48ddb495d8f497be",
     "docPath": "dla_gbrcond.md",
-    "description": "DLA_GBRCOND Estimates the Skeel condition number of  op(A) * op2(C)"
+    "description": "DLA_GBRCOND Estimates the Skeel condition number of  op(A) \\* op2(C)"
   },
   {
     "id": "dla_gbrfsx_extended",
@@ -5964,7 +5964,7 @@
     "category": "LU: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/da4/group__la__gercond_gaeeaee31c6a9e96218fb754ab8fcded63.html#gaeeaee31c6a9e96218fb754ab8fcded63",
     "docPath": "dla_gercond.md",
-    "description": "DLA_GERCOND estimates the Skeel condition number of op(A) * op2(C)"
+    "description": "DLA_GERCOND estimates the Skeel condition number of op(A) \\* op2(C)"
   },
   {
     "id": "dla_gerfsx_extended",
@@ -6000,7 +6000,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d56/group__la__porcond_ga3385f07178893f0fa56d721f55460021.html#ga3385f07178893f0fa56d721f55460021",
     "docPath": "dla_porcond.md",
-    "description": "DLA_PORCOND Estimates the Skeel condition number of  op(A) * op2(C)"
+    "description": "DLA_PORCOND Estimates the Skeel condition number of  op(A) \\* op2(C)"
   },
   {
     "id": "dla_porfsx_extended",
@@ -6036,7 +6036,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/df/d8c/group__la__hercond_ga89b1d3367b96ab2ae032d7bb5617b517.html#ga89b1d3367b96ab2ae032d7bb5617b517",
     "docPath": "dla_syrcond.md",
-    "description": "DLA_SYRCOND estimates the Skeel condition number of  op(A) * op2(C)"
+    "description": "DLA_SYRCOND estimates the Skeel condition number of  op(A) \\* op2(C)"
   },
   {
     "id": "dla_syrfsx_extended",
@@ -6315,7 +6315,7 @@
     "category": "Eig computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/d1/d90/group__lagtf_ga10cc4eb3c789fad38b52a86698d5a24a.html#ga10cc4eb3c789fad38b52a86698d5a24a",
     "docPath": "dlagtf.md",
-    "description": "DLAGTF factorizes the matrix (T - lambda*I), where T is an n by n"
+    "description": "DLAGTF factorizes the matrix (T - lambda\\*I), where T is an n by n"
   },
   {
     "id": "dlagtm",
@@ -6639,7 +6639,7 @@
     "category": "Scalar operations",
     "url": "https://www.netlib.org/lapack/explore-html/d8/d5e/group__lapy2_gab55f5b30b6088a4d6ccd9f073aff1eb7.html#gab55f5b30b6088a4d6ccd9f073aff1eb7",
     "docPath": "dlapy2.md",
-    "description": "DLAPY2 returns sqrt(x**2+y**2), taking care not to cause unnecessary"
+    "description": "DLAPY2 returns sqrt(x\\*\\*2+y\\*\\*2), taking care not to cause unnecessary"
   },
   {
     "id": "dlapy3",
@@ -6648,7 +6648,7 @@
     "category": "Scalar operations",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dba/group__lapy3_ga7ba5106d26a131c0d1ac7fa7ca3904b7.html#ga7ba5106d26a131c0d1ac7fa7ca3904b7",
     "docPath": "dlapy3.md",
-    "description": "DLAPY3 returns sqrt(x**2+y**2+z**2), taking care not to cause"
+    "description": "DLAPY3 returns sqrt(x\\*\\*2+y\\*\\*2+z\\*\\*2), taking care not to cause"
   },
   {
     "id": "dlaqgb",
@@ -6873,7 +6873,7 @@
     "category": "Householder reflectors",
     "url": "https://www.netlib.org/lapack/explore-html/df/d9a/group__larfb_gabdadb85389b68a6a2d888487c759bb10.html#gabdadb85389b68a6a2d888487c759bb10",
     "docPath": "dlarfb.md",
-    "description": "DLARFB applies a real block reflector H or its transpose H**T to a"
+    "description": "DLARFB applies a real block reflector H or its transpose H\\*\\*T to a"
   },
   {
     "id": "dlarfb_gett",
@@ -7116,7 +7116,7 @@
     "category": "RZ",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d78/group__larzb_ga883220c7985bead87d4e692e173f45b2.html#ga883220c7985bead87d4e692e173f45b2",
     "docPath": "dlarzb.md",
-    "description": "DLARZB applies a real block reflector H or its transpose H**T to"
+    "description": "DLARZB applies a real block reflector H or its transpose H\\*\\*T to"
   },
   {
     "id": "dlarzt",
@@ -7512,7 +7512,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/d8f/group__lauu2_ga52dc4db093f8513ca2f74195f3aaf689.html#ga52dc4db093f8513ca2f74195f3aaf689",
     "docPath": "dlauu2.md",
-    "description": "DLAUU2 computes the product U * U**T or L**T * L, where the triangular"
+    "description": "DLAUU2 computes the product U \\* U\\*\\*T or L\\*\\*T \\* L, where the triangular"
   },
   {
     "id": "dlauum",
@@ -7521,7 +7521,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d18/group__lauum_ga109a49941c86e4258f842ceb82952fb1.html#ga109a49941c86e4258f842ceb82952fb1",
     "docPath": "dlauum.md",
-    "description": "DLAUUM computes the product U * U**T or L**T * L, where the triangular"
+    "description": "DLAUUM computes the product U \\* U\\*\\*T or L\\*\\*T \\* L, where the triangular"
   },
   {
     "id": "dnrm2",
@@ -7656,7 +7656,7 @@
     "category": "SVD computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d45/group__ungbr_gae61b2be52b4a8e82f4cf8ec3779b8a90.html#gae61b2be52b4a8e82f4cf8ec3779b8a90",
     "docPath": "dorgbr.md",
-    "description": "DORGBR generates one of the real orthogonal matrices Q or P**T"
+    "description": "DORGBR generates one of the real orthogonal matrices Q or P\\*\\*T"
   },
   {
     "id": "dorghr",
@@ -7935,7 +7935,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d0/db0/group__pbsvx_ga3d148c6ef67d8c1e46e595944a65e812.html#ga3d148c6ef67d8c1e46e595944a65e812",
     "docPath": "dpbsvx.md",
-    "description": "DPBSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to"
+    "description": "DPBSVX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T to"
   },
   {
     "id": "dpbtf2",
@@ -7962,7 +7962,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/db/dec/group__pbtrs_ga1ccbe62287933e8bf693cc0e506d167f.html#ga1ccbe62287933e8bf693cc0e506d167f",
     "docPath": "dpbtrs.md",
-    "description": "DPBTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "DPBTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "dpftrf",
@@ -7989,7 +7989,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/da/da0/group__pftrs_gafd0745fadab5537796135ee6d13dbc6c.html#gafd0745fadab5537796135ee6d13dbc6c",
     "docPath": "dpftrs.md",
-    "description": "DPFTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "DPFTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "dpocon",
@@ -8052,7 +8052,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d44/group__posvx_gae23dac18e7ec69c36fd2a2648a470dc3.html#gae23dac18e7ec69c36fd2a2648a470dc3",
     "docPath": "dposvx.md",
-    "description": "DPOSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to"
+    "description": "DPOSVX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T to"
   },
   {
     "id": "dposvxx",
@@ -8061,7 +8061,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d95/group__posvxx_ga48edd52284bc03902274c5a275bf00ea.html#ga48edd52284bc03902274c5a275bf00ea",
     "docPath": "dposvxx.md",
-    "description": "DPOSVXX uses the Cholesky factorization A = U**T*U or A = L*L**T"
+    "description": "DPOSVXX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T"
   },
   {
     "id": "dpotf2",
@@ -8106,7 +8106,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dc8/group__potrs_ga70a04d13ff2123745a26b1e236212cf7.html#ga70a04d13ff2123745a26b1e236212cf7",
     "docPath": "dpotrs.md",
-    "description": "DPOTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "DPOTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "dppcon",
@@ -8151,7 +8151,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d74/group__ppsvx_ga768d6c8c7307dda8465a7b96274628ae.html#ga768d6c8c7307dda8465a7b96274628ae",
     "docPath": "dppsvx.md",
-    "description": "DPPSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to"
+    "description": "DPPSVX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T to"
   },
   {
     "id": "dpptrf",
@@ -8178,7 +8178,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d15/group__pptrs_ga55f52449dc8170a98bb97e1eafd0cf72.html#ga55f52449dc8170a98bb97e1eafd0cf72",
     "docPath": "dpptrs.md",
-    "description": "DPPTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "DPPTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "dpstf2",
@@ -8241,7 +8241,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/db/d75/group__ptsvx_gaf288baa63fcd7e78b5f3312723daa3f3.html#gaf288baa63fcd7e78b5f3312723daa3f3",
     "docPath": "dptsvx.md",
-    "description": "DPTSVX uses the factorization A = L*D*L**T to compute the solution"
+    "description": "DPTSVX uses the factorization A = L\\*D\\*L\\*\\*T to compute the solution"
   },
   {
     "id": "dpttrf",
@@ -8250,7 +8250,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d2c/group__pttrf_ga8f112041da2b9b443f8761a1eaaf15b6.html#ga8f112041da2b9b443f8761a1eaaf15b6",
     "docPath": "dpttrf.md",
-    "description": "DPTTRF computes the L*D*L**T factorization of a real symmetric"
+    "description": "DPTTRF computes the L\\*D\\*L\\*\\*T factorization of a real symmetric"
   },
   {
     "id": "dpttrs",
@@ -8619,7 +8619,7 @@
     "category": "LDL: Hermitian/symmetric indefinite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d39/group__hpsvx_gad5d99a85af57fe7132295cd4b6856063.html#gad5d99a85af57fe7132295cd4b6856063",
     "docPath": "dspsvx.md",
-    "description": "DSPSVX uses the diagonal pivoting factorization A = U*D*U**T or"
+    "description": "DSPSVX uses the diagonal pivoting factorization A = U\\*D\\*U\\*\\*T or"
   },
   {
     "id": "dsptrd",
@@ -8655,7 +8655,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dbd/group__hptrs_ga89bf06708cb5bffbb5e05f1fbbd76887.html#ga89bf06708cb5bffbb5e05f1fbbd76887",
     "docPath": "dsptrs.md",
-    "description": "DSPTRS solves a system of linear equations A*X = B with a real"
+    "description": "DSPTRS solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "dstebz",
@@ -9276,7 +9276,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d30/group__hetrs_gad78145fc1575efc7f4bc09896deb65ff.html#gad78145fc1575efc7f4bc09896deb65ff",
     "docPath": "dsytrs.md",
-    "description": "DSYTRS solves a system of linear equations A*X = B with a real"
+    "description": "DSYTRS solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "dsytrs2",
@@ -9285,7 +9285,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d85/group__hetrs2_gacc88d0497bbec47b678b7cee6cad6db0.html#gacc88d0497bbec47b678b7cee6cad6db0",
     "docPath": "dsytrs2.md",
-    "description": "DSYTRS2 solves a system of linear equations A*X = B with a real"
+    "description": "DSYTRS2 solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "dsytrs_3",
@@ -9294,7 +9294,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d94/group__hetrs__3_gad176e7493b16e6fcc81d43239cd007a9.html#gad176e7493b16e6fcc81d43239cd007a9",
     "docPath": "dsytrs_3.md",
-    "description": "DSYTRS_3 solves a system of linear equations A * X = B with a real"
+    "description": "DSYTRS_3 solves a system of linear equations A \\* X = B with a real"
   },
   {
     "id": "dsytrs_aa",
@@ -9303,7 +9303,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/dcb/group__hetrs__aa_ga0b8d4589959932a0ba510f61326da2e5.html#ga0b8d4589959932a0ba510f61326da2e5",
     "docPath": "dsytrs_aa.md",
-    "description": "DSYTRS_AA solves a system of linear equations A*X = B with a real"
+    "description": "DSYTRS_AA solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "dsytrs_aa_2stage",
@@ -9312,7 +9312,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d03/group__hetrs__aa__2stage_ga9181a2dbe819500924a5c5583e3db588.html#ga9181a2dbe819500924a5c5583e3db588",
     "docPath": "dsytrs_aa_2stage.md",
-    "description": "DSYTRS_AA_2STAGE solves a system of linear equations A*X = B with a real"
+    "description": "DSYTRS_AA_2STAGE solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "dsytrs_rook",
@@ -9321,7 +9321,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/de/d9a/group__hetrs__rook_gaeb89c851d08026bafbd59a9b09afd5de.html#gaeb89c851d08026bafbd59a9b09afd5de",
     "docPath": "dsytrs_rook.md",
-    "description": "DSYTRS_ROOK solves a system of linear equations A*X = B with"
+    "description": "DSYTRS_ROOK solves a system of linear equations A\\*X = B with"
   },
   {
     "id": "dtbcon",
@@ -10932,7 +10932,7 @@
     "category": "LU: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d44/group__la__gbrcond_gaa5d19e1b3377e1c97cae69cbf0af7311.html#gaa5d19e1b3377e1c97cae69cbf0af7311",
     "docPath": "sla_gbrcond.md",
-    "description": "SLA_GBRCOND Estimates the Skeel condition number of  op(A) * op2(C)"
+    "description": "SLA_GBRCOND Estimates the Skeel condition number of  op(A) \\* op2(C)"
   },
   {
     "id": "sla_gbrfsx_extended",
@@ -10968,7 +10968,7 @@
     "category": "LU: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/da4/group__la__gercond_gac6235a1b01b0a4a1ddfb6818530dbfd6.html#gac6235a1b01b0a4a1ddfb6818530dbfd6",
     "docPath": "sla_gercond.md",
-    "description": "SLA_GERCOND estimates the Skeel condition number of op(A) * op2(C)"
+    "description": "SLA_GERCOND estimates the Skeel condition number of op(A) \\* op2(C)"
   },
   {
     "id": "sla_gerfsx_extended",
@@ -11004,7 +11004,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d56/group__la__porcond_gab912340d43253398413b6b9072b54c23.html#gab912340d43253398413b6b9072b54c23",
     "docPath": "sla_porcond.md",
-    "description": "SLA_PORCOND Estimates the Skeel condition number of  op(A) * op2(C)"
+    "description": "SLA_PORCOND Estimates the Skeel condition number of  op(A) \\* op2(C)"
   },
   {
     "id": "sla_porfsx_extended",
@@ -11040,7 +11040,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/df/d8c/group__la__hercond_gab8c8ff1d73751c4487d7a438c8f860bf.html#gab8c8ff1d73751c4487d7a438c8f860bf",
     "docPath": "sla_syrcond.md",
-    "description": "SLA_SYRCOND estimates the Skeel condition number of  op(A) * op2(C)"
+    "description": "SLA_SYRCOND estimates the Skeel condition number of  op(A) \\* op2(C)"
   },
   {
     "id": "sla_syrfsx_extended",
@@ -11319,7 +11319,7 @@
     "category": "Eig computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/d1/d90/group__lagtf_ga7e1be65c030310982d9b14b8243761bd.html#ga7e1be65c030310982d9b14b8243761bd",
     "docPath": "slagtf.md",
-    "description": "SLAGTF factorizes the matrix (T - lambda*I), where T is an n by n"
+    "description": "SLAGTF factorizes the matrix (T - lambda\\*I), where T is an n by n"
   },
   {
     "id": "slagtm",
@@ -11643,7 +11643,7 @@
     "category": "Scalar operations",
     "url": "https://www.netlib.org/lapack/explore-html/d8/d5e/group__lapy2_ga1b34ab91f97381308acb6020082ee897.html#ga1b34ab91f97381308acb6020082ee897",
     "docPath": "slapy2.md",
-    "description": "SLAPY2 returns sqrt(x**2+y**2), taking care not to cause unnecessary"
+    "description": "SLAPY2 returns sqrt(x\\*\\*2+y\\*\\*2), taking care not to cause unnecessary"
   },
   {
     "id": "slapy3",
@@ -11652,7 +11652,7 @@
     "category": "Scalar operations",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dba/group__lapy3_gadc353d84b54b9012f37dbee947769736.html#gadc353d84b54b9012f37dbee947769736",
     "docPath": "slapy3.md",
-    "description": "SLAPY3 returns sqrt(x**2+y**2+z**2), taking care not to cause"
+    "description": "SLAPY3 returns sqrt(x\\*\\*2+y\\*\\*2+z\\*\\*2), taking care not to cause"
   },
   {
     "id": "slaqgb",
@@ -11859,7 +11859,7 @@
     "category": "Householder reflectors",
     "url": "https://www.netlib.org/lapack/explore-html/df/d9a/group__larfb_gaf459bd2703c1bca45c63fa74a1207b95.html#gaf459bd2703c1bca45c63fa74a1207b95",
     "docPath": "slarfb.md",
-    "description": "SLARFB applies a real block reflector H or its transpose H**T to a"
+    "description": "SLARFB applies a real block reflector H or its transpose H\\*\\*T to a"
   },
   {
     "id": "slarfb_gett",
@@ -12102,7 +12102,7 @@
     "category": "RZ",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d78/group__larzb_ga47c4ee340f76e624ddefe3569e9b2eba.html#ga47c4ee340f76e624ddefe3569e9b2eba",
     "docPath": "slarzb.md",
-    "description": "SLARZB applies a real block reflector H or its transpose H**T to"
+    "description": "SLARZB applies a real block reflector H or its transpose H\\*\\*T to"
   },
   {
     "id": "slarzt",
@@ -12489,7 +12489,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/d8f/group__lauu2_gadce0f4a7f45a036382603cdd5c663eca.html#gadce0f4a7f45a036382603cdd5c663eca",
     "docPath": "slauu2.md",
-    "description": "SLAUU2 computes the product U * U**T or L**T * L, where the triangular"
+    "description": "SLAUU2 computes the product U \\* U\\*\\*T or L\\*\\*T \\* L, where the triangular"
   },
   {
     "id": "slauum",
@@ -12498,7 +12498,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d18/group__lauum_ga35dca0bb97c60d30c5fb73d251b23a01.html#ga35dca0bb97c60d30c5fb73d251b23a01",
     "docPath": "slauum.md",
-    "description": "SLAUUM computes the product U * U**T or L**T * L, where the triangular"
+    "description": "SLAUUM computes the product U \\* U\\*\\*T or L\\*\\*T \\* L, where the triangular"
   },
   {
     "id": "snrm2",
@@ -12633,7 +12633,7 @@
     "category": "SVD computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d45/group__ungbr_ga38f25e3a8741e1417a5e4b2e4aaeb7e5.html#ga38f25e3a8741e1417a5e4b2e4aaeb7e5",
     "docPath": "sorgbr.md",
-    "description": "SORGBR generates one of the real orthogonal matrices Q or P**T"
+    "description": "SORGBR generates one of the real orthogonal matrices Q or P\\*\\*T"
   },
   {
     "id": "sorghr",
@@ -12912,7 +12912,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d0/db0/group__pbsvx_gae7d6265fb8d7d3a37c8a568eeb3b388e.html#gae7d6265fb8d7d3a37c8a568eeb3b388e",
     "docPath": "spbsvx.md",
-    "description": "SPBSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to"
+    "description": "SPBSVX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T to"
   },
   {
     "id": "spbtf2",
@@ -12939,7 +12939,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/db/dec/group__pbtrs_ga266fa2dc26c500041c11ac62fceab44e.html#ga266fa2dc26c500041c11ac62fceab44e",
     "docPath": "spbtrs.md",
-    "description": "SPBTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "SPBTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "spftrf",
@@ -12966,7 +12966,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/da/da0/group__pftrs_ga1c81754772d15d1879faf4927aa90052.html#ga1c81754772d15d1879faf4927aa90052",
     "docPath": "spftrs.md",
-    "description": "SPFTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "SPFTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "spocon",
@@ -13029,7 +13029,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d44/group__posvx_gafe9caa9b2a52edd54c24b1ce3f8f0737.html#gafe9caa9b2a52edd54c24b1ce3f8f0737",
     "docPath": "sposvx.md",
-    "description": "SPOSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to"
+    "description": "SPOSVX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T to"
   },
   {
     "id": "sposvxx",
@@ -13038,7 +13038,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d95/group__posvxx_gaffdbd1fec892a4c4aad5cf594415135c.html#gaffdbd1fec892a4c4aad5cf594415135c",
     "docPath": "sposvxx.md",
-    "description": "SPOSVXX uses the Cholesky factorization A = U**T*U or A = L*L**T"
+    "description": "SPOSVXX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T"
   },
   {
     "id": "spotf2",
@@ -13083,7 +13083,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dc8/group__potrs_gaa14667c816c78f9d1dcae9017e473746.html#gaa14667c816c78f9d1dcae9017e473746",
     "docPath": "spotrs.md",
-    "description": "SPOTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "SPOTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "sppcon",
@@ -13128,7 +13128,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d74/group__ppsvx_ga082f3e1cd968c309f018e1d43644192f.html#ga082f3e1cd968c309f018e1d43644192f",
     "docPath": "sppsvx.md",
-    "description": "SPPSVX uses the Cholesky factorization A = U**T*U or A = L*L**T to"
+    "description": "SPPSVX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T to"
   },
   {
     "id": "spptrf",
@@ -13155,7 +13155,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d15/group__pptrs_ga523e38685b01425797654131637e441f.html#ga523e38685b01425797654131637e441f",
     "docPath": "spptrs.md",
-    "description": "SPPTRS solves a system of linear equations A*X = B with a symmetric"
+    "description": "SPPTRS solves a system of linear equations A\\*X = B with a symmetric"
   },
   {
     "id": "spstf2",
@@ -13218,7 +13218,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/db/d75/group__ptsvx_gad033646623d1cfda9ec805ccd68f0313.html#gad033646623d1cfda9ec805ccd68f0313",
     "docPath": "sptsvx.md",
-    "description": "SPTSVX uses the factorization A = L*D*L**T to compute the solution"
+    "description": "SPTSVX uses the factorization A = L\\*D\\*L\\*\\*T to compute the solution"
   },
   {
     "id": "spttrf",
@@ -13227,7 +13227,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d2c/group__pttrf_gab14da40f02882c3fb75197041cf58169.html#gab14da40f02882c3fb75197041cf58169",
     "docPath": "spttrf.md",
-    "description": "SPTTRF computes the L*D*L**T factorization of a real symmetric"
+    "description": "SPTTRF computes the L\\*D\\*L\\*\\*T factorization of a real symmetric"
   },
   {
     "id": "spttrs",
@@ -13560,7 +13560,7 @@
     "category": "LDL: Hermitian/symmetric indefinite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d39/group__hpsvx_ga476ab2e45677e58bafde9050b5999159.html#ga476ab2e45677e58bafde9050b5999159",
     "docPath": "sspsvx.md",
-    "description": "SSPSVX uses the diagonal pivoting factorization A = U*D*U**T or"
+    "description": "SSPSVX uses the diagonal pivoting factorization A = U\\*D\\*U\\*\\*T or"
   },
   {
     "id": "ssptrd",
@@ -13596,7 +13596,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dbd/group__hptrs_gac60f623655e3dd9b3b22ee73123609ef.html#gac60f623655e3dd9b3b22ee73123609ef",
     "docPath": "ssptrs.md",
-    "description": "SSPTRS solves a system of linear equations A*X = B with a real"
+    "description": "SSPTRS solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "sstebz",
@@ -14217,7 +14217,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d30/group__hetrs_gaec756bedb01c94825b269651edcb0351.html#gaec756bedb01c94825b269651edcb0351",
     "docPath": "ssytrs.md",
-    "description": "SSYTRS solves a system of linear equations A*X = B with a real"
+    "description": "SSYTRS solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "ssytrs2",
@@ -14226,7 +14226,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d85/group__hetrs2_ga31717a4da572b909f1e3445b7e4265a5.html#ga31717a4da572b909f1e3445b7e4265a5",
     "docPath": "ssytrs2.md",
-    "description": "SSYTRS2 solves a system of linear equations A*X = B with a real"
+    "description": "SSYTRS2 solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "ssytrs_3",
@@ -14235,7 +14235,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d94/group__hetrs__3_ga47562f9941ac52013045d74150ef3e3f.html#ga47562f9941ac52013045d74150ef3e3f",
     "docPath": "ssytrs_3.md",
-    "description": "SSYTRS_3 solves a system of linear equations A * X = B with a real"
+    "description": "SSYTRS_3 solves a system of linear equations A \\* X = B with a real"
   },
   {
     "id": "ssytrs_aa",
@@ -14244,7 +14244,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/dcb/group__hetrs__aa_ga24869343ccd37407dfdc916c45d2dadb.html#ga24869343ccd37407dfdc916c45d2dadb",
     "docPath": "ssytrs_aa.md",
-    "description": "SSYTRS_AA solves a system of linear equations A*X = B with a real"
+    "description": "SSYTRS_AA solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "ssytrs_aa_2stage",
@@ -14253,7 +14253,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d03/group__hetrs__aa__2stage_gad4e5f0bebe16c33408602d99698a6f67.html#gad4e5f0bebe16c33408602d99698a6f67",
     "docPath": "ssytrs_aa_2stage.md",
-    "description": "SSYTRS_AA_2STAGE solves a system of linear equations A*X = B with a real"
+    "description": "SSYTRS_AA_2STAGE solves a system of linear equations A\\*X = B with a real"
   },
   {
     "id": "ssytrs_rook",
@@ -14262,7 +14262,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/de/d9a/group__hetrs__rook_gac8ee708ad46c80a1b1efef2d52f5af70.html#gac8ee708ad46c80a1b1efef2d52f5af70",
     "docPath": "ssytrs_rook.md",
-    "description": "SSYTRS_ROOK solves a system of linear equations A*X = B with"
+    "description": "SSYTRS_ROOK solves a system of linear equations A\\*X = B with"
   },
   {
     "id": "stbcon",
@@ -16323,7 +16323,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d0a/group__hetri2_ga27db4732676ce72b44a0a8413f8d8e39.html#ga27db4732676ce72b44a0a8413f8d8e39",
     "docPath": "zhetri2.md",
-    "description": "ZHETRI2 computes the inverse of a COMPLEX*16 hermitian indefinite matrix"
+    "description": "ZHETRI2 computes the inverse of a COMPLEX\\*16 hermitian indefinite matrix"
   },
   {
     "id": "zhetri2x",
@@ -16332,7 +16332,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d9/dee/group__hetri2x_gad6aa05797042b8695e6030802aee2b19.html#gad6aa05797042b8695e6030802aee2b19",
     "docPath": "zhetri2x.md",
-    "description": "ZHETRI2X computes the inverse of a COMPLEX*16 Hermitian indefinite matrix"
+    "description": "ZHETRI2X computes the inverse of a COMPLEX\\*16 Hermitian indefinite matrix"
   },
   {
     "id": "zhetri_3",
@@ -16368,7 +16368,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d30/group__hetrs_ga848e1e577557d6f9b2adfd07aec36be2.html#ga848e1e577557d6f9b2adfd07aec36be2",
     "docPath": "zhetrs.md",
-    "description": "ZHETRS solves a system of linear equations A*X = B with a complex"
+    "description": "ZHETRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zhetrs2",
@@ -16377,7 +16377,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d85/group__hetrs2_gadd57180a1f1d9e51b4d6c980fcaa0ea8.html#gadd57180a1f1d9e51b4d6c980fcaa0ea8",
     "docPath": "zhetrs2.md",
-    "description": "ZHETRS2 solves a system of linear equations A*X = B with a complex"
+    "description": "ZHETRS2 solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zhetrs_3",
@@ -16386,7 +16386,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d94/group__hetrs__3_gad39be5872b01cc0d1366c45b24be0575.html#gad39be5872b01cc0d1366c45b24be0575",
     "docPath": "zhetrs_3.md",
-    "description": "ZHETRS_3 solves a system of linear equations A * X = B with a complex"
+    "description": "ZHETRS_3 solves a system of linear equations A \\* X = B with a complex"
   },
   {
     "id": "zhetrs_aa",
@@ -16395,7 +16395,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/dcb/group__hetrs__aa_ga8cc5275c5bbbf2a3b861c3934ae906da.html#ga8cc5275c5bbbf2a3b861c3934ae906da",
     "docPath": "zhetrs_aa.md",
-    "description": "ZHETRS_AA solves a system of linear equations A*X = B with a complex"
+    "description": "ZHETRS_AA solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zhetrs_aa_2stage",
@@ -16404,7 +16404,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d03/group__hetrs__aa__2stage_ga6c132b7009b4f8854d00191779bfcd7c.html#ga6c132b7009b4f8854d00191779bfcd7c",
     "docPath": "zhetrs_aa_2stage.md",
-    "description": "ZHETRS_AA_2STAGE solves a system of linear equations A*X = B with a"
+    "description": "ZHETRS_AA_2STAGE solves a system of linear equations A\\*X = B with a"
   },
   {
     "id": "zhetrs_rook",
@@ -16413,7 +16413,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/de/d9a/group__hetrs__rook_ga46031b4c7418cf8bc69316ea216abf2b.html#ga46031b4c7418cf8bc69316ea216abf2b",
     "docPath": "zhetrs_rook.md",
-    "description": "ZHETRS_ROOK solves a system of linear equations A*X = B with a complex"
+    "description": "ZHETRS_ROOK solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zhfrk",
@@ -16557,7 +16557,7 @@
     "category": "LDL: Hermitian/symmetric indefinite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d39/group__hpsvx_ga4081cb4abd8b6e35fa29bcbb656d28f1.html#ga4081cb4abd8b6e35fa29bcbb656d28f1",
     "docPath": "zhpsvx.md",
-    "description": "ZHPSVX uses the diagonal pivoting factorization A = U*D*U**H or"
+    "description": "ZHPSVX uses the diagonal pivoting factorization A = U\\*D\\*U\\*\\*H or"
   },
   {
     "id": "zhptrd",
@@ -16593,7 +16593,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dbd/group__hptrs_ga4c3e294b0938caf2b17c38d9908e4146.html#ga4c3e294b0938caf2b17c38d9908e4146",
     "docPath": "zhptrs.md",
-    "description": "ZHPTRS solves a system of linear equations A*X = B with a complex"
+    "description": "ZHPTRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zhsein",
@@ -16989,7 +16989,7 @@
     "category": "Initialize, copy, convert",
     "url": "https://www.netlib.org/lapack/explore-html/da/d0c/group____lag2___gafd387acfda812b00cc8920c82e4b922c.html#gafd387acfda812b00cc8920c82e4b922c",
     "docPath": "zlag2c.md",
-    "description": "ZLAG2C converts a COMPLEX*16 matrix, SA, to a COMPLEX matrix, A."
+    "description": "ZLAG2C converts a COMPLEX\\*16 matrix, SA, to a COMPLEX matrix, A."
   },
   {
     "id": "zlags2",
@@ -17511,7 +17511,7 @@
     "category": "Householder reflectors",
     "url": "https://www.netlib.org/lapack/explore-html/df/d9a/group__larfb_ga2863db9f1a2c2864c03e5badc5e383ee.html#ga2863db9f1a2c2864c03e5badc5e383ee",
     "docPath": "zlarfb.md",
-    "description": "ZLARFB applies a complex block reflector H or its transpose H**H to a"
+    "description": "ZLARFB applies a complex block reflector H or its transpose H\\*\\*H to a"
   },
   {
     "id": "zlarfb_gett",
@@ -17637,7 +17637,7 @@
     "category": "RZ",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d78/group__larzb_gab1881c6564ae1c1e10315cf51f7118e8.html#gab1881c6564ae1c1e10315cf51f7118e8",
     "docPath": "zlarzb.md",
-    "description": "ZLARZB applies a complex block reflector H or its transpose H**H"
+    "description": "ZLARZB applies a complex block reflector H or its transpose H\\*\\*H"
   },
   {
     "id": "zlarzt",
@@ -17754,7 +17754,7 @@
     "category": "Initialize, copy, convert",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d24/group____lat2___gaed2aec9fedabdb691b449338321a2b8b.html#gaed2aec9fedabdb691b449338321a2b8b",
     "docPath": "zlat2c.md",
-    "description": "ZLAT2C converts a COMPLEX*16 triangular matrix, SA, to a COMPLEX"
+    "description": "ZLAT2C converts a COMPLEX\\*16 triangular matrix, SA, to a COMPLEX"
   },
   {
     "id": "zlatbs",
@@ -17853,7 +17853,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/d8f/group__lauu2_gae91640f99ef61d7df95aeeacea0503b8.html#gae91640f99ef61d7df95aeeacea0503b8",
     "docPath": "zlauu2.md",
-    "description": "ZLAUU2 computes the product U * U**H or L**H * L, where the triangular"
+    "description": "ZLAUU2 computes the product U \\* U\\*\\*H or L\\*\\*H \\* L, where the triangular"
   },
   {
     "id": "zlauum",
@@ -17862,7 +17862,7 @@
     "category": "Triangular computational routines (solve, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d18/group__lauum_ga4cf13a1e5bc00a9bac26ad8031e247a3.html#ga4cf13a1e5bc00a9bac26ad8031e247a3",
     "docPath": "zlauum.md",
-    "description": "ZLAUUM computes the product U * U**H or L**H * L, where the triangular"
+    "description": "ZLAUUM computes the product U \\* U\\*\\*H or L\\*\\*H \\* L, where the triangular"
   },
   {
     "id": "zpbcon",
@@ -17916,7 +17916,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d0/db0/group__pbsvx_gafe00454212d1e370785fb9d923f92970.html#gafe00454212d1e370785fb9d923f92970",
     "docPath": "zpbsvx.md",
-    "description": "ZPBSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to"
+    "description": "ZPBSVX uses the Cholesky factorization A = U\\*\\*H\\*U or A = L\\*L\\*\\*H to"
   },
   {
     "id": "zpbtf2",
@@ -17943,7 +17943,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/db/dec/group__pbtrs_ga02d74760c58cc3260eb0bbef56384862.html#ga02d74760c58cc3260eb0bbef56384862",
     "docPath": "zpbtrs.md",
-    "description": "ZPBTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "ZPBTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "zpftrf",
@@ -17970,7 +17970,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/da/da0/group__pftrs_ga8e5ed055d2956ff1e88805a288c405c4.html#ga8e5ed055d2956ff1e88805a288c405c4",
     "docPath": "zpftrs.md",
-    "description": "ZPFTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "ZPFTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "zpocon",
@@ -18033,7 +18033,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d44/group__posvx_ga44842ad3bb11604c3ef38503f556e4bd.html#ga44842ad3bb11604c3ef38503f556e4bd",
     "docPath": "zposvx.md",
-    "description": "ZPOSVX uses the Cholesky factorization A = U**H*U or A = L*L**H to"
+    "description": "ZPOSVX uses the Cholesky factorization A = U\\*\\*H\\*U or A = L\\*L\\*\\*H to"
   },
   {
     "id": "zposvxx",
@@ -18042,7 +18042,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d5/d95/group__posvxx_ga10a0e2ef599bf639107635a22479d4a1.html#ga10a0e2ef599bf639107635a22479d4a1",
     "docPath": "zposvxx.md",
-    "description": "ZPOSVXX uses the Cholesky factorization A = U**T*U or A = L*L**T"
+    "description": "ZPOSVXX uses the Cholesky factorization A = U\\*\\*T\\*U or A = L\\*L\\*\\*T"
   },
   {
     "id": "zpotf2",
@@ -18087,7 +18087,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dc8/group__potrs_gacda90a923bbce552c2f0543bc1f4e673.html#gacda90a923bbce552c2f0543bc1f4e673",
     "docPath": "zpotrs.md",
-    "description": "ZPOTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "ZPOTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "zppcon",
@@ -18132,7 +18132,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d74/group__ppsvx_gad1c59b6b914732d82f97238727060cc0.html#gad1c59b6b914732d82f97238727060cc0",
     "docPath": "zppsvx.md",
-    "description": "ZPPSVX uses the Cholesky factorization A = U**H * U or A = L * L**H to"
+    "description": "ZPPSVX uses the Cholesky factorization A = U\\*\\*H \\* U or A = L \\* L\\*\\*H to"
   },
   {
     "id": "zpptrf",
@@ -18159,7 +18159,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d15/group__pptrs_ga2d7f09698d29d5252ec06a12875e4f7b.html#ga2d7f09698d29d5252ec06a12875e4f7b",
     "docPath": "zpptrs.md",
-    "description": "ZPPTRS solves a system of linear equations A*X = B with a Hermitian"
+    "description": "ZPPTRS solves a system of linear equations A\\*X = B with a Hermitian"
   },
   {
     "id": "zpstf2",
@@ -18222,7 +18222,7 @@
     "category": "Cholesky: Hermitian/symmetric positive definite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/db/d75/group__ptsvx_ga99065dd794dafbfdf915950298e4fb9f.html#ga99065dd794dafbfdf915950298e4fb9f",
     "docPath": "zptsvx.md",
-    "description": "ZPTSVX uses the factorization A = L*D*L**H to compute the solution"
+    "description": "ZPTSVX uses the factorization A = L\\*D\\*L\\*\\*H to compute the solution"
   },
   {
     "id": "zpttrf",
@@ -18231,7 +18231,7 @@
     "category": "Cholesky: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d2c/group__pttrf_ga5ca2af5640847afc2d612b92be144905.html#ga5ca2af5640847afc2d612b92be144905",
     "docPath": "zpttrf.md",
-    "description": "ZPTTRF computes the L*D*L**H factorization of a complex Hermitian"
+    "description": "ZPTTRF computes the L\\*D\\*L\\*\\*H factorization of a complex Hermitian"
   },
   {
     "id": "zpttrs",
@@ -18330,7 +18330,7 @@
     "category": "LDL: Hermitian/symmetric indefinite matrix, driver",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d39/group__hpsvx_ga30323b81f11d90b997ea5dea4096d977.html#ga30323b81f11d90b997ea5dea4096d977",
     "docPath": "zspsvx.md",
-    "description": "ZSPSVX uses the diagonal pivoting factorization A = U*D*U**T or"
+    "description": "ZSPSVX uses the diagonal pivoting factorization A = U\\*D\\*U\\*\\*T or"
   },
   {
     "id": "zsptrf",
@@ -18357,7 +18357,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d3/dbd/group__hptrs_ga73b104c1904d9246026922132d48ac8d.html#ga73b104c1904d9246026922132d48ac8d",
     "docPath": "zsptrs.md",
-    "description": "ZSPTRS solves a system of linear equations A*X = B with a complex"
+    "description": "ZSPTRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zstedc",
@@ -18699,7 +18699,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d6/d0a/group__hetri2_ga4b89138d1ebce1e6f89c1c6f48067020.html#ga4b89138d1ebce1e6f89c1c6f48067020",
     "docPath": "zsytri2.md",
-    "description": "ZSYTRI2 computes the inverse of a COMPLEX*16 symmetric indefinite matrix"
+    "description": "ZSYTRI2 computes the inverse of a COMPLEX\\*16 symmetric indefinite matrix"
   },
   {
     "id": "zsytri2x",
@@ -18744,7 +18744,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/d30/group__hetrs_ga0c5db5a37b27bbe2049da8a0f5da17d2.html#ga0c5db5a37b27bbe2049da8a0f5da17d2",
     "docPath": "zsytrs.md",
-    "description": "ZSYTRS solves a system of linear equations A*X = B with a complex"
+    "description": "ZSYTRS solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zsytrs2",
@@ -18753,7 +18753,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d85/group__hetrs2_gacd7d4afa1b09c2a7d00b586aa0aa8768.html#gacd7d4afa1b09c2a7d00b586aa0aa8768",
     "docPath": "zsytrs2.md",
-    "description": "ZSYTRS2 solves a system of linear equations A*X = B with a complex"
+    "description": "ZSYTRS2 solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zsytrs_3",
@@ -18762,7 +18762,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d2/d94/group__hetrs__3_ga81f6b52ede46079d10c74a93153677fc.html#ga81f6b52ede46079d10c74a93153677fc",
     "docPath": "zsytrs_3.md",
-    "description": "ZSYTRS_3 solves a system of linear equations A * X = B with a complex"
+    "description": "ZSYTRS_3 solves a system of linear equations A \\* X = B with a complex"
   },
   {
     "id": "zsytrs_aa",
@@ -18771,7 +18771,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d4/dcb/group__hetrs__aa_ga7a9c5325978735b83171af0a48c8d305.html#ga7a9c5325978735b83171af0a48c8d305",
     "docPath": "zsytrs_aa.md",
-    "description": "ZSYTRS_AA solves a system of linear equations A*X = B with a complex"
+    "description": "ZSYTRS_AA solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zsytrs_aa_2stage",
@@ -18780,7 +18780,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d03/group__hetrs__aa__2stage_gae63d48b47ff3fee529b549223ae63c20.html#gae63d48b47ff3fee529b549223ae63c20",
     "docPath": "zsytrs_aa_2stage.md",
-    "description": "ZSYTRS_AA_2STAGE solves a system of linear equations A*X = B with a complex"
+    "description": "ZSYTRS_AA_2STAGE solves a system of linear equations A\\*X = B with a complex"
   },
   {
     "id": "zsytrs_rook",
@@ -18789,7 +18789,7 @@
     "category": "LDL: computational routines (factor, cond, etc.)",
     "url": "https://www.netlib.org/lapack/explore-html/de/d9a/group__hetrs__rook_ga7b053cc8e0c309a223ed482c93e4e420.html#ga7b053cc8e0c309a223ed482c93e4e420",
     "docPath": "zsytrs_rook.md",
-    "description": "ZSYTRS_ROOK solves a system of linear equations A*X = B with"
+    "description": "ZSYTRS_ROOK solves a system of linear equations A\\*X = B with"
   },
   {
     "id": "ztbcon",
@@ -19356,7 +19356,7 @@
     "category": "SVD computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/dc/d45/group__ungbr_ga67f76fc4b0c3642075fb74ec929eca27.html#ga67f76fc4b0c3642075fb74ec929eca27",
     "docPath": "zungbr.md",
-    "description": "ZUNGBR generates one of the complex unitary matrices Q or P**H"
+    "description": "ZUNGBR generates one of the complex unitary matrices Q or P\\*\\*H"
   },
   {
     "id": "zunghr",

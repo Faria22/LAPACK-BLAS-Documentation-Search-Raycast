@@ -1,6 +1,5 @@
 ```fortran
-subroutine zggesx
-(
+subroutine zggesx (
         character jobvsl,
         character jobvsr,
         character sort,
@@ -35,9 +34,9 @@ ZGGESX computes for a pair of N-by-N complex nonsymmetric matrices
 and, optionally, the left and/or right matrices of Schur vectors (VSL
 and VSR).  This gives the generalized Schur factorization
 
-(A,B) = ( (VSL) S (VSR)**H, (VSL) T (VSR)**H )
+(A,B) = ( (VSL) S (VSR)\*\*H, (VSL) T (VSR)\*\*H )
 
-where (VSR)**H is the conjugate-transpose of VSR.
+where (VSR)\*\*H is the conjugate-transpose of VSR.
 
 Optionally, it also orders the eigenvalues so that a selected cluster
 of eigenvalues appears in the leading diagonal blocks of the upper
@@ -50,7 +49,7 @@ an orthonormal basis for the corresponding left and right eigenspaces
 (deflating subspaces).
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar w
-or a ratio alpha/beta = w, such that  A - w*B is singular.  It is
+or a ratio alpha/beta = w, such that  A - w\*B is singular.  It is
 usually represented as the pair (alpha,beta), as there is a
 reasonable interpretation for beta=0 or for both being zero.
 
@@ -59,21 +58,21 @@ upper triangular with non-negative diagonal and S is upper
 triangular.
 
 ## Parameters
-JOBVSL : CHARACTER*1 [in]
+JOBVSL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left Schur vectors;
 > = 'V':  compute the left Schur vectors.
 
-JOBVSR : CHARACTER*1 [in]
+JOBVSR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right Schur vectors;
 > = 'V':  compute the right Schur vectors.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the generalized Schur form.
 > = 'N':  Eigenvalues are not ordered;
 > = 'S':  Eigenvalues are ordered (see SELCTG).
 
-SELCTG : a LOGICAL FUNCTION of two COMPLEX*16 arguments [in]
+SELCTG : a LOGICAL FUNCTION of two COMPLEX\*16 arguments [in]
 > SELCTG must be declared EXTERNAL in the calling subroutine.
 > If SORT = 'N', SELCTG is not referenced.
 > If SORT = 'S', SELCTG is used to select eigenvalues to sort
@@ -84,7 +83,7 @@ SELCTG : a LOGICAL FUNCTION of two COMPLEX*16 arguments [in]
 > (especially if the eigenvalue is ill-conditioned), in this
 > case INFO is set to N+3 see INFO below).
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': None are computed;
 > = 'E': Computed for average of selected eigenvalues only;
@@ -95,7 +94,7 @@ SENSE : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrices A, B, VSL, and VSR.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the first of the pair of matrices.
 > On exit, A has been overwritten by its generalized Schur
 > form S.
@@ -103,7 +102,7 @@ A : COMPLEX*16 array, dimension (LDA, N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of A.  LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB, N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB, N) [in,out]
 > On entry, the second of the pair of matrices.
 > On exit, B has been overwritten by its generalized Schur
 > form T.
@@ -116,9 +115,9 @@ SDIM : INTEGER [out]
 > If SORT = 'S', SDIM = number of eigenvalues (after sorting)
 > for which SELCTG is true.
 
-ALPHA : COMPLEX*16 array, dimension (N) [out]
+ALPHA : COMPLEX\*16 array, dimension (N) [out]
 
-BETA : COMPLEX*16 array, dimension (N) [out]
+BETA : COMPLEX\*16 array, dimension (N) [out]
 > On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the
 > generalized eigenvalues.  ALPHA(j) and BETA(j),j=1,...,N  are
 > the diagonals of the complex Schur form (S,T).  BETA(j) will
@@ -131,7 +130,7 @@ BETA : COMPLEX*16 array, dimension (N) [out]
 > comparable with norm(A) in magnitude, and BETA always less
 > than and usually comparable with norm(B).
 
-VSL : COMPLEX*16 array, dimension (LDVSL,N) [out]
+VSL : COMPLEX\*16 array, dimension (LDVSL,N) [out]
 > If JOBVSL = 'V', VSL will contain the left Schur vectors.
 > Not referenced if JOBVSL = 'N'.
 
@@ -139,7 +138,7 @@ LDVSL : INTEGER [in]
 > The leading dimension of the matrix VSL. LDVSL >=1, and
 > if JOBVSL = 'V', LDVSL >= N.
 
-VSR : COMPLEX*16 array, dimension (LDVSR,N) [out]
+VSR : COMPLEX\*16 array, dimension (LDVSR,N) [out]
 > If JOBVSR = 'V', VSR will contain the right Schur vectors.
 > Not referenced if JOBVSR = 'N'.
 
@@ -159,16 +158,16 @@ RCONDV : DOUBLE PRECISION array, dimension ( 2 ) [out]
 > subspaces.
 > Not referenced if SENSE = 'N' or 'E'.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If N = 0, LWORK >= 1, else if SENSE = 'E', 'V', or 'B',
-> LWORK >= MAX(1,2*N,2*SDIM*(N-SDIM)), else
-> LWORK >= MAX(1,2*N).  Note that 2*SDIM*(N-SDIM) <= N*N/2.
+> LWORK >= MAX(1,2\*N,2\*SDIM\*(N-SDIM)), else
+> LWORK >= MAX(1,2\*N).  Note that 2\*SDIM\*(N-SDIM) <= N\*N/2.
 > Note also that an error is only returned if
-> LWORK < MAX(1,2*N), but if SENSE = 'E' or 'V' or 'B' this may
+> LWORK < MAX(1,2\*N), but if SENSE = 'E' or 'V' or 'B' this may
 > not be large enough.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -178,7 +177,7 @@ LWORK : INTEGER [in]
 > no error message related to LWORK or LIWORK is issued by
 > XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension ( 8*N ) [out]
+RWORK : DOUBLE PRECISION array, dimension ( 8\*N ) [out]
 > Real workspace.
 
 IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]

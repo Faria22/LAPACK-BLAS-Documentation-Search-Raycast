@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgerq2
-(
+subroutine sgerq2 (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -12,7 +11,7 @@ subroutine sgerq2
 ```
 
 SGERQ2 computes an RQ factorization of a real m by n matrix A:
-A = R * Q.
+A = R \* Q.
 
 ## Parameters
 M : INTEGER [in]

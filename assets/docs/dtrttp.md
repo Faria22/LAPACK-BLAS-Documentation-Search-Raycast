@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtrttp
-(
+subroutine dtrttp (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ DTRTTP copies a triangular matrix A from full format (TR) to standard
 packed format (TP).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular.
 > = 'L':  A is lower triangular.
 
@@ -33,12 +32,12 @@ A : DOUBLE PRECISION array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AP : DOUBLE PRECISION array, dimension (N*(N+1)/2) [out]
+AP : DOUBLE PRECISION array, dimension (N\*(N+1)/2) [out]
 > On exit, the upper or lower triangular matrix A, packed
 > columnwise in a linear array. The j-th column of A is stored
 > in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = A(i,j) for j<=i<=n.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

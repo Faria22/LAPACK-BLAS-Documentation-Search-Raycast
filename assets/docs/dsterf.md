@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsterf
-(
+subroutine dsterf (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) e,
@@ -28,5 +27,5 @@ INFO : INTEGER [out]
 > = 0:  successful exit
 > < 0:  if INFO = -i, the i-th argument had an illegal value
 > > 0:  the algorithm failed to find all of the eigenvalues in
-> a total of 30*N iterations; if INFO = i, then i
+> a total of 30\*N iterations; if INFO = i, then i
 > elements of E have not converged to zero.

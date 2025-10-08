@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarrr
-(
+subroutine dlarrr (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) e,

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cungrq
-(
+subroutine cungrq (
         integer m,
         integer n,
         integer k,
@@ -17,7 +16,7 @@ CUNGRQ generates an M-by-N complex matrix Q with orthonormal rows,
 which is defined as the last M rows of a product of K elementary
 reflectors of order N
 
-Q  =  H(1)**H H(2)**H . . . H(k)**H
+Q  =  H(1)\*\*H H(2)\*\*H . . . H(k)\*\*H
 
 as returned by CGERQF.
 
@@ -51,7 +50,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,M).
-> For optimum performance LWORK >= M*NB, where NB is the
+> For optimum performance LWORK >= M\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarrc
-(
+subroutine slarrc (
         character jobt,
         integer n,
         real vl,
@@ -20,7 +19,7 @@ that are in the interval (VL,VU] if JOBT = 'T', and of L D L^T
 if JOBT = 'L'.
 
 ## Parameters
-JOBT : CHARACTER*1 [in]
+JOBT : CHARACTER\*1 [in]
 > = 'T':  Compute Sturm count for matrix T.
 > = 'L':  Compute Sturm count for matrix L D L^T.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slargv
-(
+subroutine slargv (
         integer n,
         real, dimension( * ) x,
         integer incx,
@@ -22,7 +21,7 @@ N : INTEGER [in]
 > The number of plane rotations to be generated.
 
 X : REAL array, [in,out]
-> dimension (1+(N-1)*INCX)
+> dimension (1+(N-1)\*INCX)
 > On entry, the vector x.
 > On exit, x(i) is overwritten by a(i), for i = 1,...,n.
 
@@ -30,14 +29,14 @@ INCX : INTEGER [in]
 > The increment between elements of X. INCX > 0.
 
 Y : REAL array, [in,out]
-> dimension (1+(N-1)*INCY)
+> dimension (1+(N-1)\*INCY)
 > On entry, the vector y.
 > On exit, the sines of the plane rotations.
 
 INCY : INTEGER [in]
 > The increment between elements of Y. INCY > 0.
 
-C : REAL array, dimension (1+(N-1)*INCC) [out]
+C : REAL array, dimension (1+(N-1)\*INCC) [out]
 > The cosines of the plane rotations.
 
 INCC : INTEGER [in]

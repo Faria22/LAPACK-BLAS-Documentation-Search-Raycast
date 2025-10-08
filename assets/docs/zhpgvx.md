@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhpgvx
-(
+subroutine zhpgvx (
         integer itype,
         character jobz,
         character range,
@@ -27,7 +26,7 @@ subroutine zhpgvx
 
 ZHPGVX computes selected eigenvalues and, optionally, eigenvectors
 of a complex generalized Hermitian-definite eigenproblem, of the form
-A*x=(lambda)*B*x,  A*Bx=(lambda)*x,  or B*A*x=(lambda)*x.  Here A and
+A\*x=(lambda)\*B\*x,  A\*Bx=(lambda)\*x,  or B\*A\*x=(lambda)\*x.  Here A and
 B are assumed to be Hermitian, stored in packed format, and B is also
 positive definite.  Eigenvalues and eigenvectors can be selected by
 specifying either a range of values or a range of indices for the
@@ -36,45 +35,45 @@ desired eigenvalues.
 ## Parameters
 ITYPE : INTEGER [in]
 > Specifies the problem type to be solved:
-> = 1:  A*x = (lambda)*B*x
-> = 2:  A*B*x = (lambda)*x
-> = 3:  B*A*x = (lambda)*x
+> = 1:  A\*x = (lambda)\*B\*x
+> = 2:  A\*B\*x = (lambda)\*x
+> = 3:  B\*A\*x = (lambda)\*x
 
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found;
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found;
 > = 'I': the IL-th through IU-th eigenvalues will be found.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
 N : INTEGER [in]
 > The order of the matrices A and B.  N >= 0.
 
-AP : COMPLEX*16 array, dimension (N*(N+1)/2) [in,out]
+AP : COMPLEX\*16 array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the Hermitian matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > 
 > On exit, the contents of AP are destroyed.
 
-BP : COMPLEX*16 array, dimension (N*(N+1)/2) [in,out]
+BP : COMPLEX\*16 array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the Hermitian matrix
 > B, packed columnwise in a linear array.  The j-th column of B
 > is stored in the array BP as follows:
-> if UPLO = 'U', BP(i + (j-1)*j/2) = B(i,j) for 1<=i<=j;
-> if UPLO = 'L', BP(i + (j-1)*(2*n-j)/2) = B(i,j) for j<=i<=n.
+> if UPLO = 'U', BP(i + (j-1)\*j/2) = B(i,j) for 1<=i<=j;
+> if UPLO = 'L', BP(i + (j-1)\*(2\*n-j)/2) = B(i,j) for j<=i<=n.
 > 
 > On exit, the triangular factor U or L from the Cholesky
-> factorization B = U**H*U or B = L*L**H, in the same storage
+> factorization B = U\*\*H\*U or B = L\*L\*\*H, in the same storage
 > format as B.
 
 VL : DOUBLE PRECISION [in]
@@ -109,18 +108,18 @@ ABSTOL : DOUBLE PRECISION [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing AP to tridiagonal form.
 > 
 > Eigenvalues will be computed most accurately when ABSTOL is
-> set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+> set to twice the underflow threshold 2\*DLAMCH('S'), not zero.
 > If this routine returns with INFO>0, indicating that some
 > eigenvectors did not converge, try setting ABSTOL to
-> 2*DLAMCH('S').
+> 2\*DLAMCH('S').
 
 M : INTEGER [out]
 > The total number of eigenvalues found.  0 <= M <= N.
@@ -130,15 +129,15 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 > On normal exit, the first M elements contain the selected
 > eigenvalues in ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [out]
 > If JOBZ = 'N', then Z is not referenced.
 > If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 > contain the orthonormal eigenvectors of the matrix A
 > corresponding to the selected eigenvalues, with the i-th
 > column of Z holding the eigenvector associated with W(i).
 > The eigenvectors are normalized as follows:
-> if ITYPE = 1 or 2, Z**H*B*Z = I;
-> if ITYPE = 3, Z**H*inv(B)*Z = I.
+> if ITYPE = 1 or 2, Z\*\*H\*B\*Z = I;
+> if ITYPE = 3, Z\*\*H\*inv(B)\*Z = I.
 > 
 > If an eigenvector fails to converge, then that column of Z
 > contains the latest approximation to the eigenvector, and the
@@ -151,11 +150,11 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
-RWORK : DOUBLE PRECISION array, dimension (7*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (7\*N) [out]
 
-IWORK : INTEGER array, dimension (5*N) [out]
+IWORK : INTEGER array, dimension (5\*N) [out]
 
 IFAIL : INTEGER array, dimension (N) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M elements of

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dla_lin_berr
-(
+subroutine dla_lin_berr (
         integer n,
         integer nz,
         integer nrhs,
@@ -12,7 +11,7 @@ subroutine dla_lin_berr
 
 DLA_LIN_BERR computes component-wise relative backward error from
 the formula
-max(i) ( abs(R(i)) / ( abs(op(A_s))*abs(Y) + abs(B_s) )(i) )
+max(i) ( abs(R(i)) / ( abs(op(A_s))\*abs(Y) + abs(B_s) )(i) )
 where abs(Z) is the component-wise absolute value of the matrix
 or vector Z.
 
@@ -22,7 +21,7 @@ N : INTEGER [in]
 > matrix A.  N >= 0.
 
 NZ : INTEGER [in]
-> We add (NZ+1)*SLAMCH( 'Safe minimum' ) to R(i) in the numerator to
+> We add (NZ+1)\*SLAMCH( 'Safe minimum' ) to R(i) in the numerator to
 > guard against spuriously zero residuals. Default value is N.
 
 NRHS : INTEGER [in]
@@ -35,7 +34,7 @@ RES : DOUBLE PRECISION array, dimension (N,NRHS) [in]
 
 AYB : DOUBLE PRECISION array, dimension (N, NRHS) [in]
 > The denominator in the relative backward error formula above, i.e.,
-> the matrix abs(op(A_s))*abs(Y) + abs(B_s). The matrices A, Y, and B
+> the matrix abs(op(A_s))\*abs(Y) + abs(B_s). The matrices A, Y, and B
 > are from iterative refinement (see dla_gerfsx_extended.f).
 
 BERR : DOUBLE PRECISION array, dimension (NRHS) [out]

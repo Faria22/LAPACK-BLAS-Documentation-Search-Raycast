@@ -1,6 +1,5 @@
 ```fortran
-subroutine slagv2
-(
+subroutine slagv2 (
         real, dimension( lda, * ) a,
         integer lda,
         real, dimension( ldb, * ) b,
@@ -62,7 +61,7 @@ ALPHAR : REAL array, dimension (2) [out]
 ALPHAI : REAL array, dimension (2) [out]
 
 BETA : REAL array, dimension (2) [out]
-> (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the
+> (ALPHAR(k)+i\*ALPHAI(k))/BETA(k) are the eigenvalues of the
 > pencil (A,B), k=1,2, i = sqrt(-1).  Note that BETA(k) may
 > be zero.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasy2
-(
+subroutine slasy2 (
         logical ltranl,
         logical ltranr,
         integer isgn,
@@ -22,21 +21,21 @@ subroutine slasy2
 
 SLASY2 solves for the N1 by N2 matrix X, 1 <= N1,N2 <= 2, in
 
-op(TL)*X + ISGN*X*op(TR) = SCALE*B,
+op(TL)\*X + ISGN\*X\*op(TR) = SCALE\*B,
 
 where TL is N1 by N1, TR is N2 by N2, B is N1 by N2, and ISGN = 1 or
--1.  op(T) = T or T**T, where T**T denotes the transpose of T.
+-1.  op(T) = T or T\*\*T, where T\*\*T denotes the transpose of T.
 
 ## Parameters
 LTRANL : LOGICAL [in]
 > On entry, LTRANL specifies the op(TL):
 > = .FALSE., op(TL) = TL,
-> = .TRUE., op(TL) = TL**T.
+> = .TRUE., op(TL) = TL\*\*T.
 
 LTRANR : LOGICAL [in]
 > On entry, LTRANR specifies the op(TR):
 > = .FALSE., op(TR) = TR,
-> = .TRUE., op(TR) = TR**T.
+> = .TRUE., op(TR) = TR\*\*T.
 
 ISGN : INTEGER [in]
 > On entry, ISGN specifies the sign of the equation

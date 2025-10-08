@@ -1,6 +1,5 @@
 ```fortran
-subroutine dpteqr
-(
+subroutine dpteqr (
         character compz,
         integer n,
         double precision, dimension( * ) d,
@@ -31,7 +30,7 @@ relative accuracy in the small eigenvalues of the original matrix, if
 these eigenvalues range over many orders of magnitude.)
 
 ## Parameters
-COMPZ : CHARACTER*1 [in]
+COMPZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only.
 > = 'V':  Compute eigenvectors of original symmetric
 > matrix also.  Array Z contains the orthogonal
@@ -68,7 +67,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > COMPZ = 'V' or 'I', LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (4*N) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

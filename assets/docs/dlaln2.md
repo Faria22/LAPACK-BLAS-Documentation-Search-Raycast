@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaln2
-(
+subroutine dlaln2 (
         logical ltrans,
         integer na,
         integer nw,
@@ -23,8 +22,8 @@ subroutine dlaln2
 ```
 
 DLALN2 solves a system of the form  (ca A - w D ) X = s B
-or (ca A**T - w D) X = s B   with possible scaling () and
-perturbation of A.  (A**T means A-transpose.)
+or (ca A\*\*T - w D) X = s B   with possible scaling () and
+perturbation of A.  (A\*\*T means A-transpose.)
 
 A is an NA x NA real matrix, ca is a real scalar, D is an NA x NA
 real diagonal matrix, w is a real or complex value, and X and B are
@@ -37,16 +36,16 @@ being the imaginary part.
 
 is a scaling factor (<= 1), computed by DLALN2, which is
 so chosen that X can be computed without overflow.  X is further
-scaled if necessary to assure that norm(ca A - w D)*norm(X) is less
+scaled if necessary to assure that norm(ca A - w D)\*norm(X) is less
 than overflow.
 
 If both singular values of (ca A - w D) are less than SMIN,
-SMIN*identity will be used instead of (ca A - w D).  If only one
+SMIN\*identity will be used instead of (ca A - w D).  If only one
 singular value is less than SMIN, one element of (ca A - w D) will be
 perturbed enough to make the smallest singular value roughly SMIN.
 If both singular values are at least SMIN, (ca A - w D) will not be
 perturbed.  In any case, the perturbation will be at most some small
-multiple of max( SMIN, ulp*norm(ca A - w D) ).  The singular values
+multiple of max( SMIN, ulp\*norm(ca A - w D) ).  The singular values
 are computed by infinity-norm approximations, and thus will only be
 correct to a factor of 2 or so.
 
@@ -69,7 +68,7 @@ SMIN : DOUBLE PRECISION [in]
 > The desired lower bound on the singular values of A.  This
 > should be a safe distance away from underflow or overflow,
 > say, between (underflow/machine precision) and  (machine
-> precision * overflow ).  (See BIGNUM and ULP.)
+> precision \* overflow ).  (See BIGNUM and ULP.)
 
 CA : DOUBLE PRECISION [in]
 > The coefficient c, which A is multiplied by.
@@ -112,7 +111,7 @@ LDX : INTEGER [in]
 SCALE : DOUBLE PRECISION [out]
 > The scale factor that B must be multiplied by to insure
 > that overflow does not occur when computing X.  Thus,
-> (ca A - w D) X  will be SCALE*B, not B (ignoring
+> (ca A - w D) X  will be SCALE\*B, not B (ignoring
 > perturbations of A.)  It will be at most 1.
 
 XNORM : DOUBLE PRECISION [out]

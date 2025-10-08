@@ -1,6 +1,5 @@
 ```fortran
-subroutine chegv_2stage
-(
+subroutine chegv_2stage (
         integer itype,
         character jobz,
         character uplo,
@@ -19,7 +18,7 @@ subroutine chegv_2stage
 
 CHEGV_2STAGE computes all the eigenvalues, and optionally, the eigenvectors
 of a complex generalized Hermitian-definite eigenproblem, of the form
-A*x=(lambda)*B*x,  A*Bx=(lambda)*x,  or B*A*x=(lambda)*x.
+A\*x=(lambda)\*B\*x,  A\*Bx=(lambda)\*x,  or B\*A\*x=(lambda)\*x.
 Here A and B are assumed to be Hermitian and B is also
 positive definite.
 This routine use the 2stage technique for the reduction to tridiagonal
@@ -29,16 +28,16 @@ sizes N>2000.
 ## Parameters
 ITYPE : INTEGER [in]
 > Specifies the problem type to be solved:
-> = 1:  A*x = (lambda)*B*x
-> = 2:  A*B*x = (lambda)*x
-> = 3:  B*A*x = (lambda)*x
+> = 1:  A\*x = (lambda)\*B\*x
+> = 2:  A\*B\*x = (lambda)\*x
+> = 3:  B\*A\*x = (lambda)\*x
 
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -55,8 +54,8 @@ A : COMPLEX array, dimension (LDA, N) [in,out]
 > On exit, if JOBZ = 'V', then if INFO = 0, A contains the
 > matrix Z of eigenvectors.  The eigenvectors are normalized
 > as follows:
-> if ITYPE = 1 or 2, Z**H*B*Z = I;
-> if ITYPE = 3, Z**H*inv(B)*Z = I.
+> if ITYPE = 1 or 2, Z\*\*H\*B\*Z = I;
+> if ITYPE = 3, Z\*\*H\*inv(B)\*Z = I.
 > If JOBZ = 'N', then on exit the upper triangle (if UPLO='U')
 > or the lower triangle (if UPLO='L') of A, including the
 > diagonal, is destroyed.
@@ -73,7 +72,7 @@ B : COMPLEX array, dimension (LDB, N) [in,out]
 > 
 > On exit, if INFO <= N, the part of B containing the matrix is
 > overwritten by the triangular factor U or L from the Cholesky
-> factorization B = U**H*U or B = L*L**H.
+> factorization B = U\*\*H\*U or B = L\*L\*\*H.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
@@ -89,10 +88,10 @@ LWORK : INTEGER [in]
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = max(stage1,stage2) + (KD+1)*N + N
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N + N
+> dimension = max(stage1,stage2) + (KD+1)\*N + N
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N + N
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice
@@ -105,7 +104,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (max(1, 3*N-2)) [out]
+RWORK : REAL array, dimension (max(1, 3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

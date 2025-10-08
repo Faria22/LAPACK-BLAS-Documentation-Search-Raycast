@@ -1,6 +1,5 @@
 ```fortran
-integer function dlaneg
-(
+integer function dlaneg (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) lld,
@@ -36,7 +35,7 @@ D : DOUBLE PRECISION array, dimension (N) [in]
 > The N diagonal elements of the diagonal matrix D.
 
 LLD : DOUBLE PRECISION array, dimension (N-1) [in]
-> The (N-1) elements L(i)*L(i)*D(i).
+> The (N-1) elements L(i)\*L(i)\*D(i).
 
 SIGMA : DOUBLE PRECISION [in]
 > Shift amount in T - sigma I = L D L^T.

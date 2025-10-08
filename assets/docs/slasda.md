@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasda
-(
+subroutine slasda (
         integer icompq,
         integer smlsiz,
         integer n,
@@ -31,7 +30,7 @@ subroutine slasda
 Using a divide and conquer approach, SLASDA computes the singular
 value decomposition (SVD) of a real upper bidiagonal N-by-M matrix
 B with diagonal D and offdiagonal E, where M = N + SQRE. The
-algorithm computes the singular values in the SVD B = U * S * VT.
+algorithm computes the singular values in the SVD B = U \* S \* VT.
 The orthogonal matrices U and VT are optionally computed in
 compact form.
 
@@ -79,7 +78,7 @@ LDU : INTEGER, LDU = > N. [in]
 
 VT : REAL array, [out]
 > dimension ( LDU, SMLSIZ+1 ) if ICOMPQ = 1, and not referenced
-> if ICOMPQ = 0. If ICOMPQ = 1, on exit, VT**T contains the right
+> if ICOMPQ = 0. If ICOMPQ = 1, on exit, VT\*\*T contains the right
 > singular vector matrices of all subproblems at the bottom
 > level.
 
@@ -92,12 +91,12 @@ DIFL : REAL array, dimension ( LDU, NLVL ), [out]
 > where NLVL = floor(log_2 (N/SMLSIZ))).
 
 DIFR : REAL array, [out]
-> dimension ( LDU, 2 * NLVL ) if ICOMPQ = 1 and
+> dimension ( LDU, 2 \* NLVL ) if ICOMPQ = 1 and
 > dimension ( N ) if ICOMPQ = 0.
-> If ICOMPQ = 1, on exit, DIFL(1:N, I) and DIFR(1:N, 2 * I - 1)
+> If ICOMPQ = 1, on exit, DIFL(1:N, I) and DIFR(1:N, 2 \* I - 1)
 > record distances between singular values on the I-th
 > level and singular values on the (I -1)-th level, and
-> DIFR(1:N, 2 * I ) contains the normalizing factors for
+> DIFR(1:N, 2 \* I ) contains the normalizing factors for
 > the right singular vector matrix. See SLASD8 for details.
 
 Z : REAL array, [out]
@@ -108,9 +107,9 @@ Z : REAL array, [out]
 > on the I-th level.
 
 POLES : REAL array, [out]
-> dimension ( LDU, 2 * NLVL ) if ICOMPQ = 1, and not referenced
-> if ICOMPQ = 0. If ICOMPQ = 1, on exit, POLES(1, 2*I - 1) and
-> POLES(1, 2*I) contain  the new and old singular values
+> dimension ( LDU, 2 \* NLVL ) if ICOMPQ = 1, and not referenced
+> if ICOMPQ = 0. If ICOMPQ = 1, on exit, POLES(1, 2\*I - 1) and
+> POLES(1, 2\*I) contain  the new and old singular values
 > involved in the secular equations on the I-th level.
 
 GIVPTR : INTEGER array, [out]
@@ -120,9 +119,9 @@ GIVPTR : INTEGER array, [out]
 > problem on the computation tree.
 
 GIVCOL : INTEGER array, [out]
-> dimension ( LDGCOL, 2 * NLVL ) if ICOMPQ = 1, and not
+> dimension ( LDGCOL, 2 \* NLVL ) if ICOMPQ = 1, and not
 > referenced if ICOMPQ = 0. If ICOMPQ = 1, on exit, for each I,
-> GIVCOL(1, 2 *I - 1) and GIVCOL(1, 2 *I) record the locations
+> GIVCOL(1, 2 \*I - 1) and GIVCOL(1, 2 \*I) record the locations
 > of Givens rotations performed on the I-th level on the
 > computation tree.
 
@@ -135,9 +134,9 @@ PERM : INTEGER array, dimension ( LDGCOL, NLVL ) [out]
 > permutations done on the I-th level of the computation tree.
 
 GIVNUM : REAL array, [out]
-> dimension ( LDU,  2 * NLVL ) if ICOMPQ = 1, and not
+> dimension ( LDU,  2 \* NLVL ) if ICOMPQ = 1, and not
 > referenced if ICOMPQ = 0. If ICOMPQ = 1, on exit, for each I,
-> GIVNUM(1, 2 *I - 1) and GIVNUM(1, 2 *I) record the C- and S-
+> GIVNUM(1, 2 \*I - 1) and GIVNUM(1, 2 \*I) record the C- and S-
 > values of Givens rotations performed on the I-th level on
 > the computation tree.
 
@@ -154,9 +153,9 @@ S : REAL array, dimension ( N ) if [out]
 > the right null space of the I-th subproblem.
 
 WORK : REAL array, dimension [out]
-> (6 * N + (SMLSIZ + 1)*(SMLSIZ + 1)).
+> (6 \* N + (SMLSIZ + 1)\*(SMLSIZ + 1)).
 
-IWORK : INTEGER array, dimension (7*N). [out]
+IWORK : INTEGER array, dimension (7\*N). [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

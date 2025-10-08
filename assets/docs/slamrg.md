@@ -1,6 +1,5 @@
 ```fortran
-subroutine slamrg
-(
+subroutine slamrg (
         integer n1,
         integer n2,
         real, dimension( * ) a,

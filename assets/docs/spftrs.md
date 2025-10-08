@@ -1,6 +1,5 @@
 ```fortran
-subroutine spftrs
-(
+subroutine spftrs (
         character transr,
         character uplo,
         integer n,
@@ -12,16 +11,16 @@ subroutine spftrs
 )
 ```
 
-SPFTRS solves a system of linear equations A*X = B with a symmetric
+SPFTRS solves a system of linear equations A\*X = B with a symmetric
 positive definite matrix A using the Cholesky factorization
-A = U**T*U or A = L*L**T computed by SPFTRF.
+A = U\*\*T\*U or A = L\*L\*\*T computed by SPFTRF.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal TRANSR of RFP A is stored;
 > = 'T':  The Transpose TRANSR of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of RFP A is stored;
 > = 'L':  Lower triangle of RFP A is stored.
 
@@ -32,9 +31,9 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : REAL array, dimension ( N*(N+1)/2 ) [in]
+A : REAL array, dimension ( N\*(N+1)/2 ) [in]
 > The triangular factor U or L from the Cholesky factorization
-> of RFP A = U**H*U or RFP A = L*L**T, as computed by SPFTRF.
+> of RFP A = U\*\*H\*U or RFP A = L\*L\*\*T, as computed by SPFTRF.
 > See note below for more details about RFP A.
 
 B : REAL array, dimension (LDB,NRHS) [in,out]

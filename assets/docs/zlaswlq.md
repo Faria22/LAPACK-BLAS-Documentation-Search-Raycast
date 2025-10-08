@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaswlq
-(
+subroutine zlaswlq (
         integer m,
         integer n,
         integer mb,
@@ -18,7 +17,7 @@ subroutine zlaswlq
 ZLASWLQ computes a blocked Tall-Skinny LQ factorization of
 a complexx M-by-N matrix A for M <= N:
 
-A = ( L 0 ) *  Q,
+A = ( L 0 ) \*  Q,
 
 where:
 
@@ -44,7 +43,7 @@ NB : INTEGER [in]
 > The column block size to be used in the blocked QR.
 > NB > 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, the elements on and below the diagonal
 > of the array contain the N-by-N lower triangular matrix L;
@@ -54,8 +53,8 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, [out]
-> dimension (LDT, N * Number_of_row_blocks)
+T : COMPLEX\*16 array, [out]
+> dimension (LDT, N \* Number_of_row_blocks)
 > where Number_of_row_blocks = CEIL((N-M)/(NB-M))
 > The blocked upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.
@@ -64,12 +63,12 @@ T : COMPLEX*16 array, [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= MB.
 
-WORK : (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : (workspace) COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the minimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MB*M, otherwise.
+> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MB\*M, otherwise.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the minimal size of the WORK array, returns

@@ -1,6 +1,5 @@
 ```fortran
-subroutine clacrm
-(
+subroutine clacrm (
         integer m,
         integer n,
         complex, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ subroutine clacrm
 ```
 
 CLACRM performs a very simple matrix-matrix multiplication:
-C := A * B,
+C := A \* B,
 where A is M by N and complex; B is N by N and real;
 C is M by N and complex.
 
@@ -46,4 +45,4 @@ C : COMPLEX array, dimension (LDC, N) [out]
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >=max(1,N).
 
-RWORK : REAL array, dimension (2*M*N) [out]
+RWORK : REAL array, dimension (2\*M\*N) [out]

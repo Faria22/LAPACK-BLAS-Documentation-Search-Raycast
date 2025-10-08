@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsgesv
-(
+subroutine dsgesv (
         integer n,
         integer nrhs,
         double precision, dimension( lda, * ) a,
@@ -18,7 +17,7 @@ subroutine dsgesv
 ```
 
 DSGESV computes the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N matrix and X and B are N-by-NRHS matrices.
 
 DSGESV first attempts to factorize the matrix in SINGLE PRECISION
@@ -37,7 +36,7 @@ always try iterative refinement.
 The iterative refinement process is stopped if
 ITER > ITERMAX
 or for all the RHS we have:
-RNRM < SQRT(N)*XNRM*ANRM*EPS*BWDMAX
+RNRM < SQRT(N)\*XNRM\*ANRM\*EPS\*BWDMAX
 where
 o ITER is the number of the current iteration in the iterative
 refinement process
@@ -65,7 +64,7 @@ A : DOUBLE PRECISION array, [in,out]
 > unchanged, if double precision factorization has been used
 > (INFO = 0 and ITER < 0, see description below), then the
 > array A contains the factors L and U from the factorization
-> A = P*L*U; the unit diagonal elements of L are not stored.
+> A = P\*L\*U; the unit diagonal elements of L are not stored.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
@@ -92,7 +91,7 @@ LDX : INTEGER [in]
 WORK : DOUBLE PRECISION array, dimension (N,NRHS) [out]
 > This array is used to hold the residual vectors.
 
-SWORK : REAL array, dimension (N*(N+NRHS)) [out]
+SWORK : REAL array, dimension (N\*(N+NRHS)) [out]
 > This array is used to use the single precision matrix and the
 > right-hand sides or solutions in single precision.
 

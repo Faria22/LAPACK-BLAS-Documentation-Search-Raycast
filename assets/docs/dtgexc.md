@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtgexc
-(
+subroutine dtgexc (
         logical wantq,
         logical wantz,
         integer n,
@@ -23,7 +22,7 @@ subroutine dtgexc
 DTGEXC reorders the generalized real Schur decomposition of a real
 matrix pair (A,B) using an orthogonal equivalence transformation
 
-(A, B) = Q * (A, B) * Z**T,
+(A, B) = Q \* (A, B) \* Z\*\*T,
 
 so that the diagonal block of (A, B) with row index IFST is moved
 to row ILST.
@@ -35,8 +34,8 @@ diagonal blocks. B is upper triangular.
 Optionally, the matrices Q and Z of generalized Schur vectors are
 updated.
 
-Q(in) * A(in) * Z(in)**T = Q(out) * A(out) * Z(out)**T
-Q(in) * B(in) * Z(in)**T = Q(out) * B(out) * Z(out)**T
+Q(in) \* A(in) \* Z(in)\*\*T = Q(out) \* A(out) \* Z(out)\*\*T
+Q(in) \* B(in) \* Z(in)\*\*T = Q(out) \* B(out) \* Z(out)\*\*T
 
 ## Parameters
 WANTQ : LOGICAL [in]
@@ -103,7 +102,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >= 1 when N <= 1, otherwise LWORK >= 4*N + 16.
+> LWORK >= 1 when N <= 1, otherwise LWORK >= 4\*N + 16.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

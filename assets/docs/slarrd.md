@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarrd
-(
+subroutine slarrd (
         character range,
         character order,
         integer n,
@@ -37,21 +36,21 @@ in the half-open interval (VL, VU], or the IL-th through IU-th
 eigenvalues.
 
 To avoid overflow, the matrix must be scaled so that its
-largest element is no greater than overflow**(1/2) * underflow**(1/4) in absolute value, and for greatest
+largest element is no greater than overflow\*\*(1/2) \* underflow\*\*(1/4) in absolute value, and for greatest
 accuracy, it should not be much smaller than that.
 
 See W. Kahan , Report CS41, Computer Science Dept., Stanford
 University, July 21, 1966.
 
 ## Parameters
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': ()   all eigenvalues will be found.
 > = 'V': () all eigenvalues in the half-open interval
 > (VL, VU] will be found.
 > = 'I': () the IL-th through IU-th eigenvalues (of the
 > entire matrix) will be found.
 
-ORDER : CHARACTER*1 [in]
+ORDER : CHARACTER\*1 [in]
 > = 'B': () the eigenvalues will be grouped by
 > split-off block (see IBLOCK, ISPLIT) and
 > ordered from smallest to largest within
@@ -88,16 +87,16 @@ IU : INTEGER [in]
 > 1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
 > Not referenced if RANGE = 'A' or 'V'.
 
-GERS : REAL array, dimension (2*N) [in]
+GERS : REAL array, dimension (2\*N) [in]
 > The N Gerschgorin intervals (the i-th Gerschgorin interval
-> is (GERS(2*i-1), GERS(2*i)).
+> is (GERS(2\*i-1), GERS(2\*i)).
 
 RELTOL : REAL [in]
 > The minimum relative width of an interval.  When an interval
 > is narrower than RELTOL times the larger (in
 > magnitude) endpoint, then it is considered to be
 > sufficiently small, i.e., converged.  Note: this should
-> always be at least radix*machine epsilon.
+> always be at least radix\*machine epsilon.
 
 D : REAL array, dimension (N) [in]
 > The n diagonal elements of the tridiagonal matrix T.
@@ -164,9 +163,9 @@ INDEXW : INTEGER array, dimension (N) [out]
 > for example, INDEXW(i)= j and IBLOCK(i)=k imply that the
 > i-th eigenvalue W(i) is the j-th eigenvalue in block k.
 
-WORK : REAL array, dimension (4*N) [out]
+WORK : REAL array, dimension (4\*N) [out]
 
-IWORK : INTEGER array, dimension (3*N) [out]
+IWORK : INTEGER array, dimension (3\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

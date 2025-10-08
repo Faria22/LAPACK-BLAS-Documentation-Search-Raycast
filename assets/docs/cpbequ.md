@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpbequ
-(
+subroutine cpbequ (
         character uplo,
         integer n,
         integer kd,
@@ -17,13 +16,13 @@ CPBEQU computes row and column scalings intended to equilibrate a
 Hermitian positive definite band matrix A and reduce its condition
 number (with respect to the two-norm).  S contains the scale factors,
 S(i) = 1/sqrt(A(i,i)), chosen so that the scaled matrix B with
-elements B(i,j) = S(i)*A(i,j)*S(j) has ones on the diagonal.  This
+elements B(i,j) = S(i)\*A(i,j)\*S(j) has ones on the diagonal.  This
 choice of S puts the condition number of B within a factor N of the
 smallest possible condition number over all possible diagonal
 scalings.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangular of A is stored;
 > = 'L':  Lower triangular of A is stored.
 

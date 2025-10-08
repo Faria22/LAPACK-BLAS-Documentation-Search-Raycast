@@ -1,6 +1,5 @@
 ```fortran
-subroutine sstevr
-(
+subroutine sstevr (
         character jobz,
         character range,
         integer n,
@@ -65,11 +64,11 @@ which do not handle NaNs and infinities in the ieee standard default
 manner.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found.
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found.
@@ -120,10 +119,10 @@ ABSTOL : REAL [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing A to tridiagonal form.
 > 
@@ -161,11 +160,11 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-ISUPPZ : INTEGER array, dimension ( 2*max(1,M) ) [out]
+ISUPPZ : INTEGER array, dimension ( 2\*max(1,M) ) [out]
 > The support of the eigenvectors in Z, i.e., the indices
 > indicating the nonzero elements in Z. The i-th eigenvector
-> is nonzero only in elements ISUPPZ( 2*i-1 ) through
-> ISUPPZ( 2*i ).
+> is nonzero only in elements ISUPPZ( 2\*i-1 ) through
+> ISUPPZ( 2\*i ).
 > Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
 
 WORK : REAL array, dimension (MAX(1,LWORK)) [out]
@@ -173,7 +172,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 > minimal) LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= 20*N.
+> The dimension of the array WORK.  LWORK >= 20\*N.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK and IWORK
@@ -186,7 +185,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 > minimal) LIWORK.
 
 LIWORK : INTEGER [in]
-> The dimension of the array IWORK.  LIWORK >= 10*N.
+> The dimension of the array IWORK.  LIWORK >= 10\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK and

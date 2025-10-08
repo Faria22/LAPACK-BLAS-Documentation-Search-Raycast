@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgeqrt2
-(
+subroutine sgeqrt2 (
         integer m,
         integer n,
         real, dimension( lda, * ) a,

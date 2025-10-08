@@ -1,6 +1,5 @@
 ```fortran
-subroutine clasyf_aa
-(
+subroutine clasyf_aa (
         character uplo,
         integer j1,
         integer m,
@@ -28,7 +27,7 @@ The resulting J-th row of U, or J-th column of L, is stored in the
 the diagonal and subdiagonal of A are overwritten by those of T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 

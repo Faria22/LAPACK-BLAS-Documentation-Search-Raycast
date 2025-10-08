@@ -1,6 +1,5 @@
 ```fortran
-subroutine cspr
-(
+subroutine cspr (
         character uplo,
         integer n,
         complex alpha,
@@ -12,13 +11,13 @@ subroutine cspr
 
 CSPR    performs the symmetric rank 1 operation
 
-A := alpha*x*x**H + A,
+A := alpha\*x\*x\*\*H + A,
 
 where alpha is a complex scalar, x is an n element vector and A is an
 n by n symmetric matrix, supplied in packed form.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the matrix A is supplied in the packed
 > array AP as follows:
@@ -41,7 +40,7 @@ ALPHA : COMPLEX [in]
 > Unchanged on exit.
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the N-
 > element vector x.
 > Unchanged on exit.
@@ -52,7 +51,7 @@ INCX : INTEGER [in]
 > Unchanged on exit.
 
 AP : COMPLEX array, dimension at least [in,out]
-> ( ( N*( N + 1 ) )/2 ).
+> ( ( N\*( N + 1 ) )/2 ).
 > Before entry, with  UPLO = 'U' or 'u', the array AP must
 > contain the upper triangular part of the symmetric matrix
 > packed sequentially, column by column, so that AP( 1 )

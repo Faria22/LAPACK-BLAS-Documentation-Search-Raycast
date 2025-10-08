@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytrs_rook
-(
+subroutine zsytrs_rook (
         character uplo,
         integer n,
         integer nrhs,
@@ -13,16 +12,16 @@ subroutine zsytrs_rook
 )
 ```
 
-ZSYTRS_ROOK solves a system of linear equations A*X = B with
-a complex symmetric matrix A using the factorization A = U*D*U**T or
-A = L*D*L**T computed by ZSYTRF_ROOK.
+ZSYTRS_ROOK solves a system of linear equations A\*X = B with
+a complex symmetric matrix A using the factorization A = U\*D\*U\*\*T or
+A = L\*D\*L\*\*T computed by ZSYTRF_ROOK.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -31,7 +30,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The block diagonal matrix D and the multipliers used to
 > obtain the factor U or L as computed by ZSYTRF_ROOK.
 
@@ -42,7 +41,7 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZSYTRF_ROOK.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.
 > On exit, the solution matrix X.
 

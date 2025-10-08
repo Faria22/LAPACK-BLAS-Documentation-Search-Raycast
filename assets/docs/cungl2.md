@@ -1,6 +1,5 @@
 ```fortran
-subroutine cungl2
-(
+subroutine cungl2 (
         integer m,
         integer n,
         integer k,
@@ -16,7 +15,7 @@ CUNGL2 generates an m-by-n complex matrix Q with orthonormal rows,
 which is defined as the first m rows of a product of k elementary
 reflectors of order n
 
-Q  =  H(k)**H . . . H(2)**H H(1)**H
+Q  =  H(k)\*\*H . . . H(2)\*\*H H(1)\*\*H
 
 as returned by CGELQF.
 

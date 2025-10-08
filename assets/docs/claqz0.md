@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine claqz0
-(
+recursive subroutine claqz0 (
         character, intent(in) wants,
         character, intent(in) wantq,
         character, intent(in) wantz,
@@ -31,14 +30,14 @@ using the double-shift QZ method.
 Matrix pairs of this type are produced by the reduction to
 generalized upper Hessenberg form of a matrix pair (A,B):
 
-A = Q1*H*Z1**H,  B = Q1*T*Z1**H,
+A = Q1\*H\*Z1\*\*H,  B = Q1\*T\*Z1\*\*H,
 
 as computed by CGGHRD.
 
 If JOB='S', then the Hessenberg-triangular pair (H,T) is
 also reduced to generalized Schur form,
 
-H = Q*S*Z**H,  T = Q*P*Z**H,
+H = Q\*S\*Z\*\*H,  T = Q\*P\*Z\*\*H,
 
 where Q and Z are unitary matrices, P and S are an upper triangular
 matrices.
@@ -48,20 +47,20 @@ factorization may be postmultiplied into an input matrix Q1, and the
 unitary matrix Z may be postmultiplied into an input matrix Z1.
 If Q1 and Z1 are the unitary matrices from CGGHRD that reduced
 the matrix pair (A,B) to generalized upper Hessenberg form, then the
-output matrices Q1*Q and Z1*Z are the unitary factors from the
+output matrices Q1\*Q and Z1\*Z are the unitary factors from the
 generalized Schur factorization of (A,B):
 
-A = (Q1*Q)*S*(Z1*Z)**H,  B = (Q1*Q)*P*(Z1*Z)**H.
+A = (Q1\*Q)\*S\*(Z1\*Z)\*\*H,  B = (Q1\*Q)\*P\*(Z1\*Z)\*\*H.
 
 To avoid overflow, eigenvalues of the matrix pair (H,T) (equivalently,
 of (A,B)) are computed as a pair of values (alpha,beta), where alpha is
 complex and beta real.
 If beta is nonzero, lambda = alpha / beta is an eigenvalue of the
 generalized nonsymmetric eigenvalue problem (GNEP)
-A*x = lambda*B*x
+A\*x = lambda\*B\*x
 and if alpha is nonzero, mu = beta / alpha is an eigenvalue of the
 alternate form of the GNEP
-mu*A*y = B*y.
+mu\*A\*y = B\*y.
 Eigenvalues can be read directly from the generalized Schur
 form:
 alpha = S(i,i), beta = P(i,i).
@@ -75,23 +74,23 @@ Anal., 29(2006), pp. 199--227.
 Ref: T. Steel, D. Camps, K. Meerbergen, R. Vandebril
 
 ## Parameters
-WANTS : CHARACTER*1 [in]
+WANTS : CHARACTER\*1 [in]
 > = 'E': Compute eigenvalues only;
 > = 'S': Compute eigenvalues and the Schur form.
 
-WANTQ : CHARACTER*1 [in]
+WANTQ : CHARACTER\*1 [in]
 > = 'N': Left Schur vectors (Q) are not computed;
 > = 'I': Q is initialized to the unit matrix and the matrix Q
 > of left Schur vectors of (A,B) is returned;
 > = 'V': Q must contain an unitary matrix Q1 on entry and
-> the product Q1*Q is returned.
+> the product Q1\*Q is returned.
 
-WANTZ : CHARACTER*1 [in]
+WANTZ : CHARACTER\*1 [in]
 > = 'N': Right Schur vectors (Z) are not computed;
 > = 'I': Z is initialized to the unit matrix and the matrix Z
 > of right Schur vectors of (A,B) is returned;
 > = 'V': Z must contain an unitary matrix Z1 on entry and
-> the product Z1*Z is returned.
+> the product Z1\*Z is returned.
 
 N : INTEGER [in]
 > The order of the matrices A, B, Q, and Z.  N >= 0.

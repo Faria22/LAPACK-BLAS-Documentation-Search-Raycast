@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgedmdq
-(
+subroutine zgedmdq (
         character, intent(in) jobs,
         character, intent(in) jobz,
         character, intent(in) jobr,
@@ -42,7 +41,7 @@ subroutine zgedmdq
 ZGEDMDQ computes the Dynamic Mode Decomposition (DMD) for
 a pair of data snapshot matrices, using a QR factorization
 based compression of the data. For the input matrices
-X and Y such that Y = A*X with an unaccessible matrix
+X and Y such that Y = A\*X with an unaccessible matrix
 A, ZGEDMDQ computes a certain number of Ritz pairs of A using
 the standard Rayleigh-Ritz extraction from a subspace of
 range(X) that is determined using the leading left singular
@@ -54,13 +53,13 @@ For further details see the references listed
 below. For more details of the implementation see [3].
 
 ## Parameters
-JOBS : JOBS (input) CHARACTER*1 [in]
+JOBS : JOBS (input) CHARACTER\*1 [in]
 > Determines whether the initial data snapshots are scaled
 > by a diagonal matrix. The data snapshots are the columns
 > of F. The leading N-1 columns of F are denoted X and the
 > trailing N-1 columns are denoted Y.
 > 'S' :: The data snapshots matrices X and Y are multiplied
-> with a diagonal matrix D so that X*D has unit
+> with a diagonal matrix D so that X\*D has unit
 > nonzero columns (in the Euclidean 2-norm)
 > 'C' :: The snapshots are scaled as with the 'S' option.
 > If it is found that an i-th column of X is zero
@@ -68,30 +67,30 @@ JOBS : JOBS (input) CHARACTER*1 [in]
 > non-zero, then the i-th column of Y is set to
 > zero and a warning flag is raised.
 > 'Y' :: The data snapshots matrices X and Y are multiplied
-> by a diagonal matrix D so that Y*D has unit
+> by a diagonal matrix D so that Y\*D has unit
 > nonzero columns (in the Euclidean 2-norm)
 > 'N' :: No data scaling.
 
-JOBZ : JOBZ (input) CHARACTER*1 [in]
+JOBZ : JOBZ (input) CHARACTER\*1 [in]
 > Determines whether the eigenvectors (Koopman modes) will
 > be computed.
 > 'V' :: The eigenvectors (Koopman modes) will be computed
 > and returned in the matrix Z.
 > See the description of Z.
 > 'F' :: The eigenvectors (Koopman modes) will be returned
-> in factored form as the product Z*V, where Z
+> in factored form as the product Z\*V, where Z
 > is orthonormal and V contains the eigenvectors
 > of the corresponding Rayleigh quotient.
 > See the descriptions of F, V, Z.
 > 'Q' :: The eigenvectors (Koopman modes) will be returned
-> in factored form as the product Q*Z, where Z
+> in factored form as the product Q\*Z, where Z
 > contains the eigenvectors of the compression of the
 > underlying discretized operator onto the span of
 > the data snapshots. See the descriptions of F, V, Z.
 > Q is from the initial QR factorization.
 > 'N' :: The eigenvectors are not computed.
 
-JOBR : JOBR (input) CHARACTER*1 [in]
+JOBR : JOBR (input) CHARACTER\*1 [in]
 > Determines whether to compute the residuals.
 > 'R' :: The residuals for the computed eigenpairs will
 > be computed and stored in the array RES.
@@ -99,7 +98,7 @@ JOBR : JOBR (input) CHARACTER*1 [in]
 > For this option to be legal, JOBZ must be 'V'.
 > 'N' :: The residuals are not computed.
 
-JOBQ : JOBQ (input) CHARACTER*1 [in]
+JOBQ : JOBQ (input) CHARACTER\*1 [in]
 > Specifies whether to explicitly compute and return the
 > unitary matrix from the QR factorization.
 > 'Q' :: The matrix Q of the QR factorization of the data
@@ -107,7 +106,7 @@ JOBQ : JOBQ (input) CHARACTER*1 [in]
 > array F. See the description of F.
 > 'N' :: The matrix Q is not explicitly computed.
 
-JOBT : JOBT (input) CHARACTER*1 [in]
+JOBT : JOBT (input) CHARACTER\*1 [in]
 > Specifies whether to return the upper triangular factor
 > from the QR factorization.
 > 'R' :: The matrix R of the QR factorization of the data
@@ -115,7 +114,7 @@ JOBT : JOBT (input) CHARACTER*1 [in]
 > See the description of Y and Further details.
 > 'N' :: The matrix R is not returned.
 
-JOBF : JOBF (input) CHARACTER*1 [in]
+JOBF : JOBF (input) CHARACTER\*1 [in]
 > Specifies whether to store information needed for post-
 > processing (e.g. computing refined Ritz vectors)
 > 'R' :: The matrix needed for the refinement of the Ritz
@@ -140,7 +139,7 @@ WHTSVD : WHTSVD (input) INTEGER, WHSTVD in { 1, 2, 3, 4 } [in]
 > For the four methods above, a significant difference in
 > the accuracy of small singular values is possible if
 > the snapshots vary in norm so that X is severely
-> ill-conditioned. If small (smaller than EPS*||X||)
+> ill-conditioned. If small (smaller than EPS\*||X||)
 > singular values are of interest and JOBS=='N',  then
 > the options (3, 4) give the most accurate results, where
 > the option 4 is slightly better and with stronger
@@ -207,10 +206,10 @@ NRNK : NRNK (input) INTEGER [in]
 > i.e. how to truncate small singular values of the input
 > matrix X. On input, if
 > NRNK = -1 :: i-th singular value sigma(i) is truncated
-> if sigma(i) <= TOL*sigma(1)
+> if sigma(i) <= TOL\*sigma(1)
 > This option is recommended.
 > NRNK = -2 :: i-th singular value sigma(i) is truncated
-> if sigma(i) <= TOL*sigma(i-1)
+> if sigma(i) <= TOL\*sigma(i-1)
 > This option is included for R&D purposes.
 > It requires highly accurate SVD, which
 > may not be feasible.
@@ -244,11 +243,11 @@ Z : Z (workspace/output) COMPLEX(KIND=WP)  M-by-(N-1) array [out]
 > If JOBZ =='V' then Z contains the Ritz vectors. Z(:,i)
 > is an eigenvector of the i-th Ritz value; ||Z(:,i)||_2=1.
 > If JOBZ == 'F', then the Z(:,i)'s are given implicitly as
-> Z*V, where Z contains orthonormal matrix (the product of
+> Z\*V, where Z contains orthonormal matrix (the product of
 > Q from the initial QR factorization and the SVD/POD_basis
 > returned by ZGEDMD in X) and the second factor (the
 > eigenvectors of the Rayleigh quotient) is in the array V,
-> as returned by ZGEDMD. That is,  X(:,1:K)*V(:,i)
+> as returned by ZGEDMD. That is,  X(:,1:K)\*V(:,i)
 > is an eigenvector corresponding to EIGS(i). The columns
 > of V(1:K,1:K) are the computed eigenvectors of the
 > K-by-K Rayleigh quotient.
@@ -260,15 +259,15 @@ LDZ : LDZ (input) INTEGER , LDZ >= M [in]
 RES : RES (output) REAL(KIND=WP) (N-1)-by-1 array [out]
 > RES(1:K) contains the residuals for the K computed
 > Ritz pairs,
-> RES(i) = || A * Z(:,i) - EIGS(i)*Z(:,i))||_2.
+> RES(i) = || A \* Z(:,i) - EIGS(i)\*Z(:,i))||_2.
 > See the description of EIGS and Z.
 
 B : B (output) COMPLEX(KIND=WP)  MIN(M,N)-by-(N-1) array. [out]
-> IF JOBF =='R', B(1:N,1:K) contains A*U(:,1:K), and can
+> IF JOBF =='R', B(1:N,1:K) contains A\*U(:,1:K), and can
 > be used for computing the refined vectors; see further
 > details in the provided references.
 > If JOBF == 'E', B(1:N,1;K) contains
-> A*U(:,1:K)*W(1:K,1:K), which are the vectors from the
+> A\*U(:,1:K)\*W(1:K,1:K), which are the vectors from the
 > Exact DMD, up to scaling by the inverse eigenvalues.
 > In both cases, the content of B can be lifted to the
 > original dimension of the input data by pre-multiplying
@@ -358,9 +357,9 @@ LIWORK : LIWORK (input) INTEGER [in]
 > The minimal length of the workspace vector IWORK.
 > If WHTSVD == 1, then only IWORK(1) is used; LIWORK >=1
 > Let M1=MIN(M,N), N1=N-1. Then
-> If WHTSVD == 2, then LIWORK >= MAX(1,8*MIN(M1,N1))
+> If WHTSVD == 2, then LIWORK >= MAX(1,8\*MIN(M1,N1))
 > If WHTSVD == 3, then LIWORK >= MAX(1,M1+N1-1)
-> If WHTSVD == 4, then LIWORK >= MAX(3,M1+3*N1)
+> If WHTSVD == 4, then LIWORK >= MAX(3,M1+3\*N1)
 > If on entry LIWORK = -1, then a workspace query is
 > assumed and the procedure only computes the minimal
 > and the optimal workspace lengths for both WORK and

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaebz
-(
+subroutine slaebz (
         integer ijob,
         integer nitmax,
         integer n,
@@ -50,7 +49,7 @@ Note that the intervals are in all cases half-open intervals,
 i.e., of the form  (a,b] , which includes  b  but not  a .
 
 To avoid underflow, the matrix should be scaled so that its largest
-element is no greater than  overflow**(1/2) * underflow**(1/4)
+element is no greater than  overflow\*\*(1/2) \* underflow\*\*(1/4)
 in absolute value.  To assure the most accurate computation
 of small eigenvalues, the matrix should be scaled to be
 not much smaller than that, either.
@@ -58,7 +57,7 @@ not much smaller than that, either.
 See W. Kahan , Report CS41, Computer Science Dept., Stanford
 University, July 21, 1966
 
-Note: the arguments are, in general, *not* checked for unreasonable
+Note: the arguments are, in general, \*not\* checked for unreasonable
 values.
 
 ## Parameters
@@ -74,7 +73,7 @@ IJOB : INTEGER [in]
 NITMAX : INTEGER [in]
 > The maximum number of  of bisection to be
 > performed, i.e., an interval of width W will not be made
-> smaller than 2^(-NITMAX) * W.  If not all intervals
+> smaller than 2^(-NITMAX) \* W.  If not all intervals
 > have converged after NITMAX iterations, then INFO is set
 > to the number of non-converged intervals.
 
@@ -107,12 +106,12 @@ RELTOL : REAL [in]
 > is narrower than ABSTOL, or than RELTOL times the larger (in
 > magnitude) endpoint, then it is considered to be
 > sufficiently small, i.e., converged.  Note: this should
-> always be at least radix*machine epsilon.
+> always be at least radix\*machine epsilon.
 
 PIVMIN : REAL [in]
 > The minimum absolute value of a  in the Sturm
 > sequence loop.
-> This must be at least  max |e(j)**2|*safe_min  and at
+> This must be at least  max |e(j)\*\*2|\*safe_min  and at
 > least safe_min, where safe_min is at least
 > the smallest number that can divide one without overflow.
 

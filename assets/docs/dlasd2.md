@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasd2
-(
+subroutine dlasd2 (
         integer nl,
         integer nr,
         integer sqre,
@@ -82,10 +81,10 @@ LDU : INTEGER [in]
 > The leading dimension of the array U.  LDU >= N.
 
 VT : DOUBLE PRECISION array, dimension(LDVT,M) [in,out]
-> On entry VT**T contains the right singular vectors of two
+> On entry VT\*\*T contains the right singular vectors of two
 > submatrices in the two square blocks with corners at (1,1),
 > (NL+1, NL+1), and (NL+2, NL+2), (M,M).
-> On exit VT**T contains the trailing (N-K) updated right singular
+> On exit VT\*\*T contains the trailing (N-K) updated right singular
 > vectors (those which were deflated) in its last N-K columns.
 > In case SQRE =1, the last row of VT spans the right null
 > space.
@@ -110,7 +109,7 @@ LDU2 : INTEGER [in]
 > The leading dimension of the array U2.  LDU2 >= N.
 
 VT2 : DOUBLE PRECISION array, dimension(LDVT2,N) [out]
-> VT2**T contains a copy of the first K right singular vectors
+> VT2\*\*T contains a copy of the first K right singular vectors
 > which will be used by DLASD3 in a matrix multiply (DGEMM) to
 > solve for the new right singular vectors. VT2 is arranged into
 > three blocks. The first block contains a row that corresponds

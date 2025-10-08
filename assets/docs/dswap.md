@@ -1,6 +1,5 @@
 ```fortran
-subroutine dswap
-(
+subroutine dswap (
         integer n,
         double precision, dimension(*) dx,
         integer incx,
@@ -16,12 +15,12 @@ uses unrolled loops for increments equal to 1.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of DX
 
-DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of DY

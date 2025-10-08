@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgerfs
-(
+subroutine dgerfs (
         character trans,
         integer n,
         integer nrhs,
@@ -26,11 +25,11 @@ equations and provides error bounds and backward error estimates for
 the solution.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose = Transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -46,7 +45,7 @@ LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
 AF : DOUBLE PRECISION array, dimension (LDAF,N) [in]
-> The factors L and U from the factorization A = P*L*U
+> The factors L and U from the factorization A = P\*L\*U
 > as computed by DGETRF.
 
 LDAF : INTEGER [in]
@@ -84,7 +83,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

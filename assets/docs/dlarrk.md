@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarrk
-(
+subroutine dlarrk (
         integer n,
         integer iw,
         double precision gl,
@@ -20,7 +19,7 @@ matrix T to suitable accuracy. This is an auxiliary code to be
 called from DSTEMR.
 
 To avoid overflow, the matrix must be scaled so that its
-largest element is no greater than overflow**(1/2) * underflow**(1/4) in absolute value, and for greatest
+largest element is no greater than overflow\*\*(1/2) \* underflow\*\*(1/4) in absolute value, and for greatest
 accuracy, it should not be much smaller than that.
 
 See W. Kahan , Report CS41, Computer Science Dept., Stanford
@@ -52,7 +51,7 @@ RELTOL : DOUBLE PRECISION [in]
 > is narrower than RELTOL times the larger (in
 > magnitude) endpoint, then it is considered to be
 > sufficiently small, i.e., converged.  Note: this should
-> always be at least radix*machine epsilon.
+> always be at least radix\*machine epsilon.
 
 W : DOUBLE PRECISION [out]
 

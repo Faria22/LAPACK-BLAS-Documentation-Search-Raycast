@@ -1,6 +1,5 @@
 ```fortran
-subroutine zdscal
-(
+subroutine zdscal (
         integer n,
         double precision da,
         complex*16, dimension(*) zx,
@@ -17,7 +16,7 @@ N : INTEGER [in]
 DA : DOUBLE PRECISION [in]
 > On entry, DA specifies the scalar alpha.
 
-ZX : COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+ZX : COMPLEX\*16 array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of ZX

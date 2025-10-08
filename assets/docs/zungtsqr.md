@@ -1,6 +1,5 @@
 ```fortran
-subroutine zungtsqr
-(
+subroutine zungtsqr (
         integer m,
         integer n,
         integer mb,
@@ -19,7 +18,7 @@ ZUNGTSQR generates an M-by-N complex matrix Q_out with orthonormal
 columns, which are the first N columns of a product of comlpex unitary
 matrices of order M which are returned by ZLATSQR
 
-Q_out = first_N_columns_of( Q(1)_in * Q(2)_in * ... * Q(k)_in ).
+Q_out = first_N_columns_of( Q(1)_in \* Q(2)_in \* ... \* Q(k)_in ).
 
 See the documentation for ZLATSQR.
 
@@ -42,7 +41,7 @@ NB : INTEGER [in]
 > (Note that if NB > N, then N is used instead of NB
 > as the column block size).
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > 
 > On entry:
 > 
@@ -61,15 +60,15 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, [in]
-> dimension (LDT, N * NIRB)
+T : COMPLEX\*16 array, [in]
+> dimension (LDT, N \* NIRB)
 > where NIRB = Number_of_input_row_blocks
 > = MAX( 1, CEIL((M-N)/(MB-N)) )
 > Let NICB = Number_of_input_col_blocks
 > = CEIL(N/NB)
 > 
 > The upper-triangular block reflectors used to define the
-> input matrices Q_in(k), k=(1:NIRB*NICB). The block
+> input matrices Q_in(k), k=(1:NIRB\*NICB). The block
 > reflectors are stored in compact form in NIRB block
 > reflector sequences. Each of NIRB block reflector sequences
 > is stored in a larger NB-by-N column block of T and consists
@@ -80,11 +79,11 @@ LDT : INTEGER [in]
 > The leading dimension of the array T.
 > LDT >= max(1,min(NB1,N)).
 
-WORK : (workspace) COMPLEX*16 array, dimension (MAX(2,LWORK)) [out]
+WORK : (workspace) COMPLEX\*16 array, dimension (MAX(2,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= (M+NB)*N.
+> The dimension of the array WORK.  LWORK >= (M+NB)\*N.
 > If LWORK = -1, then a workspace query is assumed.
 > The routine only calculates the optimal size of the WORK
 > array, returns this value as the first entry of the WORK

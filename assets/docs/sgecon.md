@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgecon
-(
+subroutine sgecon (
         character norm,
         integer n,
         real, dimension( lda, * ) a,
@@ -19,10 +18,10 @@ the LU factorization computed by SGETRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
 condition number is computed as
-RCOND = 1 / ( norm(A) * norm(inv(A)) ).
+RCOND = 1 / ( norm(A) \* norm(inv(A)) ).
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies whether the 1-norm condition number or the
 > infinity-norm condition number is required:
 > = '1' or 'O':  1-norm;
@@ -32,7 +31,7 @@ N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
 A : REAL array, dimension (LDA,N) [in]
-> The factors L and U from the factorization A = P*L*U
+> The factors L and U from the factorization A = P\*L\*U
 > as computed by SGETRF.
 
 LDA : INTEGER [in]
@@ -44,9 +43,9 @@ ANORM : REAL [in]
 
 RCOND : REAL [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(norm(A) * norm(inv(A))).
+> computed as RCOND = 1/(norm(A) \* norm(inv(A))).
 
-WORK : REAL array, dimension (4*N) [out]
+WORK : REAL array, dimension (4\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

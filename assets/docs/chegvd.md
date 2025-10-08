@@ -1,6 +1,5 @@
 ```fortran
-subroutine chegvd
-(
+subroutine chegvd (
         integer itype,
         character jobz,
         character uplo,
@@ -22,22 +21,22 @@ subroutine chegvd
 
 CHEGVD computes all the eigenvalues, and optionally, the eigenvectors
 of a complex generalized Hermitian-definite eigenproblem, of the form
-A*x=(lambda)*B*x,  A*Bx=(lambda)*x,  or B*A*x=(lambda)*x.  Here A and
+A\*x=(lambda)\*B\*x,  A\*Bx=(lambda)\*x,  or B\*A\*x=(lambda)\*x.  Here A and
 B are assumed to be Hermitian and B is also positive definite.
 If eigenvectors are desired, it uses a divide and conquer algorithm.
 
 ## Parameters
 ITYPE : INTEGER [in]
 > Specifies the problem type to be solved:
-> = 1:  A*x = (lambda)*B*x
-> = 2:  A*B*x = (lambda)*x
-> = 3:  B*A*x = (lambda)*x
+> = 1:  A\*x = (lambda)\*B\*x
+> = 2:  A\*B\*x = (lambda)\*x
+> = 3:  B\*A\*x = (lambda)\*x
 
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -54,8 +53,8 @@ A : COMPLEX array, dimension (LDA, N) [in,out]
 > On exit, if JOBZ = 'V', then if INFO = 0, A contains the
 > matrix Z of eigenvectors.  The eigenvectors are normalized
 > as follows:
-> if ITYPE = 1 or 2, Z**H*B*Z = I;
-> if ITYPE = 3, Z**H*inv(B)*Z = I.
+> if ITYPE = 1 or 2, Z\*\*H\*B\*Z = I;
+> if ITYPE = 3, Z\*\*H\*inv(B)\*Z = I.
 > If JOBZ = 'N', then on exit the upper triangle (if UPLO='U')
 > or the lower triangle (if UPLO='L') of A, including the
 > diagonal, is destroyed.
@@ -72,7 +71,7 @@ B : COMPLEX array, dimension (LDB, N) [in,out]
 > 
 > On exit, if INFO <= N, the part of B containing the matrix is
 > overwritten by the triangular factor U or L from the Cholesky
-> factorization B = U**H*U or B = L*L**H.
+> factorization B = U\*\*H\*U or B = L\*L\*\*H.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
@@ -87,7 +86,7 @@ LWORK : INTEGER [in]
 > The length of the array WORK.
 > If N <= 1,                LWORK >= 1.
 > If JOBZ  = 'N' and N > 1, LWORK >= N + 1.
-> If JOBZ  = 'V' and N > 1, LWORK >= 2*N + N**2.
+> If JOBZ  = 'V' and N > 1, LWORK >= 2\*N + N\*\*2.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK, RWORK and
@@ -102,7 +101,7 @@ LRWORK : INTEGER [in]
 > The dimension of the array RWORK.
 > If N <= 1,                LRWORK >= 1.
 > If JOBZ  = 'N' and N > 1, LRWORK >= N.
-> If JOBZ  = 'V' and N > 1, LRWORK >= 1 + 5*N + 2*N**2.
+> If JOBZ  = 'V' and N > 1, LRWORK >= 1 + 5\*N + 2\*N\*\*2.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -117,7 +116,7 @@ LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If N <= 1,                LIWORK >= 1.
 > If JOBZ  = 'N' and N > 1, LIWORK >= 1.
-> If JOBZ  = 'V' and N > 1, LIWORK >= 3 + 5*N.
+> If JOBZ  = 'V' and N > 1, LIWORK >= 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK

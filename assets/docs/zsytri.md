@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytri
-(
+subroutine zsytri (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -12,20 +11,20 @@ subroutine zsytri
 ```
 
 ZSYTRI computes the inverse of a complex symmetric indefinite matrix
-A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by
 ZSYTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the block diagonal matrix D and the multipliers
 > used to obtain the factor U or L as computed by ZSYTRF.
 > 
@@ -43,7 +42,7 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZSYTRF.
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

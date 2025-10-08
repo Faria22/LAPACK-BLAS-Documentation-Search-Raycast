@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqz1
-(
+subroutine zlaqz1 (
         logical, intent(in) ilq,
         logical, intent(in) ilz,
         integer, intent(in) k,
@@ -48,13 +47,13 @@ ISTOPM : INTEGER [in]
 
 IHI : INTEGER [in]
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 
 LDA : INTEGER [in]
 > The leading dimension of A as declared in
 > the calling procedure.
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 
 LDB : INTEGER [in]
 > The leading dimension of B as declared in
@@ -67,7 +66,7 @@ QSTART : INTEGER [in]
 > Start index of the matrix Q. Rotations are applied
 > To columns k+2-qStart:k+3-qStart of Q.
 
-Q : COMPLEX*16 array, dimension (LDQ,NQ) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,NQ) [in,out]
 
 LDQ : INTEGER [in]
 > The leading dimension of Q as declared in
@@ -80,7 +79,7 @@ ZSTART : INTEGER [in]
 > Start index of the matrix Z. Rotations are applied
 > To columns k+1-qStart:k+2-qStart of Z.
 
-Z : COMPLEX*16 array, dimension (LDZ,NZ) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,NZ) [in,out]
 
 LDZ : INTEGER [in]
 > The leading dimension of Q as declared in

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgerq2
-(
+subroutine cgerq2 (
         integer m,
         integer n,
         complex, dimension( lda, * ) a,
@@ -12,7 +11,7 @@ subroutine cgerq2
 ```
 
 CGERQ2 computes an RQ factorization of a complex m by n matrix A:
-A = R * Q.
+A = R \* Q.
 
 ## Parameters
 M : INTEGER [in]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaexc
-(
+subroutine slaexc (
         logical wantq,
         integer n,
         real, dimension( ldt, * ) t,

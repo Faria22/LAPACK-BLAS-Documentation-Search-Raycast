@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpftri
-(
+subroutine zpftri (
         character transr,
         character uplo,
         integer n,
@@ -10,22 +9,22 @@ subroutine zpftri
 ```
 
 ZPFTRI computes the inverse of a complex Hermitian positive definite
-matrix A using the Cholesky factorization A = U**H*U or A = L*L**H
+matrix A using the Cholesky factorization A = U\*\*H\*U or A = L\*L\*\*H
 computed by ZPFTRF.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal TRANSR of RFP A is stored;
 > = 'C':  The Conjugate-transpose TRANSR of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension ( N*(N+1)/2 ); [in,out]
+A : COMPLEX\*16 array, dimension ( N\*(N+1)/2 ); [in,out]
 > On entry, the Hermitian matrix A in RFP format. RFP format is
 > described by TRANSR, UPLO, and N as follows: If TRANSR = 'N'
 > then RFP A is (0:N,0:k-1) when N is even; k=N/2. RFP A is

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqz1
-(
+subroutine slaqz1 (
         real, dimension( lda, * ), intent(in) a,
         integer, intent(in) lda,
         real, dimension( ldb, * ), intent(in) b,
@@ -17,7 +16,7 @@ subroutine slaqz1
 Given a 3-by-3 matrix pencil (A,B), SLAQZ1 sets v to a
 scalar multiple of the first column of the product
 
-(*)  K = (A - (beta2*sr2 - i*si)*B)*B^(-1)*(beta1*A - (sr2 + i*si2)*B)*B^(-1).
+(\*)  K = (A - (beta2\*sr2 - i\*si)\*B)\*B^(-1)\*(beta1\*A - (sr2 + i\*si2)\*B)\*B^(-1).
 
 It is assumed that either
 
@@ -30,14 +29,14 @@ in the QZ algorithm.
 
 ## Parameters
 A : REAL array, dimension (LDA,N) [in]
-> The 3-by-3 matrix A in (*).
+> The 3-by-3 matrix A in (\*).
 
 LDA : INTEGER [in]
 > The leading dimension of A as declared in
 > the calling procedure.
 
 B : REAL array, dimension (LDB,N) [in]
-> The 3-by-3 matrix B in (*).
+> The 3-by-3 matrix B in (\*).
 
 LDB : INTEGER [in]
 > The leading dimension of B as declared in
@@ -55,4 +54,4 @@ BETA2 : REAL [in]
 
 V : REAL array, dimension (N) [out]
 > A scalar multiple of the first column of the
-> matrix K in (*).
+> matrix K in (\*).

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctbmv
-(
+subroutine ctbmv (
         character uplo,
         character trans,
         character diag,
@@ -15,13 +14,13 @@ subroutine ctbmv
 
 CTBMV  performs one of the matrix-vector operations
 
-x := A*x,   or   x := A**T*x,   or   x := A**H*x,
+x := A\*x,   or   x := A\*\*T\*x,   or   x := A\*\*H\*x,
 
 where x is an n element vector and  A is an n by n unit, or non-unit,
 upper or lower triangular band matrix, with ( k + 1 ) diagonals.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the matrix is an upper or
 > lower triangular matrix as follows:
 > 
@@ -29,17 +28,17 @@ UPLO : CHARACTER*1 [in]
 > 
 > UPLO = 'L' or 'l'   A is a lower triangular matrix.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry, TRANS specifies the operation to be performed as
 > follows:
 > 
-> TRANS = 'N' or 'n'   x := A*x.
+> TRANS = 'N' or 'n'   x := A\*x.
 > 
-> TRANS = 'T' or 't'   x := A**T*x.
+> TRANS = 'T' or 't'   x := A\*\*T\*x.
 > 
-> TRANS = 'C' or 'c'   x := A**H*x.
+> TRANS = 'C' or 'c'   x := A\*\*H\*x.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > On entry, DIAG specifies whether or not A is unit
 > triangular as follows:
 > 
@@ -106,7 +105,7 @@ LDA : INTEGER [in]
 > ( k + 1 ).
 
 X : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element vector x. On exit, X is overwritten with the
 > transformed vector x.

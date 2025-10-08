@@ -1,6 +1,5 @@
 ```fortran
-double precision function dlangt
-(
+double precision function dlangt (
         character norm,
         integer n,
         double precision, dimension( * ) dl,
@@ -14,7 +13,7 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 real tridiagonal matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in DLANGT as described
 > above.
 

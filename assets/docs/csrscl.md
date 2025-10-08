@@ -1,6 +1,5 @@
 ```fortran
-subroutine csrscl
-(
+subroutine csrscl (
         integer n,
         real sa,
         complex, dimension( * ) sx,
@@ -21,9 +20,9 @@ SA : REAL [in]
 > SA must be >= 0, or the subroutine will divide by zero.
 
 SX : COMPLEX array, dimension [in,out]
-> (1+(N-1)*abs(INCX))
+> (1+(N-1)\*abs(INCX))
 > The n-element vector x.
 
 INCX : INTEGER [in]
 > The increment between successive values of the vector SX.
-> > 0:  SX(1) = X(1) and SX(1+(i-1)*INCX) = x(i),     1< i<= n
+> > 0:  SX(1) = X(1) and SX(1+(i-1)\*INCX) = x(i),     1< i<= n

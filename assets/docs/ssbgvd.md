@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssbgvd
-(
+subroutine ssbgvd (
         character jobz,
         character uplo,
         integer n,
@@ -23,16 +22,16 @@ subroutine ssbgvd
 
 SSBGVD computes all the eigenvalues, and optionally, the eigenvectors
 of a real generalized symmetric-definite banded eigenproblem, of the
-form A*x=(lambda)*B*x.  Here A and B are assumed to be symmetric and
+form A\*x=(lambda)\*B\*x.  Here A and B are assumed to be symmetric and
 banded, and B is also positive definite.  If eigenvectors are
 desired, it uses a divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -69,7 +68,7 @@ BB : REAL array, dimension (LDBB, N) [in,out]
 > if UPLO = 'L', BB(1+i-j,j)    = B(i,j) for j<=i<=min(n,j+kb).
 > 
 > On exit, the factor S from the split Cholesky factorization
-> B = S**T*S, as returned by SPBSTF.
+> B = S\*\*T\*S, as returned by SPBSTF.
 
 LDBB : INTEGER [in]
 > The leading dimension of the array BB.  LDBB >= KB+1.
@@ -81,7 +80,7 @@ Z : REAL array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 > eigenvectors, with the i-th column of Z holding the
 > eigenvector associated with W(i).  The eigenvectors are
-> normalized so Z**T*B*Z = I.
+> normalized so Z\*\*T\*B\*Z = I.
 > If JOBZ = 'N', then Z is not referenced.
 
 LDZ : INTEGER [in]
@@ -94,8 +93,8 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If N <= 1,               LWORK >= 1.
-> If JOBZ = 'N' and N > 1, LWORK >= 3*N.
-> If JOBZ = 'V' and N > 1, LWORK >= 1 + 5*N + 2*N**2.
+> If JOBZ = 'N' and N > 1, LWORK >= 3\*N.
+> If JOBZ = 'V' and N > 1, LWORK >= 1 + 5\*N + 2\*N\*\*2.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK and IWORK
@@ -109,7 +108,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If JOBZ  = 'N' or N <= 1, LIWORK >= 1.
-> If JOBZ  = 'V' and N > 1, LIWORK >= 3 + 5*N.
+> If JOBZ  = 'V' and N > 1, LIWORK >= 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK and

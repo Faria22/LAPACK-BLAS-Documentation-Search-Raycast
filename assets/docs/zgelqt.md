@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgelqt
-(
+subroutine zgelqt (
         integer m,
         integer n,
         integer mb,
@@ -26,7 +25,7 @@ N : INTEGER [in]
 MB : INTEGER [in]
 > The block size to be used in the blocked QR.  MIN(M,N) >= MB >= 1.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, the elements on and below the diagonal of the array
 > contain the M-by-MIN(M,N) lower trapezoidal matrix L (L is
@@ -36,7 +35,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, dimension (LDT,MIN(M,N)) [out]
+T : COMPLEX\*16 array, dimension (LDT,MIN(M,N)) [out]
 > The upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.  See below
 > for further details.
@@ -44,7 +43,7 @@ T : COMPLEX*16 array, dimension (LDT,MIN(M,N)) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= MB.
 
-WORK : COMPLEX*16 array, dimension (MB*N) [out]
+WORK : COMPLEX\*16 array, dimension (MB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

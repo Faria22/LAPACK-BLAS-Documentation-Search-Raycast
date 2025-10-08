@@ -1,6 +1,5 @@
 ```fortran
-subroutine zla_porfsx_extended
-(
+subroutine zla_porfsx_extended (
         integer prec_type,
         character uplo,
         integer n,
@@ -51,7 +50,7 @@ PREC_TYPE : INTEGER [in]
 > = 'I':  Indigenous
 > = 'X' or 'E':  Extra
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -63,15 +62,15 @@ NRHS : INTEGER [in]
 > The number of right-hand-sides, i.e., the number of columns of the
 > matrix B.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > On entry, the N-by-N matrix A.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T, as computed by ZPOTRF.
+> A = U\*\*T\*U or A = L\*L\*\*T, as computed by ZPOTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -91,13 +90,13 @@ C : DOUBLE PRECISION array, dimension (N) [in]
 > input matrix, producing error estimates that may not be
 > reliable.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right-hand-side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-Y : COMPLEX*16 array, dimension (LDY,NRHS) [in,out]
+Y : COMPLEX\*16 array, dimension (LDY,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZPOTRS.
 > On exit, the improved solution matrix Y.
 
@@ -107,7 +106,7 @@ LDY : INTEGER [in]
 BERR_OUT : DOUBLE PRECISION array, dimension (NRHS) [out]
 > On exit, BERR_OUT(j) contains the componentwise relative backward
 > error for right-hand-side j from the formula
-> max(i) ( abs(RES(i)) / ( abs(op(A_s))*abs(Y) + abs(B_s) )(i) )
+> max(i) ( abs(RES(i)) / ( abs(op(A_s))\*abs(Y) + abs(B_s) )(i) )
 > where abs(Z) is the componentwise absolute value of the matrix
 > or vector Z. This is computed by ZLA_LIN_BERR.
 
@@ -138,21 +137,21 @@ ERR_BNDS_NORM : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [in,out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * slamch('Epsilon').
+> sqrt(n) \* slamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * slamch('Epsilon'). This error bound should only
+> sqrt(n) \* slamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated normwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * slamch('Epsilon') to determine if the error
+> sqrt(n) \* slamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*A, where S scales each row by a power of the
+> Let Z = S\*A, where S scales each row by a power of the
 > radix so all absolute row sums of Z are approximately 1.
 > 
 > This subroutine is only responsible for setting the second field
@@ -185,23 +184,23 @@ ERR_BNDS_COMP : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [in,out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * slamch('Epsilon').
+> sqrt(n) \* slamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * slamch('Epsilon'). This error bound should only
+> sqrt(n) \* slamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated componentwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * slamch('Epsilon') to determine if the error
+> sqrt(n) \* slamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*(A*diag(x)), where x is the solution for the
+> Let Z = S\*(A\*diag(x)), where x is the solution for the
 > current right-hand side and S scales each row of
-> A*diag(x) by a power of the radix so all absolute row
+> A\*diag(x) by a power of the radix so all absolute row
 > sums of Z are approximately 1.
 > 
 > This subroutine is only responsible for setting the second field
@@ -209,16 +208,16 @@ ERR_BNDS_COMP : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [in,out]
 > See Lapack Working Note 165 for further details and extra
 > cautions.
 
-RES : COMPLEX*16 array, dimension (N) [in]
+RES : COMPLEX\*16 array, dimension (N) [in]
 > Workspace to hold the intermediate residual.
 
 AYB : DOUBLE PRECISION array, dimension (N) [in]
 > Workspace.
 
-DY : COMPLEX*16 PRECISION array, dimension (N) [in]
+DY : COMPLEX\*16 PRECISION array, dimension (N) [in]
 > Workspace to hold the intermediate solution.
 
-Y_TAIL : COMPLEX*16 array, dimension (N) [in]
+Y_TAIL : COMPLEX\*16 array, dimension (N) [in]
 > Workspace to hold the trailing bits of the intermediate solution.
 
 RCOND : DOUBLE PRECISION [in]
@@ -241,7 +240,7 @@ ITHRESH : INTEGER [in]
 RTHRESH : DOUBLE PRECISION [in]
 > Determines when to stop refinement if the error estimate stops
 > decreasing. Refinement will stop when the next solution no longer
-> satisfies norm(dx_{i+1}) < RTHRESH * norm(dx_i) where norm(Z) is
+> satisfies norm(dx_{i+1}) < RTHRESH \* norm(dx_i) where norm(Z) is
 > the infinity norm of Z. RTHRESH satisfies 0 < RTHRESH <= 1. The
 > default value is 0.5. For 'aggressive' set to 0.9 to permit
 > convergence on extremely ill-conditioned matrices. See LAWN 165

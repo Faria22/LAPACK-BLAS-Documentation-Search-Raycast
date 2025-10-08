@@ -1,6 +1,5 @@
 ```fortran
-subroutine cscal
-(
+subroutine cscal (
         integer n,
         complex ca,
         complex, dimension(*) cx,
@@ -17,7 +16,7 @@ N : INTEGER [in]
 CA : COMPLEX [in]
 > On entry, CA specifies the scalar alpha.
 
-CX : COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+CX : COMPLEX array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of CX

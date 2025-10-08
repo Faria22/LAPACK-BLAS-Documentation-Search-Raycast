@@ -1,6 +1,5 @@
 ```fortran
-subroutine strti2
-(
+subroutine strti2 (
         character uplo,
         character diag,
         integer n,
@@ -16,12 +15,12 @@ matrix.
 This is the Level 2 BLAS version of the algorithm.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower triangular.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A is unit triangular.
 > = 'N':  Non-unit triangular
 > = 'U':  Unit triangular

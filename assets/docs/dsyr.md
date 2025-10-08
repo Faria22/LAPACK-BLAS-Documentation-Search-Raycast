@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsyr
-(
+subroutine dsyr (
         character uplo,
         integer n,
         double precision alpha,
@@ -13,13 +12,13 @@ subroutine dsyr
 
 DSYR   performs the symmetric rank 1 operation
 
-A := alpha*x*x**T + A,
+A := alpha\*x\*x\*\*T + A,
 
 where alpha is a real scalar, x is an n element vector and A is an
 n by n symmetric matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the array A is to be referenced as
 > follows:
@@ -38,7 +37,7 @@ ALPHA : DOUBLE PRECISION. [in]
 > On entry, ALPHA specifies the scalar alpha.
 
 X : DOUBLE PRECISION array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element vector x.
 

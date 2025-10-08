@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaed3
-(
+subroutine slaed3 (
         integer k,
         integer n,
         integer n1,
@@ -59,7 +58,7 @@ DLAMBDA : REAL array, dimension (K) [in]
 > of the deflated updating problem.  These are the poles
 > of the secular equation.
 
-Q2 : REAL array, dimension (LDQ2*N) [in]
+Q2 : REAL array, dimension (LDQ2\*N) [in]
 > The first K columns of this matrix contain the non-deflated
 > eigenvectors for the split problem.
 
@@ -79,7 +78,7 @@ W : REAL array, dimension (K) [in,out]
 > of the deflation-adjusted updating vector. Destroyed on
 > output.
 
-S : REAL array, dimension (N1 + 1)*K [out]
+S : REAL array, dimension (N1 + 1)\*K [out]
 > Will contain the eigenvectors of the repaired matrix which
 > will be multiplied by the previously accumulated eigenvectors
 > to update the system.

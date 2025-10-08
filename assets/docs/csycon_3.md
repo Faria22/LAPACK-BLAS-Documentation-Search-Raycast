@@ -1,6 +1,5 @@
 ```fortran
-subroutine csycon_3
-(
+subroutine csycon_3 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -18,23 +17,23 @@ CSYCON_3 estimates the reciprocal of the condition number (in the
 1-norm) of a complex symmetric matrix A using the factorization
 computed by CSYTRF_RK or CSYTRF_BK:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
-condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
+condition number is computed as RCOND = 1 / (ANORM \* norm(inv(A))).
 This routine uses BLAS3 solver CSYTRS_3.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix:
-> = 'U':  Upper triangular, form is A = P*U*D*(U**T)*(P**T);
-> = 'L':  Lower triangular, form is A = P*L*D*(L**T)*(P**T).
+> = 'U':  Upper triangular, form is A = P\*U\*D\*(U\*\*T)\*(P\*\*T);
+> = 'L':  Lower triangular, form is A = P\*L\*D\*(L\*\*T)\*(P\*\*T).
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -72,10 +71,10 @@ ANORM : REAL [in]
 
 RCOND : REAL [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is an
 > estimate of the 1-norm of inv(A) computed in this routine.
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

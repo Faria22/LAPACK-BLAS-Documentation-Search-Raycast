@@ -1,6 +1,5 @@
 ```fortran
-subroutine cungbr
-(
+subroutine cungbr (
         character vect,
         integer m,
         integer n,
@@ -14,9 +13,9 @@ subroutine cungbr
 )
 ```
 
-CUNGBR generates one of the complex unitary matrices Q or P**H
+CUNGBR generates one of the complex unitary matrices Q or P\*\*H
 determined by CGEBRD when reducing a complex matrix A to bidiagonal
-form: A = Q * B * P**H.  Q and P**H are defined as products of
+form: A = Q \* B \* P\*\*H.  Q and P\*\*H are defined as products of
 elementary reflectors H(i) or G(i) respectively.
 
 If VECT = 'Q', A is assumed to have been an M-by-K matrix, and Q
@@ -26,26 +25,26 @@ columns of Q, where m >= n >= k;
 if m < k, Q = H(1) H(2) . . . H(m-1) and CUNGBR returns Q as an
 M-by-M matrix.
 
-If VECT = 'P', A is assumed to have been a K-by-N matrix, and P**H
+If VECT = 'P', A is assumed to have been a K-by-N matrix, and P\*\*H
 is of order N:
-if k < n, P**H = G(k) . . . G(2) G(1) and CUNGBR returns the first m
-rows of P**H, where n >= m >= k;
-if k >= n, P**H = G(n-1) . . . G(2) G(1) and CUNGBR returns P**H as
+if k < n, P\*\*H = G(k) . . . G(2) G(1) and CUNGBR returns the first m
+rows of P\*\*H, where n >= m >= k;
+if k >= n, P\*\*H = G(n-1) . . . G(2) G(1) and CUNGBR returns P\*\*H as
 an N-by-N matrix.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
-> Specifies whether the matrix Q or the matrix P**H is
+VECT : CHARACTER\*1 [in]
+> Specifies whether the matrix Q or the matrix P\*\*H is
 > required, as defined in the transformation applied by CGEBRD:
 > = 'Q':  generate Q;
-> = 'P':  generate P**H.
+> = 'P':  generate P\*\*H.
 
 M : INTEGER [in]
-> The number of rows of the matrix Q or P**H to be returned.
+> The number of rows of the matrix Q or P\*\*H to be returned.
 > M >= 0.
 
 N : INTEGER [in]
-> The number of columns of the matrix Q or P**H to be returned.
+> The number of columns of the matrix Q or P\*\*H to be returned.
 > N >= 0.
 > If VECT = 'Q', M >= N >= min(M,K);
 > if VECT = 'P', N >= M >= min(N,K).
@@ -60,7 +59,7 @@ K : INTEGER [in]
 A : COMPLEX array, dimension (LDA,N) [in,out]
 > On entry, the vectors which define the elementary reflectors,
 > as returned by CGEBRD.
-> On exit, the M-by-N matrix Q or P**H.
+> On exit, the M-by-N matrix Q or P\*\*H.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= M.
@@ -69,7 +68,7 @@ TAU : COMPLEX array, dimension [in]
 > (min(M,K)) if VECT = 'Q'
 > (min(N,K)) if VECT = 'P'
 > TAU(i) must contain the scalar factor of the elementary
-> reflector H(i) or G(i), which determines Q or P**H, as
+> reflector H(i) or G(i), which determines Q or P\*\*H, as
 > returned by CGEBRD in its array argument TAUQ or TAUP.
 
 WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
@@ -77,7 +76,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,min(M,N)).
-> For optimum performance LWORK >= min(M,N)*NB, where NB
+> For optimum performance LWORK >= min(M,N)\*NB, where NB
 > is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

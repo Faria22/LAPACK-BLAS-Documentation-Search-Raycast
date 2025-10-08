@@ -1,6 +1,5 @@
 ```fortran
-subroutine sbdsvdx
-(
+subroutine sbdsvdx (
         character uplo,
         character jobz,
         character range,
@@ -22,7 +21,7 @@ subroutine sbdsvdx
 ```
 
 SBDSVDX computes the singular value decomposition (SVD) of a real
-N-by-N (upper or lower) bidiagonal matrix B, B = U * S * VT,
+N-by-N (upper or lower) bidiagonal matrix B, B = U \* S \* VT,
 where S is a diagonal matrix with non-negative diagonal elements
 (the singular values of B), and U and VT are orthogonal matrices
 of left and right singular vectors, respectively.
@@ -30,7 +29,7 @@ of left and right singular vectors, respectively.
 Given an upper bidiagonal B with diagonal D = [ d_1 d_2 ... d_N ]
 and superdiagonal E = [ e_1 e_2 ... e_N-1 ], SBDSVDX computes the
 singular value decomposition of B through the eigenvalues and
-eigenvectors of the N*2-by-N*2 tridiagonal matrix
+eigenvectors of the N\*2-by-N\*2 tridiagonal matrix
 
 |  0  d_1                |
 | d_1  0  e_1            |
@@ -39,7 +38,7 @@ TGK = |     e_1  0  d_2        |
 |              .   .   . |
 
 If (s,u,v) is a singular triplet of B with ||u|| = ||v|| = 1, then
-(+/-s,q), ||q|| = 1, are eigenpairs of TGK, with q = P * ( u' +/-v' ) /
+(+/-s,q), ||q|| = 1, are eigenpairs of TGK, with q = P \* ( u' +/-v' ) /
 sqrt(2) = ( v_1 u_1 v_2 u_2 ... v_n u_n ) / sqrt(2), and
 P = [ e_{n+1} e_{1} e_{n+2} e_{2} ... ].
 
@@ -54,15 +53,15 @@ algorithm: theory and implementation, SIAM J. Sci. Comput.,
 35:740-766, 2013.)
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  B is upper bidiagonal;
 > = 'L':  B is lower bidiagonal.
 
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute singular values only;
 > = 'V':  Compute singular values and singular vectors.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all singular values will be found.
 > = 'V': all singular values in the half-open interval [VL,VU)
 > will be found.
@@ -108,11 +107,11 @@ S : REAL array, dimension (N) [out]
 > The first NS elements contain the selected singular values in
 > ascending order.
 
-Z : REAL array, dimension (2*N,K) [out]
+Z : REAL array, dimension (2\*N,K) [out]
 > If JOBZ = 'V', then if INFO = 0 the first NS columns of Z
 > contain the singular vectors of the matrix B corresponding to
 > the selected singular values, with U in rows 1 to N and V
-> in rows N+1 to N*2, i.e.
+> in rows N+1 to N\*2, i.e.
 > Z = [ U ]
 > [ V ]
 > If JOBZ = 'N', then Z is not referenced.
@@ -122,11 +121,11 @@ Z : REAL array, dimension (2*N,K) [out]
 
 LDZ : INTEGER [in]
 > The leading dimension of the array Z. LDZ >= 1, and if
-> JOBZ = 'V', LDZ >= max(2,N*2).
+> JOBZ = 'V', LDZ >= max(2,N\*2).
 
-WORK : REAL array, dimension (14*N) [out]
+WORK : REAL array, dimension (14\*N) [out]
 
-IWORK : INTEGER array, dimension (12*N) [out]
+IWORK : INTEGER array, dimension (12\*N) [out]
 > If JOBZ = 'V', then if INFO = 0, the first NS elements of
 > IWORK are zero. If INFO > 0, then IWORK contains the indices
 > of the eigenvectors that failed to converge in DSTEVX.
@@ -138,4 +137,4 @@ INFO : INTEGER [out]
 > in SSTEVX. The indices of the eigenvectors
 > (as returned by SSTEVX) are stored in the
 > array IWORK.
-> if INFO = N*2 + 1, an internal error occurred.
+> if INFO = N\*2 + 1, an internal error occurred.

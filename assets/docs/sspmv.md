@@ -1,6 +1,5 @@
 ```fortran
-subroutine sspmv
-(
+subroutine sspmv (
         character uplo,
         integer n,
         real alpha,
@@ -15,13 +14,13 @@ subroutine sspmv
 
 SSPMV  performs the matrix-vector operation
 
-y := alpha*A*x + beta*y,
+y := alpha\*A\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are n element vectors and
 A is an n by n symmetric matrix, supplied in packed form.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the matrix A is supplied in the packed
 > array AP as follows:
@@ -40,7 +39,7 @@ ALPHA : REAL [in]
 > On entry, ALPHA specifies the scalar alpha.
 
 AP : REAL array, dimension at least [in]
-> ( ( n*( n + 1 ) )/2 ).
+> ( ( n\*( n + 1 ) )/2 ).
 > Before entry with UPLO = 'U' or 'u', the array AP must
 > contain the upper triangular part of the symmetric matrix
 > packed sequentially, column by column, so that AP( 1 )
@@ -53,7 +52,7 @@ AP : REAL array, dimension at least [in]
 > and a( 3, 1 ) respectively, and so on.
 
 X : REAL array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element vector x.
 
@@ -66,7 +65,7 @@ BETA : REAL [in]
 > supplied as zero then Y need not be set on input.
 
 Y : REAL array, dimension at least [in,out]
-> ( 1 + ( n - 1 )*abs( INCY ) ).
+> ( 1 + ( n - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array Y must contain the n
 > element vector y. On exit, Y is overwritten by the updated
 > vector y.

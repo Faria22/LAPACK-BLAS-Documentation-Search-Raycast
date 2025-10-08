@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlat2c
-(
+subroutine zlat2c (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -11,7 +10,7 @@ subroutine zlat2c
 )
 ```
 
-ZLAT2C converts a COMPLEX*16 triangular matrix, SA, to a COMPLEX
+ZLAT2C converts a COMPLEX\*16 triangular matrix, SA, to a COMPLEX
 triangular matrix, A.
 
 RMAX is the overflow for the SINGLE PRECISION arithmetic
@@ -21,14 +20,14 @@ RMAX. If not the conversion is aborted and a flag is raised.
 This is an auxiliary routine so there is no argument checking.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
 N : INTEGER [in]
 > The number of rows and columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > On entry, the N-by-N triangular coefficient matrix A.
 
 LDA : INTEGER [in]

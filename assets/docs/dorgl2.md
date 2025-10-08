@@ -1,6 +1,5 @@
 ```fortran
-subroutine dorgl2
-(
+subroutine dorgl2 (
         integer m,
         integer n,
         integer k,

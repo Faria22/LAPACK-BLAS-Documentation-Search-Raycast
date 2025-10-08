@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgedmd
-(
+subroutine zgedmd (
         character, intent(in) jobs,
         character, intent(in) jobz,
         character, intent(in) jobr,
@@ -37,7 +36,7 @@ subroutine zgedmd
 
 ZGEDMD computes the Dynamic Mode Decomposition (DMD) for
 a pair of data snapshot matrices. For the input matrices
-X and Y such that Y = A*X with an unaccessible matrix
+X and Y such that Y = A\*X with an unaccessible matrix
 A, ZGEDMD computes a certain number of Ritz pairs of A using
 the standard Rayleigh-Ritz extraction from a subspace of
 range(X) that is determined using the leading left singular
@@ -49,11 +48,11 @@ For further details see the references listed
 below. For more details of the implementation see [3].
 
 ## Parameters
-JOBS : JOBS (input) CHARACTER*1 [in]
+JOBS : JOBS (input) CHARACTER\*1 [in]
 > Determines whether the initial data snapshots are scaled
 > by a diagonal matrix.
 > 'S' :: The data snapshots matrices X and Y are multiplied
-> with a diagonal matrix D so that X*D has unit
+> with a diagonal matrix D so that X\*D has unit
 > nonzero columns (in the Euclidean 2-norm)
 > 'C' :: The snapshots are scaled as with the 'S' option.
 > If it is found that an i-th column of X is zero
@@ -61,25 +60,25 @@ JOBS : JOBS (input) CHARACTER*1 [in]
 > non-zero, then the i-th column of Y is set to
 > zero and a warning flag is raised.
 > 'Y' :: The data snapshots matrices X and Y are multiplied
-> by a diagonal matrix D so that Y*D has unit
+> by a diagonal matrix D so that Y\*D has unit
 > nonzero columns (in the Euclidean 2-norm)
 > 'N' :: No data scaling.
 
-JOBZ : JOBZ (input) CHARACTER*1 [in]
+JOBZ : JOBZ (input) CHARACTER\*1 [in]
 > Determines whether the eigenvectors (Koopman modes) will
 > be computed.
 > 'V' :: The eigenvectors (Koopman modes) will be computed
 > and returned in the matrix Z.
 > See the description of Z.
 > 'F' :: The eigenvectors (Koopman modes) will be returned
-> in factored form as the product X(:,1:K)*W, where X
+> in factored form as the product X(:,1:K)\*W, where X
 > contains a POD basis (leading left singular vectors
 > of the data matrix X) and W contains the eigenvectors
 > of the corresponding Rayleigh quotient.
 > See the descriptions of K, X, W, Z.
 > 'N' :: The eigenvectors are not computed.
 
-JOBR : JOBR (input) CHARACTER*1 [in]
+JOBR : JOBR (input) CHARACTER\*1 [in]
 > Determines whether to compute the residuals.
 > 'R' :: The residuals for the computed eigenpairs will be
 > computed and stored in the array RES.
@@ -87,7 +86,7 @@ JOBR : JOBR (input) CHARACTER*1 [in]
 > For this option to be legal, JOBZ must be 'V'.
 > 'N' :: The residuals are not computed.
 
-JOBF : JOBF (input) CHARACTER*1 [in]
+JOBF : JOBF (input) CHARACTER\*1 [in]
 > Specifies whether to store information needed for post-
 > processing (e.g. computing refined Ritz vectors)
 > 'R' :: The matrix needed for the refinement of the Ritz
@@ -111,7 +110,7 @@ WHTSVD : WHTSVD (input) INTEGER, WHSTVD in { 1, 2, 3, 4 } [in]
 > For the four methods above, a significant difference in
 > the accuracy of small singular values is possible if
 > the snapshots vary in norm so that X is severely
-> ill-conditioned. If small (smaller than EPS*||X||)
+> ill-conditioned. If small (smaller than EPS\*||X||)
 > singular values are of interest and JOBS=='N',  then
 > the options (3, 4) give the most accurate results, where
 > the option 4 is slightly better and with stronger
@@ -156,10 +155,10 @@ NRNK : NRNK (input) INTEGER [in]
 > i.e. how to truncate small singular values of the input
 > matrix X. On input, if
 > NRNK = -1 :: i-th singular value sigma(i) is truncated
-> if sigma(i) <= TOL*sigma(1)
+> if sigma(i) <= TOL\*sigma(1)
 > This option is recommended.
 > NRNK = -2 :: i-th singular value sigma(i) is truncated
-> if sigma(i) <= TOL*sigma(i-1)
+> if sigma(i) <= TOL\*sigma(i-1)
 > This option is included for R&D purposes.
 > It requires highly accurate SVD, which
 > may not be feasible.
@@ -193,7 +192,7 @@ Z : Z (workspace/output) COMPLEX(KIND=WP)  M-by-N array [out]
 > If JOBZ =='V' then Z contains the  Ritz vectors.  Z(:,i)
 > is an eigenvector of the i-th Ritz value; ||Z(:,i)||_2=1.
 > If JOBZ == 'F', then the Z(:,i)'s are given implicitly as
-> the columns of X(:,1:K)*W(1:K,1:K), i.e. X(:,1:K)*W(:,i)
+> the columns of X(:,1:K)\*W(1:K,1:K), i.e. X(:,1:K)\*W(:,i)
 > is an eigenvector corresponding to EIGS(i). The columns
 > of W(1:k,1:K) are the computed eigenvectors of the
 > K-by-K Rayleigh quotient.
@@ -205,15 +204,15 @@ LDZ : LDZ (input) INTEGER , LDZ >= M [in]
 RES : RES (output) REAL(KIND=WP) N-by-1 array [out]
 > RES(1:K) contains the residuals for the K computed
 > Ritz pairs,
-> RES(i) = || A * Z(:,i) - EIGS(i)*Z(:,i))||_2.
+> RES(i) = || A \* Z(:,i) - EIGS(i)\*Z(:,i))||_2.
 > See the description of EIGS and Z.
 
 B : B (output) COMPLEX(KIND=WP)  M-by-N array. [out]
-> IF JOBF =='R', B(1:M,1:K) contains A*U(:,1:K), and can
+> IF JOBF =='R', B(1:M,1:K) contains A\*U(:,1:K), and can
 > be used for computing the refined vectors; see further
 > details in the provided references.
 > If JOBF == 'E', B(1:M,1:K) contains
-> A*U(:,1:K)*W(1:K,1:K), which are the vectors from the
+> A\*U(:,1:K)\*W(1:K,1:K), which are the vectors from the
 > Exact DMD, up to scaling by the inverse eigenvalues.
 > If JOBF =='N', then B is not referenced.
 > See the descriptions of X, W, K.
@@ -255,12 +254,12 @@ ZWORK : ZWORK (workspace/output) COMPLEX(KIND=WP) LZWORK-by-1 array [out]
 LZWORK : LZWORK (input) INTEGER [in]
 > The minimal length of the workspace vector ZWORK.
 > LZWORK is calculated as MAX(LZWORK_SVD, LZWORK_ZGEEV),
-> where LZWORK_ZGEEV = MAX( 1, 2*N )  and the minimal
+> where LZWORK_ZGEEV = MAX( 1, 2\*N )  and the minimal
 > LZWORK_SVD is calculated as follows
 > If WHTSVD == 1 :: ZGESVD ::
-> LZWORK_SVD = MAX(1,2*MIN(M,N)+MAX(M,N))
+> LZWORK_SVD = MAX(1,2\*MIN(M,N)+MAX(M,N))
 > If WHTSVD == 2 :: ZGESDD ::
-> LZWORK_SVD = 2*MIN(M,N)*MIN(M,N)+2*MIN(M,N)+MAX(M,N)
+> LZWORK_SVD = 2\*MIN(M,N)\*MIN(M,N)+2\*MIN(M,N)+MAX(M,N)
 > If WHTSVD == 3 :: ZGESVDQ ::
 > LZWORK_SVD = obtainable by a query
 > If WHTSVD == 4 :: ZGEJSV ::
@@ -287,14 +286,14 @@ LRWORK : LRWORK (input) INTEGER [in]
 > The minimal length of the workspace vector RWORK.
 > LRWORK is calculated as follows:
 > LRWORK = MAX(1, N+LRWORK_SVD,N+LRWORK_ZGEEV), where
-> LRWORK_ZGEEV = MAX(1,2*N) and RWORK_SVD is the real workspace
+> LRWORK_ZGEEV = MAX(1,2\*N) and RWORK_SVD is the real workspace
 > for the SVD subroutine determined by the input parameter
 > WHTSVD.
 > If WHTSVD == 1 :: ZGESVD ::
-> LRWORK_SVD = 5*MIN(M,N)
+> LRWORK_SVD = 5\*MIN(M,N)
 > If WHTSVD == 2 :: ZGESDD ::
-> LRWORK_SVD =  MAX(5*MIN(M,N)*MIN(M,N)+7*MIN(M,N),
-> 2*MAX(M,N)*MIN(M,N)+2*MIN(M,N)*MIN(M,N)+MIN(M,N) ) )
+> LRWORK_SVD =  MAX(5\*MIN(M,N)\*MIN(M,N)+7\*MIN(M,N),
+> 2\*MAX(M,N)\*MIN(M,N)+2\*MIN(M,N)\*MIN(M,N)+MIN(M,N) ) )
 > If WHTSVD == 3 :: ZGESVDQ ::
 > LRWORK_SVD = obtainable by a query
 > If WHTSVD == 4 :: ZGEJSV ::
@@ -313,9 +312,9 @@ IWORK : IWORK (workspace/output) INTEGER LIWORK-by-1 array [out]
 LIWORK : LIWORK (input) INTEGER [in]
 > The minimal length of the workspace vector IWORK.
 > If WHTSVD == 1, then only IWORK(1) is used; LIWORK >=1
-> If WHTSVD == 2, then LIWORK >= MAX(1,8*MIN(M,N))
+> If WHTSVD == 2, then LIWORK >= MAX(1,8\*MIN(M,N))
 > If WHTSVD == 3, then LIWORK >= MAX(1,M+N-1)
-> If WHTSVD == 4, then LIWORK >= MAX(3,M+3*N)
+> If WHTSVD == 4, then LIWORK >= MAX(3,M+3\*N)
 > If on entry LIWORK = -1, then a workspace query is
 > assumed and the procedure only computes the minimal
 > and the optimal workspace lengths for  ZWORK, RWORK and

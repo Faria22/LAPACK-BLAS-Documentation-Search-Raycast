@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpftrs
-(
+subroutine zpftrs (
         character transr,
         character uplo,
         integer n,
@@ -12,16 +11,16 @@ subroutine zpftrs
 )
 ```
 
-ZPFTRS solves a system of linear equations A*X = B with a Hermitian
+ZPFTRS solves a system of linear equations A\*X = B with a Hermitian
 positive definite matrix A using the Cholesky factorization
-A = U**H*U or A = L*L**H computed by ZPFTRF.
+A = U\*\*H\*U or A = L\*L\*\*H computed by ZPFTRF.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal TRANSR of RFP A is stored;
 > = 'C':  The Conjugate-transpose TRANSR of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of RFP A is stored;
 > = 'L':  Lower triangle of RFP A is stored.
 
@@ -32,12 +31,12 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension ( N*(N+1)/2 ); [in]
+A : COMPLEX\*16 array, dimension ( N\*(N+1)/2 ); [in]
 > The triangular factor U or L from the Cholesky factorization
-> of RFP A = U**H*U or RFP A = L*L**H, as computed by ZPFTRF.
+> of RFP A = U\*\*H\*U or RFP A = L\*L\*\*H, as computed by ZPFTRF.
 > See note below for more details about RFP A.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.
 > On exit, the solution matrix X.
 

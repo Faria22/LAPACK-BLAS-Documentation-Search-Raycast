@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgecon
-(
+subroutine dgecon (
         character norm,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -19,10 +18,10 @@ the LU factorization computed by DGETRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
 condition number is computed as
-RCOND = 1 / ( norm(A) * norm(inv(A)) ).
+RCOND = 1 / ( norm(A) \* norm(inv(A)) ).
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies whether the 1-norm condition number or the
 > infinity-norm condition number is required:
 > = '1' or 'O':  1-norm;
@@ -32,7 +31,7 @@ N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
 A : DOUBLE PRECISION array, dimension (LDA,N) [in]
-> The factors L and U from the factorization A = P*L*U
+> The factors L and U from the factorization A = P\*L\*U
 > as computed by DGETRF.
 
 LDA : INTEGER [in]
@@ -44,9 +43,9 @@ ANORM : DOUBLE PRECISION [in]
 
 RCOND : DOUBLE PRECISION [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(norm(A) * norm(inv(A))).
+> computed as RCOND = 1/(norm(A) \* norm(inv(A))).
 
-WORK : DOUBLE PRECISION array, dimension (4*N) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

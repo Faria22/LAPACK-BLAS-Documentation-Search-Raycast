@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytri_3
-(
+subroutine csytri_3 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -16,11 +15,11 @@ subroutine csytri_3
 CSYTRI_3 computes the inverse of a complex symmetric indefinite
 matrix A using the factorization computed by CSYTRF_RK or CSYTRF_BK:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 CSYTRI_3 sets the leading dimension of the workspace  before calling
@@ -28,7 +27,7 @@ CSYTRI_3X that actually computes the inverse.  This is the blocked
 version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix.
 > = 'U':  Upper triangle of A is stored;
@@ -74,11 +73,11 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by CSYTRF_RK or CSYTRF_BK.
 
-WORK : COMPLEX array, dimension (N+NB+1)*(NB+3). [out]
+WORK : COMPLEX array, dimension (N+NB+1)\*(NB+3). [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK. LWORK >= (N+NB+1)*(NB+3).
+> The length of WORK. LWORK >= (N+NB+1)\*(NB+3).
 > 
 > If LDWORK = -1, then a workspace query is assumed;
 > the routine only calculates the optimal size of the optimal

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zheswapr
-(
+subroutine zheswapr (
         character uplo,
         integer n,
         complex*16, dimension( lda, n ) a,
@@ -14,16 +13,16 @@ ZHESWAPR applies an elementary permutation on the rows and the columns of
 a hermitian matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the NB diagonal matrix D and the multipliers
 > used to obtain the factor U or L as computed by CSYTRF.
 > 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctgsna
-(
+subroutine ctgsna (
         character job,
         character howmny,
         logical, dimension( * ) select,
@@ -31,14 +30,14 @@ eigenvalues and/or eigenvectors of a matrix pair (A, B).
 B are both upper triangular.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for
 > eigenvalues (S) or eigenvectors (DIF):
 > = 'E': for eigenvalues only (S);
 > = 'V': for eigenvectors only (DIF);
 > = 'B': for both eigenvalues and eigenvectors (S and DIF).
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A': compute condition numbers for all eigenpairs;
 > = 'S': compute condition numbers for selected eigenpairs
 > specified by the array SELECT.
@@ -117,7 +116,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N).
-> If JOB = 'V' or 'B', LWORK >= max(1,2*N*N).
+> If JOB = 'V' or 'B', LWORK >= max(1,2\*N\*N).
 
 IWORK : INTEGER array, dimension (N+2) [out]
 > If JOB = 'E', IWORK is not referenced.

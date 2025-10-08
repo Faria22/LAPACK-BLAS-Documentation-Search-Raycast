@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsbev_2stage
-(
+subroutine dsbev_2stage (
         character jobz,
         character uplo,
         integer n,
@@ -21,12 +20,12 @@ a real symmetric band matrix A using the 2stage technique for
 the reduction to tridiagonal.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -76,7 +75,7 @@ LWORK : INTEGER [in]
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = (2KD+1)*N + KD*NTHREADS + N
+> dimension = (2KD+1)\*N + KD\*NTHREADS + N
 > where KD is the size of the band.
 > NTHREADS is the number of threads used when
 > openMP compilation is enabled, otherwise =1.

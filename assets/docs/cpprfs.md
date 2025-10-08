@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpprfs
-(
+subroutine cpprfs (
         character uplo,
         integer n,
         integer nrhs,
@@ -24,7 +23,7 @@ and packed, and provides error bounds and backward error estimates
 for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -35,16 +34,16 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in]
 > The upper or lower triangle of the Hermitian matrix A, packed
 > columnwise in a linear array.  The j-th column of A is stored
 > in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = A(i,j) for j<=i<=n.
 
-AFP : COMPLEX array, dimension (N*(N+1)/2) [in]
+AFP : COMPLEX array, dimension (N\*(N+1)/2) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**H*U or A = L*L**H, as computed by SPPTRF/CPPTRF,
+> A = U\*\*H\*U or A = L\*L\*\*H, as computed by SPPTRF/CPPTRF,
 > packed columnwise in a linear array in the same format as A
 > (see AP).
 
@@ -76,7 +75,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 RWORK : REAL array, dimension (N) [out]
 

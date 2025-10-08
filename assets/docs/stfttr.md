@@ -1,6 +1,5 @@
 ```fortran
-subroutine stfttr
-(
+subroutine stfttr (
         character transr,
         character uplo,
         integer n,
@@ -15,18 +14,18 @@ STFTTR copies a triangular matrix A from rectangular full packed
 format (TF) to standard full format (TR).
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  ARF is in Normal format;
 > = 'T':  ARF is in Transpose format.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
 N : INTEGER [in]
 > The order of the matrices ARF and A. N >= 0.
 
-ARF : REAL array, dimension (N*(N+1)/2). [in]
+ARF : REAL array, dimension (N\*(N+1)/2). [in]
 > On entry, the upper (if UPLO = 'U') or lower (if UPLO = 'L')
 > matrix A in RFP format. See the  below for more
 > details.

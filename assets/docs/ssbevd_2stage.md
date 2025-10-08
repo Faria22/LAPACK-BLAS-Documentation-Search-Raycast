@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssbevd_2stage
-(
+subroutine ssbevd_2stage (
         character jobz,
         character uplo,
         integer n,
@@ -24,12 +23,12 @@ the reduction to tridiagonal. If eigenvectors are desired, it uses
 a divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -79,7 +78,7 @@ LWORK : INTEGER [in]
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = (2KD+1)*N + KD*NTHREADS + N
+> dimension = (2KD+1)\*N + KD\*NTHREADS + N
 > where KD is the size of the band.
 > NTHREADS is the number of threads used when
 > openMP compilation is enabled, otherwise =1.
@@ -97,7 +96,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If JOBZ  = 'N' or N <= 1, LIWORK must be at least 1.
-> If JOBZ  = 'V' and N > 2, LIWORK must be at least 3 + 5*N.
+> If JOBZ  = 'V' and N > 2, LIWORK must be at least 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK and

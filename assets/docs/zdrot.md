@@ -1,6 +1,5 @@
 ```fortran
-subroutine zdrot
-(
+subroutine zdrot (
         integer n,
         complex*16, dimension( * ) zx,
         integer incx,
@@ -20,8 +19,8 @@ N : INTEGER [in]
 > On entry, N specifies the order of the vectors cx and cy.
 > N must be at least zero.
 
-ZX : COMPLEX*16 array, dimension at least [in,out]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+ZX : COMPLEX\*16 array, dimension at least [in,out]
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array ZX must contain the n
 > element vector cx. On exit, ZX is overwritten by the updated
 > vector cx.
@@ -30,8 +29,8 @@ INCX : INTEGER [in]
 > On entry, INCX specifies the increment for the elements of
 > ZX. INCX must not be zero.
 
-ZY : COMPLEX*16 array, dimension at least [in,out]
-> ( 1 + ( N - 1 )*abs( INCY ) ).
+ZY : COMPLEX\*16 array, dimension at least [in,out]
+> ( 1 + ( N - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array ZY must contain the n
 > element vector cy. On exit, ZY is overwritten by the updated
 > vector cy.

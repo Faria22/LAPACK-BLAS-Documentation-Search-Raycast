@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgesdd
-(
+subroutine dgesdd (
         character jobz,
         integer m,
         integer n,
@@ -25,7 +24,7 @@ divide-and-conquer algorithm.
 
 The SVD is written
 
-A = U * SIGMA * transpose(V)
+A = U \* SIGMA \* transpose(V)
 
 where SIGMA is an M-by-N matrix which is zero except for its
 min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
@@ -34,23 +33,23 @@ are the singular values of A; they are real and non-negative, and
 are returned in descending order.  The first min(m,n) columns of
 U and V are the left and right singular vectors of A.
 
-Note that the routine returns VT = V**T, not V.
+Note that the routine returns VT = V\*\*T, not V.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > Specifies options for computing all or part of the matrix U:
-> = 'A':  all M columns of U and all N rows of V**T are
+> = 'A':  all M columns of U and all N rows of V\*\*T are
 > returned in the arrays U and VT;
 > = 'S':  the first min(M,N) columns of U and the first
-> min(M,N) rows of V**T are returned in the arrays U
+> min(M,N) rows of V\*\*T are returned in the arrays U
 > and VT;
 > = 'O':  If M >= N, the first N columns of U are overwritten
-> on the array A and all rows of V**T are returned in
+> on the array A and all rows of V\*\*T are returned in
 > the array VT;
 > otherwise, all columns of U are returned in the
-> array U and the first M rows of V**T are overwritten
+> array U and the first M rows of V\*\*T are overwritten
 > in the array A;
-> = 'N':  no columns of U or rows of V**T are computed.
+> = 'N':  no columns of U or rows of V\*\*T are computed.
 
 M : INTEGER [in]
 > The number of rows of the input matrix A.  M >= 0.
@@ -65,7 +64,7 @@ A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > of U (the left singular vectors, stored
 > columnwise) if M >= N;
 > A is overwritten with the first M rows
-> of V**T (the right singular vectors, stored
+> of V\*\*T (the right singular vectors, stored
 > rowwise) otherwise.
 > if JOBZ .ne. 'O', the contents of A are destroyed.
 
@@ -90,9 +89,9 @@ LDU : INTEGER [in]
 
 VT : DOUBLE PRECISION array, dimension (LDVT,N) [out]
 > If JOBZ = 'A' or JOBZ = 'O' and M >= N, VT contains the
-> N-by-N orthogonal matrix V**T;
+> N-by-N orthogonal matrix V\*\*T;
 > if JOBZ = 'S', VT contains the first min(M,N) rows of
-> V**T (the right singular vectors, stored rowwise);
+> V\*\*T (the right singular vectors, stored rowwise);
 > if JOBZ = 'O' and M < N, or JOBZ = 'N', VT is not referenced.
 
 LDVT : INTEGER [in]
@@ -110,15 +109,15 @@ LWORK : INTEGER [in]
 > and no other work except argument checking is performed.
 > 
 > Let mx = max(M,N) and mn = min(M,N).
-> If JOBZ = 'N', LWORK >= 3*mn + max( mx, 7*mn ).
-> If JOBZ = 'O', LWORK >= 3*mn + max( mx, 5*mn*mn + 4*mn ).
-> If JOBZ = 'S', LWORK >= 4*mn*mn + 7*mn.
-> If JOBZ = 'A', LWORK >= 4*mn*mn + 6*mn + mx.
+> If JOBZ = 'N', LWORK >= 3\*mn + max( mx, 7\*mn ).
+> If JOBZ = 'O', LWORK >= 3\*mn + max( mx, 5\*mn\*mn + 4\*mn ).
+> If JOBZ = 'S', LWORK >= 4\*mn\*mn + 7\*mn.
+> If JOBZ = 'A', LWORK >= 4\*mn\*mn + 6\*mn + mx.
 > These are not tight minimums in all cases; see comments inside code.
 > For good performance, LWORK should generally be larger;
 > a query is recommended.
 
-IWORK : INTEGER array, dimension (8*min(M,N)) [out]
+IWORK : INTEGER array, dimension (8\*min(M,N)) [out]
 
 INFO : INTEGER [out]
 > <  0:  if INFO = -i, the i-th argument had an illegal value.

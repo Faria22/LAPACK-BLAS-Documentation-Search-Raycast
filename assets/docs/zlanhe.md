@@ -1,6 +1,5 @@
 ```fortran
-double precision function zlanhe
-(
+double precision function zlanhe (
         character norm,
         character uplo,
         integer n,
@@ -15,11 +14,11 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 complex hermitian matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in ZLANHE as described
 > above.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > hermitian matrix A is to be referenced.
 > = 'U':  Upper triangular part of A is referenced
@@ -29,7 +28,7 @@ N : INTEGER [in]
 > The order of the matrix A.  N >= 0.  When N = 0, ZLANHE is
 > set to zero.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The hermitian matrix A.  If UPLO = 'U', the leading n by n
 > upper triangular part of A contains the upper triangular part
 > of the matrix A, and the strictly lower triangular part of A

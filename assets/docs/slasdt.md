@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasdt
-(
+subroutine slasdt (
         integer n,
         integer lvl,
         integer nd,

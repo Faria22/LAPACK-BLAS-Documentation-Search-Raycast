@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetrd_hb2st
-(
+subroutine zhetrd_hb2st (
         character stage1,
         character vect,
         character uplo,
@@ -20,10 +19,10 @@ subroutine zhetrd_hb2st
 
 ZHETRD_HB2ST reduces a complex Hermitian band matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q**H * A * Q = T.
+Q\*\*H \* A \* Q = T.
 
 ## Parameters
-STAGE1 : CHARACTER*1 [in]
+STAGE1 : CHARACTER\*1 [in]
 > = 'N':  : to mention that the stage 1 of the reduction
 > from dense to band using the zhetrd_he2hb routine
 > was not called before this routine to reproduce AB.
@@ -33,15 +32,15 @@ STAGE1 : CHARACTER*1 [in]
 > routine has been called to produce AB (e.g., AB is
 > the output of zhetrd_he2hb.
 
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  No need for the Housholder representation,
-> and thus LHOUS is of size max(1, 4*N);
+> and thus LHOUS is of size max(1, 4\*N);
 > = 'V':  the Householder representation is needed to
 > either generate or to apply Q later on,
 > then LHOUS is to be queried and computed.
 > (NOT AVAILABLE IN THIS RELEASE).
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -52,7 +51,7 @@ KD : INTEGER [in]
 > The number of superdiagonals of the matrix A if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -76,7 +75,7 @@ E : DOUBLE PRECISION array, dimension (N-1) [out]
 > The off-diagonal elements of the tridiagonal matrix T:
 > E(i) = T(i,i+1) if UPLO = 'U'; E(i) = T(i+1,i) if UPLO = 'L'.
 
-HOUS : COMPLEX*16 array, dimension (MAX(1,LHOUS)) [out]
+HOUS : COMPLEX\*16 array, dimension (MAX(1,LHOUS)) [out]
 > Stores the Householder representation.
 
 LHOUS : INTEGER [in]
@@ -89,10 +88,10 @@ LHOUS : INTEGER [in]
 > this value as the first entry of the HOUS array, and no error
 > message related to LHOUS is issued by XERBLA.
 > LHOUS = MAX(1, dimension) where
-> dimension = 4*N if VECT='N'
+> dimension = 4\*N if VECT='N'
 > not available now if VECT='H'
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)). [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)). [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
@@ -105,7 +104,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 > LWORK = MAX(1, dimension) where
-> dimension   = (2KD+1)*N + KD*NTHREADS
+> dimension   = (2KD+1)\*N + KD\*NTHREADS
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice

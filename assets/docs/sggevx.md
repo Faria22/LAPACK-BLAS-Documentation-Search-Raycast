@@ -1,6 +1,5 @@
 ```fortran
-subroutine sggevx
-(
+subroutine sggevx (
         character balanc,
         character jobvl,
         character jobvr,
@@ -44,7 +43,7 @@ the eigenvalues (RCONDE), and reciprocal condition numbers for the
 right eigenvectors (RCONDV).
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar
-lambda or a ratio alpha/beta = lambda, such that A - lambda*B is
+lambda or a ratio alpha/beta = lambda, such that A - lambda\*B is
 singular. It is usually represented as the pair (alpha,beta), as
 there is a reasonable interpretation for beta=0, and even for both
 being zero.
@@ -52,17 +51,17 @@ being zero.
 The right eigenvector v(j) corresponding to the eigenvalue lambda(j)
 of (A,B) satisfies
 
-A * v(j) = lambda(j) * B * v(j) .
+A \* v(j) = lambda(j) \* B \* v(j) .
 
 The left eigenvector u(j) corresponding to the eigenvalue lambda(j)
 of (A,B) satisfies
 
-u(j)**H * A  = lambda(j) * u(j)**H * B.
+u(j)\*\*H \* A  = lambda(j) \* u(j)\*\*H \* B.
 
-where u(j)**H is the conjugate-transpose of u(j).
+where u(j)\*\*H is the conjugate-transpose of u(j).
 
 ## Parameters
-BALANC : CHARACTER*1 [in]
+BALANC : CHARACTER\*1 [in]
 > Specifies the balance option to be performed.
 > = 'N':  do not diagonally scale or permute;
 > = 'P':  permute only;
@@ -73,15 +72,15 @@ BALANC : CHARACTER*1 [in]
 > not change condition numbers (in exact arithmetic), but
 > balancing does.
 
-JOBVL : CHARACTER*1 [in]
+JOBVL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left generalized eigenvectors;
 > = 'V':  compute the left generalized eigenvectors.
 
-JOBVR : CHARACTER*1 [in]
+JOBVR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right generalized eigenvectors;
 > = 'V':  compute the right generalized eigenvectors.
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': none are computed;
 > = 'E': computed for eigenvalues only;
@@ -114,7 +113,7 @@ ALPHAR : REAL array, dimension (N) [out]
 ALPHAI : REAL array, dimension (N) [out]
 
 BETA : REAL array, dimension (N) [out]
-> On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
+> On exit, (ALPHAR(j) + ALPHAI(j)\*i)/BETA(j), j=1,...,N, will
 > be the generalized eigenvalues.  If ALPHAI(j) is zero, then
 > the j-th eigenvalue is real; if positive, then the j-th and
 > (j+1)-st eigenvalues are a complex conjugate pair, with
@@ -133,7 +132,7 @@ VL : REAL array, dimension (LDVL,N) [out]
 > their eigenvalues. If the j-th eigenvalue is real, then
 > u(j) = VL(:,j), the j-th column of VL. If the j-th and
 > (j+1)-th eigenvalues form a complex conjugate pair, then
-> u(j) = VL(:,j)+i*VL(:,j+1) and u(j+1) = VL(:,j)-i*VL(:,j+1).
+> u(j) = VL(:,j)+i\*VL(:,j+1) and u(j+1) = VL(:,j)-i\*VL(:,j+1).
 > Each eigenvector will be scaled so the largest component have
 > abs(real part) + abs(imag. part) = 1.
 > Not referenced if JOBVL = 'N'.
@@ -148,7 +147,7 @@ VR : REAL array, dimension (LDVR,N) [out]
 > their eigenvalues. If the j-th eigenvalue is real, then
 > v(j) = VR(:,j), the j-th column of VR. If the j-th and
 > (j+1)-th eigenvalues form a complex conjugate pair, then
-> v(j) = VR(:,j)+i*VR(:,j+1) and v(j+1) = VR(:,j)-i*VR(:,j+1).
+> v(j) = VR(:,j)+i\*VR(:,j+1) and v(j+1) = VR(:,j)-i\*VR(:,j+1).
 > Each eigenvector will be scaled so the largest component have
 > abs(real part) + abs(imag. part) = 1.
 > Not referenced if JOBVR = 'N'.
@@ -216,11 +215,11 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= max(1,2*N).
+> The dimension of the array WORK. LWORK >= max(1,2\*N).
 > If BALANC = 'S' or 'B', or JOBVL = 'V', or JOBVR = 'V',
-> LWORK >= max(1,6*N).
-> If SENSE = 'E', LWORK >= max(1,10*N).
-> If SENSE = 'V' or 'B', LWORK >= 2*N*N+8*N+16.
+> LWORK >= max(1,6\*N).
+> If SENSE = 'E', LWORK >= max(1,10\*N).
+> If SENSE = 'V' or 'B', LWORK >= 2\*N\*N+8\*N+16.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

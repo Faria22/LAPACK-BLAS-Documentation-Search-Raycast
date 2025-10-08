@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztgsen
-(
+subroutine ztgsen (
         integer ijob,
         logical wantq,
         logical wantz,
@@ -30,7 +29,7 @@ subroutine ztgsen
 
 ZTGSEN reorders the generalized Schur decomposition of a complex
 matrix pair (A, B) (in terms of an unitary equivalence trans-
-formation Q**H * (A, B) * Z), so that a selected cluster of eigenvalues
+formation Q\*\*H \* (A, B) \* Z), so that a selected cluster of eigenvalues
 appears in the leading diagonal blocks of the pair (A,B). The leading
 columns of Q and Z form unitary bases of the corresponding left and
 right eigenspaces (deflating subspaces). (A, B) must be in
@@ -84,7 +83,7 @@ SELECT : LOGICAL array, dimension (N) [in]
 N : INTEGER [in]
 > The order of the matrices A and B. N >= 0.
 
-A : COMPLEX*16 array, dimension(LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension(LDA,N) [in,out]
 > On entry, the upper triangular matrix A, in generalized
 > Schur canonical form.
 > On exit, A is overwritten by the reordered matrix A.
@@ -92,7 +91,7 @@ A : COMPLEX*16 array, dimension(LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension(LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension(LDB,N) [in,out]
 > On entry, the upper triangular matrix B, in generalized
 > Schur canonical form.
 > On exit, B is overwritten by the reordered matrix B.
@@ -100,16 +99,16 @@ B : COMPLEX*16 array, dimension(LDB,N) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,N).
 
-ALPHA : COMPLEX*16 array, dimension (N) [out]
+ALPHA : COMPLEX\*16 array, dimension (N) [out]
 
-BETA : COMPLEX*16 array, dimension (N) [out]
+BETA : COMPLEX\*16 array, dimension (N) [out]
 > 
 > The diagonal elements of A and B, respectively,
 > when the pair (A,B) has been reduced to generalized Schur
 > form.  ALPHA(i)/BETA(i) i=1,...,N are the generalized
 > eigenvalues.
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > On entry, if WANTQ = .TRUE., Q is an N-by-N matrix.
 > On exit, Q has been postmultiplied by the left unitary
 > transformation matrix which reorder (A, B); The leading M
@@ -121,7 +120,7 @@ LDQ : INTEGER [in]
 > The leading dimension of the array Q. LDQ >= 1.
 > If WANTQ = .TRUE., LDQ >= N.
 
-Z : COMPLEX*16 array, dimension (LDZ,N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,N) [in,out]
 > On entry, if WANTZ = .TRUE., Z is an N-by-N matrix.
 > On exit, Z has been postmultiplied by the left unitary
 > transformation matrix which reorder (A, B); The leading M
@@ -157,13 +156,13 @@ DIF : DOUBLE PRECISION array, dimension (2). [out]
 > If M = 0 or N, DIF(1:2) = F-norm([A, B]).
 > If IJOB = 0 or 1, DIF is not referenced.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >=  1
-> If IJOB = 1, 2 or 4, LWORK >=  2*M*(N-M)
-> If IJOB = 3 or 5, LWORK >=  4*M*(N-M)
+> If IJOB = 1, 2 or 4, LWORK >=  2\*M\*(N-M)
+> If IJOB = 3 or 5, LWORK >=  4\*M\*(N-M)
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -176,7 +175,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK. LIWORK >= 1.
 > If IJOB = 1, 2 or 4, LIWORK >=  N+2;
-> If IJOB = 3 or 5, LIWORK >= MAX(N+2, 2*M*(N-M));
+> If IJOB = 3 or 5, LIWORK >= MAX(N+2, 2\*M\*(N-M));
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the IWORK array,
@@ -190,4 +189,4 @@ INFO : INTEGER [out]
 > matrix pair (A, B) would be too far from generalized
 > Schur form; the problem is very ill-conditioned.
 > (A, B) may have been partially reordered.
-> If requested, 0 is returned in DIF(*), PL and PR.
+> If requested, 0 is returned in DIF(\*), PL and PR.

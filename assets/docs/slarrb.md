@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarrb
-(
+subroutine slarrb (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) lld,
@@ -38,7 +37,7 @@ D : REAL array, dimension (N) [in]
 > The N diagonal elements of the diagonal matrix D.
 
 LLD : REAL array, dimension (N-1) [in]
-> The (N-1) elements L(i)*L(i)*D(i).
+> The (N-1) elements L(i)\*L(i)\*D(i).
 
 IFIRST : INTEGER [in]
 > The index of the first eigenvalue to be computed.
@@ -51,7 +50,7 @@ RTOL1 : REAL [in]
 RTOL2 : REAL [in]
 > Tolerance for the convergence of the bisection intervals.
 > An interval [LEFT,RIGHT] has converged if
-> RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
+> RIGHT-LEFT < MAX( RTOL1\*GAP, RTOL2\*MAX(|LEFT|,|RIGHT|) )
 > where GAP is the (estimated) distance to the nearest
 > eigenvalue.
 
@@ -77,10 +76,10 @@ WERR : REAL array, dimension (N) [in,out]
 > the errors in the estimates of the corresponding elements in W.
 > On output, these errors are refined.
 
-WORK : REAL array, dimension (2*N) [out]
+WORK : REAL array, dimension (2\*N) [out]
 > Workspace.
 
-IWORK : INTEGER array, dimension (2*N) [out]
+IWORK : INTEGER array, dimension (2\*N) [out]
 > Workspace.
 
 PIVMIN : REAL [in]

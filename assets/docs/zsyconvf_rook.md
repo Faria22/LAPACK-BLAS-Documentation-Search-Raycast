@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsyconvf_rook
-(
+subroutine zsyconvf_rook (
         character uplo,
         character way,
         integer n,
@@ -31,20 +30,20 @@ ZSYCONVF_ROOK can also convert in Hermitian matrix case, i.e. between
 formats used in ZHETRF_ROOK and ZHETRF_RK (or ZHETRF_BK).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix A.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-WAY : CHARACTER*1 [in]
+WAY : CHARACTER\*1 [in]
 > = 'C': Convert
 > = 'R': Revert
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > 
 > 1) If WAY ='C':
 > 
@@ -91,7 +90,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [in,out]
+E : COMPLEX\*16 array, dimension (N) [in,out]
 > 
 > 1) If WAY ='C':
 > 

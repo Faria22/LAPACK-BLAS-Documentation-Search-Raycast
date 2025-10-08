@@ -1,6 +1,5 @@
 ```fortran
-subroutine chpevd
-(
+subroutine chpevd (
         character jobz,
         character uplo,
         integer n,
@@ -23,23 +22,23 @@ a complex Hermitian matrix A in packed storage.  If eigenvectors are
 desired, it uses a divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in,out]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the Hermitian matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > 
 > On exit, AP is overwritten by values generated during the
 > reduction to tridiagonal form.  If UPLO = 'U', the diagonal
@@ -68,7 +67,7 @@ LWORK : INTEGER [in]
 > The dimension of array WORK.
 > If N <= 1,               LWORK must be at least 1.
 > If JOBZ = 'N' and N > 1, LWORK must be at least N.
-> If JOBZ = 'V' and N > 1, LWORK must be at least 2*N.
+> If JOBZ = 'V' and N > 1, LWORK must be at least 2\*N.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the required sizes of the WORK, RWORK and
@@ -84,7 +83,7 @@ LRWORK : INTEGER [in]
 > If N <= 1,               LRWORK must be at least 1.
 > If JOBZ = 'N' and N > 1, LRWORK must be at least N.
 > If JOBZ = 'V' and N > 1, LRWORK must be at least
-> 1 + 5*N + 2*N**2.
+> 1 + 5\*N + 2\*N\*\*2.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the required sizes of the WORK, RWORK
@@ -98,7 +97,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of array IWORK.
 > If JOBZ  = 'N' or N <= 1, LIWORK must be at least 1.
-> If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5*N.
+> If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the required sizes of the WORK, RWORK

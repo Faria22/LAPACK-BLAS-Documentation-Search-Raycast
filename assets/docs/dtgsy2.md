@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtgsy2
-(
+subroutine dtgsy2 (
         character trans,
         integer ijob,
         integer m,
@@ -28,8 +27,8 @@ subroutine dtgsy2
 
 DTGSY2 solves the generalized Sylvester equation:
 
-A * R - L * B = scale * C                (1)
-D * R - L * E = scale * F,
+A \* R - L \* B = scale \* C                (1)
+D \* R - L \* E = scale \* F,
 
 using Level 1 and 2 BLAS. where R and L are unknown M-by-N matrices,
 (A, D), (B, E) and (C, F) are given matrix pairs of size M-by-M,
@@ -40,21 +39,21 @@ overwrites (C, F). 0 <= SCALE <= 1 is an output scaling factor
 chosen to avoid overflow.
 
 In matrix notation solving equation (1) corresponds to solve
-Z*x = scale*b, where Z is defined as
+Z\*x = scale\*b, where Z is defined as
 
-Z = [ kron(In, A)  -kron(B**T, Im) ]             (2)
-[ kron(In, D)  -kron(E**T, Im) ],
+Z = [ kron(In, A)  -kron(B\*\*T, Im) ]             (2)
+[ kron(In, D)  -kron(E\*\*T, Im) ],
 
-Ik is the identity matrix of size k and X**T is the transpose of X.
+Ik is the identity matrix of size k and X\*\*T is the transpose of X.
 kron(X, Y) is the Kronecker product between the matrices X and Y.
 In the process of solving (1), we solve a number of such systems
 where Dim(In), Dim(In) = 1 or 2.
 
-If TRANS = 'T', solve the transposed system Z**T*y = scale*b for y,
+If TRANS = 'T', solve the transposed system Z\*\*T\*y = scale\*b for y,
 which is equivalent to solve for R and L in
 
-A**T * R  + D**T * L   = scale * C           (3)
-R  * B**T + L  * E**T  = scale * -F
+A\*\*T \* R  + D\*\*T \* L   = scale \* C           (3)
+R  \* B\*\*T + L  \* E\*\*T  = scale \* -F
 
 This case is used to compute an estimate of Dif[(A, D), (B, E)] =
 sigma_min(Z) using reverse communication with DLACON.
@@ -65,7 +64,7 @@ the input (A, D), (B, E) are sub-pencils of the matrix pair in
 DTGSYL. See DTGSYL for details.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': solve the generalized Sylvester equation (1).
 > = 'T': solve the 'transposed' system (3).
 

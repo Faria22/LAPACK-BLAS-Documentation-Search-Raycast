@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaed4
-(
+subroutine slaed4 (
         integer n,
         integer i,
         real, dimension( * ) d,
@@ -21,7 +20,7 @@ D(i) < D(j)  for  i < j
 and that RHO > 0.  This is arranged by the calling routine, and is
 no loss in generality.  The rank-one modified system is thus
 
-diag( D )  +  RHO * Z * Z_transpose.
+diag( D )  +  RHO \* Z \* Z_transpose.
 
 where we assume the Euclidean norm of Z is 1.
 

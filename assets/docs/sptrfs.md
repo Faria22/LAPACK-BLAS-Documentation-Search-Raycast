@@ -1,6 +1,5 @@
 ```fortran
-subroutine sptrfs
-(
+subroutine sptrfs (
         integer n,
         integer nrhs,
         real, dimension( * ) d,
@@ -71,7 +70,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : REAL array, dimension (2*N) [out]
+WORK : REAL array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

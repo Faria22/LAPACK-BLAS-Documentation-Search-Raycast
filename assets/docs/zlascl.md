@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlascl
-(
+subroutine zlascl (
         character type,
         integer kl,
         integer ku,
@@ -16,12 +15,12 @@ subroutine zlascl
 
 ZLASCL multiplies the M by N complex matrix A by the real scalar
 CTO/CFROM.  This is done without over/underflow as long as the final
-result CTO*A(I,J)/CFROM does not over/underflow. TYPE specifies that
+result CTO\*A(I,J)/CFROM does not over/underflow. TYPE specifies that
 A may be full, upper triangular, lower triangular, upper Hessenberg,
 or banded.
 
 ## Parameters
-TYPE : CHARACTER*1 [in]
+TYPE : CHARACTER\*1 [in]
 > TYPE indices the storage type of the input matrix.
 > = 'G':  A is a full matrix.
 > = 'L':  A is a lower triangular matrix.
@@ -49,7 +48,7 @@ CFROM : DOUBLE PRECISION [in]
 CTO : DOUBLE PRECISION [in]
 > 
 > The matrix A is multiplied by CTO/CFROM. A(I,J) is computed
-> without over/underflow if the final result CTO*A(I,J)/CFROM
+> without over/underflow if the final result CTO\*A(I,J)/CFROM
 > can be represented without over/underflow.  CFROM must be
 > nonzero.
 
@@ -59,7 +58,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > The matrix to be multiplied by CTO/CFROM.  See TYPE for the
 > storage type.
 
@@ -68,7 +67,7 @@ LDA : INTEGER [in]
 > If TYPE = 'G', 'L', 'U', 'H', LDA >= max(1,M);
 > TYPE = 'B', LDA >= KL+1;
 > TYPE = 'Q', LDA >= KU+1;
-> TYPE = 'Z', LDA >= 2*KL+KU+1.
+> TYPE = 'Z', LDA >= 2\*KL+KU+1.
 
 INFO : INTEGER [out]
 > 0  - successful exit

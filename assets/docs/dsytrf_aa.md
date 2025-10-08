@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytrf_aa
-(
+subroutine dsytrf_aa (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine dsytrf_aa
 DSYTRF_AA computes the factorization of a real symmetric matrix A
 using the Aasen's algorithm.  The form of the factorization is
 
-A = U**T*T*U  or  A = L*T*L**T
+A = U\*\*T\*T\*U  or  A = L\*T\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is a symmetric tridiagonal matrix.
@@ -23,7 +22,7 @@ triangular matrices, and T is a symmetric tridiagonal matrix.
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -57,8 +56,8 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.
-> LWORK >= 1, if N <= 1, and LWORK >= 2*N, otherwise.
-> For optimum performance LWORK >= N*(1+NB), where NB is
+> LWORK >= 1, if N <= 1, and LWORK >= 2\*N, otherwise.
+> For optimum performance LWORK >= N\*(1+NB), where NB is
 > the optimal blocksize, returned by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

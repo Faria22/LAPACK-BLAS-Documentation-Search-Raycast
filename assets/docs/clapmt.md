@@ -1,6 +1,5 @@
 ```fortran
-subroutine clapmt
-(
+subroutine clapmt (
         logical forwrd,
         integer m,
         integer n,
@@ -14,11 +13,11 @@ CLAPMT rearranges the columns of the M by N matrix X as specified
 by the permutation K(1),K(2),...,K(N) of the integers 1,...,N.
 If FORWRD = .TRUE.,  forward permutation:
 
-X(*,K(J)) is moved X(*,J) for J = 1,2,...,N.
+X(\*,K(J)) is moved X(\*,J) for J = 1,2,...,N.
 
 If FORWRD = .FALSE., backward permutation:
 
-X(*,J) is moved to X(*,K(J)) for J = 1,2,...,N.
+X(\*,J) is moved to X(\*,K(J)) for J = 1,2,...,N.
 
 ## Parameters
 FORWRD : LOGICAL [in]

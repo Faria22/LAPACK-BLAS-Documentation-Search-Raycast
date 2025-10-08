@@ -1,6 +1,5 @@
 ```fortran
-subroutine slabad
-(
+subroutine slabad (
         real small,
         real large
 )

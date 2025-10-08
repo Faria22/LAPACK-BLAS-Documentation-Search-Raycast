@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytrf_rk
-(
+subroutine csytrf_rk (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -16,18 +15,18 @@ subroutine csytrf_rk
 CSYTRF_RK computes the factorization of a complex symmetric matrix A
 using the bounded Bunch-Kaufman (rook) diagonal pivoting method:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 For more information see Further Details section.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular
@@ -137,7 +136,7 @@ WORK : COMPLEX array, dimension ( MAX(1,LWORK) ). [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >=1.  For best performance
-> LWORK >= N*NB, where NB is the block size returned
+> LWORK >= N\*NB, where NB is the block size returned
 > by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed;

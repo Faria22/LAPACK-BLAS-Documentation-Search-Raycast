@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlasyf_rk
-(
+subroutine zlasyf_rk (
         character uplo,
         integer n,
         integer nb,
@@ -20,9 +19,9 @@ matrix A using the bounded Bunch-Kaufman (rook) diagonal
 pivoting method. The partial factorization has the form:
 
 A  =  ( I  U12 ) ( A11  0  ) (  I       0    )  if UPLO = 'U', or:
-( 0  U22 ) (  0   D  ) ( U12**T U22**T )
+( 0  U22 ) (  0   D  ) ( U12\*\*T U22\*\*T )
 
-A  =  ( L11  0 ) (  D   0  ) ( L11**T L21**T )  if UPLO = 'L',
+A  =  ( L11  0 ) (  D   0  ) ( L11\*\*T L21\*\*T )  if UPLO = 'L',
 ( L21  I ) (  0  A22 ) (  0       I    )
 
 where the order of D is at most NB. The actual order is returned in
@@ -33,7 +32,7 @@ blocked code (calling Level 3 BLAS) to update the submatrix
 A11 (if UPLO = 'U') or A22 (if UPLO = 'L').
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular
@@ -51,7 +50,7 @@ KB : INTEGER [out]
 > The number of columns of A that were actually factored.
 > KB is either NB-1 or NB, or N if N <= NB.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the symmetric matrix A.
 > If UPLO = 'U': the leading N-by-N upper triangular part
 > of A contains the upper triangular part of the matrix A,
@@ -74,7 +73,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [out]
+E : COMPLEX\*16 array, dimension (N) [out]
 > On exit, contains the superdiagonal (or subdiagonal)
 > elements of the symmetric block diagonal matrix D
 > with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -147,7 +146,7 @@ IPIV : INTEGER array, dimension (N) [out]
 > 
 > d) NOTE: Any entry IPIV(k) is always NONZERO on output.
 
-W : COMPLEX*16 array, dimension (LDW,NB) [out]
+W : COMPLEX\*16 array, dimension (LDW,NB) [out]
 
 LDW : INTEGER [in]
 > The leading dimension of the array W.  LDW >= max(1,N).

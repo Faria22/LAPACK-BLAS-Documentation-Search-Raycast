@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgbmv
-(
+subroutine cgbmv (
         character trans,
         integer m,
         integer n,
@@ -19,23 +18,23 @@ subroutine cgbmv
 
 CGBMV  performs one of the matrix-vector operations
 
-y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,   or
+y := alpha\*A\*x + beta\*y,   or   y := alpha\*A\*\*T\*x + beta\*y,   or
 
-y := alpha*A**H*x + beta*y,
+y := alpha\*A\*\*H\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are vectors and A is an
 m by n band matrix, with kl sub-diagonals and ku super-diagonals.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry, TRANS specifies the operation to be performed as
 > follows:
 > 
-> TRANS = 'N' or 'n'   y := alpha*A*x + beta*y.
+> TRANS = 'N' or 'n'   y := alpha\*A\*x + beta\*y.
 > 
-> TRANS = 'T' or 't'   y := alpha*A**T*x + beta*y.
+> TRANS = 'T' or 't'   y := alpha\*A\*\*T\*x + beta\*y.
 > 
-> TRANS = 'C' or 'c'   y := alpha*A**H*x + beta*y.
+> TRANS = 'C' or 'c'   y := alpha\*A\*\*H\*x + beta\*y.
 
 M : INTEGER [in]
 > On entry, M specifies the number of rows of the matrix A.
@@ -82,9 +81,9 @@ LDA : INTEGER [in]
 > ( kl + ku + 1 ).
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( n - 1 )\*abs( INCX ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+> ( 1 + ( m - 1 )\*abs( INCX ) ) otherwise.
 > Before entry, the incremented array X must contain the
 > vector x.
 
@@ -97,9 +96,9 @@ BETA : COMPLEX [in]
 > supplied as zero then Y need not be set on input.
 
 Y : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( m - 1 )\*abs( INCY ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+> ( 1 + ( n - 1 )\*abs( INCY ) ) otherwise.
 > Before entry, the incremented array Y must contain the
 > vector y. On exit, Y is overwritten by the updated vector y.
 > If either m or n is zero, then Y not referenced and the function

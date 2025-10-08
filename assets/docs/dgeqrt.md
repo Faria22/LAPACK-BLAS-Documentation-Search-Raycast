@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgeqrt
-(
+subroutine dgeqrt (
         integer m,
         integer n,
         integer nb,
@@ -44,7 +43,7 @@ T : DOUBLE PRECISION array, dimension (LDT,MIN(M,N)) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : DOUBLE PRECISION array, dimension (NB*N) [out]
+WORK : DOUBLE PRECISION array, dimension (NB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

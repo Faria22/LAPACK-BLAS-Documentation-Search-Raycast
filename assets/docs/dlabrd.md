@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlabrd
-(
+subroutine dlabrd (
         integer m,
         integer n,
         integer nb,
@@ -19,7 +18,7 @@ subroutine dlabrd
 
 DLABRD reduces the first NB rows and columns of a real general
 m by n matrix A to upper or lower bidiagonal form by an orthogonal
-transformation Q**T * A * P, and returns the matrices X and Y which
+transformation Q\*\*T \* A \* P, and returns the matrices X and Y which
 are needed to apply the transformation to the unreduced part of A.
 
 If m >= n, A is reduced to upper bidiagonal form; if m < n, to lower

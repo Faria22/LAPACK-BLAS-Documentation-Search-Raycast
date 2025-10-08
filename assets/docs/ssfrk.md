@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssfrk
-(
+subroutine ssfrk (
         character transr,
         character uplo,
         character trans,
@@ -18,22 +17,22 @@ Level 3 BLAS like routine for C in RFP Format.
 
 SSFRK performs one of the symmetric rank--k operations
 
-C := alpha*A*A**T + beta*C,
+C := alpha\*A\*A\*\*T + beta\*C,
 
 or
 
-C := alpha*A**T*A + beta*C,
+C := alpha\*A\*\*T\*A + beta\*C,
 
 where alpha and beta are real scalars, C is an n--by--n symmetric
 matrix and A is an n--by--k matrix in the first case and a k--by--n
 matrix in the second case.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal Form of RFP A is stored;
 > = 'T':  The Transpose Form of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On  entry, UPLO specifies whether the upper or lower
 > triangular part of the array C is to be referenced as
 > follows:
@@ -46,13 +45,13 @@ UPLO : CHARACTER*1 [in]
 > 
 > Unchanged on exit.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry, TRANS specifies the operation to be performed as
 > follows:
 > 
-> TRANS = 'N' or 'n'   C := alpha*A*A**T + beta*C.
+> TRANS = 'N' or 'n'   C := alpha\*A\*A\*\*T + beta\*C.
 > 
-> TRANS = 'T' or 't'   C := alpha*A**T*A + beta*C.
+> TRANS = 'T' or 't'   C := alpha\*A\*\*T\*A + beta\*C.
 > 
 > Unchanged on exit.
 
@@ -92,5 +91,5 @@ BETA : REAL [in]
 > Unchanged on exit.
 
 C : REAL array, dimension (NT) [in,out]
-> NT = N*(N+1)/2. On entry, the symmetric matrix C in RFP
+> NT = N\*(N+1)/2. On entry, the symmetric matrix C in RFP
 > Format. RFP Format is described by TRANSR, UPLO and N.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cptrfs
-(
+subroutine cptrfs (
         character uplo,
         integer n,
         integer nrhs,
@@ -26,12 +25,12 @@ and tridiagonal, and provides error bounds and backward error
 estimates for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the superdiagonal or the subdiagonal of the
 > tridiagonal matrix A is stored and the form of the
 > factorization:
-> = 'U':  E is the superdiagonal of A, and A = U**H*D*U;
-> = 'L':  E is the subdiagonal of A, and A = L*D*L**H.
+> = 'U':  E is the superdiagonal of A, and A = U\*\*H\*D\*U;
+> = 'L':  E is the subdiagonal of A, and A = L\*D\*L\*\*H.
 > (The two forms are equivalent if A is real.)
 
 N : INTEGER [in]

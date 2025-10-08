@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsysv_aa
-(
+subroutine dsysv_aa (
         character uplo,
         integer n,
         integer nrhs,
@@ -16,19 +15,19 @@ subroutine dsysv_aa
 ```
 
 DSYSV computes the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
 matrices.
 
 Aasen's algorithm is used to factor A as
-A = U**T * T * U,  if UPLO = 'U', or
-A = L * T * L**T,  if UPLO = 'L',
+A = U\*\*T \* T \* U,  if UPLO = 'U', or
+A = L \* T \* L\*\*T,  if UPLO = 'L',
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is symmetric tridiagonal. The factored
-form of A is then used to solve the system of equations A * X = B.
+form of A is then used to solve the system of equations A \* X = B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -51,7 +50,7 @@ A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > 
 > On exit, if INFO = 0, the tridiagonal matrix T and the
 > multipliers used to obtain the factor U or L from the
-> factorization A = U**T*T*U or A = L*T*L**T as computed by
+> factorization A = U\*\*T\*T\*U or A = L\*T\*L\*\*T as computed by
 > DSYTRF.
 
 LDA : INTEGER [in]
@@ -73,8 +72,8 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK.  LWORK >= MAX(1,2*N,3*N-2), and for
-> the best performance, LWORK >= MAX(1,N*NB), where NB is
+> The length of WORK.  LWORK >= MAX(1,2\*N,3\*N-2), and for
+> the best performance, LWORK >= MAX(1,N\*NB), where NB is
 > the optimal blocksize for DSYTRF_AA.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

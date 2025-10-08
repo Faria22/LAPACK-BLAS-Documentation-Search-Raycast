@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgbrfs
-(
+subroutine dgbrfs (
         character trans,
         integer n,
         integer kl,
@@ -28,11 +27,11 @@ equations when the coefficient matrix is banded, and provides
 error bounds and backward error estimates for the solution.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose = Transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -61,10 +60,10 @@ AFB : DOUBLE PRECISION array, dimension (LDAFB,N) [in]
 > computed by DGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL*KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL\*KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices from DGBTRF; for 1<=i<=N, row i of the
@@ -98,7 +97,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

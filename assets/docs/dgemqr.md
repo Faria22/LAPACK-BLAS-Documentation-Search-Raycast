@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgemqr
-(
+subroutine dgemqr (
         character side,
         character trans,
         integer m,
@@ -21,21 +20,21 @@ subroutine dgemqr
 DGEMQR overwrites the general real M-by-N matrix C with
 
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'T':      Q**T * C       C * Q**T
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'T':      Q\*\*T \* C       C \* Q\*\*T
 
 where Q is a real orthogonal matrix defined as the product
 of blocked elementary reflectors computed by tall skinny
 QR factorization (DGEQR)
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**T from the Left;
-> = 'R': apply Q or Q**T from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*T from the Left;
+> = 'R': apply Q or Q\*\*T from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
-> = 'T':  Transpose, apply Q**T.
+> = 'T':  Transpose, apply Q\*\*T.
 
 M : INTEGER [in]
 > The number of rows of the matrix A.  M >=0.
@@ -65,7 +64,7 @@ TSIZE : INTEGER [in]
 
 C : DOUBLE PRECISION array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
+> On exit, C is overwritten by Q\*C or Q\*\*T\*C or C\*Q\*\*T or C\*Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

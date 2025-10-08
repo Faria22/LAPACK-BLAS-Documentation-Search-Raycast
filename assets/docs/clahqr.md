@@ -1,6 +1,5 @@
 ```fortran
-subroutine clahqr
-(
+subroutine clahqr (
         logical wantt,
         logical wantz,
         integer n,
@@ -93,12 +92,12 @@ INFO : INTEGER [out]
 > output value of H.
 > 
 > If INFO > 0 and WANTT is .TRUE., then on exit
-> (*)       (initial value of H)*U  = U*(final value of H)
+> (\*)       (initial value of H)\*U  = U\*(final value of H)
 > where U is an orthogonal matrix.    The final
 > value of H is upper Hessenberg and triangular in
 > rows and columns INFO+1 through IHI.
 > 
 > If INFO > 0 and WANTZ is .TRUE., then on exit
-> (final value of Z)  = (initial value of Z)*U
-> where U is the orthogonal matrix in (*)
+> (final value of Z)  = (initial value of Z)\*U
+> where U is the orthogonal matrix in (\*)
 > (regardless of the value of WANTT.)

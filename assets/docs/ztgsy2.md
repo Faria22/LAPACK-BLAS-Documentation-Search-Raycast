@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztgsy2
-(
+subroutine ztgsy2 (
         character trans,
         integer ijob,
         integer m,
@@ -26,8 +25,8 @@ subroutine ztgsy2
 
 ZTGSY2 solves the generalized Sylvester equation
 
-A * R - L * B = scale * C               (1)
-D * R - L * E = scale * F
+A \* R - L \* B = scale \* C               (1)
+D \* R - L \* E = scale \* F
 
 using Level 1 and 2 BLAS, where R and L are unknown M-by-N matrices,
 (A, D), (B, E) and (C, F) are given matrix pairs of size M-by-M,
@@ -38,19 +37,19 @@ The solution (R, L) overwrites (C, F). 0 <= SCALE <= 1 is an output
 scaling factor chosen to avoid overflow.
 
 In matrix notation solving equation (1) corresponds to solve
-Zx = scale * b, where Z is defined as
+Zx = scale \* b, where Z is defined as
 
-Z = [ kron(In, A)  -kron(B**H, Im) ]             (2)
-[ kron(In, D)  -kron(E**H, Im) ],
+Z = [ kron(In, A)  -kron(B\*\*H, Im) ]             (2)
+[ kron(In, D)  -kron(E\*\*H, Im) ],
 
-Ik is the identity matrix of size k and X**H is the conjugate transpose of X.
+Ik is the identity matrix of size k and X\*\*H is the conjugate transpose of X.
 kron(X, Y) is the Kronecker product between the matrices X and Y.
 
-If TRANS = 'C', y in the conjugate transposed system Z**H*y = scale*b
+If TRANS = 'C', y in the conjugate transposed system Z\*\*H\*y = scale\*b
 is solved for, which is equivalent to solve for R and L in
 
-A**H * R  + D**H * L   = scale * C           (3)
-R  * B**H + L  * E**H  = scale * -F
+A\*\*H \* R  + D\*\*H \* L   = scale \* C           (3)
+R  \* B\*\*H + L  \* E\*\*H  = scale \* -F
 
 This case is used to compute an estimate of Dif[(A, D), (B, E)] =
 = sigma_min(Z) using reverse communication with ZLACON.
@@ -61,7 +60,7 @@ the input (A, D), (B, E) are sub-pencils of two matrix pairs in
 ZTGSYL.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': solve the generalized Sylvester equation (1).
 > = 'T': solve the 'transposed' system (3).
 
@@ -84,19 +83,19 @@ N : INTEGER [in]
 > On entry, N specifies the order of B and E, and the column
 > dimension of C, F, R and L.
 
-A : COMPLEX*16 array, dimension (LDA, M) [in]
+A : COMPLEX\*16 array, dimension (LDA, M) [in]
 > On entry, A contains an upper triangular matrix.
 
 LDA : INTEGER [in]
 > The leading dimension of the matrix A. LDA >= max(1, M).
 
-B : COMPLEX*16 array, dimension (LDB, N) [in]
+B : COMPLEX\*16 array, dimension (LDB, N) [in]
 > On entry, B contains an upper triangular matrix.
 
 LDB : INTEGER [in]
 > The leading dimension of the matrix B. LDB >= max(1, N).
 
-C : COMPLEX*16 array, dimension (LDC, N) [in,out]
+C : COMPLEX\*16 array, dimension (LDC, N) [in,out]
 > On entry, C contains the right-hand-side of the first matrix
 > equation in (1).
 > On exit, if IJOB = 0, C has been overwritten by the solution
@@ -105,19 +104,19 @@ C : COMPLEX*16 array, dimension (LDC, N) [in,out]
 LDC : INTEGER [in]
 > The leading dimension of the matrix C. LDC >= max(1, M).
 
-D : COMPLEX*16 array, dimension (LDD, M) [in]
+D : COMPLEX\*16 array, dimension (LDD, M) [in]
 > On entry, D contains an upper triangular matrix.
 
 LDD : INTEGER [in]
 > The leading dimension of the matrix D. LDD >= max(1, M).
 
-E : COMPLEX*16 array, dimension (LDE, N) [in]
+E : COMPLEX\*16 array, dimension (LDE, N) [in]
 > On entry, E contains an upper triangular matrix.
 
 LDE : INTEGER [in]
 > The leading dimension of the matrix E. LDE >= max(1, N).
 
-F : COMPLEX*16 array, dimension (LDF, N) [in,out]
+F : COMPLEX\*16 array, dimension (LDF, N) [in,out]
 > On entry, F contains the right-hand-side of the second matrix
 > equation in (1).
 > On exit, if IJOB = 0, F has been overwritten by the solution

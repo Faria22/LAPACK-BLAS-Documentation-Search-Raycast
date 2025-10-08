@@ -1,6 +1,5 @@
 ```fortran
-subroutine stpttr
-(
+subroutine stpttr (
         character uplo,
         integer n,
         real, dimension( * ) ap,
@@ -14,19 +13,19 @@ STPTTR copies a triangular matrix A from standard packed format (TP)
 to standard full format (TR).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular.
 > = 'L':  A is lower triangular.
 
 N : INTEGER [in]
 > The order of the matrix A. N >= 0.
 
-AP : REAL array, dimension ( N*(N+1)/2 ), [in]
+AP : REAL array, dimension ( N\*(N+1)/2 ), [in]
 > On entry, the upper or lower triangular matrix A, packed
 > columnwise in a linear array. The j-th column of A is stored
 > in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = A(i,j) for j<=i<=n.
 
 A : REAL array, dimension ( LDA, N ) [out]
 > On exit, the triangular matrix A.  If UPLO = 'U', the leading

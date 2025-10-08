@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqp2
-(
+subroutine zlaqp2 (
         integer m,
         integer n,
         integer offset,
@@ -29,7 +28,7 @@ OFFSET : INTEGER [in]
 > The number of rows of the matrix A that must be pivoted
 > but no factorized. OFFSET >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, the upper triangle of block A(OFFSET+1:M,1:N) is
 > the triangular factor obtained; the elements in block
@@ -43,12 +42,12 @@ LDA : INTEGER [in]
 
 JPVT : INTEGER array, dimension (N) [in,out]
 > On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
-> to the front of A*P (a leading column); if JPVT(i) = 0,
+> to the front of A\*P (a leading column); if JPVT(i) = 0,
 > the i-th column of A is a free column.
-> On exit, if JPVT(i) = k, then the i-th column of A*P
+> On exit, if JPVT(i) = k, then the i-th column of A\*P
 > was the k-th column of A.
 
-TAU : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAU : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors.
 
 VN1 : DOUBLE PRECISION array, dimension (N) [in,out]
@@ -57,4 +56,4 @@ VN1 : DOUBLE PRECISION array, dimension (N) [in,out]
 VN2 : DOUBLE PRECISION array, dimension (N) [in,out]
 > The vector with the exact column norms.
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]

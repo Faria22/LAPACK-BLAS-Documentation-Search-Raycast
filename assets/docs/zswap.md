@@ -1,6 +1,5 @@
 ```fortran
-subroutine zswap
-(
+subroutine zswap (
         integer n,
         complex*16, dimension(*) zx,
         integer incx,
@@ -15,12 +14,12 @@ ZSWAP interchanges two vectors.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-ZX : COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+ZX : COMPLEX\*16 array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of ZX
 
-ZY : COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+ZY : COMPLEX\*16 array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of ZY

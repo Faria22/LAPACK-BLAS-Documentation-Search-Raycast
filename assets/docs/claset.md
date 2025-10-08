@@ -1,6 +1,5 @@
 ```fortran
-subroutine claset
-(
+subroutine claset (
         character uplo,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ CLASET initializes a 2-D array A to BETA on the diagonal and
 ALPHA on the offdiagonals.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies the part of the matrix A to be set.
 > = 'U':      Upper triangular part is set. The lower triangle
 > is unchanged.

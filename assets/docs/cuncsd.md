@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine cuncsd
-(
+recursive subroutine cuncsd (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -41,7 +40,7 @@ unitary matrix X:
 
 [  I  0  0 |  0  0  0 ]
 [  0  C  0 |  0 -S  0 ]
-[ X11 | X12 ]   [ U1 |    ] [  0  0  0 |  0  0 -I ] [ V1 |    ]**H
+[ X11 | X12 ]   [ U1 |    ] [  0  0  0 |  0  0 -I ] [ V1 |    ]\*\*H
 X = [-----------] = [---------] [---------------------] [---------]   .
 [ X21 | X22 ]   [    | U2 ] [  0  0  0 |  I  0  0 ] [    | V2 ]
 [  0  S  0 |  0  C  0 ]
@@ -136,7 +135,7 @@ LDU2 : INTEGER [in]
 
 V1T : COMPLEX array, dimension (LDV1T,Q) [out]
 > If JOBV1T = 'Y', V1T contains the Q-by-Q matrix unitary
-> matrix V1**H.
+> matrix V1\*\*H.
 
 LDV1T : INTEGER [in]
 > The leading dimension of V1T. If JOBV1T = 'Y', LDV1T >=
@@ -144,7 +143,7 @@ LDV1T : INTEGER [in]
 
 V2T : COMPLEX array, dimension (LDV2T,M-Q) [out]
 > If JOBV2T = 'Y', V2T contains the (M-Q)-by-(M-Q) unitary
-> matrix V2**H.
+> matrix V2\*\*H.
 
 LDV2T : INTEGER [in]
 > The leading dimension of V2T. If JOBV2T = 'Y', LDV2T >=

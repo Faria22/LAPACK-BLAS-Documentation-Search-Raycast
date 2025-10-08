@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctpqrt
-(
+subroutine ctpqrt (
         integer m,
         integer n,
         integer l,
@@ -61,7 +60,7 @@ T : COMPLEX array, dimension (LDT,N) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : COMPLEX array, dimension (NB*N) [out]
+WORK : COMPLEX array, dimension (NB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

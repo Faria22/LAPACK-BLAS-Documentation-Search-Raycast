@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggsvp3
-(
+subroutine cggsvp3 (
         character jobu,
         character jobv,
         character jobq,
@@ -33,7 +32,7 @@ subroutine cggsvp3
 CGGSVP3 computes unitary matrices U, V and Q such that
 
 N-K-L  K    L
-U**H*A*Q =     K ( 0    A12  A13 )  if M-K-L >= 0;
+U\*\*H\*A\*Q =     K ( 0    A12  A13 )  if M-K-L >= 0;
 L ( 0     0   A23 )
 M-K-L ( 0     0    0  )
 
@@ -42,28 +41,28 @@ N-K-L  K    L
 M-K ( 0     0   A23 )
 
 N-K-L  K    L
-V**H*B*Q =   L ( 0     0   B13 )
+V\*\*H\*B\*Q =   L ( 0     0   B13 )
 P-L ( 0     0    0  )
 
 where the K-by-K matrix A12 and L-by-L matrix B13 are nonsingular
 upper triangular; A23 is L-by-L upper triangular if M-K-L >= 0,
 otherwise A23 is (M-K)-by-L upper trapezoidal.  K+L = the effective
-numerical rank of the (M+P)-by-N matrix (A**H,B**H)**H.
+numerical rank of the (M+P)-by-N matrix (A\*\*H,B\*\*H)\*\*H.
 
 This decomposition is the preprocessing step for computing the
 Generalized Singular Value Decomposition (GSVD), see subroutine
 CGGSVD3.
 
 ## Parameters
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > = 'U':  Unitary matrix U is computed;
 > = 'N':  U is not computed.
 
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > = 'V':  Unitary matrix V is computed;
 > = 'N':  V is not computed.
 
-JOBQ : CHARACTER*1 [in]
+JOBQ : CHARACTER\*1 [in]
 > = 'Q':  Unitary matrix Q is computed;
 > = 'N':  Q is not computed.
 
@@ -99,8 +98,8 @@ TOLB : REAL [in]
 > TOLA and TOLB are the thresholds to determine the effective
 > numerical rank of matrix B and a subblock of A. Generally,
 > they are set to
-> TOLA = MAX(M,N)*norm(A)*MACHEPS,
-> TOLB = MAX(P,N)*norm(B)*MACHEPS.
+> TOLA = MAX(M,N)\*norm(A)\*MACHEPS,
+> TOLB = MAX(P,N)\*norm(B)\*MACHEPS.
 > The size of TOLA and TOLB may affect the size of backward
 > errors of the decomposition.
 
@@ -110,7 +109,7 @@ L : INTEGER [out]
 > 
 > On exit, K and L specify the dimension of the subblocks
 > described in Purpose section.
-> K + L = effective numerical rank of (A**H,B**H)**H.
+> K + L = effective numerical rank of (A\*\*H,B\*\*H)\*\*H.
 
 U : COMPLEX array, dimension (LDU,M) [out]
 > If JOBU = 'U', U contains the unitary matrix U.
@@ -138,7 +137,7 @@ LDQ : INTEGER [in]
 
 IWORK : INTEGER array, dimension (N) [out]
 
-RWORK : REAL array, dimension (2*N) [out]
+RWORK : REAL array, dimension (2\*N) [out]
 
 TAU : COMPLEX array, dimension (N) [out]
 

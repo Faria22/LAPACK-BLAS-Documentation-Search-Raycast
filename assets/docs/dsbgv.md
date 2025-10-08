@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsbgv
-(
+subroutine dsbgv (
         character jobz,
         character uplo,
         integer n,
@@ -20,15 +19,15 @@ subroutine dsbgv
 
 DSBGV computes all the eigenvalues, and optionally, the eigenvectors
 of a real generalized symmetric-definite banded eigenproblem, of
-the form A*x=(lambda)*B*x. Here A and B are assumed to be symmetric
+the form A\*x=(lambda)\*B\*x. Here A and B are assumed to be symmetric
 and banded, and B is also positive definite.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -65,7 +64,7 @@ BB : DOUBLE PRECISION array, dimension (LDBB, N) [in,out]
 > if UPLO = 'L', BB(1+i-j,j)    = B(i,j) for j<=i<=min(n,j+kb).
 > 
 > On exit, the factor S from the split Cholesky factorization
-> B = S**T*S, as returned by DPBSTF.
+> B = S\*\*T\*S, as returned by DPBSTF.
 
 LDBB : INTEGER [in]
 > The leading dimension of the array BB.  LDBB >= KB+1.
@@ -77,14 +76,14 @@ Z : DOUBLE PRECISION array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 > eigenvectors, with the i-th column of Z holding the
 > eigenvector associated with W(i). The eigenvectors are
-> normalized so that Z**T*B*Z = I.
+> normalized so that Z\*\*T\*B\*Z = I.
 > If JOBZ = 'N', then Z is not referenced.
 
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= N.
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctrsen
-(
+subroutine ctrsen (
         character job,
         character compq,
         logical, dimension( * ) select,
@@ -20,7 +19,7 @@ subroutine ctrsen
 ```
 
 CTRSEN reorders the Schur factorization of a complex matrix
-A = Q*T*Q**H, so that a selected cluster of eigenvalues appears in
+A = Q\*T\*Q\*\*H, so that a selected cluster of eigenvalues appears in
 the leading positions on the diagonal of the upper triangular matrix
 T, and the leading columns of Q form an orthonormal basis of the
 corresponding right invariant subspace.
@@ -29,7 +28,7 @@ Optionally the routine computes the reciprocal condition numbers of
 the cluster of eigenvalues and/or the invariant subspace.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for the
 > cluster of eigenvalues (S) or the invariant subspace (SEP):
 > = 'N': none;
@@ -38,7 +37,7 @@ JOB : CHARACTER*1 [in]
 > = 'B': for both eigenvalues and invariant subspace (S and
 > SEP).
 
-COMPQ : CHARACTER*1 [in]
+COMPQ : CHARACTER\*1 [in]
 > = 'V': update the matrix Q of Schur vectors;
 > = 'N': do not update Q.
 
@@ -96,8 +95,8 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If JOB = 'N', LWORK >= 1;
-> if JOB = 'E', LWORK = max(1,M*(N-M));
-> if JOB = 'V' or 'B', LWORK >= max(1,2*M*(N-M)).
+> if JOB = 'E', LWORK = max(1,M\*(N-M));
+> if JOB = 'V' or 'B', LWORK >= max(1,2\*M\*(N-M)).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

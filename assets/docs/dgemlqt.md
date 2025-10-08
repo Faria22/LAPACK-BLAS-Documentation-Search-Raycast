@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgemlqt
-(
+subroutine dgemlqt (
         character side,
         character trans,
         integer m,
@@ -22,25 +21,25 @@ DGEMLQT overwrites the general real M-by-N matrix C with
 
 SIDE = 'L'     SIDE = 'R'
 TRANS = 'N':      Q C            C Q
-TRANS = 'T':   Q**T C            C Q**T
+TRANS = 'T':   Q\*\*T C            C Q\*\*T
 
 where Q is a real orthogonal matrix defined as the product of K
 elementary reflectors:
 
-Q = H(1) H(2) . . . H(K) = I - V T V**T
+Q = H(1) H(2) . . . H(K) = I - V T V\*\*T
 
 generated using the compact WY representation as returned by DGELQT.
 
 Q is of order M if SIDE = 'L' and of order N  if SIDE = 'R'.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**T from the Left;
-> = 'R': apply Q or Q**T from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*T from the Left;
+> = 'R': apply Q or Q\*\*T from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
-> = 'C':  Transpose, apply Q**T.
+> = 'C':  Transpose, apply Q\*\*T.
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -78,13 +77,13 @@ LDT : INTEGER [in]
 
 C : DOUBLE PRECISION array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q C, Q**T C, C Q**T or C Q.
+> On exit, C is overwritten by Q C, Q\*\*T C, C Q\*\*T or C Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).
 
 WORK : DOUBLE PRECISION array. The dimension of [out]
-> WORK is N*MB if SIDE = 'L', or  M*MB if SIDE = 'R'.
+> WORK is N\*MB if SIDE = 'L', or  M\*MB if SIDE = 'R'.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

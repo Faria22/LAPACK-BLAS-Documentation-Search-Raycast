@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztbcon
-(
+subroutine ztbcon (
         character norm,
         character uplo,
         character diag,
@@ -21,20 +20,20 @@ triangular band matrix A, in either the 1-norm or the infinity-norm.
 The norm of A is computed and an estimate is obtained for
 norm(inv(A)), then the reciprocal of the condition number is
 computed as
-RCOND = 1 / ( norm(A) * norm(inv(A)) ).
+RCOND = 1 / ( norm(A) \* norm(inv(A)) ).
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies whether the 1-norm condition number or the
 > infinity-norm condition number is required:
 > = '1' or 'O':  1-norm;
 > = 'I':         Infinity-norm.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > = 'N':  A is non-unit triangular;
 > = 'U':  A is unit triangular.
 
@@ -45,7 +44,7 @@ KD : INTEGER [in]
 > The number of superdiagonals or subdiagonals of the
 > triangular band matrix A.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The upper or lower triangular band matrix A, stored in the
 > first kd+1 rows of the array. The j-th column of A is stored
 > in the j-th column of the array AB as follows:
@@ -59,9 +58,9 @@ LDAB : INTEGER [in]
 
 RCOND : DOUBLE PRECISION [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(norm(A) * norm(inv(A))).
+> computed as RCOND = 1/(norm(A) \* norm(inv(A))).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

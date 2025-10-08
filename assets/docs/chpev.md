@@ -1,6 +1,5 @@
 ```fortran
-subroutine chpev
-(
+subroutine chpev (
         character jobz,
         character uplo,
         integer n,
@@ -18,23 +17,23 @@ CHPEV computes all the eigenvalues and, optionally, eigenvectors of a
 complex Hermitian matrix in packed storage.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in,out]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the Hermitian matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > 
 > On exit, AP is overwritten by values generated during the
 > reduction to tridiagonal form.  If UPLO = 'U', the diagonal
@@ -56,9 +55,9 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : COMPLEX array, dimension (max(1, 2*N-1)) [out]
+WORK : COMPLEX array, dimension (max(1, 2\*N-1)) [out]
 
-RWORK : REAL array, dimension (max(1, 3*N-2)) [out]
+RWORK : REAL array, dimension (max(1, 3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

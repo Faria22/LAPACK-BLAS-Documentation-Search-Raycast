@@ -1,6 +1,5 @@
 ```fortran
-real function scasum
-(
+real function scasum (
         integer n,
         complex, dimension(*) cx,
         integer incx
@@ -14,7 +13,7 @@ returns a single precision result.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-CX : COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+CX : COMPLEX array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of SX

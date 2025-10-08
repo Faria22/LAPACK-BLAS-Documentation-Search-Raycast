@@ -1,6 +1,5 @@
 ```fortran
-subroutine slahr2
-(
+subroutine slahr2 (
         integer n,
         integer k,
         integer nb,
@@ -17,8 +16,8 @@ subroutine slahr2
 SLAHR2 reduces the first NB columns of A real general n-BY-(n-k+1)
 matrix A so that elements below the k-th subdiagonal are zero. The
 reduction is performed by an orthogonal similarity transformation
-Q**T * A * Q. The routine returns the matrices V and T which determine
-Q as a block reflector I - V*T*V**T, and also the matrix Y = A * V * T.
+Q\*\*T \* A \* Q. The routine returns the matrices V and T which determine
+Q as a block reflector I - V\*T\*V\*\*T, and also the matrix Y = A \* V \* T.
 
 This is an auxiliary routine called by SGEHRD.
 

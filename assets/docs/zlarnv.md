@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlarnv
-(
+subroutine zlarnv (
         integer idist,
         integer, dimension( 4 ) iseed,
         integer n,
@@ -29,5 +28,5 @@ ISEED : INTEGER array, dimension (4) [in,out]
 N : INTEGER [in]
 > The number of random numbers to be generated.
 
-X : COMPLEX*16 array, dimension (N) [out]
+X : COMPLEX\*16 array, dimension (N) [out]
 > The generated random numbers.

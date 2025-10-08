@@ -1,6 +1,5 @@
 ```fortran
-subroutine dscal
-(
+subroutine dscal (
         integer n,
         double precision da,
         double precision, dimension(*) dx,
@@ -18,7 +17,7 @@ N : INTEGER [in]
 DA : DOUBLE PRECISION [in]
 > On entry, DA specifies the scalar alpha.
 
-DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of DX

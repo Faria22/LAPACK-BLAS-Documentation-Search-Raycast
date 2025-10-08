@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgbequb
-(
+subroutine sgbequb (
         integer m,
         integer n,
         integer kl,
@@ -20,7 +19,7 @@ SGBEQUB computes row and column scalings intended to equilibrate an
 M-by-N matrix A and reduce its condition number.  R returns the row
 scale factors and C the column scale factors, chosen to try to make
 the largest element in each row and column of the matrix B with
-elements B(i,j)=R(i)*A(i,j)*C(j) have an absolute value of at most
+elements B(i,j)=R(i)\*A(i,j)\*C(j) have an absolute value of at most
 the radix.
 
 R(i) and C(j) are restricted to be a power of the radix between

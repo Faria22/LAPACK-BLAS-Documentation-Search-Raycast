@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytrs2
-(
+subroutine dsytrs2 (
         character uplo,
         integer n,
         integer nrhs,
@@ -14,16 +13,16 @@ subroutine dsytrs2
 )
 ```
 
-DSYTRS2 solves a system of linear equations A*X = B with a real
-symmetric matrix A using the factorization A = U*D*U**T or
-A = L*D*L**T computed by DSYTRF and converted by DSYCONV.
+DSYTRS2 solves a system of linear equations A\*X = B with a real
+symmetric matrix A using the factorization A = U\*D\*U\*\*T or
+A = L\*D\*L\*\*T computed by DSYTRF and converted by DSYCONV.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

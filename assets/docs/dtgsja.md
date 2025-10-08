@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtgsja
-(
+subroutine dtgsja (
         character jobu,
         character jobv,
         character jobq,
@@ -55,7 +54,7 @@ otherwise A23 is (M-K)-by-L upper trapezoidal.
 
 On exit,
 
-U**T *A*Q = D1*( 0 R ),    V**T *B*Q = D2*( 0 R ),
+U\*\*T \*A\*Q = D1\*( 0 R ),    V\*\*T \*B\*Q = D2\*( 0 R ),
 
 where U, V and Q are orthogonal matrices.
 R is a nonsingular upper triangular matrix, and D1 and D2 are
@@ -80,7 +79,7 @@ where
 
 C = diag( ALPHA(K+1), ... , ALPHA(K+L) ),
 S = diag( BETA(K+1),  ... , BETA(K+L) ),
-C**2 + S**2 = I.
+C\*\*2 + S\*\*2 = I.
 
 R is stored in A(1:K+L,N-K-L+1:N) on exit.
 
@@ -103,7 +102,7 @@ K+L-M ( 0     0    0   R33  )
 where
 C = diag( ALPHA(K+1), ... , ALPHA(M) ),
 S = diag( BETA(K+1),  ... , BETA(M) ),
-C**2 + S**2 = I.
+C\*\*2 + S\*\*2 = I.
 
 R = ( R11 R12 R13 ) is stored in A(1:M, N-K-L+1:N) and R33 is stored
 (  0  R22 R23 )
@@ -114,23 +113,23 @@ is optional.  These matrices may either be formed explicitly, or they
 may be postmultiplied into input matrices U1, V1, or Q1.
 
 ## Parameters
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > = 'U':  U must contain an orthogonal matrix U1 on entry, and
-> the product U1*U is returned;
+> the product U1\*U is returned;
 > = 'I':  U is initialized to the unit matrix, and the
 > orthogonal matrix U is returned;
 > = 'N':  U is not computed.
 
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > = 'V':  V must contain an orthogonal matrix V1 on entry, and
-> the product V1*V is returned;
+> the product V1\*V is returned;
 > = 'I':  V is initialized to the unit matrix, and the
 > orthogonal matrix V is returned;
 > = 'N':  V is not computed.
 
-JOBQ : CHARACTER*1 [in]
+JOBQ : CHARACTER\*1 [in]
 > = 'Q':  Q must contain an orthogonal matrix Q1 on entry, and
-> the product Q1*Q is returned;
+> the product Q1\*Q is returned;
 > = 'I':  Q is initialized to the unit matrix, and the
 > orthogonal matrix Q is returned;
 > = 'N':  Q is not computed.
@@ -176,8 +175,8 @@ TOLB : DOUBLE PRECISION [in]
 > TOLA and TOLB are the convergence criteria for the Jacobi-
 > Kogbetliantz iteration procedure. Generally, they are the
 > same as used in the preprocessing step, say
-> TOLA = max(M,N)*norm(A)*MAZHEPS,
-> TOLB = max(P,N)*norm(B)*MAZHEPS.
+> TOLA = max(M,N)\*norm(A)\*MAZHEPS,
+> TOLB = max(P,N)\*norm(B)\*MAZHEPS.
 
 ALPHA : DOUBLE PRECISION array, dimension (N) [out]
 
@@ -202,7 +201,7 @@ U : DOUBLE PRECISION array, dimension (LDU,M) [in,out]
 > the orthogonal matrix returned by DGGSVP).
 > On exit,
 > if JOBU = 'I', U contains the orthogonal matrix U;
-> if JOBU = 'U', U contains the product U1*U.
+> if JOBU = 'U', U contains the product U1\*U.
 > If JOBU = 'N', U is not referenced.
 
 LDU : INTEGER [in]
@@ -214,7 +213,7 @@ V : DOUBLE PRECISION array, dimension (LDV,P) [in,out]
 > the orthogonal matrix returned by DGGSVP).
 > On exit,
 > if JOBV = 'I', V contains the orthogonal matrix V;
-> if JOBV = 'V', V contains the product V1*V.
+> if JOBV = 'V', V contains the product V1\*V.
 > If JOBV = 'N', V is not referenced.
 
 LDV : INTEGER [in]
@@ -226,14 +225,14 @@ Q : DOUBLE PRECISION array, dimension (LDQ,N) [in,out]
 > the orthogonal matrix returned by DGGSVP).
 > On exit,
 > if JOBQ = 'I', Q contains the orthogonal matrix Q;
-> if JOBQ = 'Q', Q contains the product Q1*Q.
+> if JOBQ = 'Q', Q contains the product Q1\*Q.
 > If JOBQ = 'N', Q is not referenced.
 
 LDQ : INTEGER [in]
 > The leading dimension of the array Q. LDQ >= max(1,N) if
 > JOBQ = 'Q'; LDQ >= 1 otherwise.
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 NCYCLE : INTEGER [out]
 > The number of cycles required for convergence.

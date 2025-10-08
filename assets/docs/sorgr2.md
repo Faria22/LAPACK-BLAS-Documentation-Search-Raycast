@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorgr2
-(
+subroutine sorgr2 (
         integer m,
         integer n,
         integer k,

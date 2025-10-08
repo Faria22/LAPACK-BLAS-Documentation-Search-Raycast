@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgtsv
-(
+subroutine dgtsv (
         integer n,
         integer nrhs,
         double precision, dimension( * ) dl,
@@ -14,12 +13,12 @@ subroutine dgtsv
 
 DGTSV  solves the equation
 
-A*X = B,
+A\*X = B,
 
 where A is an n by n tridiagonal matrix, by Gaussian elimination with
 partial pivoting.
 
-Note that the equation  A**T*X = B  may be solved by interchanging the
+Note that the equation  A\*\*T\*X = B  may be solved by interchanging the
 order of the arguments DU and DL.
 
 ## Parameters

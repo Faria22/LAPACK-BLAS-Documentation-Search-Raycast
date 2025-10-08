@@ -1,6 +1,5 @@
 ```fortran
-subroutine sopgtr
-(
+subroutine sopgtr (
         character uplo,
         integer n,
         real, dimension( * ) ap,
@@ -21,7 +20,7 @@ if UPLO = 'U', Q = H(n-1) . . . H(2) H(1),
 if UPLO = 'L', Q = H(1) H(2) . . . H(n-1).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U': Upper triangular packed storage used in previous
 > call to SSPTRD;
 > = 'L': Lower triangular packed storage used in previous
@@ -30,7 +29,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix Q. N >= 0.
 
-AP : REAL array, dimension (N*(N+1)/2) [in]
+AP : REAL array, dimension (N\*(N+1)/2) [in]
 > The vectors which define the elementary reflectors, as
 > returned by SSPTRD.
 

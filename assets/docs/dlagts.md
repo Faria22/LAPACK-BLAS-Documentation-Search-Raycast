@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlagts
-(
+subroutine dlagts (
         integer job,
         integer n,
         double precision, dimension( * ) a,
@@ -16,12 +15,12 @@ subroutine dlagts
 
 DLAGTS may be used to solve one of the systems of equations
 
-(T - lambda*I)*x = y   or   (T - lambda*I)**T*x = y,
+(T - lambda\*I)\*x = y   or   (T - lambda\*I)\*\*T\*x = y,
 
 where T is an n by n tridiagonal matrix, for x, following the
-factorization of (T - lambda*I) as
+factorization of (T - lambda\*I) as
 
-(T - lambda*I) = P*L*U ,
+(T - lambda\*I) = P\*L\*U ,
 
 by routine DLAGTF. The choice of equation to be solved is
 controlled by the argument JOB, and in each case there is an option
@@ -31,15 +30,15 @@ being intended for use in applications such as inverse iteration.
 ## Parameters
 JOB : INTEGER [in]
 > Specifies the job to be performed by DLAGTS as follows:
-> =  1: The equations  (T - lambda*I)x = y  are to be solved,
+> =  1: The equations  (T - lambda\*I)x = y  are to be solved,
 > but diagonal elements of U are not to be perturbed.
-> = -1: The equations  (T - lambda*I)x = y  are to be solved
+> = -1: The equations  (T - lambda\*I)x = y  are to be solved
 > and, if overflow would otherwise occur, the diagonal
 > elements of U are to be perturbed. See argument TOL
 > below.
-> =  2: The equations  (T - lambda*I)**Tx = y  are to be solved,
+> =  2: The equations  (T - lambda\*I)\*\*Tx = y  are to be solved,
 > but diagonal elements of U are not to be perturbed.
-> = -2: The equations  (T - lambda*I)**Tx = y  are to be solved
+> = -2: The equations  (T - lambda\*I)\*\*Tx = y  are to be solved
 > and, if overflow would otherwise occur, the diagonal
 > elements of U are to be perturbed. See argument TOL
 > below.
@@ -74,9 +73,9 @@ Y : DOUBLE PRECISION array, dimension (N) [in,out]
 TOL : DOUBLE PRECISION [in,out]
 > On entry, with  JOB < 0, TOL should be the minimum
 > perturbation to be made to very small diagonal elements of U.
-> TOL should normally be chosen as about eps*norm(U), where eps
+> TOL should normally be chosen as about eps\*norm(U), where eps
 > is the relative machine precision, but if TOL is supplied as
-> non-positive, then it is reset to eps*max( abs( u(i,j) ) ).
+> non-positive, then it is reset to eps\*max( abs( u(i,j) ) ).
 > If  JOB > 0  then TOL is not referenced.
 > 
 > On exit, TOL is changed as described above, only if TOL is

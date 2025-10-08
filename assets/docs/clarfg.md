@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarfg
-(
+subroutine clarfg (
         integer n,
         complex alpha,
         complex, dimension( * ) x,
@@ -12,13 +11,13 @@ subroutine clarfg
 CLARFG generates a complex elementary reflector H of order n, such
 that
 
-H**H * ( alpha ) = ( beta ),   H**H * H = I.
+H\*\*H \* ( alpha ) = ( beta ),   H\*\*H \* H = I.
 (   x   )   (   0  )
 
 where alpha and beta are scalars, with beta real, and x is an
 (n-1)-element complex vector. H is represented in the form
 
-H = I - tau * ( 1 ) * ( 1 v**H ) ,
+H = I - tau \* ( 1 ) \* ( 1 v\*\*H ) ,
 ( v )
 
 where tau is a complex scalar and v is a complex (n-1)-element
@@ -38,7 +37,7 @@ ALPHA : COMPLEX [in,out]
 > On exit, it is overwritten with the value beta.
 
 X : COMPLEX array, dimension [in,out]
-> (1+(N-2)*abs(INCX))
+> (1+(N-2)\*abs(INCX))
 > On entry, the vector x.
 > On exit, it is overwritten with the vector v.
 

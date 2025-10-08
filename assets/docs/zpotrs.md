@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpotrs
-(
+subroutine zpotrs (
         character uplo,
         integer n,
         integer nrhs,
@@ -12,12 +11,12 @@ subroutine zpotrs
 )
 ```
 
-ZPOTRS solves a system of linear equations A*X = B with a Hermitian
+ZPOTRS solves a system of linear equations A\*X = B with a Hermitian
 positive definite matrix A using the Cholesky factorization
-A = U**H * U or A = L * L**H computed by ZPOTRF.
+A = U\*\*H \* U or A = L \* L\*\*H computed by ZPOTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -28,14 +27,14 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**H * U or A = L * L**H, as computed by ZPOTRF.
+> A = U\*\*H \* U or A = L \* L\*\*H, as computed by ZPOTRF.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.
 > On exit, the solution matrix X.
 

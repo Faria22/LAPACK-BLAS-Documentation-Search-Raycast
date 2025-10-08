@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgesvj
-(
+subroutine cgesvj (
         character*1 joba,
         character*1 jobu,
         character*1 jobv,
@@ -23,7 +22,7 @@ subroutine cgesvj
 CGESVJ computes the singular value decomposition (SVD) of a complex
 M-by-N matrix A, where M >= N. The SVD of A is written as
 [++]   [xx]   [x0]   [xx]
-A = U * SIGMA * V^*,  [++] = [xx] * [ox] * [xx]
+A = U \* SIGMA \* V^\*,  [++] = [xx] \* [ox] \* [xx]
 [++]   [xx]
 where SIGMA is an N-by-N diagonal matrix, U is an M-by-N orthonormal
 matrix, and V is an N-by-N unitary matrix. The diagonal elements
@@ -31,34 +30,34 @@ of SIGMA are the singular values of A. The columns of U and V are the
 left and the right singular vectors of A, respectively.
 
 ## Parameters
-JOBA : CHARACTER*1 [in]
+JOBA : CHARACTER\*1 [in]
 > Specifies the structure of A.
 > = 'L': The input matrix A is lower triangular;
 > = 'U': The input matrix A is upper triangular;
 > = 'G': The input matrix A is general M-by-N matrix, M >= N.
 
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > Specifies whether to compute the left singular vectors
 > (columns of U):
 > = 'U' or 'F': The left singular vectors corresponding to the nonzero
 > singular values are computed and returned in the leading
 > columns of A. See more details in the description of A.
 > The default numerical orthogonality threshold is set to
-> approximately TOL=CTOL*EPS, CTOL=SQRT(M), EPS=SLAMCH('E').
+> approximately TOL=CTOL\*EPS, CTOL=SQRT(M), EPS=SLAMCH('E').
 > = 'C': Analogous to JOBU='U', except that user can control the
 > level of numerical orthogonality of the computed left
-> singular vectors. TOL can be set to TOL = CTOL*EPS, where
+> singular vectors. TOL can be set to TOL = CTOL\*EPS, where
 > CTOL is given on input in the array WORK.
 > No CTOL smaller than ONE is allowed. CTOL greater
 > than 1 / EPS is meaningless. The option 'C'
-> can be used if M*EPS is satisfactory orthogonality
+> can be used if M\*EPS is satisfactory orthogonality
 > of the computed left singular vectors, so CTOL=M could
 > save few sweeps of Jacobi rotations.
 > See the descriptions of A and WORK(1).
 > = 'N': The matrix U is not computed. However, see the
 > description of A.
 
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > Specifies whether to compute the right singular vectors, that
 > is, the matrix V:
 > = 'V' or 'J': the matrix V is computed and returned in the array V
@@ -91,7 +90,7 @@ A : COMPLEX array, dimension (LDA,N) [in,out]
 > in the array RWORK as RANKA=NINT(RWORK(2)). Also see the
 > descriptions of SVA and RWORK. The computed columns of U
 > are mutually numerically orthogonal up to approximately
-> TOL=SQRT(M)*EPS (default); or TOL=CTOL*EPS (JOBU = 'C'),
+> TOL=SQRT(M)\*EPS (default); or TOL=CTOL\*EPS (JOBU = 'C'),
 > see the description of JOBU.
 > If INFO > 0,
 > the procedure CGESVJ did not converge in the given number
@@ -100,7 +99,7 @@ A : COMPLEX array, dimension (LDA,N) [in,out]
 > U (stored in A), SIGMA (given by the computed singular
 > values in SVA(1:N)) and V is still a decomposition of the
 > input matrix A in the sense that the residual
-> || A - SCALE * U * SIGMA * V^* ||_2 / ||A||_2 is small.
+> || A - SCALE \* U \* SIGMA \* V^\* ||_2 / ||A||_2 is small.
 > If JOBU = 'N':
 > If INFO = 0 :
 > Note that the left singular vectors are 'for free' in the
@@ -108,7 +107,7 @@ A : COMPLEX array, dimension (LDA,N) [in,out]
 > singular values are needed, the level of numerical
 > orthogonality of U is not an issue and iterations are
 > stopped when the columns of the iterated matrix are
-> numerically orthogonal up to approximately M*EPS. Thus,
+> numerically orthogonal up to approximately M\*EPS. Thus,
 > on exit, A contains the columns of U scaled with the
 > corresponding singular values.
 > If INFO > 0 :
@@ -127,13 +126,13 @@ SVA : REAL array, dimension (N) [out]
 > During the computation SVA contains the Euclidean column
 > norms of the iterated matrices in the array A.
 > If SCALE .NE. ONE:
-> The singular values of A are SCALE*SVA(1:N), and this
+> The singular values of A are SCALE\*SVA(1:N), and this
 > factored representation is due to the fact that some of the
 > singular values of A might underflow or overflow.
 > 
 > If INFO > 0 :
 > the procedure CGESVJ did not converge in the given number of
-> iterations (sweeps) and SCALE*SVA(1:N) may not be accurate.
+> iterations (sweeps) and SCALE\*SVA(1:N) may not be accurate.
 
 MV : INTEGER [in]
 > If JOBV = 'A', then the product of Jacobi rotations in CGESVJ
@@ -168,12 +167,12 @@ RWORK : REAL array, dimension (max(6,LRWORK)) [in,out]
 > If JOBU = 'C' :
 > RWORK(1) = CTOL, where CTOL defines the threshold for convergence.
 > The process stops if all columns of A are mutually
-> orthogonal up to CTOL*EPS, EPS=SLAMCH('E').
+> orthogonal up to CTOL\*EPS, EPS=SLAMCH('E').
 > It is required that CTOL >= ONE, i.e. it is not
 > allowed to force the routine to obtain orthogonality
 > below EPSILON.
 > On exit,
-> RWORK(1) = SCALE is the scaling factor such that SCALE*SVA(1:N)
+> RWORK(1) = SCALE is the scaling factor such that SCALE\*SVA(1:N)
 > are the computed singular values of A.
 > (See description of SVA().)
 > RWORK(2) = NINT(RWORK(2)) is the number of the computed nonzero

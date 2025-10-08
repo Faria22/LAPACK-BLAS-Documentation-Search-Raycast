@@ -1,6 +1,5 @@
 ```fortran
-subroutine zptrfs
-(
+subroutine zptrfs (
         character uplo,
         integer n,
         integer nrhs,
@@ -26,12 +25,12 @@ and tridiagonal, and provides error bounds and backward error
 estimates for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the superdiagonal or the subdiagonal of the
 > tridiagonal matrix A is stored and the form of the
 > factorization:
-> = 'U':  E is the superdiagonal of A, and A = U**H*D*U;
-> = 'L':  E is the subdiagonal of A, and A = L*D*L**H.
+> = 'U':  E is the superdiagonal of A, and A = U\*\*H\*D\*U;
+> = 'L':  E is the subdiagonal of A, and A = L\*D\*L\*\*H.
 > (The two forms are equivalent if A is real.)
 
 N : INTEGER [in]
@@ -44,7 +43,7 @@ NRHS : INTEGER [in]
 D : DOUBLE PRECISION array, dimension (N) [in]
 > The n real diagonal elements of the tridiagonal matrix A.
 
-E : COMPLEX*16 array, dimension (N-1) [in]
+E : COMPLEX\*16 array, dimension (N-1) [in]
 > The (n-1) off-diagonal elements of the tridiagonal matrix A
 > (see UPLO).
 
@@ -52,18 +51,18 @@ DF : DOUBLE PRECISION array, dimension (N) [in]
 > The n diagonal elements of the diagonal matrix D from
 > the factorization computed by ZPTTRF.
 
-EF : COMPLEX*16 array, dimension (N-1) [in]
+EF : COMPLEX\*16 array, dimension (N-1) [in]
 > The (n-1) off-diagonal elements of the unit bidiagonal
 > factor U or L from the factorization computed by ZPTTRF
 > (see UPLO).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZPTTRS.
 > On exit, the improved solution matrix X.
 
@@ -83,7 +82,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgelsy
-(
+subroutine sgelsy (
         integer m,
         integer n,
         integer nrhs,
@@ -19,7 +18,7 @@ subroutine sgelsy
 
 SGELSY computes the minimum-norm solution to a real linear least
 squares problem:
-minimize || A * X - B ||
+minimize || A \* X - B ||
 using a complete orthogonal factorization of A.  A is an M-by-N
 matrix which may be rank-deficient.
 
@@ -29,7 +28,7 @@ M-by-NRHS right hand side matrix B and the N-by-NRHS solution
 matrix X.
 
 The routine first computes a QR factorization with column pivoting:
-A * P = Q * [ R11 R12 ]
+A \* P = Q \* [ R11 R12 ]
 [  0  R22 ]
 with R11 defined as the largest leading submatrix whose estimated
 condition number is less than 1/RCOND.  The order of R11, RANK,
@@ -38,10 +37,10 @@ is the effective rank of A.
 Then, R22 is considered to be negligible, and R12 is annihilated
 by orthogonal transformations from the right, arriving at the
 complete orthogonal factorization:
-A * P = Q * [ T11 0 ] * Z
+A \* P = Q \* [ T11 0 ] \* Z
 [  0  0 ]
 The minimum-norm solution is then
-X = P * Z**T [ inv(T11)*Q1**T*B ]
+X = P \* Z\*\*T [ inv(T11)\*Q1\*\*T\*B ]
 [        0         ]
 where Q1 consists of the first RANK columns of Q.
 
@@ -105,10 +104,10 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > The unblocked strategy requires that:
-> LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
+> LWORK >= MAX( MN+3\*N+1, 2\*MN+NRHS ),
 > where MN = min( M, N ).
 > The block algorithm requires that:
-> LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+> LWORK >= MAX( MN+2\*N+NB\*(N+1), 2\*MN+NB\*NRHS ),
 > where NB is an upper bound on the blocksize returned
 > by ILAENV for the routines SGEQP3, STZRZF, STZRQF, SORMQR,
 > and SORMRZ.

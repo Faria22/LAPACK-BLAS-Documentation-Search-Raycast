@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytri_rook
-(
+subroutine dsytri_rook (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -12,15 +11,15 @@ subroutine dsytri_rook
 ```
 
 DSYTRI_ROOK computes the inverse of a real symmetric
-matrix A using the factorization A = U*D*U**T or A = L*D*L**T
+matrix A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T
 computed by DSYTRF_ROOK.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

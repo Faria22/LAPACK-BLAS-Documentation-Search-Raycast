@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgtsvx
-(
+subroutine cgtsvx (
         character fact,
         character trans,
         integer n,
@@ -27,7 +26,7 @@ subroutine cgtsvx
 ```
 
 CGTSVX uses the LU factorization to compute the solution to a complex
-system of linear equations A * X = B, A**T * X = B, or A**H * X = B,
+system of linear equations A \* X = B, A\*\*T \* X = B, or A\*\*H \* X = B,
 where A is a tridiagonal matrix of order N and X and B are N-by-NRHS
 matrices.
 
@@ -35,7 +34,7 @@ Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of A has been
 > supplied on entry.
 > = 'F':  DLF, DF, DUF, DU2, and IPIV contain the factored form
@@ -44,11 +43,11 @@ FACT : CHARACTER*1 [in]
 > = 'N':  The matrix will be copied to DLF, DF, and DUF
 > and factored.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -145,7 +144,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 RWORK : REAL array, dimension (N) [out]
 

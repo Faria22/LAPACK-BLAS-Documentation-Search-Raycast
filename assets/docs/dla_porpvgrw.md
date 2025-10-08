@@ -1,6 +1,5 @@
 ```fortran
-double precision function dla_porpvgrw
-(
+double precision function dla_porpvgrw (
         character*1 uplo,
         integer ncols,
         double precision, dimension( lda, * ) a,
@@ -19,7 +18,7 @@ solution X, estimated condition numbers, and error bounds could be
 unreliable.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -34,9 +33,9 @@ LDA : INTEGER [in]
 
 AF : DOUBLE PRECISION array, dimension (LDAF,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T, as computed by DPOTRF.
+> A = U\*\*T\*U or A = L\*L\*\*T, as computed by DPOTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]

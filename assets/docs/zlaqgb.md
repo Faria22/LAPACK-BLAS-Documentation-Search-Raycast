@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqgb
-(
+subroutine zlaqgb (
         integer m,
         integer n,
         integer kl,
@@ -33,7 +32,7 @@ KL : INTEGER [in]
 KU : INTEGER [in]
 > The number of superdiagonals within the band of A.  KU >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in,out]
 > On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 > The j-th column of A is stored in the j-th column of the
 > array AB as follows:
@@ -60,7 +59,7 @@ COLCND : DOUBLE PRECISION [in]
 AMAX : DOUBLE PRECISION [in]
 > Absolute value of largest matrix entry.
 
-EQUED : CHARACTER*1 [out]
+EQUED : CHARACTER\*1 [out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration
 > = 'R':  Row equilibration, i.e., A has been premultiplied by
@@ -68,4 +67,4 @@ EQUED : CHARACTER*1 [out]
 > = 'C':  Column equilibration, i.e., A has been postmultiplied
 > by diag(C).
 > = 'B':  Both row and column equilibration, i.e., A has been
-> replaced by diag(R) * A * diag(C).
+> replaced by diag(R) \* A \* diag(C).

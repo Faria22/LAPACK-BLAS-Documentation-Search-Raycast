@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgehd2
-(
+subroutine cgehd2 (
         integer n,
         integer ilo,
         integer ihi,
@@ -13,7 +12,7 @@ subroutine cgehd2
 ```
 
 CGEHD2 reduces a complex general matrix A to upper Hessenberg form H
-by a unitary similarity transformation:  Q**H * A * Q = H .
+by a unitary similarity transformation:  Q\*\*H \* A \* Q = H .
 
 ## Parameters
 N : INTEGER [in]

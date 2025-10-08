@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhbev_2stage
-(
+subroutine zhbev_2stage (
         character jobz,
         character uplo,
         integer n,
@@ -22,12 +21,12 @@ a complex Hermitian band matrix A using the 2stage technique for
 the reduction to tridiagonal.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -38,7 +37,7 @@ KD : INTEGER [in]
 > The number of superdiagonals of the matrix A if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB, N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB, N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -59,7 +58,7 @@ LDAB : INTEGER [in]
 W : DOUBLE PRECISION array, dimension (N) [out]
 > If INFO = 0, the eigenvalues in ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
 > eigenvectors of the matrix A, with the i-th column of Z
 > holding the eigenvector associated with W(i).
@@ -69,7 +68,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension LWORK [out]
+WORK : COMPLEX\*16 array, dimension LWORK [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
@@ -77,7 +76,7 @@ LWORK : INTEGER [in]
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = (2KD+1)*N + KD*NTHREADS
+> dimension = (2KD+1)\*N + KD\*NTHREADS
 > where KD is the size of the band.
 > NTHREADS is the number of threads used when
 > openMP compilation is enabled, otherwise =1.
@@ -89,7 +88,7 @@ LWORK : INTEGER [in]
 > the WORK, RWORK and IWORK arrays, and no error message
 > related to LWORK or LRWORK or LIWORK is issued by XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension (max(1,3*N-2)) [out]
+RWORK : DOUBLE PRECISION array, dimension (max(1,3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

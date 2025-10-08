@@ -1,6 +1,5 @@
 ```fortran
-subroutine zggevx
-(
+subroutine zggevx (
         character balanc,
         character jobvl,
         character jobvr,
@@ -44,21 +43,21 @@ the eigenvalues (RCONDE), and reciprocal condition numbers for the
 right eigenvectors (RCONDV).
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar
-lambda or a ratio alpha/beta = lambda, such that A - lambda*B is
+lambda or a ratio alpha/beta = lambda, such that A - lambda\*B is
 singular. It is usually represented as the pair (alpha,beta), as
 there is a reasonable interpretation for beta=0, and even for both
 being zero.
 
 The right eigenvector v(j) corresponding to the eigenvalue lambda(j)
 of (A,B) satisfies
-A * v(j) = lambda(j) * B * v(j) .
+A \* v(j) = lambda(j) \* B \* v(j) .
 The left eigenvector u(j) corresponding to the eigenvalue lambda(j)
 of (A,B) satisfies
-u(j)**H * A  = lambda(j) * u(j)**H * B.
-where u(j)**H is the conjugate-transpose of u(j).
+u(j)\*\*H \* A  = lambda(j) \* u(j)\*\*H \* B.
+where u(j)\*\*H is the conjugate-transpose of u(j).
 
 ## Parameters
-BALANC : CHARACTER*1 [in]
+BALANC : CHARACTER\*1 [in]
 > Specifies the balance option to be performed:
 > = 'N':  do not diagonally scale or permute;
 > = 'P':  permute only;
@@ -69,15 +68,15 @@ BALANC : CHARACTER*1 [in]
 > not change condition numbers (in exact arithmetic), but
 > balancing does.
 
-JOBVL : CHARACTER*1 [in]
+JOBVL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left generalized eigenvectors;
 > = 'V':  compute the left generalized eigenvectors.
 
-JOBVR : CHARACTER*1 [in]
+JOBVR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right generalized eigenvectors;
 > = 'V':  compute the right generalized eigenvectors.
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': none are computed;
 > = 'E': computed for eigenvalues only;
@@ -87,7 +86,7 @@ SENSE : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrices A, B, VL, and VR.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the matrix A in the pair (A,B).
 > On exit, A has been overwritten. If JOBVL='V' or JOBVR='V'
 > or both, then A contains the first part of the complex Schur
@@ -96,7 +95,7 @@ A : COMPLEX*16 array, dimension (LDA, N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of A.  LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB, N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB, N) [in,out]
 > On entry, the matrix B in the pair (A,B).
 > On exit, B has been overwritten. If JOBVL='V' or JOBVR='V'
 > or both, then B contains the second part of the complex
@@ -105,9 +104,9 @@ B : COMPLEX*16 array, dimension (LDB, N) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of B.  LDB >= max(1,N).
 
-ALPHA : COMPLEX*16 array, dimension (N) [out]
+ALPHA : COMPLEX\*16 array, dimension (N) [out]
 
-BETA : COMPLEX*16 array, dimension (N) [out]
+BETA : COMPLEX\*16 array, dimension (N) [out]
 > On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the generalized
 > eigenvalues.
 > 
@@ -118,7 +117,7 @@ BETA : COMPLEX*16 array, dimension (N) [out]
 > comparable with norm(A) in magnitude, and BETA always less
 > than and usually comparable with norm(B).
 
-VL : COMPLEX*16 array, dimension (LDVL,N) [out]
+VL : COMPLEX\*16 array, dimension (LDVL,N) [out]
 > If JOBVL = 'V', the left generalized eigenvectors u(j) are
 > stored one after another in the columns of VL, in the same
 > order as their eigenvalues.
@@ -130,7 +129,7 @@ LDVL : INTEGER [in]
 > The leading dimension of the matrix VL. LDVL >= 1, and
 > if JOBVL = 'V', LDVL >= N.
 
-VR : COMPLEX*16 array, dimension (LDVR,N) [out]
+VR : COMPLEX\*16 array, dimension (LDVR,N) [out]
 > If JOBVR = 'V', the right generalized eigenvectors v(j) are
 > stored one after another in the columns of VR, in the same
 > order as their eigenvalues.
@@ -191,13 +190,13 @@ RCONDV : DOUBLE PRECISION array, dimension (N) [out]
 > when the true value would be very small anyway.
 > If SENSE = 'N' or 'E', RCONDV is not referenced.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= max(1,2*N).
-> If SENSE = 'E', LWORK >= max(1,4*N).
-> If SENSE = 'V' or 'B', LWORK >= max(1,2*N*N+2*N).
+> The dimension of the array WORK. LWORK >= max(1,2\*N).
+> If SENSE = 'E', LWORK >= max(1,4\*N).
+> If SENSE = 'V' or 'B', LWORK >= max(1,2\*N\*N+2\*N).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -205,8 +204,8 @@ LWORK : INTEGER [in]
 > message related to LWORK is issued by XERBLA.
 
 RWORK : DOUBLE PRECISION array, dimension (lrwork) [out]
-> lrwork must be at least max(1,6*N) if BALANC = 'S' or 'B',
-> and at least max(1,2*N) otherwise.
+> lrwork must be at least max(1,6\*N) if BALANC = 'S' or 'B',
+> and at least max(1,2\*N) otherwise.
 > Real workspace.
 
 IWORK : INTEGER array, dimension (N+2) [out]

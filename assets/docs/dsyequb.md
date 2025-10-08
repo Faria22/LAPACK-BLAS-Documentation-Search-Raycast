@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsyequb
-(
+subroutine dsyequb (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -17,12 +16,12 @@ DSYEQUB computes row and column scalings intended to equilibrate a
 symmetric matrix A (with respect to the Euclidean norm) and reduce
 its condition number. The scale factors S are computed by the BIN
 algorithm (see references) so that the scaled matrix B with elements
-B(i,j) = S(i)*A(i,j)*S(j) has a condition number within a factor N of
+B(i,j) = S(i)\*A(i,j)\*S(j) has a condition number within a factor N of
 the smallest possible condition number over all possible diagonal
 scalings.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -49,7 +48,7 @@ AMAX : DOUBLE PRECISION [out]
 > very close to overflow or very close to underflow, the
 > matrix should be scaled.
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

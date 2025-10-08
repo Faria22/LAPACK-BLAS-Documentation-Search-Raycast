@@ -1,6 +1,5 @@
 ```fortran
-real function cla_gerpvgrw
-(
+real function cla_gerpvgrw (
         integer n,
         integer ncols,
         complex, dimension( lda, * ) a,
@@ -33,7 +32,7 @@ LDA : INTEGER [in]
 
 AF : COMPLEX array, dimension (LDAF,N) [in]
 > The factors L and U from the factorization
-> A = P*L*U as computed by CGETRF.
+> A = P\*L\*U as computed by CGETRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).

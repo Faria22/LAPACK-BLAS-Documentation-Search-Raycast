@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtplqt2
-(
+subroutine dtplqt2 (
         integer m,
         integer n,
         integer l,

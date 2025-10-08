@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpttrf
-(
+subroutine cpttrf (
         integer n,
         real, dimension( * ) d,
         complex, dimension( * ) e,
@@ -8,9 +7,9 @@ subroutine cpttrf
 )
 ```
 
-CPTTRF computes the L*D*L**H factorization of a complex Hermitian
+CPTTRF computes the L\*D\*L\*\*H factorization of a complex Hermitian
 positive definite tridiagonal matrix A.  The factorization may also
-be regarded as having the form A = U**H *D*U.
+be regarded as having the form A = U\*\*H \*D\*U.
 
 ## Parameters
 N : INTEGER [in]
@@ -19,14 +18,14 @@ N : INTEGER [in]
 D : REAL array, dimension (N) [in,out]
 > On entry, the n diagonal elements of the tridiagonal matrix
 > A.  On exit, the n diagonal elements of the diagonal matrix
-> D from the L*D*L**H factorization of A.
+> D from the L\*D\*L\*\*H factorization of A.
 
 E : COMPLEX array, dimension (N-1) [in,out]
 > On entry, the (n-1) subdiagonal elements of the tridiagonal
 > matrix A.  On exit, the (n-1) subdiagonal elements of the
-> unit bidiagonal factor L from the L*D*L**H factorization of A.
+> unit bidiagonal factor L from the L\*D\*L\*\*H factorization of A.
 > E can also be regarded as the superdiagonal of the unit
-> bidiagonal factor U from the U**H *D*U factorization of A.
+> bidiagonal factor U from the U\*\*H \*D\*U factorization of A.
 
 INFO : INTEGER [out]
 > = 0: successful exit

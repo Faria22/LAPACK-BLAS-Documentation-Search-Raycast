@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarscl2
-(
+subroutine dlarscl2 (
         integer m,
         integer n,
         double precision, dimension( * ) d,
@@ -10,7 +9,7 @@ subroutine dlarscl2
 ```
 
 DLARSCL2 performs a reciprocal diagonal scaling on a matrix:
-x <-- inv(D) * x
+x <-- inv(D) \* x
 where the diagonal matrix D is stored as a vector.
 
 Eventually to be replaced by BLAS_dge_diag_scale in the new BLAS

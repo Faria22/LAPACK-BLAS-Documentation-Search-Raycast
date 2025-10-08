@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztgsna
-(
+subroutine ztgsna (
         character job,
         character howmny,
         logical, dimension( * ) select,
@@ -31,14 +30,14 @@ eigenvalues and/or eigenvectors of a matrix pair (A, B).
 B are both upper triangular.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for
 > eigenvalues (S) or eigenvectors (DIF):
 > = 'E': for eigenvalues only (S);
 > = 'V': for eigenvectors only (DIF);
 > = 'B': for both eigenvalues and eigenvectors (S and DIF).
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A': compute condition numbers for all eigenpairs;
 > = 'S': compute condition numbers for selected eigenpairs
 > specified by the array SELECT.
@@ -53,19 +52,19 @@ SELECT : LOGICAL array, dimension (N) [in]
 N : INTEGER [in]
 > The order of the square matrix pair (A, B). N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The upper triangular matrix A in the pair (A,B).
 
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in]
+B : COMPLEX\*16 array, dimension (LDB,N) [in]
 > The upper triangular matrix B in the pair (A, B).
 
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,N).
 
-VL : COMPLEX*16 array, dimension (LDVL,M) [in]
+VL : COMPLEX\*16 array, dimension (LDVL,M) [in]
 > IF JOB = 'E' or 'B', VL must contain left eigenvectors of
 > (A, B), corresponding to the eigenpairs specified by HOWMNY
 > and SELECT.  The eigenvectors must be stored in consecutive
@@ -76,7 +75,7 @@ LDVL : INTEGER [in]
 > The leading dimension of the array VL. LDVL >= 1; and
 > If JOB = 'E' or 'B', LDVL >= N.
 
-VR : COMPLEX*16 array, dimension (LDVR,M) [in]
+VR : COMPLEX\*16 array, dimension (LDVR,M) [in]
 > IF JOB = 'E' or 'B', VR must contain right eigenvectors of
 > (A, B), corresponding to the eigenpairs specified by HOWMNY
 > and SELECT.  The eigenvectors must be stored in consecutive
@@ -112,12 +111,12 @@ M : INTEGER [out]
 > the specified condition numbers; for each selected eigenvalue
 > one element is used. If HOWMNY = 'A', M is set to N.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N).
-> If JOB = 'V' or 'B', LWORK >= max(1,2*N*N).
+> If JOB = 'V' or 'B', LWORK >= max(1,2\*N\*N).
 
 IWORK : INTEGER array, dimension (N+2) [out]
 > If JOB = 'E', IWORK is not referenced.

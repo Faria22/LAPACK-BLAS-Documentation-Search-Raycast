@@ -1,6 +1,5 @@
 ```fortran
-subroutine claqsb
-(
+subroutine claqsb (
         character uplo,
         integer n,
         integer kd,
@@ -17,7 +16,7 @@ CLAQSB equilibrates a symmetric band matrix A using the scaling
 factors in the vector S.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored.
 > = 'U':  Upper triangular
@@ -39,7 +38,7 @@ AB : COMPLEX array, dimension (LDAB,N) [in,out]
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 > 
 > On exit, if INFO = 0, the triangular factor U or L from the
-> Cholesky factorization A = U**H *U or A = L*L**H of the band
+> Cholesky factorization A = U\*\*H \*U or A = L\*L\*\*H of the band
 > matrix A, in the same storage format as A.
 
 LDAB : INTEGER [in]
@@ -54,8 +53,8 @@ SCOND : REAL [in]
 AMAX : REAL [in]
 > Absolute value of largest matrix entry.
 
-EQUED : CHARACTER*1 [out]
+EQUED : CHARACTER\*1 [out]
 > Specifies whether or not equilibration was done.
 > = 'N':  No equilibration.
 > = 'Y':  Equilibration was done, i.e., A has been replaced by
-> diag(S) * A * diag(S).
+> diag(S) \* A \* diag(S).

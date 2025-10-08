@@ -1,6 +1,5 @@
 ```fortran
-subroutine claqps
-(
+subroutine claqps (
         integer m,
         integer n,
         integer offset,
@@ -74,7 +73,7 @@ AUXV : COMPLEX array, dimension (NB) [in,out]
 > Auxiliary vector.
 
 F : COMPLEX array, dimension (LDF,NB) [in,out]
-> Matrix  F**H = L * Y**H * A.
+> Matrix  F\*\*H = L \* Y\*\*H \* A.
 
 LDF : INTEGER [in]
 > The leading dimension of the array F. LDF >= max(1,N).

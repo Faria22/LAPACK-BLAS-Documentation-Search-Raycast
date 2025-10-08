@@ -1,6 +1,5 @@
 ```fortran
-real function slamc3
-(
+real function slamc3 (
         real a,
         real b
 )

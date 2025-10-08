@@ -1,6 +1,5 @@
 ```fortran
-real function sla_gbrpvgrw
-(
+real function sla_gbrpvgrw (
         integer n,
         integer kl,
         integer ku,
@@ -47,7 +46,7 @@ AFB : REAL array, dimension (LDAFB,N) [in]
 > computed by SGBTRF.  U is stored as an upper triangular
 > band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
 > and the multipliers used during the factorization are stored
-> in rows KL+KU+2 to 2*KL+KU+1.
+> in rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL+KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL+KU+1.

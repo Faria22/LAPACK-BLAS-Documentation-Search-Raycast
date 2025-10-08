@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytri
-(
+subroutine csytri (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -12,15 +11,15 @@ subroutine csytri
 ```
 
 CSYTRI computes the inverse of a complex symmetric indefinite matrix
-A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by
 CSYTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -43,7 +42,7 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by CSYTRF.
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

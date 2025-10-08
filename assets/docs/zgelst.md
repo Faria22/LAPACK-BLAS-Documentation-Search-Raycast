@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgelst
-(
+subroutine zgelst (
         character trans,
         integer m,
         integer n,
@@ -33,17 +32,17 @@ The following options are provided:
 
 1. If TRANS = 'N' and m >= n:  find the least squares solution of
 an overdetermined system, i.e., solve the least squares problem
-minimize || B - A*X ||.
+minimize || B - A\*X ||.
 
 2. If TRANS = 'N' and m < n:  find the minimum norm solution of
-an underdetermined system A * X = B.
+an underdetermined system A \* X = B.
 
 3. If TRANS = 'C' and m >= n:  find the minimum norm solution of
-an underdetermined system A**T * X = B.
+an underdetermined system A\*\*T \* X = B.
 
 4. If TRANS = 'C' and m < n:  find the least squares solution of
 an overdetermined system, i.e., solve the least squares problem
-minimize || B - A**T * X ||.
+minimize || B - A\*\*T \* X ||.
 
 Several right hand side vectors b and solution vectors x can be
 handled in a single call; they are stored as the columns of the
@@ -51,9 +50,9 @@ M-by-NRHS right hand side matrix B and the N-by-NRHS solution
 matrix X.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': the linear system involves A;
-> = 'C': the linear system involves A**H.
+> = 'C': the linear system involves A\*\*H.
 
 M : INTEGER [in]
 > The number of rows of the matrix A.  M >= 0.
@@ -65,7 +64,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of
 > columns of the matrices B and X. NRHS >=0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit,
 > if M >= N, A is overwritten by details of its QR
@@ -76,7 +75,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the matrix B of right hand side vectors, stored
 > columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
 > if TRANS = 'C'.
@@ -98,14 +97,14 @@ B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= MAX(1,M,N).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > LWORK >= max( 1, MN + max( MN, NRHS ) ).
 > For optimal performance,
-> LWORK >= max( 1, (MN + max( MN, NRHS ))*NB ).
+> LWORK >= max( 1, (MN + max( MN, NRHS ))\*NB ).
 > where MN = min(M,N) and NB is the optimum block size.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

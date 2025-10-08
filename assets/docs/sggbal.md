@@ -1,6 +1,5 @@
 ```fortran
-subroutine sggbal
-(
+subroutine sggbal (
         character job,
         integer n,
         real, dimension( lda, * ) a,
@@ -25,10 +24,10 @@ and columns as close in norm as possible. Both steps are optional.
 
 Balancing may reduce the 1-norm of the matrices, and improve the
 accuracy of the computed eigenvalues and/or eigenvectors in the
-generalized eigenvalue problem A*x = lambda*B*x.
+generalized eigenvalue problem A\*x = lambda\*B\*x.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the operations to be performed on A and B:
 > = 'N':  none:  simply set ILO = 1, IHI = N, LSCALE(I) = 1.0
 > and RSCALE(I) = 1.0 for i = 1,...,N.
@@ -86,7 +85,7 @@ RSCALE : REAL array, dimension (N) [out]
 > then 1 to ILO-1.
 
 WORK : REAL array, dimension (lwork) [out]
-> lwork must be at least max(1,6*N) when JOB = 'S' or 'B', and
+> lwork must be at least max(1,6\*N) when JOB = 'S' or 'B', and
 > at least 1 when JOB = 'N' or 'P'.
 
 INFO : INTEGER [out]

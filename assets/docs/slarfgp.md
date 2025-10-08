@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarfgp
-(
+subroutine slarfgp (
         integer n,
         real alpha,
         real, dimension( * ) x,
@@ -12,13 +11,13 @@ subroutine slarfgp
 SLARFGP generates a real elementary reflector H of order n, such
 that
 
-H * ( alpha ) = ( beta ),   H**T * H = I.
+H \* ( alpha ) = ( beta ),   H\*\*T \* H = I.
 (   x   )   (   0  )
 
 where alpha and beta are scalars, beta is non-negative, and x is
 an (n-1)-element real vector.  H is represented in the form
 
-H = I - tau * ( 1 ) * ( 1 v**T ) ,
+H = I - tau \* ( 1 ) \* ( 1 v\*\*T ) ,
 ( v )
 
 where tau is a real scalar and v is a real (n-1)-element
@@ -36,7 +35,7 @@ ALPHA : REAL [in,out]
 > On exit, it is overwritten with the value beta.
 
 X : REAL array, dimension [in,out]
-> (1+(N-2)*abs(INCX))
+> (1+(N-2)\*abs(INCX))
 > On entry, the vector x.
 > On exit, it is overwritten with the vector v.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaev2
-(
+subroutine dlaev2 (
         double precision a,
         double precision b,
         double precision c,

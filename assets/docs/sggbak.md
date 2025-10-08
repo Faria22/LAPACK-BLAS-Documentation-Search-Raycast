@@ -1,6 +1,5 @@
 ```fortran
-subroutine sggbak
-(
+subroutine sggbak (
         character job,
         character side,
         integer n,
@@ -16,12 +15,12 @@ subroutine sggbak
 ```
 
 SGGBAK forms the right or left eigenvectors of a real generalized
-eigenvalue problem A*x = lambda*B*x, by backward transformation on
+eigenvalue problem A\*x = lambda\*B\*x, by backward transformation on
 the computed eigenvectors of the balanced pair of matrices output by
 SGGBAL.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the type of backward transformation required:
 > = 'N':  do nothing, return immediately;
 > = 'P':  do backward transformation for permutation only;
@@ -30,7 +29,7 @@ JOB : CHARACTER*1 [in]
 > scaling.
 > JOB must be the same as the argument JOB supplied to SGGBAL.
 
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R':  V contains right eigenvectors;
 > = 'L':  V contains left eigenvectors.
 

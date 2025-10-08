@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpotrs
-(
+subroutine cpotrs (
         character uplo,
         integer n,
         integer nrhs,
@@ -12,12 +11,12 @@ subroutine cpotrs
 )
 ```
 
-CPOTRS solves a system of linear equations A*X = B with a Hermitian
+CPOTRS solves a system of linear equations A\*X = B with a Hermitian
 positive definite matrix A using the Cholesky factorization
-A = U**H*U or A = L*L**H computed by CPOTRF.
+A = U\*\*H\*U or A = L\*L\*\*H computed by CPOTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -30,7 +29,7 @@ NRHS : INTEGER [in]
 
 A : COMPLEX array, dimension (LDA,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**H*U or A = L*L**H, as computed by CPOTRF.
+> A = U\*\*H\*U or A = L\*L\*\*H, as computed by CPOTRF.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

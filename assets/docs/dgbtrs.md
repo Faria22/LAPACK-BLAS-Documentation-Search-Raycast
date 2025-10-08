@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgbtrs
-(
+subroutine dgbtrs (
         character trans,
         integer n,
         integer kl,
@@ -16,16 +15,16 @@ subroutine dgbtrs
 ```
 
 DGBTRS solves a system of linear equations
-A * X = B  or  A**T * X = B
+A \* X = B  or  A\*\*T \* X = B
 with a general band matrix A using the LU factorization computed
 by DGBTRF.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations.
-> = 'N':  A * X = B  (No transpose)
-> = 'T':  A**T* X = B  (Transpose)
-> = 'C':  A**T* X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B  (No transpose)
+> = 'T':  A\*\*T\* X = B  (Transpose)
+> = 'C':  A\*\*T\* X = B  (Conjugate transpose = Transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -45,10 +44,10 @@ AB : DOUBLE PRECISION array, dimension (LDAB,N) [in]
 > computed by DGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAB : INTEGER [in]
-> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
+> The leading dimension of the array AB.  LDAB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices; for 1 <= i <= N, row i of the matrix was

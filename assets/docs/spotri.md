@@ -1,6 +1,5 @@
 ```fortran
-subroutine spotri
-(
+subroutine spotri (
         character uplo,
         integer n,
         real, dimension( lda, * ) a,
@@ -10,11 +9,11 @@ subroutine spotri
 ```
 
 SPOTRI computes the inverse of a real symmetric positive definite
-matrix A using the Cholesky factorization A = U**T*U or A = L*L**T
+matrix A using the Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T
 computed by SPOTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -23,7 +22,7 @@ N : INTEGER [in]
 
 A : REAL array, dimension (LDA,N) [in,out]
 > On entry, the triangular factor U or L from the Cholesky
-> factorization A = U**T*U or A = L*L**T, as computed by
+> factorization A = U\*\*T\*U or A = L\*L\*\*T, as computed by
 > SPOTRF.
 > On exit, the upper or lower triangle of the (symmetric)
 > inverse of A, overwriting the input factor U or L.

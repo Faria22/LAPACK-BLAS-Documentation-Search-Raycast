@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed2
-(
+subroutine dlaed2 (
         integer k,
         integer n,
         integer n1,
@@ -84,7 +83,7 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 > The first k values of the final deflation-altered z-vector
 > which will be passed to DLAED3.
 
-Q2 : DOUBLE PRECISION array, dimension (N1**2+(N-N1)**2) [out]
+Q2 : DOUBLE PRECISION array, dimension (N1\*\*2+(N-N1)\*\*2) [out]
 > A copy of the first K eigenvectors which will be used by
 > DLAED3 in a matrix multiply (DGEMM) to solve for the new
 > eigenvectors.

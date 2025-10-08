@@ -1,6 +1,5 @@
 ```fortran
-subroutine strevc
-(
+subroutine strevc (
         character side,
         character howmny,
         logical, dimension( * ) select,
@@ -21,30 +20,30 @@ subroutine strevc
 STREVC computes some or all of the right and/or left eigenvectors of
 a real upper quasi-triangular matrix T.
 Matrices of this type are produced by the Schur factorization of
-a real general matrix:  A = Q*T*Q**T, as computed by SHSEQR.
+a real general matrix:  A = Q\*T\*Q\*\*T, as computed by SHSEQR.
 
 The right eigenvector x and the left eigenvector y of T corresponding
 to an eigenvalue w are defined by:
 
-T*x = w*x,     (y**H)*T = w*(y**H)
+T\*x = w\*x,     (y\*\*H)\*T = w\*(y\*\*H)
 
-where y**H denotes the conjugate transpose of y.
+where y\*\*H denotes the conjugate transpose of y.
 The eigenvalues are not input to this routine, but are read directly
 from the diagonal blocks of T.
 
 This routine returns the matrices X and/or Y of right and left
-eigenvectors of T, or the products Q*X and/or Q*Y, where Q is an
+eigenvectors of T, or the products Q\*X and/or Q\*Y, where Q is an
 input matrix.  If Q is the orthogonal factor that reduces a matrix
-A to Schur form T, then Q*X and Q*Y are the matrices of right and
+A to Schur form T, then Q\*X and Q\*Y are the matrices of right and
 left eigenvectors of A.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R':  compute right eigenvectors only;
 > = 'L':  compute left eigenvectors only;
 > = 'B':  compute both right and left eigenvectors.
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A':  compute all right and/or left eigenvectors;
 > = 'B':  compute all right and/or left eigenvectors,
 > backtransformed by the matrices in VR and/or VL;
@@ -78,7 +77,7 @@ VL : REAL array, dimension (LDVL,MM) [in,out]
 > of Schur vectors returned by SHSEQR).
 > On exit, if SIDE = 'L' or 'B', VL contains:
 > if HOWMNY = 'A', the matrix Y of left eigenvectors of T;
-> if HOWMNY = 'B', the matrix Q*Y;
+> if HOWMNY = 'B', the matrix Q\*Y;
 > if HOWMNY = 'S', the left eigenvectors of T specified by
 > SELECT, stored consecutively in the columns
 > of VL, in the same order as their
@@ -98,7 +97,7 @@ VR : REAL array, dimension (LDVR,MM) [in,out]
 > of Schur vectors returned by SHSEQR).
 > On exit, if SIDE = 'R' or 'B', VR contains:
 > if HOWMNY = 'A', the matrix X of right eigenvectors of T;
-> if HOWMNY = 'B', the matrix Q*X;
+> if HOWMNY = 'B', the matrix Q\*X;
 > if HOWMNY = 'S', the right eigenvectors of T specified by
 > SELECT, stored consecutively in the columns
 > of VR, in the same order as their
@@ -122,7 +121,7 @@ M : INTEGER [out]
 > Each selected real eigenvector occupies one column and each
 > selected complex eigenvector occupies two columns.
 
-WORK : REAL array, dimension (3*N) [out]
+WORK : REAL array, dimension (3\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

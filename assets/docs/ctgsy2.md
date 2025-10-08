@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctgsy2
-(
+subroutine ctgsy2 (
         character trans,
         integer ijob,
         integer m,
@@ -26,8 +25,8 @@ subroutine ctgsy2
 
 CTGSY2 solves the generalized Sylvester equation
 
-A * R - L * B = scale *  C               (1)
-D * R - L * E = scale * F
+A \* R - L \* B = scale \*  C               (1)
+D \* R - L \* E = scale \* F
 
 using Level 1 and 2 BLAS, where R and L are unknown M-by-N matrices,
 (A, D), (B, E) and (C, F) are given matrix pairs of size M-by-M,
@@ -38,19 +37,19 @@ The solution (R, L) overwrites (C, F). 0 <= SCALE <= 1 is an output
 scaling factor chosen to avoid overflow.
 
 In matrix notation solving equation (1) corresponds to solve
-Zx = scale * b, where Z is defined as
+Zx = scale \* b, where Z is defined as
 
-Z = [ kron(In, A)  -kron(B**H, Im) ]             (2)
-[ kron(In, D)  -kron(E**H, Im) ],
+Z = [ kron(In, A)  -kron(B\*\*H, Im) ]             (2)
+[ kron(In, D)  -kron(E\*\*H, Im) ],
 
-Ik is the identity matrix of size k and X**H is the transpose of X.
+Ik is the identity matrix of size k and X\*\*H is the transpose of X.
 kron(X, Y) is the Kronecker product between the matrices X and Y.
 
-If TRANS = 'C', y in the conjugate transposed system Z**H*y = scale*b
+If TRANS = 'C', y in the conjugate transposed system Z\*\*H\*y = scale\*b
 is solved for, which is equivalent to solve for R and L in
 
-A**H * R  + D**H * L   = scale * C           (3)
-R  * B**H + L  * E**H  = scale * -F
+A\*\*H \* R  + D\*\*H \* L   = scale \* C           (3)
+R  \* B\*\*H + L  \* E\*\*H  = scale \* -F
 
 This case is used to compute an estimate of Dif[(A, D), (B, E)] =
 = sigma_min(Z) using reverse communication with CLACON.
@@ -61,7 +60,7 @@ the input (A, D), (B, E) are sub-pencils of two matrix pairs in
 CTGSYL.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': solve the generalized Sylvester equation (1).
 > = 'T': solve the 'transposed' system (3).
 

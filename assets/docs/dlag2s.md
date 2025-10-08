@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlag2s
-(
+subroutine dlag2s (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,

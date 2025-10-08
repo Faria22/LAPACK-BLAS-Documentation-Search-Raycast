@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqps
-(
+subroutine slaqps (
         integer m,
         integer n,
         integer offset,
@@ -74,7 +73,7 @@ AUXV : REAL array, dimension (NB) [in,out]
 > Auxiliary vector.
 
 F : REAL array, dimension (LDF,NB) [in,out]
-> Matrix F**T = L*Y**T*A.
+> Matrix F\*\*T = L\*Y\*\*T\*A.
 
 LDF : INTEGER [in]
 > The leading dimension of the array F. LDF >= max(1,N).

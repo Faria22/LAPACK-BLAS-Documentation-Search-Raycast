@@ -1,6 +1,5 @@
 ```fortran
-subroutine clasr
-(
+subroutine clasr (
         character side,
         character pivot,
         character direct,
@@ -18,23 +17,23 @@ A, from either the left or the right.
 
 When SIDE = 'L', the transformation takes the form
 
-A := P*A
+A := P\*A
 
 and when SIDE = 'R', the transformation takes the form
 
-A := A*P**T
+A := A\*P\*\*T
 
 where P is an orthogonal matrix consisting of a sequence of z plane
 rotations, with z = M when SIDE = 'L' and z = N when SIDE = 'R',
-and P**T is the transpose of P.
+and P\*\*T is the transpose of P.
 
 When DIRECT = 'F' (Forward sequence), then
 
-P = P(z-1) * ... * P(2) * P(1)
+P = P(z-1) \* ... \* P(2) \* P(1)
 
 and when DIRECT = 'B' (Backward sequence), then
 
-P = P(1) * P(2) * ... * P(z-1)
+P = P(1) \* P(2) \* ... \* P(z-1)
 
 where P(k) is a plane rotation matrix defined by the 2-by-2 rotation
 
@@ -86,24 +85,24 @@ where R(k) appears in rows and columns k and z.  The rotations are
 performed without ever forming P(k) explicitly.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > Specifies whether the plane rotation matrix P is applied to
 > A on the left or the right.
-> = 'L':  Left, compute A := P*A
-> = 'R':  Right, compute A:= A*P**T
+> = 'L':  Left, compute A := P\*A
+> = 'R':  Right, compute A:= A\*P\*\*T
 
-PIVOT : CHARACTER*1 [in]
+PIVOT : CHARACTER\*1 [in]
 > Specifies the plane for which P(k) is a plane rotation
 > matrix.
 > = 'V':  Variable pivot, the plane (k,k+1)
 > = 'T':  Top pivot, the plane (1,k+1)
 > = 'B':  Bottom pivot, the plane (k,z)
 
-DIRECT : CHARACTER*1 [in]
+DIRECT : CHARACTER\*1 [in]
 > Specifies whether P is a forward or backward sequence of
 > plane rotations.
-> = 'F':  Forward, P = P(z-1)*...*P(2)*P(1)
-> = 'B':  Backward, P = P(1)*P(2)*...*P(z-1)
+> = 'F':  Forward, P = P(z-1)\*...\*P(2)\*P(1)
+> = 'B':  Backward, P = P(1)\*P(2)\*...\*P(z-1)
 
 M : INTEGER [in]
 > The number of rows of the matrix A.  If m <= 1, an immediate
@@ -127,8 +126,8 @@ S : REAL array, dimension [in]
 > ( -s(k)  c(k) ).
 
 A : COMPLEX array, dimension (LDA,N) [in,out]
-> The M-by-N matrix A.  On exit, A is overwritten by P*A if
-> SIDE = 'R' or by A*P**T if SIDE = 'L'.
+> The M-by-N matrix A.  On exit, A is overwritten by P\*A if
+> SIDE = 'R' or by A\*P\*\*T if SIDE = 'L'.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).

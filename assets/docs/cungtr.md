@@ -1,6 +1,5 @@
 ```fortran
-subroutine cungtr
-(
+subroutine cungtr (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -21,7 +20,7 @@ if UPLO = 'U', Q = H(n-1) . . . H(2) H(1),
 if UPLO = 'L', Q = H(1) H(2) . . . H(n-1).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U': Upper triangle of A contains elementary reflectors
 > from CHETRD;
 > = 'L': Lower triangle of A contains elementary reflectors
@@ -47,7 +46,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= N-1.
-> For optimum performance LWORK >= (N-1)*NB, where NB is
+> For optimum performance LWORK >= (N-1)\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

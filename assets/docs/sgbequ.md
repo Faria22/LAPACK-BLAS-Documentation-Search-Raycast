@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgbequ
-(
+subroutine sgbequ (
         integer m,
         integer n,
         integer kl,
@@ -20,7 +19,7 @@ SGBEQU computes row and column scalings intended to equilibrate an
 M-by-N band matrix A and reduce its condition number.  R returns the
 row scale factors and C the column scale factors, chosen to try to
 make the largest element in each row and column of the matrix B with
-elements B(i,j)=R(i)*A(i,j)*C(j) have absolute value 1.
+elements B(i,j)=R(i)\*A(i,j)\*C(j) have absolute value 1.
 
 R(i) and C(j) are restricted to be between SMLNUM = smallest safe
 number and BIGNUM = largest safe number.  Use of these scaling

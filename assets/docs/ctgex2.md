@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctgex2
-(
+subroutine ctgex2 (
         logical wantq,
         logical wantz,
         integer n,
@@ -27,8 +26,8 @@ B are both upper triangular.
 Optionally, the matrices Q and Z of generalized Schur vectors are
 updated.
 
-Q(in) * A(in) * Z(in)**H = Q(out) * A(out) * Z(out)**H
-Q(in) * B(in) * Z(in)**H = Q(out) * B(out) * Z(out)**H
+Q(in) \* A(in) \* Z(in)\*\*H = Q(out) \* A(out) \* Z(out)\*\*H
+Q(in) \* B(in) \* Z(in)\*\*H = Q(out) \* B(out) \* Z(out)\*\*H
 
 ## Parameters
 WANTQ : LOGICAL [in]

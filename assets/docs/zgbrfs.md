@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgbrfs
-(
+subroutine zgbrfs (
         character trans,
         integer n,
         integer kl,
@@ -28,11 +27,11 @@ equations when the coefficient matrix is banded, and provides
 error bounds and backward error estimates for the solution.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -47,7 +46,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The original band matrix A, stored in rows 1 to KL+KU+1.
 > The j-th column of A is stored in the j-th column of the
 > array AB as follows:
@@ -56,27 +55,27 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [in]
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KL+KU+1.
 
-AFB : COMPLEX*16 array, dimension (LDAFB,N) [in]
+AFB : COMPLEX\*16 array, dimension (LDAFB,N) [in]
 > Details of the LU factorization of the band matrix A, as
 > computed by ZGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL*KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL\*KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices from ZGBTRF; for 1<=i<=N, row i of the
 > matrix was interchanged with row IPIV(i).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZGBTRS.
 > On exit, the improved solution matrix X.
 
@@ -98,7 +97,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

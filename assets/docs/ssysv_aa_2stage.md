@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssysv_aa_2stage
-(
+subroutine ssysv_aa_2stage (
         character uplo,
         integer n,
         integer nrhs,
@@ -20,22 +19,22 @@ subroutine ssysv_aa_2stage
 
 SSYSV_AA_2STAGE computes the solution to a real system of
 linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
 matrices.
 
 Aasen's 2-stage algorithm is used to factor A as
-A = U**T * T * U,  if UPLO = 'U', or
-A = L * T * L**T,  if UPLO = 'L',
+A = U\*\*T \* T \* U,  if UPLO = 'U', or
+A = L \* T \* L\*\*T,  if UPLO = 'L',
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is symmetric and band. The matrix T is
 then LU-factored with partial pivoting. The factored form of A
-is then used to solve the system of equations A * X = B.
+is then used to solve the system of equations A \* X = B.
 
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -65,8 +64,8 @@ TB : REAL array, dimension (MAX(1,LTB)) [out]
 > On exit, details of the LU factorization of the band matrix.
 
 LTB : INTEGER [in]
-> The size of the array TB. LTB >= MAX(1,4*N), internally
-> used to select NB such that LTB >= (3*NB+1)*N.
+> The size of the array TB. LTB >= MAX(1,4\*N), internally
+> used to select NB such that LTB >= (3\*NB+1)\*N.
 > 
 > If LTB = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of LTB,
@@ -95,7 +94,7 @@ WORK : REAL workspace of size (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The size of WORK. LWORK >= MAX(1,N), internally used to
-> select NB such that LWORK >= N*NB.
+> select NB such that LWORK >= N\*NB.
 > 
 > If LWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the WORK array,

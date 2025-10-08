@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed0
-(
+subroutine dlaed0 (
         integer icompq,
         integer qsiz,
         integer n,
@@ -70,19 +69,19 @@ LDQS : INTEGER [in]
 
 WORK : DOUBLE PRECISION array, [out]
 > If ICOMPQ = 0 or 1, the dimension of WORK must be at least
-> 1 + 3*N + 2*N*lg N + 3*N**2
+> 1 + 3\*N + 2\*N\*lg N + 3\*N\*\*2
 > ( lg( N ) = smallest integer k
 > such that 2^k >= N )
 > If ICOMPQ = 2, the dimension of WORK must be at least
-> 4*N + N**2.
+> 4\*N + N\*\*2.
 
 IWORK : INTEGER array, [out]
 > If ICOMPQ = 0 or 1, the dimension of IWORK must be at least
-> 6 + 6*N + 5*N*lg N.
+> 6 + 6\*N + 5\*N\*lg N.
 > ( lg( N ) = smallest integer k
 > such that 2^k >= N )
 > If ICOMPQ = 2, the dimension of IWORK must be at least
-> 3 + 5*N.
+> 3 + 5\*N.
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

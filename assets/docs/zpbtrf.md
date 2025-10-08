@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpbtrf
-(
+subroutine zpbtrf (
         character uplo,
         integer n,
         integer kd,
@@ -14,12 +13,12 @@ ZPBTRF computes the Cholesky factorization of a complex Hermitian
 positive definite band matrix A.
 
 The factorization has the form
-A = U**H * U,  if UPLO = 'U', or
-A = L  * L**H,  if UPLO = 'L',
+A = U\*\*H \* U,  if UPLO = 'U', or
+A = L  \* L\*\*H,  if UPLO = 'L',
 where U is an upper triangular matrix and L is lower triangular.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -30,7 +29,7 @@ KD : INTEGER [in]
 > The number of superdiagonals of the matrix A if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -39,7 +38,7 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 > 
 > On exit, if INFO = 0, the triangular factor U or L from the
-> Cholesky factorization A = U**H*U or A = L*L**H of the band
+> Cholesky factorization A = U\*\*H\*U or A = L\*L\*\*H of the band
 > matrix A, in the same storage format as A.
 
 LDAB : INTEGER [in]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dpotri
-(
+subroutine dpotri (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -10,11 +9,11 @@ subroutine dpotri
 ```
 
 DPOTRI computes the inverse of a real symmetric positive definite
-matrix A using the Cholesky factorization A = U**T*U or A = L*L**T
+matrix A using the Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T
 computed by DPOTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -23,7 +22,7 @@ N : INTEGER [in]
 
 A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > On entry, the triangular factor U or L from the Cholesky
-> factorization A = U**T*U or A = L*L**T, as computed by
+> factorization A = U\*\*T\*U or A = L\*L\*\*T, as computed by
 > DPOTRF.
 > On exit, the upper or lower triangle of the (symmetric)
 > inverse of A, overwriting the input factor U or L.

@@ -1,6 +1,5 @@
 ```fortran
-double precision function zlangb
-(
+double precision function zlangb (
         character norm,
         integer n,
         integer kl,
@@ -16,7 +15,7 @@ the  infinity norm,  or the element of  largest absolute value  of an
 n by n band matrix  A,  with kl sub-diagonals and ku super-diagonals.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in ZLANGB as described
 > above.
 
@@ -30,7 +29,7 @@ KL : INTEGER [in]
 KU : INTEGER [in]
 > The number of super-diagonals of the matrix A.  KU >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The band matrix A, stored in rows 1 to KL+KU+1.  The j-th
 > column of A is stored in the j-th column of the array AB as
 > follows:

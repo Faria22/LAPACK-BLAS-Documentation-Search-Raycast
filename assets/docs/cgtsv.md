@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgtsv
-(
+subroutine cgtsv (
         integer n,
         integer nrhs,
         complex, dimension( * ) dl,
@@ -14,12 +13,12 @@ subroutine cgtsv
 
 CGTSV  solves the equation
 
-A*X = B,
+A\*X = B,
 
 where A is an N-by-N tridiagonal matrix, by Gaussian elimination with
 partial pivoting.
 
-Note that the equation  A**T *X = B  may be solved by interchanging the
+Note that the equation  A\*\*T \*X = B  may be solved by interchanging the
 order of the arguments DU and DL.
 
 ## Parameters

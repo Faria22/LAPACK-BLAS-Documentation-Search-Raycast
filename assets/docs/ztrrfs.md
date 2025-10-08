@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztrrfs
-(
+subroutine ztrrfs (
         character uplo,
         character trans,
         character diag,
@@ -29,17 +28,17 @@ means before entering this routine.  ZTRRFS does not do iterative
 refinement because doing so cannot improve the backward error.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > = 'N':  A is non-unit triangular;
 > = 'U':  A is unit triangular.
 
@@ -50,7 +49,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The triangular matrix A.  If UPLO = 'U', the leading N-by-N
 > upper triangular part of the array A contains the upper
 > triangular matrix, and the strictly lower triangular part of
@@ -63,13 +62,13 @@ A : COMPLEX*16 array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in]
 > The solution matrix X.
 
 LDX : INTEGER [in]
@@ -90,7 +89,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

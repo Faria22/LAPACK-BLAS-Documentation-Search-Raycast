@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqr5
-(
+subroutine slaqr5 (
         logical wantt,
         logical wantz,
         integer kacc22,
@@ -81,7 +80,7 @@ SI : REAL array, dimension (NSHFTS) [in,out]
 
 H : REAL array, dimension (LDH,N) [in,out]
 > On input H contains a Hessenberg matrix.  On output a
-> multi-shift QR sweep with shifts SR(J)+i*SI(J) is applied
+> multi-shift QR sweep with shifts SR(J)+i\*SI(J) is applied
 > to the isolated diagonal block in rows and columns KTOP
 > through KBOT.
 
@@ -111,17 +110,17 @@ LDV : INTEGER [in]
 > LDV is the leading dimension of V as declared in the
 > calling procedure.  LDV >= 3.
 
-U : REAL array, dimension (LDU,2*NSHFTS) [out]
+U : REAL array, dimension (LDU,2\*NSHFTS) [out]
 
 LDU : INTEGER [in]
 > LDU is the leading dimension of U just as declared in the
-> in the calling subroutine.  LDU >= 2*NSHFTS.
+> in the calling subroutine.  LDU >= 2\*NSHFTS.
 
 NV : INTEGER [in]
 > NV is the number of rows in WV agailable for workspace.
 > NV >= 1.
 
-WV : REAL array, dimension (LDWV,2*NSHFTS) [out]
+WV : REAL array, dimension (LDWV,2\*NSHFTS) [out]
 
 LDWV : INTEGER [in]
 > LDWV is the leading dimension of WV as declared in the
@@ -135,4 +134,4 @@ WH : REAL array, dimension (LDWH,NH) [out]
 
 LDWH : INTEGER [in]
 > Leading dimension of WH just as declared in the
-> calling procedure.  LDWH >= 2*NSHFTS.
+> calling procedure.  LDWH >= 2\*NSHFTS.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgebal
-(
+subroutine zgebal (
         character job,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -23,7 +22,7 @@ Balancing may reduce the 1-norm of the matrix, and improve the
 accuracy of the computed eigenvalues and/or eigenvectors.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the operations to be performed on A:
 > = 'N':  none:  simply set ILO = 1, IHI = N, SCALE(I) = 1.0
 > for i = 1,...,N;
@@ -34,7 +33,7 @@ JOB : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the input matrix A.
 > On exit,  A is overwritten by the balanced matrix.
 > If JOB = 'N', A is not referenced.

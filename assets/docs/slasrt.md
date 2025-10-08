@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasrt
-(
+subroutine slasrt (
         character id,
         integer n,
         real, dimension( * ) d,
@@ -12,10 +11,10 @@ Sort the numbers in D in increasing order (if ID = 'I') or
 in decreasing order (if ID = 'D' ).
 
 Use Quick Sort, reverting to Insertion sort on arrays of
-size <= 20. Dimension of STACK limits N to about 2**32.
+size <= 20. Dimension of STACK limits N to about 2\*\*32.
 
 ## Parameters
-ID : CHARACTER*1 [in]
+ID : CHARACTER\*1 [in]
 > = 'I': sort D in increasing order;
 > = 'D': sort D in decreasing order.
 

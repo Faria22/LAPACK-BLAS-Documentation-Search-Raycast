@@ -1,6 +1,5 @@
 ```fortran
-subroutine dggqrf
-(
+subroutine dggqrf (
         integer n,
         integer m,
         integer p,
@@ -19,7 +18,7 @@ subroutine dggqrf
 DGGQRF computes a generalized QR factorization of an N-by-M matrix A
 and an N-by-P matrix B:
 
-A = Q*R,        B = Q*T*Z,
+A = Q\*R,        B = Q\*T\*Z,
 
 where Q is an N-by-N orthogonal matrix, Z is a P-by-P orthogonal
 matrix, and R and T assume one of the forms:
@@ -37,11 +36,11 @@ P
 where T12 or T21 is upper triangular.
 
 In particular, if B is square and nonsingular, the GQR factorization
-of A and B implicitly gives the QR factorization of inv(B)*A:
+of A and B implicitly gives the QR factorization of inv(B)\*A:
 
-inv(B)*A = Z**T*(inv(T)*R)
+inv(B)\*A = Z\*\*T\*(inv(T)\*R)
 
-where inv(B) denotes the inverse of the matrix B, and Z**T denotes the
+where inv(B) denotes the inverse of the matrix B, and Z\*\*T denotes the
 transpose of the matrix Z.
 
 ## Parameters
@@ -92,7 +91,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N,M,P).
-> For optimum performance LWORK >= max(N,M,P)*max(NB1,NB2,NB3),
+> For optimum performance LWORK >= max(N,M,P)\*max(NB1,NB2,NB3),
 > where NB1 is the optimal blocksize for the QR factorization
 > of an N-by-M matrix, NB2 is the optimal blocksize for the
 > RQ factorization of an N-by-P matrix, and NB3 is the optimal

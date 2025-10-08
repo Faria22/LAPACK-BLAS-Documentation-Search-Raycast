@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztrsm
-(
+subroutine ztrsm (
         character side,
         character uplo,
         character transa,
@@ -17,25 +16,25 @@ subroutine ztrsm
 
 ZTRSM  solves one of the matrix equations
 
-op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
+op( A )\*X = alpha\*B,   or   X\*op( A ) = alpha\*B,
 
 where alpha is a scalar, X and B are m by n matrices, A is a unit, or
 non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
 
-op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
+op( A ) = A   or   op( A ) = A\*\*T   or   op( A ) = A\*\*H.
 
 The matrix X is overwritten on B.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > On entry, SIDE specifies whether op( A ) appears on the left
 > or right of X as follows:
 > 
-> SIDE = 'L' or 'l'   op( A )*X = alpha*B.
+> SIDE = 'L' or 'l'   op( A )\*X = alpha\*B.
 > 
-> SIDE = 'R' or 'r'   X*op( A ) = alpha*B.
+> SIDE = 'R' or 'r'   X\*op( A ) = alpha\*B.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the matrix A is an upper or
 > lower triangular matrix as follows:
 > 
@@ -43,17 +42,17 @@ UPLO : CHARACTER*1 [in]
 > 
 > UPLO = 'L' or 'l'   A is a lower triangular matrix.
 
-TRANSA : CHARACTER*1 [in]
+TRANSA : CHARACTER\*1 [in]
 > On entry, TRANSA specifies the form of op( A ) to be used in
 > the matrix multiplication as follows:
 > 
 > TRANSA = 'N' or 'n'   op( A ) = A.
 > 
-> TRANSA = 'T' or 't'   op( A ) = A**T.
+> TRANSA = 'T' or 't'   op( A ) = A\*\*T.
 > 
-> TRANSA = 'C' or 'c'   op( A ) = A**H.
+> TRANSA = 'C' or 'c'   op( A ) = A\*\*H.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > On entry, DIAG specifies whether or not A is unit triangular
 > as follows:
 > 
@@ -70,12 +69,12 @@ N : INTEGER [in]
 > On entry, N specifies the number of columns of B.  N must be
 > at least zero.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry,  ALPHA specifies the scalar  alpha. When  alpha is
 > zero then  A is not referenced and  B need not be set before
 > entry.
 
-A : COMPLEX*16 array, dimension ( LDA, k ), [in]
+A : COMPLEX\*16 array, dimension ( LDA, k ), [in]
 > where k is m when SIDE = 'L' or 'l'
 > and k is n when SIDE = 'R' or 'r'.
 > Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
@@ -95,7 +94,7 @@ LDA : INTEGER [in]
 > LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
 > then LDA must be at least max( 1, n ).
 
-B : COMPLEX*16 array, dimension ( LDB, N ) [in,out]
+B : COMPLEX\*16 array, dimension ( LDB, N ) [in,out]
 > Before entry,  the leading  m by n part of the array  B must
 > contain  the  right-hand  side  matrix  B,  and  on exit  is
 > overwritten by the solution matrix  X.

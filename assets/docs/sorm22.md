@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorm22
-(
+subroutine sorm22 (
         character side,
         character trans,
         integer m,
@@ -20,8 +19,8 @@ subroutine sorm22
 SORM22 overwrites the general real M-by-N matrix C with
 
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'T':      Q**T * C       C * Q**T
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'T':      Q\*\*T \* C       C \* Q\*\*T
 
 where Q is a real orthogonal matrix of order NQ, with NQ = M if
 SIDE = 'L' and NQ = N if SIDE = 'R'.
@@ -35,13 +34,13 @@ where Q12 is an N1-by-N1 lower triangular matrix and Q21 is an
 N2-by-N2 upper triangular matrix.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**T from the Left;
-> = 'R': apply Q or Q**T from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*T from the Left;
+> = 'R': apply Q or Q\*\*T from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  apply Q (No transpose);
-> = 'C':  apply Q**T (Conjugate transpose).
+> = 'C':  apply Q\*\*T (Conjugate transpose).
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -65,7 +64,7 @@ LDQ : INTEGER [in]
 
 C : REAL array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
+> On exit, C is overwritten by Q\*C or Q\*\*T\*C or C\*Q\*\*T or C\*Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).
@@ -77,7 +76,7 @@ LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If SIDE = 'L', LWORK >= max(1,N);
 > if SIDE = 'R', LWORK >= max(1,M).
-> For optimum performance LWORK >= M*N.
+> For optimum performance LWORK >= M\*N.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

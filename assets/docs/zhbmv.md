@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhbmv
-(
+subroutine zhbmv (
         character uplo,
         integer n,
         integer k,
@@ -17,13 +16,13 @@ subroutine zhbmv
 
 ZHBMV  performs the matrix-vector  operation
 
-y := alpha*A*x + beta*y,
+y := alpha\*A\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are n element vectors and
 A is an n by n hermitian band matrix, with k super-diagonals.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the band matrix A is being supplied as
 > follows:
@@ -42,10 +41,10 @@ K : INTEGER [in]
 > On entry, K specifies the number of super-diagonals of the
 > matrix A. K must satisfy  0 .le. K.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry, ALPHA specifies the scalar alpha.
 
-A : COMPLEX*16 array, dimension ( LDA, N ) [in]
+A : COMPLEX\*16 array, dimension ( LDA, N ) [in]
 > Before entry with UPLO = 'U' or 'u', the leading ( k + 1 )
 > by n part of the array A must contain the upper triangular
 > band part of the hermitian matrix, supplied column by
@@ -90,8 +89,8 @@ LDA : INTEGER [in]
 > in the calling (sub) program. LDA must be at least
 > ( k + 1 ).
 
-X : COMPLEX*16 array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+X : COMPLEX\*16 array, dimension at least [in]
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the
 > vector x.
 
@@ -99,11 +98,11 @@ INCX : INTEGER [in]
 > On entry, INCX specifies the increment for the elements of
 > X. INCX must not be zero.
 
-BETA : COMPLEX*16 [in]
+BETA : COMPLEX\*16 [in]
 > On entry, BETA specifies the scalar beta.
 
-Y : COMPLEX*16 array, dimension at least [in,out]
-> ( 1 + ( n - 1 )*abs( INCY ) ).
+Y : COMPLEX\*16 array, dimension at least [in,out]
+> ( 1 + ( n - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array Y must contain the
 > vector y. On exit, Y is overwritten by the updated vector y.
 

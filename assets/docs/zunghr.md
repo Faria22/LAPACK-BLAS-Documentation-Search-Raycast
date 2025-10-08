@@ -1,6 +1,5 @@
 ```fortran
-subroutine zunghr
-(
+subroutine zunghr (
         integer n,
         integer ilo,
         integer ihi,
@@ -32,7 +31,7 @@ IHI : INTEGER [in]
 > submatrix Q(ilo+1:ihi,ilo+1:ihi).
 > 1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the vectors which define the elementary reflectors,
 > as returned by ZGEHRD.
 > On exit, the N-by-N unitary matrix Q.
@@ -40,16 +39,16 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-TAU : COMPLEX*16 array, dimension (N-1) [in]
+TAU : COMPLEX\*16 array, dimension (N-1) [in]
 > TAU(i) must contain the scalar factor of the elementary
 > reflector H(i), as returned by ZGEHRD.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= IHI-ILO.
-> For optimum performance LWORK >= (IHI-ILO)*NB, where NB is
+> For optimum performance LWORK >= (IHI-ILO)\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

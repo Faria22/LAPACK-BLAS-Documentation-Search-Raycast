@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhbgst
-(
+subroutine zhbgst (
         character vect,
         character uplo,
         integer n,
@@ -19,20 +18,20 @@ subroutine zhbgst
 ```
 
 ZHBGST reduces a complex Hermitian-definite banded generalized
-eigenproblem  A*x = lambda*B*x  to standard form  C*y = lambda*y,
+eigenproblem  A\*x = lambda\*B\*x  to standard form  C\*y = lambda\*y,
 such that C has the same bandwidth as A.
 
-B must have been previously factorized as S**H*S by ZPBSTF, using a
-split Cholesky factorization. A is overwritten by C = X**H*A*X, where
-X = S**(-1)*Q and Q is a unitary matrix chosen to preserve the
+B must have been previously factorized as S\*\*H\*S by ZPBSTF, using a
+split Cholesky factorization. A is overwritten by C = X\*\*H\*A\*X, where
+X = S\*\*(-1)\*Q and Q is a unitary matrix chosen to preserve the
 bandwidth of A.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  do not form the transformation matrix X;
 > = 'V':  form X.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -47,7 +46,7 @@ KB : INTEGER [in]
 > The number of superdiagonals of the matrix B if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KA >= KB >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first ka+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -55,13 +54,13 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
 > if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
 > 
-> On exit, the transformed matrix X**H*A*X, stored in the same
+> On exit, the transformed matrix X\*\*H\*A\*X, stored in the same
 > format as A.
 
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KA+1.
 
-BB : COMPLEX*16 array, dimension (LDBB,N) [in]
+BB : COMPLEX\*16 array, dimension (LDBB,N) [in]
 > The banded factor S from the split Cholesky factorization of
 > B, as returned by ZPBSTF, stored in the first kb+1 rows of
 > the array.
@@ -69,7 +68,7 @@ BB : COMPLEX*16 array, dimension (LDBB,N) [in]
 LDBB : INTEGER [in]
 > The leading dimension of the array BB.  LDBB >= KB+1.
 
-X : COMPLEX*16 array, dimension (LDX,N) [out]
+X : COMPLEX\*16 array, dimension (LDX,N) [out]
 > If VECT = 'V', the n-by-n matrix X.
 > If VECT = 'N', the array X is not referenced.
 
@@ -77,7 +76,7 @@ LDX : INTEGER [in]
 > The leading dimension of the array X.
 > LDX >= max(1,N) if VECT = 'V'; LDX >= 1 otherwise.
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

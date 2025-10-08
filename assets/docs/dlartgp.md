@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlartgp
-(
+subroutine dlartgp (
         double precision f,
         double precision g,
         double precision cs,
@@ -11,7 +10,7 @@ subroutine dlartgp
 
 DLARTGP generates a plane rotation so that
 
-[  CS  SN  ]  .  [ F ]  =  [ R ]   where CS**2 + SN**2 = 1.
+[  CS  SN  ]  .  [ F ]  =  [ R ]   where CS\*\*2 + SN\*\*2 = 1.
 [ -SN  CS  ]     [ G ]     [ 0 ]
 
 This is a slower, more accurate version of the Level 1 BLAS routine DROTG,

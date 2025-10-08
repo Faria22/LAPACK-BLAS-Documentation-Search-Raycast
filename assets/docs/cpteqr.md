@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpteqr
-(
+subroutine cpteqr (
         character compz,
         integer n,
         real, dimension( * ) d,
@@ -31,7 +30,7 @@ high relative accuracy in the small eigenvalues of the original
 matrix, if these eigenvalues range over many orders of magnitude.)
 
 ## Parameters
-COMPZ : CHARACTER*1 [in]
+COMPZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only.
 > = 'V':  Compute eigenvectors of original Hermitian
 > matrix also.  Array Z contains the unitary matrix
@@ -67,7 +66,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > COMPZ = 'V' or 'I', LDZ >= max(1,N).
 
-WORK : REAL array, dimension (4*N) [out]
+WORK : REAL array, dimension (4\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

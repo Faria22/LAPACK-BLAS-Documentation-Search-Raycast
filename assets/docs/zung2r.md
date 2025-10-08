@@ -1,6 +1,5 @@
 ```fortran
-subroutine zung2r
-(
+subroutine zung2r (
         integer m,
         integer n,
         integer k,
@@ -31,7 +30,7 @@ K : INTEGER [in]
 > The number of elementary reflectors whose product defines the
 > matrix Q. N >= K >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the i-th column must contain the vector which
 > defines the elementary reflector H(i), for i = 1,2,...,k, as
 > returned by ZGEQRF in the first k columns of its array
@@ -41,11 +40,11 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The first dimension of the array A. LDA >= max(1,M).
 
-TAU : COMPLEX*16 array, dimension (K) [in]
+TAU : COMPLEX\*16 array, dimension (K) [in]
 > TAU(i) must contain the scalar factor of the elementary
 > reflector H(i), as returned by ZGEQRF.
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

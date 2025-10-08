@@ -1,6 +1,5 @@
 ```fortran
-subroutine zggglm
-(
+subroutine zggglm (
         integer n,
         integer m,
         integer p,
@@ -19,7 +18,7 @@ subroutine zggglm
 
 ZGGGLM solves a general Gauss-Markov linear model (GLM) problem:
 
-minimize || y ||_2   subject to   d = A*x + B*y
+minimize || y ||_2   subject to   d = A\*x + B\*y
 x
 
 where A is an N-by-M matrix, B is an N-by-P matrix, and d is a
@@ -32,14 +31,14 @@ consistent, and there is a unique solution x and a minimal 2-norm
 solution y, which is obtained using a generalized QR factorization
 of the matrices (A, B) given by
 
-A = Q*(R),   B = Q*T*Z.
+A = Q\*(R),   B = Q\*T\*Z.
 (0)
 
 In particular, if matrix B is square nonsingular, then the problem
 GLM is equivalent to the following weighted linear least squares
 problem
 
-minimize || inv(B)*(d-A*x) ||_2
+minimize || inv(B)\*(d-A\*x) ||_2
 x
 
 where inv(B) denotes the inverse of B.
@@ -63,7 +62,7 @@ M : INTEGER [in]
 P : INTEGER [in]
 > The number of columns of the matrix B.  P >= N-M.
 
-A : COMPLEX*16 array, dimension (LDA,M) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,M) [in,out]
 > On entry, the N-by-M matrix A.
 > On exit, the upper triangular part of the array A contains
 > the M-by-M upper triangular matrix R.
@@ -71,7 +70,7 @@ A : COMPLEX*16 array, dimension (LDA,M) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,P) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,P) [in,out]
 > On entry, the N-by-P matrix B.
 > On exit, if N <= P, the upper triangle of the subarray
 > B(1:N,P-N+1:P) contains the N-by-N upper triangular matrix T;
@@ -81,22 +80,22 @@ B : COMPLEX*16 array, dimension (LDB,P) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,N).
 
-D : COMPLEX*16 array, dimension (N) [in,out]
+D : COMPLEX\*16 array, dimension (N) [in,out]
 > On entry, D is the left hand side of the GLM equation.
 > On exit, D is destroyed.
 
-X : COMPLEX*16 array, dimension (M) [out]
+X : COMPLEX\*16 array, dimension (M) [out]
 
-Y : COMPLEX*16 array, dimension (P) [out]
+Y : COMPLEX\*16 array, dimension (P) [out]
 > 
 > On exit, X and Y are the solutions of the GLM problem.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N+M+P).
-> For optimum performance, LWORK >= M+min(N,P)+max(N,P)*NB,
+> For optimum performance, LWORK >= M+min(N,P)+max(N,P)\*NB,
 > where NB is an upper bound for the optimal blocksizes for
 > ZGEQRF, ZGERQF, ZUNMQR and ZUNMRQ.
 > 

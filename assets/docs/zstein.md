@@ -1,6 +1,5 @@
 ```fortran
-subroutine zstein
-(
+subroutine zstein (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) e,
@@ -64,7 +63,7 @@ ISPLIT : INTEGER array, dimension (N) [in]
 > through ISPLIT( 2 ), etc.
 > ( The output array ISPLIT from DSTEBZ is expected here. )
 
-Z : COMPLEX*16 array, dimension (LDZ, M) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, M) [out]
 > The computed eigenvectors.  The eigenvector associated
 > with the eigenvalue W(i) is stored in the i-th column of
 > Z.  Any vector which fails to converge is set to its current
@@ -74,7 +73,7 @@ Z : COMPLEX*16 array, dimension (LDZ, M) [out]
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (5*N) [out]
+WORK : DOUBLE PRECISION array, dimension (5\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgsvj1
-(
+subroutine cgsvj1 (
         character*1 jobv,
         integer m,
         integer n,
@@ -32,16 +31,16 @@ Further Details
 ~~~~~~~~~~~~~~~
 CGSVJ1 applies few sweeps of Jacobi rotations in the column space of
 the input M-by-N matrix A. The pivot pairs are taken from the (1,2)
-off-diagonal block in the corresponding N-by-N Gram matrix A^T * A. The
+off-diagonal block in the corresponding N-by-N Gram matrix A^T \* A. The
 block-entries (tiles) of the (1,2) off-diagonal block are marked by the
 [x]'s in the following scheme:
 
-| *  *  * [x] [x] [x]|
-| *  *  * [x] [x] [x]|    Row-cycling in the nblr-by-nblc [x] blocks.
-| *  *  * [x] [x] [x]|    Row-cyclic pivoting inside each [x] block.
-|[x] [x] [x] *  *  * |
-|[x] [x] [x] *  *  * |
-|[x] [x] [x] *  *  * |
+| \*  \*  \* [x] [x] [x]|
+| \*  \*  \* [x] [x] [x]|    Row-cycling in the nblr-by-nblc [x] blocks.
+| \*  \*  \* [x] [x] [x]|    Row-cyclic pivoting inside each [x] block.
+|[x] [x] [x] \*  \*  \* |
+|[x] [x] [x] \*  \*  \* |
+|[x] [x] [x] \*  \*  \* |
 
 In terms of the columns of A, the first N1 columns are rotated 'against'
 the remaining N-N1 columns, trying to increase the angle between the
@@ -51,7 +50,7 @@ The number of sweeps is given in NSWEEP and the orthogonality threshold
 is given in TOL.
 
 ## Parameters
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > Specifies whether the output from this procedure is used
 > to compute the matrix V:
 > = 'V': the product of the Jacobi rotations is accumulated
@@ -74,10 +73,10 @@ N1 : INTEGER [in]
 > rotated 'against' the remaining N-N1 columns of A.
 
 A : COMPLEX array, dimension (LDA,N) [in,out]
-> On entry, M-by-N matrix A, such that A*diag(D) represents
+> On entry, M-by-N matrix A, such that A\*diag(D) represents
 > the input matrix.
 > On exit,
-> A_onexit * D_onexit represents the input matrix A*diag(D)
+> A_onexit \* D_onexit represents the input matrix A\*diag(D)
 > post-multiplied by a sequence of Jacobi rotations, where the
 > rotation threshold and the total number of sweeps are given in
 > TOL and NSWEEP, respectively.
@@ -89,8 +88,8 @@ LDA : INTEGER [in]
 D : COMPLEX array, dimension (N) [in,out]
 > The array D accumulates the scaling factors from the fast scaled
 > Jacobi rotations.
-> On entry, A*diag(D) represents the input matrix.
-> On exit, A_onexit*diag(D_onexit) represents the input matrix
+> On entry, A\*diag(D) represents the input matrix.
+> On exit, A_onexit\*diag(D_onexit) represents the input matrix
 > post-multiplied by a sequence of Jacobi rotations, where the
 > rotation threshold and the total number of sweeps are given in
 > TOL and NSWEEP, respectively.
@@ -98,9 +97,9 @@ D : COMPLEX array, dimension (N) [in,out]
 
 SVA : REAL array, dimension (N) [in,out]
 > On entry, SVA contains the Euclidean norms of the columns of
-> the matrix A*diag(D).
+> the matrix A\*diag(D).
 > On exit, SVA contains the Euclidean norms of the columns of
-> the matrix onexit*diag(D_onexit).
+> the matrix onexit\*diag(D_onexit).
 
 MV : INTEGER [in]
 > If JOBV = 'A', then MV rows of V are post-multiplied by a

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgeqlf
-(
+subroutine zgeqlf (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -13,7 +12,7 @@ subroutine zgeqlf
 ```
 
 ZGEQLF computes a QL factorization of a complex M-by-N matrix A:
-A = Q * L.
+A = Q \* L.
 
 ## Parameters
 M : INTEGER [in]
@@ -22,7 +21,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit,
 > if m >= n, the lower triangle of the subarray
@@ -36,17 +35,17 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-TAU : COMPLEX*16 array, dimension (min(M,N)) [out]
+TAU : COMPLEX\*16 array, dimension (min(M,N)) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= N, otherwise.
-> For optimum performance LWORK >= N*NB, where NB is
+> For optimum performance LWORK >= N\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

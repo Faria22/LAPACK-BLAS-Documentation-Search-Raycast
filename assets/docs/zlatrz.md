@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlatrz
-(
+subroutine zlatrz (
         integer m,
         integer n,
         integer l,
@@ -12,7 +11,7 @@ subroutine zlatrz
 ```
 
 ZLATRZ factors the M-by-(M+L) complex upper trapezoidal matrix
-[ A1 A2 ] = [ A(1:M,1:M) A(1:M,N-L+1:N) ] as ( R  0 ) * Z by means
+[ A1 A2 ] = [ A(1:M,1:M) A(1:M,N-L+1:N) ] as ( R  0 ) \* Z by means
 of unitary transformations, where  Z is an (M+L)-by-(M+L) unitary
 matrix and, R and A1 are M-by-M upper triangular matrices.
 
@@ -27,7 +26,7 @@ L : INTEGER [in]
 > The number of columns of the matrix A containing the
 > meaningful part of the Householder vectors. N-M >= L >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the leading M-by-N upper trapezoidal part of the
 > array A must contain the matrix to be factorized.
 > On exit, the leading M-by-M upper triangular part of A
@@ -38,7 +37,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-TAU : COMPLEX*16 array, dimension (M) [out]
+TAU : COMPLEX\*16 array, dimension (M) [out]
 > The scalar factors of the elementary reflectors.
 
-WORK : COMPLEX*16 array, dimension (M) [out]
+WORK : COMPLEX\*16 array, dimension (M) [out]

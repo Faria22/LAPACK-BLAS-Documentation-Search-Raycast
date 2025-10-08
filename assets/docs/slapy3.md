@@ -1,13 +1,12 @@
 ```fortran
-real function slapy3
-(
+real function slapy3 (
         real x,
         real y,
         real z
 )
 ```
 
-SLAPY3 returns sqrt(x**2+y**2+z**2), taking care not to cause
+SLAPY3 returns sqrt(x\*\*2+y\*\*2+z\*\*2), taking care not to cause
 unnecessary overflow and unnecessary underflow.
 
 ## Parameters

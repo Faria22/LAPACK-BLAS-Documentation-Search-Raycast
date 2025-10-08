@@ -1,6 +1,5 @@
 ```fortran
-subroutine daxpy
-(
+subroutine daxpy (
         integer n,
         double precision da,
         double precision, dimension(*) dx,
@@ -20,12 +19,12 @@ N : INTEGER [in]
 DA : DOUBLE PRECISION [in]
 > On entry, DA specifies the scalar alpha.
 
-DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in]
+DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in]
 
 INCX : INTEGER [in]
 > storage spacing between elements of DX
 
-DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of DY

@@ -1,13 +1,12 @@
 ```fortran
-double precision function dlapy3
-(
+double precision function dlapy3 (
         double precision x,
         double precision y,
         double precision z
 )
 ```
 
-DLAPY3 returns sqrt(x**2+y**2+z**2), taking care not to cause
+DLAPY3 returns sqrt(x\*\*2+y\*\*2+z\*\*2), taking care not to cause
 unnecessary overflow and unnecessary underflow.
 
 ## Parameters

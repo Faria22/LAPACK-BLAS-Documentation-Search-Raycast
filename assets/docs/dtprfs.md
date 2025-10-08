@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtprfs
-(
+subroutine dtprfs (
         character uplo,
         character trans,
         character diag,
@@ -28,17 +27,17 @@ means before entering this routine.  DTPRFS does not do iterative
 refinement because doing so cannot improve the backward error.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B  (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B  (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose = Transpose)
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > = 'N':  A is non-unit triangular;
 > = 'U':  A is unit triangular.
 
@@ -49,12 +48,12 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AP : DOUBLE PRECISION array, dimension (N*(N+1)/2) [in]
+AP : DOUBLE PRECISION array, dimension (N\*(N+1)/2) [in]
 > The upper or lower triangular matrix A, packed columnwise in
 > a linear array.  The j-th column of A is stored in the array
 > AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > If DIAG = 'U', the diagonal elements of A are not referenced
 > and are assumed to be 1.
 
@@ -85,7 +84,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaed6
-(
+subroutine slaed6 (
         integer kniter,
         logical orgati,
         real rho,

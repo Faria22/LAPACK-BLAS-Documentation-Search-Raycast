@@ -1,6 +1,5 @@
 ```fortran
-subroutine zbbcsd
-(
+subroutine zbbcsd (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -44,7 +43,7 @@ X = [----------------]
 [  0  |  0  0  I ]
 
 [  C | -S  0  0 ]
-[ U1 |    ] [  0 |  0 -I  0 ] [ V1 |    ]**H
+[ U1 |    ] [  0 |  0 -I  0 ] [ V1 |    ]\*\*H
 = [---------] [---------------] [---------]   .
 [    | U2 ] [  S |  C  0  0 ] [    | V2 ]
 [  0 |  0  0  I ]
@@ -105,7 +104,7 @@ PHI : DOUBLE PRECISION array, dimension (Q-1) [in,out]
 > The angles PHI(1),...,PHI(Q-1) that, along with THETA(1),...,
 > THETA(Q), define the matrix in bidiagonal-block form.
 
-U1 : COMPLEX*16 array, dimension (LDU1,P) [in,out]
+U1 : COMPLEX\*16 array, dimension (LDU1,P) [in,out]
 > On entry, a P-by-P matrix. On exit, U1 is postmultiplied
 > by the left singular vector matrix common to [ B11 ; 0 ] and
 > [ B12 0 0 ; 0 -I 0 0 ].
@@ -113,7 +112,7 @@ U1 : COMPLEX*16 array, dimension (LDU1,P) [in,out]
 LDU1 : INTEGER [in]
 > The leading dimension of the array U1, LDU1 >= MAX(1,P).
 
-U2 : COMPLEX*16 array, dimension (LDU2,M-P) [in,out]
+U2 : COMPLEX\*16 array, dimension (LDU2,M-P) [in,out]
 > On entry, an (M-P)-by-(M-P) matrix. On exit, U2 is
 > postmultiplied by the left singular vector matrix common to
 > [ B21 ; 0 ] and [ B22 0 0 ; 0 0 I ].
@@ -121,7 +120,7 @@ U2 : COMPLEX*16 array, dimension (LDU2,M-P) [in,out]
 LDU2 : INTEGER [in]
 > The leading dimension of the array U2, LDU2 >= MAX(1,M-P).
 
-V1T : COMPLEX*16 array, dimension (LDV1T,Q) [in,out]
+V1T : COMPLEX\*16 array, dimension (LDV1T,Q) [in,out]
 > On entry, a Q-by-Q matrix. On exit, V1T is premultiplied
 > by the conjugate transpose of the right singular vector
 > matrix common to [ B11 ; 0 ] and [ B21 ; 0 ].
@@ -129,7 +128,7 @@ V1T : COMPLEX*16 array, dimension (LDV1T,Q) [in,out]
 LDV1T : INTEGER [in]
 > The leading dimension of the array V1T, LDV1T >= MAX(1,Q).
 
-V2T : COMPLEX*16 array, dimension (LDV2T,M-Q) [in,out]
+V2T : COMPLEX\*16 array, dimension (LDV2T,M-Q) [in,out]
 > On entry, an (M-Q)-by-(M-Q) matrix. On exit, V2T is
 > premultiplied by the conjugate transpose of the right
 > singular vector matrix common to [ B12 0 0 ; 0 -I 0 ] and
@@ -186,7 +185,7 @@ RWORK : DOUBLE PRECISION array, dimension (MAX(1,LRWORK)) [out]
 > On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
 
 LRWORK : INTEGER [in]
-> The dimension of the array RWORK. LRWORK >= MAX(1,8*Q).
+> The dimension of the array RWORK. LRWORK >= MAX(1,8\*Q).
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the RWORK array,

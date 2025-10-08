@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgees
-(
+subroutine dgees (
         character jobvs,
         character sort,
         external select,
@@ -21,7 +20,7 @@ subroutine dgees
 
 DGEES computes for an N-by-N real nonsymmetric matrix A, the
 eigenvalues, the real Schur form T, and, optionally, the matrix of
-Schur vectors Z.  This gives the Schur factorization A = Z*T*(Z**T).
+Schur vectors Z.  This gives the Schur factorization A = Z\*T\*(Z\*\*T).
 
 Optionally, it also orders the eigenvalues on the diagonal of the
 real Schur form so that selected eigenvalues are at the top left.
@@ -34,14 +33,14 @@ form
 [  a  b  ]
 [  c  a  ]
 
-where b*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
+where b\*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
 
 ## Parameters
-JOBVS : CHARACTER*1 [in]
+JOBVS : CHARACTER\*1 [in]
 > = 'N': Schur vectors are not computed;
 > = 'V': Schur vectors are computed.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the Schur form.
 > = 'N': Eigenvalues are not ordered;
@@ -52,7 +51,7 @@ SELECT : a LOGICAL FUNCTION of two DOUBLE PRECISION arguments [in]
 > If SORT = 'S', SELECT is used to select eigenvalues to sort
 > to the top left of the Schur form.
 > If SORT = 'N', SELECT is not referenced.
-> An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if
+> An eigenvalue WR(j)+sqrt(-1)\*WI(j) is selected if
 > SELECT(WR(j),WI(j)) is true; i.e., if either one of a complex
 > conjugate pair of eigenvalues is selected, then both complex
 > eigenvalues are selected.
@@ -102,7 +101,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) contains the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= max(1,3*N).
+> The dimension of the array WORK.  LWORK >= max(1,3\*N).
 > For good performance, LWORK must generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

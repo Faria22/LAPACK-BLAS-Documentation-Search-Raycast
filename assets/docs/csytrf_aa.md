@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytrf_aa
-(
+subroutine csytrf_aa (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -15,7 +14,7 @@ subroutine csytrf_aa
 CSYTRF_AA computes the factorization of a complex symmetric matrix A
 using the Aasen's algorithm.  The form of the factorization is
 
-A = U**T*T*U  or  A = L*T*L**T
+A = U\*\*T\*T\*U  or  A = L\*T\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is a complex symmetric tridiagonal matrix.
@@ -23,7 +22,7 @@ triangular matrices, and T is a complex symmetric tridiagonal matrix.
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -56,8 +55,8 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK. LWORK >= MAX(1,2*N). For optimum performance
-> LWORK >= N*(1+NB), where NB is the optimal blocksize.
+> The length of WORK. LWORK >= MAX(1,2\*N). For optimum performance
+> LWORK >= N\*(1+NB), where NB is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

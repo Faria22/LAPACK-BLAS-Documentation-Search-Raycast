@@ -1,6 +1,5 @@
 ```fortran
-subroutine chbevx
-(
+subroutine chbevx (
         character jobz,
         character range,
         character uplo,
@@ -33,17 +32,17 @@ can be selected by specifying either a range of values or a range of
 indices for the desired eigenvalues.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found;
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found;
 > = 'I': the IL-th through IU-th eigenvalues will be found.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -105,18 +104,18 @@ ABSTOL : REAL [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing AB to tridiagonal form.
 > 
 > Eigenvalues will be computed most accurately when ABSTOL is
-> set to twice the underflow threshold 2*SLAMCH('S'), not zero.
+> set to twice the underflow threshold 2\*SLAMCH('S'), not zero.
 > If this routine returns with INFO>0, indicating that some
 > eigenvectors did not converge, try setting ABSTOL to
-> 2*SLAMCH('S').
+> 2\*SLAMCH('S').
 > 
 > See  by Demmel and
 > Kahan, LAPACK Working Note #3.
@@ -148,9 +147,9 @@ LDZ : INTEGER [in]
 
 WORK : COMPLEX array, dimension (N) [out]
 
-RWORK : REAL array, dimension (7*N) [out]
+RWORK : REAL array, dimension (7\*N) [out]
 
-IWORK : INTEGER array, dimension (5*N) [out]
+IWORK : INTEGER array, dimension (5\*N) [out]
 
 IFAIL : INTEGER array, dimension (N) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M elements of

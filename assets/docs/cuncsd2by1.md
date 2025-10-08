@@ -1,6 +1,5 @@
 ```fortran
-subroutine cuncsd2by1
-(
+subroutine cuncsd2by1 (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -34,7 +33,7 @@ structure:
 [  I1 0  0 ]
 [  0  C  0 ]
 [ X11 ]   [ U1 |    ] [  0  0  0 ]
-X = [-----] = [---------] [----------] V1**T .
+X = [-----] = [---------] [----------] V1\*\*T .
 [ X21 ]   [    | U2 ] [  0  0  0 ]
 [  0  S  0 ]
 [  0  0  I2]
@@ -101,7 +100,7 @@ LDU2 : INTEGER [in]
 
 V1T : COMPLEX array, dimension (Q) [out]
 > If JOBV1T = 'Y', V1T contains the Q-by-Q matrix unitary
-> matrix V1**T.
+> matrix V1\*\*T.
 
 LDV1T : INTEGER [in]
 > The leading dimension of V1T. If JOBV1T = 'Y', LDV1T >=

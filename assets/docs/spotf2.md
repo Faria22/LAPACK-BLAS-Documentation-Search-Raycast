@@ -1,6 +1,5 @@
 ```fortran
-subroutine spotf2
-(
+subroutine spotf2 (
         character uplo,
         integer n,
         real, dimension( lda, * ) a,
@@ -13,14 +12,14 @@ SPOTF2 computes the Cholesky factorization of a real symmetric
 positive definite matrix A.
 
 The factorization has the form
-A = U**T * U ,  if UPLO = 'U', or
-A = L  * L**T,  if UPLO = 'L',
+A = U\*\*T \* U ,  if UPLO = 'U', or
+A = L  \* L\*\*T,  if UPLO = 'L',
 where U is an upper triangular matrix and L is lower triangular.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored.
 > = 'U':  Upper triangular
@@ -39,7 +38,7 @@ A : REAL array, dimension (LDA,N) [in,out]
 > triangular part of A is not referenced.
 > 
 > On exit, if INFO = 0, the factor U or L from the Cholesky
-> factorization A = U**T *U  or A = L*L**T.
+> factorization A = U\*\*T \*U  or A = L\*L\*\*T.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

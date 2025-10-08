@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgbtrf
-(
+subroutine sgbtrf (
         integer m,
         integer n,
         integer kl,
@@ -32,7 +31,7 @@ KU : INTEGER [in]
 
 AB : REAL array, dimension (LDAB,N) [in,out]
 > On entry, the matrix A in band storage, in rows KL+1 to
-> 2*KL+KU+1; rows 1 to KL of the array need not be set.
+> 2\*KL+KU+1; rows 1 to KL of the array need not be set.
 > The j-th column of A is stored in the j-th column of the
 > array AB as follows:
 > AB(kl+ku+1+i-j,j) = A(i,j) for max(1,j-ku)<=i<=min(m,j+kl)
@@ -40,11 +39,11 @@ AB : REAL array, dimension (LDAB,N) [in,out]
 > On exit, details of the factorization: U is stored as an
 > upper triangular band matrix with KL+KU superdiagonals in
 > rows 1 to KL+KU+1, and the multipliers used during the
-> factorization are stored in rows KL+KU+2 to 2*KL+KU+1.
+> factorization are stored in rows KL+KU+2 to 2\*KL+KU+1.
 > See below for further details.
 
 LDAB : INTEGER [in]
-> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
+> The leading dimension of the array AB.  LDAB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (min(M,N)) [out]
 > The pivot indices; for 1 <= i <= min(M,N), row i of the

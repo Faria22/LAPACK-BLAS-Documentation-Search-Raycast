@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssyev
-(
+subroutine ssyev (
         character jobz,
         character uplo,
         integer n,
@@ -17,11 +16,11 @@ SSYEV computes all eigenvalues and, optionally, eigenvectors of a
 real symmetric matrix A.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -50,8 +49,8 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of the array WORK.  LWORK >= max(1,3*N-1).
-> For optimal efficiency, LWORK >= (NB+2)*N,
+> The length of the array WORK.  LWORK >= max(1,3\*N-1).
+> For optimal efficiency, LWORK >= (NB+2)\*N,
 > where NB is the blocksize for SSYTRD returned by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

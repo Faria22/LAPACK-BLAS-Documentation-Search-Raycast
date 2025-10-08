@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaqps
-(
+subroutine dlaqps (
         integer m,
         integer n,
         integer offset,
@@ -74,7 +73,7 @@ AUXV : DOUBLE PRECISION array, dimension (NB) [in,out]
 > Auxiliary vector.
 
 F : DOUBLE PRECISION array, dimension (LDF,NB) [in,out]
-> Matrix F**T = L*Y**T*A.
+> Matrix F\*\*T = L\*Y\*\*T\*A.
 
 LDF : INTEGER [in]
 > The leading dimension of the array F. LDF >= max(1,N).

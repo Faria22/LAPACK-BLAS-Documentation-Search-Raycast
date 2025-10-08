@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlauum
-(
+subroutine zlauum (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -9,7 +8,7 @@ subroutine zlauum
 )
 ```
 
-ZLAUUM computes the product U * U**H or L**H * L, where the triangular
+ZLAUUM computes the product U \* U\*\*H or L\*\*H \* L, where the triangular
 factor U or L is stored in the upper or lower triangular part of
 the array A.
 
@@ -21,7 +20,7 @@ overwriting the factor L in A.
 This is the blocked form of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the triangular factor stored in the array A
 > is upper or lower triangular:
 > = 'U':  Upper triangular
@@ -30,12 +29,12 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the triangular factor U or L.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the triangular factor U or L.
 > On exit, if UPLO = 'U', the upper triangle of A is
-> overwritten with the upper triangle of the product U * U**H;
+> overwritten with the upper triangle of the product U \* U\*\*H;
 > if UPLO = 'L', the lower triangle of A is overwritten with
-> the lower triangle of the product L**H * L.
+> the lower triangle of the product L\*\*H \* L.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).

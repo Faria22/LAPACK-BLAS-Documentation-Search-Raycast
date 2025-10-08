@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsposv
-(
+subroutine dsposv (
         character uplo,
         integer n,
         integer nrhs,
@@ -18,7 +17,7 @@ subroutine dsposv
 ```
 
 DSPOSV computes the solution to a real system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric positive definite matrix and X and B
 are N-by-NRHS matrices.
 
@@ -38,7 +37,7 @@ always try iterative refinement.
 The iterative refinement process is stopped if
 ITER > ITERMAX
 or for all the RHS we have:
-RNRM < SQRT(N)*XNRM*ANRM*EPS*BWDMAX
+RNRM < SQRT(N)\*XNRM\*ANRM\*EPS\*BWDMAX
 where
 o ITER is the number of the current iteration in the iterative
 refinement process
@@ -50,7 +49,7 @@ The value ITERMAX and BWDMAX are fixed to 30 and 1.0D+00
 respectively.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -76,7 +75,7 @@ A : DOUBLE PRECISION array, [in,out]
 > unchanged, if double precision factorization has been used
 > (INFO = 0 and ITER < 0, see description below), then the
 > array A contains the factor U or L from the Cholesky
-> factorization A = U**T*U or A = L*L**T.
+> factorization A = U\*\*T\*U or A = L\*L\*\*T.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
@@ -96,7 +95,7 @@ LDX : INTEGER [in]
 WORK : DOUBLE PRECISION array, dimension (N,NRHS) [out]
 > This array is used to hold the residual vectors.
 
-SWORK : REAL array, dimension (N*(N+NRHS)) [out]
+SWORK : REAL array, dimension (N\*(N+NRHS)) [out]
 > This array is used to use the single precision matrix and the
 > right-hand sides or solutions in single precision.
 

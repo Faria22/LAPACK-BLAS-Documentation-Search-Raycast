@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpbrfs
-(
+subroutine zpbrfs (
         character uplo,
         integer n,
         integer kd,
@@ -27,7 +26,7 @@ and banded, and provides error bounds and backward error estimates
 for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -42,7 +41,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The upper or lower triangle of the Hermitian band matrix A,
 > stored in the first KD+1 rows of the array.  The j-th column
 > of A is stored in the j-th column of the array AB as follows:
@@ -52,21 +51,21 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [in]
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KD+1.
 
-AFB : COMPLEX*16 array, dimension (LDAFB,N) [in]
+AFB : COMPLEX\*16 array, dimension (LDAFB,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**H*U or A = L*L**H of the band matrix A as computed by
+> A = U\*\*H\*U or A = L\*L\*\*H of the band matrix A as computed by
 > ZPBTRF, in the same storage format as A (see AB).
 
 LDAFB : INTEGER [in]
 > The leading dimension of the array AFB.  LDAFB >= KD+1.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZPBTRS.
 > On exit, the improved solution matrix X.
 
@@ -88,7 +87,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

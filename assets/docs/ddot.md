@@ -1,6 +1,5 @@
 ```fortran
-double precision function ddot
-(
+double precision function ddot (
         integer n,
         double precision, dimension(*) dx,
         integer incx,
@@ -16,12 +15,12 @@ uses unrolled loops for increments equal to one.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in]
+DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in]
 
 INCX : INTEGER [in]
 > storage spacing between elements of DX
 
-DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in]
+DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in]
 
 INCY : INTEGER [in]
 > storage spacing between elements of DY

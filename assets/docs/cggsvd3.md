@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggsvd3
-(
+subroutine cggsvd3 (
         character jobu,
         character jobv,
         character jobq,
@@ -32,11 +31,11 @@ subroutine cggsvd3
 CGGSVD3 computes the generalized singular value decomposition (GSVD)
 of an M-by-N complex matrix A and P-by-N complex matrix B:
 
-U**H*A*Q = D1*( 0 R ),    V**H*B*Q = D2*( 0 R )
+U\*\*H\*A\*Q = D1\*( 0 R ),    V\*\*H\*B\*Q = D2\*( 0 R )
 
 where U, V and Q are unitary matrices.
 Let K+L = the effective numerical rank of the
-matrix (A**H,B**H)**H, then R is a (K+L)-by-(K+L) nonsingular upper
+matrix (A\*\*H,B\*\*H)\*\*H, then R is a (K+L)-by-(K+L) nonsingular upper
 triangular matrix, D1 and D2 are M-by-(K+L) and P-by-(K+L)
 matrices and of the following structures, respectively:
 
@@ -59,7 +58,7 @@ where
 
 C = diag( ALPHA(K+1), ... , ALPHA(K+L) ),
 S = diag( BETA(K+1),  ... , BETA(K+L) ),
-C**2 + S**2 = I.
+C\*\*2 + S\*\*2 = I.
 
 R is stored in A(1:K+L,N-K-L+1:N) on exit.
 
@@ -83,7 +82,7 @@ where
 
 C = diag( ALPHA(K+1), ... , ALPHA(M) ),
 S = diag( BETA(K+1),  ... , BETA(M) ),
-C**2 + S**2 = I.
+C\*\*2 + S\*\*2 = I.
 
 (R11 R12 R13 ) is stored in A(1:M, N-K-L+1:N), and R33 is stored
 ( 0  R22 R23 )
@@ -93,31 +92,31 @@ The routine computes C, S, R, and optionally the unitary
 transformation matrices U, V and Q.
 
 In particular, if B is an N-by-N nonsingular matrix, then the GSVD of
-A and B implicitly gives the SVD of A*inv(B):
-A*inv(B) = U*(D1*inv(D2))*V**H.
-If ( A**H,B**H)**H has orthonormal columns, then the GSVD of A and B is also
+A and B implicitly gives the SVD of A\*inv(B):
+A\*inv(B) = U\*(D1\*inv(D2))\*V\*\*H.
+If ( A\*\*H,B\*\*H)\*\*H has orthonormal columns, then the GSVD of A and B is also
 equal to the CS decomposition of A and B. Furthermore, the GSVD can
 be used to derive the solution of the eigenvalue problem:
-A**H*A x = lambda* B**H*B x.
+A\*\*H\*A x = lambda\* B\*\*H\*B x.
 In some literature, the GSVD of A and B is presented in the form
-U**H*A*X = ( 0 D1 ),   V**H*B*X = ( 0 D2 )
+U\*\*H\*A\*X = ( 0 D1 ),   V\*\*H\*B\*X = ( 0 D2 )
 where U and V are orthogonal and X is nonsingular, and D1 and D2 are
 ``diagonal''.  The former GSVD form can be converted to the latter
 form by taking the nonsingular matrix X as
 
-X = Q*(  I   0    )
+X = Q\*(  I   0    )
 (  0 inv(R) )
 
 ## Parameters
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > = 'U':  Unitary matrix U is computed;
 > = 'N':  U is not computed.
 
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > = 'V':  Unitary matrix V is computed;
 > = 'N':  V is not computed.
 
-JOBQ : CHARACTER*1 [in]
+JOBQ : CHARACTER\*1 [in]
 > = 'Q':  Unitary matrix Q is computed;
 > = 'N':  Q is not computed.
 
@@ -136,7 +135,7 @@ L : INTEGER [out]
 > 
 > On exit, K and L specify the dimension of the subblocks
 > described in Purpose.
-> K + L = effective numerical rank of (A**H,B**H)**H.
+> K + L = effective numerical rank of (A\*\*H,B\*\*H)\*\*H.
 
 A : COMPLEX array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
@@ -207,7 +206,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (2*N) [out]
+RWORK : REAL array, dimension (2\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 > On exit, IWORK stores the sorting information. More

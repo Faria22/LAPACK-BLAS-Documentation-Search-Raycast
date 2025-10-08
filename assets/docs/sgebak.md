@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgebak
-(
+subroutine sgebak (
         character job,
         character side,
         integer n,
@@ -19,7 +18,7 @@ by backward transformation on the computed eigenvectors of the
 balanced matrix output by SGEBAL.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the type of backward transformation required:
 > = 'N': do nothing, return immediately;
 > = 'P': do backward transformation for permutation only;
@@ -28,7 +27,7 @@ JOB : CHARACTER*1 [in]
 > scaling.
 > JOB must be the same as the argument JOB supplied to SGEBAL.
 
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R':  V contains right eigenvectors;
 > = 'L':  V contains left eigenvectors.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ddisna
-(
+subroutine ddisna (
         character job,
         integer m,
         integer n,
@@ -19,17 +18,17 @@ singular value and the nearest other one.
 The bound on the error, measured by angle in radians, in the I-th
 computed vector is given by
 
-DLAMCH( 'E' ) * ( ANORM / SEP( I ) )
+DLAMCH( 'E' ) \* ( ANORM / SEP( I ) )
 
 where ANORM = 2-norm(A) = max( abs( D(j) ) ).  SEP(I) is not allowed
-to be smaller than DLAMCH( 'E' )*ANORM in order to limit the size of
+to be smaller than DLAMCH( 'E' )\*ANORM in order to limit the size of
 the error bound.
 
 DDISNA may also be used to compute error bounds for eigenvectors of
 the generalized symmetric definite eigenproblem.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies for which problem the reciprocal condition numbers
 > should be computed:
 > = 'E':  the eigenvectors of a symmetric/Hermitian matrix;

@@ -1,6 +1,5 @@
 ```fortran
-subroutine csysv
-(
+subroutine csysv (
         character uplo,
         integer n,
         integer nrhs,
@@ -16,20 +15,20 @@ subroutine csysv
 ```
 
 CSYSV computes the solution to a complex system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
 matrices.
 
 The diagonal pivoting method is used to factor A as
-A = U * D * U**T,  if UPLO = 'U', or
-A = L * D * L**T,  if UPLO = 'L',
+A = U \* D \* U\*\*T,  if UPLO = 'U', or
+A = L \* D \* L\*\*T,  if UPLO = 'L',
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and D is symmetric and block diagonal with
 1-by-1 and 2-by-2 diagonal blocks.  The factored form of A is then
-used to solve the system of equations A * X = B.
+used to solve the system of equations A \* X = B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -52,7 +51,7 @@ A : COMPLEX array, dimension (LDA,N) [in,out]
 > 
 > On exit, if INFO = 0, the block diagonal matrix D and the
 > multipliers used to obtain the factor U or L from the
-> factorization A = U*D*U**T or A = L*D*L**T as computed by
+> factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by
 > CSYTRF.
 
 LDA : INTEGER [in]
@@ -81,7 +80,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >= 1, and for best performance
-> LWORK >= max(1,N*NB), where NB is the optimal blocksize for
+> LWORK >= max(1,N\*NB), where NB is the optimal blocksize for
 > CSYTRF.
 > for LWORK < N, TRS will be done with Level BLAS 2
 > for LWORK >= N, TRS will be done with Level BLAS 3

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztfttr
-(
+subroutine ztfttr (
         character transr,
         character uplo,
         integer n,
@@ -15,22 +14,22 @@ ZTFTTR copies a triangular matrix A from rectangular full packed
 format (TF) to standard full format (TR).
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  ARF is in Normal format;
 > = 'C':  ARF is in Conjugate-transpose format;
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-ARF : COMPLEX*16 array, dimension ( N*(N+1)/2 ), [in]
+ARF : COMPLEX\*16 array, dimension ( N\*(N+1)/2 ), [in]
 > On entry, the upper or lower triangular matrix A stored in
 > RFP format. For a further discussion see Notes below.
 
-A : COMPLEX*16 array, dimension ( LDA, N ) [out]
+A : COMPLEX\*16 array, dimension ( LDA, N ) [out]
 > On exit, the triangular matrix A.  If UPLO = 'U', the
 > leading N-by-N upper triangular part of the array A contains
 > the upper triangular matrix, and the strictly lower

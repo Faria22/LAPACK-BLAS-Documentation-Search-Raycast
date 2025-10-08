@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgerq2
-(
+subroutine dgerq2 (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -12,7 +11,7 @@ subroutine dgerq2
 ```
 
 DGERQ2 computes an RQ factorization of a real m by n matrix A:
-A = R * Q.
+A = R \* Q.
 
 ## Parameters
 M : INTEGER [in]

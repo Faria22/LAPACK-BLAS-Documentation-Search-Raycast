@@ -1,6 +1,5 @@
 ```fortran
-subroutine zla_gbamv
-(
+subroutine zla_gbamv (
         integer trans,
         integer m,
         integer n,
@@ -19,8 +18,8 @@ subroutine zla_gbamv
 
 ZLA_GBAMV  performs one of the matrix-vector operations
 
-y := alpha*abs(A)*abs(x) + beta*abs(y),
-or   y := alpha*abs(A)**T*abs(x) + beta*abs(y),
+y := alpha\*abs(A)\*abs(x) + beta\*abs(y),
+or   y := alpha\*abs(A)\*\*T\*abs(x) + beta\*abs(y),
 
 where alpha and beta are scalars, x and y are vectors and A is an
 m by n matrix.
@@ -39,9 +38,9 @@ TRANS : INTEGER [in]
 > On entry, TRANS specifies the operation to be performed as
 > follows:
 > 
-> BLAS_NO_TRANS      y := alpha*abs(A)*abs(x) + beta*abs(y)
-> BLAS_TRANS         y := alpha*abs(A**T)*abs(x) + beta*abs(y)
-> BLAS_CONJ_TRANS    y := alpha*abs(A**T)*abs(x) + beta*abs(y)
+> BLAS_NO_TRANS      y := alpha\*abs(A)\*abs(x) + beta\*abs(y)
+> BLAS_TRANS         y := alpha\*abs(A\*\*T)\*abs(x) + beta\*abs(y)
+> BLAS_CONJ_TRANS    y := alpha\*abs(A\*\*T)\*abs(x) + beta\*abs(y)
 > 
 > Unchanged on exit.
 
@@ -65,7 +64,7 @@ ALPHA : DOUBLE PRECISION [in]
 > On entry, ALPHA specifies the scalar alpha.
 > Unchanged on exit.
 
-AB : COMPLEX*16 array, dimension ( LDAB, n ) [in]
+AB : COMPLEX\*16 array, dimension ( LDAB, n ) [in]
 > Before entry, the leading m by n part of the array AB must
 > contain the matrix of coefficients.
 > Unchanged on exit.
@@ -76,10 +75,10 @@ LDAB : INTEGER [in]
 > max( 1, m ).
 > Unchanged on exit.
 
-X : COMPLEX*16 array, dimension [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+X : COMPLEX\*16 array, dimension [in]
+> ( 1 + ( n - 1 )\*abs( INCX ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+> ( 1 + ( m - 1 )\*abs( INCX ) ) otherwise.
 > Before entry, the incremented array X must contain the
 > vector x.
 > Unchanged on exit.
@@ -95,9 +94,9 @@ BETA : DOUBLE PRECISION [in]
 > Unchanged on exit.
 
 Y : DOUBLE PRECISION array, dimension [in,out]
-> ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( m - 1 )\*abs( INCY ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+> ( 1 + ( n - 1 )\*abs( INCY ) ) otherwise.
 > Before entry with BETA non-zero, the incremented array Y
 > must contain the vector y. On exit, Y is overwritten by the
 > updated vector y.

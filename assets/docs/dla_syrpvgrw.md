@@ -1,6 +1,5 @@
 ```fortran
-double precision function dla_syrpvgrw
-(
+double precision function dla_syrpvgrw (
         character*1 uplo,
         integer n,
         integer info,
@@ -21,7 +20,7 @@ solution X, estimated condition numbers, and error bounds could be
 unreliable.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -50,4 +49,4 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by DSYTRF.
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]

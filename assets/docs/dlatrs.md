@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlatrs
-(
+subroutine dlatrs (
         character uplo,
         character trans,
         character diag,
@@ -17,35 +16,35 @@ subroutine dlatrs
 
 DLATRS solves one of the triangular systems
 
-A *x = s*b  or  A**T *x = s*b
+A \*x = s\*b  or  A\*\*T \*x = s\*b
 
 with scaling to prevent overflow.  Here A is an upper or lower
-triangular matrix, A**T denotes the transpose of A, x and b are
+triangular matrix, A\*\*T denotes the transpose of A, x and b are
 n-element vectors, and s is a scaling factor, usually less than
 or equal to 1, chosen so that the components of x will be less than
 the overflow threshold.  If the unscaled problem will not cause
 overflow, the Level 2 BLAS routine DTRSV is called.  If the matrix A
 is singular (A(j,j) = 0 for some j), then s is set to 0 and a
-non-trivial solution to A*x = 0 is returned.
+non-trivial solution to A\*x = 0 is returned.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower triangular.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the operation applied to A.
-> = 'N':  Solve A * x = s*b  (No transpose)
-> = 'T':  Solve A**T* x = s*b  (Transpose)
-> = 'C':  Solve A**T* x = s*b  (Conjugate transpose = Transpose)
+> = 'N':  Solve A \* x = s\*b  (No transpose)
+> = 'T':  Solve A\*\*T\* x = s\*b  (Transpose)
+> = 'C':  Solve A\*\*T\* x = s\*b  (Conjugate transpose = Transpose)
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A is unit triangular.
 > = 'N':  Non-unit triangular
 > = 'U':  Unit triangular
 
-NORMIN : CHARACTER*1 [in]
+NORMIN : CHARACTER\*1 [in]
 > Specifies whether CNORM has been set or not.
 > = 'Y':  CNORM contains the column norms on entry
 > = 'N':  CNORM is not set on entry.  On exit, the norms will
@@ -73,9 +72,9 @@ X : DOUBLE PRECISION array, dimension (N) [in,out]
 
 SCALE : DOUBLE PRECISION [out]
 > The scaling factor s for the triangular system
-> A * x = s*b  or  A**T* x = s*b.
+> A \* x = s\*b  or  A\*\*T\* x = s\*b.
 > If SCALE = 0, the matrix A is singular or badly scaled, and
-> the vector x is an exact or approximate solution to A*x = 0.
+> the vector x is an exact or approximate solution to A\*x = 0.
 
 CNORM : DOUBLE PRECISION array, dimension (N) [in,out]
 > 

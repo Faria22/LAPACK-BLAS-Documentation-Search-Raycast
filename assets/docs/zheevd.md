@@ -1,6 +1,5 @@
 ```fortran
-subroutine zheevd
-(
+subroutine zheevd (
         character jobz,
         character uplo,
         integer n,
@@ -22,18 +21,18 @@ complex Hermitian matrix A.  If eigenvectors are desired, it uses a
 divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the
 > leading N-by-N upper triangular part of A contains the
 > upper triangular part of the matrix A.  If UPLO = 'L',
@@ -51,14 +50,14 @@ LDA : INTEGER [in]
 W : DOUBLE PRECISION array, dimension (N) [out]
 > If INFO = 0, the eigenvalues in ascending order.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The length of the array WORK.
 > If N <= 1,                LWORK must be at least 1.
 > If JOBZ  = 'N' and N > 1, LWORK must be at least N + 1.
-> If JOBZ  = 'V' and N > 1, LWORK must be at least 2*N + N**2.
+> If JOBZ  = 'V' and N > 1, LWORK must be at least 2\*N + N\*\*2.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK, RWORK and
@@ -74,7 +73,7 @@ LRWORK : INTEGER [in]
 > If N <= 1,                LRWORK must be at least 1.
 > If JOBZ  = 'N' and N > 1, LRWORK must be at least N.
 > If JOBZ  = 'V' and N > 1, LRWORK must be at least
-> 1 + 5*N + 2*N**2.
+> 1 + 5\*N + 2\*N\*\*2.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -89,7 +88,7 @@ LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If N <= 1,                LIWORK must be at least 1.
 > If JOBZ  = 'N' and N > 1, LIWORK must be at least 1.
-> If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5*N.
+> If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK

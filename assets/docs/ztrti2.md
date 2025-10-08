@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztrti2
-(
+subroutine ztrti2 (
         character uplo,
         character diag,
         integer n,
@@ -16,12 +15,12 @@ matrix.
 This is the Level 2 BLAS version of the algorithm.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower triangular.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A is unit triangular.
 > = 'N':  Non-unit triangular
 > = 'U':  Unit triangular
@@ -29,7 +28,7 @@ DIAG : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the triangular matrix A.  If UPLO = 'U', the
 > leading n by n upper triangular part of the array A contains
 > the upper triangular matrix, and the strictly lower

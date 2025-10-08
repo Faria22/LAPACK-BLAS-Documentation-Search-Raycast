@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytrf_aa_2stage
-(
+subroutine dsytrf_aa_2stage (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -18,7 +17,7 @@ subroutine dsytrf_aa_2stage
 DSYTRF_AA_2STAGE computes the factorization of a real symmetric matrix A
 using the Aasen's algorithm.  The form of the factorization is
 
-A = U**T*T*U  or  A = L*T*L**T
+A = U\*\*T\*T\*U  or  A = L\*T\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and T is a symmetric band matrix with the
@@ -28,7 +27,7 @@ LU factorized with partial pivoting).
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -54,8 +53,8 @@ TB : DOUBLE PRECISION array, dimension (MAX(1,LTB)) [out]
 > On exit, details of the LU factorization of the band matrix.
 
 LTB : INTEGER [in]
-> The size of the array TB. LTB >= MAX(1,4*N), internally
-> used to select NB such that LTB >= (3*NB+1)*N.
+> The size of the array TB. LTB >= MAX(1,4\*N), internally
+> used to select NB such that LTB >= (3\*NB+1)\*N.
 > 
 > If LTB = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of LTB,
@@ -76,7 +75,7 @@ WORK : DOUBLE PRECISION workspace of size (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The size of WORK. LWORK >= MAX(1,N), internally used
-> to select NB such that LWORK >= N*NB.
+> to select NB such that LWORK >= N\*NB.
 > 
 > If LWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the WORK array,

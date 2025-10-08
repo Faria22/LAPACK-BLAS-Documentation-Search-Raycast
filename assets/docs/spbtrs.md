@@ -1,6 +1,5 @@
 ```fortran
-subroutine spbtrs
-(
+subroutine spbtrs (
         character uplo,
         integer n,
         integer kd,
@@ -13,12 +12,12 @@ subroutine spbtrs
 )
 ```
 
-SPBTRS solves a system of linear equations A*X = B with a symmetric
+SPBTRS solves a system of linear equations A\*X = B with a symmetric
 positive definite band matrix A using the Cholesky factorization
-A = U**T*U or A = L*L**T computed by SPBTRF.
+A = U\*\*T\*U or A = L\*L\*\*T computed by SPBTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangular factor stored in AB;
 > = 'L':  Lower triangular factor stored in AB.
 
@@ -35,7 +34,7 @@ NRHS : INTEGER [in]
 
 AB : REAL array, dimension (LDAB,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T of the band matrix A, stored in the
+> A = U\*\*T\*U or A = L\*L\*\*T of the band matrix A, stored in the
 > first KD+1 rows of the array.  The j-th column of U or L is
 > stored in the j-th column of the array AB as follows:
 > if UPLO ='U', AB(kd+1+i-j,j) = U(i,j) for max(1,j-kd)<=i<=j;

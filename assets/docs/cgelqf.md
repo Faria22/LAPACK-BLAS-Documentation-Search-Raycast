@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgelqf
-(
+subroutine cgelqf (
         integer m,
         integer n,
         complex, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ subroutine cgelqf
 
 CGELQF computes an LQ factorization of a complex M-by-N matrix A:
 
-A = ( L 0 ) *  Q
+A = ( L 0 ) \*  Q
 
 where:
 
@@ -50,7 +49,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= M, otherwise.
-> For optimum performance LWORK >= M*NB, where NB is the
+> For optimum performance LWORK >= M\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

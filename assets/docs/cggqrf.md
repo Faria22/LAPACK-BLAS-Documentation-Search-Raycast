@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggqrf
-(
+subroutine cggqrf (
         integer n,
         integer m,
         integer p,
@@ -19,7 +18,7 @@ subroutine cggqrf
 CGGQRF computes a generalized QR factorization of an N-by-M matrix A
 and an N-by-P matrix B:
 
-A = Q*R,        B = Q*T*Z,
+A = Q\*R,        B = Q\*T\*Z,
 
 where Q is an N-by-N unitary matrix, Z is a P-by-P unitary matrix,
 and R and T assume one of the forms:
@@ -37,9 +36,9 @@ P
 where T12 or T21 is upper triangular.
 
 In particular, if B is square and nonsingular, the GQR factorization
-of A and B implicitly gives the QR factorization of inv(B)*A:
+of A and B implicitly gives the QR factorization of inv(B)\*A:
 
-inv(B)*A = Z**H * (inv(T)*R)
+inv(B)\*A = Z\*\*H \* (inv(T)\*R)
 
 where inv(B) denotes the inverse of the matrix B, and Z' denotes the
 conjugate transpose of matrix Z.
@@ -92,7 +91,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N,M,P).
-> For optimum performance LWORK >= max(N,M,P)*max(NB1,NB2,NB3),
+> For optimum performance LWORK >= max(N,M,P)\*max(NB1,NB2,NB3),
 > where NB1 is the optimal blocksize for the QR factorization
 > of an N-by-M matrix, NB2 is the optimal blocksize for the
 > RQ factorization of an N-by-P matrix, and NB3 is the optimal

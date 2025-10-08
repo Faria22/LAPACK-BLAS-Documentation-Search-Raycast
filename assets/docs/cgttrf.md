@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgttrf
-(
+subroutine cgttrf (
         integer n,
         complex, dimension( * ) dl,
         complex, dimension( * ) d,
@@ -15,7 +14,7 @@ CGTTRF computes an LU factorization of a complex tridiagonal matrix A
 using elimination with partial pivoting and row interchanges.
 
 The factorization has the form
-A = L * U
+A = L \* U
 where L is a product of permutation and unit lower bidiagonal
 matrices and U is upper triangular with nonzeros in only the main
 diagonal and first two superdiagonals.

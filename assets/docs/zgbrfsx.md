@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgbrfsx
-(
+subroutine zgbrfsx (
         character trans,
         character equed,
         integer n,
@@ -44,13 +43,13 @@ and C below. In this case, the solution and error bounds returned
 are for the original unequilibrated system.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
-EQUED : CHARACTER*1 [in]
+EQUED : CHARACTER\*1 [in]
 > Specifies the form of equilibration that was done to A
 > before calling this routine. This is needed to compute
 > the solution and error bounds correctly.
@@ -60,7 +59,7 @@ EQUED : CHARACTER*1 [in]
 > = 'C':  Column equilibration, i.e., A has been postmultiplied
 > by diag(C).
 > = 'B':  Both row and column equilibration, i.e., A has been
-> replaced by diag(R) * A * diag(C).
+> replaced by diag(R) \* A \* diag(C).
 > The right hand side B has been changed accordingly.
 
 N : INTEGER [in]
@@ -76,7 +75,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The original band matrix A, stored in rows 1 to KL+KU+1.
 > The j-th column of A is stored in the j-th column of the
 > array AB as follows:
@@ -85,15 +84,15 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [in]
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KL+KU+1.
 
-AFB : COMPLEX*16 array, dimension (LDAFB,N) [in]
+AFB : COMPLEX\*16 array, dimension (LDAFB,N) [in]
 > Details of the LU factorization of the band matrix A, as
 > computed by ZGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL*KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL\*KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices from ZGETRF; for 1<=i<=N, row i of the
@@ -129,13 +128,13 @@ C : DOUBLE PRECISION array, dimension (N) [in,out]
 > input matrix, producing error estimates that may not be
 > reliable.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZGETRS.
 > On exit, the improved solution matrix X.
 
@@ -183,21 +182,21 @@ ERR_BNDS_NORM : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated normwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*A, where S scales each row by a power of the
+> Let Z = S\*A, where S scales each row by a power of the
 > radix so all absolute row sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -228,23 +227,23 @@ ERR_BNDS_COMP : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated componentwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*(A*diag(x)), where x is the solution for the
+> Let Z = S\*(A\*diag(x)), where x is the solution for the
 > current right-hand side and S scales each row of
-> A*diag(x) by a power of the radix so all absolute row
+> A\*diag(x) by a power of the radix so all absolute row
 > sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -287,9 +286,9 @@ PARAMS : DOUBLE PRECISION array, dimension NPARAMS [in,out]
 > is true, 0.0 is false.
 > Default: 1.0 (attempt componentwise convergence)
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
-RWORK : DOUBLE PRECISION array, dimension (2*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  Successful exit. The solution to every right-hand side is

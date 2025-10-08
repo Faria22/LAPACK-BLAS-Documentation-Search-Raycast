@@ -1,6 +1,5 @@
 ```fortran
-subroutine stgex2
-(
+subroutine stgex2 (
         logical wantq,
         logical wantz,
         integer n,
@@ -32,8 +31,8 @@ diagonal blocks. B is upper triangular.
 Optionally, the matrices Q and Z of generalized Schur vectors are
 updated.
 
-Q(in) * A(in) * Z(in)**T = Q(out) * A(out) * Z(out)**T
-Q(in) * B(in) * Z(in)**T = Q(out) * B(out) * Z(out)**T
+Q(in) \* A(in) \* Z(in)\*\*T = Q(out) \* A(out) \* Z(out)\*\*T
+Q(in) \* B(in) \* Z(in)\*\*T = Q(out) \* B(out) \* Z(out)\*\*T
 
 ## Parameters
 WANTQ : LOGICAL [in]
@@ -92,7 +91,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)). [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >=  MAX( N*(N2+N1), (N2+N1)*(N2+N1)*2 )
+> LWORK >=  MAX( N\*(N2+N1), (N2+N1)\*(N2+N1)\*2 )
 
 INFO : INTEGER [out]
 > =0: Successful exit

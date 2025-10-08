@@ -1,6 +1,5 @@
 ```fortran
-real function clange
-(
+real function clange (
         character norm,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 complex matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in CLANGE as described
 > above.
 

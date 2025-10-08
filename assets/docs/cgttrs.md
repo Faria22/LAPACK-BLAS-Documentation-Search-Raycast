@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgttrs
-(
+subroutine cgttrs (
         character trans,
         integer n,
         integer nrhs,
@@ -16,16 +15,16 @@ subroutine cgttrs
 ```
 
 CGTTRS solves one of the systems of equations
-A * X = B,  A**T * X = B,  or  A**H * X = B,
+A \* X = B,  A\*\*T \* X = B,  or  A\*\*H \* X = B,
 with a tridiagonal matrix A using the LU factorization computed
 by CGTTRF.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations.
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssb2st_kernels
-(
+subroutine ssb2st_kernels (
         character uplo,
         logical wantz,
         integer ttype,
@@ -23,7 +22,7 @@ SSB2ST_KERNELS is an internal routine used by the SSYTRD_SB2ST
 subroutine.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 
 WANTZ : LOGICAL which indicate if Eigenvalue are requested or both [in]
 > Eigenvalue/Eigenvectors.
@@ -49,10 +48,10 @@ A : REAL array. A pointer to the matrix A. [in,out]
 
 LDA : INTEGER. The leading dimension of the matrix A. [in]
 
-V : REAL array, dimension 2*n if eigenvalues only are [out]
+V : REAL array, dimension 2\*n if eigenvalues only are [out]
 > requested or to be queried for vectors.
 
-TAU : REAL array, dimension (2*n). [out]
+TAU : REAL array, dimension (2\*n). [out]
 > The scalar factors of the Householder reflectors are stored
 > in this array.
 

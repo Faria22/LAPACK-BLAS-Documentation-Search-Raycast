@@ -1,6 +1,5 @@
 ```fortran
-subroutine spbstf
-(
+subroutine spbstf (
         character uplo,
         integer n,
         integer kd,
@@ -15,7 +14,7 @@ symmetric positive definite band matrix A.
 
 This routine is designed to be used in conjunction with SSBGST.
 
-The factorization has the form  A = S**T*S  where S is a band matrix
+The factorization has the form  A = S\*\*T\*S  where S is a band matrix
 of the same bandwidth as A and the following structure:
 
 S = ( U    )
@@ -25,7 +24,7 @@ where U is upper triangular of order m = (n+kd)/2, and L is lower
 triangular of order n-m.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -45,7 +44,7 @@ AB : REAL array, dimension (LDAB,N) [in,out]
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 > 
 > On exit, if INFO = 0, the factor S from the split Cholesky
-> factorization A = S**T*S. See Further Details.
+> factorization A = S\*\*T\*S. See Further Details.
 
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KD+1.

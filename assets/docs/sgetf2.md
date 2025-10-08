@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgetf2
-(
+subroutine sgetf2 (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ SGETF2 computes an LU factorization of a general m-by-n matrix A
 using partial pivoting with row interchanges.
 
 The factorization has the form
-A = P * L * U
+A = P \* L \* U
 where P is a permutation matrix, L is lower triangular with unit
 diagonal elements (lower trapezoidal if m > n), and U is upper
 triangular (upper trapezoidal if m < n).
@@ -31,7 +30,7 @@ N : INTEGER [in]
 A : REAL array, dimension (LDA,N) [in,out]
 > On entry, the m by n matrix to be factored.
 > On exit, the factors L and U from the factorization
-> A = P*L*U; the unit diagonal elements of L are not stored.
+> A = P\*L\*U; the unit diagonal elements of L are not stored.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).

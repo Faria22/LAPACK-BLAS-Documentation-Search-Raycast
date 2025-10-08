@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsbev
-(
+subroutine dsbev (
         character jobz,
         character uplo,
         integer n,
@@ -19,11 +18,11 @@ DSBEV computes all the eigenvalues and, optionally, eigenvectors of
 a real symmetric band matrix A.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -65,7 +64,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (max(1,3*N-2)) [out]
+WORK : DOUBLE PRECISION array, dimension (max(1,3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

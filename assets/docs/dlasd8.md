@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasd8
-(
+subroutine dlasd8 (
         integer icompq,
         integer k,
         double precision, dimension( * ) d,
@@ -76,7 +75,7 @@ DSIGMA : DOUBLE PRECISION array, dimension ( K ) [in]
 > roots of the deflated updating problem.  These are the poles
 > of the secular equation.
 
-WORK : DOUBLE PRECISION array, dimension (3*K) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*K) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

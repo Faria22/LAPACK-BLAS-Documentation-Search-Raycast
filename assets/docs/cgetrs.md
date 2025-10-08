@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgetrs
-(
+subroutine cgetrs (
         character trans,
         integer n,
         integer nrhs,
@@ -14,16 +13,16 @@ subroutine cgetrs
 ```
 
 CGETRS solves a system of linear equations
-A * X = B,  A**T * X = B,  or  A**H * X = B
+A \* X = B,  A\*\*T \* X = B,  or  A\*\*H \* X = B
 with a general N-by-N matrix A using the LU factorization computed
 by CGETRF.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -33,7 +32,7 @@ NRHS : INTEGER [in]
 > of the matrix B.  NRHS >= 0.
 
 A : COMPLEX array, dimension (LDA,N) [in]
-> The factors L and U from the factorization A = P*L*U
+> The factors L and U from the factorization A = P\*L\*U
 > as computed by CGETRF.
 
 LDA : INTEGER [in]

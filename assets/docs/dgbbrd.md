@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgbbrd
-(
+subroutine dgbbrd (
         character vect,
         integer m,
         integer n,
@@ -23,18 +22,18 @@ subroutine dgbbrd
 ```
 
 DGBBRD reduces a real general m-by-n band matrix A to upper
-bidiagonal form B by an orthogonal transformation: Q**T * A * P = B.
+bidiagonal form B by an orthogonal transformation: Q\*\*T \* A \* P = B.
 
-The routine computes B, and optionally forms Q or P**T, or computes
-Q**T*C for a given matrix C.
+The routine computes B, and optionally forms Q or P\*\*T, or computes
+Q\*\*T\*C for a given matrix C.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
-> Specifies whether or not the matrices Q and P**T are to be
+VECT : CHARACTER\*1 [in]
+> Specifies whether or not the matrices Q and P\*\*T are to be
 > formed.
-> = 'N': do not form Q or P**T;
+> = 'N': do not form Q or P\*\*T;
 > = 'Q': form Q only;
-> = 'P': form P**T only;
+> = 'P': form P\*\*T only;
 > = 'B': form both.
 
 M : INTEGER [in]
@@ -87,14 +86,14 @@ LDPT : INTEGER [in]
 
 C : DOUBLE PRECISION array, dimension (LDC,NCC) [in,out]
 > On entry, an m-by-ncc matrix C.
-> On exit, C is overwritten by Q**T*C.
+> On exit, C is overwritten by Q\*\*T\*C.
 > C is not referenced if NCC = 0.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C.
 > LDC >= max(1,M) if NCC > 0; LDC >= 1 if NCC = 0.
 
-WORK : DOUBLE PRECISION array, dimension (2*max(M,N)) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*max(M,N)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

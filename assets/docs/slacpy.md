@@ -1,6 +1,5 @@
 ```fortran
-subroutine slacpy
-(
+subroutine slacpy (
         character uplo,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ SLACPY copies all or part of a two-dimensional matrix A to another
 matrix B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies the part of the matrix A to be copied to B.
 > = 'U':      Upper triangular part
 > = 'L':      Lower triangular part

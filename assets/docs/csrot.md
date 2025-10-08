@@ -1,6 +1,5 @@
 ```fortran
-subroutine csrot
-(
+subroutine csrot (
         integer n,
         complex, dimension( * ) cx,
         integer incx,
@@ -21,7 +20,7 @@ N : INTEGER [in]
 > N must be at least zero.
 
 CX : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array CX must contain the n
 > element vector cx. On exit, CX is overwritten by the updated
 > vector cx.
@@ -31,7 +30,7 @@ INCX : INTEGER [in]
 > CX. INCX must not be zero.
 
 CY : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( N - 1 )*abs( INCY ) ).
+> ( 1 + ( N - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array CY must contain the n
 > element vector cy. On exit, CY is overwritten by the updated
 > vector cy.

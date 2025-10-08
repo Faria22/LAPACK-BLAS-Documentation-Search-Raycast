@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctprfb
-(
+subroutine ctprfb (
         character side,
         character trans,
         character direct,
@@ -23,25 +22,25 @@ subroutine ctprfb
 ```
 
 CTPRFB applies a complex  block reflector H or its
-conjugate transpose H**H to a complex matrix C, which is composed of two
+conjugate transpose H\*\*H to a complex matrix C, which is composed of two
 blocks A and B, either from the left or right.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply H or H**H from the Left
-> = 'R': apply H or H**H from the Right
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply H or H\*\*H from the Left
+> = 'R': apply H or H\*\*H from the Right
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': apply H (No transpose)
-> = 'C': apply H**H (Conjugate transpose)
+> = 'C': apply H\*\*H (Conjugate transpose)
 
-DIRECT : CHARACTER*1 [in]
+DIRECT : CHARACTER\*1 [in]
 > Indicates how H is formed from a product of elementary
 > reflectors
 > = 'F': H = H(1) H(2) . . . H(k) (Forward)
 > = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-STOREV : CHARACTER*1 [in]
+STOREV : CHARACTER\*1 [in]
 > Indicates how the vectors which define the elementary
 > reflectors are stored:
 > = 'C': Columns
@@ -89,7 +88,7 @@ A : COMPLEX array, dimension [in,out]
 > (LDA,N) if SIDE = 'L' or (LDA,K) if SIDE = 'R'
 > On entry, the K-by-N or M-by-K matrix A.
 > On exit, A is overwritten by the corresponding block of
-> H*C or H**H*C or C*H or C*H**H.  See Further Details.
+> H\*C or H\*\*H\*C or C\*H or C\*H\*\*H.  See Further Details.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.
@@ -99,7 +98,7 @@ LDA : INTEGER [in]
 B : COMPLEX array, dimension (LDB,N) [in,out]
 > On entry, the M-by-N matrix B.
 > On exit, B is overwritten by the corresponding block of
-> H*C or H**H*C or C*H or C*H**H.  See Further Details.
+> H\*C or H\*\*H\*C or C\*H or C\*H\*\*H.  See Further Details.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.

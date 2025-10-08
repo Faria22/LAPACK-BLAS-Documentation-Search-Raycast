@@ -17,7 +17,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, Iterable, List, Tuple
 
 from bs4 import BeautifulSoup, NavigableString
 
@@ -129,8 +129,7 @@ def render_markdown(name: str, soup: BeautifulSoup) -> str:
 
     lines: List[str] = []
     lines.append("```fortran")
-    lines.append(f"{return_line}")
-    lines.append("(")
+    lines.append(f"{return_line} (")
     if params:
         for idx, (ptype, pname) in enumerate(params):
             suffix = "," if idx < len(params) - 1 else ""
@@ -141,18 +140,18 @@ def render_markdown(name: str, soup: BeautifulSoup) -> str:
 
     purpose_lines = extract_purpose_lines(soup)
     if purpose_lines:
-        lines.extend(purpose_lines)
+        lines.extend(escape_markdown_lines(purpose_lines))
         lines.append("")
 
     param_docs = extract_parameter_docs(soup)
     if param_docs:
         lines.append("## Parameters")
         for entry in param_docs:
-            type_part = f" : {entry['type']}" if entry['type'] else ""
+            type_part = f" : {escape_markdown_text(entry['type'])}" if entry['type'] else ""
             header = f"{entry['name']}{type_part} [{entry['direction']}]".rstrip()
             lines.append(header)
             for detail in entry["details"]:
-                lines.append(f"> {detail}")
+                lines.append(f"> {escape_markdown_text(detail)}")
             lines.append("")
 
     return "\n".join(lines).rstrip() + "\n"
@@ -238,6 +237,16 @@ def clean_fragment(raw_text: str) -> List[str]:
     while lines and not lines[-1]:
         lines.pop()
     return lines
+def escape_markdown_text(text: str) -> str:
+    """Escape asterisks so markdown renders multiplication correctly."""
+    if not text:
+        return text
+    return re.sub(r"(?<!\\)\*", r"\*", text)
+
+
+def escape_markdown_lines(lines: Iterable[str]) -> List[str]:
+    """Apply markdown escaping to a list of text lines."""
+    return [escape_markdown_text(line) for line in lines]
 
 
 def extract_summary(doc_path: Path) -> str:

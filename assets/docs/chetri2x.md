@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetri2x
-(
+subroutine chetri2x (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -13,15 +12,15 @@ subroutine chetri2x
 ```
 
 CHETRI2X computes the inverse of a complex Hermitian indefinite matrix
-A using the factorization A = U*D*U**H or A = L*D*L**H computed by
+A using the factorization A = U\*D\*U\*\*H or A = L\*D\*L\*\*H computed by
 CHETRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**H;
-> = 'L':  Lower triangular, form is A = L*D*L**H.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*H;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*H.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

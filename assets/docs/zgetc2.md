@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgetc2
-(
+subroutine zgetc2 (
         integer n,
         complex*16, dimension( lda, * ) a,
         integer lda,
@@ -11,7 +10,7 @@ subroutine zgetc2
 ```
 
 ZGETC2 computes an LU factorization, using complete pivoting, of the
-n-by-n matrix A. The factorization has the form A = P * L * U * Q,
+n-by-n matrix A. The factorization has the form A = P \* L \* U \* Q,
 where P and Q are permutation matrices, L is lower triangular with
 unit diagonal elements and U is upper triangular.
 
@@ -21,10 +20,10 @@ This is a level 1 BLAS version of the algorithm.
 N : INTEGER [in]
 > The order of the matrix A. N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the n-by-n matrix to be factored.
 > On exit, the factors L and U from the factorization
-> A = P*L*U*Q; the unit diagonal elements of L are not stored.
+> A = P\*L\*U\*Q; the unit diagonal elements of L are not stored.
 > If U(k, k) appears to be less than SMIN, U(k, k) is given the
 > value of SMIN, giving a nonsingular perturbed system.
 

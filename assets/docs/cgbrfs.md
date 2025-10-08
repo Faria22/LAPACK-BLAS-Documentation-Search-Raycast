@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgbrfs
-(
+subroutine cgbrfs (
         character trans,
         integer n,
         integer kl,
@@ -28,11 +27,11 @@ equations when the coefficient matrix is banded, and provides
 error bounds and backward error estimates for the solution.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -61,10 +60,10 @@ AFB : COMPLEX array, dimension (LDAFB,N) [in]
 > computed by CGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL*KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL\*KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices from CGBTRF; for 1<=i<=N, row i of the
@@ -98,7 +97,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 RWORK : REAL array, dimension (N) [out]
 

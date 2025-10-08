@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssytrs_aa_2stage
-(
+subroutine ssytrs_aa_2stage (
         character uplo,
         integer n,
         integer nrhs,
@@ -16,16 +15,16 @@ subroutine ssytrs_aa_2stage
 )
 ```
 
-SSYTRS_AA_2STAGE solves a system of linear equations A*X = B with a real
-symmetric matrix A using the factorization A = U**T*T*U or
-A = L*T*L**T computed by SSYTRF_AA_2STAGE.
+SSYTRS_AA_2STAGE solves a system of linear equations A\*X = B with a real
+symmetric matrix A using the factorization A = U\*\*T\*T\*U or
+A = L\*T\*L\*\*T computed by SSYTRF_AA_2STAGE.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U**T*T*U;
-> = 'L':  Lower triangular, form is A = L*T*L**T.
+> = 'U':  Upper triangular, form is A = U\*\*T\*T\*U;
+> = 'L':  Lower triangular, form is A = L\*T\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -44,7 +43,7 @@ TB : REAL array, dimension (LTB) [out]
 > Details of factors computed by SSYTRF_AA_2STAGE.
 
 LTB : INTEGER [in]
-> The size of the array TB. LTB >= 4*N.
+> The size of the array TB. LTB >= 4\*N.
 
 IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges as computed by

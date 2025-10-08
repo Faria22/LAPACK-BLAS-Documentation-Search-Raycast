@@ -1,6 +1,5 @@
 ```fortran
-subroutine zla_wwaddw
-(
+subroutine zla_wwaddw (
         integer n,
         complex*16, dimension( * ) x,
         complex*16, dimension( * ) y,
@@ -17,11 +16,11 @@ arithmetic, but not for decimal.
 N : INTEGER [in]
 > The length of vectors X, Y, and W.
 
-X : COMPLEX*16 array, dimension (N) [in,out]
+X : COMPLEX\*16 array, dimension (N) [in,out]
 > The first part of the doubled-single accumulation vector.
 
-Y : COMPLEX*16 array, dimension (N) [in,out]
+Y : COMPLEX\*16 array, dimension (N) [in,out]
 > The second part of the doubled-single accumulation vector.
 
-W : COMPLEX*16 array, dimension (N) [in]
+W : COMPLEX\*16 array, dimension (N) [in]
 > The vector to be added.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlahef_aa
-(
+subroutine zlahef_aa (
         character uplo,
         integer j1,
         integer m,
@@ -28,7 +27,7 @@ The resulting J-th row of U, or J-th column of L, is stored in the
 the diagonal and subdiagonal of A are overwritten by those of T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -44,7 +43,7 @@ M : INTEGER [in]
 NB : INTEGER [in]
 > The dimension of the panel to be facotorized.
 
-A : COMPLEX*16 array, dimension (LDA,M) for [in,out]
+A : COMPLEX\*16 array, dimension (LDA,M) for [in,out]
 > the first panel, while dimension (LDA,M+1) for the
 > remaining panels.
 > 
@@ -63,9 +62,9 @@ IPIV : INTEGER array, dimension (N) [out]
 > the row and column k were interchanged with the row and
 > column IPIV(k).
 
-H : COMPLEX*16 workspace, dimension (LDH,NB). [in,out]
+H : COMPLEX\*16 workspace, dimension (LDH,NB). [in,out]
 
 LDH : INTEGER [in]
 > The leading dimension of the workspace H. LDH >= max(1,M).
 
-WORK : COMPLEX*16 workspace, dimension (M). [out]
+WORK : COMPLEX\*16 workspace, dimension (M). [out]

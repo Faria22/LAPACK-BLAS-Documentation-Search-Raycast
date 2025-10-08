@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlahr2
-(
+subroutine zlahr2 (
         integer n,
         integer k,
         integer nb,
@@ -17,8 +16,8 @@ subroutine zlahr2
 ZLAHR2 reduces the first NB columns of A complex general n-BY-(n-k+1)
 matrix A so that elements below the k-th subdiagonal are zero. The
 reduction is performed by an unitary similarity transformation
-Q**H * A * Q. The routine returns the matrices V and T which determine
-Q as a block reflector I - V*T*V**H, and also the matrix Y = A * V * T.
+Q\*\*H \* A \* Q. The routine returns the matrices V and T which determine
+Q as a block reflector I - V\*T\*V\*\*H, and also the matrix Y = A \* V \* T.
 
 This is an auxiliary routine called by ZGEHRD.
 
@@ -34,7 +33,7 @@ K : INTEGER [in]
 NB : INTEGER [in]
 > The number of columns to be reduced.
 
-A : COMPLEX*16 array, dimension (LDA,N-K+1) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N-K+1) [in,out]
 > On entry, the n-by-(n-k+1) general matrix A.
 > On exit, the elements on and above the k-th subdiagonal in
 > the first NB columns are overwritten with the corresponding
@@ -46,17 +45,17 @@ A : COMPLEX*16 array, dimension (LDA,N-K+1) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-TAU : COMPLEX*16 array, dimension (NB) [out]
+TAU : COMPLEX\*16 array, dimension (NB) [out]
 > The scalar factors of the elementary reflectors. See Further
 > Details.
 
-T : COMPLEX*16 array, dimension (LDT,NB) [out]
+T : COMPLEX\*16 array, dimension (LDT,NB) [out]
 > The upper triangular matrix T.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-Y : COMPLEX*16 array, dimension (LDY,NB) [out]
+Y : COMPLEX\*16 array, dimension (LDY,NB) [out]
 > The n-by-nb matrix Y.
 
 LDY : INTEGER [in]

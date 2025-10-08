@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlahef_rook
-(
+subroutine zlahef_rook (
         character uplo,
         integer n,
         integer nb,
@@ -19,21 +18,21 @@ matrix A using the bounded Bunch-Kaufman () diagonal pivoting
 method. The partial factorization has the form:
 
 A  =  ( I  U12 ) ( A11  0  ) (  I      0     )  if UPLO = 'U', or:
-( 0  U22 ) (  0   D  ) ( U12**H U22**H )
+( 0  U22 ) (  0   D  ) ( U12\*\*H U22\*\*H )
 
-A  =  ( L11  0 ) (  D   0  ) ( L11**H L21**H )  if UPLO = 'L'
+A  =  ( L11  0 ) (  D   0  ) ( L11\*\*H L21\*\*H )  if UPLO = 'L'
 ( L21  I ) (  0  A22 ) (  0      I     )
 
 where the order of D is at most NB. The actual order is returned in
 the argument KB, and is either NB or NB-1, or N if N <= NB.
-Note that U**H denotes the conjugate transpose of U.
+Note that U\*\*H denotes the conjugate transpose of U.
 
 ZLAHEF_ROOK is an auxiliary routine called by ZHETRF_ROOK. It uses
 blocked code (calling Level 3 BLAS) to update the submatrix
 A11 (if UPLO = 'U') or A22 (if UPLO = 'L').
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular
@@ -51,7 +50,7 @@ KB : INTEGER [out]
 > The number of columns of A that were actually factored.
 > KB is either NB-1 or NB, or N if N <= NB.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 > n-by-n upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -89,7 +88,7 @@ IPIV : INTEGER array, dimension (N) [out]
 > columns k+1 and -IPIV(k+1) were inerchaged,
 > D(k:k+1,k:k+1) is a 2-by-2 diagonal block.
 
-W : COMPLEX*16 array, dimension (LDW,NB) [out]
+W : COMPLEX\*16 array, dimension (LDW,NB) [out]
 
 LDW : INTEGER [in]
 > The leading dimension of the array W.  LDW >= max(1,N).

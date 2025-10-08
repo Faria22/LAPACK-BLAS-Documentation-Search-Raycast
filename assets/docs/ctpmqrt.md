@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctpmqrt
-(
+subroutine ctpmqrt (
         character side,
         character trans,
         integer m,
@@ -26,13 +25,13 @@ complex block reflector H to a general
 complex matrix C, which consists of two blocks A and B.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**H from the Left;
-> = 'R': apply Q or Q**H from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*H from the Left;
+> = 'R': apply Q or Q\*\*H from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
-> = 'C':  Conjugate transpose, apply Q**H.
+> = 'C':  Conjugate transpose, apply Q\*\*H.
 
 M : INTEGER [in]
 > The number of rows of the matrix B. M >= 0.
@@ -75,7 +74,7 @@ A : COMPLEX array, dimension [in,out]
 > (LDA,K) if SIDE = 'R'
 > On entry, the K-by-N or M-by-K matrix A.
 > On exit, A is overwritten by the corresponding block of
-> Q*C or Q**H*C or C*Q or C*Q**H.  See Further Details.
+> Q\*C or Q\*\*H\*C or C\*Q or C\*Q\*\*H.  See Further Details.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.
@@ -85,14 +84,14 @@ LDA : INTEGER [in]
 B : COMPLEX array, dimension (LDB,N) [in,out]
 > On entry, the M-by-N matrix B.
 > On exit, B is overwritten by the corresponding block of
-> Q*C or Q**H*C or C*Q or C*Q**H.  See Further Details.
+> Q\*C or Q\*\*H\*C or C\*Q or C\*Q\*\*H.  See Further Details.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.
 > LDB >= max(1,M).
 
 WORK : COMPLEX array. The dimension of WORK is [out]
-> N*NB if SIDE = 'L', or  M*NB if SIDE = 'R'.
+> N\*NB if SIDE = 'L', or  M\*NB if SIDE = 'R'.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

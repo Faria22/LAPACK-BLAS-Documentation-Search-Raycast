@@ -1,6 +1,5 @@
 ```fortran
-subroutine claic1
-(
+subroutine claic1 (
         integer job,
         integer j,
         complex, dimension( j ) x,
@@ -18,26 +17,26 @@ its simplest version:
 
 Let x, twonorm(x) = 1, be an approximate singular vector of an j-by-j
 lower triangular matrix L, such that
-twonorm(L*x) = sest
+twonorm(L\*x) = sest
 Then CLAIC1 computes sestpr, s, c such that
 the vector
-[ s*x ]
+[ s\*x ]
 xhat = [  c  ]
 is an approximate singular vector of
 [ L      0  ]
-Lhat = [ w**H gamma ]
+Lhat = [ w\*\*H gamma ]
 in the sense that
-twonorm(Lhat*xhat) = sestpr.
+twonorm(Lhat\*xhat) = sestpr.
 
 Depending on JOB, an estimate for the largest or smallest singular
 value is computed.
 
-Note that [s c]**H and sestpr**2 is an eigenpair of the system
+Note that [s c]\*\*H and sestpr\*\*2 is an eigenpair of the system
 
-diag(sest*sest, 0) + [alpha  gamma] * [ conjg(alpha) ]
+diag(sest\*sest, 0) + [alpha  gamma] \* [ conjg(alpha) ]
 [ conjg(gamma) ]
 
-where  alpha =  x**H*w.
+where  alpha =  x\*\*H\*w.
 
 ## Parameters
 JOB : INTEGER [in]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sormbr
-(
+subroutine sormbr (
         character vect,
         character side,
         character trans,
@@ -21,22 +20,22 @@ subroutine sormbr
 If VECT = 'Q', SORMBR overwrites the general real M-by-N matrix C
 with
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'T':      Q**T * C       C * Q**T
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'T':      Q\*\*T \* C       C \* Q\*\*T
 
 If VECT = 'P', SORMBR overwrites the general real M-by-N matrix C
 with
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      P * C          C * P
-TRANS = 'T':      P**T * C       C * P**T
+TRANS = 'N':      P \* C          C \* P
+TRANS = 'T':      P\*\*T \* C       C \* P\*\*T
 
-Here Q and P**T are the orthogonal matrices determined by SGEBRD when
-reducing a real matrix A to bidiagonal form: A = Q * B * P**T. Q and
-P**T are defined as products of elementary reflectors H(i) and G(i)
+Here Q and P\*\*T are the orthogonal matrices determined by SGEBRD when
+reducing a real matrix A to bidiagonal form: A = Q \* B \* P\*\*T. Q and
+P\*\*T are defined as products of elementary reflectors H(i) and G(i)
 respectively.
 
 Let nq = m if SIDE = 'L' and nq = n if SIDE = 'R'. Thus nq is the
-order of the orthogonal matrix Q or P**T that is applied.
+order of the orthogonal matrix Q or P\*\*T that is applied.
 
 If VECT = 'Q', A is assumed to have been an NQ-by-K matrix:
 if nq >= k, Q = H(1) H(2) . . . H(k);
@@ -47,17 +46,17 @@ if k < nq, P = G(1) G(2) . . . G(k);
 if k >= nq, P = G(1) G(2) . . . G(nq-1).
 
 ## Parameters
-VECT : CHARACTER*1 [in]
-> = 'Q': apply Q or Q**T;
-> = 'P': apply P or P**T.
+VECT : CHARACTER\*1 [in]
+> = 'Q': apply Q or Q\*\*T;
+> = 'P': apply P or P\*\*T.
 
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q, Q**T, P or P**T from the Left;
-> = 'R': apply Q, Q**T, P or P**T from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q, Q\*\*T, P or P\*\*T from the Left;
+> = 'R': apply Q, Q\*\*T, P or P\*\*T from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q  or P;
-> = 'T':  Transpose, apply Q**T or P**T.
+> = 'T':  Transpose, apply Q\*\*T or P\*\*T.
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -91,8 +90,8 @@ TAU : REAL array, dimension (min(nq,K)) [in]
 
 C : REAL array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q
-> or P*C or P**T*C or C*P or C*P**T.
+> On exit, C is overwritten by Q\*C or Q\*\*T\*C or C\*Q\*\*T or C\*Q
+> or P\*C or P\*\*T\*C or C\*P or C\*P\*\*T.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).
@@ -104,8 +103,8 @@ LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If SIDE = 'L', LWORK >= max(1,N);
 > if SIDE = 'R', LWORK >= max(1,M).
-> For optimum performance LWORK >= N*NB if SIDE = 'L', and
-> LWORK >= M*NB if SIDE = 'R', where NB is the optimal
+> For optimum performance LWORK >= N\*NB if SIDE = 'L', and
+> LWORK >= M\*NB if SIDE = 'R', where NB is the optimal
 > blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlarnv
-(
+subroutine dlarnv (
         integer idist,
         integer, dimension( 4 ) iseed,
         integer n,

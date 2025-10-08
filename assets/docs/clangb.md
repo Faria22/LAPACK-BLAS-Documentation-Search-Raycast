@@ -1,6 +1,5 @@
 ```fortran
-real function clangb
-(
+real function clangb (
         character norm,
         integer n,
         integer kl,
@@ -16,7 +15,7 @@ the  infinity norm,  or the element of  largest absolute value  of an
 n by n band matrix  A,  with kl sub-diagonals and ku super-diagonals.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in CLANGB as described
 > above.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlags2
-(
+subroutine dlags2 (
         logical upper,
         double precision a1,
         double precision a2,
@@ -20,18 +19,18 @@ subroutine dlags2
 DLAGS2 computes 2-by-2 orthogonal matrices U, V and Q, such
 that if ( UPPER ) then
 
-U**T *A*Q = U**T *( A1 A2 )*Q = ( x  0  )
+U\*\*T \*A\*Q = U\*\*T \*( A1 A2 )\*Q = ( x  0  )
 ( 0  A3 )     ( x  x  )
 and
-V**T*B*Q = V**T *( B1 B2 )*Q = ( x  0  )
+V\*\*T\*B\*Q = V\*\*T \*( B1 B2 )\*Q = ( x  0  )
 ( 0  B3 )     ( x  x  )
 
 or if ( .NOT.UPPER ) then
 
-U**T *A*Q = U**T *( A1 0  )*Q = ( x  x  )
+U\*\*T \*A\*Q = U\*\*T \*( A1 0  )\*Q = ( x  x  )
 ( A2 A3 )     ( 0  x  )
 and
-V**T*B*Q = V**T*( B1 0  )*Q = ( x  x  )
+V\*\*T\*B\*Q = V\*\*T\*( B1 0  )\*Q = ( x  x  )
 ( B2 B3 )     ( 0  x  )
 
 The rows of the transformed A and B are parallel, where
@@ -39,7 +38,7 @@ The rows of the transformed A and B are parallel, where
 U = (  CSU  SNU ), V = (  CSV SNV ), Q = (  CSQ   SNQ )
 ( -SNU  CSU )      ( -SNV CSV )      ( -SNQ   CSQ )
 
-Z**T denotes the transpose of Z.
+Z\*\*T denotes the transpose of Z.
 
 ## Parameters
 UPPER : LOGICAL [in]

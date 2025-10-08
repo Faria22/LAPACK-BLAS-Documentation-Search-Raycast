@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgeqr2
-(
+subroutine dgeqr2 (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -13,7 +12,7 @@ subroutine dgeqr2
 
 DGEQR2 computes a QR factorization of a real m-by-n matrix A:
 
-A = Q * ( R ),
+A = Q \* ( R ),
 ( 0 )
 
 where:

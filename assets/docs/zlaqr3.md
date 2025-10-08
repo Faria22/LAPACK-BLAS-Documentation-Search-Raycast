@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqr3
-(
+subroutine zlaqr3 (
         logical wantt,
         logical wantz,
         integer n,
@@ -72,7 +71,7 @@ KBOT : INTEGER [in]
 NW : INTEGER [in]
 > Deflation window size.  1 <= NW <= (KBOT-KTOP+1).
 
-H : COMPLEX*16 array, dimension (LDH,N) [in,out]
+H : COMPLEX\*16 array, dimension (LDH,N) [in,out]
 > On input the initial N-by-N section of H stores the
 > Hessenberg matrix undergoing aggressive early deflation.
 > On output H has been transformed by a unitary
@@ -90,7 +89,7 @@ IHIZ : INTEGER [in]
 > Specify the rows of Z to which transformations must be
 > applied if WANTZ is .TRUE.. 1 <= ILOZ <= IHIZ <= N.
 
-Z : COMPLEX*16 array, dimension (LDZ,N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,N) [in,out]
 > IF WANTZ is .TRUE., then on output, the unitary
 > similarity transformation mentioned above has been
 > accumulated into Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
@@ -109,13 +108,13 @@ ND : INTEGER [out]
 > The number of converged eigenvalues uncovered by this
 > subroutine.
 
-SH : COMPLEX*16 array, dimension (KBOT) [out]
+SH : COMPLEX\*16 array, dimension (KBOT) [out]
 > On output, approximate eigenvalues that may
 > be used for shifts are stored in SH(KBOT-ND-NS+1)
 > through SR(KBOT-ND).  Converged eigenvalues are
 > stored in SH(KBOT-ND+1) through SH(KBOT).
 
-V : COMPLEX*16 array, dimension (LDV,NW) [out]
+V : COMPLEX\*16 array, dimension (LDV,NW) [out]
 > An NW-by-NW work array.
 
 LDV : INTEGER [in]
@@ -125,7 +124,7 @@ LDV : INTEGER [in]
 NH : INTEGER [in]
 > The number of columns of T.  NH >= NW.
 
-T : COMPLEX*16 array, dimension (LDT,NW) [out]
+T : COMPLEX\*16 array, dimension (LDT,NW) [out]
 
 LDT : INTEGER [in]
 > The leading dimension of T just as declared in the
@@ -135,18 +134,18 @@ NV : INTEGER [in]
 > The number of rows of work array WV available for
 > workspace.  NV >= NW.
 
-WV : COMPLEX*16 array, dimension (LDWV,NW) [out]
+WV : COMPLEX\*16 array, dimension (LDWV,NW) [out]
 
 LDWV : INTEGER [in]
 > The leading dimension of W just as declared in the
 > calling subroutine.  NW <= LDV
 
-WORK : COMPLEX*16 array, dimension (LWORK) [out]
+WORK : COMPLEX\*16 array, dimension (LWORK) [out]
 > On exit, WORK(1) is set to an estimate of the optimal value
 > of LWORK for the given values of N, NW, KTOP and KBOT.
 
 LWORK : INTEGER [in]
-> The dimension of the work array WORK.  LWORK = 2*NW
+> The dimension of the work array WORK.  LWORK = 2\*NW
 > suffices, but greater efficiency may result from larger
 > values of LWORK.
 > 

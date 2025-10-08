@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsysvxx
-(
+subroutine dsysvxx (
         character fact,
         character uplo,
         integer n,
@@ -31,7 +30,7 @@ subroutine dsysvxx
 ```
 
 DSYSVXX uses the diagonal pivoting factorization to compute the
-solution to a double precision system of linear equations A * X = B, where A
+solution to a double precision system of linear equations A \* X = B, where A
 is an N-by-N symmetric matrix and X and B are N-by-NRHS matrices.
 
 If requested, both normwise and maximum componentwise error bounds
@@ -50,7 +49,7 @@ user-provided factorizations and equilibration factors if they
 differ from what DSYSVXX would itself produce.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of the matrix A is
 > supplied on entry, and if not, whether the matrix A should be
 > equilibrated before it is factored.
@@ -62,7 +61,7 @@ FACT : CHARACTER*1 [in]
 > = 'E':  The matrix A will be equilibrated if necessary, then
 > copied to AF and factored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -84,7 +83,7 @@ A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > triangular part of A is not referenced.
 > 
 > On exit, if FACT = 'E' and EQUED = 'Y', A is overwritten by
-> diag(S)*A*diag(S).
+> diag(S)\*A\*diag(S).
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
@@ -93,12 +92,12 @@ AF : DOUBLE PRECISION array, dimension (LDAF,N) [in,out]
 > If FACT = 'F', then AF is an input argument and on entry
 > contains the block diagonal matrix D and the multipliers
 > used to obtain the factor U or L from the factorization A =
-> U*D*U**T or A = L*D*L**T as computed by DSYTRF.
+> U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by DSYTRF.
 > 
 > If FACT = 'N', then AF is an output argument and on exit
 > returns the block diagonal matrix D and the multipliers
 > used to obtain the factor U or L from the factorization A =
-> U*D*U**T or A = L*D*L**T.
+> U\*D\*U\*\*T or A = L\*D\*L\*\*T.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -119,11 +118,11 @@ IPIV : INTEGER array, dimension (N) [in,out]
 > contains details of the interchanges and the block
 > structure of D, as determined by DSYTRF.
 
-EQUED : CHARACTER*1 [in,out]
+EQUED : CHARACTER\*1 [in,out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration (always true if FACT = 'N').
 > = 'Y':  Both row and column equilibration, i.e., A has been
-> replaced by diag(S) * A * diag(S).
+> replaced by diag(S) \* A \* diag(S).
 > EQUED is an input argument if FACT = 'F'; otherwise, it is an
 > output argument.
 
@@ -144,7 +143,7 @@ B : DOUBLE PRECISION array, dimension (LDB,NRHS) [in,out]
 > On entry, the N-by-NRHS right hand side matrix B.
 > On exit,
 > if EQUED = 'N', B is not modified;
-> if EQUED = 'Y', B is overwritten by diag(S)*B;
+> if EQUED = 'Y', B is overwritten by diag(S)\*B;
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
@@ -153,7 +152,7 @@ X : DOUBLE PRECISION array, dimension (LDX,NRHS) [out]
 > If INFO = 0, the N-by-NRHS solution matrix X to the original
 > system of equations.  Note that A and B are modified on exit if
 > EQUED .ne. 'N', and the solution to the equilibrated system is
-> inv(diag(S))*X.
+> inv(diag(S))\*X.
 
 LDX : INTEGER [in]
 > The leading dimension of the array X.  LDX >= max(1,N).
@@ -209,21 +208,21 @@ ERR_BNDS_NORM : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated normwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*A, where S scales each row by a power of the
+> Let Z = S\*A, where S scales each row by a power of the
 > radix so all absolute row sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -254,23 +253,23 @@ ERR_BNDS_COMP : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated componentwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*(A*diag(x)), where x is the solution for the
+> Let Z = S\*(A\*diag(x)), where x is the solution for the
 > current right-hand side and S scales each row of
-> A*diag(x) by a power of the radix so all absolute row
+> A\*diag(x) by a power of the radix so all absolute row
 > sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -310,7 +309,7 @@ PARAMS : DOUBLE PRECISION array, dimension (NPARAMS) [in,out]
 > is true, 0.0 is false.
 > Default: 1.0 (attempt componentwise convergence)
 
-WORK : DOUBLE PRECISION array, dimension (4*N) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

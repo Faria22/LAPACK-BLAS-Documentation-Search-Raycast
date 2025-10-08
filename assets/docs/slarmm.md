@@ -1,6 +1,5 @@
 ```fortran
-real function slarmm
-(
+real function slarmm (
         real anorm,
         real bnorm,
         real cnorm
@@ -9,7 +8,7 @@ real function slarmm
 
 SLARMM returns a factor s in (0, 1] such that the linear updates
 
-(s * C) - A * (s * B)  and  (s * C) - (s * A) * B
+(s \* C) - A \* (s \* B)  and  (s \* C) - (s \* A) \* B
 
 cannot overflow, where A, B, and C are matrices of conforming
 dimensions.

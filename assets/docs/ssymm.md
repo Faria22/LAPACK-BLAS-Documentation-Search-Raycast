@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssymm
-(
+subroutine ssymm (
         character side,
         character uplo,
         integer m,
@@ -18,25 +17,25 @@ subroutine ssymm
 
 SSYMM  performs one of the matrix-matrix operations
 
-C := alpha*A*B + beta*C,
+C := alpha\*A\*B + beta\*C,
 
 or
 
-C := alpha*B*A + beta*C,
+C := alpha\*B\*A + beta\*C,
 
 where alpha and beta are scalars,  A is a symmetric matrix and  B and
 C are  m by n matrices.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > On entry,  SIDE  specifies whether  the  symmetric matrix  A
 > appears on the  left or right  in the  operation as follows:
 > 
-> SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
+> SIDE = 'L' or 'l'   C := alpha\*A\*B + beta\*C,
 > 
-> SIDE = 'R' or 'r'   C := alpha*B*A + beta*C,
+> SIDE = 'R' or 'r'   C := alpha\*B\*A + beta\*C,
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On  entry,   UPLO  specifies  whether  the  upper  or  lower
 > triangular  part  of  the  symmetric  matrix   A  is  to  be
 > referenced as follows:

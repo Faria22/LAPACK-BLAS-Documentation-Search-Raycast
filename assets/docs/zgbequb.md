@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgbequb
-(
+subroutine zgbequb (
         integer m,
         integer n,
         integer kl,
@@ -20,7 +19,7 @@ ZGBEQUB computes row and column scalings intended to equilibrate an
 M-by-N matrix A and reduce its condition number.  R returns the row
 scale factors and C the column scale factors, chosen to try to make
 the largest element in each row and column of the matrix B with
-elements B(i,j)=R(i)*A(i,j)*C(j) have an absolute value of at most
+elements B(i,j)=R(i)\*A(i,j)\*C(j) have an absolute value of at most
 the radix.
 
 R(i) and C(j) are restricted to be a power of the radix between
@@ -47,7 +46,7 @@ KL : INTEGER [in]
 KU : INTEGER [in]
 > The number of superdiagonals within the band of A.  KU >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 > The j-th column of A is stored in the j-th column of the
 > array AB as follows:

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cswap
-(
+subroutine cswap (
         integer n,
         complex, dimension(*) cx,
         integer incx,
@@ -15,12 +14,12 @@ CSWAP interchanges two vectors.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-CX : COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+CX : COMPLEX array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of CX
 
-CY : COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+CY : COMPLEX array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of CY

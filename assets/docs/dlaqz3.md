@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine dlaqz3
-(
+recursive subroutine dlaqz3 (
         logical, intent(in) ilschur,
         logical, intent(in) ilq,
         logical, intent(in) ilz,

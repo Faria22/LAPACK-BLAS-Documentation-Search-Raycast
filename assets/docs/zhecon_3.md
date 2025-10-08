@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhecon_3
-(
+subroutine zhecon_3 (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -18,28 +17,28 @@ ZHECON_3 estimates the reciprocal of the condition number (in the
 1-norm) of a complex Hermitian matrix A using the factorization
 computed by ZHETRF_RK or ZHETRF_BK:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
-condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
+condition number is computed as RCOND = 1 / (ANORM \* norm(inv(A))).
 This routine uses BLAS3 solver ZHETRS_3.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix:
-> = 'U':  Upper triangular, form is A = P*U*D*(U**H)*(P**T);
-> = 'L':  Lower triangular, form is A = P*L*D*(L**H)*(P**T).
+> = 'U':  Upper triangular, form is A = P\*U\*D\*(U\*\*H)\*(P\*\*T);
+> = 'L':  Lower triangular, form is A = P\*L\*D\*(L\*\*H)\*(P\*\*T).
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > Diagonal of the block diagonal matrix D and factors U or L
 > as computed by ZHETRF_RK and ZHETRF_BK:
 > a) ONLY diagonal elements of the Hermitian block diagonal
@@ -52,7 +51,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [in]
+E : COMPLEX\*16 array, dimension (N) [in]
 > On entry, contains the superdiagonal (or subdiagonal)
 > elements of the Hermitian block diagonal matrix D
 > with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -72,10 +71,10 @@ ANORM : DOUBLE PRECISION [in]
 
 RCOND : DOUBLE PRECISION [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is an
 > estimate of the 1-norm of inv(A) computed in this routine.
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

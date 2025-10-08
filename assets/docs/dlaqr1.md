@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaqr1
-(
+subroutine dlaqr1 (
         integer n,
         double precision, dimension( ldh, * ) h,
         integer ldh,
@@ -15,7 +14,7 @@ subroutine dlaqr1
 Given a 2-by-2 or 3-by-3 matrix H, DLAQR1 sets v to a
 scalar multiple of the first column of the product
 
-(*)  K = (H - (sr1 + i*si1)*I)*(H - (sr2 + i*si2)*I)
+(\*)  K = (H - (sr1 + i\*si1)\*I)\*(H - (sr2 + i\*si2)\*I)
 
 scaling to avoid overflows and most underflows. It
 is assumed that either
@@ -32,7 +31,7 @@ N : INTEGER [in]
 > Order of the matrix H. N must be either 2 or 3.
 
 H : DOUBLE PRECISION array, dimension (LDH,N) [in]
-> The 2-by-2 or 3-by-3 matrix H in (*).
+> The 2-by-2 or 3-by-3 matrix H in (\*).
 
 LDH : INTEGER [in]
 > The leading dimension of H as declared in
@@ -45,8 +44,8 @@ SI1 : DOUBLE PRECISION [in]
 SR2 : DOUBLE PRECISION [in]
 
 SI2 : DOUBLE PRECISION [in]
-> The shifts in (*).
+> The shifts in (\*).
 
 V : DOUBLE PRECISION array, dimension (N) [out]
 > A scalar multiple of the first column of the
-> matrix K in (*).
+> matrix K in (\*).

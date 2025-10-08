@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlalsd
-(
+subroutine dlalsd (
         character uplo,
         integer smlsiz,
         integer n,
@@ -19,7 +18,7 @@ subroutine dlalsd
 
 DLALSD uses the singular value decomposition of A to solve the least
 squares problem of finding X to minimize the Euclidean norm of each
-column of A*X-B, where A is N-by-N upper bidiagonal, and X and B
+column of A\*X-B, where A is N-by-N upper bidiagonal, and X and B
 are N-by-NRHS. The solution X overwrites B.
 
 The singular values of A smaller than RCOND times the largest
@@ -28,7 +27,7 @@ problem; in this case a minimum norm solution is returned.
 The actual singular values are returned in D in ascending order.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U': D and E define an upper bidiagonal matrix.
 > = 'L': D and E define a  lower bidiagonal matrix.
 
@@ -63,22 +62,22 @@ RCOND : DOUBLE PRECISION [in]
 > the largest singular value are treated as zero in solving
 > the least squares problem. If RCOND is negative,
 > machine precision is used instead.
-> For example, if diag(S)*X=B were the least squares problem,
+> For example, if diag(S)\*X=B were the least squares problem,
 > where diag(S) is a diagonal matrix of singular values, the
 > solution would be X(i) = B(i) / S(i) if S(i) is greater than
-> RCOND*max(S), and X(i) = 0 if S(i) is less than or equal to
-> RCOND*max(S).
+> RCOND\*max(S), and X(i) = 0 if S(i) is less than or equal to
+> RCOND\*max(S).
 
 RANK : INTEGER [out]
 > The number of singular values of A greater than RCOND times
 > the largest singular value.
 
 WORK : DOUBLE PRECISION array, dimension at least [out]
-> (9*N + 2*N*SMLSIZ + 8*N*NLVL + N*NRHS + (SMLSIZ+1)**2),
+> (9\*N + 2\*N\*SMLSIZ + 8\*N\*NLVL + N\*NRHS + (SMLSIZ+1)\*\*2),
 > where NLVL = max(0, INT(log_2 (N/(SMLSIZ+1))) + 1).
 
 IWORK : INTEGER array, dimension at least [out]
-> (3*N*NLVL + 11*N)
+> (3\*N\*NLVL + 11\*N)
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

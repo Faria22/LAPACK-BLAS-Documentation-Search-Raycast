@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgeesx
-(
+subroutine cgeesx (
         character jobvs,
         character sort,
         external select,
@@ -24,7 +23,7 @@ subroutine cgeesx
 
 CGEESX computes for an N-by-N complex nonsymmetric matrix A, the
 eigenvalues, the Schur form T, and, optionally, the matrix of Schur
-vectors Z.  This gives the Schur factorization A = Z*T*(Z**H).
+vectors Z.  This gives the Schur factorization A = Z\*T\*(Z\*\*H).
 
 Optionally, it also orders the eigenvalues on the diagonal of the
 Schur form so that selected eigenvalues are at the top left;
@@ -41,11 +40,11 @@ these quantities are called s and sep respectively).
 A complex matrix is in Schur form if it is upper triangular.
 
 ## Parameters
-JOBVS : CHARACTER*1 [in]
+JOBVS : CHARACTER\*1 [in]
 > = 'N': Schur vectors are not computed;
 > = 'V': Schur vectors are computed.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the Schur form.
 > = 'N': Eigenvalues are not ordered;
@@ -58,7 +57,7 @@ SELECT : a LOGICAL FUNCTION of one COMPLEX argument [in]
 > If SORT = 'N', SELECT is not referenced.
 > An eigenvalue W(j) is selected if SELECT(W(j)) is true.
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': None are computed;
 > = 'E': Computed for average of selected eigenvalues only;
@@ -108,11 +107,11 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= max(1,2*N).
-> Also, if SENSE = 'E' or 'V' or 'B', LWORK >= 2*SDIM*(N-SDIM),
+> The dimension of the array WORK.  LWORK >= max(1,2\*N).
+> Also, if SENSE = 'E' or 'V' or 'B', LWORK >= 2\*SDIM\*(N-SDIM),
 > where SDIM is the number of selected eigenvalues computed by
-> this routine.  Note that 2*SDIM*(N-SDIM) <= N*N/2. Note also
-> that an error is only returned if LWORK < max(1,2*N), but if
+> this routine.  Note that 2\*SDIM\*(N-SDIM) <= N\*N/2. Note also
+> that an error is only returned if LWORK < max(1,2\*N), but if
 > SENSE = 'E' or 'V' or 'B' this may not be large enough.
 > For good performance, LWORK must generally be larger.
 > 

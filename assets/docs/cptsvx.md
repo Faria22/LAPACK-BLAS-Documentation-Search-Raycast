@@ -1,6 +1,5 @@
 ```fortran
-subroutine cptsvx
-(
+subroutine cptsvx (
         character fact,
         integer n,
         integer nrhs,
@@ -21,8 +20,8 @@ subroutine cptsvx
 )
 ```
 
-CPTSVX uses the factorization A = L*D*L**H to compute the solution
-to a complex system of linear equations A*X = B, where A is an
+CPTSVX uses the factorization A = L\*D\*L\*\*H to compute the solution
+to a complex system of linear equations A\*X = B, where A is an
 N-by-N Hermitian positive definite tridiagonal matrix and X and B
 are N-by-NRHS matrices.
 
@@ -30,7 +29,7 @@ Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of the matrix
 > A is supplied on entry.
 > = 'F':  On entry, DF and EF contain the factored form of A.
@@ -54,18 +53,18 @@ E : COMPLEX array, dimension (N-1) [in]
 DF : REAL array, dimension (N) [in,out]
 > If FACT = 'F', then DF is an input argument and on entry
 > contains the n diagonal elements of the diagonal matrix D
-> from the L*D*L**H factorization of A.
+> from the L\*D\*L\*\*H factorization of A.
 > If FACT = 'N', then DF is an output argument and on exit
 > contains the n diagonal elements of the diagonal matrix D
-> from the L*D*L**H factorization of A.
+> from the L\*D\*L\*\*H factorization of A.
 
 EF : COMPLEX array, dimension (N-1) [in,out]
 > If FACT = 'F', then EF is an input argument and on entry
 > contains the (n-1) subdiagonal elements of the unit
-> bidiagonal factor L from the L*D*L**H factorization of A.
+> bidiagonal factor L from the L\*D\*L\*\*H factorization of A.
 > If FACT = 'N', then EF is an output argument and on exit
 > contains the (n-1) subdiagonal elements of the unit
-> bidiagonal factor L from the L*D*L**H factorization of A.
+> bidiagonal factor L from the L\*D\*L\*\*H factorization of A.
 
 B : COMPLEX array, dimension (LDB,NRHS) [in]
 > The N-by-NRHS right hand side matrix B.

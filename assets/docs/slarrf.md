@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarrf
-(
+subroutine slarrf (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) l,
@@ -40,7 +39,7 @@ L : REAL array, dimension (N-1) [in]
 > matrix L.
 
 LD : REAL array, dimension (N-1) [in]
-> The (N-1) elements L(i)*D(i).
+> The (N-1) elements L(i)\*D(i).
 
 CLSTRT : INTEGER [in]
 > The index of the first eigenvalue in the cluster.
@@ -87,7 +86,7 @@ LPLUS : REAL array, dimension (N-1) [out]
 > The first (N-1) elements of LPLUS contain the subdiagonal
 > elements of the unit bidiagonal matrix L(+).
 
-WORK : REAL array, dimension (2*N) [out]
+WORK : REAL array, dimension (2\*N) [out]
 > Workspace.
 
 INFO : INTEGER [out]

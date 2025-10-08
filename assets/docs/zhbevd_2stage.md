@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhbevd_2stage
-(
+subroutine zhbevd_2stage (
         character jobz,
         character uplo,
         integer n,
@@ -26,12 +25,12 @@ the reduction to tridiagonal.  If eigenvectors are desired, it
 uses a divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -42,7 +41,7 @@ KD : INTEGER [in]
 > The number of superdiagonals of the matrix A if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB, N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB, N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -63,7 +62,7 @@ LDAB : INTEGER [in]
 W : DOUBLE PRECISION array, dimension (N) [out]
 > If INFO = 0, the eigenvalues in ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
 > eigenvectors of the matrix A, with the i-th column of Z
 > holding the eigenvector associated with W(i).
@@ -73,7 +72,7 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
@@ -81,7 +80,7 @@ LWORK : INTEGER [in]
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = (2KD+1)*N + KD*NTHREADS
+> dimension = (2KD+1)\*N + KD\*NTHREADS
 > where KD is the size of the band.
 > NTHREADS is the number of threads used when
 > openMP compilation is enabled, otherwise =1.
@@ -102,7 +101,7 @@ LRWORK : INTEGER [in]
 > If N <= 1,               LRWORK must be at least 1.
 > If JOBZ = 'N' and N > 1, LRWORK must be at least N.
 > If JOBZ = 'V' and N > 1, LRWORK must be at least
-> 1 + 5*N + 2*N**2.
+> 1 + 5\*N + 2\*N\*\*2.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -116,7 +115,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of array IWORK.
 > If JOBZ = 'N' or N <= 1, LIWORK must be at least 1.
-> If JOBZ = 'V' and N > 1, LIWORK must be at least 3 + 5*N .
+> If JOBZ = 'V' and N > 1, LIWORK must be at least 3 + 5\*N .
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK

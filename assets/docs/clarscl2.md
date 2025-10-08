@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarscl2
-(
+subroutine clarscl2 (
         integer m,
         integer n,
         real, dimension( * ) d,
@@ -10,7 +9,7 @@ subroutine clarscl2
 ```
 
 CLARSCL2 performs a reciprocal diagonal scaling on a matrix:
-x <-- inv(D) * x
+x <-- inv(D) \* x
 where the REAL diagonal matrix D is stored as a vector.
 
 Eventually to be replaced by BLAS_cge_diag_scale in the new BLAS

@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsysv_rk
-(
+subroutine zsysv_rk (
         character uplo,
         integer n,
         integer nrhs,
@@ -17,24 +16,24 @@ subroutine zsysv_rk
 ```
 
 ZSYSV_RK computes the solution to a complex system of linear
-equations A * X = B, where A is an N-by-N symmetric matrix
+equations A \* X = B, where A is an N-by-N symmetric matrix
 and X and B are N-by-NRHS matrices.
 
 The bounded Bunch-Kaufman (rook) diagonal pivoting method is used
 to factor A as
-A = P*U*D*(U**T)*(P**T),  if UPLO = 'U', or
-A = P*L*D*(L**T)*(P**T),  if UPLO = 'L',
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T),  if UPLO = 'U', or
+A = P\*L\*D\*(L\*\*T)\*(P\*\*T),  if UPLO = 'L',
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 ZSYTRF_RK is called to compute the factorization of a complex
 symmetric matrix.  The factored form of A is then used to solve
-the system of equations A * X = B by calling BLAS3 routine ZSYTRS_3.
+the system of equations A \* X = B by calling BLAS3 routine ZSYTRS_3.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangle of A is stored;
@@ -48,7 +47,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the symmetric matrix A.
 > If UPLO = 'U': the leading N-by-N upper triangular part
 > of A contains the upper triangular part of the matrix A,
@@ -74,7 +73,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [out]
+E : COMPLEX\*16 array, dimension (N) [out]
 > On exit, contains the output computed by the factorization
 > routine ZSYTRF_RK, i.e. the superdiagonal (or subdiagonal)
 > elements of the symmetric block diagonal matrix D
@@ -94,20 +93,20 @@ IPIV : INTEGER array, dimension (N) [out]
 > 
 > For more info see the description of ZSYTRF_RK routine.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the N-by-NRHS right hand side matrix B.
 > On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension ( MAX(1,LWORK) ). [out]
+WORK : COMPLEX\*16 array, dimension ( MAX(1,LWORK) ). [out]
 > Work array used in the factorization stage.
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >= 1. For best performance
-> of factorization stage LWORK >= max(1,N*NB), where NB is
+> of factorization stage LWORK >= max(1,N\*NB), where NB is
 > the optimal blocksize for ZSYTRF_RK.
 > 
 > If LWORK = -1, then a workspace query is assumed;

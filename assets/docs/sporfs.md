@@ -1,6 +1,5 @@
 ```fortran
-subroutine sporfs
-(
+subroutine sporfs (
         character uplo,
         integer n,
         integer nrhs,
@@ -26,7 +25,7 @@ and provides error bounds and backward error estimates for the
 solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -51,7 +50,7 @@ LDA : INTEGER [in]
 
 AF : REAL array, dimension (LDAF,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T, as computed by SPOTRF.
+> A = U\*\*T\*U or A = L\*L\*\*T, as computed by SPOTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -84,7 +83,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : REAL array, dimension (3*N) [out]
+WORK : REAL array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

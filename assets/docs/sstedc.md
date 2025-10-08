@@ -1,6 +1,5 @@
 ```fortran
-subroutine sstedc
-(
+subroutine sstedc (
         character compz,
         integer n,
         real, dimension( * ) d,
@@ -22,7 +21,7 @@ found if SSYTRD or SSPTRD or SSBTRD has been used to reduce this
 matrix to tridiagonal form.
 
 ## Parameters
-COMPZ : CHARACTER*1 [in]
+COMPZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only.
 > = 'I':  Compute eigenvectors of tridiagonal matrix also.
 > = 'V':  Compute eigenvectors of original dense symmetric
@@ -61,14 +60,14 @@ LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If COMPZ = 'N' or N <= 1 then LWORK must be at least 1.
 > If COMPZ = 'V' and N > 1 then LWORK must be at least
-> ( 1 + 3*N + 2*N*lg N + 4*N**2 ),
+> ( 1 + 3\*N + 2\*N\*lg N + 4\*N\*\*2 ),
 > where lg( N ) = smallest integer k such
-> that 2**k >= N.
+> that 2\*\*k >= N.
 > If COMPZ = 'I' and N > 1 then LWORK must be at least
-> ( 1 + 4*N + N**2 ).
+> ( 1 + 4\*N + N\*\*2 ).
 > Note that for COMPZ = 'I' or 'V', then if N is less than or
 > equal to the minimum divide size, usually 25, then LWORK need
-> only be max(1,2*(N-1)).
+> only be max(1,2\*(N-1)).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -82,9 +81,9 @@ LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If COMPZ = 'N' or N <= 1 then LIWORK must be at least 1.
 > If COMPZ = 'V' and N > 1 then LIWORK must be at least
-> ( 6 + 6*N + 5*N*lg N ).
+> ( 6 + 6\*N + 5\*N\*lg N ).
 > If COMPZ = 'I' and N > 1 then LIWORK must be at least
-> ( 3 + 5*N ).
+> ( 3 + 5\*N ).
 > Note that for COMPZ = 'I' or 'V', then if N is less than or
 > equal to the minimum divide size, usually 25, then LIWORK
 > need only be 1.

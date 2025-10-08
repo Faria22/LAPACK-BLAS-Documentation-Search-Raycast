@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpptrs
-(
+subroutine cpptrs (
         character uplo,
         integer n,
         integer nrhs,
@@ -11,12 +10,12 @@ subroutine cpptrs
 )
 ```
 
-CPPTRS solves a system of linear equations A*X = B with a Hermitian
+CPPTRS solves a system of linear equations A\*X = B with a Hermitian
 positive definite matrix A in packed storage using the Cholesky
-factorization A = U**H*U or A = L*L**H computed by CPPTRF.
+factorization A = U\*\*H\*U or A = L\*L\*\*H computed by CPPTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -27,13 +26,13 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**H*U or A = L*L**H, packed columnwise in a linear
+> A = U\*\*H\*U or A = L\*L\*\*H, packed columnwise in a linear
 > array.  The j-th column of U or L is stored in the array AP
 > as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = U(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = L(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = U(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = L(i,j) for j<=i<=n.
 
 B : COMPLEX array, dimension (LDB,NRHS) [in,out]
 > On entry, the right hand side matrix B.

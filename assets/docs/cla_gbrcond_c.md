@@ -1,6 +1,5 @@
 ```fortran
-real function cla_gbrcond_c
-(
+real function cla_gbrcond_c (
         character trans,
         integer n,
         integer kl,
@@ -19,14 +18,14 @@ real function cla_gbrcond_c
 ```
 
 CLA_GBRCOND_C Computes the infinity norm condition number of
-op(A) * inv(diag(C)) where C is a REAL vector.
+op(A) \* inv(diag(C)) where C is a REAL vector.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate Transpose = Transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate Transpose = Transpose)
 
 N : INTEGER [in]
 > The number of linear equations, i.e., the order of the
@@ -52,18 +51,18 @@ AFB : COMPLEX array, dimension (LDAFB,N) [in]
 > computed by CGBTRF.  U is stored as an upper triangular
 > band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
 > and the multipliers used during the factorization are stored
-> in rows KL+KU+2 to 2*KL+KU+1.
+> in rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL+KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
-> The pivot indices from the factorization A = P*L*U
+> The pivot indices from the factorization A = P\*L\*U
 > as computed by CGBTRF; row i of the matrix was interchanged
 > with row IPIV(i).
 
 C : REAL array, dimension (N) [in]
-> The vector C in the formula op(A) * inv(diag(C)).
+> The vector C in the formula op(A) \* inv(diag(C)).
 
 CAPPLY : LOGICAL [in]
 > If .TRUE. then access the vector C in the formula above.
@@ -72,7 +71,7 @@ INFO : INTEGER [out]
 > = 0:  Successful exit.
 > i > 0:  The ith argument is invalid.
 
-WORK : COMPLEX array, dimension (2*N). [out]
+WORK : COMPLEX array, dimension (2\*N). [out]
 > Workspace.
 
 RWORK : REAL array, dimension (N). [out]

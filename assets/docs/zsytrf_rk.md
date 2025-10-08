@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytrf_rk
-(
+subroutine zsytrf_rk (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -16,18 +15,18 @@ subroutine zsytrf_rk
 ZSYTRF_RK computes the factorization of a complex symmetric matrix A
 using the bounded Bunch-Kaufman (rook) diagonal pivoting method:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 For more information see Further Details section.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular
@@ -36,7 +35,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the symmetric matrix A.
 > If UPLO = 'U': the leading N-by-N upper triangular part
 > of A contains the upper triangular part of the matrix A,
@@ -59,7 +58,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [out]
+E : COMPLEX\*16 array, dimension (N) [out]
 > On exit, contains the superdiagonal (or subdiagonal)
 > elements of the symmetric block diagonal matrix D
 > with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -132,12 +131,12 @@ IPIV : INTEGER array, dimension (N) [out]
 > 
 > d) NOTE: Any entry IPIV(k) is always NONZERO on output.
 
-WORK : COMPLEX*16 array, dimension ( MAX(1,LWORK) ). [out]
+WORK : COMPLEX\*16 array, dimension ( MAX(1,LWORK) ). [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >=1.  For best performance
-> LWORK >= N*NB, where NB is the block size returned
+> LWORK >= N\*NB, where NB is the block size returned
 > by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed;

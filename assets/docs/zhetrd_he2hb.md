@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetrd_he2hb
-(
+subroutine zhetrd_he2hb (
         character uplo,
         integer n,
         integer kd,
@@ -17,10 +16,10 @@ subroutine zhetrd_he2hb
 
 ZHETRD_HE2HB reduces a complex Hermitian matrix A to complex Hermitian
 band-diagonal form AB by a unitary similarity transformation:
-Q**H * A * Q = AB.
+Q\*\*H \* A \* Q = AB.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -32,7 +31,7 @@ KD : INTEGER [in]
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 > The reduced matrix is stored in the array AB.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 > N-by-N upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower
@@ -54,7 +53,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [out]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [out]
 > On exit, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -65,11 +64,11 @@ AB : COMPLEX*16 array, dimension (LDAB,N) [out]
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KD+1.
 
-TAU : COMPLEX*16 array, dimension (N-KD) [out]
+TAU : COMPLEX\*16 array, dimension (N-KD) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, or if LWORK = -1,
 > WORK(1) returns the size of LWORK.
 
@@ -82,7 +81,7 @@ LWORK : INTEGER [in]
 > only calculates the optimal size of the WORK array, returns
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
-> LWORK_QUERY = N*KD + N*max(KD,FACTOPTNB) + 2*KD*KD
+> LWORK_QUERY = N\*KD + N\*max(KD,FACTOPTNB) + 2\*KD\*KD
 > where FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice otherwise
 > putting LWORK=-1 will provide the size of WORK.

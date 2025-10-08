@@ -1,6 +1,5 @@
 ```fortran
-subroutine cungr2
-(
+subroutine cungr2 (
         integer m,
         integer n,
         integer k,
@@ -16,7 +15,7 @@ CUNGR2 generates an m by n complex matrix Q with orthonormal rows,
 which is defined as the last m rows of a product of k elementary
 reflectors of order n
 
-Q  =  H(1)**H H(2)**H . . . H(k)**H
+Q  =  H(1)\*\*H H(2)\*\*H . . . H(k)\*\*H
 
 as returned by CGERQF.
 

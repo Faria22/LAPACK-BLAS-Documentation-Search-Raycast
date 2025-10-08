@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed8
-(
+subroutine dlaed8 (
         integer icompq,
         integer k,
         integer n,

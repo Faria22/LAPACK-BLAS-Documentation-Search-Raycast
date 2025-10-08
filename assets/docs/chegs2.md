@@ -1,6 +1,5 @@
 ```fortran
-subroutine chegs2
-(
+subroutine chegs2 (
         integer itype,
         character uplo,
         integer n,
@@ -15,20 +14,20 @@ subroutine chegs2
 CHEGS2 reduces a complex Hermitian-definite generalized
 eigenproblem to standard form.
 
-If ITYPE = 1, the problem is A*x = lambda*B*x,
-and A is overwritten by inv(U**H)*A*inv(U) or inv(L)*A*inv(L**H)
+If ITYPE = 1, the problem is A\*x = lambda\*B\*x,
+and A is overwritten by inv(U\*\*H)\*A\*inv(U) or inv(L)\*A\*inv(L\*\*H)
 
-If ITYPE = 2 or 3, the problem is A*B*x = lambda*x or
-B*A*x = lambda*x, and A is overwritten by U*A*U**H or L**H *A*L.
+If ITYPE = 2 or 3, the problem is A\*B\*x = lambda\*x or
+B\*A\*x = lambda\*x, and A is overwritten by U\*A\*U\*\*H or L\*\*H \*A\*L.
 
-B must have been previously factorized as U**H *U or L*L**H by ZPOTRF.
+B must have been previously factorized as U\*\*H \*U or L\*L\*\*H by ZPOTRF.
 
 ## Parameters
 ITYPE : INTEGER [in]
-> = 1: compute inv(U**H)*A*inv(U) or inv(L)*A*inv(L**H);
-> = 2 or 3: compute U*A*U**H or L**H *A*L.
+> = 1: compute inv(U\*\*H)\*A\*inv(U) or inv(L)\*A\*inv(L\*\*H);
+> = 2 or 3: compute U\*A\*U\*\*H or L\*\*H \*A\*L.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored, and how B has been factorized.
 > = 'U':  Upper triangular

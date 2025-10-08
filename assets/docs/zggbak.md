@@ -1,6 +1,5 @@
 ```fortran
-subroutine zggbak
-(
+subroutine zggbak (
         character job,
         character side,
         integer n,
@@ -16,12 +15,12 @@ subroutine zggbak
 ```
 
 ZGGBAK forms the right or left eigenvectors of a complex generalized
-eigenvalue problem A*x = lambda*B*x, by backward transformation on
+eigenvalue problem A\*x = lambda\*B\*x, by backward transformation on
 the computed eigenvectors of the balanced pair of matrices output by
 ZGGBAL.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the type of backward transformation required:
 > = 'N':  do nothing, return immediately;
 > = 'P':  do backward transformation for permutation only;
@@ -30,7 +29,7 @@ JOB : CHARACTER*1 [in]
 > scaling.
 > JOB must be the same as the argument JOB supplied to ZGGBAL.
 
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R':  V contains right eigenvectors;
 > = 'L':  V contains left eigenvectors.
 
@@ -54,7 +53,7 @@ RSCALE : DOUBLE PRECISION array, dimension (N) [in]
 M : INTEGER [in]
 > The number of columns of the matrix V.  M >= 0.
 
-V : COMPLEX*16 array, dimension (LDV,M) [in,out]
+V : COMPLEX\*16 array, dimension (LDV,M) [in,out]
 > On entry, the matrix of right or left eigenvectors to be
 > transformed, as returned by ZTGEVC.
 > On exit, V is overwritten by the transformed eigenvectors.

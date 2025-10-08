@@ -1,6 +1,5 @@
 ```fortran
-real function slange
-(
+real function slange (
         character norm,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 real matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in SLANGE as described
 > above.
 

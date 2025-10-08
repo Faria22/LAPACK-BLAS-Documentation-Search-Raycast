@@ -1,6 +1,5 @@
 ```fortran
-subroutine dladiv1
-(
+subroutine dladiv1 (
         double precision a,
         double precision b,
         double precision c,

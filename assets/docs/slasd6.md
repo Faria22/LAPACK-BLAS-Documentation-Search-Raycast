@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasd6
-(
+subroutine slasd6 (
         integer icompq,
         integer nl,
         integer nr,
@@ -41,12 +40,12 @@ values and singular vectors of the bidiagonal matrix are desired.
 SLASD6 computes the SVD as follows:
 
 ( D1(in)    0    0       0 )
-B = U(in) * (   Z1**T   a   Z2**T    b ) * VT(in)
+B = U(in) \* (   Z1\*\*T   a   Z2\*\*T    b ) \* VT(in)
 (   0       0   D2(in)   0 )
 
-= U(out) * ( D(out) 0) * VT(out)
+= U(out) \* ( D(out) 0) \* VT(out)
 
-where Z**T = (Z1**T a Z2**T b) = u**T VT**T, and u is a vector of dimension M
+where Z\*\*T = (Z1\*\*T a Z2\*\*T b) = u\*\*T VT\*\*T, and u is a vector of dimension M
 with ALPHA and BETA in the NL+1 and NL+2 th entries and zeros
 elsewhere; and the entry b is empty if SQRE = 0.
 
@@ -150,9 +149,9 @@ LDGNUM : INTEGER [in]
 > The leading dimension of GIVNUM and POLES, must be at least N.
 
 POLES : REAL array, dimension ( LDGNUM, 2 ) [out]
-> On exit, POLES(1,*) is an array containing the new singular
+> On exit, POLES(1,\*) is an array containing the new singular
 > values obtained from solving the secular equation, and
-> POLES(2,*) is an array containing the poles in the secular
+> POLES(2,\*) is an array containing the poles in the secular
 > equation. Not referenced if ICOMPQ = 0.
 
 DIFL : REAL array, dimension ( N ) [out]
@@ -187,9 +186,9 @@ S : REAL [out]
 > S contains garbage if SQRE =0 and the S-value of a Givens
 > rotation related to the right null space if SQRE = 1.
 
-WORK : REAL array, dimension ( 4 * M ) [out]
+WORK : REAL array, dimension ( 4 \* M ) [out]
 
-IWORK : INTEGER array, dimension ( 3 * N ) [out]
+IWORK : INTEGER array, dimension ( 3 \* N ) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

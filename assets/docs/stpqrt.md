@@ -1,6 +1,5 @@
 ```fortran
-subroutine stpqrt
-(
+subroutine stpqrt (
         integer m,
         integer n,
         integer l,
@@ -61,7 +60,7 @@ T : REAL array, dimension (LDT,N) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : REAL array, dimension (NB*N) [out]
+WORK : REAL array, dimension (NB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

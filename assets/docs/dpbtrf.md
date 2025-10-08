@@ -1,6 +1,5 @@
 ```fortran
-subroutine dpbtrf
-(
+subroutine dpbtrf (
         character uplo,
         integer n,
         integer kd,
@@ -14,12 +13,12 @@ DPBTRF computes the Cholesky factorization of a real symmetric
 positive definite band matrix A.
 
 The factorization has the form
-A = U**T * U,  if UPLO = 'U', or
-A = L  * L**T,  if UPLO = 'L',
+A = U\*\*T \* U,  if UPLO = 'U', or
+A = L  \* L\*\*T,  if UPLO = 'L',
 where U is an upper triangular matrix and L is lower triangular.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -39,7 +38,7 @@ AB : DOUBLE PRECISION array, dimension (LDAB,N) [in,out]
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 > 
 > On exit, if INFO = 0, the triangular factor U or L from the
-> Cholesky factorization A = U**T*U or A = L*L**T of the band
+> Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T of the band
 > matrix A, in the same storage format as A.
 
 LDAB : INTEGER [in]

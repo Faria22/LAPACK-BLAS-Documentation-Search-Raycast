@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgeqrf
-(
+subroutine cgeqrf (
         integer m,
         integer n,
         complex, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ subroutine cgeqrf
 
 CGEQRF computes a QR factorization of a complex M-by-N matrix A:
 
-A = Q * ( R ),
+A = Q \* ( R ),
 ( 0 )
 
 where:
@@ -52,7 +51,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= N, otherwise.
-> For optimum performance LWORK >= N*NB, where NB is
+> For optimum performance LWORK >= N\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

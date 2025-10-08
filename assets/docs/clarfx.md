@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarfx
-(
+subroutine clarfx (
         character side,
         integer m,
         integer n,
@@ -16,7 +15,7 @@ CLARFX applies a complex elementary reflector H to a complex m by n
 matrix C, from either the left or the right. H is represented in the
 form
 
-H = I - tau * v * v**H
+H = I - tau \* v \* v\*\*H
 
 where tau is a complex scalar and v is a complex vector.
 
@@ -25,9 +24,9 @@ If tau = 0, then H is taken to be the unit matrix
 This version uses inline code if H has order < 11.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': form  H * C
-> = 'R': form  C * H
+SIDE : CHARACTER\*1 [in]
+> = 'L': form  H \* C
+> = 'R': form  C \* H
 
 M : INTEGER [in]
 > The number of rows of the matrix C.
@@ -44,8 +43,8 @@ TAU : COMPLEX [in]
 
 C : COMPLEX array, dimension (LDC,N) [in,out]
 > On entry, the m by n matrix C.
-> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
-> or C * H if SIDE = 'R'.
+> On exit, C is overwritten by the matrix H \* C if SIDE = 'L',
+> or C \* H if SIDE = 'R'.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

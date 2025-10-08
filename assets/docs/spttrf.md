@@ -1,6 +1,5 @@
 ```fortran
-subroutine spttrf
-(
+subroutine spttrf (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) e,
@@ -8,9 +7,9 @@ subroutine spttrf
 )
 ```
 
-SPTTRF computes the L*D*L**T factorization of a real symmetric
+SPTTRF computes the L\*D\*L\*\*T factorization of a real symmetric
 positive definite tridiagonal matrix A.  The factorization may also
-be regarded as having the form A = U**T*D*U.
+be regarded as having the form A = U\*\*T\*D\*U.
 
 ## Parameters
 N : INTEGER [in]
@@ -19,14 +18,14 @@ N : INTEGER [in]
 D : REAL array, dimension (N) [in,out]
 > On entry, the n diagonal elements of the tridiagonal matrix
 > A.  On exit, the n diagonal elements of the diagonal matrix
-> D from the L*D*L**T factorization of A.
+> D from the L\*D\*L\*\*T factorization of A.
 
 E : REAL array, dimension (N-1) [in,out]
 > On entry, the (n-1) subdiagonal elements of the tridiagonal
 > matrix A.  On exit, the (n-1) subdiagonal elements of the
-> unit bidiagonal factor L from the L*D*L**T factorization of A.
+> unit bidiagonal factor L from the L\*D\*L\*\*T factorization of A.
 > E can also be regarded as the superdiagonal of the unit
-> bidiagonal factor U from the U**T*D*U factorization of A.
+> bidiagonal factor U from the U\*\*T\*D\*U factorization of A.
 
 INFO : INTEGER [out]
 > = 0: successful exit

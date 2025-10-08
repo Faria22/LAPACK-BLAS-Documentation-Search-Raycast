@@ -1,6 +1,5 @@
 ```fortran
-subroutine dormql
-(
+subroutine dormql (
         character side,
         character trans,
         integer m,
@@ -20,8 +19,8 @@ subroutine dormql
 DORMQL overwrites the general real M-by-N matrix C with
 
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'T':      Q**T * C       C * Q**T
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'T':      Q\*\*T \* C       C \* Q\*\*T
 
 where Q is a real orthogonal matrix defined as the product of k
 elementary reflectors
@@ -32,13 +31,13 @@ as returned by DGEQLF. Q is of order M if SIDE = 'L' and of order N
 if SIDE = 'R'.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**T from the Left;
-> = 'R': apply Q or Q**T from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*T from the Left;
+> = 'R': apply Q or Q\*\*T from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
-> = 'T':  Transpose, apply Q**T.
+> = 'T':  Transpose, apply Q\*\*T.
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -68,7 +67,7 @@ TAU : DOUBLE PRECISION array, dimension (K) [in]
 
 C : DOUBLE PRECISION array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
+> On exit, C is overwritten by Q\*C or Q\*\*T\*C or C\*Q\*\*T or C\*Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

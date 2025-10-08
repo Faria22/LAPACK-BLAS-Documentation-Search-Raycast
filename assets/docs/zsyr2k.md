@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsyr2k
-(
+subroutine zsyr2k (
         character uplo,
         character trans,
         integer n,
@@ -18,18 +17,18 @@ subroutine zsyr2k
 
 ZSYR2K  performs one of the symmetric rank 2k operations
 
-C := alpha*A*B**T + alpha*B*A**T + beta*C,
+C := alpha\*A\*B\*\*T + alpha\*B\*A\*\*T + beta\*C,
 
 or
 
-C := alpha*A**T*B + alpha*B**T*A + beta*C,
+C := alpha\*A\*\*T\*B + alpha\*B\*\*T\*A + beta\*C,
 
 where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
 and  A and B  are  n by k  matrices  in the  first  case  and  k by n
 matrices in the second case.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On  entry,   UPLO  specifies  whether  the  upper  or  lower
 > triangular  part  of the  array  C  is to be  referenced  as
 > follows:
@@ -40,15 +39,15 @@ UPLO : CHARACTER*1 [in]
 > UPLO = 'L' or 'l'   Only the  lower triangular part of  C
 > is to be referenced.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry,  TRANS  specifies the operation to be performed as
 > follows:
 > 
-> TRANS = 'N' or 'n'    C := alpha*A*B**T + alpha*B*A**T +
-> beta*C.
+> TRANS = 'N' or 'n'    C := alpha\*A\*B\*\*T + alpha\*B\*A\*\*T +
+> beta\*C.
 > 
-> TRANS = 'T' or 't'    C := alpha*A**T*B + alpha*B**T*A +
-> beta*C.
+> TRANS = 'T' or 't'    C := alpha\*A\*\*T\*B + alpha\*B\*\*T\*A +
+> beta\*C.
 
 N : INTEGER [in]
 > On entry,  N specifies the order of the matrix C.  N must be
@@ -60,10 +59,10 @@ K : INTEGER [in]
 > TRANS = 'T' or 't',  K  specifies  the number of rows of the
 > matrices  A and B.  K must be at least zero.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry, ALPHA specifies the scalar alpha.
 
-A : COMPLEX*16 array, dimension ( LDA, ka ), where ka is [in]
+A : COMPLEX\*16 array, dimension ( LDA, ka ), where ka is [in]
 > k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
 > Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
 > part of the array  A  must contain the matrix  A,  otherwise
@@ -76,7 +75,7 @@ LDA : INTEGER [in]
 > then  LDA must be at least  max( 1, n ), otherwise  LDA must
 > be at least  max( 1, k ).
 
-B : COMPLEX*16 array, dimension ( LDB, kb ), where kb is [in]
+B : COMPLEX\*16 array, dimension ( LDB, kb ), where kb is [in]
 > k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
 > Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
 > part of the array  B  must contain the matrix  B,  otherwise
@@ -89,10 +88,10 @@ LDB : INTEGER [in]
 > then  LDB must be at least  max( 1, n ), otherwise  LDB must
 > be at least  max( 1, k ).
 
-BETA : COMPLEX*16 [in]
+BETA : COMPLEX\*16 [in]
 > On entry, BETA specifies the scalar beta.
 
-C : COMPLEX*16 array, dimension ( LDC, N ) [in,out]
+C : COMPLEX\*16 array, dimension ( LDC, N ) [in,out]
 > Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
 > upper triangular part of the array C must contain the upper
 > triangular part  of the  symmetric matrix  and the strictly

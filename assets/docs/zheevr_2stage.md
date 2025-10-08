@@ -1,6 +1,5 @@
 ```fortran
-subroutine zheevr_2stage
-(
+subroutine zheevr_2stage (
         character jobz,
         character range,
         character uplo,
@@ -84,12 +83,12 @@ which do not handle NaNs and infinities in the ieee standard default
 manner.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found.
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found.
@@ -97,14 +96,14 @@ RANGE : CHARACTER*1 [in]
 > For RANGE = 'V' or 'I' and IU - IL < N - 1, DSTEBZ and
 > ZSTEIN are called
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the
 > leading N-by-N upper triangular part of A contains the
 > upper triangular part of the matrix A.  If UPLO = 'L',
@@ -145,10 +144,10 @@ ABSTOL : DOUBLE PRECISION [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing A to tridiagonal form.
 > 
@@ -173,7 +172,7 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 > The first M elements contain the selected eigenvalues in
 > ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, max(1,M)) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, max(1,M)) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 > contain the orthonormal eigenvectors of the matrix A
 > corresponding to the selected eigenvalues, with the i-th
@@ -187,27 +186,27 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-ISUPPZ : INTEGER array, dimension ( 2*max(1,M) ) [out]
+ISUPPZ : INTEGER array, dimension ( 2\*max(1,M) ) [out]
 > The support of the eigenvectors in Z, i.e., the indices
 > indicating the nonzero elements in Z. The i-th eigenvector
-> is nonzero only in elements ISUPPZ( 2*i-1 ) through
-> ISUPPZ( 2*i ). This is an output of ZSTEMR (tridiagonal
+> is nonzero only in elements ISUPPZ( 2\*i-1 ) through
+> ISUPPZ( 2\*i ). This is an output of ZSTEMR (tridiagonal
 > matrix). The support of the eigenvectors of A is typically
 > 1:N because of the unitary transformations applied by ZUNMTR.
 > Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If N <= 1,               LWORK must be at least 1.
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
-> LWORK = MAX(1, 26*N, dimension) where
-> dimension = max(stage1,stage2) + (KD+1)*N + N
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N + N
+> LWORK = MAX(1, 26\*N, dimension) where
+> dimension = max(stage1,stage2) + (KD+1)\*N + N
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N + N
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice
@@ -227,7 +226,7 @@ RWORK : DOUBLE PRECISION array, dimension (MAX(1,LRWORK)) [out]
 
 LRWORK : INTEGER [in]
 > The length of the array RWORK.
-> If N <= 1, LRWORK >= 1, else LRWORK >= 24*N.
+> If N <= 1, LRWORK >= 1, else LRWORK >= 24\*N.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -241,7 +240,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
-> If N <= 1, LIWORK >= 1, else LIWORK >= 10*N.
+> If N <= 1, LIWORK >= 1, else LIWORK >= 10\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK

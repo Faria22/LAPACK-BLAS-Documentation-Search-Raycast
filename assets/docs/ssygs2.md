@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssygs2
-(
+subroutine ssygs2 (
         integer itype,
         character uplo,
         integer n,
@@ -15,20 +14,20 @@ subroutine ssygs2
 SSYGS2 reduces a real symmetric-definite generalized eigenproblem
 to standard form.
 
-If ITYPE = 1, the problem is A*x = lambda*B*x,
-and A is overwritten by inv(U**T)*A*inv(U) or inv(L)*A*inv(L**T)
+If ITYPE = 1, the problem is A\*x = lambda\*B\*x,
+and A is overwritten by inv(U\*\*T)\*A\*inv(U) or inv(L)\*A\*inv(L\*\*T)
 
-If ITYPE = 2 or 3, the problem is A*B*x = lambda*x or
-B*A*x = lambda*x, and A is overwritten by U*A*U**T or L**T *A*L.
+If ITYPE = 2 or 3, the problem is A\*B\*x = lambda\*x or
+B\*A\*x = lambda\*x, and A is overwritten by U\*A\*U\*\*T or L\*\*T \*A\*L.
 
-B must have been previously factorized as U**T *U or L*L**T by SPOTRF.
+B must have been previously factorized as U\*\*T \*U or L\*L\*\*T by SPOTRF.
 
 ## Parameters
 ITYPE : INTEGER [in]
-> = 1: compute inv(U**T)*A*inv(U) or inv(L)*A*inv(L**T);
-> = 2 or 3: compute U*A*U**T or L**T *A*L.
+> = 1: compute inv(U\*\*T)\*A\*inv(U) or inv(L)\*A\*inv(L\*\*T);
+> = 2 or 3: compute U\*A\*U\*\*T or L\*\*T \*A\*L.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored, and how B has been factorized.
 > = 'U':  Upper triangular

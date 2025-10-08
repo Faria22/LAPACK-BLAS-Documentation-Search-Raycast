@@ -1,6 +1,5 @@
 ```fortran
-subroutine zstegr
-(
+subroutine zstegr (
         character jobz,
         character range,
         integer n,
@@ -46,11 +45,11 @@ may abort due to a floating point exception in environments which
 do not conform to the IEEE-754 standard.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found.
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found.
@@ -107,7 +106,7 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 > The first M elements contain the selected eigenvalues in
 > ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, max(1,M) ) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, max(1,M) ) [out]
 > If JOBZ = 'V', and if INFO = 0, then the first M columns of Z
 > contain the orthonormal eigenvectors of the matrix T
 > corresponding to the selected eigenvalues, with the i-th
@@ -122,11 +121,11 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', then LDZ >= max(1,N).
 
-ISUPPZ : INTEGER array, dimension ( 2*max(1,M) ) [out]
+ISUPPZ : INTEGER array, dimension ( 2\*max(1,M) ) [out]
 > The support of the eigenvectors in Z, i.e., the indices
 > indicating the nonzero elements in Z. The i-th computed eigenvector
-> is nonzero only in elements ISUPPZ( 2*i-1 ) through
-> ISUPPZ( 2*i ). This is relevant in the case when the matrix
+> is nonzero only in elements ISUPPZ( 2\*i-1 ) through
+> ISUPPZ( 2\*i ). This is relevant in the case when the matrix
 > is split. ISUPPZ is only accessed when JOBZ is 'V' and N > 0.
 
 WORK : DOUBLE PRECISION array, dimension (LWORK) [out]
@@ -134,8 +133,8 @@ WORK : DOUBLE PRECISION array, dimension (LWORK) [out]
 > (and minimal) LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= max(1,18*N)
-> if JOBZ = 'V', and LWORK >= max(1,12*N) if JOBZ = 'N'.
+> The dimension of the array WORK. LWORK >= max(1,18\*N)
+> if JOBZ = 'V', and LWORK >= max(1,12\*N) if JOBZ = 'N'.
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
 > this value as the first entry of the WORK array, and no error
@@ -145,8 +144,8 @@ IWORK : INTEGER array, dimension (LIWORK) [out]
 > On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
 
 LIWORK : INTEGER [in]
-> The dimension of the array IWORK.  LIWORK >= max(1,10*N)
-> if the eigenvectors are desired, and LIWORK >= max(1,8*N)
+> The dimension of the array IWORK.  LIWORK >= max(1,10\*N)
+> if the eigenvectors are desired, and LIWORK >= max(1,8\*N)
 > if only the eigenvalues are to be computed.
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the IWORK array,

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggevx
-(
+subroutine cggevx (
         character balanc,
         character jobvl,
         character jobvr,
@@ -44,21 +43,21 @@ the eigenvalues (RCONDE), and reciprocal condition numbers for the
 right eigenvectors (RCONDV).
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar
-lambda or a ratio alpha/beta = lambda, such that A - lambda*B is
+lambda or a ratio alpha/beta = lambda, such that A - lambda\*B is
 singular. It is usually represented as the pair (alpha,beta), as
 there is a reasonable interpretation for beta=0, and even for both
 being zero.
 
 The right eigenvector v(j) corresponding to the eigenvalue lambda(j)
 of (A,B) satisfies
-A * v(j) = lambda(j) * B * v(j) .
+A \* v(j) = lambda(j) \* B \* v(j) .
 The left eigenvector u(j) corresponding to the eigenvalue lambda(j)
 of (A,B) satisfies
-u(j)**H * A  = lambda(j) * u(j)**H * B.
-where u(j)**H is the conjugate-transpose of u(j).
+u(j)\*\*H \* A  = lambda(j) \* u(j)\*\*H \* B.
+where u(j)\*\*H is the conjugate-transpose of u(j).
 
 ## Parameters
-BALANC : CHARACTER*1 [in]
+BALANC : CHARACTER\*1 [in]
 > Specifies the balance option to be performed:
 > = 'N':  do not diagonally scale or permute;
 > = 'P':  permute only;
@@ -69,15 +68,15 @@ BALANC : CHARACTER*1 [in]
 > not change condition numbers (in exact arithmetic), but
 > balancing does.
 
-JOBVL : CHARACTER*1 [in]
+JOBVL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left generalized eigenvectors;
 > = 'V':  compute the left generalized eigenvectors.
 
-JOBVR : CHARACTER*1 [in]
+JOBVR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right generalized eigenvectors;
 > = 'V':  compute the right generalized eigenvectors.
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': none are computed;
 > = 'E': computed for eigenvalues only;
@@ -195,9 +194,9 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= max(1,2*N).
-> If SENSE = 'E', LWORK >= max(1,4*N).
-> If SENSE = 'V' or 'B', LWORK >= max(1,2*N*N+2*N).
+> The dimension of the array WORK. LWORK >= max(1,2\*N).
+> If SENSE = 'E', LWORK >= max(1,4\*N).
+> If SENSE = 'V' or 'B', LWORK >= max(1,2\*N\*N+2\*N).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -205,8 +204,8 @@ LWORK : INTEGER [in]
 > message related to LWORK is issued by XERBLA.
 
 RWORK : REAL array, dimension (lrwork) [out]
-> lrwork must be at least max(1,6*N) if BALANC = 'S' or 'B',
-> and at least max(1,2*N) otherwise.
+> lrwork must be at least max(1,6\*N) if BALANC = 'S' or 'B',
+> and at least max(1,2\*N) otherwise.
 > Real workspace.
 
 IWORK : INTEGER array, dimension (N+2) [out]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgttrs
-(
+subroutine sgttrs (
         character trans,
         integer n,
         integer nrhs,
@@ -16,16 +15,16 @@ subroutine sgttrs
 ```
 
 SGTTRS solves one of the systems of equations
-A*X = B  or  A**T*X = B,
+A\*X = B  or  A\*\*T\*X = B,
 with a tridiagonal matrix A using the LU factorization computed
 by SGTTRF.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations.
-> = 'N':  A * X = B  (No transpose)
-> = 'T':  A**T* X = B  (Transpose)
-> = 'C':  A**T* X = B  (Conjugate transpose = Transpose)
+> = 'N':  A \* X = B  (No transpose)
+> = 'T':  A\*\*T\* X = B  (Transpose)
+> = 'C':  A\*\*T\* X = B  (Conjugate transpose = Transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.

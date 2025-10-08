@@ -1,6 +1,5 @@
 ```fortran
-subroutine dptrfs
-(
+subroutine dptrfs (
         integer n,
         integer nrhs,
         double precision, dimension( * ) d,
@@ -71,7 +70,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

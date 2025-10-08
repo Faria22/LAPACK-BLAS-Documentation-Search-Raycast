@@ -1,6 +1,5 @@
 ```fortran
-subroutine slae2
-(
+subroutine slae2 (
         real a,
         real b,
         real c,

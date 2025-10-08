@@ -1,6 +1,5 @@
 ```fortran
-subroutine dpbrfs
-(
+subroutine dpbrfs (
         character uplo,
         integer n,
         integer kd,
@@ -27,7 +26,7 @@ and banded, and provides error bounds and backward error estimates
 for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -54,7 +53,7 @@ LDAB : INTEGER [in]
 
 AFB : DOUBLE PRECISION array, dimension (LDAFB,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T of the band matrix A as computed by
+> A = U\*\*T\*U or A = L\*L\*\*T of the band matrix A as computed by
 > DPBTRF, in the same storage format as A (see AB).
 
 LDAFB : INTEGER [in]
@@ -88,7 +87,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : DOUBLE PRECISION array, dimension (3*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

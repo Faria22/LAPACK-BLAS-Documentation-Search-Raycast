@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtpqrt
-(
+subroutine dtpqrt (
         integer m,
         integer n,
         integer l,
@@ -61,7 +60,7 @@ T : DOUBLE PRECISION array, dimension (LDT,N) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : DOUBLE PRECISION array, dimension (NB*N) [out]
+WORK : DOUBLE PRECISION array, dimension (NB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cheev_2stage
-(
+subroutine cheev_2stage (
         character jobz,
         character uplo,
         integer n,
@@ -19,12 +18,12 @@ complex Hermitian matrix A using the 2stage technique for
 the reduction to tridiagonal.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -57,10 +56,10 @@ LWORK : INTEGER [in]
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = max(stage1,stage2) + (KD+1)*N + N
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N + N
+> dimension = max(stage1,stage2) + (KD+1)\*N + N
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N + N
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice
@@ -73,7 +72,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (max(1, 3*N-2)) [out]
+RWORK : REAL array, dimension (max(1, 3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

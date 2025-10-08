@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhesvx
-(
+subroutine zhesvx (
         character fact,
         character uplo,
         integer n,
@@ -25,7 +24,7 @@ subroutine zhesvx
 ```
 
 ZHESVX uses the diagonal pivoting factorization to compute the
-solution to a complex system of linear equations A * X = B,
+solution to a complex system of linear equations A \* X = B,
 where A is an N-by-N Hermitian matrix and X and B are N-by-NRHS
 matrices.
 
@@ -33,14 +32,14 @@ Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of A has been
 > supplied on entry.
 > = 'F':  On entry, AF and IPIV contain the factored form
 > of A.  A, AF and IPIV will not be modified.
 > = 'N':  The matrix A will be copied to AF and factored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -52,7 +51,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The Hermitian matrix A.  If UPLO = 'U', the leading N-by-N
 > upper triangular part of A contains the upper triangular part
 > of the matrix A, and the strictly lower triangular part of A
@@ -64,16 +63,16 @@ A : COMPLEX*16 array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in,out]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in,out]
 > If FACT = 'F', then AF is an input argument and on entry
 > contains the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**H or A = L*D*L**H as computed by ZHETRF.
+> A = U\*D\*U\*\*H or A = L\*D\*L\*\*H as computed by ZHETRF.
 > 
 > If FACT = 'N', then AF is an output argument and on exit
 > returns the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**H or A = L*D*L**H.
+> A = U\*D\*U\*\*H or A = L\*D\*L\*\*H.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -94,13 +93,13 @@ IPIV : INTEGER array, dimension (N) [in,out]
 > contains details of the interchanges and the block structure
 > of D, as determined by ZHETRF.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The N-by-NRHS right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [out]
 > If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.
 
 LDX : INTEGER [in]
@@ -128,12 +127,12 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK.  LWORK >= MAX(1,2*N), and for best
-> performance, when FACT = 'N', LWORK >= MAX(1,2*N,N*NB), where
+> The length of WORK.  LWORK >= MAX(1,2\*N), and for best
+> performance, when FACT = 'N', LWORK >= MAX(1,2\*N,N\*NB), where
 > NB is the optimal blocksize for ZHETRF.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cheev
-(
+subroutine cheev (
         character jobz,
         character uplo,
         integer n,
@@ -18,11 +17,11 @@ CHEEV computes all eigenvalues and, optionally, eigenvectors of a
 complex Hermitian matrix A.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -51,8 +50,8 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of the array WORK.  LWORK >= max(1,2*N-1).
-> For optimal efficiency, LWORK >= (NB+1)*N,
+> The length of the array WORK.  LWORK >= max(1,2\*N-1).
+> For optimal efficiency, LWORK >= (NB+1)\*N,
 > where NB is the blocksize for CHETRD returned by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -60,7 +59,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (max(1, 3*N-2)) [out]
+RWORK : REAL array, dimension (max(1, 3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

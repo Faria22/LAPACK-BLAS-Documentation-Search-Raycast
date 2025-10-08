@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaesy
-(
+subroutine zlaesy (
         complex*16 a,
         complex*16 b,
         complex*16 c,
@@ -25,23 +24,23 @@ on return ( CS1, SN1 ) is the unit eigenvector for RT1, hence
 [ -SN1     CS1   ]   [ B  C ]   [ SN1     CS1   ]   [  0  RT2 ]
 
 ## Parameters
-A : COMPLEX*16 [in]
+A : COMPLEX\*16 [in]
 > The ( 1, 1 ) element of input matrix.
 
-B : COMPLEX*16 [in]
+B : COMPLEX\*16 [in]
 > The ( 1, 2 ) element of input matrix.  The ( 2, 1 ) element
 > is also given by B, since the 2-by-2 matrix is symmetric.
 
-C : COMPLEX*16 [in]
+C : COMPLEX\*16 [in]
 > The ( 2, 2 ) element of input matrix.
 
-RT1 : COMPLEX*16 [out]
+RT1 : COMPLEX\*16 [out]
 > The eigenvalue of larger modulus.
 
-RT2 : COMPLEX*16 [out]
+RT2 : COMPLEX\*16 [out]
 > The eigenvalue of smaller modulus.
 
-EVSCAL : COMPLEX*16 [out]
+EVSCAL : COMPLEX\*16 [out]
 > The complex value by which the eigenvector matrix was scaled
 > to make it orthonormal.  If EVSCAL is zero, the eigenvectors
 > were not computed.  This means one of two things:  the 2-by-2
@@ -49,8 +48,8 @@ EVSCAL : COMPLEX*16 [out]
 > of eigenvectors before scaling was larger than the threshold
 > value THRESH (set below).
 
-CS1 : COMPLEX*16 [out]
+CS1 : COMPLEX\*16 [out]
 
-SN1 : COMPLEX*16 [out]
+SN1 : COMPLEX\*16 [out]
 > If EVSCAL .NE. 0,  ( CS1, SN1 ) is the unit right eigenvector
 > for RT1.

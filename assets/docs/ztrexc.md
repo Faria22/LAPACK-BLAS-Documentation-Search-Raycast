@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztrexc
-(
+subroutine ztrexc (
         character compq,
         integer n,
         complex*16, dimension( ldt, * ) t,
@@ -14,15 +13,15 @@ subroutine ztrexc
 ```
 
 ZTREXC reorders the Schur factorization of a complex matrix
-A = Q*T*Q**H, so that the diagonal element of T with row index IFST
+A = Q\*T\*Q\*\*H, so that the diagonal element of T with row index IFST
 is moved to row ILST.
 
 The Schur form T is reordered by a unitary similarity transformation
-Z**H*T*Z, and optionally the matrix Q of Schur vectors is updated by
+Z\*\*H\*T\*Z, and optionally the matrix Q of Schur vectors is updated by
 postmultiplying it with Z.
 
 ## Parameters
-COMPQ : CHARACTER*1 [in]
+COMPQ : CHARACTER\*1 [in]
 > = 'V':  update the matrix Q of Schur vectors;
 > = 'N':  do not update Q.
 
@@ -30,14 +29,14 @@ N : INTEGER [in]
 > The order of the matrix T. N >= 0.
 > If N == 0 arguments ILST and IFST may be any value.
 
-T : COMPLEX*16 array, dimension (LDT,N) [in,out]
+T : COMPLEX\*16 array, dimension (LDT,N) [in,out]
 > On entry, the upper triangular matrix T.
 > On exit, the reordered upper triangular matrix.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T. LDT >= max(1,N).
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
 > On exit, if COMPQ = 'V', Q has been postmultiplied by the
 > unitary transformation matrix Z which reorders T.

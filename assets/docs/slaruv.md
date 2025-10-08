@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaruv
-(
+subroutine slaruv (
         integer, dimension( 4 ) iseed,
         integer n,
         real, dimension( n ) x

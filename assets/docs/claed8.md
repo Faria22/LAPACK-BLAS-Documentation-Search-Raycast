@@ -1,6 +1,5 @@
 ```fortran
-subroutine claed8
-(
+subroutine claed8 (
         integer k,
         integer n,
         integer qsiz,

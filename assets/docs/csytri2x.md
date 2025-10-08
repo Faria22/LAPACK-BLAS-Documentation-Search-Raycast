@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytri2x
-(
+subroutine csytri2x (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -13,15 +12,15 @@ subroutine csytri2x
 ```
 
 CSYTRI2X computes the inverse of a real symmetric indefinite matrix
-A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by
 CSYTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

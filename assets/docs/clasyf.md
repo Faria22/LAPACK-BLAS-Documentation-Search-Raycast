@@ -1,6 +1,5 @@
 ```fortran
-subroutine clasyf
-(
+subroutine clasyf (
         character uplo,
         integer n,
         integer nb,
@@ -19,21 +18,21 @@ A using the Bunch-Kaufman diagonal pivoting method. The partial
 factorization has the form:
 
 A  =  ( I  U12 ) ( A11  0  ) (  I       0    )  if UPLO = 'U', or:
-( 0  U22 ) (  0   D  ) ( U12**T U22**T )
+( 0  U22 ) (  0   D  ) ( U12\*\*T U22\*\*T )
 
-A  =  ( L11  0 ) ( D    0  ) ( L11**T L21**T )  if UPLO = 'L'
+A  =  ( L11  0 ) ( D    0  ) ( L11\*\*T L21\*\*T )  if UPLO = 'L'
 ( L21  I ) ( 0   A22 ) (  0       I    )
 
 where the order of D is at most NB. The actual order is returned in
 the argument KB, and is either NB or NB-1, or N if N <= NB.
-Note that U**T denotes the transpose of U.
+Note that U\*\*T denotes the transpose of U.
 
 CLASYF is an auxiliary routine called by CSYTRF. It uses blocked code
 (calling Level 3 BLAS) to update the submatrix A11 (if UPLO = 'U') or
 A22 (if UPLO = 'L').
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular

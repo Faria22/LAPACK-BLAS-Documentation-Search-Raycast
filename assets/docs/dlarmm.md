@@ -1,6 +1,5 @@
 ```fortran
-double precision function dlarmm
-(
+double precision function dlarmm (
         double precision anorm,
         double precision bnorm,
         double precision cnorm
@@ -9,7 +8,7 @@ double precision function dlarmm
 
 DLARMM returns a factor s in (0, 1] such that the linear updates
 
-(s * C) - A * (s * B)  and  (s * C) - (s * A) * B
+(s \* C) - A \* (s \* B)  and  (s \* C) - (s \* A) \* B
 
 cannot overflow, where A, B, and C are matrices of conforming
 dimensions.

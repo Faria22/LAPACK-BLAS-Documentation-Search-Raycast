@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctrexc
-(
+subroutine ctrexc (
         character compq,
         integer n,
         complex, dimension( ldt, * ) t,
@@ -14,15 +13,15 @@ subroutine ctrexc
 ```
 
 CTREXC reorders the Schur factorization of a complex matrix
-A = Q*T*Q**H, so that the diagonal element of T with row index IFST
+A = Q\*T\*Q\*\*H, so that the diagonal element of T with row index IFST
 is moved to row ILST.
 
 The Schur form T is reordered by a unitary similarity transformation
-Z**H*T*Z, and optionally the matrix Q of Schur vectors is updated by
+Z\*\*H\*T\*Z, and optionally the matrix Q of Schur vectors is updated by
 postmultiplying it with Z.
 
 ## Parameters
-COMPQ : CHARACTER*1 [in]
+COMPQ : CHARACTER\*1 [in]
 > = 'V':  update the matrix Q of Schur vectors;
 > = 'N':  do not update Q.
 

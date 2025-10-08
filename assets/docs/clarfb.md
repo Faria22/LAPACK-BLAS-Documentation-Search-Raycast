@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarfb
-(
+subroutine clarfb (
         character side,
         character trans,
         character direct,
@@ -19,25 +18,25 @@ subroutine clarfb
 )
 ```
 
-CLARFB applies a complex block reflector H or its transpose H**H to a
+CLARFB applies a complex block reflector H or its transpose H\*\*H to a
 complex M-by-N matrix C, from either the left or the right.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply H or H**H from the Left
-> = 'R': apply H or H**H from the Right
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply H or H\*\*H from the Left
+> = 'R': apply H or H\*\*H from the Right
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': apply H (No transpose)
-> = 'C': apply H**H (Conjugate transpose)
+> = 'C': apply H\*\*H (Conjugate transpose)
 
-DIRECT : CHARACTER*1 [in]
+DIRECT : CHARACTER\*1 [in]
 > Indicates how H is formed from a product of elementary
 > reflectors
 > = 'F': H = H(1) H(2) . . . H(k) (Forward)
 > = 'B': H = H(k) . . . H(2) H(1) (Backward)
 
-STOREV : CHARACTER*1 [in]
+STOREV : CHARACTER\*1 [in]
 > Indicates how the vectors which define the elementary
 > reflectors are stored:
 > = 'C': Columnwise
@@ -76,7 +75,7 @@ LDT : INTEGER [in]
 
 C : COMPLEX array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by H*C or H**H*C or C*H or C*H**H.
+> On exit, C is overwritten by H\*C or H\*\*H\*C or C\*H or C\*H\*\*H.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

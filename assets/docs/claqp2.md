@@ -1,6 +1,5 @@
 ```fortran
-subroutine claqp2
-(
+subroutine claqp2 (
         integer m,
         integer n,
         integer offset,
@@ -43,9 +42,9 @@ LDA : INTEGER [in]
 
 JPVT : INTEGER array, dimension (N) [in,out]
 > On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
-> to the front of A*P (a leading column); if JPVT(i) = 0,
+> to the front of A\*P (a leading column); if JPVT(i) = 0,
 > the i-th column of A is a free column.
-> On exit, if JPVT(i) = k, then the i-th column of A*P
+> On exit, if JPVT(i) = k, then the i-th column of A\*P
 > was the k-th column of A.
 
 TAU : COMPLEX array, dimension (min(M,N)) [out]

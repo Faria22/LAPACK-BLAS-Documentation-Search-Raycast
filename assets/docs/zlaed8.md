@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaed8
-(
+subroutine zlaed8 (
         integer k,
         integer n,
         integer qsiz,
@@ -45,7 +44,7 @@ QSIZ : INTEGER [in]
 > the dense or band matrix to tridiagonal form.
 > QSIZ >= N if ICOMPQ = 1.
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > On entry, Q contains the eigenvectors of the partially solved
 > system which has been previously updated in matrix
 > multiplies with other partially solved eigensystems.
@@ -81,7 +80,7 @@ DLAMBDA : DOUBLE PRECISION array, dimension (N) [out]
 > Contains a copy of the first K eigenvalues which will be used
 > by DLAED3 to form the secular equation.
 
-Q2 : COMPLEX*16 array, dimension (LDQ2,N) [out]
+Q2 : COMPLEX\*16 array, dimension (LDQ2,N) [out]
 > If ICOMPQ = 0, Q2 is not referenced.  Otherwise,
 > Contains a copy of the first K eigenvectors which will be used
 > by DLAED7 in a matrix multiply (DGEMM) to update the new

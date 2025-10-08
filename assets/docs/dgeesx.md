@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgeesx
-(
+subroutine dgeesx (
         character jobvs,
         character sort,
         external select,
@@ -26,7 +25,7 @@ subroutine dgeesx
 
 DGEESX computes for an N-by-N real nonsymmetric matrix A, the
 eigenvalues, the real Schur form T, and, optionally, the matrix of
-Schur vectors Z.  This gives the Schur factorization A = Z*T*(Z**T).
+Schur vectors Z.  This gives the Schur factorization A = Z\*T\*(Z\*\*T).
 
 Optionally, it also orders the eigenvalues on the diagonal of the
 real Schur form so that selected eigenvalues are at the top left;
@@ -46,14 +45,14 @@ the form
 [  a  b  ]
 [  c  a  ]
 
-where b*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
+where b\*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
 
 ## Parameters
-JOBVS : CHARACTER*1 [in]
+JOBVS : CHARACTER\*1 [in]
 > = 'N': Schur vectors are not computed;
 > = 'V': Schur vectors are computed.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the Schur form.
 > = 'N': Eigenvalues are not ordered;
@@ -64,7 +63,7 @@ SELECT : a LOGICAL FUNCTION of two DOUBLE PRECISION arguments [in]
 > If SORT = 'S', SELECT is used to select eigenvalues to sort
 > to the top left of the Schur form.
 > If SORT = 'N', SELECT is not referenced.
-> An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if
+> An eigenvalue WR(j)+sqrt(-1)\*WI(j) is selected if
 > SELECT(WR(j),WI(j)) is true; i.e., if either one of a
 > complex conjugate pair of eigenvalues is selected, then both
 > are.  Note that a selected complex eigenvalue may no longer
@@ -73,7 +72,7 @@ SELECT : a LOGICAL FUNCTION of two DOUBLE PRECISION arguments [in]
 > (especially if the eigenvalue is ill-conditioned); in this
 > case INFO may be set to N+3 (see INFO below).
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': None are computed;
 > = 'E': Computed for average of selected eigenvalues only;
@@ -130,12 +129,12 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= max(1,3*N).
+> The dimension of the array WORK.  LWORK >= max(1,3\*N).
 > Also, if SENSE = 'E' or 'V' or 'B',
-> LWORK >= N+2*SDIM*(N-SDIM), where SDIM is the number of
+> LWORK >= N+2\*SDIM\*(N-SDIM), where SDIM is the number of
 > selected eigenvalues computed by this routine.  Note that
-> N+2*SDIM*(N-SDIM) <= N+N*N/2. Note also that an error is only
-> returned if LWORK < max(1,3*N), but if SENSE = 'E' or 'V' or
+> N+2\*SDIM\*(N-SDIM) <= N+N\*N/2. Note also that an error is only
+> returned if LWORK < max(1,3\*N), but if SENSE = 'E' or 'V' or
 > 'B' this may not be large enough.
 > For good performance, LWORK must generally be larger.
 > 
@@ -150,8 +149,8 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
-> LIWORK >= 1; if SENSE = 'V' or 'B', LIWORK >= SDIM*(N-SDIM).
-> Note that SDIM*(N-SDIM) <= N*N/4. Note also that an error is
+> LIWORK >= 1; if SENSE = 'V' or 'B', LIWORK >= SDIM\*(N-SDIM).
+> Note that SDIM\*(N-SDIM) <= N\*N/4. Note also that an error is
 > only returned if LIWORK < 1, but if SENSE = 'V' or 'B' this
 > may not be large enough.
 > 

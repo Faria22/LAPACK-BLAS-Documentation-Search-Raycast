@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlat2s
-(
+subroutine dlat2s (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -21,7 +20,7 @@ RMAX. If not the conversion is aborted and a flag is raised.
 This is an auxiliary routine so there is no argument checking.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 

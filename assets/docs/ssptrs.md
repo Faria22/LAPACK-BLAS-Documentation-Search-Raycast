@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssptrs
-(
+subroutine ssptrs (
         character uplo,
         integer n,
         integer nrhs,
@@ -12,16 +11,16 @@ subroutine ssptrs
 )
 ```
 
-SSPTRS solves a system of linear equations A*X = B with a real
+SSPTRS solves a system of linear equations A\*X = B with a real
 symmetric matrix A stored in packed format using the factorization
-A = U*D*U**T or A = L*D*L**T computed by SSPTRF.
+A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by SSPTRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -30,7 +29,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-AP : REAL array, dimension (N*(N+1)/2) [in]
+AP : REAL array, dimension (N\*(N+1)/2) [in]
 > The block diagonal matrix D and the multipliers used to
 > obtain the factor U or L as computed by SSPTRF, stored as a
 > packed triangular matrix.

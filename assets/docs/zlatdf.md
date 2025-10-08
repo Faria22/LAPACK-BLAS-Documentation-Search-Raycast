@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlatdf
-(
+subroutine zlatdf (
         integer ijob,
         integer n,
         complex*16, dimension( ldz, * ) z,
@@ -14,13 +13,13 @@ subroutine zlatdf
 ```
 
 ZLATDF computes the contribution to the reciprocal Dif-estimate
-by solving for x in Z * x = b, where b is chosen such that the norm
+by solving for x in Z \* x = b, where b is chosen such that the norm
 of x is as large as possible. It is assumed that LU decomposition
 of Z has been computed by ZGETC2. On entry RHS = f holds the
 contribution from earlier solved sub-systems, and on return RHS = x.
 
 The factorization of Z returned by ZGETC2 has the form
-Z = P * L * U * Q, where P and Q are permutation matrices. L is lower
+Z = P \* L \* U \* Q, where P and Q are permutation matrices. L is lower
 triangular with unit diagonal elements and U is upper triangular.
 
 ## Parameters
@@ -36,14 +35,14 @@ IJOB : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix Z.
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [in]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [in]
 > On entry, the LU part of the factorization of the n-by-n
-> matrix Z computed by ZGETC2:  Z = P * L * U * Q
+> matrix Z computed by ZGETC2:  Z = P \* L \* U \* Q
 
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDA >= max(1, N).
 
-RHS : COMPLEX*16 array, dimension (N). [in,out]
+RHS : COMPLEX\*16 array, dimension (N). [in,out]
 > On entry, RHS contains contributions from other subsystems.
 > On exit, RHS contains the solution of the subsystem with
 > entries according to the value of IJOB (see above).

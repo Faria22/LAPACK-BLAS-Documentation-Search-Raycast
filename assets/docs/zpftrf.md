@@ -1,6 +1,5 @@
 ```fortran
-subroutine zpftrf
-(
+subroutine zpftrf (
         character transr,
         character uplo,
         integer n,
@@ -13,25 +12,25 @@ ZPFTRF computes the Cholesky factorization of a complex Hermitian
 positive definite matrix A.
 
 The factorization has the form
-A = U**H * U,  if UPLO = 'U', or
-A = L  * L**H,  if UPLO = 'L',
+A = U\*\*H \* U,  if UPLO = 'U', or
+A = L  \* L\*\*H,  if UPLO = 'L',
 where U is an upper triangular matrix and L is lower triangular.
 
 This is the block version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal TRANSR of RFP A is stored;
 > = 'C':  The Conjugate-transpose TRANSR of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of RFP A is stored;
 > = 'L':  Lower triangle of RFP A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension ( N*(N+1)/2 ); [in,out]
+A : COMPLEX\*16 array, dimension ( N\*(N+1)/2 ); [in,out]
 > On entry, the Hermitian matrix A in RFP format. RFP format is
 > described by TRANSR, UPLO, and N as follows: If TRANSR = 'N'
 > then RFP A is (0:N,0:k-1) when N is even; k=N/2. RFP A is
@@ -45,7 +44,7 @@ A : COMPLEX*16 array, dimension ( N*(N+1)/2 ); [in,out]
 > is odd. See the Note below for more details.
 > 
 > On exit, if INFO = 0, the factor U or L from the Cholesky
-> factorization RFP A = U**H*U or RFP A = L*L**H.
+> factorization RFP A = U\*\*H\*U or RFP A = L\*L\*\*H.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

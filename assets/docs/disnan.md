@@ -1,6 +1,5 @@
 ```fortran
-logical function disnan
-(
+logical function disnan (
         double precision, intent(in) din
 )
 ```

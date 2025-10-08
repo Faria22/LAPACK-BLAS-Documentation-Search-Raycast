@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaexc
-(
+subroutine dlaexc (
         logical wantq,
         integer n,
         double precision, dimension( ldt, * ) t,

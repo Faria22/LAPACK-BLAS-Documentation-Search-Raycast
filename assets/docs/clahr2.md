@@ -1,6 +1,5 @@
 ```fortran
-subroutine clahr2
-(
+subroutine clahr2 (
         integer n,
         integer k,
         integer nb,
@@ -17,8 +16,8 @@ subroutine clahr2
 CLAHR2 reduces the first NB columns of A complex general n-BY-(n-k+1)
 matrix A so that elements below the k-th subdiagonal are zero. The
 reduction is performed by an unitary similarity transformation
-Q**H * A * Q. The routine returns the matrices V and T which determine
-Q as a block reflector I - V*T*v**H, and also the matrix Y = A * V * T.
+Q\*\*H \* A \* Q. The routine returns the matrices V and T which determine
+Q as a block reflector I - V\*T\*v\*\*H, and also the matrix Y = A \* V \* T.
 
 This is an auxiliary routine called by CGEHRD.
 

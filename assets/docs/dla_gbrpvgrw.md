@@ -1,6 +1,5 @@
 ```fortran
-double precision function dla_gbrpvgrw
-(
+double precision function dla_gbrpvgrw (
         integer n,
         integer kl,
         integer ku,
@@ -47,7 +46,7 @@ AFB : DOUBLE PRECISION array, dimension (LDAFB,N) [in]
 > computed by DGBTRF.  U is stored as an upper triangular
 > band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
 > and the multipliers used during the factorization are stored
-> in rows KL+KU+2 to 2*KL+KU+1.
+> in rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL+KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL+KU+1.

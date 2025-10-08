@@ -1,6 +1,5 @@
 ```fortran
-subroutine claqr4
-(
+subroutine claqr4 (
         logical wantt,
         logical wantz,
         integer n,
@@ -28,13 +27,13 @@ instead of CLAQR3.
 
 CLAQR4 computes the eigenvalues of a Hessenberg matrix H
 and, optionally, the matrices T and Z from the Schur decomposition
-H = Z T Z**H, where T is an upper triangular matrix (the
+H = Z T Z\*\*H, where T is an upper triangular matrix (the
 Schur form), and Z is the unitary matrix of Schur vectors.
 
 Optionally Z may be postmultiplied into an input unitary
 matrix Q so that this routine can give the Schur factorization
 of a matrix A which has been reduced to the Hessenberg form H
-by the unitary matrix Q:  A = Q*H*Q**H = (QZ)*H*(QZ)**H.
+by the unitary matrix Q:  A = Q\*H\*Q\*\*H = (QZ)\*H\*(QZ)\*\*H.
 
 ## Parameters
 WANTT : LOGICAL [in]
@@ -91,7 +90,7 @@ IHIZ : INTEGER [in]
 Z : COMPLEX array, dimension (LDZ,IHI) [in,out]
 > If WANTZ is .FALSE., then Z is not referenced.
 > If WANTZ is .TRUE., then Z(ILO:IHI,ILOZ:IHIZ) is
-> replaced by Z(ILO:IHI,ILOZ:IHIZ)*U where U is the
+> replaced by Z(ILO:IHI,ILOZ:IHIZ)\*U where U is the
 > orthogonal Schur factor of H(ILO:IHI,ILO:IHI).
 > (The output value of Z when INFO > 0 is given under
 > the description of INFO below.)
@@ -106,7 +105,7 @@ WORK : COMPLEX array, dimension LWORK [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.  LWORK >= max(1,N)
-> is sufficient, but LWORK typically as large as 6*N may
+> is sufficient, but LWORK typically as large as 6\*N may
 > be required for optimal performance.  A workspace query
 > to determine the optimal workspace size is recommended.
 > 
@@ -132,7 +131,7 @@ INFO : INTEGER [out]
 > 
 > If INFO > 0 and WANTT is .TRUE., then on exit
 > 
-> (*)  (initial value of H)*U  = U*(final value of H)
+> (\*)  (initial value of H)\*U  = U\*(final value of H)
 > 
 > where U is a unitary matrix.  The final
 > value of  H is upper Hessenberg and triangular in
@@ -141,9 +140,9 @@ INFO : INTEGER [out]
 > If INFO > 0 and WANTZ is .TRUE., then on exit
 > 
 > (final value of Z(ILO:IHI,ILOZ:IHIZ)
-> =  (initial value of Z(ILO:IHI,ILOZ:IHIZ)*U
+> =  (initial value of Z(ILO:IHI,ILOZ:IHIZ)\*U
 > 
-> where U is the unitary matrix in (*) (regard-
+> where U is the unitary matrix in (\*) (regard-
 > less of the value of WANTT.)
 > 
 > If INFO > 0 and WANTZ is .FALSE., then Z is not

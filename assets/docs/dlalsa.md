@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlalsa
-(
+subroutine dlalsa (
         integer icompq,
         integer smlsiz,
         integer n,
@@ -83,7 +82,7 @@ LDU : INTEGER, LDU = > N. [in]
 > POLES, GIVNUM, and Z.
 
 VT : DOUBLE PRECISION array, dimension ( LDU, SMLSIZ+1 ). [in]
-> On entry, VT**T contains the right singular vector matrices of
+> On entry, VT\*\*T contains the right singular vector matrices of
 > all subproblems at the bottom level.
 
 K : INTEGER array, dimension ( N ). [in]
@@ -91,10 +90,10 @@ K : INTEGER array, dimension ( N ). [in]
 DIFL : DOUBLE PRECISION array, dimension ( LDU, NLVL ). [in]
 > where NLVL = INT(log_2 (N/(SMLSIZ+1))) + 1.
 
-DIFR : DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ). [in]
-> On entry, DIFL(*, I) and DIFR(*, 2 * I -1) record
+DIFR : DOUBLE PRECISION array, dimension ( LDU, 2 \* NLVL ). [in]
+> On entry, DIFL(\*, I) and DIFR(\*, 2 \* I -1) record
 > distances between singular values on the I-th level and
-> singular values on the (I -1)-th level, and DIFR(*, 2 * I)
+> singular values on the (I -1)-th level, and DIFR(\*, 2 \* I)
 > record the normalizing factors of the right singular vectors
 > matrices of subproblems on I-th level.
 
@@ -103,8 +102,8 @@ Z : DOUBLE PRECISION array, dimension ( LDU, NLVL ). [in]
 > adjusted updating row vector for subproblems on the I-th
 > level.
 
-POLES : DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ). [in]
-> On entry, POLES(*, 2 * I -1: 2 * I) contains the new and old
+POLES : DOUBLE PRECISION array, dimension ( LDU, 2 \* NLVL ). [in]
+> On entry, POLES(\*, 2 \* I -1: 2 \* I) contains the new and old
 > singular values involved in the secular equations on the I-th
 > level.
 
@@ -113,8 +112,8 @@ GIVPTR : INTEGER array, dimension ( N ). [in]
 > rotations performed on the I-th problem on the computation
 > tree.
 
-GIVCOL : INTEGER array, dimension ( LDGCOL, 2 * NLVL ). [in]
-> On entry, for each I, GIVCOL(*, 2 * I - 1: 2 * I) records the
+GIVCOL : INTEGER array, dimension ( LDGCOL, 2 \* NLVL ). [in]
+> On entry, for each I, GIVCOL(\*, 2 \* I - 1: 2 \* I) records the
 > locations of Givens rotations performed on the I-th level on
 > the computation tree.
 
@@ -122,11 +121,11 @@ LDGCOL : INTEGER, LDGCOL = > N. [in]
 > The leading dimension of arrays GIVCOL and PERM.
 
 PERM : INTEGER array, dimension ( LDGCOL, NLVL ). [in]
-> On entry, PERM(*, I) records permutations done on the I-th
+> On entry, PERM(\*, I) records permutations done on the I-th
 > level of the computation tree.
 
-GIVNUM : DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ). [in]
-> On entry, GIVNUM(*, 2 *I -1 : 2 * I) records the C- and S-
+GIVNUM : DOUBLE PRECISION array, dimension ( LDU, 2 \* NLVL ). [in]
+> On entry, GIVNUM(\*, 2 \*I -1 : 2 \* I) records the C- and S-
 > values of Givens rotations performed on the I-th level on the
 > computation tree.
 
@@ -142,7 +141,7 @@ S : DOUBLE PRECISION array, dimension ( N ). [in]
 
 WORK : DOUBLE PRECISION array, dimension (N) [out]
 
-IWORK : INTEGER array, dimension (3*N) [out]
+IWORK : INTEGER array, dimension (3\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

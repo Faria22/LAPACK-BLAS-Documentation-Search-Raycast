@@ -1,6 +1,5 @@
 ```fortran
-subroutine claqz1
-(
+subroutine claqz1 (
         logical, intent(in) ilq,
         logical, intent(in) ilz,
         integer, intent(in) k,

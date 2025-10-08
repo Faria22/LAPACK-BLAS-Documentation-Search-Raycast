@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgesvd
-(
+subroutine zgesvd (
         character jobu,
         character jobvt,
         integer m,
@@ -23,7 +22,7 @@ ZGESVD computes the singular value decomposition (SVD) of a complex
 M-by-N matrix A, optionally computing the left and/or right singular
 vectors. The SVD is written
 
-A = U * SIGMA * conjugate-transpose(V)
+A = U \* SIGMA \* conjugate-transpose(V)
 
 where SIGMA is an M-by-N matrix which is zero except for its
 min(m,n) diagonal elements, U is an M-by-M unitary matrix, and
@@ -32,10 +31,10 @@ are the singular values of A; they are real and non-negative, and
 are returned in descending order.  The first min(m,n) columns of
 U and V are the left and right singular vectors of A.
 
-Note that the routine returns V**H, not V.
+Note that the routine returns V\*\*H, not V.
 
 ## Parameters
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > Specifies options for computing all or part of the matrix U:
 > = 'A':  all M columns of U are returned in array U:
 > = 'S':  the first min(m,n) columns of U (the left singular
@@ -45,15 +44,15 @@ JOBU : CHARACTER*1 [in]
 > = 'N':  no columns of U (no left singular vectors) are
 > computed.
 
-JOBVT : CHARACTER*1 [in]
+JOBVT : CHARACTER\*1 [in]
 > Specifies options for computing all or part of the matrix
-> V**H:
-> = 'A':  all N rows of V**H are returned in the array VT;
-> = 'S':  the first min(m,n) rows of V**H (the right singular
+> V\*\*H:
+> = 'A':  all N rows of V\*\*H are returned in the array VT;
+> = 'S':  the first min(m,n) rows of V\*\*H (the right singular
 > vectors) are returned in the array VT;
-> = 'O':  the first min(m,n) rows of V**H (the right singular
+> = 'O':  the first min(m,n) rows of V\*\*H (the right singular
 > vectors) are overwritten on the array A;
-> = 'N':  no rows of V**H (no right singular vectors) are
+> = 'N':  no rows of V\*\*H (no right singular vectors) are
 > computed.
 > 
 > JOBVT and JOBU cannot both be 'O'.
@@ -64,14 +63,14 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the input matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit,
 > if JOBU = 'O',  A is overwritten with the first min(m,n)
 > columns of U (the left singular vectors,
 > stored columnwise);
 > if JOBVT = 'O', A is overwritten with the first min(m,n)
-> rows of V**H (the right singular vectors,
+> rows of V\*\*H (the right singular vectors,
 > stored rowwise);
 > if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
 > are destroyed.
@@ -82,7 +81,7 @@ LDA : INTEGER [in]
 S : DOUBLE PRECISION array, dimension (min(M,N)) [out]
 > The singular values of A, sorted so that S(i) >= S(i+1).
 
-U : COMPLEX*16 array, dimension (LDU,UCOL) [out]
+U : COMPLEX\*16 array, dimension (LDU,UCOL) [out]
 > (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
 > If JOBU = 'A', U contains the M-by-M unitary matrix U;
 > if JOBU = 'S', U contains the first min(m,n) columns of U
@@ -93,23 +92,23 @@ LDU : INTEGER [in]
 > The leading dimension of the array U.  LDU >= 1; if
 > JOBU = 'S' or 'A', LDU >= M.
 
-VT : COMPLEX*16 array, dimension (LDVT,N) [out]
+VT : COMPLEX\*16 array, dimension (LDVT,N) [out]
 > If JOBVT = 'A', VT contains the N-by-N unitary matrix
-> V**H;
+> V\*\*H;
 > if JOBVT = 'S', VT contains the first min(m,n) rows of
-> V**H (the right singular vectors, stored rowwise);
+> V\*\*H (the right singular vectors, stored rowwise);
 > if JOBVT = 'N' or 'O', VT is not referenced.
 
 LDVT : INTEGER [in]
 > The leading dimension of the array VT.  LDVT >= 1; if
 > JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >=  MAX(1,2*MIN(M,N)+MAX(M,N)).
+> LWORK >=  MAX(1,2\*MIN(M,N)+MAX(M,N)).
 > For good performance, LWORK should generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -117,11 +116,11 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension (5*min(M,N)) [out]
+RWORK : DOUBLE PRECISION array, dimension (5\*min(M,N)) [out]
 > On exit, if INFO > 0, RWORK(1:MIN(M,N)-1) contains the
 > unconverged superdiagonal elements of an upper bidiagonal
 > matrix B whose diagonal is in S (not necessarily sorted).
-> B satisfies A = U * B * VT, so it has the same singular
+> B satisfies A = U \* B \* VT, so it has the same singular
 > values as A, and singular vectors related by U and VT.
 
 INFO : INTEGER [out]

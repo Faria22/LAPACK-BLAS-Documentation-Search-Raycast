@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaeda
-(
+subroutine slaeda (
         integer n,
         integer tlvls,
         integer curlvl,
@@ -61,7 +60,7 @@ GIVNUM : REAL array, dimension (2, N lg N) [in]
 > Each number indicates the S value to be used in the
 > corresponding Givens rotation.
 
-Q : REAL array, dimension (N**2) [in]
+Q : REAL array, dimension (N\*\*2) [in]
 > Contains the square eigenblocks from previous levels, the
 > starting positions for blocks are given by QPTR.
 

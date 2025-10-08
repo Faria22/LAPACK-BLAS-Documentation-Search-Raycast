@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsygst
-(
+subroutine dsygst (
         integer itype,
         character uplo,
         integer n,
@@ -15,24 +14,24 @@ subroutine dsygst
 DSYGST reduces a real symmetric-definite generalized eigenproblem
 to standard form.
 
-If ITYPE = 1, the problem is A*x = lambda*B*x,
-and A is overwritten by inv(U**T)*A*inv(U) or inv(L)*A*inv(L**T)
+If ITYPE = 1, the problem is A\*x = lambda\*B\*x,
+and A is overwritten by inv(U\*\*T)\*A\*inv(U) or inv(L)\*A\*inv(L\*\*T)
 
-If ITYPE = 2 or 3, the problem is A*B*x = lambda*x or
-B*A*x = lambda*x, and A is overwritten by U*A*U**T or L**T*A*L.
+If ITYPE = 2 or 3, the problem is A\*B\*x = lambda\*x or
+B\*A\*x = lambda\*x, and A is overwritten by U\*A\*U\*\*T or L\*\*T\*A\*L.
 
-B must have been previously factorized as U**T*U or L*L**T by DPOTRF.
+B must have been previously factorized as U\*\*T\*U or L\*L\*\*T by DPOTRF.
 
 ## Parameters
 ITYPE : INTEGER [in]
-> = 1: compute inv(U**T)*A*inv(U) or inv(L)*A*inv(L**T);
-> = 2 or 3: compute U*A*U**T or L**T*A*L.
+> = 1: compute inv(U\*\*T)\*A\*inv(U) or inv(L)\*A\*inv(L\*\*T);
+> = 2 or 3: compute U\*A\*U\*\*T or L\*\*T\*A\*L.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored and B is factored as
-> U**T*U;
+> U\*\*T\*U;
 > = 'L':  Lower triangle of A is stored and B is factored as
-> L*L**T.
+> L\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrices A and B.  N >= 0.

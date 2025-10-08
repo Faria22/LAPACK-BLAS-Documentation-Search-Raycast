@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztplqt2
-(
+subroutine ztplqt2 (
         integer m,
         integer n,
         integer l,
@@ -32,7 +31,7 @@ L : INTEGER [in]
 > The number of rows of the lower trapezoidal part of B.
 > MIN(M,N) >= L >= 0.  See Further Details.
 
-A : COMPLEX*16 array, dimension (LDA,M) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,M) [in,out]
 > On entry, the lower triangular M-by-M matrix A.
 > On exit, the elements on and below the diagonal of the array
 > contain the lower triangular matrix L.
@@ -40,7 +39,7 @@ A : COMPLEX*16 array, dimension (LDA,M) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 > On entry, the pentagonal M-by-N matrix B.  The first N-L columns
 > are rectangular, and the last L columns are lower trapezoidal.
 > On exit, B contains the pentagonal matrix V.  See Further Details.
@@ -48,7 +47,7 @@ B : COMPLEX*16 array, dimension (LDB,N) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,M).
 
-T : COMPLEX*16 array, dimension (LDT,M) [out]
+T : COMPLEX\*16 array, dimension (LDT,M) [out]
 > The N-by-N upper triangular factor T of the block reflector.
 > See Further Details.
 

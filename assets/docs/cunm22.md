@@ -1,6 +1,5 @@
 ```fortran
-subroutine cunm22
-(
+subroutine cunm22 (
         character side,
         character trans,
         integer m,
@@ -20,8 +19,8 @@ subroutine cunm22
 CUNM22 overwrites the general complex M-by-N matrix C with
 
 SIDE = 'L'     SIDE = 'R'
-TRANS = 'N':      Q * C          C * Q
-TRANS = 'C':      Q**H * C       C * Q**H
+TRANS = 'N':      Q \* C          C \* Q
+TRANS = 'C':      Q\*\*H \* C       C \* Q\*\*H
 
 where Q is a complex unitary matrix of order NQ, with NQ = M if
 SIDE = 'L' and NQ = N if SIDE = 'R'.
@@ -35,13 +34,13 @@ where Q12 is an N1-by-N1 lower triangular matrix and Q21 is an
 N2-by-N2 upper triangular matrix.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**H from the Left;
-> = 'R': apply Q or Q**H from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*H from the Left;
+> = 'R': apply Q or Q\*\*H from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  apply Q (No transpose);
-> = 'C':  apply Q**H (Conjugate transpose).
+> = 'C':  apply Q\*\*H (Conjugate transpose).
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -65,7 +64,7 @@ LDQ : INTEGER [in]
 
 C : COMPLEX array, dimension (LDC,N) [in,out]
 > On entry, the M-by-N matrix C.
-> On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
+> On exit, C is overwritten by Q\*C or Q\*\*H\*C or C\*Q\*\*H or C\*Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).
@@ -77,7 +76,7 @@ LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If SIDE = 'L', LWORK >= max(1,N);
 > if SIDE = 'R', LWORK >= max(1,M).
-> For optimum performance LWORK >= M*N.
+> For optimum performance LWORK >= M\*N.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

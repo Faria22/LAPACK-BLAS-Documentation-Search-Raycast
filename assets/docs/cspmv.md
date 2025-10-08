@@ -1,6 +1,5 @@
 ```fortran
-subroutine cspmv
-(
+subroutine cspmv (
         character uplo,
         integer n,
         complex alpha,
@@ -15,13 +14,13 @@ subroutine cspmv
 
 CSPMV  performs the matrix-vector operation
 
-y := alpha*A*x + beta*y,
+y := alpha\*A\*x + beta\*y,
 
 where alpha and beta are scalars, x and y are n element vectors and
 A is an n by n symmetric matrix, supplied in packed form.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the matrix A is supplied in the packed
 > array AP as follows:
@@ -44,7 +43,7 @@ ALPHA : COMPLEX [in]
 > Unchanged on exit.
 
 AP : COMPLEX array, dimension at least [in]
-> ( ( N*( N + 1 ) )/2 ).
+> ( ( N\*( N + 1 ) )/2 ).
 > Before entry, with UPLO = 'U' or 'u', the array AP must
 > contain the upper triangular part of the symmetric matrix
 > packed sequentially, column by column, so that AP( 1 )
@@ -58,7 +57,7 @@ AP : COMPLEX array, dimension at least [in]
 > Unchanged on exit.
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the N-
 > element vector x.
 > Unchanged on exit.
@@ -74,7 +73,7 @@ BETA : COMPLEX [in]
 > Unchanged on exit.
 
 Y : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( N - 1 )*abs( INCY ) ).
+> ( 1 + ( N - 1 )\*abs( INCY ) ).
 > Before entry, the incremented array Y must contain the n
 > element vector y. On exit, Y is overwritten by the updated
 > vector y.

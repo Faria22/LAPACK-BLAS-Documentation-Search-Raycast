@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhbevx_2stage
-(
+subroutine zhbevx_2stage (
         character jobz,
         character range,
         character uplo,
@@ -35,18 +34,18 @@ can be selected by specifying either a range of values or a range of
 indices for the desired eigenvalues.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found;
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found;
 > = 'I': the IL-th through IU-th eigenvalues will be found.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -57,7 +56,7 @@ KD : INTEGER [in]
 > The number of superdiagonals of the matrix A if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB, N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB, N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -71,7 +70,7 @@ AB : COMPLEX*16 array, dimension (LDAB, N) [in,out]
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KD + 1.
 
-Q : COMPLEX*16 array, dimension (LDQ, N) [out]
+Q : COMPLEX\*16 array, dimension (LDQ, N) [out]
 > If JOBZ = 'V', the N-by-N unitary matrix used in the
 > reduction to tridiagonal form.
 > If JOBZ = 'N', the array Q is not referenced.
@@ -108,18 +107,18 @@ ABSTOL : DOUBLE PRECISION [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing AB to tridiagonal form.
 > 
 > Eigenvalues will be computed most accurately when ABSTOL is
-> set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+> set to twice the underflow threshold 2\*DLAMCH('S'), not zero.
 > If this routine returns with INFO>0, indicating that some
 > eigenvectors did not converge, try setting ABSTOL to
-> 2*DLAMCH('S').
+> 2\*DLAMCH('S').
 > 
 > See  by Demmel and
 > Kahan, LAPACK Working Note #3.
@@ -132,7 +131,7 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 > The first M elements contain the selected eigenvalues in
 > ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, max(1,M)) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, max(1,M)) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 > contain the orthonormal eigenvectors of the matrix A
 > corresponding to the selected eigenvalues, with the i-th
@@ -149,14 +148,14 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (LWORK) [out]
+WORK : COMPLEX\*16 array, dimension (LWORK) [out]
 
 LWORK : INTEGER [in]
 > The length of the array WORK. LWORK >= 1, when N <= 1;
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = (2KD+1)*N + KD*NTHREADS
+> dimension = (2KD+1)\*N + KD\*NTHREADS
 > where KD is the size of the band.
 > NTHREADS is the number of threads used when
 > openMP compilation is enabled, otherwise =1.
@@ -168,9 +167,9 @@ LWORK : INTEGER [in]
 > the WORK, RWORK and IWORK arrays, and no error message
 > related to LWORK or LRWORK or LIWORK is issued by XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension (7*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (7\*N) [out]
 
-IWORK : INTEGER array, dimension (5*N) [out]
+IWORK : INTEGER array, dimension (5\*N) [out]
 
 IFAIL : INTEGER array, dimension (N) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M elements of

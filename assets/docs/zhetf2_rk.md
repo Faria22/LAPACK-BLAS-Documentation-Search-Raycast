@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetf2_rk
-(
+subroutine zhetf2_rk (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -14,18 +13,18 @@ subroutine zhetf2_rk
 ZHETF2_RK computes the factorization of a complex Hermitian matrix A
 using the bounded Bunch-Kaufman (rook) diagonal pivoting method:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 For more information see Further Details section.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular
@@ -34,7 +33,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the Hermitian matrix A.
 > If UPLO = 'U': the leading N-by-N upper triangular part
 > of A contains the upper triangular part of the matrix A,
@@ -57,7 +56,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-E : COMPLEX*16 array, dimension (N) [out]
+E : COMPLEX\*16 array, dimension (N) [out]
 > On exit, contains the superdiagonal (or subdiagonal)
 > elements of the Hermitian block diagonal matrix D
 > with 1-by-1 or 2-by-2 diagonal blocks, where

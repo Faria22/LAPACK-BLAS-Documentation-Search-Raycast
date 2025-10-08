@@ -1,6 +1,5 @@
 ```fortran
-integer function slaneg
-(
+integer function slaneg (
         integer n,
         real, dimension( * ) d,
         real, dimension( * ) lld,
@@ -36,7 +35,7 @@ D : REAL array, dimension (N) [in]
 > The N diagonal elements of the diagonal matrix D.
 
 LLD : REAL array, dimension (N-1) [in]
-> The (N-1) elements L(i)*L(i)*D(i).
+> The (N-1) elements L(i)\*L(i)\*D(i).
 
 SIGMA : REAL [in]
 > Shift amount in T - sigma I = L D L^T.

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgbtrs
-(
+subroutine cgbtrs (
         character trans,
         integer n,
         integer kl,
@@ -16,16 +15,16 @@ subroutine cgbtrs
 ```
 
 CGBTRS solves a system of linear equations
-A * X = B,  A**T * X = B,  or  A**H * X = B
+A \* X = B,  A\*\*T \* X = B,  or  A\*\*H \* X = B
 with a general band matrix A using the LU factorization computed
 by CGBTRF.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations.
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate transpose)
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -45,10 +44,10 @@ AB : COMPLEX array, dimension (LDAB,N) [in]
 > computed by CGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAB : INTEGER [in]
-> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
+> The leading dimension of the array AB.  LDAB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices; for 1 <= i <= N, row i of the matrix was

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slaqge
-(
+subroutine slaqge (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -47,7 +46,7 @@ COLCND : REAL [in]
 AMAX : REAL [in]
 > Absolute value of largest matrix entry.
 
-EQUED : CHARACTER*1 [out]
+EQUED : CHARACTER\*1 [out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration
 > = 'R':  Row equilibration, i.e., A has been premultiplied by
@@ -55,4 +54,4 @@ EQUED : CHARACTER*1 [out]
 > = 'C':  Column equilibration, i.e., A has been postmultiplied
 > by diag(C).
 > = 'B':  Both row and column equilibration, i.e., A has been
-> replaced by diag(R) * A * diag(C).
+> replaced by diag(R) \* A \* diag(C).

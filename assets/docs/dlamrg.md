@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlamrg
-(
+subroutine dlamrg (
         integer n1,
         integer n2,
         double precision, dimension( * ) a,

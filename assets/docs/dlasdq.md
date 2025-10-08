@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasdq
-(
+subroutine dlasdq (
         character uplo,
         integer sqre,
         integer n,
@@ -24,18 +23,18 @@ DLASDQ computes the singular value decomposition (SVD) of a real
 (upper or lower) bidiagonal matrix with diagonal D and offdiagonal
 E, accumulating the transformations if desired. Letting B denote
 the input bidiagonal matrix, the algorithm computes orthogonal
-matrices Q and P such that B = Q * S * P**T (P**T denotes the transpose
+matrices Q and P such that B = Q \* S \* P\*\*T (P\*\*T denotes the transpose
 of P). The singular values S are overwritten on D.
 
-The input matrix U  is changed to U  * Q  if desired.
-The input matrix VT is changed to P**T * VT if desired.
-The input matrix C  is changed to Q**T * C  if desired.
+The input matrix U  is changed to U  \* Q  if desired.
+The input matrix VT is changed to P\*\*T \* VT if desired.
+The input matrix C  is changed to Q\*\*T \* C  if desired.
 
 See  by J. Demmel and W. Kahan,
 LAPACK Working Note #3, for a detailed description of the algorithm.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the input bidiagonal matrix
 > is upper or lower bidiagonal, and whether it is square are
 > not.
@@ -83,7 +82,7 @@ E : DOUBLE PRECISION array. [in,out]
 
 VT : DOUBLE PRECISION array, dimension (LDVT, NCVT) [in,out]
 > On entry, contains a matrix which on exit has been
-> premultiplied by P**T, dimension N-by-NCVT if SQRE = 0
+> premultiplied by P\*\*T, dimension N-by-NCVT if SQRE = 0
 > and (N+1)-by-NCVT if SQRE = 1 (not referenced if NCVT=0).
 
 LDVT : INTEGER [in]
@@ -103,7 +102,7 @@ LDU : INTEGER [in]
 
 C : DOUBLE PRECISION array, dimension (LDC, NCC) [in,out]
 > On entry, contains an N-by-NCC matrix which on exit
-> has been premultiplied by Q**T  dimension N-by-NCC if SQRE = 0
+> has been premultiplied by Q\*\*T  dimension N-by-NCC if SQRE = 0
 > and (N+1)-by-NCC if SQRE = 1 (not referenced if NCC=0).
 
 LDC : INTEGER [in]
@@ -111,7 +110,7 @@ LDC : INTEGER [in]
 > declared in the calling (sub) program. LDC must be at
 > least 1. If NCC is nonzero, LDC must also be at least N.
 
-WORK : DOUBLE PRECISION array, dimension (4*N) [out]
+WORK : DOUBLE PRECISION array, dimension (4\*N) [out]
 > Workspace. Only referenced if one of NCVT, NRU, or NCC is
 > nonzero, and if N is at least 2.
 

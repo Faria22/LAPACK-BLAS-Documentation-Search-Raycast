@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggev3
-(
+subroutine cggev3 (
         character jobvl,
         character jobvr,
         integer n,
@@ -26,7 +25,7 @@ CGGEV3 computes for a pair of N-by-N complex nonsymmetric matrices
 right generalized eigenvectors.
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar
-lambda or a ratio alpha/beta = lambda, such that A - lambda*B is
+lambda or a ratio alpha/beta = lambda, such that A - lambda\*B is
 singular. It is usually represented as the pair (alpha,beta), as
 there is a reasonable interpretation for beta=0, and even for both
 being zero.
@@ -34,21 +33,21 @@ being zero.
 The right generalized eigenvector v(j) corresponding to the
 generalized eigenvalue lambda(j) of (A,B) satisfies
 
-A * v(j) = lambda(j) * B * v(j).
+A \* v(j) = lambda(j) \* B \* v(j).
 
 The left generalized eigenvector u(j) corresponding to the
 generalized eigenvalues lambda(j) of (A,B) satisfies
 
-u(j)**H * A = lambda(j) * u(j)**H * B
+u(j)\*\*H \* A = lambda(j) \* u(j)\*\*H \* B
 
-where u(j)**H is the conjugate-transpose of u(j).
+where u(j)\*\*H is the conjugate-transpose of u(j).
 
 ## Parameters
-JOBVL : CHARACTER*1 [in]
+JOBVL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left generalized eigenvectors;
 > = 'V':  compute the left generalized eigenvectors.
 
-JOBVR : CHARACTER*1 [in]
+JOBVR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right generalized eigenvectors;
 > = 'V':  compute the right generalized eigenvectors.
 
@@ -110,7 +109,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >= MAX(1,2*N).
+> The dimension of the array WORK. LWORK >= MAX(1,2\*N).
 > For good performance, LWORK must generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
@@ -118,7 +117,7 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : REAL array, dimension (8*N) [out]
+RWORK : REAL array, dimension (8\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

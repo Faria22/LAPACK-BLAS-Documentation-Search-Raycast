@@ -1,6 +1,5 @@
 ```fortran
-subroutine cpbtf2
-(
+subroutine cpbtf2 (
         character uplo,
         integer n,
         integer kd,
@@ -14,15 +13,15 @@ CPBTF2 computes the Cholesky factorization of a complex Hermitian
 positive definite band matrix A.
 
 The factorization has the form
-A = U**H * U ,  if UPLO = 'U', or
-A = L  * L**H,  if UPLO = 'L',
-where U is an upper triangular matrix, U**H is the conjugate transpose
+A = U\*\*H \* U ,  if UPLO = 'U', or
+A = L  \* L\*\*H,  if UPLO = 'L',
+where U is an upper triangular matrix, U\*\*H is the conjugate transpose
 of U, and L is lower triangular.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular
@@ -44,7 +43,7 @@ AB : COMPLEX array, dimension (LDAB,N) [in,out]
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 > 
 > On exit, if INFO = 0, the triangular factor U or L from the
-> Cholesky factorization A = U**H *U or A = L*L**H of the band
+> Cholesky factorization A = U\*\*H \*U or A = L\*L\*\*H of the band
 > matrix A, in the same storage format as A.
 
 LDAB : INTEGER [in]

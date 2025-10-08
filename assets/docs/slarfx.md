@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarfx
-(
+subroutine slarfx (
         character side,
         integer m,
         integer n,
@@ -16,7 +15,7 @@ SLARFX applies a real elementary reflector H to a real m by n
 matrix C, from either the left or the right. H is represented in the
 form
 
-H = I - tau * v * v**T
+H = I - tau \* v \* v\*\*T
 
 where tau is a real scalar and v is a real vector.
 
@@ -25,9 +24,9 @@ If tau = 0, then H is taken to be the unit matrix
 This version uses inline code if H has order < 11.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': form  H * C
-> = 'R': form  C * H
+SIDE : CHARACTER\*1 [in]
+> = 'L': form  H \* C
+> = 'R': form  C \* H
 
 M : INTEGER [in]
 > The number of rows of the matrix C.
@@ -44,8 +43,8 @@ TAU : REAL [in]
 
 C : REAL array, dimension (LDC,N) [in,out]
 > On entry, the m by n matrix C.
-> On exit, C is overwritten by the matrix H * C if SIDE = 'L',
-> or C * H if SIDE = 'R'.
+> On exit, C is overwritten by the matrix H \* C if SIDE = 'L',
+> or C \* H if SIDE = 'R'.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= (1,M).

@@ -1,6 +1,5 @@
 ```fortran
-subroutine strttf
-(
+subroutine strttf (
         character transr,
         character uplo,
         integer n,
@@ -15,11 +14,11 @@ STRTTF copies a triangular matrix A from standard full format (TR)
 to rectangular full packed format (TF) .
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  ARF in Normal form is wanted;
 > = 'T':  ARF in Transpose form is wanted.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -39,7 +38,7 @@ LDA : INTEGER [in]
 > The leading dimension of the matrix A. LDA >= max(1,N).
 
 ARF : REAL array, dimension (NT). [out]
-> NT=N*(N+1)/2. On exit, the triangular matrix A in RFP format.
+> NT=N\*(N+1)/2. On exit, the triangular matrix A in RFP format.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

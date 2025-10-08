@@ -1,6 +1,5 @@
 ```fortran
-subroutine zungtr
-(
+subroutine zungtr (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -21,7 +20,7 @@ if UPLO = 'U', Q = H(n-1) . . . H(2) H(1),
 if UPLO = 'L', Q = H(1) H(2) . . . H(n-1).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U': Upper triangle of A contains elementary reflectors
 > from ZHETRD;
 > = 'L': Lower triangle of A contains elementary reflectors
@@ -30,7 +29,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix Q. N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the vectors which define the elementary reflectors,
 > as returned by ZHETRD.
 > On exit, the N-by-N unitary matrix Q.
@@ -38,16 +37,16 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= N.
 
-TAU : COMPLEX*16 array, dimension (N-1) [in]
+TAU : COMPLEX\*16 array, dimension (N-1) [in]
 > TAU(i) must contain the scalar factor of the elementary
 > reflector H(i), as returned by ZHETRD.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= N-1.
-> For optimum performance LWORK >= (N-1)*NB, where NB is
+> For optimum performance LWORK >= (N-1)\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

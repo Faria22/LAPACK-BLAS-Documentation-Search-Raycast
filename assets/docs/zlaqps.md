@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqps
-(
+subroutine zlaqps (
         integer m,
         integer n,
         integer offset,
@@ -46,7 +45,7 @@ NB : INTEGER [in]
 KB : INTEGER [out]
 > The number of columns actually factorized.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, block A(OFFSET+1:M,1:KB) is the triangular
 > factor obtained and block A(1:OFFSET,1:N) has been
@@ -61,7 +60,7 @@ JPVT : INTEGER array, dimension (N) [in,out]
 > JPVT(I) = K <==> Column K of the full matrix A has been
 > permuted into position I in AP.
 
-TAU : COMPLEX*16 array, dimension (KB) [out]
+TAU : COMPLEX\*16 array, dimension (KB) [out]
 > The scalar factors of the elementary reflectors.
 
 VN1 : DOUBLE PRECISION array, dimension (N) [in,out]
@@ -70,11 +69,11 @@ VN1 : DOUBLE PRECISION array, dimension (N) [in,out]
 VN2 : DOUBLE PRECISION array, dimension (N) [in,out]
 > The vector with the exact column norms.
 
-AUXV : COMPLEX*16 array, dimension (NB) [in,out]
+AUXV : COMPLEX\*16 array, dimension (NB) [in,out]
 > Auxiliary vector.
 
-F : COMPLEX*16 array, dimension (LDF,NB) [in,out]
-> Matrix F**H = L * Y**H * A.
+F : COMPLEX\*16 array, dimension (LDF,NB) [in,out]
+> Matrix F\*\*H = L \* Y\*\*H \* A.
 
 LDF : INTEGER [in]
 > The leading dimension of the array F. LDF >= max(1,N).

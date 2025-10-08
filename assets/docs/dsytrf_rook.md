@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytrf_rook
-(
+subroutine dsytrf_rook (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -16,7 +15,7 @@ DSYTRF_ROOK computes the factorization of a real symmetric matrix A
 using the bounded Bunch-Kaufman () diagonal pivoting method.
 The form of the factorization is
 
-A = U*D*U**T  or  A = L*D*L**T
+A = U\*D\*U\*\*T  or  A = L\*D\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and D is symmetric and block diagonal with
@@ -25,7 +24,7 @@ triangular matrices, and D is symmetric and block diagonal with
 This is the blocked version of the algorithm, calling Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -73,7 +72,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)). [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >= 1.  For best performance
-> LWORK >= N*NB, where NB is the block size returned by ILAENV.
+> LWORK >= N\*NB, where NB is the block size returned by ILAENV.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

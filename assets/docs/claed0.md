@@ -1,6 +1,5 @@
 ```fortran
-subroutine claed0
-(
+subroutine claed0 (
         integer qsiz,
         integer n,
         real, dimension( * ) d,
@@ -47,12 +46,12 @@ LDQ : INTEGER [in]
 
 IWORK : INTEGER array, [out]
 > the dimension of IWORK must be at least
-> 6 + 6*N + 5*N*lg N
+> 6 + 6\*N + 5\*N\*lg N
 > ( lg( N ) = smallest integer k
 > such that 2^k >= N )
 
 RWORK : REAL array, [out]
-> dimension (1 + 3*N + 2*N*lg N + 3*N**2)
+> dimension (1 + 3\*N + 2\*N\*lg N + 3\*N\*\*2)
 > ( lg( N ) = smallest integer k
 > such that 2^k >= N )
 

@@ -1,6 +1,5 @@
 ```fortran
-double precision function zla_porpvgrw
-(
+double precision function zla_porpvgrw (
         character*1 uplo,
         integer ncols,
         complex*16, dimension( lda, * ) a,
@@ -19,24 +18,24 @@ solution X, estimated condition numbers, and error bounds could be
 unreliable.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 NCOLS : INTEGER [in]
 > The number of columns of the matrix A. NCOLS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > On entry, the N-by-N matrix A.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T, as computed by ZPOTRF.
+> A = U\*\*T\*U or A = L\*L\*\*T, as computed by ZPOTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]

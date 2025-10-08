@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhb2st_kernels
-(
+subroutine zhb2st_kernels (
         character uplo,
         logical wantz,
         integer ttype,
@@ -23,7 +22,7 @@ ZHB2ST_KERNELS is an internal routine used by the ZHETRD_HB2ST
 subroutine.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 
 WANTZ : LOGICAL which indicate if Eigenvalue are requested or both [in]
 > Eigenvalue/Eigenvectors.
@@ -45,17 +44,17 @@ NB : INTEGER. The size of the band. [in]
 
 IB : INTEGER. [in]
 
-A : COMPLEX*16 array. A pointer to the matrix A. [in,out]
+A : COMPLEX\*16 array. A pointer to the matrix A. [in,out]
 
 LDA : INTEGER. The leading dimension of the matrix A. [in]
 
-V : COMPLEX*16 array, dimension 2*n if eigenvalues only are [out]
+V : COMPLEX\*16 array, dimension 2\*n if eigenvalues only are [out]
 > requested or to be queried for vectors.
 
-TAU : COMPLEX*16 array, dimension (2*n). [out]
+TAU : COMPLEX\*16 array, dimension (2\*n). [out]
 > The scalar factors of the Householder reflectors are stored
 > in this array.
 
 LDVT : INTEGER. [in]
 
-WORK : COMPLEX*16 array. Workspace of size nb. [out]
+WORK : COMPLEX\*16 array. Workspace of size nb. [out]

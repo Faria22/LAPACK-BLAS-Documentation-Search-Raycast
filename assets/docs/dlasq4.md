@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasq4
-(
+subroutine dlasq4 (
         integer i0,
         integer n0,
         double precision, dimension( * ) z,
@@ -28,7 +27,7 @@ I0 : INTEGER [in]
 N0 : INTEGER [in]
 > Last index.
 
-Z : DOUBLE PRECISION array, dimension ( 4*N0 ) [in]
+Z : DOUBLE PRECISION array, dimension ( 4\*N0 ) [in]
 > Z holds the qd array.
 
 PP : INTEGER [in]

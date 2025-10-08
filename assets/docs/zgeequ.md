@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgeequ
-(
+subroutine zgeequ (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -18,7 +17,7 @@ ZGEEQU computes row and column scalings intended to equilibrate an
 M-by-N matrix A and reduce its condition number.  R returns the row
 scale factors and C the column scale factors, chosen to try to make
 the largest element in each row and column of the matrix B with
-elements B(i,j)=R(i)*A(i,j)*C(j) have absolute value 1.
+elements B(i,j)=R(i)\*A(i,j)\*C(j) have absolute value 1.
 
 R(i) and C(j) are restricted to be between SMLNUM = smallest safe
 number and BIGNUM = largest safe number.  Use of these scaling
@@ -32,7 +31,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The M-by-N matrix whose equilibration factors are
 > to be computed.
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dla_wwaddw
-(
+subroutine dla_wwaddw (
         integer n,
         double precision, dimension( * ) x,
         double precision, dimension( * ) y,

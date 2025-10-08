@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgejsv
-(
+subroutine cgejsv (
         character*1 joba,
         character*1 jobu,
         character*1 jobv,
@@ -28,7 +27,7 @@ subroutine cgejsv
 CGEJSV computes the singular value decomposition (SVD) of a complex M-by-N
 matrix [A], where M >= N. The SVD of [A] is written as
 
-[A] = [U] * [SIGMA] * [V]^*,
+[A] = [U] \* [SIGMA] \* [V]^\*,
 
 where [SIGMA] is an N-by-N (M-by-N) matrix which is zero except for its N
 diagonal elements, [U] is an M-by-N (or M-by-M) unitary matrix, and
@@ -39,22 +38,22 @@ are computed and stored in the arrays U and V, respectively. The diagonal
 of [SIGMA] is computed and stored in the array SVA.
 
 ## Parameters
-JOBA : CHARACTER*1 [in]
+JOBA : CHARACTER\*1 [in]
 > Specifies the level of accuracy:
-> = 'C': This option works well (high relative accuracy) if A = B * D,
+> = 'C': This option works well (high relative accuracy) if A = B \* D,
 > with well-conditioned B and arbitrary diagonal matrix D.
 > The accuracy cannot be spoiled by COLUMN scaling. The
 > accuracy of the computed output depends on the condition of
 > B, and the procedure aims at the best theoretical accuracy.
 > The relative error max_{i=1:N}|d sigma_i| / sigma_i is
-> bounded by f(M,N)*epsilon* cond(B), independent of D.
+> bounded by f(M,N)\*epsilon\* cond(B), independent of D.
 > The input matrix is preprocessed with the QRF with column
 > pivoting. This initial preprocessing and preconditioning by
 > a rank revealing QR factorization is common for all values of
 > JOBA. Additional actions are specified as follows:
 > = 'E': Computation as with 'C' with an additional estimate of the
 > condition number of B. It provides a realistic error bound.
-> = 'F': If A = D1 * C * D2 with ill-conditioned diagonal scalings
+> = 'F': If A = D1 \* C \* D2 with ill-conditioned diagonal scalings
 > D1, D2, and well-conditioned matrix C, this option gives
 > higher accuracy than the 'C' option. If the structure of the
 > input matrix is not known, and relative accuracy is
@@ -62,68 +61,68 @@ JOBA : CHARACTER*1 [in]
 > is preprocessed with QR factorization with FULL (row and
 > column) pivoting.
 > = 'G': Computation as with 'F' with an additional estimate of the
-> condition number of B, where A=B*D. If A has heavily weighted
+> condition number of B, where A=B\*D. If A has heavily weighted
 > rows, then using this condition number gives too pessimistic
 > error bound.
 > = 'A': Small singular values are not well determined by the data
 > and are considered as noisy; the matrix is treated as
 > numerically rank deficient. The error in the computed
-> singular values is bounded by f(m,n)*epsilon*||A||.
-> The computed SVD A = U * S * V^* restores A up to
-> f(m,n)*epsilon*||A||.
+> singular values is bounded by f(m,n)\*epsilon\*||A||.
+> The computed SVD A = U \* S \* V^\* restores A up to
+> f(m,n)\*epsilon\*||A||.
 > This gives the procedure the licence to discard (set to zero)
-> all singular values below N*epsilon*||A||.
+> all singular values below N\*epsilon\*||A||.
 > = 'R': Similar as in 'A'. Rank revealing property of the initial
 > QR factorization is used do reveal (using triangular factor)
-> a gap sigma_{r+1} < epsilon * sigma_r in which case the
+> a gap sigma_{r+1} < epsilon \* sigma_r in which case the
 > numerical RANK is declared to be r. The SVD is computed with
 > absolute error bounds, but more accurately than with 'A'.
 
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > Specifies whether to compute the columns of U:
 > = 'U': N columns of U are returned in the array U.
 > = 'F': full set of M left sing. vectors is returned in the array U.
-> = 'W': U may be used as workspace of length M*N. See the description
+> = 'W': U may be used as workspace of length M\*N. See the description
 > of U.
 > = 'N': U is not computed.
 
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > Specifies whether to compute the matrix V:
 > = 'V': N columns of V are returned in the array V; Jacobi rotations
 > are not explicitly accumulated.
 > = 'J': N columns of V are returned in the array V, but they are
 > computed as the product of Jacobi rotations, if JOBT = 'N'.
-> = 'W': V may be used as workspace of length N*N. See the description
+> = 'W': V may be used as workspace of length N\*N. See the description
 > of V.
 > = 'N': V is not computed.
 
-JOBR : CHARACTER*1 [in]
+JOBR : CHARACTER\*1 [in]
 > Specifies the RANGE for the singular values. Issues the licence to
 > set to zero small positive singular values if they are outside
 > specified range. If A .NE. 0 is scaled so that the largest singular
-> value of c*A is around SQRT(BIG), BIG=SLAMCH('O'), then JOBR issues
-> the licence to kill columns of A whose norm in c*A is less than
+> value of c\*A is around SQRT(BIG), BIG=SLAMCH('O'), then JOBR issues
+> the licence to kill columns of A whose norm in c\*A is less than
 > SQRT(SFMIN) (for JOBR = 'R'), or less than SMALL=SFMIN/EPSLN,
 > where SFMIN=SLAMCH('S'), EPSLN=SLAMCH('E').
-> = 'N': Do not kill small columns of c*A. This option assumes that
+> = 'N': Do not kill small columns of c\*A. This option assumes that
 > BLAS and QR factorizations and triangular solvers are
 > implemented to work in that range. If the condition of A
 > is greater than BIG, use CGESVJ.
-> = 'R': RESTRICTED range for sigma(c*A) is [SQRT(SFMIN), SQRT(BIG)]
+> = 'R': RESTRICTED range for sigma(c\*A) is [SQRT(SFMIN), SQRT(BIG)]
 > (roughly, as described above). This option is recommended.
 > ===========================
 > For computing the singular values in the FULL range [SFMIN,BIG]
 > use CGESVJ.
 
-JOBT : CHARACTER*1 [in]
+JOBT : CHARACTER\*1 [in]
 > If the matrix is square then the procedure may determine to use
-> transposed A if A^* seems to be better with respect to convergence.
+> transposed A if A^\* seems to be better with respect to convergence.
 > If the matrix is not square, JOBT is ignored.
 > The decision is based on two values of entropy over the adjoint
-> orbit of A^* * A. See the descriptions of RWORK(6) and RWORK(7).
+> orbit of A^\* \* A. See the descriptions of RWORK(6) and RWORK(7).
 > = 'T': transpose if entropy test indicates possibly faster
-> convergence of Jacobi process if A^* is taken as input. If A is
-> replaced with A^*, then the row pivoting is included automatically.
+> convergence of Jacobi process if A^\* is taken as input. If A is
+> replaced with A^\*, then the row pivoting is included automatically.
 > = 'N': do not speculate.
 > The option 'T' can be used to compute only the singular values, or
 > the full SVD (U, SIGMA and V). For only one set of singular vectors
@@ -134,7 +133,7 @@ JOBT : CHARACTER*1 [in]
 > In general, this option is considered experimental, and 'N'; should
 > be preferred. This is subject to changes in the future.
 
-JOBP : CHARACTER*1 [in]
+JOBP : CHARACTER\*1 [in]
 > Issues the licence to introduce structured perturbations to drown
 > denormalized numbers. This licence should be active if the
 > denormals are poorly implemented, causing slow computation,
@@ -164,7 +163,7 @@ SVA : REAL array, dimension (N) [out]
 > the computation SVA contains Euclidean column norms of the
 > iterated matrices in the array A.
 > - For RWORK(1) .NE. RWORK(2): The singular values of A are
-> (RWORK(1)/RWORK(2)) * SVA(1:N). This factored form is used if
+> (RWORK(1)/RWORK(2)) \* SVA(1:N). This factored form is used if
 > sigma_max(A) overflows or if small singular values have been
 > saved from underflow by scaling the input matrix A.
 > - If JOBR='R' then some of the singular values may be returned
@@ -179,11 +178,11 @@ U : COMPLEX array, dimension ( LDU, N ) or ( LDU, M ) [out]
 > of the orthogonal complement of the Range(A).
 > If JOBU = 'W'  .AND. (JOBV = 'V' .AND. JOBT = 'T' .AND. M = N),
 > then U is used as workspace if the procedure
-> replaces A with A^*. In that case, [V] is computed
-> in U as left singular vectors of A^* and then
+> replaces A with A^\*. In that case, [V] is computed
+> in U as left singular vectors of A^\* and then
 > copied back to the V array. This 'W' option is just
 > a reminder to the caller that in this case U is
-> reserved as workspace of length N*N.
+> reserved as workspace of length N\*N.
 > If JOBU = 'N'  U is not referenced, unless JOBT='T'.
 
 LDU : INTEGER [in]
@@ -195,11 +194,11 @@ V : COMPLEX array, dimension ( LDV, N ) [out]
 > the right singular vectors;
 > If JOBV = 'W', AND (JOBU = 'U' AND JOBT = 'T' AND M = N),
 > then V is used as workspace if the procedure
-> replaces A with A^*. In that case, [U] is computed
-> in V as right singular vectors of A^* and then
+> replaces A with A^\*. In that case, [U] is computed
+> in V as right singular vectors of A^\* and then
 > copied back to the U array. This 'W' option is just
 > a reminder to the caller that in this case V is
-> reserved as workspace of length N*N.
+> reserved as workspace of length N\*N.
 > If JOBV = 'N'  V is not referenced, unless JOBT='T'.
 
 LDV : INTEGER [in]
@@ -217,62 +216,62 @@ LWORK : INTEGER [in]
 > 
 > 1. If only SIGMA is needed ( JOBU = 'N', JOBV = 'N' ) and
 > 1.1 .. no scaled condition estimate required (JOBA.NE.'E'.AND.JOBA.NE.'G'):
-> LWORK >= 2*N+1. This is the minimal requirement.
+> LWORK >= 2\*N+1. This is the minimal requirement.
 > ->> For optimal performance (blocked code) the optimal value
-> is LWORK >= N + (N+1)*NB. Here NB is the optimal
+> is LWORK >= N + (N+1)\*NB. Here NB is the optimal
 > block size for CGEQP3 and CGEQRF.
 > In general, optimal LWORK is computed as
 > LWORK >= max(N+LWORK(CGEQP3),N+LWORK(CGEQRF), LWORK(CGESVJ)).
 > 1.2. .. an estimate of the scaled condition number of A is
 > required (JOBA='E', or 'G'). In this case, LWORK the minimal
-> requirement is LWORK >= N*N + 2*N.
+> requirement is LWORK >= N\*N + 2\*N.
 > ->> For optimal performance (blocked code) the optimal value
-> is LWORK >= max(N+(N+1)*NB, N*N+2*N)=N**2+2*N.
+> is LWORK >= max(N+(N+1)\*NB, N\*N+2\*N)=N\*\*2+2\*N.
 > In general, the optimal length LWORK is computed as
 > LWORK >= max(N+LWORK(CGEQP3),N+LWORK(CGEQRF), LWORK(CGESVJ),
-> N*N+LWORK(CPOCON)).
+> N\*N+LWORK(CPOCON)).
 > 2. If SIGMA and the right singular vectors are needed (JOBV = 'V'),
 > (JOBU = 'N')
 > 2.1   .. no scaled condition estimate requested (JOBE = 'N'):
-> -> the minimal requirement is LWORK >= 3*N.
+> -> the minimal requirement is LWORK >= 3\*N.
 > -> For optimal performance,
-> LWORK >= max(N+(N+1)*NB, 2*N+N*NB)=2*N+N*NB,
+> LWORK >= max(N+(N+1)\*NB, 2\*N+N\*NB)=2\*N+N\*NB,
 > where NB is the optimal block size for CGEQP3, CGEQRF, CGELQF,
 > CUNMLQ. In general, the optimal length LWORK is computed as
 > LWORK >= max(N+LWORK(CGEQP3), N+LWORK(CGESVJ),
-> N+LWORK(CGELQF), 2*N+LWORK(CGEQRF), N+LWORK(CUNMLQ)).
+> N+LWORK(CGELQF), 2\*N+LWORK(CGEQRF), N+LWORK(CUNMLQ)).
 > 2.2 .. an estimate of the scaled condition number of A is
 > required (JOBA='E', or 'G').
-> -> the minimal requirement is LWORK >= 3*N.
+> -> the minimal requirement is LWORK >= 3\*N.
 > -> For optimal performance,
-> LWORK >= max(N+(N+1)*NB, 2*N,2*N+N*NB)=2*N+N*NB,
+> LWORK >= max(N+(N+1)\*NB, 2\*N,2\*N+N\*NB)=2\*N+N\*NB,
 > where NB is the optimal block size for CGEQP3, CGEQRF, CGELQF,
 > CUNMLQ. In general, the optimal length LWORK is computed as
 > LWORK >= max(N+LWORK(CGEQP3), LWORK(CPOCON), N+LWORK(CGESVJ),
-> N+LWORK(CGELQF), 2*N+LWORK(CGEQRF), N+LWORK(CUNMLQ)).
+> N+LWORK(CGELQF), 2\*N+LWORK(CGEQRF), N+LWORK(CUNMLQ)).
 > 3. If SIGMA and the left singular vectors are needed
 > 3.1  .. no scaled condition estimate requested (JOBE = 'N'):
-> -> the minimal requirement is LWORK >= 3*N.
+> -> the minimal requirement is LWORK >= 3\*N.
 > -> For optimal performance:
-> if JOBU = 'U' :: LWORK >= max(3*N, N+(N+1)*NB, 2*N+N*NB)=2*N+N*NB,
+> if JOBU = 'U' :: LWORK >= max(3\*N, N+(N+1)\*NB, 2\*N+N\*NB)=2\*N+N\*NB,
 > where NB is the optimal block size for CGEQP3, CGEQRF, CUNMQR.
 > In general, the optimal length LWORK is computed as
-> LWORK >= max(N+LWORK(CGEQP3), 2*N+LWORK(CGEQRF), N+LWORK(CUNMQR)).
+> LWORK >= max(N+LWORK(CGEQP3), 2\*N+LWORK(CGEQRF), N+LWORK(CUNMQR)).
 > 3.2  .. an estimate of the scaled condition number of A is
 > required (JOBA='E', or 'G').
-> -> the minimal requirement is LWORK >= 3*N.
+> -> the minimal requirement is LWORK >= 3\*N.
 > -> For optimal performance:
-> if JOBU = 'U' :: LWORK >= max(3*N, N+(N+1)*NB, 2*N+N*NB)=2*N+N*NB,
+> if JOBU = 'U' :: LWORK >= max(3\*N, N+(N+1)\*NB, 2\*N+N\*NB)=2\*N+N\*NB,
 > where NB is the optimal block size for CGEQP3, CGEQRF, CUNMQR.
 > In general, the optimal length LWORK is computed as
 > LWORK >= max(N+LWORK(CGEQP3),N+LWORK(CPOCON),
-> 2*N+LWORK(CGEQRF), N+LWORK(CUNMQR)).
+> 2\*N+LWORK(CGEQRF), N+LWORK(CUNMQR)).
 > 
 > 4. If the full SVD is needed: (JOBU = 'U' or JOBU = 'F') and
 > 4.1. if JOBV = 'V'
-> the minimal requirement is LWORK >= 5*N+2*N*N.
+> the minimal requirement is LWORK >= 5\*N+2\*N\*N.
 > 4.2. if JOBV = 'J' the minimal requirement is
-> LWORK >= 4*N+N*N.
+> LWORK >= 4\*N+N\*N.
 > In both cases, the allocated CWORK can accommodate blocked runs
 > of CGEQP3, CGEQRF, CGELQF, CUNMQR, CUNMLQ.
 > 
@@ -283,14 +282,14 @@ LWORK : INTEGER [in]
 RWORK : REAL array, dimension (MAX(7,LRWORK)) [out]
 > On exit,
 > RWORK(1) = Determines the scaling factor SCALE = RWORK(2) / RWORK(1)
-> such that SCALE*SVA(1:N) are the computed singular values
+> such that SCALE\*SVA(1:N) are the computed singular values
 > of A. (See the description of SVA().)
 > RWORK(2) = See the description of RWORK(1).
 > RWORK(3) = SCONDA is an estimate for the condition number of
 > column equilibrated A. (If JOBA = 'E' or 'G')
-> SCONDA is an estimate of SQRT(||(R^* * R)^(-1)||_1).
+> SCONDA is an estimate of SQRT(||(R^\* \* R)^(-1)||_1).
 > It is computed using CPOCON. It holds
-> N^(-1/4) * SCONDA <= ||R^(-1)||_2 <= N^(1/4) * SCONDA
+> N^(-1/4) \* SCONDA <= ||R^(-1)||_2 <= N^(1/4) \* SCONDA
 > where R is the triangular factor from the QRF of A.
 > However, if R is truncated and the numerical rank is
 > determined to be strictly smaller than N, SCONDA is
@@ -309,10 +308,10 @@ RWORK : REAL array, dimension (MAX(7,LRWORK)) [out]
 > The following two parameters are computed if JOBT = 'T'.
 > They are provided for a developer/implementer who is familiar
 > with the details of the method.
-> RWORK(6) = the entropy of A^* * A :: this is the Shannon entropy
-> of diag(A^* * A) / Trace(A^* * A) taken as point in the
+> RWORK(6) = the entropy of A^\* \* A :: this is the Shannon entropy
+> of diag(A^\* \* A) / Trace(A^\* \* A) taken as point in the
 > probability simplex.
-> RWORK(7) = the entropy of A * A^*. (See the description of RWORK(6).)
+> RWORK(7) = the entropy of A \* A^\*. (See the description of RWORK(6).)
 > If the call to CGEJSV is a workspace query (indicated by LWORK=-1 or
 > LRWORK=-1), then on exit RWORK(1) contains the required length of
 > RWORK for the job parameters used in the call.
@@ -325,7 +324,7 @@ LRWORK : INTEGER [in]
 > LSAME(JOBU,'N') .AND. LSAME(JOBV,'N')
 > then:
 > 1.1. If LSAME(JOBT,'T') .OR. LSAME(JOBA,'F') .OR. LSAME(JOBA,'G'),
-> then: LRWORK = max( 7, 2 * M ).
+> then: LRWORK = max( 7, 2 \* M ).
 > 1.2. Otherwise, LRWORK  = max( 7,  N ).
 > 2. If singular values with the right singular vectors are requested
 > i.e. if
@@ -333,14 +332,14 @@ LRWORK : INTEGER [in]
 > .NOT.(LSAME(JOBU,'U').OR.LSAME(JOBU,'F'))
 > then:
 > 2.1. If LSAME(JOBT,'T') .OR. LSAME(JOBA,'F') .OR. LSAME(JOBA,'G'),
-> then LRWORK = max( 7, 2 * M ).
+> then LRWORK = max( 7, 2 \* M ).
 > 2.2. Otherwise, LRWORK  = max( 7,  N ).
 > 3. If singular values with the left singular vectors are requested, i.e. if
 > (LSAME(JOBU,'U').OR.LSAME(JOBU,'F')) .AND.
 > .NOT.(LSAME(JOBV,'V').OR.LSAME(JOBV,'J'))
 > then:
 > 3.1. If LSAME(JOBT,'T') .OR. LSAME(JOBA,'F') .OR. LSAME(JOBA,'G'),
-> then LRWORK = max( 7, 2 * M ).
+> then LRWORK = max( 7, 2 \* M ).
 > 3.2. Otherwise, LRWORK  = max( 7,  N ).
 > 4. If singular values with both the left and the right singular vectors
 > are requested, i.e. if
@@ -348,7 +347,7 @@ LRWORK : INTEGER [in]
 > (LSAME(JOBV,'V').OR.LSAME(JOBV,'J'))
 > then:
 > 4.1. If LSAME(JOBT,'T') .OR. LSAME(JOBA,'F') .OR. LSAME(JOBA,'G'),
-> then LRWORK = max( 7, 2 * M ).
+> then LRWORK = max( 7, 2 \* M ).
 > 4.2. Otherwise, LRWORK  = max( 7, N ).
 > 
 > If, on entry, LRWORK = -1 or LWORK=-1, a workspace query is assumed and
@@ -373,7 +372,7 @@ IWORK : INTEGER array, of dimension at least 4, that further depends [out]
 > then the length of IWORK is N+M; otherwise the length of IWORK is N.
 > 4.2. If LSAME(JOBV,'V') the length of IWORK is determined as follows:
 > If ( LSAME(JOBT,'T') .OR. LSAME(JOBA,'F') .OR. LSAME(JOBA,'G') )
-> then the length of IWORK is 2*N+M; otherwise the length of IWORK is 2*N.
+> then the length of IWORK is 2\*N+M; otherwise the length of IWORK is 2\*N.
 > 
 > On exit,
 > IWORK(1) = the numerical rank determined after the initial
@@ -384,7 +383,7 @@ IWORK : INTEGER array, of dimension at least 4, that further depends [out]
 > If IWORK(3) = 1 then some of the column norms of A
 > were denormalized floats. The requested high accuracy
 > is not warranted by the data.
-> IWORK(4) = 1 or -1. If IWORK(4) = 1, then the procedure used A^* to
+> IWORK(4) = 1 or -1. If IWORK(4) = 1, then the procedure used A^\* to
 > do the job as specified by the JOB parameters.
 > If the call to CGEJSV is a workspace query (indicated by LWORK = -1 and
 > LRWORK = -1), then on exit IWORK(1) contains the required length of

@@ -1,6 +1,5 @@
 ```fortran
-real function slansb
-(
+real function slansb (
         character norm,
         character uplo,
         integer n,
@@ -16,11 +15,11 @@ the  infinity norm,  or the element of  largest absolute value  of an
 n by n symmetric band matrix A,  with k super-diagonals.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in SLANSB as described
 > above.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > band matrix A is supplied.
 > = 'U':  Upper triangular part is supplied

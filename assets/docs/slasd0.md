@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasd0
-(
+subroutine slasd0 (
         integer n,
         integer sqre,
         real, dimension( * ) d,
@@ -20,7 +19,7 @@ Using a divide and conquer approach, SLASD0 computes the singular
 value decomposition (SVD) of a real upper bidiagonal N-by-M
 matrix B with diagonal D and offdiagonal E, where M = N + SQRE.
 The algorithm computes orthogonal matrices U and VT such that
-B = U * S * VT. The singular values S are overwritten on D.
+B = U \* S \* VT. The singular values S are overwritten on D.
 
 A related subroutine, SLASDA, computes only the singular values,
 and optionally, the singular vectors in compact form.
@@ -52,7 +51,7 @@ LDU : INTEGER [in]
 > On entry, leading dimension of U.
 
 VT : REAL array, dimension (LDVT, M) [in,out]
-> On exit, VT**T contains the right singular vectors,
+> On exit, VT\*\*T contains the right singular vectors,
 > if VT passed in as (M, M) Identity.
 
 LDVT : INTEGER [in]
@@ -62,9 +61,9 @@ SMLSIZ : INTEGER [in]
 > On entry, maximum size of the subproblems at the
 > bottom of the computation tree.
 
-IWORK : INTEGER array, dimension (8*N) [out]
+IWORK : INTEGER array, dimension (8\*N) [out]
 
-WORK : REAL array, dimension (3*M**2+2*M) [out]
+WORK : REAL array, dimension (3\*M\*\*2+2\*M) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

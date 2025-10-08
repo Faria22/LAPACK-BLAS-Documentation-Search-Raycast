@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetri_rook
-(
+subroutine zhetri_rook (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -12,20 +11,20 @@ subroutine zhetri_rook
 ```
 
 ZHETRI_ROOK computes the inverse of a complex Hermitian indefinite matrix
-A using the factorization A = U*D*U**H or A = L*D*L**H computed by
+A using the factorization A = U\*D\*U\*\*H or A = L\*D\*L\*\*H computed by
 ZHETRF_ROOK.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**H;
-> = 'L':  Lower triangular, form is A = L*D*L**H.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*H;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*H.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the block diagonal matrix D and the multipliers
 > used to obtain the factor U or L as computed by ZHETRF_ROOK.
 > 
@@ -43,7 +42,7 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZHETRF_ROOK.
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 INFO : INTEGER [out]
 > = 0: successful exit

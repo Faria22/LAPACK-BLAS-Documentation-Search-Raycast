@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasq3
-(
+subroutine dlasq3 (
         integer i0,
         integer n0,
         double precision, dimension( * ) z,
@@ -35,7 +34,7 @@ I0 : INTEGER [in]
 N0 : INTEGER [in,out]
 > Last index.
 
-Z : DOUBLE PRECISION array, dimension ( 4*N0 ) [in,out]
+Z : DOUBLE PRECISION array, dimension ( 4\*N0 ) [in,out]
 > Z holds the qd array.
 
 PP : INTEGER [in,out]

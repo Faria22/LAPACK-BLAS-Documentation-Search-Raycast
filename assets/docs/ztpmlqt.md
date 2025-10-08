@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztpmlqt
-(
+subroutine ztpmlqt (
         character side,
         character trans,
         integer m,
@@ -26,13 +25,13 @@ complex block reflector H to a general
 complex matrix C, which consists of two blocks A and B.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**H from the Left;
-> = 'R': apply Q or Q**H from the Right.
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*H from the Left;
+> = 'R': apply Q or Q\*\*H from the Right.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N':  No transpose, apply Q;
-> = 'C':  Conjugate transpose, apply Q**H.
+> = 'C':  Conjugate transpose, apply Q\*\*H.
 
 M : INTEGER [in]
 > The number of rows of the matrix B. M >= 0.
@@ -53,7 +52,7 @@ MB : INTEGER [in]
 > This must be the same value of MB used to generate T
 > in ZTPLQT.
 
-V : COMPLEX*16 array, dimension (LDV,K) [in]
+V : COMPLEX\*16 array, dimension (LDV,K) [in]
 > The i-th row must contain the vector which defines the
 > elementary reflector H(i), for i = 1,2,...,k, as returned by
 > ZTPLQT in B.  See Further Details.
@@ -61,36 +60,36 @@ V : COMPLEX*16 array, dimension (LDV,K) [in]
 LDV : INTEGER [in]
 > The leading dimension of the array V. LDV >= K.
 
-T : COMPLEX*16 array, dimension (LDT,K) [in]
+T : COMPLEX\*16 array, dimension (LDT,K) [in]
 > The upper triangular factors of the block reflectors
 > as returned by ZTPLQT, stored as a MB-by-K matrix.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= MB.
 
-A : COMPLEX*16 array, dimension [in,out]
+A : COMPLEX\*16 array, dimension [in,out]
 > (LDA,N) if SIDE = 'L' or
 > (LDA,K) if SIDE = 'R'
 > On entry, the K-by-N or M-by-K matrix A.
 > On exit, A is overwritten by the corresponding block of
-> Q*C or Q**H*C or C*Q or C*Q**H.  See Further Details.
+> Q\*C or Q\*\*H\*C or C\*Q or C\*Q\*\*H.  See Further Details.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.
 > If SIDE = 'L', LDA >= max(1,K);
 > If SIDE = 'R', LDA >= max(1,M).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 > On entry, the M-by-N matrix B.
 > On exit, B is overwritten by the corresponding block of
-> Q*C or Q**H*C or C*Q or C*Q**H.  See Further Details.
+> Q\*C or Q\*\*H\*C or C\*Q or C\*Q\*\*H.  See Further Details.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.
 > LDB >= max(1,M).
 
-WORK : COMPLEX*16 array. The dimension of WORK is [out]
-> N*MB if SIDE = 'L', or  M*MB if SIDE = 'R'.
+WORK : COMPLEX\*16 array. The dimension of WORK is [out]
+> N\*MB if SIDE = 'L', or  M\*MB if SIDE = 'R'.
 
 INFO : INTEGER [out]
 > = 0:  successful exit

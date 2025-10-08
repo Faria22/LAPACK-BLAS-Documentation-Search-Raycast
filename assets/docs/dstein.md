@@ -1,6 +1,5 @@
 ```fortran
-subroutine dstein
-(
+subroutine dstein (
         integer n,
         double precision, dimension( * ) d,
         double precision, dimension( * ) e,
@@ -68,7 +67,7 @@ Z : DOUBLE PRECISION array, dimension (LDZ, M) [out]
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (5*N) [out]
+WORK : DOUBLE PRECISION array, dimension (5\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

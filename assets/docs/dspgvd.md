@@ -1,6 +1,5 @@
 ```fortran
-subroutine dspgvd
-(
+subroutine dspgvd (
         integer itype,
         character jobz,
         character uplo,
@@ -20,7 +19,7 @@ subroutine dspgvd
 
 DSPGVD computes all the eigenvalues, and optionally, the eigenvectors
 of a real generalized symmetric-definite eigenproblem, of the form
-A*x=(lambda)*B*x,  A*Bx=(lambda)*x,  or B*A*x=(lambda)*x.  Here A and
+A\*x=(lambda)\*B\*x,  A\*Bx=(lambda)\*x,  or B\*A\*x=(lambda)\*x.  Here A and
 B are assumed to be symmetric, stored in packed format, and B is also
 positive definite.
 If eigenvectors are desired, it uses a divide and conquer algorithm.
@@ -28,39 +27,39 @@ If eigenvectors are desired, it uses a divide and conquer algorithm.
 ## Parameters
 ITYPE : INTEGER [in]
 > Specifies the problem type to be solved:
-> = 1:  A*x = (lambda)*B*x
-> = 2:  A*B*x = (lambda)*x
-> = 3:  B*A*x = (lambda)*x
+> = 1:  A\*x = (lambda)\*B\*x
+> = 2:  A\*B\*x = (lambda)\*x
+> = 3:  B\*A\*x = (lambda)\*x
 
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
 N : INTEGER [in]
 > The order of the matrices A and B.  N >= 0.
 
-AP : DOUBLE PRECISION array, dimension (N*(N+1)/2) [in,out]
+AP : DOUBLE PRECISION array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the symmetric matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2\*n-j)/2) = A(i,j) for j<=i<=n.
 > 
 > On exit, the contents of AP are destroyed.
 
-BP : DOUBLE PRECISION array, dimension (N*(N+1)/2) [in,out]
+BP : DOUBLE PRECISION array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the symmetric matrix
 > B, packed columnwise in a linear array.  The j-th column of B
 > is stored in the array BP as follows:
-> if UPLO = 'U', BP(i + (j-1)*j/2) = B(i,j) for 1<=i<=j;
-> if UPLO = 'L', BP(i + (j-1)*(2*n-j)/2) = B(i,j) for j<=i<=n.
+> if UPLO = 'U', BP(i + (j-1)\*j/2) = B(i,j) for 1<=i<=j;
+> if UPLO = 'L', BP(i + (j-1)\*(2\*n-j)/2) = B(i,j) for j<=i<=n.
 > 
 > On exit, the triangular factor U or L from the Cholesky
-> factorization B = U**T*U or B = L*L**T, in the same storage
+> factorization B = U\*\*T\*U or B = L\*L\*\*T, in the same storage
 > format as B.
 
 W : DOUBLE PRECISION array, dimension (N) [out]
@@ -69,8 +68,8 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 Z : DOUBLE PRECISION array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 > eigenvectors.  The eigenvectors are normalized as follows:
-> if ITYPE = 1 or 2, Z**T*B*Z = I;
-> if ITYPE = 3, Z**T*inv(B)*Z = I.
+> if ITYPE = 1 or 2, Z\*\*T\*B\*Z = I;
+> if ITYPE = 3, Z\*\*T\*inv(B)\*Z = I.
 > If JOBZ = 'N', then Z is not referenced.
 
 LDZ : INTEGER [in]
@@ -83,8 +82,8 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If N <= 1,               LWORK >= 1.
-> If JOBZ = 'N' and N > 1, LWORK >= 2*N.
-> If JOBZ = 'V' and N > 1, LWORK >= 1 + 6*N + 2*N**2.
+> If JOBZ = 'N' and N > 1, LWORK >= 2\*N.
+> If JOBZ = 'V' and N > 1, LWORK >= 1 + 6\*N + 2\*N\*\*2.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the required sizes of the WORK and IWORK
@@ -98,7 +97,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If JOBZ  = 'N' or N <= 1, LIWORK >= 1.
-> If JOBZ  = 'V' and N > 1, LIWORK >= 3 + 5*N.
+> If JOBZ  = 'V' and N > 1, LIWORK >= 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the required sizes of the WORK and

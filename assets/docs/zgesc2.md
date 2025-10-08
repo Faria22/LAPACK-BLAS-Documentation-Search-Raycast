@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgesc2
-(
+subroutine zgesc2 (
         integer n,
         complex*16, dimension( lda, * ) a,
         integer lda,
@@ -13,7 +12,7 @@ subroutine zgesc2
 
 ZGESC2 solves a system of linear equations
 
-A * X = scale* RHS
+A \* X = scale\* RHS
 
 with a general N-by-N matrix A using the LU factorization with
 complete pivoting computed by ZGETC2.
@@ -22,14 +21,14 @@ complete pivoting computed by ZGETC2.
 N : INTEGER [in]
 > The number of columns of the matrix A.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in]
+A : COMPLEX\*16 array, dimension (LDA, N) [in]
 > On entry, the  LU part of the factorization of the n-by-n
-> matrix A computed by ZGETC2:  A = P * L * U * Q
+> matrix A computed by ZGETC2:  A = P \* L \* U \* Q
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1, N).
 
-RHS : COMPLEX*16 array, dimension N. [in,out]
+RHS : COMPLEX\*16 array, dimension N. [in,out]
 > On entry, the right hand side vector b.
 > On exit, the solution vector X.
 

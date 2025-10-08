@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlargv
-(
+subroutine dlargv (
         integer n,
         double precision, dimension( * ) x,
         integer incx,
@@ -22,7 +21,7 @@ N : INTEGER [in]
 > The number of plane rotations to be generated.
 
 X : DOUBLE PRECISION array, [in,out]
-> dimension (1+(N-1)*INCX)
+> dimension (1+(N-1)\*INCX)
 > On entry, the vector x.
 > On exit, x(i) is overwritten by a(i), for i = 1,...,n.
 
@@ -30,14 +29,14 @@ INCX : INTEGER [in]
 > The increment between elements of X. INCX > 0.
 
 Y : DOUBLE PRECISION array, [in,out]
-> dimension (1+(N-1)*INCY)
+> dimension (1+(N-1)\*INCY)
 > On entry, the vector y.
 > On exit, the sines of the plane rotations.
 
 INCY : INTEGER [in]
 > The increment between elements of Y. INCY > 0.
 
-C : DOUBLE PRECISION array, dimension (1+(N-1)*INCC) [out]
+C : DOUBLE PRECISION array, dimension (1+(N-1)\*INCC) [out]
 > The cosines of the plane rotations.
 
 INCC : INTEGER [in]

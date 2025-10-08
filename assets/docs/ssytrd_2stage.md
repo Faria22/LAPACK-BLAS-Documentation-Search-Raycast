@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssytrd_2stage
-(
+subroutine ssytrd_2stage (
         character vect,
         character uplo,
         integer n,
@@ -19,19 +18,19 @@ subroutine ssytrd_2stage
 
 SSYTRD_2STAGE reduces a real symmetric matrix A to real symmetric
 tridiagonal form T by a orthogonal similarity transformation:
-Q1**T Q2**T* A * Q2 * Q1 = T.
+Q1\*\*T Q2\*\*T\* A \* Q2 \* Q1 = T.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  No need for the Housholder representation,
 > in particular for the second stage (Band to
-> tridiagonal) and thus LHOUS2 is of size max(1, 4*N);
+> tridiagonal) and thus LHOUS2 is of size max(1, 4\*N);
 > = 'V':  the Householder representation is needed to
 > either generate Q1 Q2 or to apply Q1 Q2,
 > then LHOUS2 is to be queried and computed.
 > (NOT AVAILABLE IN THIS RELEASE).
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -83,7 +82,7 @@ LHOUS2 : INTEGER [in]
 > only calculates the optimal size of the HOUS2 array, returns
 > this value as the first entry of the HOUS2 array, and no error
 > message related to LHOUS2 is issued by XERBLA.
-> If VECT='N', LHOUS2 = max(1, 4*n);
+> If VECT='N', LHOUS2 = max(1, 4\*n);
 > if VECT='V', option not yet available.
 
 WORK : REAL array, dimension (LWORK) [out]
@@ -98,10 +97,10 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 > LWORK = MAX(1, dimension) where
-> dimension   = max(stage1,stage2) + (KD+1)*N
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N
+> dimension   = max(stage1,stage2) + (KD+1)\*N
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice

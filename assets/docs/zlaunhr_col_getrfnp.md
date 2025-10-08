@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaunhr_col_getrfnp
-(
+subroutine zlaunhr_col_getrfnp (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ ZLAUNHR_COL_GETRFNP computes the modified LU factorization without
 pivoting of a complex general M-by-N matrix A. The factorization has
 the form:
 
-A - S = L * U,
+A - S = L \* U,
 
 where:
 S is a m-by-n diagonal sign matrix with the diagonal D, so that
@@ -59,15 +58,15 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix to be factored.
 > On exit, the factors L and U from the factorization
-> A-S=L*U; the unit diagonal elements of L are not stored.
+> A-S=L\*U; the unit diagonal elements of L are not stored.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-D : COMPLEX*16 array, dimension min(M,N) [out]
+D : COMPLEX\*16 array, dimension min(M,N) [out]
 > The diagonal elements of the diagonal M-by-N sign matrix S,
 > D(i) = S(i,i), where 1 <= i <= min(M,N). The elements can be
 > only ( +1.0, 0.0 ) or (-1.0, 0.0 ).

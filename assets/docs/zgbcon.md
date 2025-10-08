@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgbcon
-(
+subroutine zgbcon (
         character norm,
         integer n,
         integer kl,
@@ -22,10 +21,10 @@ using the LU factorization computed by ZGBTRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
 condition number is computed as
-RCOND = 1 / ( norm(A) * norm(inv(A)) ).
+RCOND = 1 / ( norm(A) \* norm(inv(A)) ).
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies whether the 1-norm condition number or the
 > infinity-norm condition number is required:
 > = '1' or 'O':  1-norm;
@@ -40,15 +39,15 @@ KL : INTEGER [in]
 KU : INTEGER [in]
 > The number of superdiagonals within the band of A.  KU >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > Details of the LU factorization of the band matrix A, as
 > computed by ZGBTRF.  U is stored as an upper triangular band
 > matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
 > the multipliers used during the factorization are stored in
-> rows KL+KU+2 to 2*KL+KU+1.
+> rows KL+KU+2 to 2\*KL+KU+1.
 
 LDAB : INTEGER [in]
-> The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
+> The leading dimension of the array AB.  LDAB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in]
 > The pivot indices; for 1 <= i <= N, row i of the matrix was
@@ -60,9 +59,9 @@ ANORM : DOUBLE PRECISION [in]
 
 RCOND : DOUBLE PRECISION [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(norm(A) * norm(inv(A))).
+> computed as RCOND = 1/(norm(A) \* norm(inv(A))).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine chpr
-(
+subroutine chpr (
         character uplo,
         integer n,
         real alpha,
@@ -12,13 +11,13 @@ subroutine chpr
 
 CHPR    performs the hermitian rank 1 operation
 
-A := alpha*x*x**H + A,
+A := alpha\*x\*x\*\*H + A,
 
 where alpha is a real scalar, x is an n element vector and A is an
 n by n hermitian matrix, supplied in packed form.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the matrix A is supplied in the packed
 > array AP as follows:
@@ -37,7 +36,7 @@ ALPHA : REAL [in]
 > On entry, ALPHA specifies the scalar alpha.
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element vector x.
 
@@ -46,7 +45,7 @@ INCX : INTEGER [in]
 > X. INCX must not be zero.
 
 AP : COMPLEX array, dimension at least [in,out]
-> ( ( n*( n + 1 ) )/2 ).
+> ( ( n\*( n + 1 ) )/2 ).
 > Before entry with  UPLO = 'U' or 'u', the array AP must
 > contain the upper triangular part of the hermitian matrix
 > packed sequentially, column by column, so that AP( 1 )

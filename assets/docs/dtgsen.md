@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtgsen
-(
+subroutine dtgsen (
         integer ijob,
         logical wantq,
         logical wantz,
@@ -31,7 +30,7 @@ subroutine dtgsen
 
 DTGSEN reorders the generalized real Schur decomposition of a real
 matrix pair (A, B) (in terms of an orthonormal equivalence trans-
-formation Q**T * (A, B) * Z), so that a selected cluster of eigenvalues
+formation Q\*\*T \* (A, B) \* Z), so that a selected cluster of eigenvalues
 appears in the leading diagonal blocks of the upper quasi-triangular
 matrix A and the upper triangular B. The leading columns of Q and
 Z form orthonormal bases of the corresponding left and right eigen-
@@ -42,7 +41,7 @@ triangular.
 
 DTGSEN also computes the generalized eigenvalues
 
-w(j) = (ALPHAR(j) + i*ALPHAI(j))/BETA(j)
+w(j) = (ALPHAR(j) + i\*ALPHAI(j))/BETA(j)
 
 of the reordered matrix pair (A, B).
 
@@ -113,8 +112,8 @@ ALPHAI : DOUBLE PRECISION array, dimension (N) [out]
 
 BETA : DOUBLE PRECISION array, dimension (N) [out]
 > 
-> On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
-> be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)*i
+> On exit, (ALPHAR(j) + ALPHAI(j)\*i)/BETA(j), j=1,...,N, will
+> be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)\*i
 > and BETA(j),j=1,...,N  are the diagonals of the complex Schur
 > form (S,T) that would result if the 2-by-2 diagonal blocks of
 > the real generalized Schur form of (A,B) were further reduced
@@ -174,9 +173,9 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK. LWORK >=  4*N+16.
-> If IJOB = 1, 2 or 4, LWORK >= MAX(4*N+16, 2*M*(N-M)).
-> If IJOB = 3 or 5, LWORK >= MAX(4*N+16, 4*M*(N-M)).
+> The dimension of the array WORK. LWORK >=  4\*N+16.
+> If IJOB = 1, 2 or 4, LWORK >= MAX(4\*N+16, 2\*M\*(N-M)).
+> If IJOB = 3 or 5, LWORK >= MAX(4\*N+16, 4\*M\*(N-M)).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -189,7 +188,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK. LIWORK >= 1.
 > If IJOB = 1, 2 or 4, LIWORK >=  N+6.
-> If IJOB = 3 or 5, LIWORK >= MAX(2*M*(N-M), N+6).
+> If IJOB = 3 or 5, LIWORK >= MAX(2\*M\*(N-M), N+6).
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the IWORK array,
@@ -203,4 +202,4 @@ INFO : INTEGER [out]
 > matrix pair (A, B) would be too far from generalized
 > Schur form; the problem is very ill-conditioned.
 > (A, B) may have been partially reordered.
-> If requested, 0 is returned in DIF(*), PL and PR.
+> If requested, 0 is returned in DIF(\*), PL and PR.

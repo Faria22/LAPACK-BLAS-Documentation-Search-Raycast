@@ -1,6 +1,5 @@
 ```fortran
-subroutine dorghr
-(
+subroutine dorghr (
         integer n,
         integer ilo,
         integer ihi,
@@ -49,7 +48,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= IHI-ILO.
-> For optimum performance LWORK >= (IHI-ILO)*NB, where NB is
+> For optimum performance LWORK >= (IHI-ILO)\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

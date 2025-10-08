@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsymm
-(
+subroutine zsymm (
         character side,
         character uplo,
         integer m,
@@ -18,25 +17,25 @@ subroutine zsymm
 
 ZSYMM  performs one of the matrix-matrix operations
 
-C := alpha*A*B + beta*C,
+C := alpha\*A\*B + beta\*C,
 
 or
 
-C := alpha*B*A + beta*C,
+C := alpha\*B\*A + beta\*C,
 
 where  alpha and beta are scalars, A is a symmetric matrix and  B and
 C are m by n matrices.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > On entry,  SIDE  specifies whether  the  symmetric matrix  A
 > appears on the  left or right  in the  operation as follows:
 > 
-> SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
+> SIDE = 'L' or 'l'   C := alpha\*A\*B + beta\*C,
 > 
-> SIDE = 'R' or 'r'   C := alpha*B*A + beta*C,
+> SIDE = 'R' or 'r'   C := alpha\*B\*A + beta\*C,
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On  entry,   UPLO  specifies  whether  the  upper  or  lower
 > triangular  part  of  the  symmetric  matrix   A  is  to  be
 > referenced as follows:
@@ -55,10 +54,10 @@ N : INTEGER [in]
 > On entry, N specifies the number of columns of the matrix C.
 > N  must be at least zero.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry, ALPHA specifies the scalar alpha.
 
-A : COMPLEX*16 array, dimension ( LDA, ka ), where ka is [in]
+A : COMPLEX\*16 array, dimension ( LDA, ka ), where ka is [in]
 > m  when  SIDE = 'L' or 'l'  and is n  otherwise.
 > Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
 > the array  A  must contain the  symmetric matrix,  such that
@@ -87,7 +86,7 @@ LDA : INTEGER [in]
 > LDA must be at least  max( 1, m ), otherwise  LDA must be at
 > least max( 1, n ).
 
-B : COMPLEX*16 array, dimension ( LDB, N ) [in]
+B : COMPLEX\*16 array, dimension ( LDB, N ) [in]
 > Before entry, the leading  m by n part of the array  B  must
 > contain the matrix B.
 
@@ -96,11 +95,11 @@ LDB : INTEGER [in]
 > in  the  calling  (sub)  program.   LDB  must  be  at  least
 > max( 1, m ).
 
-BETA : COMPLEX*16 [in]
+BETA : COMPLEX\*16 [in]
 > On entry,  BETA  specifies the scalar  beta.  When  BETA  is
 > supplied as zero then C need not be set on input.
 
-C : COMPLEX*16 array, dimension ( LDC, N ) [in,out]
+C : COMPLEX\*16 array, dimension ( LDC, N ) [in,out]
 > Before entry, the leading  m by n  part of the array  C must
 > contain the matrix  C,  except when  beta  is zero, in which
 > case C need not be set on entry.

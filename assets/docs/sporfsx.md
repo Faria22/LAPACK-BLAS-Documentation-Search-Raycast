@@ -1,6 +1,5 @@
 ```fortran
-subroutine sporfsx
-(
+subroutine sporfsx (
         character uplo,
         character equed,
         integer n,
@@ -41,17 +40,17 @@ below. In this case, the solution and error bounds returned are
 for the original unequilibrated system.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
-EQUED : CHARACTER*1 [in]
+EQUED : CHARACTER\*1 [in]
 > Specifies the form of equilibration that was done to A
 > before calling this routine. This is needed to compute
 > the solution and error bounds correctly.
 > = 'N':  No equilibration
 > = 'Y':  Both row and column equilibration, i.e., A has been
-> replaced by diag(S) * A * diag(S).
+> replaced by diag(S) \* A \* diag(S).
 > The right hand side B has been changed accordingly.
 
 N : INTEGER [in]
@@ -75,7 +74,7 @@ LDA : INTEGER [in]
 
 AF : REAL array, dimension (LDAF,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T, as computed by SPOTRF.
+> A = U\*\*T\*U or A = L\*L\*\*T, as computed by SPOTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -147,21 +146,21 @@ ERR_BNDS_NORM : REAL array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * slamch('Epsilon').
+> sqrt(n) \* slamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * slamch('Epsilon'). This error bound should only
+> sqrt(n) \* slamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated normwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * slamch('Epsilon') to determine if the error
+> sqrt(n) \* slamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*A, where S scales each row by a power of the
+> Let Z = S\*A, where S scales each row by a power of the
 > radix so all absolute row sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -192,23 +191,23 @@ ERR_BNDS_COMP : REAL array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * slamch('Epsilon').
+> sqrt(n) \* slamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * slamch('Epsilon'). This error bound should only
+> sqrt(n) \* slamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated componentwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * slamch('Epsilon') to determine if the error
+> sqrt(n) \* slamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*(A*diag(x)), where x is the solution for the
+> Let Z = S\*(A\*diag(x)), where x is the solution for the
 > current right-hand side and S scales each row of
-> A*diag(x) by a power of the radix so all absolute row
+> A\*diag(x) by a power of the radix so all absolute row
 > sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -251,7 +250,7 @@ PARAMS : REAL array, dimension NPARAMS [in,out]
 > is true, 0.0 is false.
 > Default: 1.0 (attempt componentwise convergence)
 
-WORK : REAL array, dimension (4*N) [out]
+WORK : REAL array, dimension (4\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

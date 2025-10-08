@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaqz3
-(
+subroutine zlaqz3 (
         logical, intent(in) ilschur,
         logical, intent(in) ilq,
         logical, intent(in) ilz,
@@ -54,39 +53,39 @@ NSHIFTS : INTEGER [in]
 NBLOCK_DESIRED : INTEGER [in]
 > The desired size of the computational windows
 
-ALPHA : COMPLEX*16 array. SR contains [in]
+ALPHA : COMPLEX\*16 array. SR contains [in]
 > the alpha parts of the shifts to use.
 
-BETA : COMPLEX*16 array. SS contains [in]
+BETA : COMPLEX\*16 array. SS contains [in]
 > the scale of the shifts to use.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max( 1, N ).
 
-B : COMPLEX*16 array, dimension (LDB, N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB, N) [in,out]
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max( 1, N ).
 
-Q : COMPLEX*16 array, dimension (LDQ, N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ, N) [in,out]
 
 LDQ : INTEGER [in]
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [in,out]
 
 LDZ : INTEGER [in]
 
-QC : COMPLEX*16 array, dimension (LDQC, NBLOCK_DESIRED) [in,out]
+QC : COMPLEX\*16 array, dimension (LDQC, NBLOCK_DESIRED) [in,out]
 
 LDQC : INTEGER [in]
 
-ZC : COMPLEX*16 array, dimension (LDZC, NBLOCK_DESIRED) [in,out]
+ZC : COMPLEX\*16 array, dimension (LDZC, NBLOCK_DESIRED) [in,out]
 
 LDZC : LDZ is INTEGER [in]
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]

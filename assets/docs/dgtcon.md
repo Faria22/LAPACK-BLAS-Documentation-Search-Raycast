@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgtcon
-(
+subroutine dgtcon (
         character norm,
         integer n,
         double precision, dimension( * ) dl,
@@ -21,10 +20,10 @@ tridiagonal matrix A using the LU factorization as computed by
 DGTTRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
-condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
+condition number is computed as RCOND = 1 / (ANORM \* norm(inv(A))).
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies whether the 1-norm condition number or the
 > infinity-norm condition number is required:
 > = '1' or 'O':  1-norm;
@@ -59,10 +58,10 @@ ANORM : DOUBLE PRECISION [in]
 
 RCOND : DOUBLE PRECISION [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is an
 > estimate of the 1-norm of inv(A) computed in this routine.
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

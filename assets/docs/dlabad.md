@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlabad
-(
+subroutine dlabad (
         double precision small,
         double precision large
 )

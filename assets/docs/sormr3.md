@@ -1,6 +1,5 @@
 ```fortran
-subroutine sormr3
-(
+subroutine sormr3 (
         character side,
         character trans,
         integer m,
@@ -19,13 +18,13 @@ subroutine sormr3
 
 SORMR3 overwrites the general real m by n matrix C with
 
-Q * C  if SIDE = 'L' and TRANS = 'N', or
+Q \* C  if SIDE = 'L' and TRANS = 'N', or
 
-Q**T* C  if SIDE = 'L' and TRANS = 'C', or
+Q\*\*T\* C  if SIDE = 'L' and TRANS = 'C', or
 
-C * Q  if SIDE = 'R' and TRANS = 'N', or
+C \* Q  if SIDE = 'R' and TRANS = 'N', or
 
-C * Q**T if SIDE = 'R' and TRANS = 'C',
+C \* Q\*\*T if SIDE = 'R' and TRANS = 'C',
 
 where Q is a real orthogonal matrix defined as the product of k
 elementary reflectors
@@ -36,13 +35,13 @@ as returned by STZRZF. Q is of order m if SIDE = 'L' and of order n
 if SIDE = 'R'.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
-> = 'L': apply Q or Q**T from the Left
-> = 'R': apply Q or Q**T from the Right
+SIDE : CHARACTER\*1 [in]
+> = 'L': apply Q or Q\*\*T from the Left
+> = 'R': apply Q or Q\*\*T from the Right
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': apply Q  (No transpose)
-> = 'T': apply Q**T (Transpose)
+> = 'T': apply Q\*\*T (Transpose)
 
 M : INTEGER [in]
 > The number of rows of the matrix C. M >= 0.
@@ -78,7 +77,7 @@ TAU : REAL array, dimension (K) [in]
 
 C : REAL array, dimension (LDC,N) [in,out]
 > On entry, the m-by-n matrix C.
-> On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
+> On exit, C is overwritten by Q\*C or Q\*\*T\*C or C\*Q\*\*T or C\*Q.
 
 LDC : INTEGER [in]
 > The leading dimension of the array C. LDC >= max(1,M).

@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztgex2
-(
+subroutine ztgex2 (
         logical wantq,
         logical wantz,
         integer n,
@@ -27,8 +26,8 @@ B are both upper triangular.
 Optionally, the matrices Q and Z of generalized Schur vectors are
 updated.
 
-Q(in) * A(in) * Z(in)**H = Q(out) * A(out) * Z(out)**H
-Q(in) * B(in) * Z(in)**H = Q(out) * B(out) * Z(out)**H
+Q(in) \* A(in) \* Z(in)\*\*H = Q(out) \* A(out) \* Z(out)\*\*H
+Q(in) \* B(in) \* Z(in)\*\*H = Q(out) \* B(out) \* Z(out)\*\*H
 
 ## Parameters
 WANTQ : LOGICAL [in]
@@ -42,21 +41,21 @@ WANTZ : LOGICAL [in]
 N : INTEGER [in]
 > The order of the matrices A and B. N >= 0.
 
-A : COMPLEX*16 array, dimensions (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimensions (LDA,N) [in,out]
 > On entry, the matrix A in the pair (A, B).
 > On exit, the updated matrix A.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimensions (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimensions (LDB,N) [in,out]
 > On entry, the matrix B in the pair (A, B).
 > On exit, the updated matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,N).
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > If WANTQ = .TRUE, on entry, the unitary matrix Q. On exit,
 > the updated matrix Q.
 > Not referenced if WANTQ = .FALSE..
@@ -65,7 +64,7 @@ LDQ : INTEGER [in]
 > The leading dimension of the array Q. LDQ >= 1;
 > If WANTQ = .TRUE., LDQ >= N.
 
-Z : COMPLEX*16 array, dimension (LDZ,N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,N) [in,out]
 > If WANTZ = .TRUE, on entry, the unitary matrix Z. On exit,
 > the updated matrix Z.
 > Not referenced if WANTZ = .FALSE..

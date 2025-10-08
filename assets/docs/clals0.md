@@ -1,6 +1,5 @@
 ```fortran
-subroutine clals0
-(
+subroutine clals0 (
         integer icompq,
         integer nl,
         integer nr,
@@ -152,7 +151,7 @@ S : REAL [in]
 > rotation related to the right null space if SQRE = 1.
 
 RWORK : REAL array, dimension [out]
-> ( K*(1+NRHS) + 2*NRHS )
+> ( K\*(1+NRHS) + 2\*NRHS )
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

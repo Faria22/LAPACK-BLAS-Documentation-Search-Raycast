@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctrsv
-(
+subroutine ctrsv (
         character uplo,
         character trans,
         character diag,
@@ -14,7 +13,7 @@ subroutine ctrsv
 
 CTRSV  solves one of the systems of equations
 
-A*x = b,   or   A**T*x = b,   or   A**H*x = b,
+A\*x = b,   or   A\*\*T\*x = b,   or   A\*\*H\*x = b,
 
 where b and x are n element vectors and A is an n by n unit, or
 non-unit, upper or lower triangular matrix.
@@ -23,7 +22,7 @@ No test for singularity or near-singularity is included in this
 routine. Such tests must be performed before calling this routine.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the matrix is an upper or
 > lower triangular matrix as follows:
 > 
@@ -31,17 +30,17 @@ UPLO : CHARACTER*1 [in]
 > 
 > UPLO = 'L' or 'l'   A is a lower triangular matrix.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry, TRANS specifies the equations to be solved as
 > follows:
 > 
-> TRANS = 'N' or 'n'   A*x = b.
+> TRANS = 'N' or 'n'   A\*x = b.
 > 
-> TRANS = 'T' or 't'   A**T*x = b.
+> TRANS = 'T' or 't'   A\*\*T\*x = b.
 > 
-> TRANS = 'C' or 'c'   A**H*x = b.
+> TRANS = 'C' or 'c'   A\*\*H\*x = b.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > On entry, DIAG specifies whether or not A is unit
 > triangular as follows:
 > 
@@ -72,7 +71,7 @@ LDA : INTEGER [in]
 > max( 1, n ).
 
 X : COMPLEX array, dimension at least [in,out]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element right-hand side vector b. On exit, X is overwritten
 > with the solution vector x.

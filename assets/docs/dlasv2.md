@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlasv2
-(
+subroutine dlasv2 (
         double precision f,
         double precision g,
         double precision h,

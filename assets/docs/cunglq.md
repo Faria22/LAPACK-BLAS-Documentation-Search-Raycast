@@ -1,6 +1,5 @@
 ```fortran
-subroutine cunglq
-(
+subroutine cunglq (
         integer m,
         integer n,
         integer k,
@@ -17,7 +16,7 @@ CUNGLQ generates an M-by-N complex matrix Q with orthonormal rows,
 which is defined as the first M rows of a product of K elementary
 reflectors of order N
 
-Q  =  H(k)**H . . . H(2)**H H(1)**H
+Q  =  H(k)\*\*H . . . H(2)\*\*H H(1)\*\*H
 
 as returned by CGELQF.
 
@@ -50,7 +49,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,M).
-> For optimum performance LWORK >= M*NB, where NB is
+> For optimum performance LWORK >= M\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

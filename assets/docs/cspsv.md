@@ -1,6 +1,5 @@
 ```fortran
-subroutine cspsv
-(
+subroutine cspsv (
         character uplo,
         integer n,
         integer nrhs,
@@ -13,20 +12,20 @@ subroutine cspsv
 ```
 
 CSPSV computes the solution to a complex system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric matrix stored in packed format and X
 and B are N-by-NRHS matrices.
 
 The diagonal pivoting method is used to factor A as
-A = U * D * U**T,  if UPLO = 'U', or
-A = L * D * L**T,  if UPLO = 'L',
+A = U \* D \* U\*\*T,  if UPLO = 'U', or
+A = L \* D \* L\*\*T,  if UPLO = 'L',
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, D is symmetric and block diagonal with 1-by-1
 and 2-by-2 diagonal blocks.  The factored form of A is then used to
-solve the system of equations A * X = B.
+solve the system of equations A \* X = B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -38,17 +37,17 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-AP : COMPLEX array, dimension (N*(N+1)/2) [in,out]
+AP : COMPLEX array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the symmetric matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = A(i,j) for j<=i<=n.
 > See below for further details.
 > 
 > On exit, the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**T or A = L*D*L**T as computed by CSPTRF, stored as
+> A = U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by CSPTRF, stored as
 > a packed triangular matrix in the same storage format as A.
 
 IPIV : INTEGER array, dimension (N) [out]

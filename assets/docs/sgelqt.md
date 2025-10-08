@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgelqt
-(
+subroutine sgelqt (
         integer m,
         integer n,
         integer mb,
@@ -44,7 +43,7 @@ T : REAL array, dimension (LDT,MIN(M,N)) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= MB.
 
-WORK : REAL array, dimension (MB*N) [out]
+WORK : REAL array, dimension (MB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

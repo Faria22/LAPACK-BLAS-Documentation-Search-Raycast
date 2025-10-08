@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgttrf
-(
+subroutine zgttrf (
         integer n,
         complex*16, dimension( * ) dl,
         complex*16, dimension( * ) d,
@@ -15,7 +14,7 @@ ZGTTRF computes an LU factorization of a complex tridiagonal matrix A
 using elimination with partial pivoting and row interchanges.
 
 The factorization has the form
-A = L * U
+A = L \* U
 where L is a product of permutation and unit lower bidiagonal
 matrices and U is upper triangular with nonzeros in only the main
 diagonal and first two superdiagonals.
@@ -24,27 +23,27 @@ diagonal and first two superdiagonals.
 N : INTEGER [in]
 > The order of the matrix A.
 
-DL : COMPLEX*16 array, dimension (N-1) [in,out]
+DL : COMPLEX\*16 array, dimension (N-1) [in,out]
 > On entry, DL must contain the (n-1) sub-diagonal elements of
 > A.
 > 
 > On exit, DL is overwritten by the (n-1) multipliers that
 > define the matrix L from the LU factorization of A.
 
-D : COMPLEX*16 array, dimension (N) [in,out]
+D : COMPLEX\*16 array, dimension (N) [in,out]
 > On entry, D must contain the diagonal elements of A.
 > 
 > On exit, D is overwritten by the n diagonal elements of the
 > upper triangular matrix U from the LU factorization of A.
 
-DU : COMPLEX*16 array, dimension (N-1) [in,out]
+DU : COMPLEX\*16 array, dimension (N-1) [in,out]
 > On entry, DU must contain the (n-1) super-diagonal elements
 > of A.
 > 
 > On exit, DU is overwritten by the (n-1) elements of the first
 > super-diagonal of U.
 
-DU2 : COMPLEX*16 array, dimension (N-2) [out]
+DU2 : COMPLEX\*16 array, dimension (N-2) [out]
 > On exit, DU2 is overwritten by the (n-2) elements of the
 > second super-diagonal of U.
 

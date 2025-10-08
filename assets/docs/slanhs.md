@@ -1,6 +1,5 @@
 ```fortran
-real function slanhs
-(
+real function slanhs (
         character norm,
         integer n,
         real, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 Hessenberg matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in SLANHS as described
 > above.
 

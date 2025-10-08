@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetd2
-(
+subroutine chetd2 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -14,10 +13,10 @@ subroutine chetd2
 
 CHETD2 reduces a complex Hermitian matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q**H * A * Q = T.
+Q\*\*H \* A \* Q = T.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular

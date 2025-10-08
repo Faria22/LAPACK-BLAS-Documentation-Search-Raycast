@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgelqt
-(
+subroutine dgelqt (
         integer m,
         integer n,
         integer mb,
@@ -44,7 +43,7 @@ T : DOUBLE PRECISION array, dimension (LDT,MIN(M,N)) [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= MB.
 
-WORK : DOUBLE PRECISION array, dimension (MB*N) [out]
+WORK : DOUBLE PRECISION array, dimension (MB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

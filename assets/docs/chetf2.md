@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetf2
-(
+subroutine chetf2 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -13,16 +12,16 @@ subroutine chetf2
 CHETF2 computes the factorization of a complex Hermitian matrix A
 using the Bunch-Kaufman diagonal pivoting method:
 
-A = U*D*U**H  or  A = L*D*L**H
+A = U\*D\*U\*\*H  or  A = L\*D\*L\*\*H
 
 where U (or L) is a product of permutation and unit upper (lower)
-triangular matrices, U**H is the conjugate transpose of U, and D is
+triangular matrices, U\*\*H is the conjugate transpose of U, and D is
 Hermitian and block diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > Hermitian matrix A is stored:
 > = 'U':  Upper triangular

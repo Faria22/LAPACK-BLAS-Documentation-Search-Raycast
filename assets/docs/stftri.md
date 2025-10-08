@@ -1,6 +1,5 @@
 ```fortran
-subroutine stftri
-(
+subroutine stftri (
         character transr,
         character uplo,
         character diag,
@@ -16,15 +15,15 @@ format.
 This is a Level 3 BLAS version of the algorithm.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal TRANSR of RFP A is stored;
 > = 'T':  The Transpose TRANSR of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > = 'N':  A is non-unit triangular;
 > = 'U':  A is unit triangular.
 
@@ -32,7 +31,7 @@ N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
 A : REAL array, dimension (NT); [in,out]
-> NT=N*(N+1)/2. On entry, the triangular factor of a Hermitian
+> NT=N\*(N+1)/2. On entry, the triangular factor of a Hermitian
 > Positive Definite matrix A in RFP format. RFP format is
 > described by TRANSR, UPLO, and N as follows: If TRANSR = 'N'
 > then RFP A is (0:N,0:k-1) when N is even; k=N/2. RFP A is

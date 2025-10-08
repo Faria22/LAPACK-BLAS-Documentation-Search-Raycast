@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine sgelqt3
-(
+recursive subroutine sgelqt3 (
         integer m,
         integer n,
         real, dimension( lda, * ) a,

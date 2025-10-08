@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssysv_rk
-(
+subroutine ssysv_rk (
         character uplo,
         integer n,
         integer nrhs,
@@ -17,24 +16,24 @@ subroutine ssysv_rk
 ```
 
 SSYSV_RK computes the solution to a real system of linear
-equations A * X = B, where A is an N-by-N symmetric matrix
+equations A \* X = B, where A is an N-by-N symmetric matrix
 and X and B are N-by-NRHS matrices.
 
 The bounded Bunch-Kaufman (rook) diagonal pivoting method is used
 to factor A as
-A = P*U*D*(U**T)*(P**T),  if UPLO = 'U', or
-A = P*L*D*(L**T)*(P**T),  if UPLO = 'L',
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T),  if UPLO = 'U', or
+A = P\*L\*D\*(L\*\*T)\*(P\*\*T),  if UPLO = 'L',
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 SSYTRF_RK is called to compute the factorization of a real
 symmetric matrix.  The factored form of A is then used to solve
-the system of equations A * X = B by calling BLAS3 routine SSYTRS_3.
+the system of equations A \* X = B by calling BLAS3 routine SSYTRS_3.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangle of A is stored;
@@ -107,7 +106,7 @@ WORK : REAL array, dimension ( MAX(1,LWORK) ). [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >= 1. For best performance
-> of factorization stage LWORK >= max(1,N*NB), where NB is
+> of factorization stage LWORK >= max(1,N\*NB), where NB is
 > the optimal blocksize for DSYTRF_RK.
 > 
 > If LWORK = -1, then a workspace query is assumed;

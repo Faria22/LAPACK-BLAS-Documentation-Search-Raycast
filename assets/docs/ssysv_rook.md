@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssysv_rook
-(
+subroutine ssysv_rook (
         character uplo,
         integer n,
         integer nrhs,
@@ -17,13 +16,13 @@ subroutine ssysv_rook
 
 SSYSV_ROOK computes the solution to a real system of linear
 equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
 matrices.
 
 The diagonal pivoting method is used to factor A as
-A = U * D * U**T,  if UPLO = 'U', or
-A = L * D * L**T,  if UPLO = 'L',
+A = U \* D \* U\*\*T,  if UPLO = 'U', or
+A = L \* D \* L\*\*T,  if UPLO = 'L',
 where U (or L) is a product of permutation and unit upper (lower)
 triangular matrices, and D is symmetric and block diagonal with
 1-by-1 and 2-by-2 diagonal blocks.
@@ -33,10 +32,10 @@ symmetric matrix A using the bounded Bunch-Kaufman () diagonal
 pivoting method.
 
 The factored form of A is then used to solve the system
-of equations A * X = B by calling SSYTRS_ROOK.
+of equations A \* X = B by calling SSYTRS_ROOK.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -59,7 +58,7 @@ A : REAL array, dimension (LDA,N) [in,out]
 > 
 > On exit, if INFO = 0, the block diagonal matrix D and the
 > multipliers used to obtain the factor U or L from the
-> factorization A = U*D*U**T or A = L*D*L**T as computed by
+> factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by
 > SSYTRF_ROOK.
 
 LDA : INTEGER [in]
@@ -99,7 +98,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The length of WORK.  LWORK >= 1, and for best performance
-> LWORK >= max(1,N*NB), where NB is the optimal blocksize for
+> LWORK >= max(1,N\*NB), where NB is the optimal blocksize for
 > SSYTRF_ROOK.
 > 
 > TRS will be done with Level 2 BLAS

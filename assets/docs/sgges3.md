@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgges3
-(
+subroutine sgges3 (
         character jobvsl,
         character jobvsr,
         character sort,
@@ -30,7 +29,7 @@ the generalized eigenvalues, the generalized real Schur form (S,T),
 optionally, the left and/or right matrices of Schur vectors (VSL and
 VSR). This gives the generalized Schur factorization
 
-(A,B) = ( (VSL)*S*(VSR)**T, (VSL)*T*(VSR)**T )
+(A,B) = ( (VSL)\*S\*(VSR)\*\*T, (VSL)\*T\*(VSR)\*\*T )
 
 Optionally, it also orders the eigenvalues so that a selected cluster
 of eigenvalues appears in the leading diagonal blocks of the upper
@@ -42,7 +41,7 @@ corresponding left and right eigenspaces (deflating subspaces).
 SGGEV instead, which is faster.)
 
 A generalized eigenvalue for a pair of matrices (A,B) is a scalar w
-or a ratio alpha/beta = w, such that  A - w*B is singular.  It is
+or a ratio alpha/beta = w, such that  A - w\*B is singular.  It is
 usually represented as the pair (alpha,beta), as there is a
 reasonable interpretation for beta=0 or both being zero.
 
@@ -59,15 +58,15 @@ and the pair of corresponding 2-by-2 blocks in S and T will have a
 complex conjugate pair of generalized eigenvalues.
 
 ## Parameters
-JOBVSL : CHARACTER*1 [in]
+JOBVSL : CHARACTER\*1 [in]
 > = 'N':  do not compute the left Schur vectors;
 > = 'V':  compute the left Schur vectors.
 
-JOBVSR : CHARACTER*1 [in]
+JOBVSR : CHARACTER\*1 [in]
 > = 'N':  do not compute the right Schur vectors;
 > = 'V':  compute the right Schur vectors.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the generalized Schur form.
 > = 'N':  Eigenvalues are not ordered;
@@ -118,8 +117,8 @@ ALPHAR : REAL array, dimension (N) [out]
 ALPHAI : REAL array, dimension (N) [out]
 
 BETA : REAL array, dimension (N) [out]
-> On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
-> be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)*i,
+> On exit, (ALPHAR(j) + ALPHAI(j)\*i)/BETA(j), j=1,...,N, will
+> be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)\*i,
 > and  BETA(j),j=1,...,N are the diagonals of the complex Schur
 > form (S,T) that would result if the 2-by-2 diagonal blocks of
 > the real Schur form of (A,B) were further reduced to
@@ -156,7 +155,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> If N = 0, LWORK >= 1, else LWORK >= 6*N+16.
+> If N = 0, LWORK >= 1, else LWORK >= 6\*N+16.
 > For good performance, LWORK must generally be larger.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

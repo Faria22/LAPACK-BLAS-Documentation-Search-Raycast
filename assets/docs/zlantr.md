@@ -1,6 +1,5 @@
 ```fortran
-double precision function zlantr
-(
+double precision function zlantr (
         character norm,
         character uplo,
         character diag,
@@ -17,17 +16,17 @@ the  infinity norm,  or the  element of  largest absolute value  of a
 trapezoidal or triangular matrix A.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in ZLANTR as described
 > above.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower trapezoidal.
 > = 'U':  Upper trapezoidal
 > = 'L':  Lower trapezoidal
 > Note that A is triangular instead of trapezoidal if M = N.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A has unit diagonal.
 > = 'N':  Non-unit diagonal
 > = 'U':  Unit diagonal
@@ -40,7 +39,7 @@ N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0, and if
 > UPLO = 'L', N <= M.  When N = 0, ZLANTR is set to zero.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The trapezoidal matrix A (A is triangular if M = N).
 > If UPLO = 'U', the leading m by n upper trapezoidal part of
 > the array A contains the upper trapezoidal matrix, and the

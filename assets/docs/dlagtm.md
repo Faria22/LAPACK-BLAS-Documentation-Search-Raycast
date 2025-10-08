@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlagtm
-(
+subroutine dlagtm (
         character trans,
         integer n,
         integer nrhs,
@@ -18,17 +17,17 @@ subroutine dlagtm
 
 DLAGTM performs a matrix-matrix product of the form
 
-B := alpha * A * X + beta * B
+B := alpha \* A \* X + beta \* B
 
 where A is a tridiagonal matrix of order N, B and X are N by NRHS
 matrices, and alpha and beta are real scalars, each of which may be
 0., 1., or -1.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the operation applied to A.
-> = 'N':  No transpose, B := alpha * A * X + beta * B
-> = 'T':  Transpose,    B := alpha * A'* X + beta * B
+> = 'N':  No transpose, B := alpha \* A \* X + beta \* B
+> = 'T':  Transpose,    B := alpha \* A'\* X + beta \* B
 > = 'C':  Conjugate transpose = Transpose
 
 N : INTEGER [in]
@@ -64,7 +63,7 @@ BETA : DOUBLE PRECISION [in]
 B : DOUBLE PRECISION array, dimension (LDB,NRHS) [in,out]
 > On entry, the N by NRHS matrix B.
 > On exit, B is overwritten by the matrix expression
-> B := alpha * A * X + beta * B.
+> B := alpha \* A \* X + beta \* B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(N,1).

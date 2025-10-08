@@ -1,6 +1,5 @@
 ```fortran
-subroutine chbev
-(
+subroutine chbev (
         character jobz,
         character uplo,
         integer n,
@@ -20,11 +19,11 @@ CHBEV computes all the eigenvalues and, optionally, eigenvectors of
 a complex Hermitian band matrix A.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -68,7 +67,7 @@ LDZ : INTEGER [in]
 
 WORK : COMPLEX array, dimension (N) [out]
 
-RWORK : REAL array, dimension (max(1,3*N-2)) [out]
+RWORK : REAL array, dimension (max(1,3\*N-2)) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

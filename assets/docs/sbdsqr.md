@@ -1,6 +1,5 @@
 ```fortran
-subroutine sbdsqr
-(
+subroutine sbdsqr (
         character uplo,
         integer n,
         integer ncvt,
@@ -24,20 +23,20 @@ left singular vectors from the singular value decomposition (SVD) of
 a real N-by-N (upper or lower) bidiagonal matrix B using the implicit
 zero-shift QR algorithm.  The SVD of B has the form
 
-B = Q * S * P**T
+B = Q \* S \* P\*\*T
 
 where S is the diagonal matrix of singular values, Q is an orthogonal
 matrix of left singular vectors, and P is an orthogonal matrix of
 right singular vectors.  If left singular vectors are requested, this
-subroutine actually returns U*Q instead of Q, and, if right singular
-vectors are requested, this subroutine returns P**T*VT instead of
-P**T, for given real input matrices U and VT.  When U and VT are the
+subroutine actually returns U\*Q instead of Q, and, if right singular
+vectors are requested, this subroutine returns P\*\*T\*VT instead of
+P\*\*T, for given real input matrices U and VT.  When U and VT are the
 orthogonal matrices that reduce a general matrix A to bidiagonal
-form:  A = U*B*VT, as computed by SGEBRD, then
+form:  A = U\*B\*VT, as computed by SGEBRD, then
 
-A = (U*Q) * S * (P**T*VT)
+A = (U\*Q) \* S \* (P\*\*T\*VT)
 
-is the SVD of A.  Optionally, the subroutine may also compute Q**T*C
+is the SVD of A.  Optionally, the subroutine may also compute Q\*\*T\*C
 for a given real input matrix C.
 
 See  by J. Demmel and W. Kahan,
@@ -49,7 +48,7 @@ Department, University of California at Berkeley, July 1992
 for a detailed description of the algorithm.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  B is upper bidiagonal;
 > = 'L':  B is lower bidiagonal.
 
@@ -80,7 +79,7 @@ E : REAL array, dimension (N-1) [in,out]
 
 VT : REAL array, dimension (LDVT, NCVT) [in,out]
 > On entry, an N-by-NCVT matrix VT.
-> On exit, VT is overwritten by P**T * VT.
+> On exit, VT is overwritten by P\*\*T \* VT.
 > Not referenced if NCVT = 0.
 
 LDVT : INTEGER [in]
@@ -89,7 +88,7 @@ LDVT : INTEGER [in]
 
 U : REAL array, dimension (LDU, N) [in,out]
 > On entry, an NRU-by-N matrix U.
-> On exit, U is overwritten by U * Q.
+> On exit, U is overwritten by U \* Q.
 > Not referenced if NRU = 0.
 
 LDU : INTEGER [in]
@@ -97,7 +96,7 @@ LDU : INTEGER [in]
 
 C : REAL array, dimension (LDC, NCC) [in,out]
 > On entry, an N-by-NCC matrix C.
-> On exit, C is overwritten by Q**T * C.
+> On exit, C is overwritten by Q\*\*T \* C.
 > Not referenced if NCC = 0.
 
 LDC : INTEGER [in]
@@ -105,8 +104,8 @@ LDC : INTEGER [in]
 > LDC >= max(1,N) if NCC > 0; LDC >=1 if NCC = 0.
 
 WORK : REAL array, dimension (LWORK) [out]
-> LWORK = 4*N, if NCVT = NRU = NCC = 0, and
-> LWORK = 4*(N-1), otherwise
+> LWORK = 4\*N, if NCVT = NRU = NCC = 0, and
+> LWORK = 4\*(N-1), otherwise
 
 INFO : INTEGER [out]
 > = 0:  successful exit
@@ -114,7 +113,7 @@ INFO : INTEGER [out]
 > > 0:
 > if NCVT = NRU = NCC = 0,
 > = 1, a split was marked by a positive value in E
-> = 2, current block of Z not diagonalized after 30*N
+> = 2, current block of Z not diagonalized after 30\*N
 > iterations (in inner while loop)
 > = 3, termination criterion of outer while loop not met
 > (program created more than N unreduced blocks)

@@ -1,6 +1,5 @@
 ```fortran
-subroutine spbtf2
-(
+subroutine spbtf2 (
         character uplo,
         integer n,
         integer kd,
@@ -14,15 +13,15 @@ SPBTF2 computes the Cholesky factorization of a real symmetric
 positive definite band matrix A.
 
 The factorization has the form
-A = U**T * U ,  if UPLO = 'U', or
-A = L  * L**T,  if UPLO = 'L',
-where U is an upper triangular matrix, U**T is the transpose of U, and
+A = U\*\*T \* U ,  if UPLO = 'U', or
+A = L  \* L\*\*T,  if UPLO = 'L',
+where U is an upper triangular matrix, U\*\*T is the transpose of U, and
 L is lower triangular.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular
@@ -44,7 +43,7 @@ AB : REAL array, dimension (LDAB,N) [in,out]
 > if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
 > 
 > On exit, if INFO = 0, the triangular factor U or L from the
-> Cholesky factorization A = U**T*U or A = L*L**T of the band
+> Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T of the band
 > matrix A, in the same storage format as A.
 
 LDAB : INTEGER [in]

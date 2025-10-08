@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorbdb5
-(
+subroutine sorbdb5 (
         integer m1,
         integer m2,
         integer n,

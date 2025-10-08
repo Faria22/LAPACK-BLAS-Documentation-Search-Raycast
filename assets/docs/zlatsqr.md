@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlatsqr
-(
+subroutine zlatsqr (
         integer m,
         integer n,
         integer mb,
@@ -18,7 +17,7 @@ subroutine zlatsqr
 ZLATSQR computes a blocked Tall-Skinny QR factorization of
 a complex M-by-N matrix A for M >= N:
 
-A = Q * ( R ),
+A = Q \* ( R ),
 ( 0 )
 
 where:
@@ -47,7 +46,7 @@ NB : INTEGER [in]
 > The column block size to be used in the blocked QR.
 > N >= NB >= 1.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.
 > On exit, the elements on and above the diagonal
 > of the array contain the N-by-N upper triangular matrix R;
@@ -57,8 +56,8 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, [out]
-> dimension (LDT, N * Number_of_row_blocks)
+T : COMPLEX\*16 array, [out]
+> dimension (LDT, N \* Number_of_row_blocks)
 > where Number_of_row_blocks = CEIL((M-N)/(MB-N))
 > The blocked upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.
@@ -67,12 +66,12 @@ T : COMPLEX*16 array, [out]
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : (workspace) COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the minimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= NB*N, otherwise.
+> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= NB\*N, otherwise.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the minimal size of the WORK array, returns

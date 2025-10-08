@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine dlaorhr_col_getrfnp2
-(
+recursive subroutine dlaorhr_col_getrfnp2 (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -14,7 +13,7 @@ DLAORHR_COL_GETRFNP2 computes the modified LU factorization without
 pivoting of a real general M-by-N matrix A. The factorization has
 the form:
 
-A - S = L * U,
+A - S = L \* U,
 
 where:
 S is a m-by-n diagonal sign matrix with the diagonal D, so that
@@ -82,7 +81,7 @@ N : INTEGER [in]
 A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix to be factored.
 > On exit, the factors L and U from the factorization
-> A-S=L*U; the unit diagonal elements of L are not stored.
+> A-S=L\*U; the unit diagonal elements of L are not stored.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).

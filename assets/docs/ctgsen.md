@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctgsen
-(
+subroutine ctgsen (
         integer ijob,
         logical wantq,
         logical wantz,
@@ -30,7 +29,7 @@ subroutine ctgsen
 
 CTGSEN reorders the generalized Schur decomposition of a complex
 matrix pair (A, B) (in terms of an unitary equivalence trans-
-formation Q**H * (A, B) * Z), so that a selected cluster of eigenvalues
+formation Q\*\*H \* (A, B) \* Z), so that a selected cluster of eigenvalues
 appears in the leading diagonal blocks of the pair (A,B). The leading
 columns of Q and Z form unitary bases of the corresponding left and
 right eigenspaces (deflating subspaces). (A, B) must be in
@@ -162,8 +161,8 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >=  1
-> If IJOB = 1, 2 or 4, LWORK >=  2*M*(N-M)
-> If IJOB = 3 or 5, LWORK >=  4*M*(N-M)
+> If IJOB = 1, 2 or 4, LWORK >=  2\*M\*(N-M)
+> If IJOB = 3 or 5, LWORK >=  4\*M\*(N-M)
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -176,7 +175,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK. LIWORK >= 1.
 > If IJOB = 1, 2 or 4, LIWORK >=  N+2;
-> If IJOB = 3 or 5, LIWORK >= MAX(N+2, 2*M*(N-M));
+> If IJOB = 3 or 5, LIWORK >= MAX(N+2, 2\*M\*(N-M));
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the IWORK array,
@@ -190,4 +189,4 @@ INFO : INTEGER [out]
 > matrix pair (A, B) would be too far from generalized
 > Schur form; the problem is very ill-conditioned.
 > (A, B) may have been partially reordered.
-> If requested, 0 is returned in DIF(*), PL and PR.
+> If requested, 0 is returned in DIF(\*), PL and PR.

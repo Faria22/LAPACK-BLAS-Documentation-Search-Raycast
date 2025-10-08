@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaset
-(
+subroutine zlaset (
         character uplo,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ ZLASET initializes a 2-D array A to BETA on the diagonal and
 ALPHA on the offdiagonals.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies the part of the matrix A to be set.
 > = 'U':      Upper triangular part is set. The lower triangle
 > is unchanged.
@@ -29,13 +28,13 @@ M : INTEGER [in]
 N : INTEGER [in]
 > On entry, N specifies the number of columns of A.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > All the offdiagonal array elements are set to ALPHA.
 
-BETA : COMPLEX*16 [in]
+BETA : COMPLEX\*16 [in]
 > All the diagonal array elements are set to BETA.
 
-A : COMPLEX*16 array, dimension (LDA,N) [out]
+A : COMPLEX\*16 array, dimension (LDA,N) [out]
 > On entry, the m by n matrix A.
 > On exit, A(i,j) = ALPHA, 1 <= i <= m, 1 <= j <= n, i.ne.j;
 > A(i,i) = BETA , 1 <= i <= min(m,n)

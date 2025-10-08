@@ -1,6 +1,5 @@
 ```fortran
-subroutine cla_wwaddw
-(
+subroutine cla_wwaddw (
         integer n,
         complex, dimension( * ) x,
         complex, dimension( * ) y,

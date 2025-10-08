@@ -1,6 +1,5 @@
 ```fortran
-subroutine cung2l
-(
+subroutine cung2l (
         integer m,
         integer n,
         integer k,

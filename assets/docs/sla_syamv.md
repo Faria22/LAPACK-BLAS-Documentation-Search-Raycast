@@ -1,6 +1,5 @@
 ```fortran
-subroutine sla_syamv
-(
+subroutine sla_syamv (
         integer uplo,
         integer n,
         real alpha,
@@ -16,7 +15,7 @@ subroutine sla_syamv
 
 SLA_SYAMV  performs the matrix-vector operation
 
-y := alpha*abs(A)*abs(x) + beta*abs(y),
+y := alpha\*abs(A)\*abs(x) + beta\*abs(y),
 
 where alpha and beta are scalars, x and y are vectors and A is an
 n by n symmetric matrix.
@@ -65,7 +64,7 @@ LDA : INTEGER [in]
 > Unchanged on exit.
 
 X : REAL array, dimension [in]
-> ( 1 + ( n - 1 )*abs( INCX ) )
+> ( 1 + ( n - 1 )\*abs( INCX ) )
 > Before entry, the incremented array X must contain the
 > vector x.
 > Unchanged on exit.
@@ -81,7 +80,7 @@ BETA : REAL . [in]
 > Unchanged on exit.
 
 Y : REAL array, dimension [in,out]
-> ( 1 + ( n - 1 )*abs( INCY ) )
+> ( 1 + ( n - 1 )\*abs( INCY ) )
 > Before entry with BETA non-zero, the incremented array Y
 > must contain the vector y. On exit, Y is overwritten by the
 > updated vector y.

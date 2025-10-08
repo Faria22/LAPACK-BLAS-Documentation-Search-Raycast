@@ -1,6 +1,5 @@
 ```fortran
-subroutine scopy
-(
+subroutine scopy (
         integer n,
         real, dimension(*) sx,
         integer incx,
@@ -16,12 +15,12 @@ uses unrolled loops for increments equal to 1.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-SX : REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in]
+SX : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in]
 
 INCX : INTEGER [in]
 > storage spacing between elements of SX
 
-SY : REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [out]
+SY : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of SY

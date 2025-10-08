@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgehd2
-(
+subroutine zgehd2 (
         integer n,
         integer ilo,
         integer ihi,
@@ -13,7 +12,7 @@ subroutine zgehd2
 ```
 
 ZGEHD2 reduces a complex general matrix A to upper Hessenberg form H
-by a unitary similarity transformation:  Q**H * A * Q = H .
+by a unitary similarity transformation:  Q\*\*H \* A \* Q = H .
 
 ## Parameters
 N : INTEGER [in]
@@ -29,7 +28,7 @@ IHI : INTEGER [in]
 > set to 1 and N respectively. See Further Details.
 > 1 <= ILO <= IHI <= max(1,N).
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the n by n general matrix to be reduced.
 > On exit, the upper triangle and the first subdiagonal of A
 > are overwritten with the upper Hessenberg matrix H, and the
@@ -40,11 +39,11 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-TAU : COMPLEX*16 array, dimension (N-1) [out]
+TAU : COMPLEX\*16 array, dimension (N-1) [out]
 > The scalar factors of the elementary reflectors (see Further
 > Details).
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

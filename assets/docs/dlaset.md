@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaset
-(
+subroutine dlaset (
         character uplo,
         integer m,
         integer n,
@@ -15,7 +14,7 @@ DLASET initializes an m-by-n matrix A to BETA on the diagonal and
 ALPHA on the offdiagonals.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies the part of the matrix A to be set.
 > = 'U':      Upper triangular part is set; the strictly lower
 > triangular part of A is not changed.

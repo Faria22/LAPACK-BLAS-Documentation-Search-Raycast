@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgebrd
-(
+subroutine sgebrd (
         integer m,
         integer n,
         real, dimension( lda, * ) a,
@@ -16,7 +15,7 @@ subroutine sgebrd
 ```
 
 SGEBRD reduces a general real M-by-N matrix A to upper or lower
-bidiagonal form B by an orthogonal transformation: Q**T * A * P = B.
+bidiagonal form B by an orthogonal transformation: Q\*\*T \* A \* P = B.
 
 If m >= n, B is upper bidiagonal; if m < n, B is lower bidiagonal.
 
@@ -72,7 +71,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The length of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= MAX(M,N), otherwise.
-> For optimum performance LWORK >= (M+N)*NB, where NB
+> For optimum performance LWORK >= (M+N)\*NB, where NB
 > is the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

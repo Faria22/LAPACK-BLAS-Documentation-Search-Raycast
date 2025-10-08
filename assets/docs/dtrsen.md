@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtrsen
-(
+subroutine dtrsen (
         character job,
         character compq,
         logical, dimension( * ) select,
@@ -23,7 +22,7 @@ subroutine dtrsen
 ```
 
 DTRSEN reorders the real Schur factorization of a real matrix
-A = Q*T*Q**T, so that a selected cluster of eigenvalues appears in
+A = Q\*T\*Q\*\*T, so that a selected cluster of eigenvalues appears in
 the leading diagonal blocks of the upper quasi-triangular matrix T,
 and the leading columns of Q form an orthonormal basis of the
 corresponding right invariant subspace.
@@ -37,7 +36,7 @@ block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
 off-diagonal elements of opposite sign.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies whether condition numbers are required for the
 > cluster of eigenvalues (S) or the invariant subspace (SEP):
 > = 'N': none;
@@ -46,7 +45,7 @@ JOB : CHARACTER*1 [in]
 > = 'B': for both eigenvalues and invariant subspace (S and
 > SEP).
 
-COMPQ : CHARACTER*1 [in]
+COMPQ : CHARACTER\*1 [in]
 > = 'V': update the matrix Q of Schur vectors;
 > = 'N': do not update Q.
 
@@ -119,8 +118,8 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If JOB = 'N', LWORK >= max(1,N);
-> if JOB = 'E', LWORK >= max(1,M*(N-M));
-> if JOB = 'V' or 'B', LWORK >= max(1,2*M*(N-M)).
+> if JOB = 'E', LWORK >= max(1,M\*(N-M));
+> if JOB = 'V' or 'B', LWORK >= max(1,2\*M\*(N-M)).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns
@@ -133,7 +132,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If JOB = 'N' or 'E', LIWORK >= 1;
-> if JOB = 'V' or 'B', LIWORK >= max(1,M*(N-M)).
+> if JOB = 'V' or 'B', LIWORK >= max(1,M\*(N-M)).
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal size of the IWORK array,

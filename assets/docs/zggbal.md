@@ -1,6 +1,5 @@
 ```fortran
-subroutine zggbal
-(
+subroutine zggbal (
         character job,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -25,10 +24,10 @@ and columns as close in norm as possible. Both steps are optional.
 
 Balancing may reduce the 1-norm of the matrices, and improve the
 accuracy of the computed eigenvalues and/or eigenvectors in the
-generalized eigenvalue problem A*x = lambda*B*x.
+generalized eigenvalue problem A\*x = lambda\*B\*x.
 
 ## Parameters
-JOB : CHARACTER*1 [in]
+JOB : CHARACTER\*1 [in]
 > Specifies the operations to be performed on A and B:
 > = 'N':  none:  simply set ILO = 1, IHI = N, LSCALE(I) = 1.0
 > and RSCALE(I) = 1.0 for i=1,...,N;
@@ -39,7 +38,7 @@ JOB : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrices A and B.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the input matrix A.
 > On exit, A is overwritten by the balanced matrix.
 > If JOB = 'N', A is not referenced.
@@ -47,7 +46,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 > On entry, the input matrix B.
 > On exit, B is overwritten by the balanced matrix.
 > If JOB = 'N', B is not referenced.
@@ -86,7 +85,7 @@ RSCALE : DOUBLE PRECISION array, dimension (N) [out]
 > then 1 to ILO-1.
 
 WORK : DOUBLE PRECISION array, dimension (lwork) [out]
-> lwork must be at least max(1,6*N) when JOB = 'S' or 'B', and
+> lwork must be at least max(1,6\*N) when JOB = 'S' or 'B', and
 > at least 1 when JOB = 'N' or 'P'.
 
 INFO : INTEGER [out]

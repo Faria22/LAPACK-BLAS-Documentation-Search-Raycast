@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaruv
-(
+subroutine dlaruv (
         integer, dimension( 4 ) iseed,
         integer n,
         double precision, dimension( n ) x

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dstevd
-(
+subroutine dstevd (
         character jobz,
         integer n,
         double precision, dimension( * ) d,
@@ -20,7 +19,7 @@ real symmetric tridiagonal matrix. If eigenvectors are desired, it
 uses a divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
@@ -55,7 +54,7 @@ LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > If JOBZ  = 'N' or N <= 1 then LWORK must be at least 1.
 > If JOBZ  = 'V' and N > 1 then LWORK must be at least
-> ( 1 + 4*N + N**2 ).
+> ( 1 + 4\*N + N\*\*2 ).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK and IWORK
@@ -69,7 +68,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If JOBZ  = 'N' or N <= 1 then LIWORK must be at least 1.
-> If JOBZ  = 'V' and N > 1 then LIWORK must be at least 3+5*N.
+> If JOBZ  = 'V' and N > 1 then LIWORK must be at least 3+5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK and

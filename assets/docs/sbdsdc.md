@@ -1,6 +1,5 @@
 ```fortran
-subroutine sbdsdc
-(
+subroutine sbdsdc (
         character uplo,
         character compq,
         integer n,
@@ -19,7 +18,7 @@ subroutine sbdsdc
 ```
 
 SBDSDC computes the singular value decomposition (SVD) of a real
-N-by-N (upper or lower) bidiagonal matrix B:  B = U * S * VT,
+N-by-N (upper or lower) bidiagonal matrix B:  B = U \* S \* VT,
 using a divide and conquer method, where S is a diagonal matrix
 with non-negative diagonal elements (the singular values of B), and
 U and VT are orthogonal matrices of left and right singular vectors,
@@ -31,11 +30,11 @@ However, it can be slightly modified to compute singular values
 using the divide and conquer method.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  B is upper bidiagonal.
 > = 'L':  B is lower bidiagonal.
 
-COMPQ : CHARACTER*1 [in]
+COMPQ : CHARACTER\*1 [in]
 > Specifies whether singular vectors are to be computed
 > as follows:
 > = 'N':  Compute singular values only;
@@ -67,7 +66,7 @@ LDU : INTEGER [in]
 
 VT : REAL array, dimension (LDVT,N) [out]
 > If  COMPQ = 'I', then:
-> On exit, if INFO = 0, VT**T contains the right singular
+> On exit, if INFO = 0, VT\*\*T contains the right singular
 > vectors of the bidiagonal matrix.
 > For other values of COMPQ, VT is not referenced.
 
@@ -79,9 +78,9 @@ Q : REAL array, dimension (LDQ) [out]
 > If  COMPQ = 'P', then:
 > On exit, if INFO = 0, Q and IQ contain the left
 > and right singular vectors in a compact form,
-> requiring O(N log N) space instead of 2*N**2.
+> requiring O(N log N) space instead of 2\*N\*\*2.
 > In particular, Q contains all the REAL data in
-> LDQ >= N*(11 + 2*SMLSIZ + 8*INT(LOG_2(N/(SMLSIZ+1))))
+> LDQ >= N\*(11 + 2\*SMLSIZ + 8\*INT(LOG_2(N/(SMLSIZ+1))))
 > words of memory, where SMLSIZ is returned by ILAENV and
 > is equal to the maximum size of the subproblems at the
 > bottom of the computation tree (usually about 25).
@@ -91,20 +90,20 @@ IQ : INTEGER array, dimension (LDIQ) [out]
 > If  COMPQ = 'P', then:
 > On exit, if INFO = 0, Q and IQ contain the left
 > and right singular vectors in a compact form,
-> requiring O(N log N) space instead of 2*N**2.
+> requiring O(N log N) space instead of 2\*N\*\*2.
 > In particular, IQ contains all INTEGER data in
-> LDIQ >= N*(3 + 3*INT(LOG_2(N/(SMLSIZ+1))))
+> LDIQ >= N\*(3 + 3\*INT(LOG_2(N/(SMLSIZ+1))))
 > words of memory, where SMLSIZ is returned by ILAENV and
 > is equal to the maximum size of the subproblems at the
 > bottom of the computation tree (usually about 25).
 > For other values of COMPQ, IQ is not referenced.
 
 WORK : REAL array, dimension (MAX(1,LWORK)) [out]
-> If COMPQ = 'N' then LWORK >= (4 * N).
-> If COMPQ = 'P' then LWORK >= (6 * N).
-> If COMPQ = 'I' then LWORK >= (3 * N**2 + 4 * N).
+> If COMPQ = 'N' then LWORK >= (4 \* N).
+> If COMPQ = 'P' then LWORK >= (6 \* N).
+> If COMPQ = 'I' then LWORK >= (3 \* N\*\*2 + 4 \* N).
 
-IWORK : INTEGER array, dimension (8*N) [out]
+IWORK : INTEGER array, dimension (8\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

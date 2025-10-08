@@ -1,6 +1,5 @@
 ```fortran
-subroutine chbgv
-(
+subroutine chbgv (
         character jobz,
         character uplo,
         integer n,
@@ -21,15 +20,15 @@ subroutine chbgv
 
 CHBGV computes all the eigenvalues, and optionally, the eigenvectors
 of a complex generalized Hermitian-definite banded eigenproblem, of
-the form A*x=(lambda)*B*x. Here A and B are assumed to be Hermitian
+the form A\*x=(lambda)\*B\*x. Here A and B are assumed to be Hermitian
 and banded, and B is also positive definite.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -66,7 +65,7 @@ BB : COMPLEX array, dimension (LDBB, N) [in,out]
 > if UPLO = 'L', BB(1+i-j,j)    = B(i,j) for j<=i<=min(n,j+kb).
 > 
 > On exit, the factor S from the split Cholesky factorization
-> B = S**H*S, as returned by CPBSTF.
+> B = S\*\*H\*S, as returned by CPBSTF.
 
 LDBB : INTEGER [in]
 > The leading dimension of the array BB.  LDBB >= KB+1.
@@ -78,7 +77,7 @@ Z : COMPLEX array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 > eigenvectors, with the i-th column of Z holding the
 > eigenvector associated with W(i). The eigenvectors are
-> normalized so that Z**H*B*Z = I.
+> normalized so that Z\*\*H\*B\*Z = I.
 > If JOBZ = 'N', then Z is not referenced.
 
 LDZ : INTEGER [in]
@@ -87,7 +86,7 @@ LDZ : INTEGER [in]
 
 WORK : COMPLEX array, dimension (N) [out]
 
-RWORK : REAL array, dimension (3*N) [out]
+RWORK : REAL array, dimension (3\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

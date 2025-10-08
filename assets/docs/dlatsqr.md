@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlatsqr
-(
+subroutine dlatsqr (
         integer m,
         integer n,
         integer mb,
@@ -18,7 +17,7 @@ subroutine dlatsqr
 DLATSQR computes a blocked Tall-Skinny QR factorization of
 a real M-by-N matrix A for M >= N:
 
-A = Q * ( R ),
+A = Q \* ( R ),
 ( 0 )
 
 where:
@@ -58,7 +57,7 @@ LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
 T : DOUBLE PRECISION array, [out]
-> dimension (LDT, N * Number_of_row_blocks)
+> dimension (LDT, N \* Number_of_row_blocks)
 > where Number_of_row_blocks = CEIL((M-N)/(MB-N))
 > The blocked upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.
@@ -72,7 +71,7 @@ WORK : (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= NB*N, otherwise.
+> LWORK >= 1, if MIN(M,N) = 0, and LWORK >= NB\*N, otherwise.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the minimal size of the WORK array, returns

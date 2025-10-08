@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztrtri
-(
+subroutine ztrtri (
         character uplo,
         character diag,
         integer n,
@@ -16,18 +15,18 @@ matrix A.
 This is the Level 3 BLAS version of the algorithm.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  A is upper triangular;
 > = 'L':  A is lower triangular.
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > = 'N':  A is non-unit triangular;
 > = 'U':  A is unit triangular.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the triangular matrix A.  If UPLO = 'U', the
 > leading N-by-N upper triangular part of the array A contains
 > the upper triangular matrix, and the strictly lower

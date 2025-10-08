@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctrsyl3
-(
+subroutine ctrsyl3 (
         character trana,
         character tranb,
         integer isgn,
@@ -21,10 +20,10 @@ subroutine ctrsyl3
 
 CTRSYL3 solves the complex Sylvester matrix equation:
 
-op(A)*X + X*op(B) = scale*C or
-op(A)*X - X*op(B) = scale*C,
+op(A)\*X + X\*op(B) = scale\*C or
+op(A)\*X - X\*op(B) = scale\*C,
 
-where op(A) = A or A**H, and  A and B are both upper triangular. A is
+where op(A) = A or A\*\*H, and  A and B are both upper triangular. A is
 M-by-M and B is N-by-N; the right hand side C and the solution X are
 M-by-N; and scale is an output scale factor, set <= 1 to avoid
 overflow in X.
@@ -32,20 +31,20 @@ overflow in X.
 This is the block version of the algorithm.
 
 ## Parameters
-TRANA : CHARACTER*1 [in]
+TRANA : CHARACTER\*1 [in]
 > Specifies the option op(A):
 > = 'N': op(A) = A    (No transpose)
-> = 'C': op(A) = A**H (Conjugate transpose)
+> = 'C': op(A) = A\*\*H (Conjugate transpose)
 
-TRANB : CHARACTER*1 [in]
+TRANB : CHARACTER\*1 [in]
 > Specifies the option op(B):
 > = 'N': op(B) = B    (No transpose)
-> = 'C': op(B) = B**H (Conjugate transpose)
+> = 'C': op(B) = B\*\*H (Conjugate transpose)
 
 ISGN : INTEGER [in]
 > Specifies the sign in the equation:
-> = +1: solve op(A)*X + X*op(B) = scale*C
-> = -1: solve op(A)*X - X*op(B) = scale*C
+> = +1: solve op(A)\*X + X\*op(B) = scale\*C
+> = -1: solve op(A)\*X - X\*op(B) = scale\*C
 
 M : INTEGER [in]
 > The order of the matrix A, and the number of rows in the

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sorbdb1
-(
+subroutine sorbdb1 (
         integer m,
         integer p,
         integer q,
@@ -24,7 +23,7 @@ matrix X with orthonormal columns:
 
 [ B11 ]
 [ X11 ]   [ P1 |    ] [  0  ]
-[-----] = [---------] [-----] Q1**T .
+[-----] = [---------] [-----] Q1\*\*T .
 [ X21 ]   [    | P2 ] [ B21 ]
 [  0  ]
 

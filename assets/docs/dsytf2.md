@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytf2
-(
+subroutine dsytf2 (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -13,16 +12,16 @@ subroutine dsytf2
 DSYTF2 computes the factorization of a real symmetric matrix A using
 the Bunch-Kaufman diagonal pivoting method:
 
-A = U*D*U**T  or  A = L*D*L**T
+A = U\*D\*U\*\*T  or  A = L\*D\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
-triangular matrices, U**T is the transpose of U, and D is symmetric and
+triangular matrices, U\*\*T is the transpose of U, and D is symmetric and
 block diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slarnv
-(
+subroutine slarnv (
         integer idist,
         integer, dimension( 4 ) iseed,
         integer n,

@@ -1,6 +1,5 @@
 ```fortran
-subroutine claesy
-(
+subroutine claesy (
         complex a,
         complex b,
         complex c,

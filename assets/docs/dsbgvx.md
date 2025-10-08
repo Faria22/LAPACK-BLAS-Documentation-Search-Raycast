@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsbgvx
-(
+subroutine dsbgvx (
         character jobz,
         character range,
         character uplo,
@@ -31,23 +30,23 @@ subroutine dsbgvx
 
 DSBGVX computes selected eigenvalues, and optionally, eigenvectors
 of a real generalized symmetric-definite banded eigenproblem, of
-the form A*x=(lambda)*B*x.  Here A and B are assumed to be symmetric
+the form A\*x=(lambda)\*B\*x.  Here A and B are assumed to be symmetric
 and banded, and B is also positive definite.  Eigenvalues and
 eigenvectors can be selected by specifying either all eigenvalues,
 a range of values or a range of indices for the desired eigenvalues.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found.
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found.
 > = 'I': the IL-th through IU-th eigenvalues will be found.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangles of A and B are stored;
 > = 'L':  Lower triangles of A and B are stored.
 
@@ -84,14 +83,14 @@ BB : DOUBLE PRECISION array, dimension (LDBB, N) [in,out]
 > if UPLO = 'L', BB(1+i-j,j)    = B(i,j) for j<=i<=min(n,j+kb).
 > 
 > On exit, the factor S from the split Cholesky factorization
-> B = S**T*S, as returned by DPBSTF.
+> B = S\*\*T\*S, as returned by DPBSTF.
 
 LDBB : INTEGER [in]
 > The leading dimension of the array BB.  LDBB >= KB+1.
 
 Q : DOUBLE PRECISION array, dimension (LDQ, N) [out]
 > If JOBZ = 'V', the n-by-n matrix used in the reduction of
-> A*x = (lambda)*B*x to standard form, i.e. C*x = (lambda)*x,
+> A\*x = (lambda)\*B\*x to standard form, i.e. C\*x = (lambda)\*x,
 > and consequently C to tridiagonal form.
 > If JOBZ = 'N', the array Q is not referenced.
 
@@ -131,18 +130,18 @@ ABSTOL : DOUBLE PRECISION [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing A to tridiagonal form.
 > 
 > Eigenvalues will be computed most accurately when ABSTOL is
-> set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+> set to twice the underflow threshold 2\*DLAMCH('S'), not zero.
 > If this routine returns with INFO>0, indicating that some
 > eigenvectors did not converge, try setting ABSTOL to
-> 2*DLAMCH('S').
+> 2\*DLAMCH('S').
 
 M : INTEGER [out]
 > The total number of eigenvalues found.  0 <= M <= N.
@@ -155,16 +154,16 @@ Z : DOUBLE PRECISION array, dimension (LDZ, N) [out]
 > If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 > eigenvectors, with the i-th column of Z holding the
 > eigenvector associated with W(i).  The eigenvectors are
-> normalized so Z**T*B*Z = I.
+> normalized so Z\*\*T\*B\*Z = I.
 > If JOBZ = 'N', then Z is not referenced.
 
 LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : DOUBLE PRECISION array, dimension (7*N) [out]
+WORK : DOUBLE PRECISION array, dimension (7\*N) [out]
 
-IWORK : INTEGER array, dimension (5*N) [out]
+IWORK : INTEGER array, dimension (5\*N) [out]
 
 IFAIL : INTEGER array, dimension (M) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M elements of

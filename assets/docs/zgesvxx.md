@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgesvxx
-(
+subroutine zgesvxx (
         character fact,
         character trans,
         integer n,
@@ -32,7 +31,7 @@ subroutine zgesvxx
 ```
 
 ZGESVXX uses the LU factorization to compute the solution to a
-complex*16 system of linear equations  A * X = B,  where A is an
+complex\*16 system of linear equations  A \* X = B,  where A is an
 N-by-N matrix and X and B are N-by-NRHS matrices.
 
 If requested, both normwise and maximum componentwise error bounds
@@ -51,7 +50,7 @@ user-provided factorizations and equilibration factors if they
 differ from what ZGESVXX would itself produce.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of the matrix A is
 > supplied on entry, and if not, whether the matrix A should be
 > equilibrated before it is factored.
@@ -63,11 +62,11 @@ FACT : CHARACTER*1 [in]
 > = 'E':  The matrix A will be equilibrated if necessary, then
 > copied to AF and factored.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations:
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Conjugate Transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Conjugate Transpose)
 
 N : INTEGER [in]
 > The number of linear equations, i.e., the order of the
@@ -77,32 +76,32 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the N-by-N matrix A.  If FACT = 'F' and EQUED is
 > not 'N', then A must have been equilibrated by the scaling
 > factors in R and/or C.  A is not modified if FACT = 'F' or
 > 'N', or if FACT = 'E' and EQUED = 'N' on exit.
 > 
 > On exit, if EQUED .ne. 'N', A is scaled as follows:
-> EQUED = 'R':  A := diag(R) * A
-> EQUED = 'C':  A := A * diag(C)
-> EQUED = 'B':  A := diag(R) * A * diag(C).
+> EQUED = 'R':  A := diag(R) \* A
+> EQUED = 'C':  A := A \* diag(C)
+> EQUED = 'B':  A := diag(R) \* A \* diag(C).
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in,out]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in,out]
 > If FACT = 'F', then AF is an input argument and on entry
 > contains the factors L and U from the factorization
-> A = P*L*U as computed by ZGETRF.  If EQUED .ne. 'N', then
+> A = P\*L\*U as computed by ZGETRF.  If EQUED .ne. 'N', then
 > AF is the factored form of the equilibrated matrix A.
 > 
 > If FACT = 'N', then AF is an output argument and on exit
-> returns the factors L and U from the factorization A = P*L*U
+> returns the factors L and U from the factorization A = P\*L\*U
 > of the original matrix A.
 > 
 > If FACT = 'E', then AF is an output argument and on exit
-> returns the factors L and U from the factorization A = P*L*U
+> returns the factors L and U from the factorization A = P\*L\*U
 > of the equilibrated matrix A (see the description of A for
 > the form of the equilibrated matrix).
 
@@ -111,19 +110,19 @@ LDAF : INTEGER [in]
 
 IPIV : INTEGER array, dimension (N) [in,out]
 > If FACT = 'F', then IPIV is an input argument and on entry
-> contains the pivot indices from the factorization A = P*L*U
+> contains the pivot indices from the factorization A = P\*L\*U
 > as computed by ZGETRF; row i of the matrix was interchanged
 > with row IPIV(i).
 > 
 > If FACT = 'N', then IPIV is an output argument and on exit
-> contains the pivot indices from the factorization A = P*L*U
+> contains the pivot indices from the factorization A = P\*L\*U
 > of the original matrix A.
 > 
 > If FACT = 'E', then IPIV is an output argument and on exit
-> contains the pivot indices from the factorization A = P*L*U
+> contains the pivot indices from the factorization A = P\*L\*U
 > of the equilibrated matrix A.
 
-EQUED : CHARACTER*1 [in,out]
+EQUED : CHARACTER\*1 [in,out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration (always true if FACT = 'N').
 > = 'R':  Row equilibration, i.e., A has been premultiplied by
@@ -131,7 +130,7 @@ EQUED : CHARACTER*1 [in,out]
 > = 'C':  Column equilibration, i.e., A has been postmultiplied
 > by diag(C).
 > = 'B':  Both row and column equilibration, i.e., A has been
-> replaced by diag(R) * A * diag(C).
+> replaced by diag(R) \* A \* diag(C).
 > EQUED is an input argument if FACT = 'F'; otherwise, it is an
 > output argument.
 
@@ -165,24 +164,24 @@ C : DOUBLE PRECISION array, dimension (N) [in,out]
 > input matrix, producing error estimates that may not be
 > reliable.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the N-by-NRHS right hand side matrix B.
 > On exit,
 > if EQUED = 'N', B is not modified;
 > if TRANS = 'N' and EQUED = 'R' or 'B', B is overwritten by
-> diag(R)*B;
+> diag(R)\*B;
 > if TRANS = 'T' or 'C' and EQUED = 'C' or 'B', B is
-> overwritten by diag(C)*B.
+> overwritten by diag(C)\*B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [out]
 > If INFO = 0, the N-by-NRHS solution matrix X to the original
 > system of equations.  Note that A and B are modified on exit
 > if EQUED .ne. 'N', and the solution to the equilibrated system is
-> inv(diag(C))*X if TRANS = 'N' and EQUED = 'C' or 'B', or
-> inv(diag(R))*X if TRANS = 'T' or 'C' and EQUED = 'R' or 'B'.
+> inv(diag(C))\*X if TRANS = 'N' and EQUED = 'C' or 'B', or
+> inv(diag(R))\*X if TRANS = 'T' or 'C' and EQUED = 'R' or 'B'.
 
 LDX : INTEGER [in]
 > The leading dimension of the array X.  LDX >= max(1,N).
@@ -239,21 +238,21 @@ ERR_BNDS_NORM : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated normwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*A, where S scales each row by a power of the
+> Let Z = S\*A, where S scales each row by a power of the
 > radix so all absolute row sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -284,23 +283,23 @@ ERR_BNDS_COMP : DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS) [out]
 > three fields:
 > err = 1  boolean. Trust the answer if the
 > reciprocal condition number is less than the threshold
-> sqrt(n) * dlamch('Epsilon').
+> sqrt(n) \* dlamch('Epsilon').
 > 
 > err = 2  error bound: The estimated forward error,
 > almost certainly within a factor of 10 of the true error
 > so long as the next entry is greater than the threshold
-> sqrt(n) * dlamch('Epsilon'). This error bound should only
+> sqrt(n) \* dlamch('Epsilon'). This error bound should only
 > be trusted if the previous boolean is true.
 > 
 > err = 3  Reciprocal condition number: Estimated componentwise
 > reciprocal condition number.  Compared with the threshold
-> sqrt(n) * dlamch('Epsilon') to determine if the error
+> sqrt(n) \* dlamch('Epsilon') to determine if the error
 > estimate is . These reciprocal condition
-> numbers are 1 / (norm(Z^{-1},inf) * norm(Z,inf)) for some
+> numbers are 1 / (norm(Z^{-1},inf) \* norm(Z,inf)) for some
 > appropriately scaled matrix Z.
-> Let Z = S*(A*diag(x)), where x is the solution for the
+> Let Z = S\*(A\*diag(x)), where x is the solution for the
 > current right-hand side and S scales each row of
-> A*diag(x) by a power of the radix so all absolute row
+> A\*diag(x) by a power of the radix so all absolute row
 > sums of Z are approximately 1.
 > 
 > See Lapack Working Note 165 for further details and extra
@@ -340,9 +339,9 @@ PARAMS : DOUBLE PRECISION array, dimension NPARAMS [in,out]
 > is true, 0.0 is false.
 > Default: 1.0 (attempt componentwise convergence)
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
-RWORK : DOUBLE PRECISION array, dimension (2*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  Successful exit. The solution to every right-hand side is

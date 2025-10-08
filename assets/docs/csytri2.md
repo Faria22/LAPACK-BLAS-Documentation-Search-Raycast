@@ -1,6 +1,5 @@
 ```fortran
-subroutine csytri2
-(
+subroutine csytri2 (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -13,16 +12,16 @@ subroutine csytri2
 ```
 
 CSYTRI2 computes the inverse of a COMPLEX symmetric indefinite matrix
-A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+A using the factorization A = U\*D\*U\*\*T or A = L\*D\*L\*\*T computed by
 CSYTRF. CSYTRI2 sets the LEADING DIMENSION of the workspace
 before calling CSYTRI2X that actually computes the inverse.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**T;
-> = 'L':  Lower triangular, form is A = L*D*L**T.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*T;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*T.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -45,11 +44,11 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by CSYTRF.
 
-WORK : COMPLEX array, dimension (N+NB+1)*(NB+3) [out]
+WORK : COMPLEX array, dimension (N+NB+1)\*(NB+3) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> WORK is size >= (N+NB+1)*(NB+3)
+> WORK is size >= (N+NB+1)\*(NB+3)
 > If LWORK = -1, then a workspace query is assumed; the routine
 > calculates:
 > - the optimal size of the WORK array, returns

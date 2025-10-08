@@ -1,6 +1,5 @@
 ```fortran
-subroutine zla_heamv
-(
+subroutine zla_heamv (
         integer uplo,
         integer n,
         double precision alpha,
@@ -16,7 +15,7 @@ subroutine zla_heamv
 
 ZLA_SYAMV  performs the matrix-vector operation
 
-y := alpha*abs(A)*abs(x) + beta*abs(y),
+y := alpha\*abs(A)\*abs(x) + beta\*abs(y),
 
 where alpha and beta are scalars, x and y are vectors and A is an
 n by n symmetric matrix.
@@ -53,7 +52,7 @@ ALPHA : DOUBLE PRECISION . [in]
 > On entry, ALPHA specifies the scalar alpha.
 > Unchanged on exit.
 
-A : COMPLEX*16 array, dimension ( LDA, n ). [in]
+A : COMPLEX\*16 array, dimension ( LDA, n ). [in]
 > Before entry, the leading m by n part of the array A must
 > contain the matrix of coefficients.
 > Unchanged on exit.
@@ -64,8 +63,8 @@ LDA : INTEGER [in]
 > max( 1, n ).
 > Unchanged on exit.
 
-X : COMPLEX*16 array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) )
+X : COMPLEX\*16 array, dimension at least [in]
+> ( 1 + ( n - 1 )\*abs( INCX ) )
 > Before entry, the incremented array X must contain the
 > vector x.
 > Unchanged on exit.
@@ -81,7 +80,7 @@ BETA : DOUBLE PRECISION . [in]
 > Unchanged on exit.
 
 Y : DOUBLE PRECISION array, dimension [in,out]
-> ( 1 + ( n - 1 )*abs( INCY ) )
+> ( 1 + ( n - 1 )\*abs( INCY ) )
 > Before entry with BETA non-zero, the incremented array Y
 > must contain the vector y. On exit, Y is overwritten by the
 > updated vector y.

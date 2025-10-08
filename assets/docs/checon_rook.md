@@ -1,6 +1,5 @@
 ```fortran
-subroutine checon_rook
-(
+subroutine checon_rook (
         character uplo,
         integer n,
         complex, dimension( lda, * ) a,
@@ -14,18 +13,18 @@ subroutine checon_rook
 ```
 
 CHECON_ROOK estimates the reciprocal of the condition number of a complex
-Hermitian matrix A using the factorization A = U*D*U**H or
-A = L*D*L**H computed by CHETRF_ROOK.
+Hermitian matrix A using the factorization A = U\*D\*U\*\*H or
+A = L\*D\*L\*\*H computed by CHETRF_ROOK.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
-condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
+condition number is computed as RCOND = 1 / (ANORM \* norm(inv(A))).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**H;
-> = 'L':  Lower triangular, form is A = L*D*L**H.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*H;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*H.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -46,10 +45,10 @@ ANORM : REAL [in]
 
 RCOND : REAL [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is an
 > estimate of the 1-norm of inv(A) computed in this routine.
 
-WORK : COMPLEX array, dimension (2*N) [out]
+WORK : COMPLEX array, dimension (2\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

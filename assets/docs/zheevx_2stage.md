@@ -1,6 +1,5 @@
 ```fortran
-subroutine zheevx_2stage
-(
+subroutine zheevx_2stage (
         character jobz,
         character range,
         character uplo,
@@ -32,25 +31,25 @@ be selected by specifying either a range of values or a range of
 indices for the desired eigenvalues.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-RANGE : CHARACTER*1 [in]
+RANGE : CHARACTER\*1 [in]
 > = 'A': all eigenvalues will be found.
 > = 'V': all eigenvalues in the half-open interval (VL,VU]
 > will be found.
 > = 'I': the IL-th through IU-th eigenvalues will be found.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the Hermitian matrix A.  If UPLO = 'U', the
 > leading N-by-N upper triangular part of A contains the
 > upper triangular part of the matrix A.  If UPLO = 'L',
@@ -91,18 +90,18 @@ ABSTOL : DOUBLE PRECISION [in]
 > when it is determined to lie in an interval [a,b]
 > of width less than or equal to
 > 
-> ABSTOL + EPS *   max( |a|,|b| ) ,
+> ABSTOL + EPS \*   max( |a|,|b| ) ,
 > 
 > where EPS is the machine precision.  If ABSTOL is less than
-> or equal to zero, then  EPS*|T|  will be used in its place,
+> or equal to zero, then  EPS\*|T|  will be used in its place,
 > where |T| is the 1-norm of the tridiagonal matrix obtained
 > by reducing A to tridiagonal form.
 > 
 > Eigenvalues will be computed most accurately when ABSTOL is
-> set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+> set to twice the underflow threshold 2\*DLAMCH('S'), not zero.
 > If this routine returns with INFO>0, indicating that some
 > eigenvectors did not converge, try setting ABSTOL to
-> 2*DLAMCH('S').
+> 2\*DLAMCH('S').
 > 
 > See  by Demmel and
 > Kahan, LAPACK Working Note #3.
@@ -115,7 +114,7 @@ W : DOUBLE PRECISION array, dimension (N) [out]
 > On normal exit, the first M elements contain the selected
 > eigenvalues in ascending order.
 
-Z : COMPLEX*16 array, dimension (LDZ, max(1,M)) [out]
+Z : COMPLEX\*16 array, dimension (LDZ, max(1,M)) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 > contain the orthonormal eigenvectors of the matrix A
 > corresponding to the selected eigenvalues, with the i-th
@@ -132,18 +131,18 @@ LDZ : INTEGER [in]
 > The leading dimension of the array Z.  LDZ >= 1, and if
 > JOBZ = 'V', LDZ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The length of the array WORK. LWORK >= 1, when N <= 1;
 > otherwise
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
-> LWORK = MAX(1, 8*N, dimension) where
-> dimension = max(stage1,stage2) + (KD+1)*N + N
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N + N
+> LWORK = MAX(1, 8\*N, dimension) where
+> dimension = max(stage1,stage2) + (KD+1)\*N + N
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N + N
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice
@@ -156,9 +155,9 @@ LWORK : INTEGER [in]
 > this value as the first entry of the WORK array, and no error
 > message related to LWORK is issued by XERBLA.
 
-RWORK : DOUBLE PRECISION array, dimension (7*N) [out]
+RWORK : DOUBLE PRECISION array, dimension (7\*N) [out]
 
-IWORK : INTEGER array, dimension (5*N) [out]
+IWORK : INTEGER array, dimension (5\*N) [out]
 
 IFAIL : INTEGER array, dimension (N) [out]
 > If JOBZ = 'V', then if INFO = 0, the first M elements of

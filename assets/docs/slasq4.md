@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasq4
-(
+subroutine slasq4 (
         integer i0,
         integer n0,
         real, dimension( * ) z,
@@ -28,7 +27,7 @@ I0 : INTEGER [in]
 N0 : INTEGER [in]
 > Last index.
 
-Z : REAL array, dimension ( 4*N0 ) [in]
+Z : REAL array, dimension ( 4\*N0 ) [in]
 > Z holds the qd array.
 
 PP : INTEGER [in]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine stgsyl
-(
+subroutine stgsyl (
         character trans,
         integer ijob,
         integer m,
@@ -28,8 +27,8 @@ subroutine stgsyl
 
 STGSYL solves the generalized Sylvester equation:
 
-A * R - L * B = scale * C                 (1)
-D * R - L * E = scale * F
+A \* R - L \* B = scale \* C                 (1)
+D \* R - L \* E = scale \* F
 
 where R and L are unknown m-by-n matrices, (A, D), (B, E) and
 (C, F) are given matrix pairs of size m-by-m, n-by-n and m-by-n,
@@ -43,17 +42,17 @@ scaling factor chosen to avoid overflow.
 In matrix notation (1) is equivalent to solve  Zx = scale b, where
 Z is defined as
 
-Z = [ kron(In, A)  -kron(B**T, Im) ]         (2)
-[ kron(In, D)  -kron(E**T, Im) ].
+Z = [ kron(In, A)  -kron(B\*\*T, Im) ]         (2)
+[ kron(In, D)  -kron(E\*\*T, Im) ].
 
-Here Ik is the identity matrix of size k and X**T is the transpose of
+Here Ik is the identity matrix of size k and X\*\*T is the transpose of
 X. kron(X, Y) is the Kronecker product between the matrices X and Y.
 
-If TRANS = 'T', STGSYL solves the transposed system Z**T*y = scale*b,
+If TRANS = 'T', STGSYL solves the transposed system Z\*\*T\*y = scale\*b,
 which is equivalent to solve for R and L in
 
-A**T * R + D**T * L = scale * C           (3)
-R * B**T + L * E**T = scale * -F
+A\*\*T \* R + D\*\*T \* L = scale \* C           (3)
+R \* B\*\*T + L \* E\*\*T = scale \* -F
 
 This case (TRANS = 'T') is used to compute an one-norm-based estimate
 of Dif[(A,D), (B,E)], the separation between the matrix pairs (A,D)
@@ -67,7 +66,7 @@ information.
 This is a level 3 BLAS algorithm.
 
 ## Parameters
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > = 'N': solve the generalized Sylvester equation (1).
 > = 'T': solve the 'transposed' system (3).
 
@@ -155,7 +154,7 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK > = 1.
-> If IJOB = 1 or 2 and TRANS = 'N', LWORK >= max(1,2*M*N).
+> If IJOB = 1 or 2 and TRANS = 'N', LWORK >= max(1,2\*M\*N).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal size of the WORK array, returns

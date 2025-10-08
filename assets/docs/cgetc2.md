@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgetc2
-(
+subroutine cgetc2 (
         integer n,
         complex, dimension( lda, * ) a,
         integer lda,
@@ -11,7 +10,7 @@ subroutine cgetc2
 ```
 
 CGETC2 computes an LU factorization, using complete pivoting, of the
-n-by-n matrix A. The factorization has the form A = P * L * U * Q,
+n-by-n matrix A. The factorization has the form A = P \* L \* U \* Q,
 where P and Q are permutation matrices, L is lower triangular with
 unit diagonal elements and U is upper triangular.
 
@@ -24,7 +23,7 @@ N : INTEGER [in]
 A : COMPLEX array, dimension (LDA, N) [in,out]
 > On entry, the n-by-n matrix to be factored.
 > On exit, the factors L and U from the factorization
-> A = P*L*U*Q; the unit diagonal elements of L are not stored.
+> A = P\*L\*U\*Q; the unit diagonal elements of L are not stored.
 > If U(k, k) appears to be less than SMIN, U(k, k) is given the
 > value of SMIN, giving a nonsingular perturbed system.
 

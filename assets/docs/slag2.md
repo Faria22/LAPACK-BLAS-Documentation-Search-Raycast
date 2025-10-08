@@ -1,6 +1,5 @@
 ```fortran
-subroutine slag2
-(
+subroutine slag2 (
         real, dimension( lda, * ) a,
         integer lda,
         real, dimension( ldb, * ) b,
@@ -28,7 +27,7 @@ and  s A  do not overflow and, if possible, do not underflow, either.
 A : REAL array, dimension (LDA, 2) [in]
 > On entry, the 2 x 2 matrix A.  It is assumed that its 1-norm
 > is less than 1/SAFMIN.  Entries less than
-> sqrt(SAFMIN)*norm(A) are subject to being treated as zero.
+> sqrt(SAFMIN)\*norm(A) are subject to being treated as zero.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= 2.
@@ -72,7 +71,7 @@ SCALE2 : REAL [out]
 
 WR1 : REAL [out]
 > If the eigenvalue is real, then WR1 is SCALE1 times the
-> eigenvalue closest to the (2,2) element of A B**(-1).  If the
+> eigenvalue closest to the (2,2) element of A B\*\*(-1).  If the
 > eigenvalue is complex, then WR1=WR2 is SCALE1 times the real
 > part of the eigenvalues.
 

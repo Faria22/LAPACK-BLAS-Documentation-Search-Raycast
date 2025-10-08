@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsbevd
-(
+subroutine dsbevd (
         character jobz,
         character uplo,
         integer n,
@@ -23,11 +22,11 @@ a real symmetric band matrix A. If eigenvectors are desired, it uses
 a divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -76,9 +75,9 @@ WORK : DOUBLE PRECISION array, [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > IF N <= 1,                LWORK must be at least 1.
-> If JOBZ  = 'N' and N > 2, LWORK must be at least 2*N.
+> If JOBZ  = 'N' and N > 2, LWORK must be at least 2\*N.
 > If JOBZ  = 'V' and N > 2, LWORK must be at least
-> ( 1 + 5*N + 2*N**2 ).
+> ( 1 + 5\*N + 2\*N\*\*2 ).
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK and IWORK
@@ -92,7 +91,7 @@ IWORK : INTEGER array, dimension (MAX(1,LIWORK)) [out]
 LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If JOBZ  = 'N' or N <= 1, LIWORK must be at least 1.
-> If JOBZ  = 'V' and N > 2, LIWORK must be at least 3 + 5*N.
+> If JOBZ  = 'V' and N > 2, LIWORK must be at least 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK and

@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine zgeqrt3
-(
+recursive subroutine zgeqrt3 (
         integer m,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -24,7 +23,7 @@ M : INTEGER [in]
 N : INTEGER [in]
 > The number of columns of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the complex M-by-N matrix A.  On exit, the elements on
 > and above the diagonal contain the N-by-N upper triangular matrix R;
 > the elements below the diagonal are the columns of V.  See below for
@@ -33,7 +32,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,M).
 
-T : COMPLEX*16 array, dimension (LDT,N) [out]
+T : COMPLEX\*16 array, dimension (LDT,N) [out]
 > The N-by-N upper triangular factor of the block reflector.
 > The elements on and above the diagonal contain the block
 > reflector T; the elements below the diagonal are not used.

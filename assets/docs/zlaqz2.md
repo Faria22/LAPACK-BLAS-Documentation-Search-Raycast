@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine zlaqz2
-(
+recursive subroutine zlaqz2 (
         logical, intent(in) ilschur,
         logical, intent(in) ilq,
         logical, intent(in) ilz,
@@ -56,21 +55,21 @@ IHI : INTEGER [in]
 NW : INTEGER [in]
 > The desired size of the deflation window.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max( 1, N ).
 
-B : COMPLEX*16 array, dimension (LDB, N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB, N) [in,out]
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max( 1, N ).
 
-Q : COMPLEX*16 array, dimension (LDQ, N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ, N) [in,out]
 
 LDQ : INTEGER [in]
 
-Z : COMPLEX*16 array, dimension (LDZ, N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ, N) [in,out]
 
 LDZ : INTEGER [in]
 
@@ -81,11 +80,11 @@ NS : INTEGER [out]
 ND : INTEGER [out]
 > The number of converged eigenvalues found.
 
-ALPHA : COMPLEX*16 array, dimension (N) [out]
+ALPHA : COMPLEX\*16 array, dimension (N) [out]
 > Each scalar alpha defining an eigenvalue
 > of GNEP.
 
-BETA : COMPLEX*16 array, dimension (N) [out]
+BETA : COMPLEX\*16 array, dimension (N) [out]
 > The scalars beta that define the eigenvalues of GNEP.
 > Together, the quantities alpha = ALPHA(j) and
 > beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -93,15 +92,15 @@ BETA : COMPLEX*16 array, dimension (N) [out]
 > mu = beta/alpha.  Since either lambda or mu may overflow,
 > they should not, in general, be computed.
 
-QC : COMPLEX*16 array, dimension (LDQC, NW) [in,out]
+QC : COMPLEX\*16 array, dimension (LDQC, NW) [in,out]
 
 LDQC : INTEGER [in]
 
-ZC : COMPLEX*16 array, dimension (LDZC, NW) [in,out]
+ZC : COMPLEX\*16 array, dimension (LDZC, NW) [in,out]
 
 LDZC : LDZ is INTEGER [in]
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]

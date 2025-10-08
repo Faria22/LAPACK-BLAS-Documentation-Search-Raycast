@@ -1,6 +1,5 @@
 ```fortran
-subroutine spbcon
-(
+subroutine spbcon (
         character uplo,
         integer n,
         integer kd,
@@ -16,13 +15,13 @@ subroutine spbcon
 
 SPBCON estimates the reciprocal of the condition number (in the
 1-norm) of a real symmetric positive definite band matrix using the
-Cholesky factorization A = U**T*U or A = L*L**T computed by SPBTRF.
+Cholesky factorization A = U\*\*T\*U or A = L\*L\*\*T computed by SPBTRF.
 
 An estimate is obtained for norm(inv(A)), and the reciprocal of the
-condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).
+condition number is computed as RCOND = 1 / (ANORM \* norm(inv(A))).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangular factor stored in AB;
 > = 'L':  Lower triangular factor stored in AB.
 
@@ -35,7 +34,7 @@ KD : INTEGER [in]
 
 AB : REAL array, dimension (LDAB,N) [in]
 > The triangular factor U or L from the Cholesky factorization
-> A = U**T*U or A = L*L**T of the band matrix A, stored in the
+> A = U\*\*T\*U or A = L\*L\*\*T of the band matrix A, stored in the
 > first KD+1 rows of the array.  The j-th column of U or L is
 > stored in the j-th column of the array AB as follows:
 > if UPLO ='U', AB(kd+1+i-j,j) = U(i,j) for max(1,j-kd)<=i<=j;
@@ -49,10 +48,10 @@ ANORM : REAL [in]
 
 RCOND : REAL [out]
 > The reciprocal of the condition number of the matrix A,
-> computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+> computed as RCOND = 1/(ANORM \* AINVNM), where AINVNM is an
 > estimate of the 1-norm of inv(A) computed in this routine.
 
-WORK : REAL array, dimension (3*N) [out]
+WORK : REAL array, dimension (3\*N) [out]
 
 IWORK : INTEGER array, dimension (N) [out]
 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetrs_aa
-(
+subroutine chetrs_aa (
         character uplo,
         integer n,
         integer nrhs,
@@ -15,16 +14,16 @@ subroutine chetrs_aa
 )
 ```
 
-CHETRS_AA solves a system of linear equations A*X = B with a complex
-hermitian matrix A using the factorization A = U**H*T*U or
-A = L*T*L**H computed by CHETRF_AA.
+CHETRS_AA solves a system of linear equations A\*X = B with a complex
+hermitian matrix A using the factorization A = U\*\*H\*T\*U or
+A = L\*T\*L\*\*H computed by CHETRF_AA.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U**H*T*U;
-> = 'L':  Lower triangular, form is A = L*T*L**H.
+> = 'U':  Upper triangular, form is A = U\*\*H\*T\*U;
+> = 'L':  Lower triangular, form is A = L\*T\*L\*\*H.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
@@ -53,7 +52,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
-> If MIN(N,NRHS) = 0, LWORK >= 1, else LWORK >= 3*N-2.
+> If MIN(N,NRHS) = 0, LWORK >= 1, else LWORK >= 3\*N-2.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the minimal size of the WORK array, returns

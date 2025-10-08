@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhetri2x
-(
+subroutine zhetri2x (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -12,21 +11,21 @@ subroutine zhetri2x
 )
 ```
 
-ZHETRI2X computes the inverse of a COMPLEX*16 Hermitian indefinite matrix
-A using the factorization A = U*D*U**H or A = L*D*L**H computed by
+ZHETRI2X computes the inverse of a COMPLEX\*16 Hermitian indefinite matrix
+A using the factorization A = U\*D\*U\*\*H or A = L\*D\*L\*\*H computed by
 ZHETRF.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**H;
-> = 'L':  Lower triangular, form is A = L*D*L**H.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*H;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*H.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the NNB diagonal matrix D and the multipliers
 > used to obtain the factor U or L as computed by ZHETRF.
 > 
@@ -44,7 +43,7 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the NNB structure of D
 > as determined by ZHETRF.
 
-WORK : COMPLEX*16 array, dimension (N+NB+1,NB+3) [out]
+WORK : COMPLEX\*16 array, dimension (N+NB+1,NB+3) [out]
 
 NB : INTEGER [in]
 > Block size

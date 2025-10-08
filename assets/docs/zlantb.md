@@ -1,6 +1,5 @@
 ```fortran
-double precision function zlantb
-(
+double precision function zlantb (
         character norm,
         character uplo,
         character diag,
@@ -17,16 +16,16 @@ the  infinity norm,  or the element of  largest absolute value  of an
 n by n triangular band matrix A,  with ( k + 1 ) diagonals.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in ZLANTB as described
 > above.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower triangular.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A is unit triangular.
 > = 'N':  Non-unit triangular
 > = 'U':  Unit triangular
@@ -40,7 +39,7 @@ K : INTEGER [in]
 > or the number of sub-diagonals of the matrix A if UPLO = 'L'.
 > K >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in]
 > The upper or lower triangular band matrix A, stored in the
 > first k+1 rows of AB.  The j-th column of A is stored
 > in the j-th column of the array AB as follows:

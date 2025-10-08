@@ -1,6 +1,5 @@
 ```fortran
-subroutine csyr
-(
+subroutine csyr (
         character uplo,
         integer n,
         complex alpha,
@@ -13,13 +12,13 @@ subroutine csyr
 
 CSYR   performs the symmetric rank 1 operation
 
-A := alpha*x*x**H + A,
+A := alpha\*x\*x\*\*H + A,
 
 where alpha is a complex scalar, x is an n element vector and A is an
 n by n symmetric matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the array A is to be referenced as
 > follows:
@@ -42,7 +41,7 @@ ALPHA : COMPLEX [in]
 > Unchanged on exit.
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( N - 1 )*abs( INCX ) ).
+> ( 1 + ( N - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the N-
 > element vector x.
 > Unchanged on exit.

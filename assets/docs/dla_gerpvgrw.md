@@ -1,6 +1,5 @@
 ```fortran
-double precision function dla_gerpvgrw
-(
+double precision function dla_gerpvgrw (
         integer n,
         integer ncols,
         double precision, dimension( lda, * ) a,
@@ -33,7 +32,7 @@ LDA : INTEGER [in]
 
 AF : DOUBLE PRECISION array, dimension (LDAF,N) [in]
 > The factors L and U from the factorization
-> A = P*L*U as computed by DGETRF.
+> A = P\*L\*U as computed by DGETRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).

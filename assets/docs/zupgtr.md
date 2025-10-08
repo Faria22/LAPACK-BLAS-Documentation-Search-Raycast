@@ -1,6 +1,5 @@
 ```fortran
-subroutine zupgtr
-(
+subroutine zupgtr (
         character uplo,
         integer n,
         complex*16, dimension( * ) ap,
@@ -21,7 +20,7 @@ if UPLO = 'U', Q = H(n-1) . . . H(2) H(1),
 if UPLO = 'L', Q = H(1) H(2) . . . H(n-1).
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U': Upper triangular packed storage used in previous
 > call to ZHPTRD;
 > = 'L': Lower triangular packed storage used in previous
@@ -30,21 +29,21 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix Q. N >= 0.
 
-AP : COMPLEX*16 array, dimension (N*(N+1)/2) [in]
+AP : COMPLEX\*16 array, dimension (N\*(N+1)/2) [in]
 > The vectors which define the elementary reflectors, as
 > returned by ZHPTRD.
 
-TAU : COMPLEX*16 array, dimension (N-1) [in]
+TAU : COMPLEX\*16 array, dimension (N-1) [in]
 > TAU(i) must contain the scalar factor of the elementary
 > reflector H(i), as returned by ZHPTRD.
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [out]
 > The N-by-N unitary matrix Q.
 
 LDQ : INTEGER [in]
 > The leading dimension of the array Q. LDQ >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (N-1) [out]
+WORK : COMPLEX\*16 array, dimension (N-1) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

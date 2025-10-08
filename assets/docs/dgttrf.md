@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgttrf
-(
+subroutine dgttrf (
         integer n,
         double precision, dimension( * ) dl,
         double precision, dimension( * ) d,
@@ -15,7 +14,7 @@ DGTTRF computes an LU factorization of a real tridiagonal matrix A
 using elimination with partial pivoting and row interchanges.
 
 The factorization has the form
-A = L * U
+A = L \* U
 where L is a product of permutation and unit lower bidiagonal
 matrices and U is upper triangular with nonzeros in only the main
 diagonal and first two superdiagonals.

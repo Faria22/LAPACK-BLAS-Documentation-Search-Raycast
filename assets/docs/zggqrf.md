@@ -1,6 +1,5 @@
 ```fortran
-subroutine zggqrf
-(
+subroutine zggqrf (
         integer n,
         integer m,
         integer p,
@@ -19,7 +18,7 @@ subroutine zggqrf
 ZGGQRF computes a generalized QR factorization of an N-by-M matrix A
 and an N-by-P matrix B:
 
-A = Q*R,        B = Q*T*Z,
+A = Q\*R,        B = Q\*T\*Z,
 
 where Q is an N-by-N unitary matrix, Z is a P-by-P unitary matrix,
 and R and T assume one of the forms:
@@ -37,11 +36,11 @@ P
 where T12 or T21 is upper triangular.
 
 In particular, if B is square and nonsingular, the GQR factorization
-of A and B implicitly gives the QR factorization of inv(B)*A:
+of A and B implicitly gives the QR factorization of inv(B)\*A:
 
-inv(B)*A = Z**H * (inv(T)*R)
+inv(B)\*A = Z\*\*H \* (inv(T)\*R)
 
-where inv(B) denotes the inverse of the matrix B, and Z**H denotes the
+where inv(B) denotes the inverse of the matrix B, and Z\*\*H denotes the
 conjugate transpose of matrix Z.
 
 ## Parameters
@@ -54,7 +53,7 @@ M : INTEGER [in]
 P : INTEGER [in]
 > The number of columns of the matrix B.  P >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,M) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,M) [in,out]
 > On entry, the N-by-M matrix A.
 > On exit, the elements on and above the diagonal of the array
 > contain the min(N,M)-by-M upper trapezoidal matrix R (R is
@@ -66,11 +65,11 @@ A : COMPLEX*16 array, dimension (LDA,M) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-TAUA : COMPLEX*16 array, dimension (min(N,M)) [out]
+TAUA : COMPLEX\*16 array, dimension (min(N,M)) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix Q (see Further Details).
 
-B : COMPLEX*16 array, dimension (LDB,P) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,P) [in,out]
 > On entry, the N-by-P matrix B.
 > On exit, if N <= P, the upper triangle of the subarray
 > B(1:N,P-N+1:P) contains the N-by-N upper triangular matrix T;
@@ -83,16 +82,16 @@ B : COMPLEX*16 array, dimension (LDB,P) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,N).
 
-TAUB : COMPLEX*16 array, dimension (min(N,P)) [out]
+TAUB : COMPLEX\*16 array, dimension (min(N,P)) [out]
 > The scalar factors of the elementary reflectors which
 > represent the unitary matrix Z (see Further Details).
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N,M,P).
-> For optimum performance LWORK >= max(N,M,P)*max(NB1,NB2,NB3),
+> For optimum performance LWORK >= max(N,M,P)\*max(NB1,NB2,NB3),
 > where NB1 is the optimal blocksize for the QR factorization
 > of an N-by-M matrix, NB2 is the optimal blocksize for the
 > RQ factorization of an N-by-P matrix, and NB3 is the optimal

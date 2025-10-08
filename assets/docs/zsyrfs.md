@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsyrfs
-(
+subroutine zsyrfs (
         character uplo,
         integer n,
         integer nrhs,
@@ -26,7 +25,7 @@ equations when the coefficient matrix is symmetric indefinite, and
 provides error bounds and backward error estimates for the solution.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -37,7 +36,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrices B and X.  NRHS >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > The symmetric matrix A.  If UPLO = 'U', the leading N-by-N
 > upper triangular part of A contains the upper triangular part
 > of the matrix A, and the strictly lower triangular part of A
@@ -49,11 +48,11 @@ A : COMPLEX*16 array, dimension (LDA,N) [in]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in]
 > The factored form of the matrix A.  AF contains the block
 > diagonal matrix D and the multipliers used to obtain the
-> factor U or L from the factorization A = U*D*U**T or
-> A = L*D*L**T as computed by ZSYTRF.
+> factor U or L from the factorization A = U\*D\*U\*\*T or
+> A = L\*D\*L\*\*T as computed by ZSYTRF.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -62,13 +61,13 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZSYTRF.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [in,out]
 > On entry, the solution matrix X, as computed by ZSYTRS.
 > On exit, the improved solution matrix X.
 
@@ -90,7 +89,7 @@ BERR : DOUBLE PRECISION array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : COMPLEX*16 array, dimension (2*N) [out]
+WORK : COMPLEX\*16 array, dimension (2\*N) [out]
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 

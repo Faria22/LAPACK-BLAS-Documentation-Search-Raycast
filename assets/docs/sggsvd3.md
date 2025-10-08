@@ -1,6 +1,5 @@
 ```fortran
-subroutine sggsvd3
-(
+subroutine sggsvd3 (
         character jobu,
         character jobv,
         character jobq,
@@ -31,10 +30,10 @@ subroutine sggsvd3
 SGGSVD3 computes the generalized singular value decomposition (GSVD)
 of an M-by-N real matrix A and P-by-N real matrix B:
 
-U**T*A*Q = D1*( 0 R ),    V**T*B*Q = D2*( 0 R )
+U\*\*T\*A\*Q = D1\*( 0 R ),    V\*\*T\*B\*Q = D2\*( 0 R )
 
 where U, V and Q are orthogonal matrices.
-Let K+L = the effective numerical rank of the matrix (A**T,B**T)**T,
+Let K+L = the effective numerical rank of the matrix (A\*\*T,B\*\*T)\*\*T,
 then R is a K+L-by-K+L nonsingular upper triangular matrix, D1 and
 D2 are M-by-(K+L) and P-by-(K+L)  matrices and of the
 following structures, respectively:
@@ -58,7 +57,7 @@ where
 
 C = diag( ALPHA(K+1), ... , ALPHA(K+L) ),
 S = diag( BETA(K+1),  ... , BETA(K+L) ),
-C**2 + S**2 = I.
+C\*\*2 + S\*\*2 = I.
 
 R is stored in A(1:K+L,N-K-L+1:N) on exit.
 
@@ -82,7 +81,7 @@ where
 
 C = diag( ALPHA(K+1), ... , ALPHA(M) ),
 S = diag( BETA(K+1),  ... , BETA(M) ),
-C**2 + S**2 = I.
+C\*\*2 + S\*\*2 = I.
 
 (R11 R12 R13 ) is stored in A(1:M, N-K-L+1:N), and R33 is stored
 ( 0  R22 R23 )
@@ -92,31 +91,31 @@ The routine computes C, S, R, and optionally the orthogonal
 transformation matrices U, V and Q.
 
 In particular, if B is an N-by-N nonsingular matrix, then the GSVD of
-A and B implicitly gives the SVD of A*inv(B):
-A*inv(B) = U*(D1*inv(D2))*V**T.
-If ( A**T,B**T)**T  has orthonormal columns, then the GSVD of A and B is
+A and B implicitly gives the SVD of A\*inv(B):
+A\*inv(B) = U\*(D1\*inv(D2))\*V\*\*T.
+If ( A\*\*T,B\*\*T)\*\*T  has orthonormal columns, then the GSVD of A and B is
 also equal to the CS decomposition of A and B. Furthermore, the GSVD
 can be used to derive the solution of the eigenvalue problem:
-A**T*A x = lambda* B**T*B x.
+A\*\*T\*A x = lambda\* B\*\*T\*B x.
 In some literature, the GSVD of A and B is presented in the form
-U**T*A*X = ( 0 D1 ),   V**T*B*X = ( 0 D2 )
+U\*\*T\*A\*X = ( 0 D1 ),   V\*\*T\*B\*X = ( 0 D2 )
 where U and V are orthogonal and X is nonsingular, D1 and D2 are
 ``diagonal''.  The former GSVD form can be converted to the latter
 form by taking the nonsingular matrix X as
 
-X = Q*( I   0    )
+X = Q\*( I   0    )
 ( 0 inv(R) ).
 
 ## Parameters
-JOBU : CHARACTER*1 [in]
+JOBU : CHARACTER\*1 [in]
 > = 'U':  Orthogonal matrix U is computed;
 > = 'N':  U is not computed.
 
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > = 'V':  Orthogonal matrix V is computed;
 > = 'N':  V is not computed.
 
-JOBQ : CHARACTER*1 [in]
+JOBQ : CHARACTER\*1 [in]
 > = 'Q':  Orthogonal matrix Q is computed;
 > = 'N':  Q is not computed.
 
@@ -135,7 +134,7 @@ L : INTEGER [out]
 > 
 > On exit, K and L specify the dimension of the subblocks
 > described in Purpose.
-> K + L = effective numerical rank of (A**T,B**T)**T.
+> K + L = effective numerical rank of (A\*\*T,B\*\*T)\*\*T.
 
 A : REAL array, dimension (LDA,N) [in,out]
 > On entry, the M-by-N matrix A.

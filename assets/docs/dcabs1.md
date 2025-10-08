@@ -1,6 +1,5 @@
 ```fortran
-double precision function dcabs1
-(
+double precision function dcabs1 (
         complex*16 z
 )
 ```
@@ -8,4 +7,4 @@ double precision function dcabs1
 DCABS1 computes |Re(.)| + |Im(.)| of a double complex number
 
 ## Parameters
-Z : COMPLEX*16 [in]
+Z : COMPLEX\*16 [in]

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgtsv
-(
+subroutine sgtsv (
         integer n,
         integer nrhs,
         real, dimension( * ) dl,
@@ -14,12 +13,12 @@ subroutine sgtsv
 
 SGTSV  solves the equation
 
-A*X = B,
+A\*X = B,
 
 where A is an n by n tridiagonal matrix, by Gaussian elimination with
 partial pivoting.
 
-Note that the equation  A**T*X = B  may be solved by interchanging the
+Note that the equation  A\*\*T\*X = B  may be solved by interchanging the
 order of the arguments DU and DL.
 
 ## Parameters

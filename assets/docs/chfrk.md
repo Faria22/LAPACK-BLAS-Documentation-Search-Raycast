@@ -1,6 +1,5 @@
 ```fortran
-subroutine chfrk
-(
+subroutine chfrk (
         character transr,
         character uplo,
         character trans,
@@ -18,22 +17,22 @@ Level 3 BLAS like routine for C in RFP Format.
 
 CHFRK performs one of the Hermitian rank--k operations
 
-C := alpha*A*A**H + beta*C,
+C := alpha\*A\*A\*\*H + beta\*C,
 
 or
 
-C := alpha*A**H*A + beta*C,
+C := alpha\*A\*\*H\*A + beta\*C,
 
 where alpha and beta are real scalars, C is an n--by--n Hermitian
 matrix and A is an n--by--k matrix in the first case and a k--by--n
 matrix in the second case.
 
 ## Parameters
-TRANSR : CHARACTER*1 [in]
+TRANSR : CHARACTER\*1 [in]
 > = 'N':  The Normal Form of RFP A is stored;
 > = 'C':  The Conjugate-transpose Form of RFP A is stored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On  entry,   UPLO  specifies  whether  the  upper  or  lower
 > triangular  part  of the  array  C  is to be  referenced  as
 > follows:
@@ -46,13 +45,13 @@ UPLO : CHARACTER*1 [in]
 > 
 > Unchanged on exit.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > On entry,  TRANS  specifies the operation to be performed as
 > follows:
 > 
-> TRANS = 'N' or 'n'   C := alpha*A*A**H + beta*C.
+> TRANS = 'N' or 'n'   C := alpha\*A\*A\*\*H + beta\*C.
 > 
-> TRANS = 'C' or 'c'   C := alpha*A**H*A + beta*C.
+> TRANS = 'C' or 'c'   C := alpha\*A\*\*H\*A + beta\*C.
 > 
 > Unchanged on exit.
 
@@ -91,7 +90,7 @@ BETA : REAL [in]
 > On entry, BETA specifies the scalar beta.
 > Unchanged on exit.
 
-C : COMPLEX array, dimension (N*(N+1)/2) [in,out]
+C : COMPLEX array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the matrix A in RFP Format. RFP Format is
 > described by TRANSR, UPLO and N. Note that the imaginary
 > parts of the diagonal elements need not be set, they are

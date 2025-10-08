@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgeql2
-(
+subroutine cgeql2 (
         integer m,
         integer n,
         complex, dimension( lda, * ) a,
@@ -12,7 +11,7 @@ subroutine cgeql2
 ```
 
 CGEQL2 computes a QL factorization of a complex m by n matrix A:
-A = Q * L.
+A = Q \* L.
 
 ## Parameters
 M : INTEGER [in]

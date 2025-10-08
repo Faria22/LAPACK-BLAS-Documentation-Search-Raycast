@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlarscl2
-(
+subroutine zlarscl2 (
         integer m,
         integer n,
         double precision, dimension( * ) d,
@@ -10,7 +9,7 @@ subroutine zlarscl2
 ```
 
 ZLARSCL2 performs a reciprocal diagonal scaling on a matrix:
-x <-- inv(D) * x
+x <-- inv(D) \* x
 where the DOUBLE PRECISION diagonal matrix D is stored as a vector.
 
 Eventually to be replaced by BLAS_zge_diag_scale in the new BLAS
@@ -26,7 +25,7 @@ N : INTEGER [in]
 D : DOUBLE PRECISION array, length M [in]
 > Diagonal matrix D, stored as a vector of length M.
 
-X : COMPLEX*16 array, dimension (LDX,N) [in,out]
+X : COMPLEX\*16 array, dimension (LDX,N) [in,out]
 > On entry, the matrix X to be scaled by D.
 > On exit, the scaled matrix.
 

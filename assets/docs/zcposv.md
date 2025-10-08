@@ -1,6 +1,5 @@
 ```fortran
-subroutine zcposv
-(
+subroutine zcposv (
         character uplo,
         integer n,
         integer nrhs,
@@ -19,18 +18,18 @@ subroutine zcposv
 ```
 
 ZCPOSV computes the solution to a complex system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N Hermitian positive definite matrix and X and B
 are N-by-NRHS matrices.
 
 ZCPOSV first attempts to factorize the matrix in COMPLEX and use this
 factorization within an iterative refinement procedure to produce a
-solution with COMPLEX*16 normwise backward error quality (see below).
-If the approach fails the method switches to a COMPLEX*16
+solution with COMPLEX\*16 normwise backward error quality (see below).
+If the approach fails the method switches to a COMPLEX\*16
 factorization and solve.
 
 The iterative refinement is not going to be a winning strategy if
-the ratio COMPLEX performance over COMPLEX*16 performance is too
+the ratio COMPLEX performance over COMPLEX\*16 performance is too
 small. A reasonable strategy should take the number of right-hand
 sides and the size of the matrix into account. This might be done
 with a call to ILAENV in the future. Up to now, we always try
@@ -39,7 +38,7 @@ iterative refinement.
 The iterative refinement process is stopped if
 ITER > ITERMAX
 or for all the RHS we have:
-RNRM < SQRT(N)*XNRM*ANRM*EPS*BWDMAX
+RNRM < SQRT(N)\*XNRM\*ANRM\*EPS\*BWDMAX
 where
 o ITER is the number of the current iteration in the iterative
 refinement process
@@ -51,7 +50,7 @@ The value ITERMAX and BWDMAX are fixed to 30 and 1.0D+00
 respectively.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -63,7 +62,7 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-A : COMPLEX*16 array, [in,out]
+A : COMPLEX\*16 array, [in,out]
 > dimension (LDA,N)
 > On entry, the Hermitian matrix A. If UPLO = 'U', the leading
 > N-by-N upper triangular part of A contains the upper
@@ -81,34 +80,34 @@ A : COMPLEX*16 array, [in,out]
 > unchanged, if double precision factorization has been used
 > (INFO = 0 and ITER < 0, see description below), then the
 > array A contains the factor U or L from the Cholesky
-> factorization A = U**H*U or A = L*L**H.
+> factorization A = U\*\*H\*U or A = L\*L\*\*H.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in]
 > The N-by-NRHS right hand side matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
 
-X : COMPLEX*16 array, dimension (LDX,NRHS) [out]
+X : COMPLEX\*16 array, dimension (LDX,NRHS) [out]
 > If INFO = 0, the N-by-NRHS solution matrix X.
 
 LDX : INTEGER [in]
 > The leading dimension of the array X.  LDX >= max(1,N).
 
-WORK : COMPLEX*16 array, dimension (N,NRHS) [out]
+WORK : COMPLEX\*16 array, dimension (N,NRHS) [out]
 > This array is used to hold the residual vectors.
 
-SWORK : COMPLEX array, dimension (N*(N+NRHS)) [out]
+SWORK : COMPLEX array, dimension (N\*(N+NRHS)) [out]
 > This array is used to use the single precision matrix and the
 > right-hand sides or solutions in single precision.
 
 RWORK : DOUBLE PRECISION array, dimension (N) [out]
 
 ITER : INTEGER [out]
-> < 0: iterative refinement has failed, COMPLEX*16
+> < 0: iterative refinement has failed, COMPLEX\*16
 > factorization has been performed
 > -1 : the routine fell back to full precision for
 > implementation- or machine-specific reasons
@@ -124,6 +123,6 @@ INFO : INTEGER [out]
 > = 0:  successful exit
 > < 0:  if INFO = -i, the i-th argument had an illegal value
 > > 0:  if INFO = i, the leading principal minor of order i
-> of (COMPLEX*16) A is not positive, so the factorization
+> of (COMPLEX\*16) A is not positive, so the factorization
 > could not be completed, and the solution has not been
 > computed.

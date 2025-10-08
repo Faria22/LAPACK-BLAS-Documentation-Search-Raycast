@@ -1,6 +1,5 @@
 ```fortran
-subroutine zsytf2
-(
+subroutine zsytf2 (
         character uplo,
         integer n,
         complex*16, dimension( lda, * ) a,
@@ -13,16 +12,16 @@ subroutine zsytf2
 ZSYTF2 computes the factorization of a complex symmetric matrix A
 using the Bunch-Kaufman diagonal pivoting method:
 
-A = U*D*U**T  or  A = L*D*L**T
+A = U\*D\*U\*\*T  or  A = L\*D\*L\*\*T
 
 where U (or L) is a product of permutation and unit upper (lower)
-triangular matrices, U**T is the transpose of U, and D is symmetric and
+triangular matrices, U\*\*T is the transpose of U, and D is symmetric and
 block diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular
@@ -31,7 +30,7 @@ UPLO : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 > n-by-n upper triangular part of A contains the upper
 > triangular part of the matrix A, and the strictly lower

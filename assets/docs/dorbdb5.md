@@ -1,6 +1,5 @@
 ```fortran
-subroutine dorbdb5
-(
+subroutine dorbdb5 (
         integer m1,
         integer m2,
         integer n,

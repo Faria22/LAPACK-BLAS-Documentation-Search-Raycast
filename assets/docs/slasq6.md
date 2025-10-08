@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasq6
-(
+subroutine slasq6 (
         integer i0,
         integer n0,
         real, dimension( * ) z,
@@ -24,8 +23,8 @@ I0 : INTEGER [in]
 N0 : INTEGER [in]
 > Last index.
 
-Z : REAL array, dimension ( 4*N ) [in]
-> Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+Z : REAL array, dimension ( 4\*N ) [in]
+> Z holds the qd array. EMIN is stored in Z(4\*N0) to avoid
 > an extra argument.
 
 PP : INTEGER [in]

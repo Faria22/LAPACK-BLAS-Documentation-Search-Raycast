@@ -1,6 +1,5 @@
 ```fortran
-subroutine ssysvx
-(
+subroutine ssysvx (
         character fact,
         character uplo,
         integer n,
@@ -25,7 +24,7 @@ subroutine ssysvx
 ```
 
 SSYSVX uses the diagonal pivoting factorization to compute the
-solution to a real system of linear equations A * X = B,
+solution to a real system of linear equations A \* X = B,
 where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
 matrices.
 
@@ -33,14 +32,14 @@ Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of A has been
 > supplied on entry.
 > = 'F':  On entry, AF and IPIV contain the factored form of
 > A.  AF and IPIV will not be modified.
 > = 'N':  The matrix A will be copied to AF and factored.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -68,12 +67,12 @@ AF : REAL array, dimension (LDAF,N) [in,out]
 > If FACT = 'F', then AF is an input argument and on entry
 > contains the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**T or A = L*D*L**T as computed by SSYTRF.
+> A = U\*D\*U\*\*T or A = L\*D\*L\*\*T as computed by SSYTRF.
 > 
 > If FACT = 'N', then AF is an output argument and on exit
 > returns the block diagonal matrix D and the multipliers used
 > to obtain the factor U or L from the factorization
-> A = U*D*U**T or A = L*D*L**T.
+> A = U\*D\*U\*\*T or A = L\*D\*L\*\*T.
 
 LDAF : INTEGER [in]
 > The leading dimension of the array AF.  LDAF >= max(1,N).
@@ -132,8 +131,8 @@ WORK : REAL array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The length of WORK.  LWORK >= max(1,3*N), and for best
-> performance, when FACT = 'N', LWORK >= max(1,3*N,N*NB), where
+> The length of WORK.  LWORK >= max(1,3\*N), and for best
+> performance, when FACT = 'N', LWORK >= max(1,3\*N,N\*NB), where
 > NB is the optimal blocksize for SSYTRF.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

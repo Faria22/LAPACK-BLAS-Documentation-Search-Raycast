@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgeesx
-(
+subroutine zgeesx (
         character jobvs,
         character sort,
         external select,
@@ -24,7 +23,7 @@ subroutine zgeesx
 
 ZGEESX computes for an N-by-N complex nonsymmetric matrix A, the
 eigenvalues, the Schur form T, and, optionally, the matrix of Schur
-vectors Z.  This gives the Schur factorization A = Z*T*(Z**H).
+vectors Z.  This gives the Schur factorization A = Z\*T\*(Z\*\*H).
 
 Optionally, it also orders the eigenvalues on the diagonal of the
 Schur form so that selected eigenvalues are at the top left;
@@ -41,24 +40,24 @@ these quantities are called s and sep respectively).
 A complex matrix is in Schur form if it is upper triangular.
 
 ## Parameters
-JOBVS : CHARACTER*1 [in]
+JOBVS : CHARACTER\*1 [in]
 > = 'N': Schur vectors are not computed;
 > = 'V': Schur vectors are computed.
 
-SORT : CHARACTER*1 [in]
+SORT : CHARACTER\*1 [in]
 > Specifies whether or not to order the eigenvalues on the
 > diagonal of the Schur form.
 > = 'N': Eigenvalues are not ordered;
 > = 'S': Eigenvalues are ordered (see SELECT).
 
-SELECT : a LOGICAL FUNCTION of one COMPLEX*16 argument [in]
+SELECT : a LOGICAL FUNCTION of one COMPLEX\*16 argument [in]
 > SELECT must be declared EXTERNAL in the calling subroutine.
 > If SORT = 'S', SELECT is used to select eigenvalues to order
 > to the top left of the Schur form.
 > If SORT = 'N', SELECT is not referenced.
 > An eigenvalue W(j) is selected if SELECT(W(j)) is true.
 
-SENSE : CHARACTER*1 [in]
+SENSE : CHARACTER\*1 [in]
 > Determines which reciprocal condition numbers are computed.
 > = 'N': None are computed;
 > = 'E': Computed for average of selected eigenvalues only;
@@ -69,7 +68,7 @@ SENSE : CHARACTER*1 [in]
 N : INTEGER [in]
 > The order of the matrix A. N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA, N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA, N) [in,out]
 > On entry, the N-by-N matrix A.
 > On exit, A is overwritten by its Schur form T.
 
@@ -81,11 +80,11 @@ SDIM : INTEGER [out]
 > If SORT = 'S', SDIM = number of eigenvalues for which
 > SELECT is true.
 
-W : COMPLEX*16 array, dimension (N) [out]
+W : COMPLEX\*16 array, dimension (N) [out]
 > W contains the computed eigenvalues, in the same order
 > that they appear on the diagonal of the output Schur form T.
 
-VS : COMPLEX*16 array, dimension (LDVS,N) [out]
+VS : COMPLEX\*16 array, dimension (LDVS,N) [out]
 > If JOBVS = 'V', VS contains the unitary matrix Z of Schur
 > vectors.
 > If JOBVS = 'N', VS is not referenced.
@@ -104,15 +103,15 @@ RCONDV : DOUBLE PRECISION [out]
 > condition number for the selected right invariant subspace.
 > Not referenced if SENSE = 'N' or 'E'.
 
-WORK : COMPLEX*16 array, dimension (MAX(1,LWORK)) [out]
+WORK : COMPLEX\*16 array, dimension (MAX(1,LWORK)) [out]
 > On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
 LWORK : INTEGER [in]
-> The dimension of the array WORK.  LWORK >= max(1,2*N).
-> Also, if SENSE = 'E' or 'V' or 'B', LWORK >= 2*SDIM*(N-SDIM),
+> The dimension of the array WORK.  LWORK >= max(1,2\*N).
+> Also, if SENSE = 'E' or 'V' or 'B', LWORK >= 2\*SDIM\*(N-SDIM),
 > where SDIM is the number of selected eigenvalues computed by
-> this routine.  Note that 2*SDIM*(N-SDIM) <= N*N/2. Note also
-> that an error is only returned if LWORK < max(1,2*N), but if
+> this routine.  Note that 2\*SDIM\*(N-SDIM) <= N\*N/2. Note also
+> that an error is only returned if LWORK < max(1,2\*N), but if
 > SENSE = 'E' or 'V' or 'B' this may not be large enough.
 > For good performance, LWORK must generally be larger.
 > 

@@ -1,6 +1,5 @@
 ```fortran
-subroutine slanv2
-(
+subroutine slanv2 (
         real a,
         real b,
         real c,
@@ -22,7 +21,7 @@ matrix in standard form:
 
 where either
 1) CC = 0 so that AA and DD are real eigenvalues of the matrix, or
-2) AA = DD and BB*CC < 0, so that AA + or - sqrt(BB*CC) are complex
+2) AA = DD and BB\*CC < 0, so that AA + or - sqrt(BB\*CC) are complex
 conjugate eigenvalues.
 
 ## Parameters

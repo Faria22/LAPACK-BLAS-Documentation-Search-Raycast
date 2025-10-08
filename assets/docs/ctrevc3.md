@@ -1,6 +1,5 @@
 ```fortran
-subroutine ctrevc3
-(
+subroutine ctrevc3 (
         character side,
         character howmny,
         logical, dimension( * ) select,
@@ -24,32 +23,32 @@ subroutine ctrevc3
 CTREVC3 computes some or all of the right and/or left eigenvectors of
 a complex upper triangular matrix T.
 Matrices of this type are produced by the Schur factorization of
-a complex general matrix:  A = Q*T*Q**H, as computed by CHSEQR.
+a complex general matrix:  A = Q\*T\*Q\*\*H, as computed by CHSEQR.
 
 The right eigenvector x and the left eigenvector y of T corresponding
 to an eigenvalue w are defined by:
 
-T*x = w*x,     (y**H)*T = w*(y**H)
+T\*x = w\*x,     (y\*\*H)\*T = w\*(y\*\*H)
 
-where y**H denotes the conjugate transpose of the vector y.
+where y\*\*H denotes the conjugate transpose of the vector y.
 The eigenvalues are not input to this routine, but are read directly
 from the diagonal of T.
 
 This routine returns the matrices X and/or Y of right and left
-eigenvectors of T, or the products Q*X and/or Q*Y, where Q is an
+eigenvectors of T, or the products Q\*X and/or Q\*Y, where Q is an
 input matrix. If Q is the unitary factor that reduces a matrix A to
-Schur form T, then Q*X and Q*Y are the matrices of right and left
+Schur form T, then Q\*X and Q\*Y are the matrices of right and left
 eigenvectors of A.
 
 This uses a Level 3 BLAS version of the back transformation.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R':  compute right eigenvectors only;
 > = 'L':  compute left eigenvectors only;
 > = 'B':  compute both right and left eigenvectors.
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A':  compute all right and/or left eigenvectors;
 > = 'B':  compute all right and/or left eigenvectors,
 > backtransformed using the matrices supplied in
@@ -80,7 +79,7 @@ VL : COMPLEX array, dimension (LDVL,MM) [in,out]
 > Schur vectors returned by CHSEQR).
 > On exit, if SIDE = 'L' or 'B', VL contains:
 > if HOWMNY = 'A', the matrix Y of left eigenvectors of T;
-> if HOWMNY = 'B', the matrix Q*Y;
+> if HOWMNY = 'B', the matrix Q\*Y;
 > if HOWMNY = 'S', the left eigenvectors of T specified by
 > SELECT, stored consecutively in the columns
 > of VL, in the same order as their
@@ -97,7 +96,7 @@ VR : COMPLEX array, dimension (LDVR,MM) [in,out]
 > Schur vectors returned by CHSEQR).
 > On exit, if SIDE = 'R' or 'B', VR contains:
 > if HOWMNY = 'A', the matrix X of right eigenvectors of T;
-> if HOWMNY = 'B', the matrix Q*X;
+> if HOWMNY = 'B', the matrix Q\*X;
 > if HOWMNY = 'S', the right eigenvectors of T specified by
 > SELECT, stored consecutively in the columns
 > of VR, in the same order as their
@@ -120,8 +119,8 @@ M : INTEGER [out]
 WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
-> The dimension of array WORK. LWORK >= max(1,2*N).
-> For optimum performance, LWORK >= N + 2*N*NB, where NB is
+> The dimension of array WORK. LWORK >= max(1,2\*N).
+> For optimum performance, LWORK >= N + 2\*N\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

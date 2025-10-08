@@ -1,6 +1,5 @@
 ```fortran
-subroutine sgbsvx
-(
+subroutine sgbsvx (
         character fact,
         character trans,
         integer n,
@@ -29,7 +28,7 @@ subroutine sgbsvx
 ```
 
 SGBSVX uses the LU factorization to compute the solution to a real
-system of linear equations A * X = B, A**T * X = B, or A**H * X = B,
+system of linear equations A \* X = B, A\*\*T \* X = B, or A\*\*H \* X = B,
 where A is a band matrix of order N with KL subdiagonals and KU
 superdiagonals, and X and B are N-by-NRHS matrices.
 
@@ -37,7 +36,7 @@ Error bounds on the solution and a condition estimate are also
 provided.
 
 ## Parameters
-FACT : CHARACTER*1 [in]
+FACT : CHARACTER\*1 [in]
 > Specifies whether or not the factored form of the matrix A is
 > supplied on entry, and if not, whether the matrix A should be
 > equilibrated before it is factored.
@@ -49,11 +48,11 @@ FACT : CHARACTER*1 [in]
 > = 'E':  The matrix A will be equilibrated if necessary, then
 > copied to AFB and factored.
 
-TRANS : CHARACTER*1 [in]
+TRANS : CHARACTER\*1 [in]
 > Specifies the form of the system of equations.
-> = 'N':  A * X = B     (No transpose)
-> = 'T':  A**T * X = B  (Transpose)
-> = 'C':  A**H * X = B  (Transpose)
+> = 'N':  A \* X = B     (No transpose)
+> = 'T':  A\*\*T \* X = B  (Transpose)
+> = 'C':  A\*\*H \* X = B  (Transpose)
 
 N : INTEGER [in]
 > The number of linear equations, i.e., the order of the
@@ -81,9 +80,9 @@ AB : REAL array, dimension (LDAB,N) [in,out]
 > EQUED = 'N' on exit.
 > 
 > On exit, if EQUED .ne. 'N', A is scaled as follows:
-> EQUED = 'R':  A := diag(R) * A
-> EQUED = 'C':  A := A * diag(C)
-> EQUED = 'B':  A := diag(R) * A * diag(C).
+> EQUED = 'R':  A := diag(R) \* A
+> EQUED = 'C':  A := A \* diag(C)
+> EQUED = 'B':  A := diag(R) \* A \* diag(C).
 
 LDAB : INTEGER [in]
 > The leading dimension of the array AB.  LDAB >= KL+KU+1.
@@ -94,7 +93,7 @@ AFB : REAL array, dimension (LDAFB,N) [in,out]
 > A, as computed by SGBTRF.  U is stored as an upper triangular
 > band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
 > and the multipliers used during the factorization are stored
-> in rows KL+KU+2 to 2*KL+KU+1.  If EQUED .ne. 'N', then AFB is
+> in rows KL+KU+2 to 2\*KL+KU+1.  If EQUED .ne. 'N', then AFB is
 > the factored form of the equilibrated matrix A.
 > 
 > If FACT = 'N', then AFB is an output argument and on exit
@@ -106,23 +105,23 @@ AFB : REAL array, dimension (LDAFB,N) [in,out]
 > equilibrated matrix).
 
 LDAFB : INTEGER [in]
-> The leading dimension of the array AFB.  LDAFB >= 2*KL+KU+1.
+> The leading dimension of the array AFB.  LDAFB >= 2\*KL+KU+1.
 
 IPIV : INTEGER array, dimension (N) [in,out]
 > If FACT = 'F', then IPIV is an input argument and on entry
-> contains the pivot indices from the factorization A = L*U
+> contains the pivot indices from the factorization A = L\*U
 > as computed by SGBTRF; row i of the matrix was interchanged
 > with row IPIV(i).
 > 
 > If FACT = 'N', then IPIV is an output argument and on exit
-> contains the pivot indices from the factorization A = L*U
+> contains the pivot indices from the factorization A = L\*U
 > of the original matrix A.
 > 
 > If FACT = 'E', then IPIV is an output argument and on exit
-> contains the pivot indices from the factorization A = L*U
+> contains the pivot indices from the factorization A = L\*U
 > of the equilibrated matrix A.
 
-EQUED : CHARACTER*1 [in,out]
+EQUED : CHARACTER\*1 [in,out]
 > Specifies the form of equilibration that was done.
 > = 'N':  No equilibration (always true if FACT = 'N').
 > = 'R':  Row equilibration, i.e., A has been premultiplied by
@@ -130,7 +129,7 @@ EQUED : CHARACTER*1 [in,out]
 > = 'C':  Column equilibration, i.e., A has been postmultiplied
 > by diag(C).
 > = 'B':  Both row and column equilibration, i.e., A has been
-> replaced by diag(R) * A * diag(C).
+> replaced by diag(R) \* A \* diag(C).
 > EQUED is an input argument if FACT = 'F'; otherwise, it is an
 > output argument.
 
@@ -153,9 +152,9 @@ B : REAL array, dimension (LDB,NRHS) [in,out]
 > On exit,
 > if EQUED = 'N', B is not modified;
 > if TRANS = 'N' and EQUED = 'R' or 'B', B is overwritten by
-> diag(R)*B;
+> diag(R)\*B;
 > if TRANS = 'T' or 'C' and EQUED = 'C' or 'B', B is
-> overwritten by diag(C)*B.
+> overwritten by diag(C)\*B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,N).
@@ -164,8 +163,8 @@ X : REAL array, dimension (LDX,NRHS) [out]
 > If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X
 > to the original system of equations.  Note that A and B are
 > modified on exit if EQUED .ne. 'N', and the solution to the
-> equilibrated system is inv(diag(C))*X if TRANS = 'N' and
-> EQUED = 'C' or 'B', or inv(diag(R))*X if TRANS = 'T' or 'C'
+> equilibrated system is inv(diag(C))\*X if TRANS = 'N' and
+> EQUED = 'C' or 'B', or inv(diag(R))\*X if TRANS = 'T' or 'C'
 > and EQUED = 'R' or 'B'.
 
 LDX : INTEGER [in]
@@ -193,7 +192,7 @@ BERR : REAL array, dimension (NRHS) [out]
 > vector X(j) (i.e., the smallest relative change in
 > any element of A or B that makes X(j) an exact solution).
 
-WORK : REAL array, dimension (MAX(1,3*N)) [out]
+WORK : REAL array, dimension (MAX(1,3\*N)) [out]
 > On exit, WORK(1) contains the reciprocal pivot growth
 > factor norm(A)/norm(U). The  norm is
 > used. If WORK(1) is much less than 1, then the stability

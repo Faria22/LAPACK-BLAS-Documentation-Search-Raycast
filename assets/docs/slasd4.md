@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasd4
-(
+subroutine slasd4 (
         integer n,
         integer i,
         real, dimension( * ) d,
@@ -23,7 +22,7 @@ of the corresponding entries in the array d, and that
 and that RHO > 0. This is arranged by the calling routine, and is
 no loss in generality.  The rank-one modified system is thus
 
-diag( D ) * diag( D ) +  RHO * Z * Z_transpose.
+diag( D ) \* diag( D ) +  RHO \* Z \* Z_transpose.
 
 where we assume the Euclidean norm of Z is 1.
 

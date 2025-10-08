@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed6
-(
+subroutine dlaed6 (
         integer kniter,
         logical orgati,
         double precision rho,

@@ -1,6 +1,5 @@
 ```fortran
-subroutine cgehrd
-(
+subroutine cgehrd (
         integer n,
         integer ilo,
         integer ihi,
@@ -14,7 +13,7 @@ subroutine cgehrd
 ```
 
 CGEHRD reduces a complex general matrix A to upper Hessenberg form H by
-an unitary similarity transformation:  Q**H * A * Q = H .
+an unitary similarity transformation:  Q\*\*H \* A \* Q = H .
 
 ## Parameters
 N : INTEGER [in]

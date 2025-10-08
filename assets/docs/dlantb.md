@@ -1,6 +1,5 @@
 ```fortran
-double precision function dlantb
-(
+double precision function dlantb (
         character norm,
         character uplo,
         character diag,
@@ -17,16 +16,16 @@ the  infinity norm,  or the element of  largest absolute value  of an
 n by n triangular band matrix A,  with ( k + 1 ) diagonals.
 
 ## Parameters
-NORM : CHARACTER*1 [in]
+NORM : CHARACTER\*1 [in]
 > Specifies the value to be returned in DLANTB as described
 > above.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the matrix A is upper or lower triangular.
 > = 'U':  Upper triangular
 > = 'L':  Lower triangular
 
-DIAG : CHARACTER*1 [in]
+DIAG : CHARACTER\*1 [in]
 > Specifies whether or not the matrix A is unit triangular.
 > = 'N':  Non-unit triangular
 > = 'U':  Unit triangular

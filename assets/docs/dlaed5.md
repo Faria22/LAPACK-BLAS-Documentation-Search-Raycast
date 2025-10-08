@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed5
-(
+subroutine dlaed5 (
         integer i,
         double precision, dimension( 2 ) d,
         double precision, dimension( 2 ) z,
@@ -13,7 +12,7 @@ subroutine dlaed5
 This subroutine computes the I-th eigenvalue of a symmetric rank-one
 modification of a 2-by-2 diagonal matrix
 
-diag( D )  +  RHO * Z * transpose(Z) .
+diag( D )  +  RHO \* Z \* transpose(Z) .
 
 The diagonal elements in the array D are assumed to satisfy
 

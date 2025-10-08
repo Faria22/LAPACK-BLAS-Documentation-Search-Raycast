@@ -1,6 +1,5 @@
 ```fortran
-subroutine cher
-(
+subroutine cher (
         character uplo,
         integer n,
         real alpha,
@@ -13,13 +12,13 @@ subroutine cher
 
 CHER   performs the hermitian rank 1 operation
 
-A := alpha*x*x**H + A,
+A := alpha\*x\*x\*\*H + A,
 
 where alpha is a real scalar, x is an n element vector and A is an
 n by n hermitian matrix.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > On entry, UPLO specifies whether the upper or lower
 > triangular part of the array A is to be referenced as
 > follows:
@@ -38,7 +37,7 @@ ALPHA : REAL [in]
 > On entry, ALPHA specifies the scalar alpha.
 
 X : COMPLEX array, dimension at least [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ).
+> ( 1 + ( n - 1 )\*abs( INCX ) ).
 > Before entry, the incremented array X must contain the n
 > element vector x.
 

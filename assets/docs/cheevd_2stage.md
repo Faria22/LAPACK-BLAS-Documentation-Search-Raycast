@@ -1,6 +1,5 @@
 ```fortran
-subroutine cheevd_2stage
-(
+subroutine cheevd_2stage (
         character jobz,
         character uplo,
         integer n,
@@ -23,12 +22,12 @@ the reduction to tridiagonal.  If eigenvectors are desired, it uses a
 divide and conquer algorithm.
 
 ## Parameters
-JOBZ : CHARACTER*1 [in]
+JOBZ : CHARACTER\*1 [in]
 > = 'N':  Compute eigenvalues only;
 > = 'V':  Compute eigenvalues and eigenvectors.
 > Not available in this release.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -61,16 +60,16 @@ LWORK : INTEGER [in]
 > If N <= 1,               LWORK must be at least 1.
 > If JOBZ = 'N' and N > 1, LWORK must be queried.
 > LWORK = MAX(1, dimension) where
-> dimension = max(stage1,stage2) + (KD+1)*N + N+1
-> = N*KD + N*max(KD+1,FACTOPTNB)
-> + max(2*KD*KD, KD*NTHREADS)
-> + (KD+1)*N + N+1
+> dimension = max(stage1,stage2) + (KD+1)\*N + N+1
+> = N\*KD + N\*max(KD+1,FACTOPTNB)
+> + max(2\*KD\*KD, KD\*NTHREADS)
+> + (KD+1)\*N + N+1
 > where KD is the blocking size of the reduction,
 > FACTOPTNB is the blocking used by the QR or LQ
 > algorithm, usually FACTOPTNB=128 is a good choice
 > NTHREADS is the number of threads used when
 > openMP compilation is enabled, otherwise =1.
-> If JOBZ = 'V' and N > 1, LWORK must be at least 2*N + N**2
+> If JOBZ = 'V' and N > 1, LWORK must be at least 2\*N + N\*\*2
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine
 > only calculates the optimal sizes of the WORK, RWORK and
@@ -87,7 +86,7 @@ LRWORK : INTEGER [in]
 > If N <= 1,                LRWORK must be at least 1.
 > If JOBZ  = 'N' and N > 1, LRWORK must be at least N.
 > If JOBZ  = 'V' and N > 1, LRWORK must be at least
-> 1 + 5*N + 2*N**2.
+> 1 + 5\*N + 2\*N\*\*2.
 > 
 > If LRWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK
@@ -102,7 +101,7 @@ LIWORK : INTEGER [in]
 > The dimension of the array IWORK.
 > If N <= 1,                LIWORK must be at least 1.
 > If JOBZ  = 'N' and N > 1, LIWORK must be at least 1.
-> If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5*N.
+> If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5\*N.
 > 
 > If LIWORK = -1, then a workspace query is assumed; the
 > routine only calculates the optimal sizes of the WORK, RWORK

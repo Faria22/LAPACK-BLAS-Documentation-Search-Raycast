@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtrevc3
-(
+subroutine dtrevc3 (
         character side,
         character howmny,
         logical, dimension( * ) select,
@@ -22,32 +21,32 @@ subroutine dtrevc3
 DTREVC3 computes some or all of the right and/or left eigenvectors of
 a real upper quasi-triangular matrix T.
 Matrices of this type are produced by the Schur factorization of
-a real general matrix:  A = Q*T*Q**T, as computed by DHSEQR.
+a real general matrix:  A = Q\*T\*Q\*\*T, as computed by DHSEQR.
 
 The right eigenvector x and the left eigenvector y of T corresponding
 to an eigenvalue w are defined by:
 
-T*x = w*x,     (y**T)*T = w*(y**T)
+T\*x = w\*x,     (y\*\*T)\*T = w\*(y\*\*T)
 
-where y**T denotes the transpose of the vector y.
+where y\*\*T denotes the transpose of the vector y.
 The eigenvalues are not input to this routine, but are read directly
 from the diagonal blocks of T.
 
 This routine returns the matrices X and/or Y of right and left
-eigenvectors of T, or the products Q*X and/or Q*Y, where Q is an
+eigenvectors of T, or the products Q\*X and/or Q\*Y, where Q is an
 input matrix. If Q is the orthogonal factor that reduces a matrix
-A to Schur form T, then Q*X and Q*Y are the matrices of right and
+A to Schur form T, then Q\*X and Q\*Y are the matrices of right and
 left eigenvectors of A.
 
 This uses a Level 3 BLAS version of the back transformation.
 
 ## Parameters
-SIDE : CHARACTER*1 [in]
+SIDE : CHARACTER\*1 [in]
 > = 'R':  compute right eigenvectors only;
 > = 'L':  compute left eigenvectors only;
 > = 'B':  compute both right and left eigenvectors.
 
-HOWMNY : CHARACTER*1 [in]
+HOWMNY : CHARACTER\*1 [in]
 > = 'A':  compute all right and/or left eigenvectors;
 > = 'B':  compute all right and/or left eigenvectors,
 > backtransformed by the matrices in VR and/or VL;
@@ -81,7 +80,7 @@ VL : DOUBLE PRECISION array, dimension (LDVL,MM) [in,out]
 > of Schur vectors returned by DHSEQR).
 > On exit, if SIDE = 'L' or 'B', VL contains:
 > if HOWMNY = 'A', the matrix Y of left eigenvectors of T;
-> if HOWMNY = 'B', the matrix Q*Y;
+> if HOWMNY = 'B', the matrix Q\*Y;
 > if HOWMNY = 'S', the left eigenvectors of T specified by
 > SELECT, stored consecutively in the columns
 > of VL, in the same order as their
@@ -101,7 +100,7 @@ VR : DOUBLE PRECISION array, dimension (LDVR,MM) [in,out]
 > of Schur vectors returned by DHSEQR).
 > On exit, if SIDE = 'R' or 'B', VR contains:
 > if HOWMNY = 'A', the matrix X of right eigenvectors of T;
-> if HOWMNY = 'B', the matrix Q*X;
+> if HOWMNY = 'B', the matrix Q\*X;
 > if HOWMNY = 'S', the right eigenvectors of T specified by
 > SELECT, stored consecutively in the columns
 > of VR, in the same order as their
@@ -128,8 +127,8 @@ M : INTEGER [out]
 WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
-> The dimension of array WORK. LWORK >= max(1,3*N).
-> For optimum performance, LWORK >= N + 2*N*NB, where NB is
+> The dimension of array WORK. LWORK >= max(1,3\*N).
+> For optimum performance, LWORK >= N + 2\*N\*NB, where NB is
 > the optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

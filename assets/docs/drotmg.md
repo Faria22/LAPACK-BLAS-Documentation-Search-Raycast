@@ -1,6 +1,5 @@
 ```fortran
-subroutine drotmg
-(
+subroutine drotmg (
         double precision dd1,
         double precision dd2,
         double precision dx1,
@@ -10,7 +9,7 @@ subroutine drotmg
 ```
 
 CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS
-THE SECOND COMPONENT OF THE 2-VECTOR  (DSQRT(DD1)*DX1,DSQRT(DD2)*>    DY2)**T.
+THE SECOND COMPONENT OF THE 2-VECTOR  (DSQRT(DD1)\*DX1,DSQRT(DD2)\*>    DY2)\*\*T.
 WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..
 
 DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgsvj0
-(
+subroutine dgsvj0 (
         character*1 jobv,
         integer m,
         integer n,
@@ -27,7 +26,7 @@ it does not check convergence (stopping criterion). Few tuning
 parameters (marked by [TP]) are available for the implementer.
 
 ## Parameters
-JOBV : CHARACTER*1 [in]
+JOBV : CHARACTER\*1 [in]
 > Specifies whether the output from this procedure is used
 > to compute the matrix V:
 > = 'V': the product of the Jacobi rotations is accumulated
@@ -46,10 +45,10 @@ N : INTEGER [in]
 > M >= N >= 0.
 
 A : DOUBLE PRECISION array, dimension (LDA,N) [in,out]
-> On entry, M-by-N matrix A, such that A*diag(D) represents
+> On entry, M-by-N matrix A, such that A\*diag(D) represents
 > the input matrix.
 > On exit,
-> A_onexit * D_onexit represents the input matrix A*diag(D)
+> A_onexit \* D_onexit represents the input matrix A\*diag(D)
 > post-multiplied by a sequence of Jacobi rotations, where the
 > rotation threshold and the total number of sweeps are given in
 > TOL and NSWEEP, respectively.
@@ -61,8 +60,8 @@ LDA : INTEGER [in]
 D : DOUBLE PRECISION array, dimension (N) [in,out]
 > The array D accumulates the scaling factors from the fast scaled
 > Jacobi rotations.
-> On entry, A*diag(D) represents the input matrix.
-> On exit, A_onexit*diag(D_onexit) represents the input matrix
+> On entry, A\*diag(D) represents the input matrix.
+> On exit, A_onexit\*diag(D_onexit) represents the input matrix
 > post-multiplied by a sequence of Jacobi rotations, where the
 > rotation threshold and the total number of sweeps are given in
 > TOL and NSWEEP, respectively.
@@ -70,9 +69,9 @@ D : DOUBLE PRECISION array, dimension (N) [in,out]
 
 SVA : DOUBLE PRECISION array, dimension (N) [in,out]
 > On entry, SVA contains the Euclidean norms of the columns of
-> the matrix A*diag(D).
+> the matrix A\*diag(D).
 > On exit, SVA contains the Euclidean norms of the columns of
-> the matrix onexit*diag(D_onexit).
+> the matrix onexit\*diag(D_onexit).
 
 MV : INTEGER [in]
 > If JOBV = 'A', then MV rows of V are post-multiplied by a

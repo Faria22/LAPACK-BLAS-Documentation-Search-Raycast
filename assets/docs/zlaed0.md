@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlaed0
-(
+subroutine zlaed0 (
         integer qsiz,
         integer n,
         double precision, dimension( * ) d,
@@ -36,7 +35,7 @@ E : DOUBLE PRECISION array, dimension (N-1) [in,out]
 > On entry, the off-diagonal elements of the tridiagonal matrix.
 > On exit, E has been destroyed.
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > On entry, Q must contain an QSIZ x N matrix whose columns
 > unitarily orthonormal. It is a part of the unitary matrix
 > that reduces the full dense Hermitian matrix to a
@@ -47,16 +46,16 @@ LDQ : INTEGER [in]
 
 IWORK : INTEGER array, [out]
 > the dimension of IWORK must be at least
-> 6 + 6*N + 5*N*lg N
+> 6 + 6\*N + 5\*N\*lg N
 > ( lg( N ) = smallest integer k
 > such that 2^k >= N )
 
 RWORK : DOUBLE PRECISION array, [out]
-> dimension (1 + 3*N + 2*N*lg N + 3*N**2)
+> dimension (1 + 3\*N + 2\*N\*lg N + 3\*N\*\*2)
 > ( lg( N ) = smallest integer k
 > such that 2^k >= N )
 
-QSTORE : COMPLEX*16 array, dimension (LDQS, N) [out]
+QSTORE : COMPLEX\*16 array, dimension (LDQS, N) [out]
 > Used to store parts of
 > the eigenvector matrix when the updating matrix multiplies
 > take place.

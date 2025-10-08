@@ -1,6 +1,5 @@
 ```fortran
-subroutine slasd1
-(
+subroutine slasd1 (
         integer nl,
         integer nr,
         integer sqre,
@@ -27,12 +26,12 @@ values (and the singular vectors in factored form) are desired.
 SLASD1 computes the SVD as follows:
 
 ( D1(in)    0    0       0 )
-B = U(in) * (   Z1**T   a   Z2**T    b ) * VT(in)
+B = U(in) \* (   Z1\*\*T   a   Z2\*\*T    b ) \* VT(in)
 (   0       0   D2(in)   0 )
 
-= U(out) * ( D(out) 0) * VT(out)
+= U(out) \* ( D(out) 0) \* VT(out)
 
-where Z**T = (Z1**T a Z2**T b) = u**T VT**T, and u is a vector of dimension M
+where Z\*\*T = (Z1\*\*T a Z2\*\*T b) = u\*\*T VT\*\*T, and u is a vector of dimension M
 with ALPHA and BETA in the NL+1 and NL+2 th entries and zeros
 elsewhere; and the entry b is empty if SQRE = 0.
 
@@ -96,10 +95,10 @@ LDU : INTEGER [in]
 
 VT : REAL array, dimension (LDVT,M) [in,out]
 > where M = N + SQRE.
-> On entry VT(1:NL+1, 1:NL+1)**T contains the right singular
-> vectors of the upper block; VT(NL+2:M, NL+2:M)**T contains
+> On entry VT(1:NL+1, 1:NL+1)\*\*T contains the right singular
+> vectors of the upper block; VT(NL+2:M, NL+2:M)\*\*T contains
 > the right singular vectors of the lower block. On exit
-> VT**T contains the right singular vectors of the
+> VT\*\*T contains the right singular vectors of the
 > bidiagonal matrix.
 
 LDVT : INTEGER [in]
@@ -110,9 +109,9 @@ IDXQ : INTEGER array, dimension (N) [in,out]
 > subproblem just solved back into sorted order, i.e.
 > D( IDXQ( I = 1, N ) ) will be in ascending order.
 
-IWORK : INTEGER array, dimension (4*N) [out]
+IWORK : INTEGER array, dimension (4\*N) [out]
 
-WORK : REAL array, dimension (3*M**2+2*M) [out]
+WORK : REAL array, dimension (3\*M\*\*2+2\*M) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

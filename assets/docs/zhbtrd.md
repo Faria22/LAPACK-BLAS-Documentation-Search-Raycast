@@ -1,6 +1,5 @@
 ```fortran
-subroutine zhbtrd
-(
+subroutine zhbtrd (
         character vect,
         character uplo,
         integer n,
@@ -18,15 +17,15 @@ subroutine zhbtrd
 
 ZHBTRD reduces a complex Hermitian band matrix A to real symmetric
 tridiagonal form T by a unitary similarity transformation:
-Q**H * A * Q = T.
+Q\*\*H \* A \* Q = T.
 
 ## Parameters
-VECT : CHARACTER*1 [in]
+VECT : CHARACTER\*1 [in]
 > = 'N':  do not form Q;
 > = 'V':  form Q;
-> = 'U':  update a matrix X, by forming X*Q.
+> = 'U':  update a matrix X, by forming X\*Q.
 
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -37,7 +36,7 @@ KD : INTEGER [in]
 > The number of superdiagonals of the matrix A if UPLO = 'U',
 > or the number of subdiagonals if UPLO = 'L'.  KD >= 0.
 
-AB : COMPLEX*16 array, dimension (LDAB,N) [in,out]
+AB : COMPLEX\*16 array, dimension (LDAB,N) [in,out]
 > On entry, the upper or lower triangle of the Hermitian band
 > matrix A, stored in the first KD+1 rows of the array.  The
 > j-th column of A is stored in the j-th column of the array AB
@@ -61,20 +60,20 @@ E : DOUBLE PRECISION array, dimension (N-1) [out]
 > The off-diagonal elements of the tridiagonal matrix T:
 > E(i) = T(i,i+1) if UPLO = 'U'; E(i) = T(i+1,i) if UPLO = 'L'.
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > On entry, if VECT = 'U', then Q must contain an N-by-N
 > matrix X; if VECT = 'N' or 'V', then Q need not be set.
 > 
 > On exit:
 > if VECT = 'V', Q contains the N-by-N unitary matrix Q;
-> if VECT = 'U', Q contains the product X*Q;
+> if VECT = 'U', Q contains the product X\*Q;
 > if VECT = 'N', the array Q is not referenced.
 
 LDQ : INTEGER [in]
 > The leading dimension of the array Q.
 > LDQ >= 1, and LDQ >= N if VECT = 'V' or 'U'.
 
-WORK : COMPLEX*16 array, dimension (N) [out]
+WORK : COMPLEX\*16 array, dimension (N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

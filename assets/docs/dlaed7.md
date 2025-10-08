@@ -1,6 +1,5 @@
 ```fortran
-subroutine dlaed7
-(
+subroutine dlaed7 (
         integer icompq,
         integer n,
         integer qsiz,
@@ -34,9 +33,9 @@ that has been reduced to tridiagonal form.  DLAED1 handles
 the case in which all eigenvalues and eigenvectors of a symmetric
 tridiagonal matrix are desired.
 
-T = Q(in) ( D(in) + RHO * Z*Z**T ) Q**T(in) = Q(out) * D(out) * Q**T(out)
+T = Q(in) ( D(in) + RHO \* Z\*Z\*\*T ) Q\*\*T(in) = Q(out) \* D(out) \* Q\*\*T(out)
 
-where Z = Q**Tu, u is a vector of length N with ones in the
+where Z = Q\*\*Tu, u is a vector of length N with ones in the
 CUTPNT and CUTPNT + 1 th elements and zeros elsewhere.
 
 The eigenvectors of the original matrix are stored in Q, and the
@@ -109,7 +108,7 @@ CUTPNT : INTEGER [in]
 > Contains the location of the last eigenvalue in the leading
 > sub-matrix.  min(1,N) <= CUTPNT <= N.
 
-QSTORE : DOUBLE PRECISION array, dimension (N**2+1) [in,out]
+QSTORE : DOUBLE PRECISION array, dimension (N\*\*2+1) [in,out]
 > Stores eigenvectors of submatrices encountered during
 > divide and conquer, packed together. QPTR points to
 > beginning of the submatrices.
@@ -143,9 +142,9 @@ GIVNUM : DOUBLE PRECISION array, dimension (2, N lg N) [in]
 > Each number indicates the S value to be used in the
 > corresponding Givens rotation.
 
-WORK : DOUBLE PRECISION array, dimension (3*N+2*QSIZ*N) [out]
+WORK : DOUBLE PRECISION array, dimension (3\*N+2\*QSIZ\*N) [out]
 
-IWORK : INTEGER array, dimension (4*N) [out]
+IWORK : INTEGER array, dimension (4\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit.

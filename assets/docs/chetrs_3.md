@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetrs_3
-(
+subroutine chetrs_3 (
         character uplo,
         integer n,
         integer nrhs,
@@ -14,25 +13,25 @@ subroutine chetrs_3
 )
 ```
 
-CHETRS_3 solves a system of linear equations A * X = B with a complex
+CHETRS_3 solves a system of linear equations A \* X = B with a complex
 Hermitian matrix A using the factorization computed
 by CHETRF_RK or CHETRF_BK:
 
-A = P*U*D*(U**H)*(P**T) or A = P*L*D*(L**H)*(P**T),
+A = P\*U\*D\*(U\*\*H)\*(P\*\*T) or A = P\*L\*D\*(L\*\*H)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**H (or L**H) is the conjugate of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is Hermitian and block
+U\*\*H (or L\*\*H) is the conjugate of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is Hermitian and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This algorithm is using Level 3 BLAS.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are
 > stored as an upper or lower triangular matrix:
-> = 'U':  Upper triangular, form is A = P*U*D*(U**H)*(P**T);
-> = 'L':  Lower triangular, form is A = P*L*D*(L**H)*(P**T).
+> = 'U':  Upper triangular, form is A = P\*U\*D\*(U\*\*H)\*(P\*\*T);
+> = 'L':  Lower triangular, form is A = P\*L\*D\*(L\*\*H)\*(P\*\*T).
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

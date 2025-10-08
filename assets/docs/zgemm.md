@@ -1,6 +1,5 @@
 ```fortran
-subroutine zgemm
-(
+subroutine zgemm (
         character transa,
         character transb,
         integer m,
@@ -19,35 +18,35 @@ subroutine zgemm
 
 ZGEMM  performs one of the matrix-matrix operations
 
-C := alpha*op( A )*op( B ) + beta*C,
+C := alpha\*op( A )\*op( B ) + beta\*C,
 
 where  op( X ) is one of
 
-op( X ) = X   or   op( X ) = X**T   or   op( X ) = X**H,
+op( X ) = X   or   op( X ) = X\*\*T   or   op( X ) = X\*\*H,
 
 alpha and beta are scalars, and A, B and C are matrices, with op( A )
 an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.
 
 ## Parameters
-TRANSA : CHARACTER*1 [in]
+TRANSA : CHARACTER\*1 [in]
 > On entry, TRANSA specifies the form of op( A ) to be used in
 > the matrix multiplication as follows:
 > 
 > TRANSA = 'N' or 'n',  op( A ) = A.
 > 
-> TRANSA = 'T' or 't',  op( A ) = A**T.
+> TRANSA = 'T' or 't',  op( A ) = A\*\*T.
 > 
-> TRANSA = 'C' or 'c',  op( A ) = A**H.
+> TRANSA = 'C' or 'c',  op( A ) = A\*\*H.
 
-TRANSB : CHARACTER*1 [in]
+TRANSB : CHARACTER\*1 [in]
 > On entry, TRANSB specifies the form of op( B ) to be used in
 > the matrix multiplication as follows:
 > 
 > TRANSB = 'N' or 'n',  op( B ) = B.
 > 
-> TRANSB = 'T' or 't',  op( B ) = B**T.
+> TRANSB = 'T' or 't',  op( B ) = B\*\*T.
 > 
-> TRANSB = 'C' or 'c',  op( B ) = B**H.
+> TRANSB = 'C' or 'c',  op( B ) = B\*\*H.
 
 M : INTEGER [in]
 > On entry,  M  specifies  the number  of rows  of the  matrix
@@ -63,10 +62,10 @@ K : INTEGER [in]
 > op( A ) and the number of rows of the matrix op( B ). K must
 > be at least  zero.
 
-ALPHA : COMPLEX*16 [in]
+ALPHA : COMPLEX\*16 [in]
 > On entry, ALPHA specifies the scalar alpha.
 
-A : COMPLEX*16 array, dimension ( LDA, ka ), where ka is [in]
+A : COMPLEX\*16 array, dimension ( LDA, ka ), where ka is [in]
 > k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
 > Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
 > part of the array  A  must contain the matrix  A,  otherwise
@@ -79,7 +78,7 @@ LDA : INTEGER [in]
 > LDA must be at least  max( 1, m ), otherwise  LDA must be at
 > least  max( 1, k ).
 
-B : COMPLEX*16 array, dimension ( LDB, kb ), where kb is [in]
+B : COMPLEX\*16 array, dimension ( LDB, kb ), where kb is [in]
 > n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
 > Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
 > part of the array  B  must contain the matrix  B,  otherwise
@@ -92,16 +91,16 @@ LDB : INTEGER [in]
 > LDB must be at least  max( 1, k ), otherwise  LDB must be at
 > least  max( 1, n ).
 
-BETA : COMPLEX*16 [in]
+BETA : COMPLEX\*16 [in]
 > On entry,  BETA  specifies the scalar  beta.  When  BETA  is
 > supplied as zero then C need not be set on input.
 
-C : COMPLEX*16 array, dimension ( LDC, N ) [in,out]
+C : COMPLEX\*16 array, dimension ( LDC, N ) [in,out]
 > Before entry, the leading  m by n  part of the array  C must
 > contain the matrix  C,  except when  beta  is zero, in which
 > case C need not be set on entry.
 > On exit, the array  C  is overwritten by the  m by n  matrix
-> ( alpha*op( A )*op( B ) + beta*C ).
+> ( alpha\*op( A )\*op( B ) + beta\*C ).
 
 LDC : INTEGER [in]
 > On entry, LDC specifies the first dimension of C as declared

@@ -1,6 +1,5 @@
 ```fortran
-recursive subroutine dorcsd
-(
+recursive subroutine dorcsd (
         character jobu1,
         character jobu2,
         character jobv1t,
@@ -39,7 +38,7 @@ orthogonal matrix X:
 
 [  I  0  0 |  0  0  0 ]
 [  0  C  0 |  0 -S  0 ]
-[ X11 | X12 ]   [ U1 |    ] [  0  0  0 |  0  0 -I ] [ V1 |    ]**T
+[ X11 | X12 ]   [ U1 |    ] [  0  0  0 |  0  0 -I ] [ V1 |    ]\*\*T
 X = [-----------] = [---------] [---------------------] [---------]   .
 [ X21 | X22 ]   [    | U2 ] [  0  0  0 |  I  0  0 ] [    | V2 ]
 [  0  S  0 |  0  C  0 ]
@@ -134,7 +133,7 @@ LDU2 : INTEGER [in]
 
 V1T : DOUBLE PRECISION array, dimension (LDV1T,Q) [out]
 > If JOBV1T = 'Y', V1T contains the Q-by-Q matrix orthogonal
-> matrix V1**T.
+> matrix V1\*\*T.
 
 LDV1T : INTEGER [in]
 > The leading dimension of V1T. If JOBV1T = 'Y', LDV1T >=
@@ -142,7 +141,7 @@ LDV1T : INTEGER [in]
 
 V2T : DOUBLE PRECISION array, dimension (LDV2T,M-Q) [out]
 > If JOBV2T = 'Y', V2T contains the (M-Q)-by-(M-Q) orthogonal
-> matrix V2**T.
+> matrix V2\*\*T.
 
 LDV2T : INTEGER [in]
 > The leading dimension of V2T. If JOBV2T = 'Y', LDV2T >=

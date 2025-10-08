@@ -1,6 +1,5 @@
 ```fortran
-subroutine saxpy
-(
+subroutine saxpy (
         integer n,
         real sa,
         real, dimension(*) sx,
@@ -20,12 +19,12 @@ N : INTEGER [in]
 SA : REAL [in]
 > On entry, SA specifies the scalar alpha.
 
-SX : REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in]
+SX : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in]
 
 INCX : INTEGER [in]
 > storage spacing between elements of SX
 
-SY : REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+SY : REAL array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of SY

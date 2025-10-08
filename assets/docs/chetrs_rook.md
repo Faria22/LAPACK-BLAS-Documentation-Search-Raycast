@@ -1,6 +1,5 @@
 ```fortran
-subroutine chetrs_rook
-(
+subroutine chetrs_rook (
         character uplo,
         integer n,
         integer nrhs,
@@ -13,16 +12,16 @@ subroutine chetrs_rook
 )
 ```
 
-CHETRS_ROOK solves a system of linear equations A*X = B with a complex
-Hermitian matrix A using the factorization A = U*D*U**H or
-A = L*D*L**H computed by CHETRF_ROOK.
+CHETRS_ROOK solves a system of linear equations A\*X = B with a complex
+Hermitian matrix A using the factorization A = U\*D\*U\*\*H or
+A = L\*D\*L\*\*H computed by CHETRF_ROOK.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the details of the factorization are stored
 > as an upper or lower triangular matrix.
-> = 'U':  Upper triangular, form is A = U*D*U**H;
-> = 'L':  Lower triangular, form is A = L*D*L**H.
+> = 'U':  Upper triangular, form is A = U\*D\*U\*\*H;
+> = 'L':  Lower triangular, form is A = L\*D\*L\*\*H.
 
 N : INTEGER [in]
 > The order of the matrix A.  N >= 0.

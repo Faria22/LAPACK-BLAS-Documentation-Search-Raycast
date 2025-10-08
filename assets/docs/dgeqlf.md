@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgeqlf
-(
+subroutine dgeqlf (
         integer m,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -13,7 +12,7 @@ subroutine dgeqlf
 ```
 
 DGEQLF computes a QL factorization of a real M-by-N matrix A:
-A = Q * L.
+A = Q \* L.
 
 ## Parameters
 M : INTEGER [in]
@@ -46,7 +45,7 @@ WORK : DOUBLE PRECISION array, dimension (MAX(1,LWORK)) [out]
 LWORK : INTEGER [in]
 > The dimension of the array WORK.
 > LWORK >= 1, if MIN(M,N) = 0, and LWORK >= N, otherwise.
-> For optimum performance LWORK >= N*NB, where NB is the
+> For optimum performance LWORK >= N\*NB, where NB is the
 > optimal blocksize.
 > 
 > If LWORK = -1, then a workspace query is assumed; the routine

@@ -1,6 +1,5 @@
 ```fortran
-subroutine dgesc2
-(
+subroutine dgesc2 (
         integer n,
         double precision, dimension( lda, * ) a,
         integer lda,
@@ -13,7 +12,7 @@ subroutine dgesc2
 
 DGESC2 solves a system of linear equations
 
-A * X = scale* RHS
+A \* X = scale\* RHS
 
 with a general N-by-N matrix A using the LU factorization with
 complete pivoting computed by DGETC2.
@@ -24,7 +23,7 @@ N : INTEGER [in]
 
 A : DOUBLE PRECISION array, dimension (LDA,N) [in]
 > On entry, the  LU part of the factorization of the n-by-n
-> matrix A computed by DGETC2:  A = P * L * U * Q
+> matrix A computed by DGETC2:  A = P \* L \* U \* Q
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1, N).

@@ -1,6 +1,5 @@
 ```fortran
-subroutine sla_geamv
-(
+subroutine sla_geamv (
         integer trans,
         integer m,
         integer n,
@@ -17,8 +16,8 @@ subroutine sla_geamv
 
 SLA_GEAMV  performs one of the matrix-vector operations
 
-y := alpha*abs(A)*abs(x) + beta*abs(y),
-or   y := alpha*abs(A)**T*abs(x) + beta*abs(y),
+y := alpha\*abs(A)\*abs(x) + beta\*abs(y),
+or   y := alpha\*abs(A)\*\*T\*abs(x) + beta\*abs(y),
 
 where alpha and beta are scalars, x and y are vectors and A is an
 m by n matrix.
@@ -37,9 +36,9 @@ TRANS : INTEGER [in]
 > On entry, TRANS specifies the operation to be performed as
 > follows:
 > 
-> BLAS_NO_TRANS      y := alpha*abs(A)*abs(x) + beta*abs(y)
-> BLAS_TRANS         y := alpha*abs(A**T)*abs(x) + beta*abs(y)
-> BLAS_CONJ_TRANS    y := alpha*abs(A**T)*abs(x) + beta*abs(y)
+> BLAS_NO_TRANS      y := alpha\*abs(A)\*abs(x) + beta\*abs(y)
+> BLAS_TRANS         y := alpha\*abs(A\*\*T)\*abs(x) + beta\*abs(y)
+> BLAS_CONJ_TRANS    y := alpha\*abs(A\*\*T)\*abs(x) + beta\*abs(y)
 > 
 > Unchanged on exit.
 
@@ -69,9 +68,9 @@ LDA : INTEGER [in]
 > Unchanged on exit.
 
 X : REAL array, dimension [in]
-> ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( n - 1 )\*abs( INCX ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+> ( 1 + ( m - 1 )\*abs( INCX ) ) otherwise.
 > Before entry, the incremented array X must contain the
 > vector x.
 > Unchanged on exit.
@@ -88,9 +87,9 @@ BETA : REAL [in]
 
 Y : REAL array, [in,out]
 > dimension at least
-> ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+> ( 1 + ( m - 1 )\*abs( INCY ) ) when TRANS = 'N' or 'n'
 > and at least
-> ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+> ( 1 + ( n - 1 )\*abs( INCY ) ) otherwise.
 > Before entry with BETA non-zero, the incremented array Y
 > must contain the vector y. On exit, Y is overwritten by the
 > updated vector y.

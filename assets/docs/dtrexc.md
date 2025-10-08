@@ -1,6 +1,5 @@
 ```fortran
-subroutine dtrexc
-(
+subroutine dtrexc (
         character compq,
         integer n,
         double precision, dimension( ldt, * ) t,
@@ -15,11 +14,11 @@ subroutine dtrexc
 ```
 
 DTREXC reorders the real Schur factorization of a real matrix
-A = Q*T*Q**T, so that the diagonal block of T with row index IFST is
+A = Q\*T\*Q\*\*T, so that the diagonal block of T with row index IFST is
 moved to row ILST.
 
 The real Schur form T is reordered by an orthogonal similarity
-transformation Z**T*T*Z, and optionally the matrix Q of Schur vectors
+transformation Z\*\*T\*T\*Z, and optionally the matrix Q of Schur vectors
 is updated by postmultiplying it with Z.
 
 T must be in Schur canonical form (as returned by DHSEQR), that is,
@@ -28,7 +27,7 @@ block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
 off-diagonal elements of opposite sign.
 
 ## Parameters
-COMPQ : CHARACTER*1 [in]
+COMPQ : CHARACTER\*1 [in]
 > = 'V':  update the matrix Q of Schur vectors;
 > = 'N':  do not update Q.
 

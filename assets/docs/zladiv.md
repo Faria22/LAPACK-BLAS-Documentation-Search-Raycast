@@ -1,6 +1,5 @@
 ```fortran
-complex*16 function zladiv
-(
+complex*16 function zladiv (
         complex*16 x,
         complex*16 y
 )
@@ -11,7 +10,7 @@ will not overflow on an intermediary step unless the results
 overflows.
 
 ## Parameters
-X : COMPLEX*16 [in]
+X : COMPLEX\*16 [in]
 
-Y : COMPLEX*16 [in]
+Y : COMPLEX\*16 [in]
 > The complex scalars X and Y.

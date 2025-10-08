@@ -1,6 +1,5 @@
 ```fortran
-subroutine dsytf2_rk
-(
+subroutine dsytf2_rk (
         character uplo,
         integer n,
         double precision, dimension( lda, * ) a,
@@ -14,18 +13,18 @@ subroutine dsytf2_rk
 DSYTF2_RK computes the factorization of a real symmetric matrix A
 using the bounded Bunch-Kaufman (rook) diagonal pivoting method:
 
-A = P*U*D*(U**T)*(P**T) or A = P*L*D*(L**T)*(P**T),
+A = P\*U\*D\*(U\*\*T)\*(P\*\*T) or A = P\*L\*D\*(L\*\*T)\*(P\*\*T),
 
 where U (or L) is unit upper (or lower) triangular matrix,
-U**T (or L**T) is the transpose of U (or L), P is a permutation
-matrix, P**T is the transpose of P, and D is symmetric and block
+U\*\*T (or L\*\*T) is the transpose of U (or L), P is a permutation
+matrix, P\*\*T is the transpose of P, and D is symmetric and block
 diagonal with 1-by-1 and 2-by-2 diagonal blocks.
 
 This is the unblocked version of the algorithm, calling Level 2 BLAS.
 For more information see Further Details section.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > Specifies whether the upper or lower triangular part of the
 > symmetric matrix A is stored:
 > = 'U':  Upper triangular

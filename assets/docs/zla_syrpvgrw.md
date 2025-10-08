@@ -1,6 +1,5 @@
 ```fortran
-double precision function zla_syrpvgrw
-(
+double precision function zla_syrpvgrw (
         character*1 uplo,
         integer n,
         integer info,
@@ -21,7 +20,7 @@ solution X, estimated condition numbers, and error bounds could be
 unreliable.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -33,13 +32,13 @@ INFO : INTEGER [in]
 > The value of INFO returned from ZSYTRF, .i.e., the pivot in
 > column INFO is exactly 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in]
+A : COMPLEX\*16 array, dimension (LDA,N) [in]
 > On entry, the N-by-N matrix A.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-AF : COMPLEX*16 array, dimension (LDAF,N) [in]
+AF : COMPLEX\*16 array, dimension (LDAF,N) [in]
 > The block diagonal matrix D and the multipliers used to
 > obtain the factor U or L as computed by ZSYTRF.
 
@@ -50,4 +49,4 @@ IPIV : INTEGER array, dimension (N) [in]
 > Details of the interchanges and the block structure of D
 > as determined by ZSYTRF.
 
-WORK : DOUBLE PRECISION array, dimension (2*N) [out]
+WORK : DOUBLE PRECISION array, dimension (2\*N) [out]

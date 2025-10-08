@@ -1,6 +1,5 @@
 ```fortran
-subroutine zunbdb2
-(
+subroutine zunbdb2 (
         integer m,
         integer p,
         integer q,
@@ -24,7 +23,7 @@ matrix X with orthonormal columns:
 
 [ B11 ]
 [ X11 ]   [ P1 |    ] [  0  ]
-[-----] = [---------] [-----] Q1**T .
+[-----] = [---------] [-----] Q1\*\*T .
 [ X21 ]   [    | P2 ] [ B21 ]
 [  0  ]
 
@@ -49,7 +48,7 @@ P : INTEGER [in]
 Q : INTEGER [in]
 > The number of columns in X11 and X21. 0 <= Q <= M.
 
-X11 : COMPLEX*16 array, dimension (LDX11,Q) [in,out]
+X11 : COMPLEX\*16 array, dimension (LDX11,Q) [in,out]
 > On entry, the top block of the matrix X to be reduced. On
 > exit, the columns of tril(X11) specify reflectors for P1 and
 > the rows of triu(X11,1) specify reflectors for Q1.
@@ -57,7 +56,7 @@ X11 : COMPLEX*16 array, dimension (LDX11,Q) [in,out]
 LDX11 : INTEGER [in]
 > The leading dimension of X11. LDX11 >= P.
 
-X21 : COMPLEX*16 array, dimension (LDX21,Q) [in,out]
+X21 : COMPLEX\*16 array, dimension (LDX21,Q) [in,out]
 > On entry, the bottom block of the matrix X to be reduced. On
 > exit, the columns of tril(X21) specify reflectors for P2.
 
@@ -72,19 +71,19 @@ PHI : DOUBLE PRECISION array, dimension (Q-1) [out]
 > The entries of the bidiagonal blocks B11, B21 are defined by
 > THETA and PHI. See Further Details.
 
-TAUP1 : COMPLEX*16 array, dimension (P-1) [out]
+TAUP1 : COMPLEX\*16 array, dimension (P-1) [out]
 > The scalar factors of the elementary reflectors that define
 > P1.
 
-TAUP2 : COMPLEX*16 array, dimension (Q) [out]
+TAUP2 : COMPLEX\*16 array, dimension (Q) [out]
 > The scalar factors of the elementary reflectors that define
 > P2.
 
-TAUQ1 : COMPLEX*16 array, dimension (Q) [out]
+TAUQ1 : COMPLEX\*16 array, dimension (Q) [out]
 > The scalar factors of the elementary reflectors that define
 > Q1.
 
-WORK : COMPLEX*16 array, dimension (LWORK) [out]
+WORK : COMPLEX\*16 array, dimension (LWORK) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= M-Q.

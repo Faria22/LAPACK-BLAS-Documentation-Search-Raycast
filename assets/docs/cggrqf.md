@@ -1,6 +1,5 @@
 ```fortran
-subroutine cggrqf
-(
+subroutine cggrqf (
         integer m,
         integer p,
         integer n,
@@ -19,7 +18,7 @@ subroutine cggrqf
 CGGRQF computes a generalized RQ factorization of an M-by-N matrix A
 and a P-by-N matrix B:
 
-A = R*Q,        B = Z*T*Q,
+A = R\*Q,        B = Z\*T\*Q,
 
 where Q is an N-by-N unitary matrix, Z is a P-by-P unitary
 matrix, and R and T assume one of the forms:
@@ -37,11 +36,11 @@ N
 where T11 is upper triangular.
 
 In particular, if B is square and nonsingular, the GRQ factorization
-of A and B implicitly gives the RQ factorization of A*inv(B):
+of A and B implicitly gives the RQ factorization of A\*inv(B):
 
-A*inv(B) = (R*inv(T))*Z**H
+A\*inv(B) = (R\*inv(T))\*Z\*\*H
 
-where inv(B) denotes the inverse of the matrix B, and Z**H denotes the
+where inv(B) denotes the inverse of the matrix B, and Z\*\*H denotes the
 conjugate transpose of the matrix Z.
 
 ## Parameters
@@ -91,7 +90,7 @@ WORK : COMPLEX array, dimension (MAX(1,LWORK)) [out]
 
 LWORK : INTEGER [in]
 > The dimension of the array WORK. LWORK >= max(1,N,M,P).
-> For optimum performance LWORK >= max(N,M,P)*max(NB1,NB2,NB3),
+> For optimum performance LWORK >= max(N,M,P)\*max(NB1,NB2,NB3),
 > where NB1 is the optimal blocksize for the RQ factorization
 > of an M-by-N matrix, NB2 is the optimal blocksize for the
 > QR factorization of a P-by-N matrix, and NB3 is the optimal

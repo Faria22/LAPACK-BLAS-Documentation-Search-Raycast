@@ -1,6 +1,5 @@
 ```fortran
-subroutine drotm
-(
+subroutine drotm (
         integer n,
         double precision, dimension(*) dx,
         integer incx,
@@ -12,11 +11,11 @@ subroutine drotm
 
 APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX
 
-(DX**T) , WHERE **T INDICATES TRANSPOSE. THE ELEMENTS OF DX ARE IN
-(DY**T)
+(DX\*\*T) , WHERE \*\*T INDICATES TRANSPOSE. THE ELEMENTS OF DX ARE IN
+(DY\*\*T)
 
-DX(LX+I*INCX), I = 0 TO N-1, WHERE LX = 1 IF INCX .GE. 0, ELSE
-LX = (-INCX)*N, AND SIMILARLY FOR SY USING LY AND INCY.
+DX(LX+I\*INCX), I = 0 TO N-1, WHERE LX = 1 IF INCX .GE. 0, ELSE
+LX = (-INCX)\*N, AND SIMILARLY FOR SY USING LY AND INCY.
 WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..
 
 DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
@@ -30,12 +29,12 @@ SEE DROTMG FOR A DESCRIPTION OF DATA STORAGE IN DPARAM.
 N : INTEGER [in]
 > number of elements in input vector(s)
 
-DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) ) [in,out]
+DX : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCX ) ) [in,out]
 
 INCX : INTEGER [in]
 > storage spacing between elements of DX
 
-DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) ) [in,out]
+DY : DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )\*abs( INCY ) ) [in,out]
 
 INCY : INTEGER [in]
 > storage spacing between elements of DY

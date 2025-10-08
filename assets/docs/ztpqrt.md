@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztpqrt
-(
+subroutine ztpqrt (
         integer m,
         integer n,
         integer l,
@@ -38,7 +37,7 @@ L : INTEGER [in]
 NB : INTEGER [in]
 > The block size to be used in the blocked QR.  N >= NB >= 1.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the upper triangular N-by-N matrix A.
 > On exit, the elements on and above the diagonal of the array
 > contain the upper triangular matrix R.
@@ -46,7 +45,7 @@ A : COMPLEX*16 array, dimension (LDA,N) [in,out]
 LDA : INTEGER [in]
 > The leading dimension of the array A.  LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 > On entry, the pentagonal M-by-N matrix B.  The first M-L rows
 > are rectangular, and the last L rows are upper trapezoidal.
 > On exit, B contains the pentagonal matrix V.  See Further Details.
@@ -54,14 +53,14 @@ B : COMPLEX*16 array, dimension (LDB,N) [in,out]
 LDB : INTEGER [in]
 > The leading dimension of the array B.  LDB >= max(1,M).
 
-T : COMPLEX*16 array, dimension (LDT,N) [out]
+T : COMPLEX\*16 array, dimension (LDT,N) [out]
 > The upper triangular block reflectors stored in compact form
 > as a sequence of upper triangular blocks.  See Further Details.
 
 LDT : INTEGER [in]
 > The leading dimension of the array T.  LDT >= NB.
 
-WORK : COMPLEX*16 array, dimension (NB*N) [out]
+WORK : COMPLEX\*16 array, dimension (NB\*N) [out]
 
 INFO : INTEGER [out]
 > = 0:  successful exit

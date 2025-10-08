@@ -1,6 +1,5 @@
 ```fortran
-subroutine ztgexc
-(
+subroutine ztgexc (
         logical wantq,
         logical wantz,
         integer n,
@@ -20,7 +19,7 @@ subroutine ztgexc
 
 ZTGEXC reorders the generalized Schur decomposition of a complex
 matrix pair (A,B), using an unitary equivalence transformation
-(A, B) := Q * (A, B) * Z**H, so that the diagonal block of (A, B) with
+(A, B) := Q \* (A, B) \* Z\*\*H, so that the diagonal block of (A, B) with
 row index IFST is moved to row ILST.
 
 (A, B) must be in generalized Schur canonical form, that is, A and
@@ -29,8 +28,8 @@ B are both upper triangular.
 Optionally, the matrices Q and Z of generalized Schur vectors are
 updated.
 
-Q(in) * A(in) * Z(in)**H = Q(out) * A(out) * Z(out)**H
-Q(in) * B(in) * Z(in)**H = Q(out) * B(out) * Z(out)**H
+Q(in) \* A(in) \* Z(in)\*\*H = Q(out) \* A(out) \* Z(out)\*\*H
+Q(in) \* B(in) \* Z(in)\*\*H = Q(out) \* B(out) \* Z(out)\*\*H
 
 ## Parameters
 WANTQ : LOGICAL [in]
@@ -44,21 +43,21 @@ WANTZ : LOGICAL [in]
 N : INTEGER [in]
 > The order of the matrices A and B. N >= 0.
 
-A : COMPLEX*16 array, dimension (LDA,N) [in,out]
+A : COMPLEX\*16 array, dimension (LDA,N) [in,out]
 > On entry, the upper triangular matrix A in the pair (A, B).
 > On exit, the updated matrix A.
 
 LDA : INTEGER [in]
 > The leading dimension of the array A. LDA >= max(1,N).
 
-B : COMPLEX*16 array, dimension (LDB,N) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,N) [in,out]
 > On entry, the upper triangular matrix B in the pair (A, B).
 > On exit, the updated matrix B.
 
 LDB : INTEGER [in]
 > The leading dimension of the array B. LDB >= max(1,N).
 
-Q : COMPLEX*16 array, dimension (LDQ,N) [in,out]
+Q : COMPLEX\*16 array, dimension (LDQ,N) [in,out]
 > On entry, if WANTQ = .TRUE., the unitary matrix Q.
 > On exit, the updated matrix Q.
 > If WANTQ = .FALSE., Q is not referenced.
@@ -67,7 +66,7 @@ LDQ : INTEGER [in]
 > The leading dimension of the array Q. LDQ >= 1;
 > If WANTQ = .TRUE., LDQ >= N.
 
-Z : COMPLEX*16 array, dimension (LDZ,N) [in,out]
+Z : COMPLEX\*16 array, dimension (LDZ,N) [in,out]
 > On entry, if WANTZ = .TRUE., the unitary matrix Z.
 > On exit, the updated matrix Z.
 > If WANTZ = .FALSE., Z is not referenced.

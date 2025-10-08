@@ -1,6 +1,5 @@
 ```fortran
-subroutine clarnv
-(
+subroutine clarnv (
         integer idist,
         integer, dimension( 4 ) iseed,
         integer n,

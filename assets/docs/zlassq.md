@@ -1,6 +1,5 @@
 ```fortran
-subroutine zlassq
-(
+subroutine zlassq (
         integer n,
         complex(wp), dimension(*) x,
         integer incx,
@@ -11,9 +10,9 @@ subroutine zlassq
 
 ZLASSQ returns the values scale_out and sumsq_out such that
 
-(scale_out**2)*sumsq_out = x( 1 )**2 +...+ x( n )**2 + (scale**2)*sumsq,
+(scale_out\*\*2)\*sumsq_out = x( 1 )\*\*2 +...+ x( n )\*\*2 + (scale\*\*2)\*sumsq,
 
-where x( i ) = X( 1 + ( i - 1 )*INCX ). The value of sumsq is
+where x( i ) = X( 1 + ( i - 1 )\*INCX ). The value of sumsq is
 assumed to be non-negative.
 
 scale and sumsq must be supplied in SCALE and SUMSQ and
@@ -23,14 +22,14 @@ scale_out and sumsq_out are overwritten on SCALE and SUMSQ respectively.
 N : INTEGER [in]
 > The number of elements to be used from the vector x.
 
-X : DOUBLE COMPLEX array, dimension (1+(N-1)*abs(INCX)) [in]
+X : DOUBLE COMPLEX array, dimension (1+(N-1)\*abs(INCX)) [in]
 > The vector for which a scaled sum of squares is computed.
-> x( i ) = X( 1 + ( i - 1 )*INCX ), 1 <= i <= n.
+> x( i ) = X( 1 + ( i - 1 )\*INCX ), 1 <= i <= n.
 
 INCX : INTEGER [in]
 > The increment between successive values of the vector x.
-> If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
-> If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
+> If INCX > 0, X(1+(i-1)\*INCX) = x(i) for 1 <= i <= n
+> If INCX < 0, X(1-(n-i)\*INCX) = x(i) for 1 <= i <= n
 > If INCX = 0, x isn't a vector so there is no need to call
 > this subroutine. If you call it anyway, it will count x(1)
 > in the vector norm N times.

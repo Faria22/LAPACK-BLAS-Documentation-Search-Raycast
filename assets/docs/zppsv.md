@@ -1,6 +1,5 @@
 ```fortran
-subroutine zppsv
-(
+subroutine zppsv (
         character uplo,
         integer n,
         integer nrhs,
@@ -12,19 +11,19 @@ subroutine zppsv
 ```
 
 ZPPSV computes the solution to a complex system of linear equations
-A * X = B,
+A \* X = B,
 where A is an N-by-N Hermitian positive definite matrix stored in
 packed format and X and B are N-by-NRHS matrices.
 
 The Cholesky decomposition is used to factor A as
-A = U**H * U,  if UPLO = 'U', or
-A = L * L**H,  if UPLO = 'L',
+A = U\*\*H \* U,  if UPLO = 'U', or
+A = L \* L\*\*H,  if UPLO = 'L',
 where U is an upper triangular matrix and L is a lower triangular
 matrix.  The factored form of A is then used to solve the system of
-equations A * X = B.
+equations A \* X = B.
 
 ## Parameters
-UPLO : CHARACTER*1 [in]
+UPLO : CHARACTER\*1 [in]
 > = 'U':  Upper triangle of A is stored;
 > = 'L':  Lower triangle of A is stored.
 
@@ -36,19 +35,19 @@ NRHS : INTEGER [in]
 > The number of right hand sides, i.e., the number of columns
 > of the matrix B.  NRHS >= 0.
 
-AP : COMPLEX*16 array, dimension (N*(N+1)/2) [in,out]
+AP : COMPLEX\*16 array, dimension (N\*(N+1)/2) [in,out]
 > On entry, the upper or lower triangle of the Hermitian matrix
 > A, packed columnwise in a linear array.  The j-th column of A
 > is stored in the array AP as follows:
-> if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
-> if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+> if UPLO = 'U', AP(i + (j-1)\*j/2) = A(i,j) for 1<=i<=j;
+> if UPLO = 'L', AP(i + (j-1)\*(2n-j)/2) = A(i,j) for j<=i<=n.
 > See below for further details.
 > 
 > On exit, if INFO = 0, the factor U or L from the Cholesky
-> factorization A = U**H*U or A = L*L**H, in the same storage
+> factorization A = U\*\*H\*U or A = L\*L\*\*H, in the same storage
 > format as A.
 
-B : COMPLEX*16 array, dimension (LDB,NRHS) [in,out]
+B : COMPLEX\*16 array, dimension (LDB,NRHS) [in,out]
 > On entry, the N-by-NRHS right hand side matrix B.
 > On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
