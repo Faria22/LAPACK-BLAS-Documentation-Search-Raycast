@@ -1,10 +1,11 @@
 ```fortran
-complex*16 function zdotu (
-		integer n,
-		complex*16, dimension(*) zx,
-		integer incx,
-		complex*16, dimension(*) zy,
-		integer incy
+complex*16 function zdotu
+(
+        integer n,
+        complex*16, dimension(*) zx,
+        integer incx,
+        complex*16, dimension(*) zy,
+        integer incy
 )
 ```
 

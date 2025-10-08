@@ -1,11 +1,12 @@
 ```fortran
-real function clanhf (
-		character norm,
-		character transr,
-		character uplo,
-		integer n,
-		complex, dimension( 0: * ) a,
-		real, dimension( 0: * ) work
+real function clanhf
+(
+        character norm,
+        character transr,
+        character uplo,
+        integer n,
+        complex, dimension( 0: * ) a,
+        real, dimension( 0: * ) work
 )
 ```
 

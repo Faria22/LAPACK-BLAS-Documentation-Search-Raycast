@@ -1,9 +1,10 @@
 ```fortran
-subroutine crotg (
-		complex(wp) a,
-		complex(wp) b,
-		real(wp) c,
-		complex(wp) s
+subroutine crotg
+(
+        complex(wp) a,
+        complex(wp) b,
+        real(wp) c,
+        complex(wp) s
 )
 ```
 

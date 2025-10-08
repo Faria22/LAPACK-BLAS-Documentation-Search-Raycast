@@ -1,13 +1,14 @@
 ```fortran
-real function slantr (
-		character norm,
-		character uplo,
-		character diag,
-		integer m,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function slantr
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer m,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

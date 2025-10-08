@@ -1,11 +1,12 @@
 ```fortran
-recursive subroutine cgetrf2 (
-		integer m,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		integer, dimension( * ) ipiv,
-		integer info
+recursive subroutine cgetrf2
+(
+        integer m,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        integer, dimension( * ) ipiv,
+        integer info
 )
 ```
 

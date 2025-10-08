@@ -1,9 +1,10 @@
 ```fortran
-subroutine srotg (
-		real(wp) a,
-		real(wp) b,
-		real(wp) c,
-		real(wp) s
+subroutine srotg
+(
+        real(wp) a,
+        real(wp) b,
+        real(wp) c,
+        real(wp) s
 )
 ```
 

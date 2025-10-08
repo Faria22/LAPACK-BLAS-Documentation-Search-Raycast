@@ -1,13 +1,14 @@
 ```fortran
-real function cla_gbrpvgrw (
-		integer n,
-		integer kl,
-		integer ku,
-		integer ncols,
-		complex, dimension( ldab, * ) ab,
-		integer ldab,
-		complex, dimension( ldafb, * ) afb,
-		integer ldafb
+real function cla_gbrpvgrw
+(
+        integer n,
+        integer kl,
+        integer ku,
+        integer ncols,
+        complex, dimension( ldab, * ) ab,
+        integer ldab,
+        complex, dimension( ldafb, * ) afb,
+        integer ldafb
 )
 ```
 

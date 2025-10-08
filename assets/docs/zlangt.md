@@ -1,10 +1,11 @@
 ```fortran
-double precision function zlangt (
-		character norm,
-		integer n,
-		complex*16, dimension( * ) dl,
-		complex*16, dimension( * ) d,
-		complex*16, dimension( * ) du
+double precision function zlangt
+(
+        character norm,
+        integer n,
+        complex*16, dimension( * ) dl,
+        complex*16, dimension( * ) d,
+        complex*16, dimension( * ) du
 )
 ```
 

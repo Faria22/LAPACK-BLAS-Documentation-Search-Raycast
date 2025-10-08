@@ -1,8 +1,9 @@
 ```fortran
-double precision function dlarmm (
-		double precision anorm,
-		double precision bnorm,
-		double precision cnorm
+double precision function dlarmm
+(
+        double precision anorm,
+        double precision bnorm,
+        double precision cnorm
 )
 ```
 

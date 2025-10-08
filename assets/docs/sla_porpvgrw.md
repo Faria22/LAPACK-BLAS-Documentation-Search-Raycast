@@ -1,12 +1,13 @@
 ```fortran
-real function sla_porpvgrw (
-		character*1 uplo,
-		integer ncols,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( ldaf, * ) af,
-		integer ldaf,
-		real, dimension( * ) work
+real function sla_porpvgrw
+(
+        character*1 uplo,
+        integer ncols,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( ldaf, * ) af,
+        integer ldaf,
+        real, dimension( * ) work
 )
 ```
 

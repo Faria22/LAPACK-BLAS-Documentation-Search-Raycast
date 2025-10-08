@@ -1,6 +1,7 @@
 ```fortran
-real function slamch (
-		character cmach
+real function slamch
+(
+        character cmach
 )
 ```
 

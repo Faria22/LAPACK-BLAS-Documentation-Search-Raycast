@@ -1,12 +1,13 @@
 ```fortran
-double precision function dlansb (
-		character norm,
-		character uplo,
-		integer n,
-		integer k,
-		double precision, dimension( ldab, * ) ab,
-		integer ldab,
-		double precision, dimension( * ) work
+double precision function dlansb
+(
+        character norm,
+        character uplo,
+        integer n,
+        integer k,
+        double precision, dimension( ldab, * ) ab,
+        integer ldab,
+        double precision, dimension( * ) work
 )
 ```
 

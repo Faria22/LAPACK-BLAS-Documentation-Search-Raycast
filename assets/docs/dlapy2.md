@@ -1,7 +1,8 @@
 ```fortran
-double precision function dlapy2 (
-		double precision x,
-		double precision y
+double precision function dlapy2
+(
+        double precision x,
+        double precision y
 )
 ```
 

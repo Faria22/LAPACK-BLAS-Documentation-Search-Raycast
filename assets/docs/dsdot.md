@@ -1,10 +1,11 @@
 ```fortran
-double precision function dsdot (
-		integer n,
-		real, dimension(*) sx,
-		integer incx,
-		real, dimension(*) sy,
-		integer incy
+double precision function dsdot
+(
+        integer n,
+        real, dimension(*) sx,
+        integer incx,
+        real, dimension(*) sy,
+        integer incy
 )
 ```
 

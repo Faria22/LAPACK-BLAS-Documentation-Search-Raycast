@@ -1,11 +1,11 @@
 # LAPACK/BLAS Routine Index  
   
-This directory contains markdown documentation for 2,005 LAPACK and BLAS routines.  
+This directory contains markdown documentation for 2,178 LAPACK and BLAS routines.  
   
 ## Coverage  
   
-- **LAPACK routines**: 1,873 routines  
-- **BLAS routines**: 132 routines (Level 1, 2, and 3)  
+- **LAPACK routines**: 2,018 routines  
+- **BLAS routines**: 160 routines (Level 1, 2, and 3)  
   
 ## Naming Convention  
   

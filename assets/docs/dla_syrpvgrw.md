@@ -1,14 +1,15 @@
 ```fortran
-double precision function dla_syrpvgrw (
-		character*1 uplo,
-		integer n,
-		integer info,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		double precision, dimension( * ) work
+double precision function dla_syrpvgrw
+(
+        character*1 uplo,
+        integer n,
+        integer info,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        double precision, dimension( * ) work
 )
 ```
 

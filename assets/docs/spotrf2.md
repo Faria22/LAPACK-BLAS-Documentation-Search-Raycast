@@ -1,10 +1,11 @@
 ```fortran
-recursive subroutine spotrf2 (
-		character uplo,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		integer info
+recursive subroutine spotrf2
+(
+        character uplo,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        integer info
 )
 ```
 

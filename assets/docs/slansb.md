@@ -1,12 +1,13 @@
 ```fortran
-real function slansb (
-		character norm,
-		character uplo,
-		integer n,
-		integer k,
-		real, dimension( ldab, * ) ab,
-		integer ldab,
-		real, dimension( * ) work
+real function slansb
+(
+        character norm,
+        character uplo,
+        integer n,
+        integer k,
+        real, dimension( ldab, * ) ab,
+        integer ldab,
+        real, dimension( * ) work
 )
 ```
 

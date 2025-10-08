@@ -1,10 +1,11 @@
 ```fortran
-subroutine dlartg (
-		real(wp) f,
-		real(wp) g,
-		real(wp) c,
-		real(wp) s,
-		real(wp) r
+subroutine dlartg
+(
+        real(wp) f,
+        real(wp) g,
+        real(wp) c,
+        real(wp) s,
+        real(wp) r
 )
 ```
 

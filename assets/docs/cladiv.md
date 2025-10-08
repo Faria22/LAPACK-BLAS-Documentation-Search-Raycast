@@ -1,7 +1,8 @@
 ```fortran
-complex function cladiv (
-		complex x,
-		complex y
+complex function cladiv
+(
+        complex x,
+        complex y
 )
 ```
 

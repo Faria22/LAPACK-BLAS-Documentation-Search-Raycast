@@ -1,10 +1,11 @@
 ```fortran
-subroutine dlassq (
-		integer n,
-		real(wp), dimension(*) x,
-		integer incx,
-		real(wp) scale,
-		real(wp) sumsq
+subroutine dlassq
+(
+        integer n,
+        real(wp), dimension(*) x,
+        integer incx,
+        real(wp) scale,
+        real(wp) sumsq
 )
 ```
 

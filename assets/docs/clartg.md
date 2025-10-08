@@ -1,10 +1,11 @@
 ```fortran
-subroutine clartg (
-		complex(wp) f,
-		complex(wp) g,
-		real(wp) c,
-		complex(wp) s,
-		complex(wp) r
+subroutine clartg
+(
+        complex(wp) f,
+        complex(wp) g,
+        real(wp) c,
+        complex(wp) s,
+        complex(wp) r
 )
 ```
 

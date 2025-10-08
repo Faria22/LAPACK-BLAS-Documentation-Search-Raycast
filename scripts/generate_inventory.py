@@ -105,12 +105,9 @@ def derive_group_path(href: str) -> str:
     return f"{directory}/{group_filename}" if directory else group_filename
 
 
-def ensure_markdown(routine: RoutineMeta, docs_dir: Path) -> Path:
-    """Generate markdown documentation for a routine if it does not already exist."""
+def write_markdown(routine: RoutineMeta, docs_dir: Path) -> Path:
+    """Generate markdown documentation for a routine, overwriting existing content."""
     doc_path = docs_dir / f"{routine.name}.md"
-    if doc_path.exists():
-        return doc_path
-
     html = fetch(routine.href)
     soup = BeautifulSoup(html, "html.parser")
     markdown = render_markdown(routine.name, soup)
@@ -132,11 +129,12 @@ def render_markdown(name: str, soup: BeautifulSoup) -> str:
 
     lines: List[str] = []
     lines.append("```fortran")
-    lines.append(f"{return_line} (")
+    lines.append(f"{return_line}")
+    lines.append("(")
     if params:
         for idx, (ptype, pname) in enumerate(params):
             suffix = "," if idx < len(params) - 1 else ""
-            lines.append(f"\t\t{ptype} {pname}{suffix}")
+            lines.append(f"        {ptype} {pname}{suffix}")
     lines.append(")")
     lines.append("```")
     lines.append("")
@@ -150,7 +148,8 @@ def render_markdown(name: str, soup: BeautifulSoup) -> str:
     if param_docs:
         lines.append("## Parameters")
         for entry in param_docs:
-            header = f"{entry['name']} : {entry['type']} [{entry['direction']}]".rstrip()
+            type_part = f" : {entry['type']}" if entry['type'] else ""
+            header = f"{entry['name']}{type_part} [{entry['direction']}]".rstrip()
             lines.append(header)
             for detail in entry["details"]:
                 lines.append(f"> {detail}")
@@ -322,18 +321,12 @@ def main() -> None:
 
     routines = collect_routines()
 
-    existing_docs = {path.stem.lower() for path in DOCS_DIR.glob("*.md") if path.name.lower() != "readme.md"}
-    missing_names = sorted(name for name in routines if name not in existing_docs)
-
-    if missing_names:
-        print(f"Generating markdown for {len(missing_names)} routines...")
-        for idx, name in enumerate(missing_names, 1):
-            meta = routines[name]
-            ensure_markdown(meta, DOCS_DIR)
-            if idx % 25 == 0 or idx == len(missing_names):
-                print(f"  -> {idx}/{len(missing_names)} completed")
-    else:
-        print("No missing markdown files detected.")
+    print(f"Generating markdown for {len(routines)} routines...")
+    for idx, name in enumerate(sorted(routines.keys()), 1):
+        meta = routines[name]
+        write_markdown(meta, DOCS_DIR)
+        if idx % 100 == 0 or idx == len(routines):
+            print(f"  -> {idx}/{len(routines)} completed")
 
     inventory = build_inventory(routines)
     INVENTORY_PATH.write_text(json.dumps(inventory, indent=2), encoding="utf-8")

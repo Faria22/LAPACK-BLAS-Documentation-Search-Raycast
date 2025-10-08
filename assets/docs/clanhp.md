@@ -1,10 +1,11 @@
 ```fortran
-real function clanhp (
-		character norm,
-		character uplo,
-		integer n,
-		complex, dimension( * ) ap,
-		real, dimension( * ) work
+real function clanhp
+(
+        character norm,
+        character uplo,
+        integer n,
+        complex, dimension( * ) ap,
+        real, dimension( * ) work
 )
 ```
 

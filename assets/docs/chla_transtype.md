@@ -1,6 +1,7 @@
 ```fortran
-character*1 function chla_transtype (
-		integer trans
+character*1 function chla_transtype
+(
+        integer trans
 )
 ```
 

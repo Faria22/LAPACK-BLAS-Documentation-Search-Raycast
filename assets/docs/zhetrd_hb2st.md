@@ -1,19 +1,20 @@
 ```fortran
-subroutine zhetrd_hb2st (
-		character stage1,
-		character vect,
-		character uplo,
-		integer n,
-		integer kd,
-		complex*16, dimension( ldab, * ) ab,
-		integer ldab,
-		double precision, dimension( * ) d,
-		double precision, dimension( * ) e,
-		complex*16, dimension( * ) hous,
-		integer lhous,
-		complex*16, dimension( * ) work,
-		integer lwork,
-		integer info
+subroutine zhetrd_hb2st
+(
+        character stage1,
+        character vect,
+        character uplo,
+        integer n,
+        integer kd,
+        complex*16, dimension( ldab, * ) ab,
+        integer ldab,
+        double precision, dimension( * ) d,
+        double precision, dimension( * ) e,
+        complex*16, dimension( * ) hous,
+        integer lhous,
+        complex*16, dimension( * ) work,
+        integer lwork,
+        integer info
 )
 ```
 

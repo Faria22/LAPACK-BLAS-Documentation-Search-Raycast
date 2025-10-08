@@ -1,11 +1,12 @@
 ```fortran
-real function slansf (
-		character norm,
-		character transr,
-		character uplo,
-		integer n,
-		real, dimension( 0: * ) a,
-		real, dimension( 0: * ) work
+real function slansf
+(
+        character norm,
+        character transr,
+        character uplo,
+        integer n,
+        real, dimension( 0: * ) a,
+        real, dimension( 0: * ) work
 )
 ```
 

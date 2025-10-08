@@ -1,10 +1,11 @@
 ```fortran
-real function slanhs (
-		character norm,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function slanhs
+(
+        character norm,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

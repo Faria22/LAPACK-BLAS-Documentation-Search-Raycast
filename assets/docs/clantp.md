@@ -1,11 +1,12 @@
 ```fortran
-real function clantp (
-		character norm,
-		character uplo,
-		character diag,
-		integer n,
-		complex, dimension( * ) ap,
-		real, dimension( * ) work
+real function clantp
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer n,
+        complex, dimension( * ) ap,
+        real, dimension( * ) work
 )
 ```
 

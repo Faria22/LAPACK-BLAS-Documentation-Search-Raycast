@@ -1,10 +1,11 @@
 ```fortran
-real function clansp (
-		character norm,
-		character uplo,
-		integer n,
-		complex, dimension( * ) ap,
-		real, dimension( * ) work
+real function clansp
+(
+        character norm,
+        character uplo,
+        integer n,
+        complex, dimension( * ) ap,
+        real, dimension( * ) work
 )
 ```
 

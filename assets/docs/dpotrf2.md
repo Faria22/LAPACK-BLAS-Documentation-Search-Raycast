@@ -1,10 +1,11 @@
 ```fortran
-recursive subroutine dpotrf2 (
-		character uplo,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		integer info
+recursive subroutine dpotrf2
+(
+        character uplo,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        integer info
 )
 ```
 

@@ -1,12 +1,13 @@
 ```fortran
-recursive subroutine zgeqrt3 (
-		integer m,
-		integer n,
-		complex*16, dimension( lda, * ) a,
-		integer lda,
-		complex*16, dimension( ldt, * ) t,
-		integer ldt,
-		integer info
+recursive subroutine zgeqrt3
+(
+        integer m,
+        integer n,
+        complex*16, dimension( lda, * ) a,
+        integer lda,
+        complex*16, dimension( ldt, * ) t,
+        integer ldt,
+        integer info
 )
 ```
 

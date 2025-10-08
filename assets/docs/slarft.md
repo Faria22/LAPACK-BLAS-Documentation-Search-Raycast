@@ -1,14 +1,15 @@
 ```fortran
-recursive subroutine slarft (
-		character direct,
-		character storev,
-		integer n,
-		integer k,
-		real, dimension( ldv, * ) v,
-		integer ldv,
-		real, dimension( * ) tau,
-		real, dimension( ldt, * ) t,
-		integer ldt
+recursive subroutine slarft
+(
+        character direct,
+        character storev,
+        integer n,
+        integer k,
+        real, dimension( ldv, * ) v,
+        integer ldv,
+        real, dimension( * ) tau,
+        real, dimension( ldt, * ) t,
+        integer ldt
 )
 ```
 

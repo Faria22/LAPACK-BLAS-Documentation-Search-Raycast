@@ -1,8 +1,9 @@
 ```fortran
-double precision function dzasum (
-		integer n,
-		complex*16, dimension(*) zx,
-		integer incx
+double precision function dzasum
+(
+        integer n,
+        complex*16, dimension(*) zx,
+        integer incx
 )
 ```
 

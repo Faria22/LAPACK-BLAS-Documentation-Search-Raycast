@@ -1,14 +1,15 @@
 ```fortran
-real function sla_syrpvgrw (
-		character*1 uplo,
-		integer n,
-		integer info,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		real, dimension( * ) work
+real function sla_syrpvgrw
+(
+        character*1 uplo,
+        integer n,
+        integer info,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        real, dimension( * ) work
 )
 ```
 

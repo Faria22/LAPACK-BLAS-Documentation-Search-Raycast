@@ -1,11 +1,12 @@
 ```fortran
-real function sla_gerpvgrw (
-		integer n,
-		integer ncols,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( ldaf, * ) af,
-		integer ldaf
+real function sla_gerpvgrw
+(
+        integer n,
+        integer ncols,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( ldaf, * ) af,
+        integer ldaf
 )
 ```
 

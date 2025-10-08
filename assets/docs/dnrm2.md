@@ -1,8 +1,9 @@
 ```fortran
-real(wp) function dnrm2 (
-		integer n,
-		real(wp), dimension(*) x,
-		integer incx
+real(wp) function dnrm2
+(
+        integer n,
+        real(wp), dimension(*) x,
+        integer incx
 )
 ```
 

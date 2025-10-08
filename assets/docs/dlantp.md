@@ -1,11 +1,12 @@
 ```fortran
-double precision function dlantp (
-		character norm,
-		character uplo,
-		character diag,
-		integer n,
-		double precision, dimension( * ) ap,
-		double precision, dimension( * ) work
+double precision function dlantp
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer n,
+        double precision, dimension( * ) ap,
+        double precision, dimension( * ) work
 )
 ```
 

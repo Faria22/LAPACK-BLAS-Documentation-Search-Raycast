@@ -1,8 +1,9 @@
 ```fortran
-real function slarmm (
-		real anorm,
-		real bnorm,
-		real cnorm
+real function slarmm
+(
+        real anorm,
+        real bnorm,
+        real cnorm
 )
 ```
 

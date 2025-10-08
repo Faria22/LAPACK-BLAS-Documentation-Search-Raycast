@@ -4,8 +4,11 @@
 
 ### Added
 - Scripted Netlib synchronization (`scripts/generate_inventory.py`) to backfill markdown docs and rebuild metadata.
-- 200 missing routine markdown files generated directly from official documentation (e.g., `ddot`, `cdotc`, `sdsdot`).
+- Regenerated every routine markdown file directly from the official Netlib documentation (e.g., `dgemm`, `ddot`, `cdotc`) with consistent signature formatting.
 - Expanded inventory to 2,178 LAPACK/BLAS routines with official URLs, categories, and summaries sourced from Netlib.
+
+### Changed
+- Removed legacy markdown files for routines not present in the official Netlib topics index to keep the dataset aligned.
 
 ## [Initial Version] - 2025-01-07
 

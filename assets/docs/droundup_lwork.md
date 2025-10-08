@@ -1,6 +1,7 @@
 ```fortran
-double precision function droundup_lwork (
-		integer lwork
+double precision function droundup_lwork
+(
+        integer lwork
 )
 ```
 

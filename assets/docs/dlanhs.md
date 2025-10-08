@@ -1,10 +1,11 @@
 ```fortran
-double precision function dlanhs (
-		character norm,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( * ) work
+double precision function dlanhs
+(
+        character norm,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( * ) work
 )
 ```
 

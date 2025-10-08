@@ -1,7 +1,8 @@
 ```fortran
-complex*16 function zladiv (
-		complex*16 x,
-		complex*16 y
+complex*16 function zladiv
+(
+        complex*16 x,
+        complex*16 y
 )
 ```
 

@@ -1,11 +1,12 @@
 ```fortran
-integer function dlaneg (
-		integer n,
-		double precision, dimension( * ) d,
-		double precision, dimension( * ) lld,
-		double precision sigma,
-		double precision pivmin,
-		integer r
+integer function dlaneg
+(
+        integer n,
+        double precision, dimension( * ) d,
+        double precision, dimension( * ) lld,
+        double precision sigma,
+        double precision pivmin,
+        integer r
 )
 ```
 

@@ -1,8 +1,9 @@
 ```fortran
-real(wp) function scnrm2 (
-		integer n,
-		complex(wp), dimension(*) x,
-		integer incx
+real(wp) function scnrm2
+(
+        integer n,
+        complex(wp), dimension(*) x,
+        integer incx
 )
 ```
 

@@ -1,5 +1,6 @@
 ```fortran
-real function second (
+real function second
+(
 )
 ```
 

@@ -1,8 +1,9 @@
 ```fortran
-real function sasum (
-		integer n,
-		real, dimension(*) sx,
-		integer incx
+real function sasum
+(
+        integer n,
+        real, dimension(*) sx,
+        integer incx
 )
 ```
 

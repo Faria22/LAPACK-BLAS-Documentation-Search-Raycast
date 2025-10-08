@@ -1,19 +1,20 @@
 ```fortran
-real function sla_gbrcond (
-		character trans,
-		integer n,
-		integer kl,
-		integer ku,
-		real, dimension( ldab, * ) ab,
-		integer ldab,
-		real, dimension( ldafb, * ) afb,
-		integer ldafb,
-		integer, dimension( * ) ipiv,
-		integer cmode,
-		real, dimension( * ) c,
-		integer info,
-		real, dimension( * ) work,
-		integer, dimension( * ) iwork
+real function sla_gbrcond
+(
+        character trans,
+        integer n,
+        integer kl,
+        integer ku,
+        real, dimension( ldab, * ) ab,
+        integer ldab,
+        real, dimension( ldafb, * ) afb,
+        integer ldafb,
+        integer, dimension( * ) ipiv,
+        integer cmode,
+        real, dimension( * ) c,
+        integer info,
+        real, dimension( * ) work,
+        integer, dimension( * ) iwork
 )
 ```
 

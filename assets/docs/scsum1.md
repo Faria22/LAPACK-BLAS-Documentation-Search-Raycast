@@ -1,8 +1,9 @@
 ```fortran
-real function scsum1 (
-		integer n,
-		complex, dimension( * ) cx,
-		integer incx
+real function scsum1
+(
+        integer n,
+        complex, dimension( * ) cx,
+        integer incx
 )
 ```
 

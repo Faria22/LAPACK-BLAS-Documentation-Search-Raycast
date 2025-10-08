@@ -1,19 +1,20 @@
 ```fortran
-subroutine dsytrd_sb2st (
-		character stage1,
-		character vect,
-		character uplo,
-		integer n,
-		integer kd,
-		double precision, dimension( ldab, * ) ab,
-		integer ldab,
-		double precision, dimension( * ) d,
-		double precision, dimension( * ) e,
-		double precision, dimension( * ) hous,
-		integer lhous,
-		double precision, dimension( * ) work,
-		integer lwork,
-		integer info
+subroutine dsytrd_sb2st
+(
+        character stage1,
+        character vect,
+        character uplo,
+        integer n,
+        integer kd,
+        double precision, dimension( ldab, * ) ab,
+        integer ldab,
+        double precision, dimension( * ) d,
+        double precision, dimension( * ) e,
+        double precision, dimension( * ) hous,
+        integer lhous,
+        double precision, dimension( * ) work,
+        integer lwork,
+        integer info
 )
 ```
 

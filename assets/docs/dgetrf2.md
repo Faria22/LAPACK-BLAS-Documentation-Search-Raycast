@@ -1,11 +1,12 @@
 ```fortran
-recursive subroutine dgetrf2 (
-		integer m,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		integer, dimension( * ) ipiv,
-		integer info
+recursive subroutine dgetrf2
+(
+        integer m,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        integer, dimension( * ) ipiv,
+        integer info
 )
 ```
 

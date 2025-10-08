@@ -1,14 +1,15 @@
 ```fortran
-real function cla_herpvgrw (
-		character*1 uplo,
-		integer n,
-		integer info,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		complex, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		real, dimension( * ) work
+real function cla_herpvgrw
+(
+        character*1 uplo,
+        integer n,
+        integer info,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        complex, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        real, dimension( * ) work
 )
 ```
 

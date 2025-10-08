@@ -1,12 +1,13 @@
 ```fortran
-real function clanhb (
-		character norm,
-		character uplo,
-		integer n,
-		integer k,
-		complex, dimension( ldab, * ) ab,
-		integer ldab,
-		real, dimension( * ) work
+real function clanhb
+(
+        character norm,
+        character uplo,
+        integer n,
+        integer k,
+        complex, dimension( ldab, * ) ab,
+        integer ldab,
+        real, dimension( * ) work
 )
 ```
 

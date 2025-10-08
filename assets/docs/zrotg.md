@@ -1,9 +1,10 @@
 ```fortran
-subroutine zrotg (
-		complex(wp) a,
-		complex(wp) b,
-		real(wp) c,
-		complex(wp) s
+subroutine zrotg
+(
+        complex(wp) a,
+        complex(wp) b,
+        real(wp) c,
+        complex(wp) s
 )
 ```
 

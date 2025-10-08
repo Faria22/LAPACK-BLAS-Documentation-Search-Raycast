@@ -1,10 +1,11 @@
 ```fortran
-complex function cdotc (
-		integer n,
-		complex, dimension(*) cx,
-		integer incx,
-		complex, dimension(*) cy,
-		integer incy
+complex function cdotc
+(
+        integer n,
+        complex, dimension(*) cx,
+        integer incx,
+        complex, dimension(*) cy,
+        integer incy
 )
 ```
 

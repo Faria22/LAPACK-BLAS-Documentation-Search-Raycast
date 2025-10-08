@@ -1,6 +1,7 @@
 ```fortran
-logical function sisnan (
-		real, intent(in) sin
+logical function sisnan
+(
+        real, intent(in) sin
 )
 ```
 

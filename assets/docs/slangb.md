@@ -1,12 +1,13 @@
 ```fortran
-real function slangb (
-		character norm,
-		integer n,
-		integer kl,
-		integer ku,
-		real, dimension( ldab, * ) ab,
-		integer ldab,
-		real, dimension( * ) work
+real function slangb
+(
+        character norm,
+        integer n,
+        integer kl,
+        integer ku,
+        real, dimension( ldab, * ) ab,
+        integer ldab,
+        real, dimension( * ) work
 )
 ```
 

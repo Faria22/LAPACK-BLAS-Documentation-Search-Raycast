@@ -1,11 +1,12 @@
 ```fortran
-real function slamc3 (
-		real a,
-		real b
+real function slamc3
+(
+        real a,
+        real b
 )
 ```
 
 ## Parameters
-A :  [in]
+A [in]
 
 B : The values A and B. [in]

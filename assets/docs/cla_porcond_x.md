@@ -1,15 +1,16 @@
 ```fortran
-real function cla_porcond_x (
-		character uplo,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		complex, dimension( ldaf, * ) af,
-		integer ldaf,
-		complex, dimension( * ) x,
-		integer info,
-		complex, dimension( * ) work,
-		real, dimension( * ) rwork
+real function cla_porcond_x
+(
+        character uplo,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        complex, dimension( ldaf, * ) af,
+        integer ldaf,
+        complex, dimension( * ) x,
+        integer info,
+        complex, dimension( * ) work,
+        real, dimension( * ) rwork
 )
 ```
 

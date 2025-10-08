@@ -1,16 +1,17 @@
 ```fortran
-double precision function zla_gercond_x (
-		character trans,
-		integer n,
-		complex*16, dimension( lda, * ) a,
-		integer lda,
-		complex*16, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		complex*16, dimension( * ) x,
-		integer info,
-		complex*16, dimension( * ) work,
-		double precision, dimension( * ) rwork
+double precision function zla_gercond_x
+(
+        character trans,
+        integer n,
+        complex*16, dimension( lda, * ) a,
+        integer lda,
+        complex*16, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        complex*16, dimension( * ) x,
+        integer info,
+        complex*16, dimension( * ) work,
+        double precision, dimension( * ) rwork
 )
 ```
 

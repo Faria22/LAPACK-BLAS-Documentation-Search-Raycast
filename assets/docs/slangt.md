@@ -1,10 +1,11 @@
 ```fortran
-real function slangt (
-		character norm,
-		integer n,
-		real, dimension( * ) dl,
-		real, dimension( * ) d,
-		real, dimension( * ) du
+real function slangt
+(
+        character norm,
+        integer n,
+        real, dimension( * ) dl,
+        real, dimension( * ) d,
+        real, dimension( * ) du
 )
 ```
 

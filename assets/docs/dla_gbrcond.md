@@ -1,19 +1,20 @@
 ```fortran
-double precision function dla_gbrcond (
-		character trans,
-		integer n,
-		integer kl,
-		integer ku,
-		double precision, dimension( ldab, * ) ab,
-		integer ldab,
-		double precision, dimension( ldafb, * ) afb,
-		integer ldafb,
-		integer, dimension( * ) ipiv,
-		integer cmode,
-		double precision, dimension( * ) c,
-		integer info,
-		double precision, dimension( * ) work,
-		integer, dimension( * ) iwork
+double precision function dla_gbrcond
+(
+        character trans,
+        integer n,
+        integer kl,
+        integer ku,
+        double precision, dimension( ldab, * ) ab,
+        integer ldab,
+        double precision, dimension( ldafb, * ) afb,
+        integer ldafb,
+        integer, dimension( * ) ipiv,
+        integer cmode,
+        double precision, dimension( * ) c,
+        integer info,
+        double precision, dimension( * ) work,
+        integer, dimension( * ) iwork
 )
 ```
 

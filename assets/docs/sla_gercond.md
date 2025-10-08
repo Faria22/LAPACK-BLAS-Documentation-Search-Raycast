@@ -1,17 +1,18 @@
 ```fortran
-real function sla_gercond (
-		character trans,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		integer cmode,
-		real, dimension( * ) c,
-		integer info,
-		real, dimension( * ) work,
-		integer, dimension( * ) iwork
+real function sla_gercond
+(
+        character trans,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        integer cmode,
+        real, dimension( * ) c,
+        integer info,
+        real, dimension( * ) work,
+        integer, dimension( * ) iwork
 )
 ```
 

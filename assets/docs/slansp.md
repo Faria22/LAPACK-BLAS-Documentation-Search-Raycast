@@ -1,10 +1,11 @@
 ```fortran
-real function slansp (
-		character norm,
-		character uplo,
-		integer n,
-		real, dimension( * ) ap,
-		real, dimension( * ) work
+real function slansp
+(
+        character norm,
+        character uplo,
+        integer n,
+        real, dimension( * ) ap,
+        real, dimension( * ) work
 )
 ```
 

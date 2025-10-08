@@ -1,11 +1,12 @@
 ```fortran
-double precision function dlansy (
-		character norm,
-		character uplo,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( * ) work
+double precision function dlansy
+(
+        character norm,
+        character uplo,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( * ) work
 )
 ```
 

@@ -1,11 +1,12 @@
 ```fortran
-real function slantp (
-		character norm,
-		character uplo,
-		character diag,
-		integer n,
-		real, dimension( * ) ap,
-		real, dimension( * ) work
+real function slantp
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer n,
+        real, dimension( * ) ap,
+        real, dimension( * ) work
 )
 ```
 

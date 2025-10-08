@@ -1,19 +1,20 @@
 ```fortran
-real function cla_gbrcond_c (
-		character trans,
-		integer n,
-		integer kl,
-		integer ku,
-		complex, dimension( ldab, * ) ab,
-		integer ldab,
-		complex, dimension( ldafb, * ) afb,
-		integer ldafb,
-		integer, dimension( * ) ipiv,
-		real, dimension( * ) c,
-		logical capply,
-		integer info,
-		complex, dimension( * ) work,
-		real, dimension( * ) rwork
+real function cla_gbrcond_c
+(
+        character trans,
+        integer n,
+        integer kl,
+        integer ku,
+        complex, dimension( ldab, * ) ab,
+        integer ldab,
+        complex, dimension( ldafb, * ) afb,
+        integer ldafb,
+        integer, dimension( * ) ipiv,
+        real, dimension( * ) c,
+        logical capply,
+        integer info,
+        complex, dimension( * ) work,
+        real, dimension( * ) rwork
 )
 ```
 

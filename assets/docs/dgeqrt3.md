@@ -1,12 +1,13 @@
 ```fortran
-recursive subroutine dgeqrt3 (
-		integer m,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( ldt, * ) t,
-		integer ldt,
-		integer info
+recursive subroutine dgeqrt3
+(
+        integer m,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( ldt, * ) t,
+        integer ldt,
+        integer info
 )
 ```
 

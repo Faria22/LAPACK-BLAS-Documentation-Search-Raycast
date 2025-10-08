@@ -1,10 +1,11 @@
 ```fortran
-recursive subroutine zpotrf2 (
-		character uplo,
-		integer n,
-		complex*16, dimension( lda, * ) a,
-		integer lda,
-		integer info
+recursive subroutine zpotrf2
+(
+        character uplo,
+        integer n,
+        complex*16, dimension( lda, * ) a,
+        integer lda,
+        integer info
 )
 ```
 

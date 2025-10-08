@@ -1,11 +1,12 @@
 ```fortran
-real function clansy (
-		character norm,
-		character uplo,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function clansy
+(
+        character norm,
+        character uplo,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

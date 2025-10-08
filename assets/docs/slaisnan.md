@@ -1,7 +1,8 @@
 ```fortran
-logical function slaisnan (
-		real, intent(in) sin1,
-		real, intent(in) sin2
+logical function slaisnan
+(
+        real, intent(in) sin1,
+        real, intent(in) sin2
 )
 ```
 

@@ -1,10 +1,11 @@
 ```fortran
-double precision function dlansp (
-		character norm,
-		character uplo,
-		integer n,
-		double precision, dimension( * ) ap,
-		double precision, dimension( * ) work
+double precision function dlansp
+(
+        character norm,
+        character uplo,
+        integer n,
+        double precision, dimension( * ) ap,
+        double precision, dimension( * ) work
 )
 ```
 

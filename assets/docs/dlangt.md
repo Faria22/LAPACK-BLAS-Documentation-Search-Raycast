@@ -1,10 +1,11 @@
 ```fortran
-double precision function dlangt (
-		character norm,
-		integer n,
-		double precision, dimension( * ) dl,
-		double precision, dimension( * ) d,
-		double precision, dimension( * ) du
+double precision function dlangt
+(
+        character norm,
+        integer n,
+        double precision, dimension( * ) dl,
+        double precision, dimension( * ) d,
+        double precision, dimension( * ) du
 )
 ```
 

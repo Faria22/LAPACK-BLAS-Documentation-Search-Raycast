@@ -1,10 +1,11 @@
 ```fortran
-real function sdot (
-		integer n,
-		real, dimension(*) sx,
-		integer incx,
-		real, dimension(*) sy,
-		integer incy
+real function sdot
+(
+        integer n,
+        real, dimension(*) sx,
+        integer incx,
+        real, dimension(*) sy,
+        integer incy
 )
 ```
 

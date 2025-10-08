@@ -4218,7 +4218,7 @@
     "category": "LQ, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d8/d71/group__tplqt2_ga4067ebd31e8444a3356455e1e695ed1a.html#ga4067ebd31e8444a3356455e1e695ed1a",
     "docPath": "ctplqt2.md",
-    "description": "CTPLQT2 computes a LQ a factorization of a complex \"triangular-pentagonal\""
+    "description": "CTPLQT2 computes a LQ a factorization of a complex"
   },
   {
     "id": "ctpmlqt",
@@ -4263,7 +4263,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d47/group__tpqrt2_gaa1e399d218eef2ecfb9da7ecf4187f4a.html#gaa1e399d218eef2ecfb9da7ecf4187f4a",
     "docPath": "ctpqrt2.md",
-    "description": "CTPQRT2 computes a QR factorization of a complex \"triangular-pentagonal\""
+    "description": "CTPQRT2 computes a QR factorization of a complex"
   },
   {
     "id": "ctprfb",
@@ -4272,7 +4272,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/db/d02/group__tprfb_gaf419fbfc638ab85c6ae4528d6275e5ec.html#gaf419fbfc638ab85c6ae4528d6275e5ec",
     "docPath": "ctprfb.md",
-    "description": "CTPRFB applies a complex \"triangular-pentagonal\" block reflector H or its"
+    "description": "CTPRFB applies a complex  block reflector H or its"
   },
   {
     "id": "ctprfs",
@@ -4713,7 +4713,7 @@
     "category": "Generalized eig computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/d1/d74/group__unm22_ga13e21c858927285686af800b242f27aa.html#ga13e21c858927285686af800b242f27aa",
     "docPath": "cunm22.md",
-    "description": "## Parameters"
+    "description": "CUNM22 overwrites the general complex M-by-N matrix C with"
   },
   {
     "id": "cunm2l",
@@ -7764,7 +7764,7 @@
     "category": "Generalized eig computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/d1/d74/group__unm22_gaeff5e0bc5ff6792dd592265025f9bfed.html#gaeff5e0bc5ff6792dd592265025f9bfed",
     "docPath": "dorm22.md",
-    "description": "## Parameters"
+    "description": "DORM22 overwrites the general real M-by-N matrix C with"
   },
   {
     "id": "dorm2l",
@@ -9501,7 +9501,7 @@
     "category": "LQ, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d8/d71/group__tplqt2_ga8164ec0f6e031a9590ca97d87c7b04f8.html#ga8164ec0f6e031a9590ca97d87c7b04f8",
     "docPath": "dtplqt2.md",
-    "description": "DTPLQT2 computes a LQ a factorization of a real \"triangular-pentagonal\""
+    "description": "DTPLQT2 computes a LQ a factorization of a real"
   },
   {
     "id": "dtpmlqt",
@@ -9546,7 +9546,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d47/group__tpqrt2_ga192d68f0c358c5b9d45b0549739d33a5.html#ga192d68f0c358c5b9d45b0549739d33a5",
     "docPath": "dtpqrt2.md",
-    "description": "DTPQRT2 computes a QR factorization of a real \"triangular-pentagonal\""
+    "description": "DTPQRT2 computes a QR factorization of a real"
   },
   {
     "id": "dtprfb",
@@ -9555,7 +9555,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/db/d02/group__tprfb_ga1e0a9ced20e0de82efcec90437f13e94.html#ga1e0a9ced20e0de82efcec90437f13e94",
     "docPath": "dtprfb.md",
-    "description": "DTPRFB applies a real \"triangular-pentagonal\" block reflector H or its"
+    "description": "DTPRFB applies a real  block reflector H or its"
   },
   {
     "id": "dtprfs",
@@ -12741,7 +12741,7 @@
     "category": "Generalized eig computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/d1/d74/group__unm22_ga60e6f45b0d1949df8f2ff1427143642a.html#ga60e6f45b0d1949df8f2ff1427143642a",
     "docPath": "sorm22.md",
-    "description": "## Parameters"
+    "description": "SORM22 overwrites the general real M-by-N matrix C with"
   },
   {
     "id": "sorm2l",
@@ -14442,7 +14442,7 @@
     "category": "LQ, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d8/d71/group__tplqt2_gad9c1355b9029c7e8e3c9d27e5a405b9b.html#gad9c1355b9029c7e8e3c9d27e5a405b9b",
     "docPath": "stplqt2.md",
-    "description": "STPLQT2 computes a LQ a factorization of a real \"triangular-pentagonal\""
+    "description": "STPLQT2 computes a LQ a factorization of a real"
   },
   {
     "id": "stpmlqt",
@@ -14487,7 +14487,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d47/group__tpqrt2_gacef0a90b8f12c23a509d29ae5afc1ade.html#gacef0a90b8f12c23a509d29ae5afc1ade",
     "docPath": "stpqrt2.md",
-    "description": "STPQRT2 computes a QR factorization of a real \"triangular-pentagonal\""
+    "description": "STPQRT2 computes a QR factorization of a real"
   },
   {
     "id": "stprfb",
@@ -14496,7 +14496,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/db/d02/group__tprfb_ga474bb8a2c9a8433639d45bf46a9258ab.html#ga474bb8a2c9a8433639d45bf46a9258ab",
     "docPath": "stprfb.md",
-    "description": "STPRFB applies a real \"triangular-pentagonal\" block reflector H or its"
+    "description": "STPRFB applies a real  block reflector H or its"
   },
   {
     "id": "stprfs",
@@ -18969,7 +18969,7 @@
     "category": "LQ, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d8/d71/group__tplqt2_gad02f9ee5a3d0fc03f0a028efcd57f8e9.html#gad02f9ee5a3d0fc03f0a028efcd57f8e9",
     "docPath": "ztplqt2.md",
-    "description": "ZTPLQT2 computes a LQ a factorization of a complex \"triangular-pentagonal\""
+    "description": "ZTPLQT2 computes a LQ a factorization of a complex"
   },
   {
     "id": "ztpmlqt",
@@ -19014,7 +19014,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/d7/d47/group__tpqrt2_gac527b70aedfec97e30c9659655c2d732.html#gac527b70aedfec97e30c9659655c2d732",
     "docPath": "ztpqrt2.md",
-    "description": "ZTPQRT2 computes a QR factorization of a complex \"triangular-pentagonal\""
+    "description": "ZTPQRT2 computes a QR factorization of a complex"
   },
   {
     "id": "ztprfb",
@@ -19023,7 +19023,7 @@
     "category": "QR, triangular-pentagonal",
     "url": "https://www.netlib.org/lapack/explore-html/db/d02/group__tprfb_ga2a3f5f3d65d4f32567806fd88ffd40ee.html#ga2a3f5f3d65d4f32567806fd88ffd40ee",
     "docPath": "ztprfb.md",
-    "description": "ZTPRFB applies a complex \"triangular-pentagonal\" block reflector H or its"
+    "description": "ZTPRFB applies a complex  block reflector H or its"
   },
   {
     "id": "ztprfs",
@@ -19455,7 +19455,7 @@
     "category": "QR, tall-skinny",
     "url": "https://www.netlib.org/lapack/explore-html/df/dc1/group__unhr__col_ga8b9b4aefd640b5de94201658d1a25dcc.html#ga8b9b4aefd640b5de94201658d1a25dcc",
     "docPath": "zunhr_col.md",
-    "description": "ZUNHR_COL takes an M-by-N complex matrix Q_in with orthonormal columns"
+    "description": ""
   },
   {
     "id": "zunm22",
@@ -19464,7 +19464,7 @@
     "category": "Generalized eig computational routines",
     "url": "https://www.netlib.org/lapack/explore-html/d1/d74/group__unm22_ga63b1341e4667fefc550f00cb06730cd5.html#ga63b1341e4667fefc550f00cb06730cd5",
     "docPath": "zunm22.md",
-    "description": "## Parameters"
+    "description": "ZUNM22 overwrites the general complex M-by-N matrix C with"
   },
   {
     "id": "zunm2l",

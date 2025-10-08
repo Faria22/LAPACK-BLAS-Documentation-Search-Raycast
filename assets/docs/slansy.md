@@ -1,11 +1,12 @@
 ```fortran
-real function slansy (
-		character norm,
-		character uplo,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function slansy
+(
+        character norm,
+        character uplo,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

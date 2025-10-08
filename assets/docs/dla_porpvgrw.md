@@ -1,12 +1,13 @@
 ```fortran
-double precision function dla_porpvgrw (
-		character*1 uplo,
-		integer ncols,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( ldaf, * ) af,
-		integer ldaf,
-		double precision, dimension( * ) work
+double precision function dla_porpvgrw
+(
+        character*1 uplo,
+        integer ncols,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( ldaf, * ) af,
+        integer ldaf,
+        double precision, dimension( * ) work
 )
 ```
 

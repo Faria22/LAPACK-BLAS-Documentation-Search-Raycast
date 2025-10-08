@@ -1,17 +1,18 @@
 ```fortran
-real function cla_syrcond_c (
-		character uplo,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		complex, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		real, dimension( * ) c,
-		logical capply,
-		integer info,
-		complex, dimension( * ) work,
-		real, dimension( * ) rwork
+real function cla_syrcond_c
+(
+        character uplo,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        complex, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        real, dimension( * ) c,
+        logical capply,
+        integer info,
+        complex, dimension( * ) work,
+        real, dimension( * ) rwork
 )
 ```
 

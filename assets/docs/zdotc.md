@@ -1,10 +1,11 @@
 ```fortran
-complex*16 function zdotc (
-		integer n,
-		complex*16, dimension(*) zx,
-		integer incx,
-		complex*16, dimension(*) zy,
-		integer incy
+complex*16 function zdotc
+(
+        integer n,
+        complex*16, dimension(*) zx,
+        integer incx,
+        complex*16, dimension(*) zy,
+        integer incy
 )
 ```
 

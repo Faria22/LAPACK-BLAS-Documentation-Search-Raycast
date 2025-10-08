@@ -1,19 +1,20 @@
 ```fortran
-double precision function zla_gbrcond_c (
-		character trans,
-		integer n,
-		integer kl,
-		integer ku,
-		complex*16, dimension( ldab, * ) ab,
-		integer ldab,
-		complex*16, dimension( ldafb, * ) afb,
-		integer ldafb,
-		integer, dimension( * ) ipiv,
-		double precision, dimension( * ) c,
-		logical capply,
-		integer info,
-		complex*16, dimension( * ) work,
-		double precision, dimension( * ) rwork
+double precision function zla_gbrcond_c
+(
+        character trans,
+        integer n,
+        integer kl,
+        integer ku,
+        complex*16, dimension( ldab, * ) ab,
+        integer ldab,
+        complex*16, dimension( ldafb, * ) afb,
+        integer ldafb,
+        integer, dimension( * ) ipiv,
+        double precision, dimension( * ) c,
+        logical capply,
+        integer info,
+        complex*16, dimension( * ) work,
+        double precision, dimension( * ) rwork
 )
 ```
 

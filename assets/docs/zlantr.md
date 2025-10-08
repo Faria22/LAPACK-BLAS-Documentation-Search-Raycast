@@ -1,13 +1,14 @@
 ```fortran
-double precision function zlantr (
-		character norm,
-		character uplo,
-		character diag,
-		integer m,
-		integer n,
-		complex*16, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( * ) work
+double precision function zlantr
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer m,
+        integer n,
+        complex*16, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( * ) work
 )
 ```
 

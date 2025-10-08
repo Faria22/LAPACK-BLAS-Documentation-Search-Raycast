@@ -1,10 +1,11 @@
 ```fortran
-real function clangt (
-		character norm,
-		integer n,
-		complex, dimension( * ) dl,
-		complex, dimension( * ) d,
-		complex, dimension( * ) du
+real function clangt
+(
+        character norm,
+        integer n,
+        complex, dimension( * ) dl,
+        complex, dimension( * ) d,
+        complex, dimension( * ) du
 )
 ```
 

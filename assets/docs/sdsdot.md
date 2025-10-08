@@ -1,11 +1,12 @@
 ```fortran
-real function sdsdot (
-		integer n,
-		real sb,
-		real, dimension(*) sx,
-		integer incx,
-		real, dimension(*) sy,
-		integer incy
+real function sdsdot
+(
+        integer n,
+        real sb,
+        real, dimension(*) sx,
+        integer incx,
+        real, dimension(*) sy,
+        integer incy
 )
 ```
 

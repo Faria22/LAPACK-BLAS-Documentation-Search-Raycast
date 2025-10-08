@@ -1,26 +1,27 @@
 ```fortran
-recursive subroutine dlaqz0 (
-		character, intent(in) wants,
-		character, intent(in) wantq,
-		character, intent(in) wantz,
-		integer, intent(in) n,
-		integer, intent(in) ilo,
-		integer, intent(in) ihi,
-		double precision, dimension( lda, * ), intent(inout) a,
-		integer, intent(in) lda,
-		double precision, dimension( ldb, * ), intent(inout) b,
-		integer, intent(in) ldb,
-		double precision, dimension( * ), intent(inout) alphar,
-		double precision, dimension( * ), intent(inout) alphai,
-		double precision, dimension( * ), intent(inout) beta,
-		double precision, dimension( ldq, * ), intent(inout) q,
-		integer, intent(in) ldq,
-		double precision, dimension( ldz, * ), intent(inout) z,
-		integer, intent(in) ldz,
-		double precision, dimension( * ), intent(inout) work,
-		integer, intent(in) lwork,
-		integer, intent(in) rec,
-		integer, intent(out) info
+recursive subroutine dlaqz0
+(
+        character, intent(in) wants,
+        character, intent(in) wantq,
+        character, intent(in) wantz,
+        integer, intent(in) n,
+        integer, intent(in) ilo,
+        integer, intent(in) ihi,
+        double precision, dimension( lda, * ), intent(inout) a,
+        integer, intent(in) lda,
+        double precision, dimension( ldb, * ), intent(inout) b,
+        integer, intent(in) ldb,
+        double precision, dimension( * ), intent(inout) alphar,
+        double precision, dimension( * ), intent(inout) alphai,
+        double precision, dimension( * ), intent(inout) beta,
+        double precision, dimension( ldq, * ), intent(inout) q,
+        integer, intent(in) ldq,
+        double precision, dimension( ldz, * ), intent(inout) z,
+        integer, intent(in) ldz,
+        double precision, dimension( * ), intent(inout) work,
+        integer, intent(in) lwork,
+        integer, intent(in) rec,
+        integer, intent(out) info
 )
 ```
 

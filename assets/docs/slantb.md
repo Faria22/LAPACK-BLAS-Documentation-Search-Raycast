@@ -1,13 +1,14 @@
 ```fortran
-real function slantb (
-		character norm,
-		character uplo,
-		character diag,
-		integer n,
-		integer k,
-		real, dimension( ldab, * ) ab,
-		integer ldab,
-		real, dimension( * ) work
+real function slantb
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer n,
+        integer k,
+        real, dimension( ldab, * ) ab,
+        integer ldab,
+        real, dimension( * ) work
 )
 ```
 

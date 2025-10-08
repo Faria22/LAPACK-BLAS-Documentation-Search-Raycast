@@ -1,16 +1,17 @@
 ```fortran
-real function cla_hercond_x (
-		character uplo,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		complex, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		complex, dimension( * ) x,
-		integer info,
-		complex, dimension( * ) work,
-		real, dimension( * ) rwork
+real function cla_hercond_x
+(
+        character uplo,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        complex, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        complex, dimension( * ) x,
+        integer info,
+        complex, dimension( * ) work,
+        real, dimension( * ) rwork
 )
 ```
 

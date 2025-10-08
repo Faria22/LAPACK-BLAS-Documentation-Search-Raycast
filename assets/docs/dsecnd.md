@@ -1,5 +1,6 @@
 ```fortran
-double precision function dsecnd (
+double precision function dsecnd
+(
 )
 ```
 

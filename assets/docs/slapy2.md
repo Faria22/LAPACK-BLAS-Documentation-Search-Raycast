@@ -1,7 +1,8 @@
 ```fortran
-real function slapy2 (
-		real x,
-		real y
+real function slapy2
+(
+        real x,
+        real y
 )
 ```
 

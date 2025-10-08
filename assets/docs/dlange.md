@@ -1,11 +1,12 @@
 ```fortran
-double precision function dlange (
-		character norm,
-		integer m,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( * ) work
+double precision function dlange
+(
+        character norm,
+        integer m,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( * ) work
 )
 ```
 

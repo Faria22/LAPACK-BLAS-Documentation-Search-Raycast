@@ -1,6 +1,7 @@
 ```fortran
-double precision function dlamch (
-		character cmach
+double precision function dlamch
+(
+        character cmach
 )
 ```
 

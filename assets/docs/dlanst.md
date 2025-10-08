@@ -1,9 +1,10 @@
 ```fortran
-double precision function dlanst (
-		character norm,
-		integer n,
-		double precision, dimension( * ) d,
-		double precision, dimension( * ) e
+double precision function dlanst
+(
+        character norm,
+        integer n,
+        double precision, dimension( * ) d,
+        double precision, dimension( * ) e
 )
 ```
 

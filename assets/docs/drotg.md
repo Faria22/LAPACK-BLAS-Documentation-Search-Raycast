@@ -1,9 +1,10 @@
 ```fortran
-subroutine drotg (
-		real(wp) a,
-		real(wp) b,
-		real(wp) c,
-		real(wp) s
+subroutine drotg
+(
+        real(wp) a,
+        real(wp) b,
+        real(wp) c,
+        real(wp) s
 )
 ```
 

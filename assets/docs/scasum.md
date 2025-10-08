@@ -1,8 +1,9 @@
 ```fortran
-real function scasum (
-		integer n,
-		complex, dimension(*) cx,
-		integer incx
+real function scasum
+(
+        integer n,
+        complex, dimension(*) cx,
+        integer incx
 )
 ```
 

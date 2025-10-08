@@ -1,10 +1,11 @@
 ```fortran
-recursive subroutine cpotrf2 (
-		character uplo,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		integer info
+recursive subroutine cpotrf2
+(
+        character uplo,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        integer info
 )
 ```
 

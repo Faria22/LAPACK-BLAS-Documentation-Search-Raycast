@@ -1,9 +1,10 @@
 ```fortran
-real function slanst (
-		character norm,
-		integer n,
-		real, dimension( * ) d,
-		real, dimension( * ) e
+real function slanst
+(
+        character norm,
+        integer n,
+        real, dimension( * ) d,
+        real, dimension( * ) e
 )
 ```
 

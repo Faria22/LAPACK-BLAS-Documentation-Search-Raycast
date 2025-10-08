@@ -1,19 +1,20 @@
 ```fortran
-subroutine chetrd_hb2st (
-		character stage1,
-		character vect,
-		character uplo,
-		integer n,
-		integer kd,
-		complex, dimension( ldab, * ) ab,
-		integer ldab,
-		real, dimension( * ) d,
-		real, dimension( * ) e,
-		complex, dimension( * ) hous,
-		integer lhous,
-		complex, dimension( * ) work,
-		integer lwork,
-		integer info
+subroutine chetrd_hb2st
+(
+        character stage1,
+        character vect,
+        character uplo,
+        integer n,
+        integer kd,
+        complex, dimension( ldab, * ) ab,
+        integer ldab,
+        real, dimension( * ) d,
+        real, dimension( * ) e,
+        complex, dimension( * ) hous,
+        integer lhous,
+        complex, dimension( * ) work,
+        integer lwork,
+        integer info
 )
 ```
 

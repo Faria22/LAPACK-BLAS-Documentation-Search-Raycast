@@ -1,7 +1,8 @@
 ```fortran
-logical function dlaisnan (
-		double precision, intent(in) din1,
-		double precision, intent(in) din2
+logical function dlaisnan
+(
+        double precision, intent(in) din1,
+        double precision, intent(in) din2
 )
 ```
 

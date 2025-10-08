@@ -1,17 +1,18 @@
 ```fortran
-double precision function dla_syrcond (
-		character uplo,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer, dimension( * ) ipiv,
-		integer cmode,
-		double precision, dimension( * ) c,
-		integer info,
-		double precision, dimension( * ) work,
-		integer, dimension( * ) iwork
+double precision function dla_syrcond
+(
+        character uplo,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer, dimension( * ) ipiv,
+        integer cmode,
+        double precision, dimension( * ) c,
+        integer info,
+        double precision, dimension( * ) work,
+        integer, dimension( * ) iwork
 )
 ```
 

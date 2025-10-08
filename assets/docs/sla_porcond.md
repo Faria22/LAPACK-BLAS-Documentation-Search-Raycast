@@ -1,16 +1,17 @@
 ```fortran
-real function sla_porcond (
-		character uplo,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( ldaf, * ) af,
-		integer ldaf,
-		integer cmode,
-		real, dimension( * ) c,
-		integer info,
-		real, dimension( * ) work,
-		integer, dimension( * ) iwork
+real function sla_porcond
+(
+        character uplo,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( ldaf, * ) af,
+        integer ldaf,
+        integer cmode,
+        real, dimension( * ) c,
+        integer info,
+        real, dimension( * ) work,
+        integer, dimension( * ) iwork
 )
 ```
 

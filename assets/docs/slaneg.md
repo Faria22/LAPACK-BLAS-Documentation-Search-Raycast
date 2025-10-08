@@ -1,11 +1,12 @@
 ```fortran
-integer function slaneg (
-		integer n,
-		real, dimension( * ) d,
-		real, dimension( * ) lld,
-		real sigma,
-		real pivmin,
-		integer r
+integer function slaneg
+(
+        integer n,
+        real, dimension( * ) d,
+        real, dimension( * ) lld,
+        real sigma,
+        real pivmin,
+        integer r
 )
 ```
 

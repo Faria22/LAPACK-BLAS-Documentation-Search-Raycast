@@ -1,11 +1,12 @@
 ```fortran
-double precision function dlansf (
-		character norm,
-		character transr,
-		character uplo,
-		integer n,
-		double precision, dimension( 0: * ) a,
-		double precision, dimension( 0: * ) work
+double precision function dlansf
+(
+        character norm,
+        character transr,
+        character uplo,
+        integer n,
+        double precision, dimension( 0: * ) a,
+        double precision, dimension( 0: * ) work
 )
 ```
 

@@ -1,8 +1,9 @@
 ```fortran
-double precision function dasum (
-		integer n,
-		double precision, dimension(*) dx,
-		integer incx
+double precision function dasum
+(
+        integer n,
+        double precision, dimension(*) dx,
+        integer incx
 )
 ```
 

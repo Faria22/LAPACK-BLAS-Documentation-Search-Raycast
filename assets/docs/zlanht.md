@@ -1,9 +1,10 @@
 ```fortran
-double precision function zlanht (
-		character norm,
-		integer n,
-		double precision, dimension( * ) d,
-		complex*16, dimension( * ) e
+double precision function zlanht
+(
+        character norm,
+        integer n,
+        double precision, dimension( * ) d,
+        complex*16, dimension( * ) e
 )
 ```
 

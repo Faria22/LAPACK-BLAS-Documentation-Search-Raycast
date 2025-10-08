@@ -1,11 +1,12 @@
 ```fortran
-recursive subroutine zlaunhr_col_getrfnp2 (
-		integer m,
-		integer n,
-		complex*16, dimension( lda, * ) a,
-		integer lda,
-		complex*16, dimension( * ) d,
-		integer info
+recursive subroutine zlaunhr_col_getrfnp2
+(
+        integer m,
+        integer n,
+        complex*16, dimension( lda, * ) a,
+        integer lda,
+        complex*16, dimension( * ) d,
+        integer info
 )
 ```
 

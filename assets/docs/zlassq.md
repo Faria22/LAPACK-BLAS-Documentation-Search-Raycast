@@ -1,10 +1,11 @@
 ```fortran
-subroutine zlassq (
-		integer n,
-		complex(wp), dimension(*) x,
-		integer incx,
-		real(wp) scale,
-		real(wp) sumsq
+subroutine zlassq
+(
+        integer n,
+        complex(wp), dimension(*) x,
+        integer incx,
+        real(wp) scale,
+        real(wp) sumsq
 )
 ```
 

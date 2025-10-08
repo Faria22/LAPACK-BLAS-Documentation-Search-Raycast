@@ -1,9 +1,10 @@
 ```fortran
-real function clanht (
-		character norm,
-		integer n,
-		real, dimension( * ) d,
-		complex, dimension( * ) e
+real function clanht
+(
+        character norm,
+        integer n,
+        real, dimension( * ) d,
+        complex, dimension( * ) e
 )
 ```
 

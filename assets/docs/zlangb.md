@@ -1,12 +1,13 @@
 ```fortran
-double precision function zlangb (
-		character norm,
-		integer n,
-		integer kl,
-		integer ku,
-		complex*16, dimension( ldab, * ) ab,
-		integer ldab,
-		double precision, dimension( * ) work
+double precision function zlangb
+(
+        character norm,
+        integer n,
+        integer kl,
+        integer ku,
+        complex*16, dimension( ldab, * ) ab,
+        integer ldab,
+        double precision, dimension( * ) work
 )
 ```
 

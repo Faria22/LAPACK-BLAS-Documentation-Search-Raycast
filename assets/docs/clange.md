@@ -1,11 +1,12 @@
 ```fortran
-real function clange (
-		character norm,
-		integer m,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function clange
+(
+        character norm,
+        integer m,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

@@ -1,11 +1,12 @@
 ```fortran
-recursive subroutine zgetrf2 (
-		integer m,
-		integer n,
-		complex*16, dimension( lda, * ) a,
-		integer lda,
-		integer, dimension( * ) ipiv,
-		integer info
+recursive subroutine zgetrf2
+(
+        integer m,
+        integer n,
+        complex*16, dimension( lda, * ) a,
+        integer lda,
+        integer, dimension( * ) ipiv,
+        integer info
 )
 ```
 

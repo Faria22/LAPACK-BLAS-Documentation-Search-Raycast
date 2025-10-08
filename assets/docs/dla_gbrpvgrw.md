@@ -1,13 +1,14 @@
 ```fortran
-double precision function dla_gbrpvgrw (
-		integer n,
-		integer kl,
-		integer ku,
-		integer ncols,
-		double precision, dimension( ldab, * ) ab,
-		integer ldab,
-		double precision, dimension( ldafb, * ) afb,
-		integer ldafb
+double precision function dla_gbrpvgrw
+(
+        integer n,
+        integer kl,
+        integer ku,
+        integer ncols,
+        double precision, dimension( ldab, * ) ab,
+        integer ldab,
+        double precision, dimension( ldafb, * ) afb,
+        integer ldafb
 )
 ```
 

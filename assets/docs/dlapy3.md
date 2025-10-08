@@ -1,8 +1,9 @@
 ```fortran
-double precision function dlapy3 (
-		double precision x,
-		double precision y,
-		double precision z
+double precision function dlapy3
+(
+        double precision x,
+        double precision y,
+        double precision z
 )
 ```
 

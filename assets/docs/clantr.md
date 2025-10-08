@@ -1,13 +1,14 @@
 ```fortran
-real function clantr (
-		character norm,
-		character uplo,
-		character diag,
-		integer m,
-		integer n,
-		complex, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function clantr
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer m,
+        integer n,
+        complex, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

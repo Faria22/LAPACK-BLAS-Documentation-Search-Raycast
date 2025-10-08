@@ -1,6 +1,7 @@
 ```fortran
-real function sroundup_lwork (
-		integer lwork
+real function sroundup_lwork
+(
+        integer lwork
 )
 ```
 

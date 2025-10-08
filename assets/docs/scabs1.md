@@ -1,6 +1,7 @@
 ```fortran
-real function scabs1 (
-		complex z
+real function scabs1
+(
+        complex z
 )
 ```
 

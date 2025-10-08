@@ -1,11 +1,12 @@
 ```fortran
-real function slange (
-		character norm,
-		integer m,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( * ) work
+real function slange
+(
+        character norm,
+        integer m,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( * ) work
 )
 ```
 

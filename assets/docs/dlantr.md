@@ -1,13 +1,14 @@
 ```fortran
-double precision function dlantr (
-		character norm,
-		character uplo,
-		character diag,
-		integer m,
-		integer n,
-		double precision, dimension( lda, * ) a,
-		integer lda,
-		double precision, dimension( * ) work
+double precision function dlantr
+(
+        character norm,
+        character uplo,
+        character diag,
+        integer m,
+        integer n,
+        double precision, dimension( lda, * ) a,
+        integer lda,
+        double precision, dimension( * ) work
 )
 ```
 

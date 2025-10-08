@@ -1,12 +1,13 @@
 ```fortran
-recursive subroutine sgeqrt3 (
-		integer m,
-		integer n,
-		real, dimension( lda, * ) a,
-		integer lda,
-		real, dimension( ldt, * ) t,
-		integer ldt,
-		integer info
+recursive subroutine sgeqrt3
+(
+        integer m,
+        integer n,
+        real, dimension( lda, * ) a,
+        integer lda,
+        real, dimension( ldt, * ) t,
+        integer ldt,
+        integer info
 )
 ```
 

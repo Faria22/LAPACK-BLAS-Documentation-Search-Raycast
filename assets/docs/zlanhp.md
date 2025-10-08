@@ -1,10 +1,11 @@
 ```fortran
-double precision function zlanhp (
-		character norm,
-		character uplo,
-		integer n,
-		complex*16, dimension( * ) ap,
-		double precision, dimension( * ) work
+double precision function zlanhp
+(
+        character norm,
+        character uplo,
+        integer n,
+        complex*16, dimension( * ) ap,
+        double precision, dimension( * ) work
 )
 ```
 
