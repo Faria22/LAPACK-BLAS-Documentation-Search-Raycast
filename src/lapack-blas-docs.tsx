@@ -117,6 +117,7 @@ function ItemActions({ item, detail }: { item: InventoryItem; detail?: DocDetail
       <Action.OpenInBrowser title="Open in Browser" url={item.url} />
       <Action.CopyToClipboard title="Copy URL" content={item.url} />
       <Action.CopyToClipboard title="Copy Routine Name" content={item.name} />
+      {detail?.signature && <Action.CopyToClipboard title="Copy Function Signature" content={detail.signature} />}
     </ActionPanel>
   );
 }
@@ -133,6 +134,7 @@ function FullScreenDocumentation({ item, detail }: { item: InventoryItem; detail
           <Action.OpenInBrowser title="Open in Browser" url={item.url} />
           <Action.CopyToClipboard title="Copy URL" content={item.url} />
           <Action.CopyToClipboard title="Copy Routine Name" content={item.name} />
+          {detail?.signature && <Action.CopyToClipboard title="Copy Function Signature" content={detail.signature} />}
         </ActionPanel>
       }
     />
